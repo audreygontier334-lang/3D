@@ -106,7 +106,7 @@ box("child_alley_placeholder", [60, .62, -21], [.36, 1.24, .30], "fillette", "Li
 box("k2_placeholder", [61, .83, -20], [.5, 1.66, .36], "k2", "femme au badge, plan B")
 box("van_placeholder", [66, 1.1, -22], [5.2, 2.2, 2.1], "fourgon", "apparence provisoire; plaque arrière vers l'entrée")
 box("scent_object_marker", [44, .13, -19], [.35, .26, .35], "repere", "porte-clés de Lila; proposition")
-box("scent_clue_marker", [63.5, .13, -19.9], [.35, .26, .35], "repere", "bracelet en perles au pied de la portière; proposition")
+box("scent_clue_marker", [63.5, .13, -20.95], [.35, .26, .35], "repere", "bracelet en perles au pied de la portière; proposition")
 box("alley_exit_marker", [95, .25, -22], [.5, .5, .5], "repere", "débouché; mer/ciel/lumière à choisir par Audrey")
 
 
