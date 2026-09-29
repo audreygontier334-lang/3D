@@ -513,9 +513,10 @@ def zone_distance(m: Mission, a: str, b: str) -> int:
     raise ValueError(f"zones non connectées : {a} → {b}")
 
 
-def simulate_path(m: Mission, steps: list[str], start: set[str] | None = None) -> tuple[int, set[str], list[str]]:
+def simulate_path(m: Mission, steps: list[str], start: set[str] | None = None,
+                  start_time: int | None = None) -> tuple[int, set[str], list[str]]:
     clock = m.meta["clock"]
-    t = hm(clock["chapter_start"])
+    t = hm(clock["chapter_start"]) if start_time is None else start_time
     per_zone = clock["travel_cost_per_zone"]
     zone = m.meta["start_zone"]
     have = derive(m, set(start or set()))
@@ -564,24 +565,45 @@ def simulate_path(m: Mission, steps: list[str], start: set[str] | None = None) -
     return t, have, problems
 
 
+def timed_entry_states(m: Mission) -> list[dict]:
+    """États d'entrée qui portent leur propre heure de départ (`start`), simulés séparément."""
+    return [st for st in m.meta.get("entry_states", []) if st.get("start")]
+
+
 def check_time(m: Mission, r: Report) -> None:
     deadline = hm(m.meta["clock"]["deadline"])
     steps = m.meta["reference_path"]["steps"]
-    end, have, problems = simulate_path(m, steps)
-    for p in problems:
-        r.err(f"[temps] parcours de référence : {p}")
     required = [h for h in m.hypotheses.values() if h["correct"] and not h.get("optional")]
-    for h in required:
-        if not hypothesis_supported(h, have):
-            r.err(f"[temps] parcours de référence : {h['id']} non étayée à la fin du parcours")
     penalties = sum(m.branches[h["wrong_branch"]]["time_cost"]
                     for h in m.hypotheses.values() if not h["correct"])
-    worst = end + penalties
-    r.info.append(f"parcours de référence terminé à {fmt(end)} ; avec toutes les erreurs : {fmt(worst)} (échéance {fmt(deadline)})")
-    if end > deadline:
-        r.err(f"[temps] parcours de référence terminé à {fmt(end)}, après l'échéance {fmt(deadline)}")
-    if worst > deadline:
-        r.err(f"[temps] parcours de référence + toutes les erreurs = {fmt(worst)} > {fmt(deadline)}")
+    states = m.meta.get("entry_states", [])
+    if states and len(timed_entry_states(m)) != len(states):
+        r.err("[temps] chaque état d'entrée doit porter son heure de départ (start)")
+    starts = [hm(st["start"]) for st in timed_entry_states(m)]
+    if any(a >= b for a, b in zip(starts, starts[1:])):
+        r.err("[temps] les heures de départ des états d'entrée doivent être strictement croissantes (A avant B avant C)")
+    runs = [(st["id"], set(st.get("grants", [])), hm(st["start"])) for st in timed_entry_states(m)] or [(None, set(), None)]
+    if runs[0][0] is not None:
+        # pire parcours d'une mission à états : toutes les hypothèses fausses ET toutes les énigmes ratées
+        penalties += sum(p.get("wrong", {}).get("time_cost", 0) for p in m.puzzles.values())
+    for sid, grants, t0 in runs:
+        end, have, problems = simulate_path(m, steps, start=grants, start_time=t0)
+        label = f"parcours de référence ({sid}, départ {fmt(t0)})" if sid else "parcours de référence"
+        for p in problems:
+            r.err(f"[temps] {label} : {p}")
+        for h in required:
+            if not hypothesis_supported(h, have):
+                r.err(f"[temps] {label} : {h['id']} non étayée à la fin du parcours")
+        worst = end + penalties
+        if sid:
+            r.info.append(f"{sid} : départ {fmt(t0)}, parcours de référence terminé à {fmt(end)} ; "
+                          f"pire parcours {fmt(worst)} (échéance {fmt(deadline)}, marge {deadline - worst} min)")
+        else:
+            r.info.append(f"parcours de référence terminé à {fmt(end)} ; avec toutes les erreurs : {fmt(worst)} (échéance {fmt(deadline)})")
+        if end > deadline:
+            r.err(f"[temps] {label} terminé à {fmt(end)}, après l'échéance {fmt(deadline)}")
+        if worst > deadline:
+            r.err(f"[temps] {label} + toutes les erreurs = {fmt(worst)} > {fmt(deadline)}")
     for it in m.interactions.values():
         if it.get("available_from") and hm(it["available_from"]) >= deadline:
             r.err(f"[temps] {it['id']} n'est disponible qu'après l'échéance")

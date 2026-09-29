@@ -4,11 +4,12 @@
   "status": "proposition",
   "min_puzzles": 4,
   "min_duo_puzzles": 2,
-  "_doc": "Mission sans prologue en temps réel : la situation de départ dépend de l'état hérité du chapitre 1 (entry_states). Heures > 24:00 = mercredi.",
+  "_doc": "Mission sans prologue en temps réel : la situation de départ dépend de l'état hérité du chapitre 1 (entry_states, chacun avec son heure de départ `start`). Heures > 24:00 = mercredi.",
   "clock": {
     "chapter_start": "19:15",
     "deadline": "25:00",
-    "travel_cost_per_zone": 10
+    "travel_cost_per_zone": 10,
+    "_doc": "chapter_start = heure nominale (état B) ; chaque état d'entrée porte sa propre heure de départ (start), avec laquelle le validateur simule le parcours."
   },
   "start_zone": "Z_FOURCHE",
   "entry_states": [
@@ -19,7 +20,8 @@
         "FLAG_ETAT_A",
         "CLU_C2_MESSAGE_DERNIER_VOYAGE",
         "CLU_C2_TRACEUR_PLOMBIER"
-      ]
+      ],
+      "start": "18:45"
     },
     {
       "id": "CH2_ETAT_B",
@@ -28,7 +30,8 @@
         "FLAG_ETAT_B",
         "CLU_C2_MESSAGE_DERNIER_VOYAGE",
         "CLU_C2_TRACEUR_PLOMBIER"
-      ]
+      ],
+      "start": "19:15"
     },
     {
       "id": "CH2_ETAT_C",
@@ -37,7 +40,8 @@
         "FLAG_ETAT_C",
         "CLU_C2_MESSAGE_DERNIER_VOYAGE",
         "CLU_C2_TRACEUR_PLOMBIER"
-      ]
+      ],
+      "start": "19:45"
     }
   ],
   "reference_path": {

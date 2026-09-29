@@ -565,3 +565,59 @@ class TestMission02(unittest.TestCase):
             for ref in c.get("preuves", []) + c.get("refutation", []):
                 with self.subTest(ref):
                     self.assertIn(ref, clues)
+
+
+class TestMission02Horaires(unittest.TestCase):
+    """Chaque état d'entrée du chapitre 2 démarre à sa propre heure ; les événements restent à heure fixe."""
+
+    ATTENDU = {"CH2_ETAT_A": ("18:45", "20:35", "22:45"),
+               "CH2_ETAT_B": ("19:15", "21:05", "23:15"),
+               "CH2_ETAT_C": ("19:45", "21:35", "23:45")}
+    # parcours qui ne visite jamais la pièce : la chronologie n'est possible qu'après le rattrapage de 21 h 30
+    SANS_PIECE = ["INT_C2_BRIEFING", "INT_C2_RELAIS", "INT_C2_LARTIGAU", "INT_C2_BORDES", "INT_C2_GRANGE",
+                  "INT_C2_POUBELLE", "INT_C2_BORDES", "INT_C2_CHRONO"]
+
+    def setUp(self):
+        self.mm = MutableMission()
+
+    def tearDown(self):
+        self.mm.cleanup()
+
+    def infos(self, d=None):
+        return vm.validate(d or ROOT / "GameData" / "missions" / "02").info
+
+    def test_parcours_par_etat(self):
+        infos = self.infos()
+        for sid, (dep, fin, pire) in self.ATTENDU.items():
+            with self.subTest(sid):
+                self.assertTrue(any(i.startswith(f"{sid} : départ {dep}, parcours de référence terminé à {fin} ; pire parcours {pire}")
+                                    for i in infos), infos)
+
+    def _mutation(self, state, heure):
+        d = self.mm.tmp / "GameData" / "missions" / "02"
+        p = d / "mission.json"
+        data = json.loads(p.read_text(encoding="utf-8"))
+        next(s for s in data["entry_states"] if s["id"] == state)["start"] = heure
+        p.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        return vm.validate(d)
+
+    def test_heure_de_a_remplacee_par_19h15_detectee(self):
+        r = self._mutation("CH2_ETAT_A", "19:15")
+        self.assertTrue(any("strictement croissantes" in e for e in r.errors))
+        self.assertFalse(any(i.startswith("CH2_ETAT_A : départ 18:45") for i in r.info))
+
+    def test_heure_de_c_remplacee_par_19h15_detectee(self):
+        r = self._mutation("CH2_ETAT_C", "19:15")
+        self.assertTrue(any("strictement croissantes" in e for e in r.errors))
+        self.assertFalse(any(i.startswith("CH2_ETAT_C : départ 19:45") for i in r.info))
+
+    def test_evenements_a_heure_fixe(self):
+        m = vm.Mission(ROOT / "GameData" / "missions" / "02")
+        st = next(s for s in m.meta["entry_states"] if s["id"] == "CH2_ETAT_A")
+        end, have, problems = vm.simulate_path(m, self.SANS_PIECE, start=set(st["grants"]), start_time=vm.hm(st["start"]))
+        self.assertEqual(problems, [])
+        self.assertIn("CLU_C2_COUVERTURE", have)  # donné par EVT_C2_MENDIONDO_PIECE à 21 h 30
+        self.assertGreaterEqual(end, vm.hm("21:30"))
+        m.events["EVT_C2_MENDIONDO_PIECE"]["time"] = "23:59"
+        _, _, problems = vm.simulate_path(m, self.SANS_PIECE, start=set(st["grants"]), start_time=vm.hm(st["start"]))
+        self.assertTrue(any("INT_C2_CHRONO" in p for p in problems))
