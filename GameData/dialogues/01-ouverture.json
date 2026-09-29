@@ -1,0 +1,354 @@
+{
+  "mission": "M01",
+  "status": "proposition",
+  "_doc": "Répliques du prologue et du chapitre 1. Chaque scène (DLG_*) contient des lignes à ID stable. intent = intention de jeu ; emotion = indication pour la voix et l'animation. condition = état requis pour que la ligne soit jouée. choices = options du joueur (goto = ligne suivante, effect = drapeau ou branche). Les jetons {HEROINE} et {CHIENNE} sont remplacés par le moteur. Le fichier docs/dialogues/01-ouverture.md est généré par Tools/render_dialogues.py.",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "{CHIENNE} (sons et comportement, jamais de parole)",
+    "LILA": "Lila Mercadier",
+    "K2": "La femme au badge",
+    "DUFAU": "Marcel Dufau",
+    "OPERATRICE": "Opératrice du 17",
+    "MENDIONDO": "Adjudante-cheffe Mendiondo",
+    "GENDARME": "Gendarme (radio)",
+    "LARTIGUE": "Josiane Lartigue",
+    "DIRECTRICE": "Mme Pujol, directrice",
+    "CASTERAN": "Maître Casteran",
+    "INES": "Inès",
+    "NADIA": "Nadia Mercadier",
+    "PARENT_INES": "Père d'Inès",
+    "NARRATION": "Carnet (texte à l'écran, non voisé)"
+  },
+  "scenes": [
+    {"id": "DLG_P_TUTO", "context": "Prologue, premières secondes. Textes d'aide non voisés.", "location": "LOC_FRONT_MER",
+     "lines": [
+       {"id": "DLG_P_TUTO_01", "speaker": "NARRATION", "text": "Mardi, fin septembre. 16 h 33. Lescoure-Plage.", "intent": "Poser le lieu et l'heure", "emotion": "neutre"},
+       {"id": "DLG_P_TUTO_02", "speaker": "NARRATION", "text": "Changer de vue : épaule, large, subjective. L'enquête ne dépend jamais de la vue choisie.", "intent": "Tutoriel caméra", "emotion": "neutre"},
+       {"id": "DLG_P_TUTO_03", "speaker": "NARRATION", "text": "Ordres à {CHIENNE} : Au pied · Reste · Cherche · Montre.", "intent": "Tutoriel ordres", "emotion": "neutre"},
+       {"id": "DLG_P_TUTO_04", "speaker": "HEROINE", "text": "Allez, {CHIENNE}, cherche ! … Bon, tu ne la rapportes pas, mais tu la trouves. C'est déjà ça.", "intent": "Après le premier « Cherche » avec la balle ; établir la complicité", "emotion": "amusée, tendre"}
+     ]},
+    {"id": "DLG_P_DUFAU", "context": "Facultatif. {HEROINE} passe devant le banc de Dufau, sur la cale.", "location": "LOC_CALE",
+     "lines": [
+       {"id": "DLG_P_DUFAU_01", "speaker": "DUFAU", "text": "Tiens, les deux inséparables. Elle a encore pris du muscle, celle-là.", "intent": "Accueil bourru ; Dufau connaît le duo", "emotion": "bougon, affectueux"},
+       {"id": "DLG_P_DUFAU_02", "speaker": "HEROINE", "text": "Ça mord ?", "intent": "Relance banale", "emotion": "détendue"},
+       {"id": "DLG_P_DUFAU_03", "speaker": "DUFAU", "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Les poissons ont fui à Hossegor.", "intent": "Première graine : le fourgon et son pot, sans insister", "emotion": "râleur"},
+       {"id": "DLG_P_DUFAU_04", "speaker": "HEROINE", "text": "Vous exagérez.", "intent": "Minimiser, comme le ferait n'importe qui", "emotion": "souriante"},
+       {"id": "DLG_P_DUFAU_05", "speaker": "DUFAU", "text": "Moi ? Jamais.", "intent": "Clore avec humour", "emotion": "pince-sans-rire"}
+     ]},
+    {"id": "DLG_P_LILA", "context": "EVT_LILA_COUCOU. Lila, sur le trottoir d'en face, voit la chienne.", "location": "LOC_FRONT_MER",
+     "lines": [
+       {"id": "DLG_P_LILA_01", "speaker": "LILA", "text": "Coucou {CHIENNE} ! Demain je t'apporte un biscuit !", "intent": "Rendre Lila attachante et établir qu'elle connaît la chienne (odeur familière)", "emotion": "joyeuse, fière de rentrer seule"},
+       {"id": "DLG_P_LILA_02", "speaker": "HEROINE", "text": "Elle va te le rappeler, t'inquiète pas !", "intent": "Réponse si le joueur fait un geste", "emotion": "chaleureuse", "condition": "le joueur répond au coucou"},
+       {"id": "DLG_P_LILA_03", "speaker": "CHIENNE", "text": "[remue la queue, petit jappement]", "intent": "Lien chienne-enfant", "emotion": "enjouée"}
+     ]},
+    {"id": "DLG_P_ABORDAGE", "context": "EVT_ABORDAGE. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.", "location": "LOC_COIN_ECOLES",
+     "lines": [
+       {"id": "DLG_P_ABORDAGE_01", "speaker": "K2", "text": "Lila ? Bonjour ma grande. Ta maman a eu un souci au travail, elle m'a demandé de te ramener.", "intent": "La ruse : prénom de l'enfant, référence à la mère", "emotion": "douce, trop douce"},
+       {"id": "DLG_P_ABORDAGE_02", "speaker": "LILA", "text": "Mais… elle m'a dit de rentrer toute seule.", "intent": "Hésitation de l'enfant, qui applique la consigne", "emotion": "hésitante"},
+       {"id": "DLG_P_ABORDAGE_03", "speaker": "K2", "text": "Je sais. C'est exceptionnel. Regarde, je suis du périscolaire.", "intent": "Faux-semblant : le badge", "emotion": "rassurante, pressée"}
+     ]},
+    {"id": "DLG_P_ALERTE", "context": "EVT_ALERTE puis fenêtre d'action. Variantes selon ACT_CRIER / ACT_LACHER.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_P_ALERTE_01", "speaker": "LILA", "text": "Je veux attendre maman… {CHIENNE} !", "intent": "Déclencheur de l'alerte, visible et audible dans toutes les vues", "emotion": "peur montante"},
+       {"id": "DLG_P_ALERTE_02", "speaker": "CHIENNE", "text": "[grognement sourd, oreille droite dressée, corps tendu]", "intent": "La chienne perçoit le danger avant {HEROINE}", "emotion": "alerte"},
+       {"id": "DLG_P_ALERTE_03", "speaker": "K2", "text": "Monte, on va être en retard.", "intent": "Pression, sans violence explicite", "emotion": "sèche"},
+       {"id": "DLG_P_ALERTE_04", "speaker": "HEROINE", "text": "Lila !", "intent": "ACT_CRIER", "emotion": "cri, alarme", "condition": "ACT_CRIER"},
+       {"id": "DLG_P_ALERTE_05", "speaker": "K2", "text": "Vas-y, vas-y !", "intent": "Réaction à ACT_CRIER : elle se retourne, visage visible, cordon arraché", "emotion": "paniquée", "condition": "ACT_CRIER"},
+       {"id": "DLG_P_ALERTE_06", "speaker": "HEROINE", "text": "{CHIENNE}, va !", "intent": "ACT_LACHER", "emotion": "ordre, urgence", "condition": "ACT_LACHER"},
+       {"id": "DLG_P_ALERTE_07", "speaker": "CHIENNE", "text": "[aboiements, sprint, arrêt net au bord de la chaussée, flaire le trottoir]", "intent": "ACT_LACHER : la chienne s'arrête toujours au bord de la route", "emotion": "furieuse puis concentrée", "condition": "ACT_LACHER"}
+     ]},
+    {"id": "DLG_P_HEROINE_CHOC", "context": "EVT_HORS_VUE. Une ligne selon ce que le joueur a fait.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_P_HEROINE_CHOC_01", "speaker": "HEROINE", "text": "Non, non, non… Elle ne voulait pas monter.", "intent": "Aucune action : sidération", "emotion": "choc, souffle court", "condition": "aucune action"},
+       {"id": "DLG_P_HEROINE_CHOC_02", "speaker": "HEROINE", "text": "Je l'ai. Je l'ai, la plaque… en partie.", "intent": "ACT_PHOTO immobile", "emotion": "tremblante, se raccroche au concret", "condition": "CLU_PHOTO_FOURGON"},
+       {"id": "DLG_P_HEROINE_CHOC_03", "speaker": "HEROINE", "text": "Floue… Elle est floue. Mais on voit quelque chose sur le côté.", "intent": "ACT_PHOTO en course", "emotion": "haletante, rageuse", "condition": "CLU_PHOTO_FLOUE"},
+       {"id": "DLG_P_HEROINE_CHOC_04", "speaker": "HEROINE", "text": "Casquette grise. Barbe. Et ce bruit… c'est lui, le fourgon de tout à l'heure.", "intent": "ACT_COURIR : mémoriser à voix haute", "emotion": "essoufflée, colère", "condition": "ACT_COURIR"},
+       {"id": "DLG_P_HEROINE_CHOC_05", "speaker": "HEROINE", "text": "Au pied. C'est bien, c'est bien… Tu l'as sentie, hein ?", "intent": "ACT_LACHER : rappel de la chienne", "emotion": "voix qui tremble, main sur la chienne", "condition": "ACT_LACHER"},
+       {"id": "DLG_P_HEROINE_CHOC_06", "speaker": "NARRATION", "text": "Appeler le 17.", "intent": "Action principale mise en avant", "emotion": "neutre"}
+     ]},
+
+    {"id": "DLG_C1_OPERATRICE", "context": "INT_APPEL_17. Les options de description dépendent des indices déjà obtenus.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_OPERATRICE_01", "speaker": "OPERATRICE", "text": "Gendarmerie, j'écoute.", "intent": "Ouverture", "emotion": "calme professionnel"},
+       {"id": "DLG_C1_OPERATRICE_02", "speaker": "HEROINE", "text": "Une petite fille vient d'être emmenée dans un fourgon blanc. Lescoure-Plage, rue du Port. À l'instant.", "intent": "Signalement", "emotion": "urgente, essaie de rester claire"},
+       {"id": "DLG_C1_OPERATRICE_03", "speaker": "OPERATRICE", "text": "Vous êtes en sécurité ? Vous pouvez me décrire le véhicule et les personnes ?", "intent": "Questions standard", "emotion": "posée"},
+       {"id": "DLG_C1_OPERATRICE_04", "speaker": "HEROINE", "text": "Qu'est-ce que je dis ?", "intent": "Menu de description", "emotion": "—",
+        "choices": [
+          {"id": "DLG_C1_OPERATRICE_04A", "text": "« Fourgon blanc, plaque qui commence par GF-4. »", "condition": "CLU_PHOTO_FOURGON", "goto": "DLG_C1_OPERATRICE_05"},
+          {"id": "DLG_C1_OPERATRICE_04B", "text": "« Un homme au volant, casquette grise, barbe. Le pot cogne. »", "condition": "ACT_COURIR", "goto": "DLG_C1_OPERATRICE_05"},
+          {"id": "DLG_C1_OPERATRICE_04C", "text": "« Une femme blonde, lunettes, gilet bleu, un badge. »", "condition": "CLU_OBS_PASSAGERE", "goto": "DLG_C1_OPERATRICE_05"},
+          {"id": "DLG_C1_OPERATRICE_04D", "text": "« Un fourgon blanc, parti vers le rond-point. C'est tout ce que j'ai vu. »", "goto": "DLG_C1_OPERATRICE_05"}
+        ]},
+       {"id": "DLG_C1_OPERATRICE_05", "speaker": "OPERATRICE", "text": "C'est noté. Une patrouille arrive. Restez sur place, ne touchez à rien, et gardez votre téléphone allumé.", "intent": "Clôture ; consigne de préserver la scène", "emotion": "ferme, rassurante"}
+     ]},
+    {"id": "DLG_C1_SCENE", "context": "INT_PROTEGER_SCENE. Des passants s'approchent du porte-clés.", "location": "LOC_COIN_ECOLES",
+     "lines": [
+       {"id": "DLG_C1_SCENE_01", "speaker": "HEROINE", "text": "S'il vous plaît, reculez. Ne touchez à rien, les gendarmes arrivent.", "intent": "Protéger les traces ; bonus de confiance", "emotion": "autoritaire malgré elle"},
+       {"id": "DLG_C1_SCENE_02", "speaker": "NARRATION", "text": "Les passants reculent. Le porte-clés est resté où il est tombé.", "intent": "Retour", "emotion": "neutre"}
+     ]},
+    {"id": "DLG_C1_EXAMEN_ACCOTEMENT", "context": "INT_EXAMINER_ACCOTEMENT. Remarques de {HEROINE}.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_EXAMEN_ACCOTEMENT_01", "speaker": "HEROINE", "text": "Son porte-clés. Le renard.", "intent": "CLU_PORTE_CLES_LILA", "emotion": "gorge serrée"},
+       {"id": "DLG_C1_EXAMEN_ACCOTEMENT_02", "speaker": "HEROINE", "text": "Garé face au rond-point. Et ça, c'est de l'huile fraîche.", "intent": "CLU_TRACES_PNEUS", "emotion": "concentrée"},
+       {"id": "DLG_C1_EXAMEN_ACCOTEMENT_03", "speaker": "HEROINE", "text": "Trois mégots. Il a attendu longtemps.", "intent": "CLU_MEGOTS", "emotion": "froide"},
+       {"id": "DLG_C1_EXAMEN_ACCOTEMENT_04", "speaker": "HEROINE", "text": "Une caisse de la criée… de Capbreton ?", "intent": "CLU_CAISSE_POISSON (fausse piste)", "emotion": "intriguée"}
+     ]},
+    {"id": "DLG_C1_HAIE", "context": "INT_FOUILLER_HAIE (après ACT_CRIER ou ACT_LACHER).", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_HAIE_01", "speaker": "HEROINE", "text": "C'est tombé là-dedans… Là. Un badge.", "intent": "CLU_BADGE", "emotion": "tendue"},
+       {"id": "DLG_C1_HAIE_02", "speaker": "HEROINE", "text": "« Accueil périscolaire, commune de Lescoure. Sandrine V. » Périscolaire, mon œil.", "intent": "Lecture du badge ; soupçon", "emotion": "méprisante"}
+     ]},
+    {"id": "DLG_C1_MENDIONDO_ARRIVEE", "context": "EVT_GENDARMES_ARRIVENT. Première rencontre avec Mendiondo.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_01", "speaker": "MENDIONDO", "text": "Adjudante-cheffe Mendiondo. C'est vous qui avez appelé ? Racontez-moi, dans l'ordre.", "intent": "Autorité, méthode", "emotion": "sèche, efficace"},
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_02", "speaker": "HEROINE", "text": "Elle s'appelle Lila. Neuf ans. Une femme l'a fait monter dans un fourgon blanc. Elle ne voulait pas.", "intent": "Déposition résumée (le détail est dans le carnet)", "emotion": "contenue"},
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_03", "speaker": "MENDIONDO", "text": "D'accord. Le parquet est prévenu. Mais pour une alerte, il me faut un véhicule, des personnes et une direction. Pas des impressions.", "intent": "Poser les trois axes du tableau", "emotion": "exigeante"},
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_04", "speaker": "MENDIONDO", "text": "Notre maître-chien est à plus de deux heures. Votre chienne connaît la petite ?", "intent": "Justifier la présence du duo", "emotion": "pragmatique, à contrecœur"},
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_05", "speaker": "HEROINE", "text": "Elle la caresse tous les jours à la sortie de l'école.", "intent": "Réponse", "emotion": "ferme"},
+       {"id": "DLG_C1_MENDIONDO_ARRIVEE_06", "speaker": "MENDIONDO", "text": "Alors vous restez. Mais vous m'apportez ce que vous trouvez, et vous ne jouez pas les gendarmes. Ce que flaire votre chienne, c'est une piste. Pas une preuve.", "intent": "Cadre légal et limites de la chienne", "emotion": "ferme, pas hostile"}
+     ]},
+    {"id": "DLG_C1_MENDIONDO_REPROCHE", "context": "BR_APPEL_TARDIF, à l'arrivée des gendarmes.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_MENDIONDO_REPROCHE_01", "speaker": "MENDIONDO", "text": "Vous avez attendu combien de temps avant d'appeler ? Chaque minute, c'est des kilomètres.", "intent": "Conséquence narrative de l'appel tardif", "emotion": "reproche sec"},
+       {"id": "DLG_C1_MENDIONDO_REPROCHE_02", "speaker": "HEROINE", "text": "Je sais.", "intent": "Accepter sans se justifier", "emotion": "coupable, mâchoire serrée"}
+     ]},
+    {"id": "DLG_C1_DUFAU", "context": "INT_DUFAU. Sur la cale. Dufau est secoué mais reste lui-même.", "location": "LOC_CALE",
+     "lines": [
+       {"id": "DLG_C1_DUFAU_01", "speaker": "DUFAU", "text": "La petite Mercadier ? Bon Dieu… Je l'ai vu, votre fourgon, je vous l'ai dit. Il est arrivé du rond-point vers moins dix.", "intent": "Heure d'arrivée ; Dufau fiable", "emotion": "choqué, bourru"},
+       {"id": "DLG_C1_DUFAU_02", "speaker": "HEROINE", "text": "Le conducteur, vous l'avez vu ?", "intent": "Relance", "emotion": "pressante",
+        "choices": [
+          {"id": "DLG_C1_DUFAU_02A", "text": "Le conducteur ?", "goto": "DLG_C1_DUFAU_03"},
+          {"id": "DLG_C1_DUFAU_02B", "text": "C'était une livraison ?", "goto": "DLG_C1_DUFAU_05"},
+          {"id": "DLG_C1_DUFAU_02C", "text": "Et la plaque ?", "goto": "DLG_C1_DUFAU_07"},
+          {"id": "DLG_C1_DUFAU_02D", "text": "Cette caisse de poisson, là ?", "goto": "DLG_C1_DUFAU_08", "condition": "CLU_CAISSE_POISSON"}
+        ]},
+       {"id": "DLG_C1_DUFAU_03", "speaker": "DUFAU", "text": "Il n'est pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise.", "intent": "Le conducteur n'est pas sorti (utile pour PZ_02)", "emotion": "précis"},
+       {"id": "DLG_C1_DUFAU_04", "speaker": "DUFAU", "text": "Il m'a fait penser à Franck, l'ancien de la blanchisserie. Mais je n'ai plus mes yeux de vingt ans, hein. Je ne veux accuser personne.", "intent": "Piste K1, avec prudence", "emotion": "hésitant, honnête"},
+       {"id": "DLG_C1_DUFAU_05", "speaker": "DUFAU", "text": "Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien. Tout blanc.", "intent": "Écarter la blanchisserie actuelle ; graine du lettrage retiré", "emotion": "catégorique"},
+       {"id": "DLG_C1_DUFAU_06", "speaker": "DUFAU", "text": "Et ce pot… Un cognement pareil, ça s'oublie pas.", "intent": "Signature sonore", "emotion": "grimace"},
+       {"id": "DLG_C1_DUFAU_07", "speaker": "DUFAU", "text": "Une plaque des Landes, le 40, ça je l'ai vu. Le reste…", "intent": "Détail de plaque partiel", "emotion": "désolé"},
+       {"id": "DLG_C1_DUFAU_08", "speaker": "DUFAU", "text": "Ça ? Le poissonnier en empile toujours là, il livre les restaurants. Rien à voir.", "intent": "Désamorcer la fausse piste du port", "emotion": "haussement d'épaules"}
+     ]},
+    {"id": "DLG_C1_LARTIGUE", "context": "INT_LARTIGUE. Boulangerie. Josiane Lartigue a vu passer les gendarmes.", "location": "LOC_BOULANGERIE",
+     "lines": [
+       {"id": "DLG_C1_LARTIGUE_01", "speaker": "LARTIGUE", "text": "C'est vrai, pour la petite ? Oh mon Dieu. Elle passe tous les matins acheter un pain au chocolat.", "intent": "Émotion ; explique la piste ancienne de Lila vers la boulangerie (PZ_01)", "emotion": "bouleversée"},
+       {"id": "DLG_C1_LARTIGUE_02", "speaker": "HEROINE", "text": "Vous avez vu une femme blonde, avec un badge, cet après-midi ?", "intent": "Question ciblée (disponible même sans CLU_OBS_PASSAGERE : « une femme avec un badge »)", "emotion": "douce mais pressée"},
+       {"id": "DLG_C1_LARTIGUE_03", "speaker": "LARTIGUE", "text": "Oui ! Vers quatre heures dix. Une bouteille d'eau, payée en liquide. Elle m'a demandé où était l'école de la petite Mercadier.", "intent": "Clé : elle connaissait le nom de famille ; elle ne connaissait pas l'école", "emotion": "se souvient en parlant"},
+       {"id": "DLG_C1_LARTIGUE_04", "speaker": "LARTIGUE", "text": "Sur le coup, je me suis dit : une animatrice qui ne sait pas où est l'école… Et puis elle est allée s'asseoir à l'abribus.", "intent": "Relier à la bouteille (PZ_02)", "emotion": "prise de conscience"}
+     ]},
+    {"id": "DLG_C1_LIEGE", "context": "INT_TABLEAU_LIEGE. {HEROINE} examine les annonces.", "location": "LOC_BOULANGERIE",
+     "lines": [
+       {"id": "DLG_C1_LIEGE_01", "speaker": "HEROINE", "text": "Cours de surf, chiots à donner… Deux blanchisseries.", "intent": "Présenter les deux prospectus", "emotion": "concentrée"},
+       {"id": "DLG_C1_LIEGE_02", "speaker": "HEROINE", "text": "« Notre équipe de livraison. » Tiens.", "intent": "Attirer l'attention sur la photo d'équipe", "emotion": "intriguée"}
+     ]},
+    {"id": "DLG_C1_ABRIBUS", "context": "INT_BANC_ABRIBUS.", "location": "LOC_ABRIBUS",
+     "lines": [
+       {"id": "DLG_C1_ABRIBUS_01", "speaker": "HEROINE", "text": "Une bouteille à peine entamée. Du rouge à lèvres sur le goulot.", "intent": "CLU_BOUTEILLE", "emotion": "attentive"},
+       {"id": "DLG_C1_ABRIBUS_02", "speaker": "HEROINE", "text": "Ticket de la boulangerie. Seize heures douze.", "intent": "CLU_TICKET_BOULANGERIE", "emotion": "attentive"},
+       {"id": "DLG_C1_ABRIBUS_03", "speaker": "HEROINE", "text": "Dans un sac. Personne d'autre n'y touche.", "intent": "Geste de préservation de l'odeur", "emotion": "méthodique"}
+     ]},
+    {"id": "DLG_C1_PLAN", "context": "INT_PLAN_TOURISTIQUE.", "location": "LOC_ABRIBUS",
+     "lines": [
+       {"id": "DLG_C1_PLAN_01", "speaker": "NARRATION", "text": "Distances depuis le rond-point notées dans le carnet.", "intent": "CLU_PLAN_DISTANCES", "emotion": "neutre"}
+     ]},
+    {"id": "DLG_C1_AFFICHE", "context": "INT_AFFICHE_ECOLE.", "location": "LOC_ECOLE",
+     "lines": [
+       {"id": "DLG_C1_AFFICHE_01", "speaker": "HEROINE", "text": "Le nouveau logo de la mairie. La vague bleue.", "intent": "CLU_AFFICHE_COMMUNE ; comparaison possible avec le badge", "emotion": "neutre"},
+       {"id": "DLG_C1_AFFICHE_02", "speaker": "HEROINE", "text": "Sur le badge, c'est l'ancien. Le pin et le soleil.", "intent": "Comparaison si CLU_BADGE est déjà en main", "emotion": "le déclic", "condition": "CLU_BADGE"}
+     ]},
+    {"id": "DLG_C1_DIRECTRICE", "context": "INT_DIRECTRICE. Mme Pujol, à la grille, livide.", "location": "LOC_ECOLE",
+     "lines": [
+       {"id": "DLG_C1_DIRECTRICE_01", "speaker": "DIRECTRICE", "text": "Les gendarmes m'ont prévenue. Je… Lila est partie à l'heure, seule, comme depuis la rentrée. Sa mère avait signé l'autorisation.", "intent": "Lila rentre seule depuis peu", "emotion": "sous le choc, se justifie"},
+       {"id": "DLG_C1_DIRECTRICE_02", "speaker": "HEROINE", "text": "Vous avez une animatrice qui s'appelle Sandrine ?", "intent": "Vérifier l'identité du badge", "emotion": "directe"},
+       {"id": "DLG_C1_DIRECTRICE_03", "speaker": "DIRECTRICE", "text": "Sandrine ? Non. Nous avons trois animatrices, je les connais toutes. Aucune Sandrine.", "intent": "Clé : la femme n'est pas animatrice", "emotion": "certaine"},
+       {"id": "DLG_C1_DIRECTRICE_04", "speaker": "DIRECTRICE", "text": "Et peu de gens savaient qu'elle rentrait seule. Sa mère, moi, la maîtresse… et le voisinage, sans doute.", "intent": "Graine : qui savait ?", "emotion": "réfléchit à voix haute"}
+     ]},
+    {"id": "DLG_C1_CASTERAN", "context": "INT_CASTERAN. Casteran, élégante, s'est placée d'elle-même près des gendarmes.", "location": "LOC_ETUDE_CASTERAN",
+     "lines": [
+       {"id": "DLG_C1_CASTERAN_01", "speaker": "CASTERAN", "text": "Quelle horreur. Je loue l'appartement de Nadia, vous savez. Cette enfant, je la vois grandir.", "intent": "Se placer au centre ; lien avec la famille (graine)", "emotion": "émue, maîtrisée"},
+       {"id": "DLG_C1_CASTERAN_02", "speaker": "CASTERAN", "text": "J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. J'en suis certaine.", "intent": "Faux témoignage assuré (fausse piste loyale)", "emotion": "assurée, posée"},
+       {"id": "DLG_C1_CASTERAN_03", "speaker": "HEROINE", "text": "Vers le nord ? Vous êtes sûre ?", "intent": "Doute", "emotion": "prudente",
+        "choices": [
+          {"id": "DLG_C1_CASTERAN_03A", "text": "Merci, maître. Je le dis aux gendarmes.", "goto": "DLG_C1_CASTERAN_04"},
+          {"id": "DLG_C1_CASTERAN_03B", "text": "D'ici, on voit vraiment le rond-point ?", "goto": "DLG_C1_CASTERAN_05"}
+        ]},
+       {"id": "DLG_C1_CASTERAN_04", "speaker": "CASTERAN", "text": "Faites, faites. Et dites-leur qu'ils peuvent compter sur moi.", "intent": "Clôture aimable", "emotion": "courtoise"},
+       {"id": "DLG_C1_CASTERAN_05", "speaker": "CASTERAN", "text": "Ma chère, j'ai soixante-deux ans, pas quatre-vingt-dix. Je sais ce que j'ai vu.", "intent": "Se draper dans son autorité ; ouvre le test de ligne de vue", "emotion": "piquée, souriante"}
+     ]},
+    {"id": "DLG_C1_LIGNE_DE_VUE", "context": "INT_LIGNE_DE_VUE. {HEROINE} se place sur le perron.", "location": "LOC_ETUDE_CASTERAN",
+     "lines": [
+       {"id": "DLG_C1_LIGNE_DE_VUE_01", "speaker": "HEROINE", "text": "L'auvent de la pharmacie… et le platane. On voit la rue du Port jusqu'au virage. Le rond-point, non.", "intent": "Constat spatial", "emotion": "lente, surprise"},
+       {"id": "DLG_C1_LIGNE_DE_VUE_02", "speaker": "HEROINE", "text": "Elle ne pouvait pas savoir quelle sortie il a prise. Elle a supposé. Ou elle s'est trompée.", "intent": "Conclusion prudente (pas d'accusation)", "emotion": "pensive"}
+     ]},
+    {"id": "DLG_C1_INES", "context": "INT_INES / PZ_04. Inès est assise sur sa planche, téléphone en main.", "location": "LOC_SKATEPARK",
+     "lines": [
+       {"id": "DLG_C1_INES_01", "speaker": "INES", "text": "Quoi ? J'ai rien fait, moi.", "intent": "Méfiance adolescente", "emotion": "sur la défensive"},
+       {"id": "DLG_C1_INES_02", "speaker": "HEROINE", "text": "Tu filmes le rond-point depuis tout à l'heure ?", "intent": "Question", "emotion": "calme"},
+       {"id": "DLG_C1_INES_03", "speaker": "INES", "text": "Je filme mes figures. Et si mes parents voient que j'étais pas à l'étude, je suis morte.", "intent": "Obstacle", "emotion": "inquiète",
+        "choices": [
+          {"id": "DLG_C1_INES_03A", "text": "« Personne ne te reprochera d'avoir aidé. Je te le promets. »", "goto": "DLG_C1_INES_04", "effect": "succès"},
+          {"id": "DLG_C1_INES_03B", "text": "« Une petite fille a été enlevée. Tu as peut-être la seule image du fourgon. »", "goto": "DLG_C1_INES_05", "effect": "succès"},
+          {"id": "DLG_C1_INES_03C", "text": "« Si tu ne me montres pas, les gendarmes vont prendre ton téléphone. »", "goto": "DLG_C1_INES_06", "effect": "BR_INES_BRAQUEE"}
+        ]},
+       {"id": "DLG_C1_INES_04", "speaker": "INES", "text": "… OK. Mais c'est vous qui leur dites.", "intent": "Accord", "emotion": "soulagée"},
+       {"id": "DLG_C1_INES_05", "speaker": "INES", "text": "Enlevée ? Attendez… Il y avait un camion blanc, oui. Regardez.", "intent": "Accord, prise de conscience", "emotion": "choquée"},
+       {"id": "DLG_C1_INES_06", "speaker": "INES", "text": "Ben qu'ils viennent, alors. Moi je me casse.", "intent": "Échec : Inès part (rattrapage à 19 h)", "emotion": "vexée, effrayée"},
+       {"id": "DLG_C1_INES_07", "speaker": "HEROINE", "text": "Tu peux me l'envoyer ? Et la garder. Surtout, ne l'efface pas.", "intent": "Obtention de CLU_VIDEO_INES", "emotion": "reconnaissante", "condition": "succès"}
+     ]},
+    {"id": "DLG_C1_INES_PARENTS", "context": "EVT_INES_PARENTS, 19 h 00, au poste.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_INES_PARENTS_01", "speaker": "PARENT_INES", "text": "Ma fille m'a dit qu'elle avait filmé quelque chose. On vient vous le montrer.", "intent": "Rattrapage de la vidéo", "emotion": "grave"}
+     ]},
+    {"id": "DLG_C1_PISTE_LILA", "context": "INT_PISTE_LILA / PZ_01. {HEROINE} présente le porte-clés à la chienne.", "location": "LOC_COIN_ECOLES",
+     "lines": [
+       {"id": "DLG_C1_PISTE_LILA_01", "speaker": "HEROINE", "text": "Sens. C'est Lila. Cherche Lila.", "intent": "Lancer la piste", "emotion": "douce, grave"},
+       {"id": "DLG_C1_PISTE_LILA_02", "speaker": "HEROINE", "text": "Elle tourne… Elles se sont arrêtées ici. Elles ont parlé.", "intent": "Point A (si bonne interprétation)", "emotion": "à voix basse"},
+       {"id": "DLG_C1_PISTE_LILA_03", "speaker": "HEROINE", "text": "Non, pas la boulangerie. Ça, c'est ce matin.", "intent": "Point A bis : écarter la piste ancienne", "emotion": "concentrée"},
+       {"id": "DLG_C1_PISTE_LILA_04", "speaker": "HEROINE", "text": "Tout droit. Pas d'écart. Elle marchait normalement… Elle l'a suivie.", "intent": "Point B : pas de lutte", "emotion": "douleur contenue"},
+       {"id": "DLG_C1_PISTE_LILA_05", "speaker": "HEROINE", "text": "Qu'est-ce que tu as trouvé ? … Sa barrette.", "intent": "Point C : CLU_BARRETTE_LILA", "emotion": "émue"},
+       {"id": "DLG_C1_PISTE_LILA_06", "speaker": "HEROINE", "text": "C'est fini, hein ? Elle est montée là. Tu ne peux pas suivre un moteur. C'est bien, ma belle, c'est bien.", "intent": "Point D : limite de la chienne, récompense", "emotion": "tendre, frustrée"}
+     ]},
+    {"id": "DLG_C1_PISTE_BOUTEILLE", "context": "INT_PISTE_BOUTEILLE / PZ_02. Variantes selon l'objet choisi.", "location": "LOC_ABRIBUS",
+     "lines": [
+       {"id": "DLG_C1_PISTE_BOUTEILLE_01", "speaker": "HEROINE", "text": "Sens bien. Cherche.", "intent": "Lancer la piste avec l'objet choisi", "emotion": "déterminée"},
+       {"id": "DLG_C1_PISTE_BOUTEILLE_02", "speaker": "HEROINE", "text": "Elle ne va nulle part… Il n'est pas sorti du fourgon, c'est ça ?", "intent": "Échec mégots : piste de 2 m", "emotion": "frustrée", "condition": "objet = CLU_MEGOTS"},
+       {"id": "DLG_C1_PISTE_BOUTEILLE_03", "speaker": "HEROINE", "text": "Tu repars vers le coin… C'est Lila, ça. Ce n'est pas ce que je cherche.", "intent": "Échec porte-clés : relance de la piste de Lila", "emotion": "patiente", "condition": "objet = CLU_PORTE_CLES_LILA"},
+       {"id": "DLG_C1_PISTE_BOUTEILLE_04", "speaker": "HEROINE", "text": "L'abribus, le coin, le fourgon… la haie. Qu'est-ce qu'il y a là-dedans ?", "intent": "Réussite : piste de la femme jusqu'à la haie", "emotion": "tendue", "condition": "objet = CLU_BOUTEILLE"},
+       {"id": "DLG_C1_PISTE_BOUTEILLE_05", "speaker": "HEROINE", "text": "Un badge. « Sandrine V. » Tu l'as trouvée, {CHIENNE}.", "intent": "CLU_BADGE", "emotion": "victoire sombre", "condition": "objet = CLU_BOUTEILLE"}
+     ]},
+    {"id": "DLG_C1_FOUILLE_HAIE", "context": "EVT_FOUILLE_HAIE, 18 h 30, rattrapage.", "location": "LOC_ACCOTEMENT",
+     "lines": [
+       {"id": "DLG_C1_FOUILLE_HAIE_01", "speaker": "MENDIONDO", "text": "On a trouvé un badge dans la haie. Une certaine « Sandrine ». Venez voir.", "intent": "Rattrapage du badge", "emotion": "factuelle"}
+     ]},
+    {"id": "DLG_C1_PLAQUE", "context": "INT_PLAQUE_* / PZ_05. Au poste, formulaire de consultation.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_PLAQUE_01", "speaker": "MENDIONDO", "text": "Donnez-moi ce que vous avez. Des points d'interrogation là où vous ne savez pas.", "intent": "Saisie de la plaque", "emotion": "méthodique"},
+       {"id": "DLG_C1_PLAQUE_02", "speaker": "MENDIONDO", "text": "GF-437-TR. Fourgon du même modèle… à un plombier de Dax.", "intent": "Résultat", "emotion": "neutre"},
+       {"id": "DLG_C1_PLAQUE_03", "speaker": "MENDIONDO", "text": "Son traceur le met chez un client, à Dax, à seize heures trente-huit. À cinquante kilomètres.", "intent": "Innocenter le plombier", "emotion": "sourcils froncés"},
+       {"id": "DLG_C1_PLAQUE_04", "speaker": "HEROINE", "text": "Alors ce n'est pas sa plaque. C'est une copie.", "intent": "DED_PLAQUE_CLONEE", "emotion": "le déclic"},
+       {"id": "DLG_C1_PLAQUE_05", "speaker": "MENDIONDO", "text": "Une plaque clonée. Ce ne sont pas des amateurs.", "intent": "Monter les enjeux", "emotion": "grave"}
+     ]},
+    {"id": "DLG_C1_BLANCHISSERIE", "context": "INT_APPEL_BLANCHISSERIE. Mendiondo appelle, puis rapporte.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_BLANCHISSERIE_01", "speaker": "MENDIONDO", "text": "La Blanchisserie Océane a vendu un fourgon réformé aux enchères, il y a huit mois. Acheteur : Sud Loc Services. Une SARL toute neuve.", "intent": "Origine du fourgon ; graine de la SARL", "emotion": "prend des notes"},
+       {"id": "DLG_C1_BLANCHISSERIE_02", "speaker": "MENDIONDO", "text": "Et celui qui est venu le chercher, ils s'en souviennent : Franck Loubère. Un ancien livreur. Licencié l'an dernier.", "intent": "Identité probable de K1", "emotion": "tendue"},
+       {"id": "DLG_C1_BLANCHISSERIE_03", "speaker": "HEROINE", "text": "Casquette grise ? Il est sur la photo du prospectus.", "intent": "Relier au flyer (DED_K1_LOUBERE)", "emotion": "vive", "condition": "CLU_FLYER_BLANCHISSERIE"},
+       {"id": "DLG_C1_BLANCHISSERIE_04", "speaker": "MENDIONDO", "text": "Leurs fourgons actuels étaient tous au dépôt cet après-midi. Ils livrent le mardi matin.", "intent": "Contredire H_VEH_BLANCHISSERIE_ACTIVE", "emotion": "neutre"}
+     ]},
+    {"id": "DLG_C1_RELAIS", "context": "INT_CCTV_RELAIS. Après la vidéo d'Inès.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_RELAIS_01", "speaker": "HEROINE", "text": "La route des Étangs passe devant le Relais du Lac. Ils ont une caméra à la pompe.", "intent": "Suggestion du joueur", "emotion": "pressante"},
+       {"id": "DLG_C1_RELAIS_02", "speaker": "MENDIONDO", "text": "Seize heures quarante-huit. Un fourgon blanc, clignotant droit mort. Il prend la fourche de l'étang de Sorbe.", "intent": "CLU_CCTV_RELAIS", "emotion": "grave, énergique"}
+     ]},
+    {"id": "DLG_C1_RADIO_PEAGE", "context": "EVT_RADIO_PEAGE, 17 h 15. Audible près du poste, reporté dans le carnet sinon.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_RADIO_PEAGE_01", "speaker": "GENDARME", "text": "Péage de l'A63 : un agent signale un fourgon blanc à seize heures cinquante-huit, direction Espagne.", "intent": "Fausse piste loyale (PZ_07)", "emotion": "radio, grésillements"},
+       {"id": "DLG_C1_RADIO_PEAGE_02", "speaker": "MENDIONDO", "text": "L'Espagne… Si c'est ça, on a déjà perdu une heure.", "intent": "Rendre la fausse piste crédible", "emotion": "inquiète"}
+     ]},
+    {"id": "DLG_C1_CARTE", "context": "INT_CARTE_ETANG. Carte murale du poste.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_CARTE_01", "speaker": "HEROINE", "text": "Rive ouest, la base nautique. Rive est, les vieilles forêts de gemmage.", "intent": "CLU_CARTE_ETANG", "emotion": "pensive"},
+       {"id": "DLG_C1_CARTE_02", "speaker": "HEROINE", "text": "Le soleil en face, sur l'eau… la fenêtre regarde l'ouest. Elle est sur la rive est.", "intent": "PZ_09 résolu", "emotion": "le déclic", "condition": "DED_RIVE_EST"}
+     ]},
+    {"id": "DLG_C1_NADIA_ARRIVEE", "context": "EVT_NADIA_ARRIVE, 17 h 35. Casteran la prend aussitôt sous son aile.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_NADIA_ARRIVEE_01", "speaker": "NADIA", "text": "Où est ma fille ? Où est Lila ?", "intent": "Arrivée ; douleur brute sans surjeu", "emotion": "panique"},
+       {"id": "DLG_C1_NADIA_ARRIVEE_02", "speaker": "MENDIONDO", "text": "Madame Mercadier, on la cherche. Tous. Asseyez-vous, j'ai besoin de vous.", "intent": "Autorité bienveillante", "emotion": "ferme, humaine"},
+       {"id": "DLG_C1_NADIA_ARRIVEE_03", "speaker": "CASTERAN", "text": "Nadia, ma chérie. Viens, je reste avec toi.", "intent": "Casteran s'impose (graine)", "emotion": "enveloppante"}
+     ]},
+    {"id": "DLG_C1_NADIA_OBSERVATION", "context": "INT_OBSERVER_NADIA, entre 17 h 40 et 17 h 55, à moins de 15 m.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_NADIA_OBSERVATION_01", "speaker": "MENDIONDO", "text": "Un problème, madame ?", "intent": "Nadia vient de lire son téléphone", "emotion": "attentive"},
+       {"id": "DLG_C1_NADIA_OBSERVATION_02", "speaker": "NADIA", "text": "Rien. Le travail.", "intent": "Mensonge visible", "emotion": "blanche, voix cassée"},
+       {"id": "DLG_C1_NADIA_OBSERVATION_03", "speaker": "CHIENNE", "text": "[va se coller contre les jambes de Nadia, gémit doucement]", "intent": "La chienne signale la détresse", "emotion": "inquiète"}
+     ]},
+    {"id": "DLG_C1_ELOIGNER_CASTERAN", "context": "INT_ELOIGNER_CASTERAN.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_ELOIGNER_CASTERAN_01", "speaker": "HEROINE", "text": "Adjudante, Maître Casteran dit avoir tout vu. Vous devriez prendre sa déposition maintenant.", "intent": "Éloigner Casteran de Nadia sans l'affronter", "emotion": "neutre, calculée"},
+       {"id": "DLG_C1_ELOIGNER_CASTERAN_02", "speaker": "CASTERAN", "text": "Bien sûr. Je reviens, Nadia.", "intent": "Elle s'éloigne", "emotion": "contrariée, masquée"}
+     ]},
+    {"id": "DLG_C1_CASTERAN_THE", "context": "EVT_CASTERAN_S_ELOIGNE, 18 h 05.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_CASTERAN_THE_01", "speaker": "CASTERAN", "text": "Je vais te préparer un thé à l'étude. Ne bouge pas.", "intent": "Casteran s'éloigne d'elle-même", "emotion": "prévenante"}
+     ]},
+    {"id": "DLG_C1_NADIA", "context": "INT_NADIA / PZ_08. Près de la fontaine, Casteran éloignée.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_NADIA_01", "speaker": "NADIA", "text": "Vous êtes la dame au chien… Lila parle tout le temps d'elle.", "intent": "Ouverture ; lien avec la chienne", "emotion": "épuisée"},
+       {"id": "DLG_C1_NADIA_02", "speaker": "HEROINE", "text": "Qu'est-ce que je lui dis ?", "intent": "Choix d'approche", "emotion": "—",
+        "choices": [
+          {"id": "DLG_C1_NADIA_02A", "text": "« Cette femme connaissait votre nom. Ce n'était pas un hasard. Qu'est-ce qu'on vous demande ? »", "condition": "CLU_TEMOIN_LARTIGUE", "goto": "DLG_C1_NADIA_03", "effect": "succès"},
+          {"id": "DLG_C1_NADIA_02B", "text": "« Elle s'est fait passer pour une animatrice. Elle savait comment rassurer Lila. Quelqu'un vous vise. »", "condition": "CLU_BADGE|CLU_TEMOIN_DIRECTRICE|DED_RUSE", "goto": "DLG_C1_NADIA_03", "effect": "succès"},
+          {"id": "DLG_C1_NADIA_02C", "text": "« Vous nous mentez. Qu'est-ce que vous cachez ? »", "goto": "DLG_C1_NADIA_07", "effect": "BR_NADIA_BRUSQUEE"}
+        ]},
+       {"id": "DLG_C1_NADIA_03", "speaker": "NADIA", "text": "Ils ont écrit « pas de police ». Si je parle, je…", "intent": "Aveu partiel", "emotion": "terrifiée"},
+       {"id": "DLG_C1_NADIA_04", "speaker": "HEROINE", "text": "La police est déjà là. Ce qui la protège, c'est qu'on sache où chercher.", "intent": "Argument décisif", "emotion": "douce, ferme"},
+       {"id": "DLG_C1_NADIA_05", "speaker": "NADIA", "text": "Au port, j'ai bloqué un conteneur. Des papiers faux. Ils veulent que je le laisse partir avant jeudi six heures. Et… il y a une photo.", "intent": "Révélation du chantage ; CLU_MESSAGE_CHANTAGE, CLU_PHOTO_VIE", "emotion": "s'effondre en parlant"},
+       {"id": "DLG_C1_NADIA_06", "speaker": "HEROINE", "text": "Elle a l'air d'aller bien. Regardez-moi : elle a l'air d'aller bien. On va la chercher.", "intent": "Réconfort ; transmettre la photo à Mendiondo", "emotion": "voix qui tient"},
+       {"id": "DLG_C1_NADIA_07", "speaker": "NADIA", "text": "Laissez-moi tranquille ! Vous n'êtes même pas de la police !", "intent": "Échec : Nadia se ferme (rattrapage 18 h 45)", "emotion": "colère, larmes"}
+     ]},
+    {"id": "DLG_C1_NADIA_CRAQUE", "context": "EVT_NADIA_CRAQUE, 18 h 45, si Nadia n'a pas parlé.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_NADIA_CRAQUE_01", "speaker": "NADIA", "text": "Adjudante… J'ai reçu un message. Je n'arrivais pas à… Tenez.", "intent": "Rattrapage : message et photo accessibles au poste", "emotion": "effondrée"}
+     ]},
+    {"id": "DLG_C1_TABLEAU", "context": "INT_PRESENTER_TABLEAU / PZ_10. Mendiondo évalue chaque colonne.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_TABLEAU_01", "speaker": "MENDIONDO", "text": "Allez-y. Véhicule, personnes, direction. Et pour chaque point, sur quoi vous vous appuyez.", "intent": "Ouverture de la présentation", "emotion": "concentrée"},
+       {"id": "DLG_C1_TABLEAU_02", "speaker": "MENDIONDO", "text": "Sur quoi vous vous appuyez ? Je ne peux pas envoyer des hommes sur une intuition.", "intent": "Hypothèse sans preuve épinglée (pas de pénalité)", "emotion": "agacée, juste"},
+       {"id": "DLG_C1_TABLEAU_03", "speaker": "MENDIONDO", "text": "La patrouille de la Corniche n'a rien. Un camping-car, c'est tout.", "intent": "BR_ERR_NORD", "emotion": "tendue"},
+       {"id": "DLG_C1_TABLEAU_04", "speaker": "MENDIONDO", "text": "La vidéo du péage : c'est un autre modèle, avec une échelle sur le toit. On a perdu une demi-heure.", "intent": "BR_ERR_A63", "emotion": "dure"},
+       {"id": "DLG_C1_TABLEAU_05", "speaker": "MENDIONDO", "text": "La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses rue du Port.", "intent": "BR_ERR_PORT", "emotion": "lasse"},
+       {"id": "DLG_C1_TABLEAU_06", "speaker": "MENDIONDO", "text": "Le plombier était à Dax, et les fourgons de la blanchisserie au dépôt. Ce n'est pas ça.", "intent": "BR_ERR_VEHICULE", "emotion": "sèche"},
+       {"id": "DLG_C1_TABLEAU_07", "speaker": "MENDIONDO", "text": "La mairie n'a aucune Sandrine. Et ce logo n'existe plus depuis l'an dernier.", "intent": "BR_ERR_PERSONNE", "emotion": "sèche"},
+       {"id": "DLG_C1_TABLEAU_08", "speaker": "MENDIONDO", "text": "Reprenez. On n'a pas le luxe de se tromper deux fois.", "intent": "Relance après erreur", "emotion": "pression, pas de mépris"},
+       {"id": "DLG_C1_TABLEAU_09", "speaker": "MENDIONDO", "text": "Un ancien fourgon de blanchisserie avec une plaque clonée. Une fausse animatrice qui savait qui elle venait chercher. La route des Étangs. … C'est solide.", "intent": "BR_RESOLU", "emotion": "décidée"}
+     ]},
+    {"id": "DLG_C1_FIN", "context": "RES_M01. Fin du chapitre, crépuscule.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_FIN_01", "speaker": "MENDIONDO", "text": "Parquet ? Mendiondo. Je demande l'Alerte Enlèvement. J'ai le véhicule, deux suspects, et un secteur : l'étang de Sorbe.", "intent": "Conséquence concrète de l'enquête", "emotion": "nette, rapide"},
+       {"id": "DLG_C1_FIN_02", "speaker": "MENDIONDO", "text": "La rive est. Bien vu.", "intent": "Reconnaissance si BONUS_RIVE_EST", "emotion": "brève, sincère", "condition": "BONUS_RIVE_EST"},
+       {"id": "DLG_C1_FIN_03", "speaker": "MENDIONDO", "text": "Vous venez. Votre chienne passe devant, vous derrière elle, et mes gars devant vous. C'est clair ?", "intent": "Cadre du chapitre 2", "emotion": "autorité, confiance naissante"},
+       {"id": "DLG_C1_FIN_04", "speaker": "HEROINE", "text": "Clair. Allez, {CHIENNE}. On va chercher Lila.", "intent": "Clôture émotionnelle", "emotion": "colère froide, détermination"}
+     ]},
+    {"id": "DLG_C1_CLOTURE", "context": "EVT_CLOTURE, 19 h 30, sans résolution.", "location": "LOC_POSTE",
+     "lines": [
+       {"id": "DLG_C1_CLOTURE_01", "speaker": "MENDIONDO", "text": "Il fait nuit dans un quart d'heure. Je ne peux plus attendre : avec ce qu'on a, on part sur la route des Étangs. Vous venez.", "intent": "Clôture automatique ; état C", "emotion": "tendue, décidée"}
+     ]}
+  ],
+  "ui": [
+    {"id": "UI_AXE_VEHICULE", "text": "Véhicule", "context": "Colonne du tableau d'hypothèses"},
+    {"id": "UI_AXE_PERSONNES", "text": "Personnes", "context": "Colonne du tableau d'hypothèses"},
+    {"id": "UI_AXE_DESTINATION", "text": "Destination", "context": "Colonne du tableau d'hypothèses"},
+    {"id": "UI_H_VEH_ANCIEN_BLANCHISSERIE", "text": "Un ancien fourgon de la Blanchisserie Océane, sous une plaque clonée", "context": "Hypothèse"},
+    {"id": "UI_H_VEH_PLOMBIER", "text": "Le fourgon du plombier de Dax", "context": "Hypothèse"},
+    {"id": "UI_H_VEH_BLANCHISSERIE_ACTIVE", "text": "Un fourgon actuel de la Blanchisserie Océane", "context": "Hypothèse"},
+    {"id": "UI_H_K2_FAUSSE_ANIMATRICE", "text": "Une inconnue déguisée en animatrice, qui savait qui elle venait chercher", "context": "Hypothèse"},
+    {"id": "UI_H_K2_VRAIE_ANIMATRICE", "text": "Une animatrice du périscolaire", "context": "Hypothèse"},
+    {"id": "UI_H_K1_LOUBERE", "text": "Le conducteur : Franck Loubère, ancien livreur", "context": "Hypothèse facultative"},
+    {"id": "UI_H_DEST_ETANGS", "text": "La route des Étangs, vers l'étang de Sorbe", "context": "Hypothèse"},
+    {"id": "UI_H_DEST_NORD", "text": "La Corniche, vers le nord", "context": "Hypothèse"},
+    {"id": "UI_H_DEST_A63", "text": "L'A63, vers l'Espagne", "context": "Hypothèse"},
+    {"id": "UI_H_DEST_PORT", "text": "Le port de Capbreton", "context": "Hypothèse"},
+    {"id": "UI_H_DEST_RIVE_EST", "text": "Précision : la rive est de l'étang", "context": "Hypothèse facultative"},
+    {"id": "UI_CARNET_TITRE", "text": "Carnet d'enquête", "context": "Titre"},
+    {"id": "UI_CARNET_FAITS", "text": "Ce que j'ai constaté", "context": "Onglet : faits observés (CLU_)"},
+    {"id": "UI_CARNET_DEDUCTIONS", "text": "Ce que j'en déduis", "context": "Onglet : déductions (DED_)"},
+    {"id": "UI_CARNET_HYPOTHESES", "text": "Tableau des hypothèses", "context": "Onglet"},
+    {"id": "UI_CARNET_CHIENNE", "text": "Langage de {CHIENNE}", "context": "Fiche d'aide au pistage"},
+    {"id": "UI_CARNET_CHIENNE_1", "text": "Truffe au sol, allure régulière : elle suit une piste fraîche.", "context": "Fiche chienne"},
+    {"id": "UI_CARNET_CHIENNE_2", "text": "Truffe intermittente : odeur plus ancienne.", "context": "Fiche chienne"},
+    {"id": "UI_CARNET_CHIENNE_3", "text": "Cercles serrés : quelqu'un s'est arrêté ici, ou la piste se croise.", "context": "Fiche chienne"},
+    {"id": "UI_CARNET_CHIENNE_4", "text": "Assise, regard vers moi : elle a trouvé quelque chose.", "context": "Fiche chienne"},
+    {"id": "UI_CARNET_CHIENNE_5", "text": "Tête haute, retour vers moi : la piste s'arrête.", "context": "Fiche chienne"},
+    {"id": "UI_CARNET_CHIENNE_LIMITE", "text": "{CHIENNE} ne suit pas un véhicule. Ce qu'elle trouve oriente l'enquête ; ce n'est pas une preuve.", "context": "Fiche chienne"},
+    {"id": "UI_HORLOGE", "text": "Il est {heure}.", "context": "Horloge du carnet"},
+    {"id": "UI_RAPPEL_APPEL", "text": "Personne n'a encore appelé les secours.", "context": "Rappel si INT_APPEL_17 non fait après 2 min"},
+    {"id": "UI_RAPPEL_TROIS_AXES", "text": "Mendiondo attend trois réponses : le véhicule, les personnes, la destination.", "context": "Rappel après 30 min sans nouvelle hypothèse"},
+    {"id": "UI_RAPPEL_POSTE", "text": "Les gendarmes ont installé leur poste place de l'Église.", "context": "Rappel à l'arrivée des gendarmes"},
+    {"id": "UI_RAPPEL_NUIT", "text": "Le soleil baisse. Il reste peu de temps avant la nuit.", "context": "Rappel à 19 h 00"},
+    {"id": "UI_ECHEC_PREUVE_MANQUANTE", "text": "Cette hypothèse n'est soutenue par aucune preuve épinglée.", "context": "Message d'échec doux"},
+    {"id": "UI_ECHEC_OPTION_EXCLUE", "text": "Cette piste a été vérifiée : elle est exclue.", "context": "Option grisée"},
+    {"id": "UI_ECHEC_PISTE_VIDE", "text": "{CHIENNE} ne trouve rien à suivre avec cet objet.", "context": "Pistage sans résultat"},
+    {"id": "UI_CONTRADICTION", "text": "Contradiction : {indice_a} ne s'accorde pas avec {indice_b}.", "context": "Signalée dans le carnet quand deux indices s'opposent"},
+    {"id": "UI_FIN_CHAPITRE", "text": "Chapitre 1 terminé — {heure}. Hypothèses retenues : {n}/3. Découvertes facultatives : {bonus}.", "context": "Écran de fin"}
+  ]
+}

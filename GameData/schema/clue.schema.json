@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/clue.schema.json",
+  "title": "Indice (fait observé)",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "location",
+    "kind",
+    "availability",
+    "fact",
+    "interpretations"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^CLU_[A-Z0-9_]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "pattern": "^LOC_[A-Z0-9_]+$"
+    },
+    "kind": {
+      "enum": [
+        "observation",
+        "objet",
+        "temoignage",
+        "document",
+        "resultat"
+      ]
+    },
+    "availability": {
+      "enum": [
+        "toujours",
+        "fenetre",
+        "branche"
+      ],
+      "description": "toujours = présent dans le monde ; fenetre = dépend d'une action du prologue ; branche = résultat d'une erreur"
+    },
+    "fact": {
+      "type": "string",
+      "description": "Ce qui est objectivement constaté (jamais une conclusion)"
+    },
+    "interpretations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Lectures possibles proposées au joueur ; les conclusions validées sont des DED_"
+    },
+    "red_herring": {
+      "type": "boolean"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

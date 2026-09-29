@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/interaction.schema.json",
+  "title": "Interaction (mode d'obtention)",
+  "type": "object",
+  "required": [
+    "id",
+    "location",
+    "cost",
+    "grants",
+    "dialogue"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^INT_[A-Z0-9_]+$"
+    },
+    "location": {
+      "type": "string",
+      "pattern": "^LOC_[A-Z0-9_]+$"
+    },
+    "cost": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Minutes de jeu"
+    },
+    "requires": {
+      "type": "object",
+      "properties": {
+        "all": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+          }
+        },
+        "any": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+          }
+        }
+      }
+    },
+    "blocked_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+      }
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+      }
+    },
+    "fail_flag": {
+      "type": "string",
+      "pattern": "^FLAG_[A-Z0-9_]+$"
+    },
+    "puzzle": {
+      "type": "string",
+      "pattern": "^PZ_[A-Z0-9_]+$"
+    },
+    "dialogue": {
+      "type": "string",
+      "pattern": "^DLG_[A-Z0-9_]+$"
+    },
+    "mandatory": {
+      "type": "boolean"
+    },
+    "available_from": {
+      "type": "string",
+      "pattern": "^[0-2][0-9]:[0-5][0-9]$"
+    },
+    "available_until": {
+      "type": "string",
+      "pattern": "^[0-2][0-9]:[0-5][0-9]$"
+    }
+  }
+}

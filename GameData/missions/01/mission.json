@@ -1,0 +1,48 @@
+{
+  "id": "M01",
+  "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon blanc »",
+  "status": "proposition",
+  "clock": {"prologue_start": "16:33", "chapter_start": "16:39", "deadline": "19:30", "travel_cost_per_zone": 1},
+  "start_zone": "Z_FRONT",
+  "prologue": {
+    "events": ["EVT_START", "EVT_SONNERIE", "EVT_LILA_COUCOU", "EVT_ABORDAGE", "EVT_MARCHE_FOURGON", "EVT_ALERTE", "EVT_DEPART", "EVT_HORS_VUE", "EVT_CH1_START"],
+    "window_max_actions": 2,
+    "actions": [
+      {"id": "ACT_PHOTO", "grants": ["CLU_PHOTO_FOURGON"], "grants_if_with": {"ACT_COURIR": ["CLU_PHOTO_FLOUE"]}, "dialogue": "DLG_P_HEROINE_CHOC"},
+      {"id": "ACT_COURIR", "grants": ["CLU_OBS_CONDUCTEUR", "CLU_OBS_ECHAPPEMENT", "CLU_OBS_FEU_FENDU"], "dialogue": "DLG_P_HEROINE_CHOC"},
+      {"id": "ACT_CRIER", "grants": ["CLU_OBS_PASSAGERE", "CLU_OBS_BADGE_CHUTE"], "dialogue": "DLG_P_ALERTE"},
+      {"id": "ACT_LACHER", "grants": ["CLU_CHIENNE_IMPREGNEE"], "dialogue": "DLG_P_ALERTE"}
+    ],
+    "dialogues": ["DLG_P_DUFAU", "DLG_P_LILA", "DLG_P_ABORDAGE", "DLG_P_ALERTE", "DLG_P_HEROINE_CHOC", "DLG_P_TUTO"]
+  },
+  "reference_path": {
+    "_doc": "Parcours efficace sans aucun indice du prologue. Le validateur vérifie qu'il est jouable et qu'il laisse la marge nécessaire pour toutes les erreurs.",
+    "steps": ["INT_APPEL_17", "INT_DUFAU", "INT_LARTIGUE", "INT_TABLEAU_LIEGE", "INT_BANC_ABRIBUS", "INT_PISTE_BOUTEILLE", "INT_AFFICHE_ECOLE", "INT_INES", "INT_PLAQUE_PARTIELLE", "INT_PRESENTER_TABLEAU"]
+  },
+  "resolution": {
+    "id": "RES_M01",
+    "dialogue": "DLG_C1_FIN",
+    "chapter2_states": [
+      {"id": "CH2_ETAT_A", "label": "Avance", "condition": {"resolved_before": "18:15", "requires": ["H_DEST_RIVE_EST"]}},
+      {"id": "CH2_ETAT_B", "label": "Standard", "condition": {"resolved_before": "19:00"}},
+      {"id": "CH2_ETAT_C", "label": "Retard", "condition": {"otherwise": true}}
+    ],
+    "bonuses": [
+      {"id": "BONUS_K1_IDENTIFIE", "from": "H_K1_LOUBERE"},
+      {"id": "BONUS_RIVE_EST", "from": "H_DEST_RIVE_EST"},
+      {"id": "BONUS_CHIENNE_IMPREGNEE", "from": "CLU_CHIENNE_IMPREGNEE"},
+      {"id": "BONUS_NADIA_ALLIEE", "from": "FLAG_NADIA_ALLIEE"}
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/01-ouverture.json"
+  }
+}

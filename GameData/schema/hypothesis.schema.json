@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/hypothesis.schema.json",
+  "title": "Hypothèse du tableau",
+  "type": "object",
+  "required": [
+    "id",
+    "axis",
+    "correct",
+    "label"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^H_[A-Z0-9_]+$"
+    },
+    "axis": {
+      "enum": [
+        "vehicule",
+        "personne",
+        "destination"
+      ]
+    },
+    "correct": {
+      "type": "boolean"
+    },
+    "optional": {
+      "type": "boolean"
+    },
+    "label": {
+      "type": "string",
+      "pattern": "^UI_[A-Z0-9_]+$"
+    },
+    "requires_any_of": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+        }
+      }
+    },
+    "unlocked_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+      }
+    },
+    "contradicted_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+      }
+    },
+    "wrong_branch": {
+      "type": "string",
+      "pattern": "^BR_[A-Z0-9_]+$"
+    },
+    "fallback_priority": {
+      "type": "integer"
+    },
+    "bonus": {
+      "type": "string"
+    }
+  }
+}

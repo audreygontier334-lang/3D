@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/branch.schema.json",
+  "title": "Branche",
+  "type": "object",
+  "required": [
+    "id",
+    "trigger",
+    "time_cost",
+    "effect",
+    "flags",
+    "grants",
+    "rejoins"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^BR_[A-Z0-9_]+$"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "time_cost": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "effect": {
+      "type": "string"
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^FLAG_[A-Z0-9_]+$"
+      }
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+      }
+    },
+    "dialogue": {
+      "type": "string",
+      "pattern": "^DLG_[A-Z0-9_]+$"
+    },
+    "recovery": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rejoins": {
+      "type": "string"
+    }
+  }
+}
