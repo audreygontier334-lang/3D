@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Claude/Codex spatial coordination before regenerating the blockout."""
+"""Validate the two-shot Claude/Codex spatial coordination contract."""
 
 import json
 import math
@@ -7,19 +7,19 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTRACT = ROOT / "Game" / "Blockout" / "claude-spatial-adjustments.json"
-SCENE = ROOT / "Game" / "Blockout" / "ouverture-centre-ville.gltf"
-MANIFEST = ROOT / "Game" / "Blockout" / "ouverture-centre-ville.manifest.json"
+CONTRACT = ROOT / "Game/Blockout/claude-spatial-adjustments.json"
+SCENE = ROOT / "Game/Blockout/ouverture-centre-ville.gltf"
+MANIFEST = ROOT / "Game/Blockout/ouverture-centre-ville.manifest.json"
 
 
-def main() -> int:
+def main():
     data = json.loads(CONTRACT.read_text(encoding="utf-8"))
     scene = json.loads(SCENE.read_text(encoding="utf-8"))
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     nodes = {node["name"]: node for node in scene["nodes"]}
-    zones = {zone["id"]: zone for zone in manifest["zones"]}
     errors = []
     accepted = data["accepted_adjustments"]
+
     origin = accepted["scent_origin"]["target_position"]
     clue = accepted["scent_clue"]["target_position"]
     distance = math.dist((origin[0], origin[2]), (clue[0], clue[2]))
@@ -28,39 +28,40 @@ def main() -> int:
         errors.append(f"piste olfactive {distance:.3f} m hors plage {low}-{high} m")
     for key in ("scent_origin", "scent_clue"):
         item = accepted[key]
-        actual = nodes[item["node"]]["translation"]
-        if actual != item["target_position"]:
-            errors.append(f"{item['node']} n'applique pas la position cible {item['target_position']}")
-    if zones[accepted["scent_origin"]["zone_id"]]["centre"] != [origin[0], 0, origin[2]]:
-        errors.append("le centre de Z_CROISEMENT ne suit pas le départ de la piste")
+        if nodes[item["node"]]["translation"] != item["target_position"]:
+            errors.append(f"{item['node']} n'applique pas sa position cible")
 
     van = data["reference_vehicle"]
     centre, size = van["centre"], van["size"]
-    half_x, half_z = size[0] / 2, size[2] / 2
-    if not centre[0] - half_x <= clue[0] <= centre[0] + half_x:
-        errors.append("EVT_PISTE n'est pas sous la longueur du fourgon")
-    expected_side_z = centre[2] + half_z
-    if abs(clue[2] - expected_side_z) > 0.05:
-        errors.append("EVT_PISTE n'est pas au droit de la portière latérale nord")
+    if nodes[van["node"]]["translation"] != centre:
+        errors.append("position du fourgon différente du contrat")
+    if not centre[0] - size[0] / 2 <= clue[0] <= centre[0] + size[0] / 2:
+        errors.append("le bracelet n'est pas sous la longueur du fourgon")
+    if abs(clue[2] - (centre[2] + size[2] / 2)) > .05:
+        errors.append("le bracelet n'est pas au droit de la portière")
 
-    extension = accepted["chapter1_roundabout_extension"]
-    if extension["minimum_route_length_m"] < 300 or extension["required_for_p0_p3"]:
-        errors.append("extension du rond-point mal cadrée")
-    sightline = accepted["perron_line_of_sight"]
-    if sightline["must_hide"] != "rond_point" or len(sightline["occluders"]) < 2:
-        errors.append("contrainte de ligne de vue du perron incomplète")
+    shots = {shot["id"]: shot for shot in manifest["validation"]["shots"]}
+    separation = accepted["separate_shots"]
+    if separation["place"] not in shots or separation["alley"] not in shots:
+        errors.append("contrats place/ruelle absents")
+    elif "van_placeholder" not in shots[separation["place"]]["must_be_occluded"]:
+        errors.append("le fourgon doit être masqué depuis la place")
 
     guards = data["guards"]
-    if not guards["no_narrative_choice_canonicalized"] or not guards["no_private_photo_reference"]:
-        errors.append("garde narrative ou vie privée désactivée")
-    if set(guards["opening_cameras_unchanged"]) != {"CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"}:
-        errors.append("liste des trois vues modifiée")
+    required = ("no_narrative_choice_canonicalized", "no_private_photo_reference",
+                "lila_movement_wardrobe_hair_open", "place_activity_open", "van_appearance_open")
+    if not all(guards[name] for name in required):
+        errors.append("une garde narrative, visuelle ou de vie privée est désactivée")
+    if guards["opening_cameras"] != manifest["validation"]["camera_nodes"]:
+        errors.append("les six caméras ne correspondent pas au manifeste")
+    if "barrette" in json.dumps(data, ensure_ascii=False).lower():
+        errors.append("la barrette ne doit plus être un indice")
 
     if errors:
         for error in errors:
-            print(f"ERROR: {error}")
+            print("ERROR:", error)
         return 1
-    print(f"Spatial adjustments valid: scent path {distance:.3f} m; 4 coordination requests recorded.")
+    print(f"Spatial adjustments valid: two shots, 6 cameras, scent path {distance:.3f} m; choices remain open.")
     return 0
 
 
