@@ -45,7 +45,7 @@
 |---|---|---|---|---|---|
 | `DLG_P_DUFAU_01` | DUFAU | Tiens, les deux inséparables. Elle a encore pris du muscle, celle-là. | Accueil bourru ; Dufau connaît le duo | bougon, affectueux |  |
 | `DLG_P_DUFAU_02` | HEROINE | Alors, ces mots croisés ? | Relance banale (Dufau fait ses mots croisés sur le banc) | détendue |  |
-| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole de l'autre, là ? Il est garé depuis une bonne demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer. | Première graine : le fourgon et son pot, sans insister | râleur |  |
+| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole qu'il a fait en arrivant, l'autre, là ? Un fourgon, entré dans la ruelle il y a une bonne demi-heure. Je suis passé devant en venant : il fume dans sa cabine, vitre baissée. Pas moyen de me concentrer. | Première graine : le fourgon et son pot, sans insister. Dufau l'a vu en passant, pas depuis son banc (la ruelle est invisible depuis le square) | râleur |  |
 | `DLG_P_DUFAU_04` | HEROINE | Vous exagérez. | Minimiser, comme le ferait n'importe qui | souriante |  |
 | `DLG_P_DUFAU_05` | DUFAU | Moi ? Jamais. | Clore avec humour | pince-sans-rire |  |
 
@@ -178,7 +178,7 @@
 | `DLG_C1_DUFAU_02B` | ↳ choix | C'était une livraison ? | → `DLG_C1_DUFAU_05` | |  |
 | `DLG_C1_DUFAU_02C` | ↳ choix | Et la plaque ? | → `DLG_C1_DUFAU_07` | |  |
 | `DLG_C1_DUFAU_02D` | ↳ choix | Cette caisse de poisson, là ? | → `DLG_C1_DUFAU_08` | | si CLU_CAISSE_POISSON |
-| `DLG_C1_DUFAU_03` | DUFAU | Il n'est pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise. | Le conducteur n'est pas sorti (utile pour PZ_02) | précis |  |
+| `DLG_C1_DUFAU_03` | DUFAU | Quand je suis passé devant, vers quatre heures, il n'était pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise. | Le conducteur n'est pas sorti (utile pour PZ_02) | précis |  |
 | `DLG_C1_DUFAU_04` | DUFAU | Il m'a fait penser à Franck, l'ancien de la blanchisserie. Mais je n'ai plus mes yeux de vingt ans, hein. Je ne veux accuser personne. | Piste K1, avec prudence | hésitant, honnête |  |
 | `DLG_C1_DUFAU_05` | DUFAU | Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien d'écrit. | Écarter la blanchisserie actuelle ; graine du lettrage retiré | catégorique |  |
 | `DLG_C1_DUFAU_06` | DUFAU | Et ce pot… Un cognement pareil, ça s'oublie pas. | Signature sonore | grimace |  |

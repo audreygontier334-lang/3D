@@ -41,16 +41,17 @@
 - ✅ Port hors de la scène d'ouverture.
 - ✅ Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs paisley blancs ; bandeau assorti pour l'héroïne.
 - ✅ Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D.
+- ✅ Un square avec un banc sur la place ; Dufau est assis sur ce banc (29/09).
 
 - **Lieu** 🟡 : Rue piétonne du centre-ville, puis arrivée sur la place de l'école (plan A). Centre-ville inspiré d'Arcachon. — décors `ENV_PROMENADE`, `ENV_ECOLE` ; zones `Z_PROMENADE`, `Z_TEMOINS`
 - **Moment et lumière** 🟡 : mardi, fin septembre, 16:25 → 16:26 ; fin d'après-midi, lumière chaude et basse, ombres longues ; météo : beau temps, léger vent dans les pins
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_DUFAU` sur son banc du square, mots croisés · 🟡 `FIGURANTS_PLACE` passants, commerçants ; densité au choix d'Audrey
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_DUFAU` assis sur le banc du square (décision d'Audrey) ; mots croisés (proposition) · 🟡 `FIGURANTS_PLACE` passants, commerçants ; densité au choix d'Audrey
 
 **Action**
 
 1. 🟡 La joueuse prend la main : marcher, trotter, changer de vue. Ariane marche librement à 1–3 m, flaire les pieds des bancs, revient au rappel.
 2. 🟡 Tutoriel doux, facultatif : ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! ».
-3. 🟡 Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une bonne demi-heure (première graine).
+3. 🟡 Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » entré dans la ruelle il y a une bonne demi-heure ; il l'a vu en passant devant (première graine).
 
 **Déplacements**
 
@@ -76,7 +77,7 @@
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_PROMENADE` (lieu) : Centre-ville inspiré d'Arcachon (décision d'Audrey). Proposition : rue piétonne commerçante et square avec banc.
+- ✅ `ENV_PROMENADE` (lieu) : Centre-ville inspiré d'Arcachon, square avec banc où Dufau est assis (décisions d'Audrey). Proposition : rue piétonne commerçante ; depuis le banc, vue sur la rue de l'École et l'angle de la ruelle, mais pas sur l'intérieur de la ruelle.
 - 🟡 `CHAR_DUFAU` (personnage) : Retraité, bob, journal de mots croisés, voix râpeuse.
 - 🟡 `ANIM_CHIENNE_LIBRE` (animation) : Marche libre, flair, retour au rappel, rapport de balle.
 

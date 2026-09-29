@@ -79,8 +79,8 @@
         {
           "id": "DLG_P_DUFAU_03",
           "speaker": "DUFAU",
-          "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une bonne demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer.",
-          "intent": "Première graine : le fourgon et son pot, sans insister",
+          "text": "Avec le boucan de casserole qu'il a fait en arrivant, l'autre, là ? Un fourgon, entré dans la ruelle il y a une bonne demi-heure. Je suis passé devant en venant : il fume dans sa cabine, vitre baissée. Pas moyen de me concentrer.",
+          "intent": "Première graine : le fourgon et son pot, sans insister. Dufau l'a vu en passant, pas depuis son banc (la ruelle est invisible depuis le square)",
           "emotion": "râleur"
         },
         {
@@ -609,7 +609,7 @@
         {
           "id": "DLG_C1_DUFAU_03",
           "speaker": "DUFAU",
-          "text": "Il n'est pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise.",
+          "text": "Quand je suis passé devant, vers quatre heures, il n'était pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise.",
           "intent": "Le conducteur n'est pas sorti (utile pour PZ_02)",
           "emotion": "précis"
         },

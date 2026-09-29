@@ -92,8 +92,8 @@
             },
             {
               "id": "CHAR_DUFAU",
-              "role": "sur son banc du square, mots croisés",
-              "statut": "proposition"
+              "role": "assis sur le banc du square (décision d'Audrey) ; mots croisés (proposition)",
+              "statut": "audrey"
             },
             {
               "id": "FIGURANTS_PLACE",
@@ -111,7 +111,7 @@
               "statut": "proposition"
             },
             {
-              "texte": "Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une bonne demi-heure (première graine).",
+              "texte": "Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » entré dans la ruelle il y a une bonne demi-heure ; il l'a vu en passant devant (première graine).",
               "statut": "proposition"
             }
           ],
@@ -160,8 +160,8 @@
             {
               "id": "ENV_PROMENADE",
               "type": "lieu",
-              "description": "Centre-ville inspiré d'Arcachon (décision d'Audrey). Proposition : rue piétonne commerçante et square avec banc.",
-              "statut": "proposition"
+              "description": "Centre-ville inspiré d'Arcachon, square avec banc où Dufau est assis (décisions d'Audrey). Proposition : rue piétonne commerçante ; depuis le banc, vue sur la rue de l'École et l'angle de la ruelle, mais pas sur l'intérieur de la ruelle.",
+              "statut": "audrey"
             },
             {
               "id": "CHAR_DUFAU",
@@ -192,7 +192,8 @@
             "Centre-ville inspiré de celui d'Arcachon, en fin d'après-midi.",
             "Port hors de la scène d'ouverture.",
             "Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs paisley blancs ; bandeau assorti pour l'héroïne.",
-            "Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D."
+            "Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D.",
+            "Un square avec un banc sur la place ; Dufau est assis sur ce banc (29/09)."
           ]
         },
         {

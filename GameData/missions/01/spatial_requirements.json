@@ -86,6 +86,12 @@
       "to": "Codex",
       "status": "proposition",
       "text": "Pendant P0–P1, toute position atteignable par la joueuse est à 110 m de marche au plus de l'entrée de la ruelle (règle de départ, mission.json prologue.departure_rule : 110 m à 5 m/s = 22 s ≤ 8 s de fenêtre + 30 s de retenue). Prévoir aussi le plan court CAM_DEPART_COURT (4 s, depuis l'entrée, plaque arrière lisible)."
+    },
+    {
+      "id": "REQ_SQUARE_BANC_DUFAU",
+      "to": "Codex",
+      "status": "decision_audrey_29_09",
+      "text": "Décision d'Audrey : un square avec un banc sur la place (plan A, Z_TEMOINS), Dufau assis sur ce banc (LOC_BANC_DUFAU). Proposition : depuis le banc, à hauteur d'yeux assis (≈ 1,2 m), on voit la rue de l'École devant l'école et l'angle d'entrée de la ruelle (passage du fourgon à 15 h 50), mais pas l'intérieur de la ruelle (l'abordage reste invisible). Le banc est sur le trajet de la promenade du duo (P0), à moins de 30 m du portail."
     }
   ],
   "elements": [
