@@ -42,8 +42,8 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_P_DUFAU_01` | DUFAU | Tiens, les deux inséparables. Elle a encore pris du muscle, celle-là. | Accueil bourru ; Dufau connaît le duo | bougon, affectueux |  |
-| `DLG_P_DUFAU_02` | HEROINE | Ça mord ? | Relance banale | détendue |  |
-| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Les poissons ont fui à Hossegor. | Première graine : le fourgon et son pot, sans insister | râleur |  |
+| `DLG_P_DUFAU_02` | HEROINE | Alors, ces mots croisés ? | Relance banale (Dufau fait ses mots croisés sur le banc) | détendue |  |
+| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer. | Première graine : le fourgon et son pot, sans insister | râleur |  |
 | `DLG_P_DUFAU_04` | HEROINE | Vous exagérez. | Minimiser, comme le ferait n'importe qui | souriante |  |
 | `DLG_P_DUFAU_05` | DUFAU | Moi ? Jamais. | Clore avec humour | pince-sans-rire |  |
 

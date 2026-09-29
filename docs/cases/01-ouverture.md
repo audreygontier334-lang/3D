@@ -269,7 +269,7 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Lieu | `ENV_ROND_POINT` *(nouveau)* | Rond-point à trois sorties panneautées + butte du skatepark | ch.1 | Moyenne |
 | Personnage | `CHAR_FILLETTE` | Lila, 9 ans : cartable à porte-clés renard, barrette à fleur | P1–P2 | Haute |
 | Personnage | `CHAR_RAVISSEURS` | K1 : ≈ 45 ans, casquette grise, barbe courte grisonnante, veste de travail grise. K2 : ≈ 40 ans, carré blond, lunettes, gilet bleu marine, cordon bleu avec badge | P2 | Haute |
-| Personnage | `CHAR_DUFAU` *(nouveau)* | Retraité, ancien pêcheur, bob, journal plié, voix râpeuse | P0, ch.1 | Moyenne |
+| Personnage | `CHAR_DUFAU` *(nouveau)* | Retraité, ancien pêcheur, bob, journal de mots croisés et stylo, voix râpeuse | P0, ch.1 | Moyenne |
 | Personnage | `CHAR_INES` *(nouveau)* | Ado, skate, téléphone | ch.1 | Moyenne |
 | Personnage | `CHAR_LARTIGUE` *(nouveau)* | Boulangère, tablier | ch.1 | Moyenne |
 | Personnage | `CHAR_CASTERAN` *(nouveau)* | Notaire, la soixantaine, élégante, foulard, ton posé | ch.1 | Haute |

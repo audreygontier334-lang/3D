@@ -2,7 +2,7 @@
 
 > **Statut : proposition de Claude, non canonique.** Rien dans ce document ne devient décision avant validation d'Audrey. Les éléments déjà validés sont repris de `docs/DECISIONS.md` et signalés ✅. Tout le reste est marqué 🟡 *proposition*.
 >
-> Noms : la protagoniste et sa chienne n'ont pas encore de nom de jeu. Les textes utilisent les jetons `{HEROINE}` et `Ariane`, remplacés par le moteur. Les autres noms sont provisoires.
+> Noms : la chienne s'appelle **Ariane** (décision d'Audrey), écrit en clair. Seule l'héroïne n'a pas encore de nom de jeu : les textes utilisent le jeton `{HEROINE}`, remplacé par le moteur. Les autres noms sont provisoires.
 
 ---
 
@@ -47,7 +47,7 @@ Retrouver la fillette n'est que le début. L'enlèvement n'avait rien d'un hasar
 | `NPC_NADIA` | Nadia Mercadier | Mère de Lila, élève seule sa fille | Agente des douanes au port de Bayonne. Elle a bloqué un conteneur aux documents falsifiés. Elle reçoit un message de chantage et le cache d'abord aux gendarmes |
 | `NPC_MENDIONDO` | Adjudante-cheffe Carole Mendiondo | Commandante de la brigade locale de gendarmerie | Compétente, sceptique envers les civils mais pragmatique ; devient une alliée exigeante |
 | `NPC_ARBELOT` | Capitaine Thomas Arbelot | Section de recherches, arrive au chapitre 2 | Dirige l'enquête judiciaire sur le réseau ; associe {HEROINE} comme témoin-clé |
-| `NPC_DUFAU` | Marcel Dufau | Retraité bougon, pêche au bord du courant | Connaît tous les véhicules du coin ; témoin fiable mais qui exagère |
+| `NPC_DUFAU` | Marcel Dufau | Retraité bougon, ancien pêcheur ; chaque après-midi sur son banc du square avec ses mots croisés | Connaît tous les véhicules du coin ; témoin fiable mais qui exagère |
 | `NPC_INES` | Inès Barrère, 15 ans | Ado au skatepark, filme ses figures | Sa vidéo contient le fourgon en arrière-plan, horodaté |
 | `NPC_LARTIGUE` | Josiane Lartigue | Boulangère | A servi l'inconnue vingt minutes avant l'enlèvement |
 | `NPC_CASTERAN` | Maître Hélène Casteran | Notaire du village, propriétaire de l'appartement de Nadia ; aimable, respectée | *Voir SPOILERS* |

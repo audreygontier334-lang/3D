@@ -30,8 +30,8 @@
     {"id": "DLG_P_DUFAU", "context": "Facultatif. {HEROINE} passe devant le banc de Dufau, dans le square des Tamaris.", "location": "LOC_BANC_DUFAU",
      "lines": [
        {"id": "DLG_P_DUFAU_01", "speaker": "DUFAU", "text": "Tiens, les deux inséparables. Elle a encore pris du muscle, celle-là.", "intent": "Accueil bourru ; Dufau connaît le duo", "emotion": "bougon, affectueux"},
-       {"id": "DLG_P_DUFAU_02", "speaker": "HEROINE", "text": "Ça mord ?", "intent": "Relance banale", "emotion": "détendue"},
-       {"id": "DLG_P_DUFAU_03", "speaker": "DUFAU", "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Les poissons ont fui à Hossegor.", "intent": "Première graine : le fourgon et son pot, sans insister", "emotion": "râleur"},
+       {"id": "DLG_P_DUFAU_02", "speaker": "HEROINE", "text": "Alors, ces mots croisés ?", "intent": "Relance banale (Dufau fait ses mots croisés sur le banc)", "emotion": "détendue"},
+       {"id": "DLG_P_DUFAU_03", "speaker": "DUFAU", "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer.", "intent": "Première graine : le fourgon et son pot, sans insister", "emotion": "râleur"},
        {"id": "DLG_P_DUFAU_04", "speaker": "HEROINE", "text": "Vous exagérez.", "intent": "Minimiser, comme le ferait n'importe qui", "emotion": "souriante"},
        {"id": "DLG_P_DUFAU_05", "speaker": "DUFAU", "text": "Moi ? Jamais.", "intent": "Clore avec humour", "emotion": "pince-sans-rire"}
      ]},

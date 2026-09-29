@@ -237,6 +237,8 @@ class TestDecisionsAudrey(unittest.TestCase):
         r"front de mer": "front de mer (hors champ en P0–P3)",
         r"\{CHIENNE\}": "jeton {CHIENNE} (la chienne s'appelle Ariane)",
         r"ENV_RUE_PORT|Z_RUE_PORT|Z_FRONT\b|LOC_FRONT_MER|LOC_CALE\b|ACT_LACHER": "ancien identifiant",
+        r"chienne n'ont pas encore de nom": "le nom d'Ariane est décidé",
+        r"ça mord|poissons ont fui|canne à pêche": "pêche de Dufau (il est dans le square, pas au bord de l'eau)",
     }
     # phrases qui énoncent justement la décision
     AUTORISES = ("ni laisse ni collier", "sans laisse ni collier", "ne suppose de laisse ni de collier",
