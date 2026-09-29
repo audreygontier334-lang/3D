@@ -72,8 +72,10 @@ require(surf is not None and surf["enabled_by_default"] is False,
         "surf must remain conditional until coastal distance is credible")
 
 shoes = spec["decision_guards"]["protagonist_shoes"]
-require(shoes["current_value"] == "baskets_blanches_epaisses",
-        "unvalidated wardrobe proposal must not replace docs/DECISIONS.md")
+require(shoes["current_value"] == "baskets_retro_running_noires_blanches_sans_marque",
+        "footwear must match Audrey's validated wardrobe choice")
+require(shoes["status"] == "validated_by_Audrey",
+        "validated footwear must not be marked as an unresolved proposal")
 require(spec["decision_guards"]["personal_photos"]["allowed_in_repository"] is False,
         "personal photos must remain excluded from the repository")
 
