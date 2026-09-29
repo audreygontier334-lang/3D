@@ -78,7 +78,8 @@ def build_plan():
         actors.append(actor)
 
     cameras = []
-    for name in manifest["validation"]["camera_nodes"]:
+    all_camera_ids = manifest["validation"]["camera_nodes"] + manifest["validation"]["fallback_camera_nodes"]
+    for name in all_camera_ids:
         node = nodes[name]
         camera = gltf["cameras"][node["camera"]]
         quaternion = node["rotation"]
@@ -128,6 +129,7 @@ def build_plan():
             "ordered_camera_ids": manifest["validation"]["camera_nodes"],
             "must_not_mutate_gameplay_state": True,
         },
+        "departure_fallback": manifest["validation"]["fallback_shot"],
         "audio_policy": manifest["audio_policy"],
         "decision_guards": manifest["decision_guards"],
         "limitations": [
