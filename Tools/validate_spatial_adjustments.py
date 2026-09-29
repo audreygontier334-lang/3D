@@ -39,6 +39,27 @@ def main():
         errors.append("le bracelet n'est pas sous la longueur du fourgon")
     if abs(clue[2] - (centre[2] + size[2] / 2)) > .05:
         errors.append("le bracelet n'est pas au droit de la portière")
+    if clue[0] < centre[0]:
+        errors.append("le bracelet est à l'arrière, pas dans la moitié avant de la portière coulissante")
+
+    exit_pos = nodes[accepted["alley_exit"]["node"]]["translation"]
+    door_to_exit = math.dist((clue[0], clue[2]), (exit_pos[0], exit_pos[2]))
+    if not 70 <= door_to_exit <= 100:
+        errors.append(f"débouché à {door_to_exit:.3f} m de la portière, hors plage 70-100 m")
+    entry = manifest["validation"]["departure_rule"]["alley_entry_m"]
+    approach = math.dist((entry[0], entry[2]), (origin[0], origin[2]))
+    if not 8 <= approach <= 12:
+        errors.append(f"abordage à {approach:.3f} m de l'entrée, au lieu d'environ 10 m")
+    gate = nodes["child_school_placeholder"]["translation"]
+    bench = nodes["bench_dufau"]["translation"]
+    bench_distance = math.dist((gate[0], gate[2]), (bench[0], bench[2]))
+    if bench_distance >= 30:
+        errors.append(f"banc de Dufau à {bench_distance:.3f} m du portail, doit être < 30 m")
+    sidewalk_z = nodes["alley_sidewalk_north"]["translation"][2]
+    sidewalk_half_width = nodes["alley_sidewalk_north"]["scale"][2] / 2
+    for name in ("child_alley_placeholder", "k2_placeholder"):
+        if abs(nodes[name]["translation"][2] - sidewalk_z) > sidewalk_half_width:
+            errors.append(f"{name} n'est pas sur le trottoir nord")
 
     shots = {shot["id"]: shot for shot in manifest["validation"]["shots"]}
     separation = accepted["separate_shots"]
@@ -49,11 +70,20 @@ def main():
 
     guards = data["guards"]
     required = ("no_narrative_choice_canonicalized", "no_private_photo_reference",
-                "lila_movement_wardrobe_hair_open", "place_activity_open", "van_appearance_open")
+                "lila_precise_route_open", "place_activity_open", "van_appearance_validated", "lila_appearance_validated")
     if not all(guards[name] for name in required):
         errors.append("une garde narrative, visuelle ou de vie privée est désactivée")
     if guards["opening_cameras"] != manifest["validation"]["camera_nodes"]:
         errors.append("les six caméras ne correspondent pas au manifeste")
+    if guards["fallback_cameras"] != manifest["validation"]["fallback_camera_nodes"]:
+        errors.append("la caméra de repli ne correspond pas au manifeste")
+    exit_contract = accepted["alley_exit"]
+    if exit_contract["status"] != "decision_Audrey_29_09" or exit_contract["sea_node"] not in nodes:
+        errors.append("la décision de mer lointaine n'est pas appliquée")
+    departure = accepted["departure_rule"]
+    if departure != {"maximum_distance_to_alley_entry_m": 110, "hold_max_s": 30,
+                      "fallback_camera": "CAM_DEPART_COURT", "fallback_duration_s": 4}:
+        errors.append("le contrat de départ ne correspond pas à la PR #4")
     if "barrette" in json.dumps(data, ensure_ascii=False).lower():
         errors.append("la barrette ne doit plus être un indice")
 
@@ -61,7 +91,7 @@ def main():
         for error in errors:
             print("ERROR:", error)
         return 1
-    print(f"Spatial adjustments valid: two shots, 6 cameras, scent path {distance:.3f} m; choices remain open.")
+    print(f"Spatial adjustments valid: two shots, 6 gameplay cameras + fallback, scent path {distance:.3f} m, exit {door_to_exit:.3f} m.")
     return 0
 
 
