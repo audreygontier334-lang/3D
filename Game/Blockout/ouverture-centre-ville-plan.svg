@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<metadata>source_sha256=053a158b74b26b2fed3241cfcca66a5c81599ca9bba88c034ad525d8d939846a</metadata>
+<rect width="100%" height="100%" fill="#f4f0e7"/>
+<style>text{font-family:Arial,sans-serif;fill:#20242a}.label{font-size:13px}.small{font-size:11px}.title{font-size:24px;font-weight:700}.zone{fill:none;stroke:#2f6e9f;stroke-width:2;stroke-dasharray:8 5}.camera{fill:#2c5b88;stroke:#16334f;stroke-width:1}</style>
+<text x="55" y="42" class="title">Ouverture P0–P3 — plan technique (vue du dessus)</text>
+<rect x="264.63" y="589.27" width="430.24" height="40.98" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>school_sidewalk</title></rect>
+<rect x="280.00" y="384.39" width="973.17" height="40.98" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>south_sidewalk</title></rect>
+<rect x="264.63" y="445.85" width="1024.39" height="122.93" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>east_road</title></rect>
+<rect x="899.76" y="410.00" width="102.44" height="379.02" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>cross_street</title></rect>
+<rect x="315.85" y="655.85" width="245.85" height="112.68" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_main</title></rect>
+<rect x="310.73" y="650.73" width="256.10" height="122.93" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>school_roof</title></rect>
+<rect x="482.88" y="628.24" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_left</title></rect>
+<rect x="534.10" y="628.24" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_right</title></rect>
+<rect x="116.10" y="328.05" width="153.66" height="92.20" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>west_shop</title></rect>
+<rect x="110.98" y="322.93" width="163.90" height="102.44" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>west_shop_roof</title></rect>
+<rect x="664.15" y="579.02" width="122.93" height="102.44" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>corner_house</title></rect>
+<rect x="659.02" y="573.90" width="133.17" height="112.68" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>corner_roof</title></rect>
+<rect x="1022.68" y="333.17" width="143.41" height="102.44" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>east_shop</title></rect>
+<rect x="1017.56" y="328.05" width="153.66" height="112.68" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>east_shop_roof</title></rect>
+<rect x="302.54" y="586.20" width="6.15" height="6.15" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_trunk_1</title></rect>
+<rect x="284.10" y="567.76" width="43.02" height="43.02" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_crown_1</title></rect>
+<rect x="886.44" y="371.07" width="6.15" height="6.15" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_trunk_2</title></rect>
+<rect x="868.00" y="352.63" width="43.02" height="43.02" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_crown_2</title></rect>
+<rect x="780.93" y="496.56" width="53.27" height="21.51" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>van_placeholder</title></rect>
+<text x="814.56" y="500.32" class="small">van_placeholder</text>
+<rect x="589.88" y="423.37" width="5.12" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>heroine_placeholder</title></rect>
+<text x="599.44" y="418.37" class="small">heroine_placeholder</text>
+<rect x="607.55" y="435.20" width="10.76" height="4.92" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>ariane_placeholder</title></rect>
+<text x="619.93" y="430.66" class="small">ariane_placeholder</text>
+<rect x="518.73" y="612.88" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_placeholder</title></rect>
+<text x="527.73" y="607.88" class="small">child_placeholder</text>
+<rect x="774.83" y="556.54" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_object_marker</title></rect>
+<text x="783.83" y="551.54" class="small">scent_object_marker</text>
+<rect x="846.54" y="597.51" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_clue_marker</title></rect>
+<text x="855.54" y="592.51" class="small">scent_clue_marker</text>
+<circle cx="592.44" cy="425.37" r="22.54" class="zone"><title>depart_Audrey_et_Ariane</title></circle>
+<text x="618.98" y="425.37" class="label">Z_PROMENADE</text>
+<circle cx="510.49" cy="620.00" r="22.54" class="zone"><title>sortie_des_classes</title></circle>
+<text x="537.02" y="620.00" class="label">Z_ECOLE</text>
+<circle cx="776.83" cy="558.54" r="22.54" class="zone"><title>premier_indice_olfactif</title></circle>
+<text x="803.37" y="558.54" class="label">Z_CROISEMENT</text>
+<circle cx="807.56" cy="507.32" r="22.54" class="zone"><title>trajectoire_du_fourgon</title></circle>
+<text x="834.10" y="507.32" class="label">Z_RUE_FUITE</text>
+<circle cx="428.54" cy="538.05" r="22.54" class="zone"><title>espace_public_et_temoin</title></circle>
+<text x="455.07" y="538.05" class="label">Z_PLACE</text>
+<circle cx="254.39" cy="435.61" r="22.54" class="zone"><title>position_des_PNJ_interrogeables</title></circle>
+<text x="280.93" y="435.61" class="label">Z_TEMOINS</text>
+<polygon points="596.54,394.88 587.54,412.88 605.54,412.88" class="camera"><title>CAM_SHOULDER</title></polygon>
+<text x="608.54" y="408.88" class="small">CAM_SHOULDER</text>
+<polygon points="571.95,333.41 562.95,351.41 580.95,351.41" class="camera"><title>CAM_WIDE</title></polygon>
+<text x="583.95" y="347.41" class="small">CAM_WIDE</text>
+<polygon points="592.44,415.37 583.44,433.37 601.44,433.37" class="camera"><title>CAM_FIRST</title></polygon>
+<text x="604.44" y="429.37" class="small">CAM_FIRST</text>
+<text x="55" y="874" class="small">Beige : bâtiments · gris : voirie · vert : végétation · rouge : sujets · orange : indices · cercles bleus : zones · triangles : caméras</text>
+<text x="1010" y="874" class="small">Échelle de travail : 1 m = 10.2 px</text>
+</svg>
