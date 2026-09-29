@@ -23,7 +23,7 @@ L'enlèvement n'avait rien d'un hasard. Le père de la fillette cache quelque ch
 ## 2. Le duo ✅ (caractéristiques validées) / 🟡 (caractérisation proposée)
 
 ### {HEROINE}
-- ✅ Femme brune d'une trentaine d'années, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs blancs, créoles, baskets rétro de running noires et blanches sans marque ; attitude naturelle et expression adaptée à la scène (référence : `docs/DECISIONS.md`, PR #3).
+- ✅ Femme brune d'une trentaine d'années, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs paisley blancs, créoles, baskets noires et blanches style Nike Air Max (sans logo ni nom de marque dans les assets) ; attitude naturelle et expression adaptée à la scène (référence : `docs/DECISIONS.md`, PR #3).
 - 🟡 Habite Lescoure depuis plusieurs années ; connaît les commerçants, les habitudes du port, les véhicules qui passent. Elle croise souvent Lila, la fillette, qui caresse Ariane à la sortie de l'école.
 - 🟡 Caractère : directe, obstinée, peu patiente avec les discours creux ; elle se méfie de ses propres impressions et apprend à les vérifier. Sa colère est un moteur, pas un défaut à punir.
 - 🟡 Statut : **civile et témoin**. Elle ne procède à aucune arrestation, ne fouille pas illégalement, ne délivre aucun mandat. Son rôle : observer, relier, convaincre les autorités d'agir au bon endroit.
@@ -31,7 +31,7 @@ L'enlèvement n'avait rien d'un hasard. Le père de la fillette cache quelque ch
 
 ### Ariane
 - ✅ Croisée malinois / bull terrier, environ 35 kg, beige fauve, masque et oreilles noirs, poitrail et bouts de pattes blancs, musclée, une oreille droite et l'autre tombante.
-- ✅ Libre dès le départ : **ni laisse ni collier** ; elle porte seulement un foulard noir à motifs blancs assorti au bandeau de {HEROINE}. Comportement naturel.
+- ✅ Libre dès le départ : **ni laisse ni collier** ; elle porte seulement un foulard noir à motifs paisley blancs assorti au bandeau de {HEROINE}. Comportement naturel.
 - 🟡 Chienne de compagnie **non dressée pour la police**, mais très éduquée : rappel, « au pied », « reste », « cherche », « montre ». Grande sensibilité aux émotions de sa maîtresse.
 - 🟡 **Capacités plausibles** : suivre la piste fraîche d'une personne à pied à partir d'un objet de référence ; retrouver un objet porteur d'une odeur ; signaler une personne cachée à courte distance ; réagir à un individu qu'elle a déjà senti.
 - 🟡 **Limites affichées au joueur** : elle ne suit pas un véhicule au-delà de quelques mètres ; la piste se dégrade avec le temps, la pluie, le bitume chaud et les passages nombreux ; elle peut se tromper de piste si l'objet de référence est contaminé ; elle ne « désigne » jamais un coupable. Une piste canine est une **orientation**, jamais une preuve juridique — les gendarmes le rappellent.
@@ -91,15 +91,15 @@ L'enlèvement n'avait rien d'un hasard. Le père de la fillette cache quelque ch
 | J-10 jours | À table, Nadia raconte que Lila rentre seule depuis la rentrée. Darrigade transmet l'itinéraire à « Sandrine ». |
 | J-2 | Loubère pose de fausses plaques, clonées sur un fourgon identique appartenant à un plombier de Dax. Il retire le lettrage de la blanchisserie ; il en reste une ombre. |
 | J 15 h 50 | Le fourgon passe devant l'école et se gare sur le bas-côté sablonneux de la ruelle des Tamaris, dans le sens de la descente. Dufau le remarque depuis son banc (pot d'échappement qui cogne). |
-| J 16 h 30 | « Sandrine » quitte l'abribus et va attendre à une dizaine de mètres dans la ruelle, hors de vue du portail. |
 | J 16 h 12 | « Sandrine » achète une bouteille d'eau à la boulangerie et demande « l'école de la petite Mercadier ». Elle laisse la bouteille sur le banc de l'abribus. |
-| J 16 h 36 | Dans la ruelle, « Sandrine » aborde Lila : « Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Elle connaît le prénom de Nadia. Lila la suit, hésitante. |
-| J 16 h 38 | Lila monte dans le fourgon. Le cordon du badge s'accroche à la portière et tombe dans la haie. Le fourgon descend la ruelle, tourne sur le boulevard, puis prend au rond-point du Lac la route des Étangs. |
-| J 16 h 38 | Casteran, sur son perron, voit le fourgon descendre la ruelle mais pas le boulevard ; elle **suppose** qu'il a tourné vers la Corniche et l'affirme de bonne foi. |
-| J 16 h 39 | Vidéo d'Inès : le fourgon au rond-point, sortie route des Étangs. |
-| J 16 h 48 | Caméra du Relais du Lac : le fourgon (plaque « …37-TR ») prend la fourche de l'étang de Sorbe. |
-| J 16 h 58 | Un autre fourgon, d'un autre modèle, passe au péage de l'A63 ; un agent le signale à tort à 17 h 15. |
-| J 17 h 05 | Arrivée à l'airial de Hount-Bielha, rive est de l'étang de Sorbe (SCI des Pins de Sorbe). |
+| J 16 h 22 | « Sandrine » quitte l'abribus et va attendre à une dizaine de mètres dans la ruelle, hors de vue du portail. |
+| J 16 h 28 | Dans la ruelle, « Sandrine » aborde Lila : « Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Elle connaît le prénom de Nadia. Lila la suit, hésitante, puis refuse de monter tant qu'elle n'a pas « appelé maman » : « Sandrine » fait semblant de téléphoner à Nadia. |
+| J 16 h 30 ✅ | Lila monte dans le fourgon (heure décidée par Audrey : vers 16 h 30). Son bracelet en perles casse et tombe au pied de la portière. Le cordon du badge s'accroche à la portière et tombe dans la haie. Le fourgon descend la ruelle, tourne sur le boulevard, puis prend au rond-point du Lac la route des Étangs. |
+| J 16 h 30 | Casteran, sur son perron, voit le fourgon descendre la ruelle mais pas le boulevard ; elle **suppose** qu'il a tourné vers la Corniche et l'affirme de bonne foi. |
+| J 16 h 31 | Vidéo d'Inès : le fourgon au rond-point, sortie route des Étangs. |
+| J 16 h 40 | Caméra du Relais du Lac : le fourgon (plaque « …37-TR ») prend la fourche de l'étang de Sorbe. |
+| J 16 h 50 | Un autre fourgon, d'un autre modèle, passe au péage de l'A63 ; un agent le signale à tort à 17 h 15. |
+| J 16 h 57 | Arrivée à l'airial de Hount-Bielha, rive est de l'étang de Sorbe (SCI des Pins de Sorbe). |
 | J 17 h 30 | Julien arrive de Bayonne ; Nadia et Darrigade arrivent à 17 h 35. |
 | J 17 h 35 | « Sandrine » photographie Lila, fenêtre face à l'étang, soleil couchant dans l'axe. |
 | J 17 h 40 | Julien reçoit le message : « Tu voulais partir. Un dernier voyage, jeudi 6 h, et tu la revois. Pas de police. Elle va bien. » avec la photo. |

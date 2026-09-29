@@ -97,7 +97,7 @@
 
 **Test de cohérence.**
 - Le badge est placé dans la haie, à la hauteur de la portière latérale, côté trottoir.
-- Le ticket indique 16 h 12, compatible avec `CLU_TEMOIN_LARTIGUE` et avec l'abordage à 16 h 36.
+- Le ticket indique 16 h 12, compatible avec `CLU_TEMOIN_LARTIGUE` et avec l'abordage à 16 h 28.
 - Le badge reste accessible jusqu'à la fin du chapitre (aucun passant ne le déplace).
 
 ---
@@ -121,7 +121,7 @@
 2. « Place-toi sur le perron. Que vois-tu vraiment d'ici ? »
 3. « Regarde le bout de la ruelle depuis le perron. Vois-tu le boulevard ? Si tu ne vois pas de quel côté on tourne, elle non plus. »
 
-**Fausse piste loyale.** L'assurance et la respectabilité de la notaire. Et, dans la vidéo d'Inès, un camping-car qui part vers la Corniche à 16:39:16 (voir PZ_04).
+**Fausse piste loyale.** L'assurance et la respectabilité de la notaire. Et, dans la vidéo d'Inès, un camping-car qui part vers la Corniche à 16:31:16 (voir PZ_04).
 
 **Conséquence d'erreur.** Croire Casteran mène à présenter « Corniche nord » (`BR_ERR_NORD`, +25 min, `CLU_NEG_NORD`).
 
@@ -141,14 +141,14 @@
 
 **Données remises.**
 - Dialogue de persuasion (`DLG_C1_INES_*`) : Inès a peur que ses parents apprennent qu'elle devait être à l'étude. Deux approches réussissent : rassurer (« personne ne te reprochera d'aider ») ou l'impliquer (« tu as peut-être filmé la seule image du fourgon »). La menace (« les gendarmes vont saisir ton téléphone ») la braque ; elle part (rattrapage à 19 h).
-- `CLU_VIDEO_INES` : 12 s, horodatée 16:39:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis le boulevard (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
-  - 16:39:12 : le fourgon entre, passe devant la sortie D652 **sans** la prendre ;
-  - 16:39:13–14 : masqué par le skateur ;
-  - 16:39:15 : arrière du fourgon sur la route des Étangs, derrière le panneau « Étang de Sorbe 14 » ; plaque arrière partiellement lisible « ··-·37-TR » ; le cognement du pot est audible ;
-  - 16:39:16 : un **camping-car** (toit haut, porte-vélos, plaque masquée par les vélos) s'éloigne vers la Corniche.
+- `CLU_VIDEO_INES` : 12 s, horodatée 16:31:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis le boulevard (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
+  - 16:31:12 : le fourgon entre, passe devant la sortie D652 **sans** la prendre ;
+  - 16:31:13–14 : masqué par le skateur ;
+  - 16:31:15 : arrière du fourgon sur la route des Étangs, derrière le panneau « Étang de Sorbe 14 » ; plaque arrière partiellement lisible « ··-·37-TR » ; le cognement du pot est audible ;
+  - 16:31:16 : un **camping-car** (toit haut, porte-vélos, plaque masquée par les vélos) s'éloigne vers la Corniche.
 - `CLU_PLAN_DISTANCES` pour le nom des sorties.
 
-**Solution et raisonnement.** Le fourgon ne prend pas la D652 (visible à 16:39:12), réapparaît sur la route des Étangs à 16:39:15. Le véhicule qui part vers la Corniche est un camping-car : silhouette différente, porte-vélos, pas de plaque « 37-TR », pas de cognement. **Ce raisonnement ne dépend ni de la couleur ni du modèle exact du fourgon.** `DED_SORTIE_ETANGS`.
+**Solution et raisonnement.** Le fourgon ne prend pas la D652 (visible à 16:31:12), réapparaît sur la route des Étangs à 16:31:15. Le véhicule qui part vers la Corniche est un camping-car : silhouette différente, porte-vélos, pas de plaque « 37-TR », pas de cognement. **Ce raisonnement ne dépend ni de la couleur ni du modèle exact du fourgon.** `DED_SORTIE_ETANGS`.
 
 **Indices progressifs.**
 1. « Repasse la vidéo image par image. Où est le fourgon juste avant et juste après le passage du skateur ? »
@@ -163,7 +163,7 @@
 
 **Test de cohérence.**
 - Le signal sonore du pot est doublé par un indice visuel (échappement qui tremble, fumée) pour les joueurs sans son.
-- Les horodatages sont compatibles : départ de la portière 16:38:05, débouché de la ruelle ≈ 16:38:17, boulevard ≈ 300 m, rond-point 16:39:12, Relais du Lac (9 km) 16:48.
+- Les horodatages sont compatibles : départ de la portière 16:30:05, débouché de la ruelle ≈ 16:30:17, boulevard ≈ 300 m, rond-point 16:31:12, Relais du Lac (9 km) 16:40.
 
 ---
 
@@ -177,7 +177,7 @@
 - `CLU_PHOTO_FOURGON` (si photo prise immobile) : « GF-4·7-·· » — la terre cache le chiffre du milieu et la fin.
 - `CLU_VIDEO_INES` : « ··-·37-TR ».
 - `CLU_TEMOIN_DUFAU` : « une plaque des Landes, 40 ».
-- Résultat `CLU_SIV_CLONE` : la plaque GF-437-TR est celle d'un fourgon du même modèle appartenant à un plombier de Dax ; le véhicule, équipé d'un traceur de flotte, se trouvait chez un client à Dax à 16 h 38.
+- Résultat `CLU_SIV_CLONE` : la plaque GF-437-TR est celle d'un fourgon du même modèle appartenant à un plombier de Dax ; le véhicule, équipé d'un traceur de flotte, se trouvait chez un client à Dax à 16 h 30.
 
 **Solution et raisonnement.** Combinaison des fragments : **GF-437-TR** (les positions se recoupent : 4-?-7 et ?-3-7 → 437). Le propriétaire légitime était à 50 km : la plaque est **clonée**. Le véhicule n'est pas celui du plombier. `DED_PLAQUE_CLONEE`.
 
@@ -205,7 +205,7 @@
 **Objectif.** Découvrir à qui a appartenu le fourgon.
 
 **Données remises.**
-- Selon les actions du prologue, au moins une source de lettrage : `CLU_PHOTO_FOURGON`, `CLU_PHOTO_FLOUE`, `CLU_VIDEO_INES` (image 16:39:15 : « ··ANCHISS·· »).
+- Selon les actions du prologue, au moins une source de lettrage : `CLU_PHOTO_FOURGON`, `CLU_PHOTO_FLOUE`, `CLU_VIDEO_INES` (image 16:31:15 : « ··ANCHISS·· »).
   - Lettrage complet reconstituable : « BL·NCH·SS·RIE OC·A·· » et « 05 58 ·7 ·0 12 » (photo nette).
 - `CLU_FLYER_BLANCHISSERIE` : « Blanchisserie Océane — livraison de linge aux professionnels — 05 58 47 30 12 », photo de « notre équipe de livraison ».
 - `CLU_FLYER_PRESSING` : « Blanchisserie du Courant — pressing, dépôt en boutique — 05 58 41 22 12 ».
@@ -222,7 +222,7 @@
 
 **Conséquence d'erreur.** Présenter « fourgon actuel de la blanchisserie » : `BR_ERR_VEHICULE`, +15 min ; le planning de la blanchisserie (`CLU_NEG_VEHICULE`) confirme que ses fourgons étaient au dépôt.
 
-**Rattrapage.** Le lettrage partiel de la vidéo d'Inès (toujours obtenable) suffit à écarter le pressing (« ANCHISS » + « OC » visible sur la porte arrière à 16:39:15 en zoom). Une fois `DED_LETTRAGE` établie, l'appel à la blanchisserie (`CLU_APPEL_BLANCHISSERIE`) apprend que le fourgon réformé a été vendu aux enchères il y a huit mois à Sud Loc Services, et récupéré par **Franck Loubère**, ancien livreur licencié. La photo d'équipe du prospectus montre un homme à casquette grise que Dufau reconnaît : `DED_K1_LOUBERE` (optionnelle).
+**Rattrapage.** Le lettrage partiel de la vidéo d'Inès (toujours obtenable) suffit à écarter le pressing (« ANCHISS » + « OC » visible sur la porte arrière à 16:31:15 en zoom). Une fois `DED_LETTRAGE` établie, l'appel à la blanchisserie (`CLU_APPEL_BLANCHISSERIE`) apprend que le fourgon réformé a été vendu aux enchères il y a huit mois à Sud Loc Services, et récupéré par **Franck Loubère**, ancien livreur licencié. La photo d'équipe du prospectus montre un homme à casquette grise que Dufau reconnaît : `DED_K1_LOUBERE` (optionnelle).
 
 **Test de cohérence.** Le lettrage visible dans chaque source est un sous-ensemble du lettrage réel ; aucune source ne montre une lettre contradictoire.
 
@@ -232,19 +232,19 @@
 
 **Contexte 3D.** Poste de commandement ; radio des gendarmes ; carte murale et plan touristique.
 
-**Objectif.** Évaluer le signalement d'un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 58 (`CLU_SIGNALEMENT_PEAGE`, reçu à 17 h 15).
+**Objectif.** Évaluer le signalement d'un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 50 (`CLU_SIGNALEMENT_PEAGE`, reçu à 17 h 15).
 
 **Données remises.**
-- Signalement : fourgon « correspondant au signalement », péage de l'A63, 16 h 58, direction Espagne ; plaque non relevée.
-- `CLU_VIDEO_INES` : le fourgon est au rond-point à 16:39:12.
+- Signalement : fourgon « correspondant au signalement », péage de l'A63, 16 h 50, direction Espagne ; plaque non relevée.
+- `CLU_VIDEO_INES` : le fourgon est au rond-point à 16:31:12.
 - `CLU_PLAN_DISTANCES` : rond-point → péage A63 : 32 km, environ 28 min.
-- Optionnel : `CLU_CCTV_RELAIS` (fourgon au Relais du Lac à 16 h 48).
+- Optionnel : `CLU_CCTV_RELAIS` (fourgon au Relais du Lac à 16 h 40).
 
-**Solution et raisonnement.** 16 h 39 + 28 min = 17 h 07 au plus tôt. Pour être au péage à 16 h 58, il aurait fallu rouler à près de 100 km/h de moyenne sur une départementale qui traverse deux villages : invraisemblable. Et s'il a pris la route des Étangs (PZ_04), il n'était même pas sur la bonne route. Si la vidéo du Relais est connue, l'incompatibilité est totale. Le fourgon du péage est un autre véhicule. `DED_PEAGE_EXCLU`.
+**Solution et raisonnement.** 16 h 31 + 28 min = 16 h 59 au plus tôt. Pour être au péage à 16 h 50, il aurait fallu rouler à près de 100 km/h de moyenne sur une départementale qui traverse deux villages : invraisemblable. Et s'il a pris la route des Étangs (PZ_04), il n'était même pas sur la bonne route. Si la vidéo du Relais est connue, l'incompatibilité est totale. Le fourgon du péage est un autre véhicule. `DED_PEAGE_EXCLU`.
 
 **Indices progressifs.**
 1. « À quelle heure le fourgon était-il au rond-point ? Et combien de temps faut-il pour aller au péage ? »
-2. « Additionne. Est-il arrivé avant ou après 16 h 58 ? »
+2. « Additionne. Est-il arrivé avant ou après 16 h 50 ? »
 3. « Un fourgon qui prend la route des Étangs peut-il être sur la D652 en même temps ? »
 
 **Fausse piste loyale.** Le signalement officiel, par radio, qui semble décisif et que les gendarmes prennent au sérieux.

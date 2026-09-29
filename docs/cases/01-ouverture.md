@@ -10,16 +10,18 @@
 > - Ambiance architecturale de la ruelle validée : maisons variées, d'époques différentes, couleurs, clôtures et haies différentes.
 > - **Non validés** : le déplacement précis de Lila, sa tenue et ses cheveux (voir §3.5, continuité de Lila).
 > - Le niveau d'animation de la place de l'école et **l'apparence du fourgon** seront choisis pendant la construction 3D : **aucun indice indispensable n'en dépend** (vérifié par le validateur).
-> - Ariane est libre, sans laisse ni collier, foulard noir à motifs blancs.
+> - Ariane est libre, sans laisse ni collier, foulard noir à motifs paisley blancs ; l'héroïne porte un bandeau assorti et des baskets noires et blanches style Nike Air Max (sans logo ni nom de marque).
+> - **Au bout de la ruelle, on voit la mer au loin** (choix V3, 29/09) ; le port reste hors champ.
+> - **L'enlèvement a lieu vers 16 h 30** (29/09). Les minutes exactes de la chronologie ci-dessous sont des propositions.
 > - Q1 : pression sur le père, Julien ; la mère, Nadia, arrive après et ignore tout. Q2 : le compagnon de Nadia dirige le réseau (nom « Xavier Darrigade » provisoire) ; Casteran est de bonne foi. Q3 : Lila est retrouvée au chapitre 4.
 
 ---
 
 ## 0. En une page (à lire en premier)
 
-1. **16 h 33 — la place.** La joueuse prend la main dans la rue piétonne avec Ariane, libre à ses côtés, et arrive sur la place de l'école. Tutoriel doux (marcher, changer de vue, ordres à Ariane). Sonnerie ; Lila sort, fait coucou à Ariane, puis part seule vers la ruelle des Tamaris, son chemin habituel.
-2. **16 h 36 — la ruelle.** Le duo suit sa promenade habituelle vers l'océan, qui passe par la même ruelle. En arrivant à l'entrée, la joueuse voit, une vingtaine de mètres plus loin, une femme au badge marcher avec Lila vers un fourgon garé sur le bas-côté. Lila hésite, se retourne et appelle Ariane. Fenêtre d'action de 8 à 12 s : photographier, courir, crier le prénom de Lila, envoyer Ariane (deux actions au plus). **Le fourgon part toujours**, descend la ruelle et tourne au bout, hors de vue.
-3. **16 h 39 → 19 h 30 — le chapitre 1.** Appel au 17, gendarmes, témoins qui se contredisent ; arrivée du père qui cache un message, de la mère qui ne sait rien et de son compagnon qui console tout le monde. Chaque action coûte du temps de jeu. La joueuse établit trois conclusions distinctes : **véhicule** (par la plaque), **personnes**, **destination**.
+1. **16 h 25 — la place.** La joueuse prend la main dans la rue piétonne avec Ariane, libre à ses côtés, et arrive sur la place de l'école. Tutoriel doux (marcher, changer de vue, ordres à Ariane). Sonnerie ; Lila sort, fait coucou à Ariane, puis part seule vers la ruelle des Tamaris, son chemin habituel.
+2. **16 h 28 — la ruelle.** Le duo suit sa promenade habituelle vers l'océan, qui passe par la même ruelle. En arrivant à l'entrée, la joueuse voit, une vingtaine de mètres plus loin, une femme au badge marcher avec Lila vers un fourgon garé sur le bas-côté. Devant la portière, Lila refuse de monter tant qu'elle n'a pas « appelé maman » ; la femme fait semblant de téléphoner. Lila se retourne et appelle Ariane. Fenêtre d'action de 8 à 12 s : photographier, courir, crier le prénom de Lila, envoyer Ariane (deux actions au plus). **Le fourgon part toujours**, descend la ruelle et tourne au bout, hors de vue.
+3. **16 h 31 → 19 h 30 — le chapitre 1.** Appel au 17, gendarmes, témoins qui se contredisent ; arrivée du père qui cache un message, de la mère qui ne sait rien et de son compagnon qui console tout le monde. Chaque action coûte du temps de jeu. La joueuse établit trois conclusions distinctes : **véhicule** (par la plaque), **personnes**, **destination**.
 4. **Résolution.** Le tableau présenté à l'adjudante-cheffe Mendiondo déclenche le dispositif vers l'étang de Sorbe. Une bonne déduction rapide donne de meilleures traces au chapitre 2 (Lila, elle, a déjà été déplacée). **Aucun échec définitif.**
 
 ---
@@ -32,8 +34,8 @@ Coordonnées indicatives de la maquette glTF de Codex (PR #3) : mètres, X vers 
 
 ```
 PLAN A — LA PLACE DE L'ÉCOLE (animée, ouverte)            PLAN B — LA RUELLE DES TAMARIS (isolée)
-                                                           orientée vers l'océan ; son débouché
-  Z_TEMOINS          Z_PLACE           Z_ECOLE             donne sur le boulevard (hors champ)
+                                                           orientée vers la mer ; au débouché,
+  Z_TEMOINS          Z_PLACE           Z_ECOLE             la mer au loin ; boulevard hors champ
   square, banc de    place de l'Église portail de l'école
   Dufau,             étude Casteran    abribus, plan              ← vers l'océan
   boulangerie        (perron),         touristique        ┌──────────────────────────────────┐
@@ -47,7 +49,7 @@ PLAN A — LA PLACE DE L'ÉCOLE (animée, ouverte)            PLAN B — LA RUEL
      boulevard (hors champ) → rond-point du Lac (≈ 300 m) : sorties Corniche (nord), route des Étangs (est), D652 (sud)
 ```
 
-La mer et le port existent mais **ne sont pas des lieux jouables dans P0–P3**. Au bout de la ruelle, on devine seulement la lumière du côté de l'océan (proposition ; ce que l'on voit exactement au débouché est un choix visuel ouvert, voir `docs/narrative/DECOUPAGE_SCENES.md`, choix V3).
+La mer et le port existent mais **ne sont pas des lieux jouables dans P0–P3**. ✅ **Au bout de la ruelle, on voit la mer au loin** (décision d'Audrey, choix V3). Proposition : une bande de mer au-dessus du boulevard, dont la chaussée reste masquée par la pente, un muret ou les maisons d'angle, pour que l'énigme du perron (PZ_03) reste valable. Le port n'est pas visible.
 
 ### 1.2 Lieux
 
@@ -59,7 +61,7 @@ La mer et le port existent mais **ne sont pas des lieux jouables dans P0–P3**.
 | `LOC_BANC_DUFAU` | Banc de Dufau, square | `Z_TEMOINS` | Témoin Dufau (a vu le fourgon passer devant l'école et entrer dans la ruelle) | Toujours |
 | `LOC_BOULANGERIE` | Boulangerie Lartigue | `Z_TEMOINS` | Témoin ; tableau de liège | Jusqu'à 19 h 30 |
 | `LOC_ETUDE_CASTERAN` | Perron de l'étude notariale | `Z_PLACE` | Témoin Casteran ; test de ligne de vue sur la ruelle | Toujours |
-| `LOC_POSTE` | Véhicule de commandement des gendarmes | `Z_PLACE` | Famille, résultats, tableau d'hypothèses | À partir de 16 h 52 |
+| `LOC_POSTE` | Véhicule de commandement des gendarmes | `Z_PLACE` | Famille, résultats, tableau d'hypothèses | À partir de 16 h 44 |
 | `LOC_COIN_ECOLES` | **Entrée de la ruelle des Tamaris** (angle avec la rue de l'École) | `Z_CROISEMENT` | Point de vue de la joueuse pendant l'alerte ; à 10 m dans la ruelle : abordage, porte-clés de Lila | Toujours |
 | `LOC_ACCOTEMENT` | **Ruelle des Tamaris** : bas-côté sablonneux et haie | `Z_RUE_FUITE` | Stationnement du fourgon ; traces, mégots, bracelet, badge dans la haie | Toujours |
 | `LOC_SKATEPARK` | Butte du skatepark, près du rond-point | `Z_RUE_FUITE` (prolongement) | Témoin Inès ; vue sur le rond-point | Toujours |
@@ -90,38 +92,45 @@ La chronologie cachée complète est dans `BIBLE.md` §5.
 
 | Heure | Événement | Où | ID |
 |---|---|---|---|
-| 16 h 33 | Prise en main dans la rue piétonne, Ariane libre à côté de {HEROINE} | Plan A | `EVT_START` |
-| 16 h 34 | Sonnerie ; enfants au portail | Plan A | `EVT_SONNERIE` |
-| 16 h 35 | Lila sort, fait coucou à Ariane, part seule vers la ruelle | Plan A | `EVT_LILA_COUCOU` |
-| 16 h 35 min 40 | Lila tourne dans la ruelle et sort du champ de la place | A → B | — |
-| 16 h 36 | Dans la ruelle, à 10 m de l'entrée, une femme au cordon bleu aborde Lila | Plan B | `EVT_ABORDAGE` |
-| 16 h 37 | Elles marchent jusqu'au fourgon garé sur le bas-côté | Plan B | `EVT_MARCHE_FOURGON` |
-| 16 h 37 min 50 (ou plus tôt, voir règle) | **Alerte** : Lila, devant la portière, voit Ariane à l'entrée de la ruelle et l'appelle ; Ariane grogne | Plan B | `EVT_ALERTE` |
-| + 8 à 12 s | La femme fait monter Lila, portière claquée, départ | Plan B | `EVT_DEPART` |
+| 16 h 25 | Prise en main dans la rue piétonne, Ariane libre à côté de {HEROINE} | Plan A | `EVT_START` |
+| 16 h 26 | Sonnerie ; enfants au portail | Plan A | `EVT_SONNERIE` |
+| 16 h 27 | Lila sort, fait coucou à Ariane, part seule vers la ruelle | Plan A | `EVT_LILA_COUCOU` |
+| 16 h 27 min 40 | Lila tourne dans la ruelle et sort du champ de la place | A → B | — |
+| 16 h 28 | Dans la ruelle, à 10 m de l'entrée, une femme au cordon bleu aborde Lila | Plan B | `EVT_ABORDAGE` |
+| 16 h 28 min 40 | Elles marchent jusqu'au fourgon garé sur le bas-côté (≈ 25 s) | Plan B | `EVT_MARCHE_FOURGON` |
+| ≈ 16 h 29 | Devant la portière, Lila refuse de monter : « Je veux appeler maman d'abord. » La femme fait semblant d'appeler Nadia et négocie (`DLG_P_ABORDAGE_04–06`) | Plan B | — |
+| 16 h 29 min 50 (ou plus tôt, voir règle) | **Alerte** : Lila, devant la portière, voit Ariane à l'entrée de la ruelle et l'appelle ; Ariane grogne | Plan B | `EVT_ALERTE` |
+| + 8 à 12 s (≈ 16 h 30) | La femme fait monter Lila, portière claquée, départ ; le bracelet de Lila casse et tombe au pied de la portière (non montré) | Plan B | `EVT_DEPART` |
 | + 12 s | Le fourgon atteint le bout de la ruelle et tourne, hors de vue | Plan B | `EVT_HORS_VUE` |
-| 16 h 39 | Début du chapitre 1 (« Appeler le 17 » mis en avant) | Plan B | `EVT_CH1_START` |
+| 16 h 31 | Début du chapitre 1 (« Appeler le 17 » mis en avant) | Plan B | `EVT_CH1_START` |
 
-**Règle de déclenchement de l'alerte (proposition)** : l'alerte se produit dès que la joueuse (ou Ariane) arrive à moins de 5 m de l'entrée de la ruelle, et **au plus tard à 16 h 38 min 30**. Si la joueuse est ailleurs à ce moment-là, Ariane s'élance vers la ruelle en aboyant ; la joueuse entend Lila appeler et le démarrage du fourgon, et arrive à l'entrée à temps pour le voir descendre la ruelle pendant au moins 4 secondes (la plaque arrière reste lisible, voir §3.3). **Règle d'accélération** : si le duo s'approche à moins de 12 m du couple avant l'alerte, la femme presse Lila et le départ est avancé.
+**Règle de déclenchement de l'alerte (proposition)** : l'alerte se produit dès que la joueuse (ou Ariane) arrive à moins de 5 m de l'entrée de la ruelle, et **au plus tard à 16 h 30**. Jusqu'à l'alerte, c'est le refus de Lila (faux appel de la femme) qui retient le fourgon : l'attente devant la portière dure moins d'une minute et a une raison visible. Si la joueuse est ailleurs à 16 h 30, Ariane s'élance vers la ruelle en aboyant et Lila crie « Ariane ! ». **Règle d'accélération** : si le duo s'approche à moins de 12 m du couple avant l'alerte, la femme presse Lila et le départ est avancé.
+
+**Règle de départ (proposition, vérifiée par le validateur)** — `mission.json`, `prologue.departure_rule` :
+- le départ a lieu 8 à 12 s après l'alerte, **mais il est retenu** (Lila résiste, la femme insiste) tant que la joueuse n'est pas à moins de 5 m de l'entrée de la ruelle, **30 s au plus** ;
+- la position la plus éloignée atteignable pendant P0–P1 est à 110 m de l'entrée (demande `REQ_PROLOGUE_DISTANCE_ENTREE`) : en courant (5 m/s), 22 s, donc toujours dans les 38 s disponibles ;
+- si la joueuse ne vient pas malgré tout (elle reste immobile), un **plan court non interactif de 4 s** (`CAM_DEPART_COURT`, depuis l'entrée) montre le départ, plaque arrière lisible, puis rend le contrôle ; dans ce cas, aucune action de fenêtre n'est acquise ;
+- le fourgon met ≈ 12 s pour atteindre le bout de la ruelle : même dans le pire cas (alerte à 16 h 30, fenêtre de 12 s, 30 s de retenue), il est hors de vue avant 16 h 31, début du chapitre 1. Avec l'option d'accessibilité, l'horloge du chapitre 1 démarre quand même à 16 h 31.
 
 ---
 
 ## 3. Prologue jouable
 
-### 3.1 Séquence P0 — La place de l'école (16 h 33 – 16 h 35 min 40) — plan A
+### 3.1 Séquence P0 — La place de l'école (16 h 25 – 16 h 27 min 40) — plan A
 
 Objectifs doux (facultatifs) :
 - marcher, trotter, changer de vue (`CAM_SHOULDER`, `CAM_WIDE`, `CAM_FIRST`) ;
 - ordres à Ariane : « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! » ; elle revient au rappel ;
-- saluer Dufau sur son banc (`DLG_P_DUFAU_*`) : il grommelle à propos du fourgon « qui fait un boucan de casserole » et qui s'est garé dans la ruelle « depuis une demi-heure » — **première graine**, sans insistance ;
+- saluer Dufau sur son banc (`DLG_P_DUFAU_*`) : il grommelle à propos du fourgon « qui fait un boucan de casserole » et qui s'est garé dans la ruelle « depuis une bonne demi-heure » — **première graine**, sans insistance ;
 - voir Lila sortir et faire coucou (`EVT_LILA_COUCOU`) ; Ariane remue la queue ; si la joueuse répond, Lila sourit (`DLG_P_LILA_*`).
 
 Le niveau d'animation de la place (nombre de parents, d'enfants, de voitures) est un **choix visuel ouvert d'Audrey** ; aucun indice n'en dépend. Seule contrainte : Lila doit rester repérable pendant au moins 3 s au portail et pendant sa marche vers l'angle de la ruelle, dans les trois vues.
 
-### 3.2 Séquence P1 — Vers la ruelle, l'abordage (16 h 35 min 40 – alerte) — transition A → B
+### 3.2 Séquence P1 — Vers la ruelle, l'abordage (16 h 27 min 40 – alerte) — transition A → B
 
 - Lila sort du champ de la place en tournant dans la ruelle ; la joueuse ne voit **pas** l'abordage depuis la place (décision : l'enlèvement a lieu dans la ruelle isolée).
 - Le duo poursuit sa promenade habituelle, qui passe par la ruelle pour rejoindre l'océan (proposition). Ariane trotte devant vers l'angle : guidage doux, sans obligation.
-- En arrivant à l'entrée de la ruelle, la joueuse découvre la scène à ≈ 20–30 m : une femme au badge tient Lila par la main et marche avec elle vers un fourgon garé sur le bas-côté. Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.
+- En arrivant à l'entrée de la ruelle, la joueuse découvre la scène à ≈ 20–30 m : une femme au badge tient Lila par la main et marche avec elle vers un fourgon garé sur le bas-côté, ou se tient déjà devant la portière pendant que Lila refuse de monter (faux appel). Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.
 - Répliques de l'abordage (`DLG_P_ABORDAGE_*`) audibles seulement à moins de 30 m ; sinon, gestes seuls.
 
 ### 3.3 Séquence P2 — La fenêtre d'action (alerte → hors de vue) — plan B
@@ -142,7 +151,7 @@ Au moment `EVT_ALERTE`, une **invite contextuelle discrète** apparaît (pas de 
 - **Orientation (proposition)** : le fourgon est garé **dans le sens de la descente**, arrière tourné vers l'entrée de la ruelle. La plaque arrière est donc face à la joueuse pendant toute la scène et pendant le départ : c'est ce qui rend la photo possible **quel que soit l'aspect du fourgon**. Portière latérale côté trottoir et haie, du même côté que la joueuse.
 - **Toutes vues** : Lila, la femme, l'arrière du fourgon et la portière doivent être lisibles depuis l'entrée de la ruelle dans les trois vues (demande `REQ_RUELLE_VUE_ENTREE`). Le visage de la femme n'est lisible qu'avec `ACT_CRIER` (elle se retourne), indépendamment de la caméra.
 
-### 3.4 Séquence P3 — Hors de vue (16 h 38 – 16 h 39) — plan B
+### 3.4 Séquence P3 — Hors de vue (16 h 30 – 16 h 31) — plan B
 
 Le fourgon tourne au bout de la ruelle ; **personne sur place ne voit de quel côté** (c'est ce qui rend le témoignage de Casteran faux et la vidéo d'Inès nécessaire). {HEROINE} reste à mi-ruelle, souffle court (`DLG_P_HEROINE_CHOC_*`). L'interface met en avant **« Appeler le 17 »**.
 
@@ -157,17 +166,27 @@ Le fourgon tourne au bout de la ruelle ; **personne sur place ne voit de quel c�
 | Cheveux (couleur, longueur, coiffure) | **Non validés** | Aucun indice n'en dépend. Une fois choisis, identiques dans toutes les scènes et sur la photo du chapitre 1 (faux raccord à éviter) |
 | Trajet précis dans la place et la ruelle | **Non validé** | Seules contraintes : sortie visible 3 s, marche visible jusqu'à l'angle, abordage hors de vue du portail, 15–25 m de marche jusqu'à la portière |
 
+**Accessoires scène par scène** (proposition ; détail dans `DECOUPAGE_SCENES.md`, bloc « Continuité » de chaque scène) :
+
+| Scène | Porte-clés renard | Bracelet en perles | Cartable |
+|---|---|---|---|
+| `SC_P0_B` place, coucou | sur le cartable | au poignet (visible, main levée) | sur le dos |
+| `SC_P1` abordage | se détache et reste au sol (≈ 10 m dans la ruelle) | au poignet | sur le dos |
+| `SC_P2` portière, départ | **absent** (au sol derrière elle) | au poignet jusqu'à la montée ; casse hors champ et tombe au pied de la portière | monte avec elle |
+| Chapitre 1, photo de vie (`CLU_PHOTO_VIE`) | absent | **absent** | — |
+| `SC_C4_03`–`SC_C4_04` cabane, retrouvailles | absent | absent | absent (proposition : resté chez les ravisseurs) |
+
 ---
 
 ## 4. Chapitre 1 — structure
 
 ### 4.1 Système de temps
 
-- L'horloge démarre à **16 h 39**. Elle n'avance **que** par les interactions (coûts ci-dessous) et les déplacements entre zones (1 min par zone traversée à pied ; 0 en restant dans une zone).
+- L'horloge démarre à **16 h 31**. Elle n'avance **que** par les interactions (coûts ci-dessous) et les déplacements entre zones (1 min par zone traversée à pied ; 0 en restant dans une zone).
 - L'horloge est visible dans le carnet. Aucun compte à rebours stressant à l'écran.
 - **19 h 30** (coucher du soleil ≈ 19 h 45) : si le tableau n'a pas été présenté, Mendiondo convoque {HEROINE} et le chapitre se conclut avec les hypothèses les mieux étayées (voir §6, état C).
 
-### 4.2 Phase A — Premiers gestes (16 h 39 – 16 h 52)
+### 4.2 Phase A — Premiers gestes (16 h 31 – 16 h 44)
 
 | Interaction | Coût | Obligatoire | Effet |
 |---|---|---|---|
@@ -175,9 +194,9 @@ Le fourgon tourne au bout de la ruelle ; **personne sur place ne voit de quel c�
 | Protéger la scène (dire aux passants de ne pas toucher le porte-clés) | 1 min | Non | Bonus de confiance avec Mendiondo (`FLAG_SCENE_PROTEGEE`) : elle partage un résultat de plus spontanément |
 | Examiner la ruelle (entrée et bas-côté) | 2 min | Non | `CLU_PORTE_CLES_LILA`, `CLU_TRACES_PNEUS`, `CLU_MEGOTS`, `CLU_CAISSE_POISSON` ; si `CLU_OBS_BADGE_CHUTE`, `CLU_BADGE` directement dans la haie |
 
-Arrivée des gendarmes : **16 h 52** (ou appel + 13 min). Mendiondo recueille la déposition (`DLG_C1_MENDIONDO_ARRIVEE_*`), installe le poste de commandement place de l'Église et **autorise {HEROINE} à rester comme témoin** : l'équipe cynophile de la gendarmerie est à plus de deux heures.
+Arrivée des gendarmes : **16 h 44** (ou appel + 13 min). Mendiondo recueille la déposition (`DLG_C1_MENDIONDO_ARRIVEE_*`), installe le poste de commandement place de l'Église et **autorise {HEROINE} à rester comme témoin** : l'équipe cynophile de la gendarmerie est à plus de deux heures.
 
-### 4.3 Phase B — Enquête ouverte (16 h 52 – résolution)
+### 4.3 Phase B — Enquête ouverte (16 h 44 – résolution)
 
 Ordre libre. Chaque ligne est détaillée dans les énigmes ou dans les dialogues.
 
@@ -211,7 +230,7 @@ Ordre libre. Chaque ligne est détaillée dans les énigmes ou dans les dialogue
 | Heure | Événement | Effet |
 |---|---|---|
 | 16 h 45 | Casteran s'approche de la scène, parle aux passants | Devient interrogeable |
-| 17 h 15 | Radio : un agent du péage de l'A63 signale un fourgon « correspondant au signalement » à 16 h 58, sans plaque relevée | `CLU_SIGNALEMENT_PEAGE` (fausse piste loyale, PZ_07) |
+| 17 h 15 | Radio : un agent du péage de l'A63 signale un fourgon « correspondant au signalement » à 16 h 50, sans plaque relevée | `CLU_SIGNALEMENT_PEAGE` (fausse piste loyale, PZ_07) |
 | 17 h 30 | Julien, le père, arrive de Bayonne en tenue de travail | `EVT_PERE_ARRIVE` |
 | 17 h 35 | Nadia arrive, effondrée, avec son compagnon Xavier Darrigade ; Ariane garde ses distances avec lui | `EVT_NADIA_ARRIVE`, `CLU_ARIANE_DARRIGADE` |
 | 17 h 40 | Julien reçoit un message, s'isole près de la fontaine | Observable (`CLU_PERE_REACTION`) |
@@ -236,7 +255,7 @@ Chaque branche : déclencheur · effet sur le temps · état de mission · nouve
 | `BR_PERE_BRUSQUE` | La joueuse accuse Julien ou lui parle en présence de Darrigade | +5 min | `FLAG_PERE_FERME` ; il se ferme | — | Rattrapage automatique à 18 h 45 |
 | `BR_PERE_CONFIANCE` | PZ_08 réussi | — | `FLAG_PERE_ALLIE` | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` | — |
 | `BR_ERR_NORD` | Tableau présenté avec destination « Corniche nord » | +25 min | option exclue | `CLU_NEG_NORD` (patrouille : rien ; aucun témoin sur la corniche) | Ré-présenter le tableau |
-| `BR_ERR_A63` | Destination « A63 / Espagne » | +30 min | option exclue | `CLU_NEG_A63` (aucun fourgon de ce modèle au péage entre 16 h 55 et 17 h 30) | Ré-présenter |
+| `BR_ERR_A63` | Destination « A63 / Espagne » | +30 min | option exclue | `CLU_NEG_A63` (aucun fourgon de ce modèle au péage entre 16 h 45 et 17 h 30) | Ré-présenter |
 | `BR_ERR_PORT` | Destination « port de Capbreton » | +20 min | option exclue | `CLU_NEG_PORT` (capitainerie : aucun fourgon ; caisses livrées par le poissonnier) | Ré-présenter |
 | `BR_ERR_VEHICULE` | Véhicule « fourgon du plombier » ou « fourgon actuel de la blanchisserie » | +15 min | option exclue | `CLU_NEG_VEHICULE` (vérification géolocalisation / planning) | Ré-présenter |
 | `BR_ERR_PERSONNE` | Passagère « véritable animatrice » | +10 min | option exclue | `CLU_NEG_ANIMATRICE` (mairie : aucune Sandrine) | Ré-présenter |
@@ -244,7 +263,7 @@ Chaque branche : déclencheur · effet sur le temps · état de mission · nouve
 
 Une option exclue ne peut plus être choisie. Si plusieurs axes sont faux lors d'une même présentation, les vérifications se font en parallèle : seule la pénalité la plus longue s'applique. Les pénalités incluent le temps de la nouvelle présentation.
 
-**Garantie vérifiée par le validateur** : un joueur qui suit le parcours de référence (`GameData/missions/01/mission.json`, sans aucun indice du prologue) conclut vers 17 h 30 ; même s'il essaie ensuite, une par une, toutes les mauvaises options, il termine avant 19 h 30. Au-delà, la clôture de 19 h 30 applique l'état C.
+**Garantie vérifiée par le validateur** : un joueur qui suit le parcours de référence (`GameData/missions/01/mission.json`, sans aucun indice du prologue) conclut vers 17 h 22 ; même s'il essaie ensuite, une par une, toutes les mauvaises options, il termine avant 19 h 30. Au-delà, la clôture de 19 h 30 applique l'état C.
 
 ---
 
@@ -318,8 +337,8 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Accessoire | `PROP_FLYER` | Prospectus de la blanchisserie avec téléphone et photo de l'équipe de livraison (K1 identifiable) | ch.1 | Haute |
 | Accessoire | `PROP_PORTE_CLES`, `PROP_BRACELET`, `PROP_BOUTEILLE`, `PROP_MEGOTS`, `PROP_CAISSE` | Objets au sol, examinables | ch.1 | Haute |
 | Image | `IMG_PHOTO_FOURGON` / `IMG_PHOTO_FLOUE` | Rendu dans le moteur au moment de la photo | P2 | Haute |
-| Vidéo | `VID_INES_ROND_POINT` | Vidéo verticale 12 s, horodatée 16:39:10, skate au premier plan ; le fourgon arrive du boulevard, prend la sortie « Étangs », plaque arrière lisible « 37-TR » ; un camping-car à porte-vélos part vers la Corniche | ch.1 | Haute |
-| Vidéo | `VID_CCTV_RELAIS` | Caméra de station, 16:48, fourgon dont la plaque finit par « 37-TR » | ch.1 | Moyenne |
+| Vidéo | `VID_INES_ROND_POINT` | Vidéo verticale 12 s, horodatée 16:31:10, skate au premier plan ; le fourgon arrive du boulevard, prend la sortie « Étangs », plaque arrière lisible « 37-TR » ; un camping-car à porte-vélos part vers la Corniche | ch.1 | Haute |
+| Vidéo | `VID_CCTV_RELAIS` | Caméra de station, 16:40, fourgon dont la plaque finit par « 37-TR » | ch.1 | Moyenne |
 | Image | `IMG_PHOTO_VIE` | Lila assise, calme mais inquiète, couverture sur les épaules ; derrière elle, fenêtre sur l'étang, soleil bas dans l'axe, ponton, pins dont un porte un pot à résine. **Aucune marque de violence** | ch.1 | Haute |
 | Animation | `ANIM_CHIENNE_*` | Ariane libre, sans laisse : envoi et rappel à la voix, flair au sol, tête haute, cercles/hésitation, marquage assis + regard, arrêt au bord de la route, grognement retenu | P2, pistages | Haute |
 | Animation | `ANIM_K2_*` | Se pencher vers l'enfant, main tendue, presser, se retourner surprise | P1–P2 | Haute |
@@ -327,7 +346,7 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Animation | `ANIM_JULIEN_*` | Arrivée, lire le téléphone et le cacher, se raidir sous une main posée sur l'épaule, regard fuyant vers Darrigade | ch.1 | Haute |
 | Animation | `ANIM_DARRIGADE_*` | Consoler, main sur l'épaule, téléphoner en marchant près du poste, tendre la main à Ariane | ch.1 | Haute |
 | Animation | `ANIM_CHIENNE_DISTANCE` | Ariane s'arrête à distance, oreilles plaquées, détourne la tête d'une main tendue (sans grogner) | ch.1 | Haute |
-| Ambiance | `AMB_CENTRE_VILLE`, `AMB_SORTIE_ECOLE`, `AMB_PLACE` | Vent dans les pins, oiseaux urbains, cris d'enfants, cloches, circulation légère (pas de ressac en P0–P3) ; ambiance qui se vide après l'enlèvement | tout | Haute |
+| Ambiance | `AMB_CENTRE_VILLE`, `AMB_SORTIE_ECOLE`, `AMB_PLACE` | Vent dans les pins, oiseaux urbains, cris d'enfants, cloches, circulation légère (mer visible au loin mais ressac non audible en P0–P3 : proposition) ; ambiance qui se vide après l'enlèvement | tout | Haute |
 | Effet | `SFX_POT_ECHAPPEMENT` | Cognement métallique caractéristique (entendu en P0, P2, dans la vidéo d'Inès) — **doublé visuellement** (pot qui vibre) pour rester accessible sans le son | P0–P2 | Haute |
 | Effet | `SFX_PORTIERE`, `SFX_SONNERIE_ECOLE`, `SFX_NOTIF_TELEPHONE` | — | P1–ch.1 | Moyenne |
 | Voix | `VO_*` | Toutes les répliques de `../dialogues/01-ouverture.md` | — | Haute |

@@ -4,7 +4,7 @@
 >
 > **Comment répondre** : une ligne suffit, par exemple « Q1 : A, Q2 : C, Q3 : A », dans la conversation ou en commentaire de la PR #4. Tu peux aussi répondre « autre » et décrire ton idée.
 >
-> Déjà décidé par toi et appliqué : Ariane libre, sans laisse ni collier ; centre-ville inspiré d'Arcachon, sans port ni front de mer au début ; après le départ du fourgon, Ariane sent un objet et mène à un indice.
+> Déjà décidé par toi et appliqué : Ariane libre, sans laisse ni collier ; centre-ville inspiré d'Arcachon, port hors de l'ouverture, la mer se voit au loin au bout de la ruelle ; après le départ du fourgon, Ariane sent un objet et mène à un indice.
 
 ## ✅ Réponses d'Audrey — 29 septembre 2026, 17 h
 
@@ -12,6 +12,14 @@
 - **Q3 — Décision : Autre.** Lila est retrouvée à l'**étape 4** (chapitre 4, confirmé). Pas de violence, mais elle est **séquestrée dans une cabane sombre et froide, sans aucun confort**.
 - **Q2 — Décision : Autre (proposée ensuite par Claude).** Le réseau est dirigé par **le compagnon de la mère** (Xavier Darrigade, nom provisoire) : rassurant, présent auprès de la famille dès le chapitre 1. Casteran devient un témoin **de bonne foi** qui s'est trompé.
 - **Q3 précisé** : « étape 4 » = **chapitre 4** (confirmé par Audrey).
+
+
+## ✅ Décisions visuelles d'Audrey — 29 septembre 2026, après Q1–Q3
+
+- Au bout de la ruelle (orientée vers le front de mer), **on voit la mer au loin** ; le port reste hors de l'ouverture.
+- Foulard d'Ariane : **noir à motifs paisley blancs** ; bandeau assorti pour l'héroïne.
+- Chaussures de l'héroïne : **baskets noires et blanches, style Nike Air Max** (dans les assets : sans logo ni nom de marque).
+- **L'enlèvement a lieu vers 16 h 30** (les minutes exactes de la chronologie restent des propositions).
 
 Appliqué par Claude le 29/09 : bible, plan des chapitres (toute la recherche reste dans la région jusqu'au chapitre 4, Porto supprimé), données et dialogues du chapitre 1 (Julien reçoit le message ; Nadia ne sait rien ; Darrigade console et s'informe ; Casteran sincère), énigme PZ_08, états de départ du chapitre 2.
 

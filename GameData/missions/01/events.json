@@ -4,8 +4,8 @@
   "events": [
     {
       "id": "EVT_GENDARMES_ARRIVENT",
-      "time": "16:52",
-      "time_rule": "max(16:52, appel_17 + 13 min)",
+      "time": "16:44",
+      "time_rule": "max(16:44, appel_17 + 13 min)",
       "grants": [
         "FLAG_GENDARMES_SUR_PLACE"
       ],

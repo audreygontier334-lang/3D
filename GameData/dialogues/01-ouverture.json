@@ -30,7 +30,7 @@
         {
           "id": "DLG_P_TUTO_01",
           "speaker": "NARRATION",
-          "text": "Mardi, fin septembre. 16 h 33. Lescoure-Plage.",
+          "text": "Mardi, fin septembre. 16 h 25. Lescoure-Plage.",
           "intent": "Poser le lieu et l'heure",
           "emotion": "neutre"
         },
@@ -79,7 +79,7 @@
         {
           "id": "DLG_P_DUFAU_03",
           "speaker": "DUFAU",
-          "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer.",
+          "text": "Avec le boucan de casserole de l'autre, là ? Il est garé depuis une bonne demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer.",
           "intent": "Première graine : le fourgon et son pot, sans insister",
           "emotion": "râleur"
         },
@@ -134,7 +134,7 @@
     },
     {
       "id": "DLG_P_ABORDAGE",
-      "context": "EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.",
+      "context": "EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls. Les répliques 04 à 06 se disent devant la portière et se répètent en variantes (Lila négocie, la femme insiste) jusqu'à l'alerte : elles justifient que le fourgon ne parte pas tout de suite.",
       "location": "LOC_COIN_ECOLES",
       "lines": [
         {
@@ -157,6 +157,27 @@
           "text": "Je sais. C'est exceptionnel. Regarde, je suis du périscolaire.",
           "intent": "Faux-semblant : le badge",
           "emotion": "rassurante, pressée"
+        },
+        {
+          "id": "DLG_P_ABORDAGE_04",
+          "speaker": "LILA",
+          "text": "Je veux appeler maman d'abord.",
+          "intent": "Lila refuse de monter : elle applique la consigne de sa mère ; retient le fourgon jusqu'à l'alerte",
+          "emotion": "têtue, inquiète"
+        },
+        {
+          "id": "DLG_P_ABORDAGE_05",
+          "speaker": "K2",
+          "text": "D'accord, regarde, je l'appelle… Nadia ? Oui, je l'ai. On arrive. … Elle est en réunion, ma puce, elle te rappelle.",
+          "intent": "Faux appel : elle connaît le prénom de la mère (indice pour DED_RUSE) ; le téléphone reste contre son oreille, écran invisible",
+          "emotion": "douce, pressée"
+        },
+        {
+          "id": "DLG_P_ABORDAGE_06",
+          "speaker": "LILA",
+          "text": "Je peux lui parler ?",
+          "intent": "Lila résiste encore ; variante répétable tant que l'alerte n'a pas eu lieu",
+          "emotion": "méfiante"
         }
       ]
     },

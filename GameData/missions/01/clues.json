@@ -365,7 +365,7 @@
       "location": "LOC_SKATEPARK",
       "kind": "document",
       "availability": "toujours",
-      "fact": "Vidéo de 12 s horodatée 16:39:10, filmée depuis la butte du skatepark : le fourgon arrive du boulevard, passe la sortie D652, disparaît derrière le skateur, réapparaît sur la route des Étangs, plaque arrière lisible « ··-·37-TR » ; son pot cogne. Un camping-car à porte-vélos, sans plaque lisible, s'éloigne vers la Corniche.",
+      "fact": "Vidéo de 12 s horodatée 16:31:10, filmée depuis la butte du skatepark : le fourgon arrive du boulevard, passe la sortie D652, disparaît derrière le skateur, réapparaît sur la route des Étangs, plaque arrière lisible « ··-·37-TR » ; son pot cogne. Un camping-car à porte-vélos, sans plaque lisible, s'éloigne vers la Corniche.",
       "interpretations": [
         "Sortie prise par le fourgon",
         "Fin de plaque",
@@ -381,7 +381,7 @@
       "location": "LOC_POSTE",
       "kind": "resultat",
       "availability": "toujours",
-      "fact": "GF-437-TR : fourgon du même modèle appartenant à un plombier de Dax ; son traceur le situe chez un client à Dax à 16 h 38.",
+      "fact": "GF-437-TR : fourgon du même modèle appartenant à un plombier de Dax ; son traceur le situe chez un client à Dax à 16 h 30.",
       "interpretations": [
         "La plaque a été copiée sur un véhicule identique"
       ]
@@ -408,7 +408,7 @@
       "location": "LOC_POSTE",
       "kind": "resultat",
       "availability": "toujours",
-      "fact": "16 h 48 : un fourgon dont la plaque se termine par « 37-TR » prend la fourche « Étang de Sorbe » ; clignotant arrière droit inactif.",
+      "fact": "16 h 40 : un fourgon dont la plaque se termine par « 37-TR » prend la fourche « Étang de Sorbe » ; clignotant arrière droit inactif.",
       "interpretations": [
         "Le fourgon se dirige vers l'étang"
       ],
@@ -423,7 +423,7 @@
       "kind": "resultat",
       "availability": "toujours",
       "red_herring": true,
-      "fact": "Radio, 17 h 15 : un agent du péage de l'A63 signale un fourgon « correspondant au signalement » à 16 h 58, direction Espagne. Il n'a pas relevé la plaque.",
+      "fact": "Radio, 17 h 15 : un agent du péage de l'A63 signale un fourgon « correspondant au signalement » à 16 h 50, direction Espagne. Il n'a pas relevé la plaque.",
       "interpretations": [
         "Le fourgon fuirait vers l'Espagne",
         "À vérifier avec les horaires"

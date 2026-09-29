@@ -5,7 +5,7 @@
       "id": "BR_APPEL_TARDIF",
       "trigger": "Une autre interaction est effectuée avant INT_APPEL_17",
       "time_cost": 0,
-      "effect": "Gendarmes à appel + 13 min au lieu de 16 h 52",
+      "effect": "Gendarmes à appel + 13 min au lieu de 16 h 44",
       "flags": [
         "FLAG_APPEL_TARDIF"
       ],

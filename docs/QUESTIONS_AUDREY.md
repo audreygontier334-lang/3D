@@ -8,8 +8,12 @@
 > ⚠️ Q2 contient un spoiler sur la fin.
 
 ## Déjà décidé par Audrey (29/09) — appliqué dans cette PR
-- La chienne s'appelle **Ariane** ; libre, sans laisse ni collier, foulard noir à motifs blancs.
-- L'ouverture a lieu dans un **centre-ville côtier inspiré de celui d'Arcachon**, en fin d'après-midi dorée ; aucun port ni front de mer dans les premières minutes.
+- La chienne s'appelle **Ariane** ; libre, sans laisse ni collier, foulard noir à motifs paisley blancs.
+- L'ouverture a lieu dans un **centre-ville côtier inspiré de celui d'Arcachon**, en fin d'après-midi dorée ; le port reste hors de l'ouverture.
+- Au bout de la ruelle (orientée vers le front de mer), **on voit la mer au loin** ; le port reste hors de l'ouverture.
+- Foulard d'Ariane : **noir à motifs paisley blancs** ; bandeau assorti pour l'héroïne.
+- Chaussures de l'héroïne : **baskets noires et blanches, style Nike Air Max** (dans les assets : sans logo ni nom de marque).
+- **L'enlèvement a lieu vers 16 h 30** (les minutes exactes de la chronologie restent des propositions).
 - Après le départ du fourgon, Ariane sent un objet et mène à un indice.
 
 Le détail des trois grands choix (Q1–Q3) est présenté simplement dans `docs/VALIDATION_AUDREY_ACTE1.md`.

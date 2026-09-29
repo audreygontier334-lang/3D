@@ -32,7 +32,7 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_P_TUTO_01` | NARRATION | Mardi, fin septembre. 16 h 33. Lescoure-Plage. | Poser le lieu et l'heure | neutre |  |
+| `DLG_P_TUTO_01` | NARRATION | Mardi, fin septembre. 16 h 25. Lescoure-Plage. | Poser le lieu et l'heure | neutre |  |
 | `DLG_P_TUTO_02` | NARRATION | Changer de vue : épaule, large, subjective. L'enquête ne dépend jamais de la vue choisie. | Tutoriel caméra | neutre |  |
 | `DLG_P_TUTO_03` | NARRATION | Ordres à Ariane : Au pied · Reste · Cherche · Montre. | Tutoriel ordres | neutre |  |
 | `DLG_P_TUTO_04` | HEROINE | Allez, Ariane, cherche ! … Bon, tu ne la rapportes pas, mais tu la trouves. C'est déjà ça. | Après le premier « Cherche » avec la balle ; établir la complicité | amusée, tendre |  |
@@ -45,7 +45,7 @@
 |---|---|---|---|---|---|
 | `DLG_P_DUFAU_01` | DUFAU | Tiens, les deux inséparables. Elle a encore pris du muscle, celle-là. | Accueil bourru ; Dufau connaît le duo | bougon, affectueux |  |
 | `DLG_P_DUFAU_02` | HEROINE | Alors, ces mots croisés ? | Relance banale (Dufau fait ses mots croisés sur le banc) | détendue |  |
-| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole de l'autre, là ? Il est garé depuis une demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer. | Première graine : le fourgon et son pot, sans insister | râleur |  |
+| `DLG_P_DUFAU_03` | DUFAU | Avec le boucan de casserole de l'autre, là ? Il est garé depuis une bonne demi-heure, moteur coupé, et il fume. Pas moyen de me concentrer. | Première graine : le fourgon et son pot, sans insister | râleur |  |
 | `DLG_P_DUFAU_04` | HEROINE | Vous exagérez. | Minimiser, comme le ferait n'importe qui | souriante |  |
 | `DLG_P_DUFAU_05` | DUFAU | Moi ? Jamais. | Clore avec humour | pince-sans-rire |  |
 
@@ -61,13 +61,16 @@
 
 ## `DLG_P_ABORDAGE`
 
-*EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.* — lieu : `LOC_COIN_ECOLES`
+*EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls. Les répliques 04 à 06 se disent devant la portière et se répètent en variantes (Lila négocie, la femme insiste) jusqu'à l'alerte : elles justifient que le fourgon ne parte pas tout de suite.* — lieu : `LOC_COIN_ECOLES`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_P_ABORDAGE_01` | K2 | Lila ? Bonjour ma grande. Ta maman a eu un souci au travail, elle m'a demandé de te ramener. | La ruse : prénom de l'enfant, référence à la mère | douce, trop douce |  |
 | `DLG_P_ABORDAGE_02` | LILA | Mais… elle m'a dit de rentrer toute seule. | Hésitation de l'enfant, qui applique la consigne | hésitante |  |
 | `DLG_P_ABORDAGE_03` | K2 | Je sais. C'est exceptionnel. Regarde, je suis du périscolaire. | Faux-semblant : le badge | rassurante, pressée |  |
+| `DLG_P_ABORDAGE_04` | LILA | Je veux appeler maman d'abord. | Lila refuse de monter : elle applique la consigne de sa mère ; retient le fourgon jusqu'à l'alerte | têtue, inquiète |  |
+| `DLG_P_ABORDAGE_05` | K2 | D'accord, regarde, je l'appelle… Nadia ? Oui, je l'ai. On arrive. … Elle est en réunion, ma puce, elle te rappelle. | Faux appel : elle connaît le prénom de la mère (indice pour DED_RUSE) ; le téléphone reste contre son oreille, écran invisible | douce, pressée |  |
+| `DLG_P_ABORDAGE_06` | LILA | Je peux lui parler ? | Lila résiste encore ; variante répétable tant que l'alerte n'a pas eu lieu | méfiante |  |
 
 ## `DLG_P_ALERTE`
 

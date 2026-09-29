@@ -39,7 +39,7 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale, l'entrepôt, la maison)
 
 ## Prologue — « Sortie d'école »
 - **Question centrale** : que s'est-il passé dans la ruelle des Tamaris ?
-- **Lieu** ✅ : centre-ville inspiré d'Arcachon ; **deux lieux distincts** : la place de l'école (rue piétonne, portail, place de l'Église) puis la ruelle des Tamaris, plus isolée, où a lieu l'enlèvement. Mardi 16 h 33 – 16 h 39. Port hors de l'ouverture.
+- **Lieu** ✅ : centre-ville inspiré d'Arcachon ; **deux lieux distincts** : la place de l'école puis la ruelle adjacente, plus isolée, où a lieu l'enlèvement ; au bout de la ruelle, **la mer au loin** ; port hors de l'ouverture. **Enlèvement vers 16 h 30** ✅. 🟡 Détails proposés : rue piétonne, place de l'Église, ruelle des Tamaris ; prologue de 16 h 25 à 16 h 31.
 - **Suspect** : un fourgon (apparence choisie plus tard par Audrey), deux adultes.
 - **Enjeu temporel** : une fenêtre de quelques secondes pendant l'enlèvement ; ce que le joueur fait détermine les indices de départ.
 - **Mécanique introduite** : déplacement, caméras, ordres à Ariane, observation en temps réel.
@@ -47,7 +47,7 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale, l'entrepôt, la maison)
 
 ## Chapitre 1 — « Le fourgon »
 - **Question** : quel véhicule, quelles personnes, quelle direction ?
-- **Lieu** : Lescoure-Plage, mardi 16 h 39 – 19 h 30 (temps de jeu).
+- **Lieu** : Lescoure-Plage, mardi 16 h 31 – 19 h 30 (temps de jeu).
 - **Suspects** : le conducteur (Loubère) et la fausse animatrice (« Sandrine »).
 - **Enjeu temporel** : la nuit ; plus la destination est trouvée tôt, meilleure est la situation au chapitre 2.
 - **Mécaniques** : témoignages à confronter, pistage d'Ariane avec objet de référence, lignes de vue, chronométrie, tableau d'hypothèses en trois axes.

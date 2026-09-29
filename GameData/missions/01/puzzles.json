@@ -311,10 +311,10 @@
       "answer": {
         "type": "arithmetic",
         "check": {
-          "departure": "16:39",
+          "departure": "16:31",
           "travel_min": 28,
-          "earliest_arrival": "17:07",
-          "reported": "16:58",
+          "earliest_arrival": "16:59",
+          "reported": "16:50",
           "compatible": false
         }
       },
@@ -325,7 +325,7 @@
         },
         {
           "id": "UI_HINT_PZ07_2",
-          "text": "Additionne. Est-il arrivé avant ou après 16 h 58 ?"
+          "text": "Additionne. Est-il arrivé avant ou après 16 h 50 ?"
         },
         {
           "id": "UI_HINT_PZ07_3",

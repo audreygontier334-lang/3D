@@ -10,7 +10,7 @@ Le joueur ne « résout » pas l'enlèvement d'un coup. Il répond à **trois qu
 |---|---|---|
 | **Véhicule** | Quel fourgon, vraiment ? | La photo donne le début de la plaque (« GF-4·7 »), la vidéo d'Inès la fin (« 37-TR »). Le fichier renvoie à un plombier de Dax dont le fourgon était à Dax au même moment → **plaque clonée**. Ce raisonnement ne dépend pas de l'apparence du fourgon (décision d'Audrey : choisie plus tard). Bonus facultatif, si le fourgon retenu porte une ombre de lettrage : c'est un ancien fourgon de la Blanchisserie Océane, ce qui mène à Loubère. |
 | **Personnes** | Qui sont-ils ? | Le badge « Sandrine V. » porte l'ancien logo de la mairie ; la directrice n'a aucune Sandrine ; la boulangère l'a entendue demander « l'école de la petite Mercadier ». → **Une fausse animatrice qui savait qui elle venait chercher.** |
-| **Destination** | Où sont-ils partis ? | La notaire affirme « à droite au bout de la ruelle, vers la Corniche » mais, de son perron, on ne voit pas le boulevard ; la vidéo d'Inès montre le fourgon sur la route des Étangs, le véhicule parti vers la Corniche étant un camping-car sans la plaque « 37-TR » ; le fourgon « vu au péage » à 16 h 58 n'aurait pas eu le temps d'y arriver. → **Route des Étangs.** |
+| **Destination** | Où sont-ils partis ? | La notaire affirme « à droite au bout de la ruelle, vers la Corniche » mais, de son perron, on ne voit pas le boulevard ; la vidéo d'Inès montre le fourgon sur la route des Étangs, le véhicule parti vers la Corniche étant un camping-car sans la plaque « 37-TR » ; le fourgon « vu au péage » à 16 h 50 n'aurait pas eu le temps d'y arriver. → **Route des Étangs.** |
 
 Aucun indice ne répond à deux questions à la fois de façon suffisante. La vidéo d'Inès, l'indice le plus riche, donne la direction, une fin de plaque et un bout de lettrage ; il faut encore le prospectus et le fichier des plaques pour conclure sur le véhicule, et le badge ou les témoins pour les personnes.
 
@@ -77,7 +77,7 @@ Le validateur rejoue les **11 combinaisons d'actions du prologue** (aucune actio
 | Le joueur ne trouve pas le badge | Les gendarmes fouillent la haie à 18 h 30 ; la directrice suffit de toute façon pour `DED_FAUSSE_ANIMATRICE`. |
 | La joueuse accuse Julien | Il montre le message lui-même à 18 h 45. |
 | Le joueur croit la notaire | Pénalité de temps, résultat négatif, option grisée ; la vidéo reste disponible. |
-| Le joueur se trompe sur tous les axes, plusieurs fois | Pire cas vérifié : parcours de référence terminé à 17 h 28 ; même avec toutes les mauvaises options essayées une à une, 19 h 23 < 19 h 30. |
+| Le joueur se trompe sur tous les axes, plusieurs fois | Pire cas vérifié : parcours de référence terminé à 17 h 22 ; même avec toutes les mauvaises options essayées une à une, 19 h 17 < 19 h 30. |
 | Le joueur n'avance plus du tout | Clôture de 19 h 30 : les gendarmes partent sur la route des Étangs, chapitre 2 en état C. |
 | La vue choisie masque un indice | Indices placés et testés pour les trois caméras ; photo et vidéos en `CAM_INSPECT`. |
 | Joueur sans son | Le cognement du pot est doublé par un indice visuel ; la réaction d'Ariane à Julien et à Darrigade, et le raidissement de Julien, sont visuels. |

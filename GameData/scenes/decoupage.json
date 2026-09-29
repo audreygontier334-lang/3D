@@ -16,15 +16,15 @@
     },
     {
       "id": "V3",
-      "question": "Ce que l'on voit au débouché de la ruelle : simple lumière, bout de ciel, bande de mer ?",
-      "decide_par": "Audrey",
-      "contrainte": "Le boulevard et le rond-point ne doivent pas être visibles (énigme du perron)."
+      "question": "Ce que l'on voit au débouché de la ruelle.",
+      "decide_par": "✅ Tranché par Audrey (29/09) : la mer au loin",
+      "contrainte": "Bande de mer au loin, au-dessus du boulevard ; la chaussée du boulevard et le rond-point restent invisibles (énigme du perron). Le port reste hors champ."
     },
     {
       "id": "V4",
       "question": "Tenue et cheveux de Lila.",
       "decide_par": "Audrey, sur proposition de Codex",
-      "contrainte": "Identiques de la sortie d'école à la cabane, y compris sur la photo ; cartable avec porte-clés renard, bracelet en perles."
+      "contrainte": "Tenue et cheveux identiques de la sortie d'école à la cabane, y compris sur la photo. Accessoires : porte-clés renard sur le cartable jusqu'à l'abordage (il tombe dans la ruelle) ; bracelet en perles au poignet jusqu'à la montée dans le fourgon (il casse et tombe au pied de la portière). Ni l'un ni l'autre ensuite."
     },
     {
       "id": "V5",
@@ -73,8 +73,8 @@
           },
           "moment": {
             "jour": "mardi, fin septembre",
-            "debut": "16:33",
-            "fin": "16:34",
+            "debut": "16:25",
+            "fin": "16:26",
             "lumiere": "fin d'après-midi, lumière chaude et basse, ombres longues",
             "meteo": "beau temps, léger vent dans les pins",
             "statut": "proposition"
@@ -87,7 +87,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -111,7 +111,7 @@
               "statut": "proposition"
             },
             {
-              "texte": "Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une demi-heure (première graine).",
+              "texte": "Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une bonne demi-heure (première graine).",
               "statut": "proposition"
             }
           ],
@@ -127,7 +127,7 @@
           ],
           "raccord_suivant": {
             "vers": "SC_P0_B",
-            "texte": "Sonnerie de l'école à 16 h 34 : la caméra ne coupe pas, la joueuse est déjà sur la place.",
+            "texte": "Sonnerie de l'école à 16 h 26 : la caméra ne coupe pas, la joueuse est déjà sur la place.",
             "statut": "proposition"
           },
           "indices": [
@@ -160,8 +160,8 @@
             {
               "id": "ENV_PROMENADE",
               "type": "lieu",
-              "description": "Rue piétonne commerçante et square avec banc ; architecture inspirée du centre d'Arcachon.",
-              "statut": "audrey"
+              "description": "Centre-ville inspiré d'Arcachon (décision d'Audrey). Proposition : rue piétonne commerçante et square avec banc.",
+              "statut": "proposition"
             },
             {
               "id": "CHAR_DUFAU",
@@ -177,8 +177,8 @@
             }
           ],
           "continuite": [
-            "Héroïne : tenue validée (voir docs/DECISIONS.md, PR #3).",
-            "Ariane : foulard noir à motifs blancs, jamais de laisse ni de collier."
+            "Héroïne ✅ : jean, tee-shirt, veste en jean, créoles, bandeau noir à motifs paisley blancs assorti au foulard d'Ariane, baskets noires et blanches style Nike Air Max (sans logo ni nom de marque).",
+            "Ariane : foulard noir à motifs paisley blancs, jamais de laisse ni de collier."
           ],
           "points_ouverts": [
             "V1 : niveau d'animation de la place (choix d'Audrey)."
@@ -191,7 +191,7 @@
           "decisions_audrey": [
             "Centre-ville inspiré de celui d'Arcachon, en fin d'après-midi.",
             "Port hors de la scène d'ouverture.",
-            "Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs blancs ; bandeau assorti pour l'héroïne.",
+            "Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs paisley blancs ; bandeau assorti pour l'héroïne.",
             "Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D."
           ]
         },
@@ -211,8 +211,8 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:34",
-            "fin": "16:35:40",
+            "debut": "16:26",
+            "fin": "16:27:40",
             "lumiere": "même lumière chaude ; façades éclairées de biais",
             "meteo": "beau temps",
             "statut": "proposition"
@@ -225,12 +225,12 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
               "id": "CHAR_FILLETTE",
-              "role": "Lila, 9 ans, sort seule",
+              "role": "Lila, rentre seule de l'école (âge proposé : 9 ans)",
               "statut": "audrey"
             },
             {
@@ -241,11 +241,11 @@
           ],
           "action": [
             {
-              "texte": "16 h 34 : sonnerie, les enfants sortent.",
+              "texte": "16 h 26 : sonnerie, les enfants sortent.",
               "statut": "proposition"
             },
             {
-              "texte": "16 h 35 : Lila sort seule, repère Ariane de loin, lui fait coucou main levée (le bracelet se voit) : « Coucou Ariane ! Demain je t'apporte un biscuit ! ». Ariane remue la queue.",
+              "texte": "16 h 27 : Lila sort seule, repère Ariane de loin, lui fait coucou main levée (le bracelet se voit) : « Coucou Ariane ! Demain je t'apporte un biscuit ! ». Ariane remue la queue.",
               "statut": "proposition"
             },
             {
@@ -253,7 +253,7 @@
               "statut": "proposition"
             },
             {
-              "texte": "Lila part seule sur le trottoir de la rue de l'École, vers l'angle de la ruelle des Tamaris (son chemin habituel vers la maison, côté océan). Elle tourne à l'angle et sort du champ de la place vers 16 h 35 min 40.",
+              "texte": "Lila part seule sur le trottoir de la rue de l'École, vers l'angle de la ruelle des Tamaris (son chemin habituel vers la maison, côté océan). Elle tourne à l'angle et sort du champ de la place vers 16 h 27 min 40.",
               "statut": "proposition"
             }
           ],
@@ -327,7 +327,7 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
+            "Lila : tenue et cheveux non validés (V4), identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou."
           ],
           "points_ouverts": [
             "V1 : animation de la place.",
@@ -349,7 +349,7 @@
           "id": "SC_P1",
           "titre": "Vers la ruelle : l'abordage",
           "lieu": {
-            "texte": "Transition du plan A au plan B : angle de la rue de l'École, puis entrée de la ruelle des Tamaris, plus isolée, orientée vers l'océan. Maisons variées d'époques différentes, couleurs, clôtures et haies différentes.",
+            "texte": "Transition du plan A au plan B : angle de la rue de l'École, puis entrée de la ruelle des Tamaris, plus isolée, orientée vers le front de mer : la mer se voit au loin, au bout de la ruelle. Maisons variées d'époques différentes, couleurs, clôtures et haies différentes.",
             "env": [
               "ENV_ECOLE",
               "ENV_RUE_FUITE"
@@ -363,8 +363,8 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:35:40",
-            "fin": "16:37:50",
+            "debut": "16:27:40",
+            "fin": "16:29:50",
             "lumiere": "lumière basse qui entre dans la ruelle depuis l'ouest ; façades à contre-jour vers le débouché",
             "meteo": "beau temps",
             "statut": "proposition"
@@ -377,7 +377,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -401,6 +401,10 @@
               "statut": "proposition"
             },
             {
+              "texte": "Devant la portière, Lila refuse de monter : « Je veux appeler maman d'abord. » La femme fait semblant de téléphoner à Nadia (« Nadia ? Oui, je l'ai, on arrive… ») et négocie. Cette hésitation dure jusqu'à l'alerte (moins d'une minute) : c'est ce qui retient le fourgon.",
+              "statut": "proposition"
+            },
+            {
               "texte": "La joueuse arrive à l'entrée de la ruelle et découvre la scène à 20–30 m. Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.",
               "statut": "proposition"
             },
@@ -415,7 +419,7 @@
               "de": "point d'abordage (≈ 10 m dans la ruelle)",
               "vers": "portière latérale du fourgon",
               "distance": "15–25 m",
-              "duree": "≈ 25 s",
+              "duree": "≈ 25 s, puis attente devant la portière jusqu'à l'alerte (faux appel)",
               "statut": "proposition"
             },
             {
@@ -429,7 +433,7 @@
           ],
           "raccord_suivant": {
             "vers": "SC_P2",
-            "texte": "L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 38 min 30 (Ariane s'élance alors en aboyant et la joueuse la suit).",
+            "texte": "L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 30 (Ariane s'élance alors en aboyant et la joueuse la suit). Voir la règle de départ dans mission.json (prologue.departure_rule).",
             "statut": "proposition"
           },
           "indices": [
@@ -468,7 +472,7 @@
           "repli": [
             {
               "si_manque": "La joueuse est ailleurs",
-              "alors": "Au plus tard à 16 h 38 min 30, Ariane court vers la ruelle en aboyant ; la joueuse entend Lila appeler et arrive pour voir le départ."
+              "alors": "Au plus tard à 16 h 30, Ariane court vers la ruelle en aboyant ; Lila crie « Ariane ! ». Le départ attend que la joueuse soit à moins de 5 m de l'entrée (30 s au plus) ; sinon, un plan court de 4 s depuis l'entrée montre le départ."
             }
           ],
           "visuels": [
@@ -498,11 +502,10 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
+            "Lila : cartable avec porte-clés renard à l'entrée de la ruelle ; le porte-clés se détache à l'abordage et reste au sol près du caniveau. Bracelet en perles toujours au poignet."
           ],
           "points_ouverts": [
             "V2 : apparence du fourgon.",
-            "V3 : ce qu'on voit au débouché de la ruelle.",
             "Trajet précis de Lila : non validé, contraintes seulement (abordage hors de vue du portail, 15–25 m jusqu'à la portière)."
           ],
           "refs": [
@@ -515,7 +518,8 @@
             "L'enlèvement a lieu dans la ruelle, plus isolée.",
             "Ambiance de la ruelle validée : maisons variées, d'époques différentes, avec des couleurs, clôtures et haies différentes.",
             "Déplacement précis de Lila, tenue et cheveux : non validés (faux raccord capillaire à éviter).",
-            "Apparence du fourgon : à choisir par Audrey ; aucun indice indispensable n'en dépend."
+            "Apparence du fourgon : à choisir par Audrey ; aucun indice indispensable n'en dépend.",
+            "La ruelle est orientée vers le front de mer ; au débouché, on voit la mer au loin (V3, 29/09). Le port reste hors champ."
           ]
         },
         {
@@ -534,8 +538,8 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:37:50",
-            "fin": "16:38:17",
+            "debut": "16:29:50",
+            "fin": "16:30:17",
             "lumiere": "lumière basse ; contre-jour vers le débouché",
             "meteo": "beau temps",
             "statut": "proposition"
@@ -548,7 +552,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -577,8 +581,12 @@
               "statut": "proposition"
             },
             {
-              "texte": "La femme fait monter Lila (pas de violence montrée), claque la portière ; le fourgon déboîte et descend la ruelle.",
-              "statut": "audrey"
+              "texte": "La femme fait monter Lila, claque la portière ; le fourgon déboîte et descend la ruelle. (Décision d'Audrey : aucune violence montrée ; la mise en scène exacte est une proposition.)",
+              "statut": "proposition"
+            },
+            {
+              "texte": "En montant, le bracelet en perles de Lila casse (non montré) et tombe dans le sable au pied de la portière ; il sera trouvé par Ariane au chapitre 1.",
+              "statut": "proposition"
             },
             {
               "texte": "Envoyée, Ariane fonce en aboyant et s'arrête net au bord de la chaussée quand le fourgon démarre ; elle flaire l'endroit où se tenait la femme, puis regarde la haie.",
@@ -722,6 +730,10 @@
           },
           "repli": [
             {
+              "si_manque": "La joueuse n'est pas à l'entrée au moment de l'alerte",
+              "alors": "Le départ est retenu (Lila résiste, la femme insiste) jusqu'à ce que la joueuse soit à moins de 5 m de l'entrée, 30 s au plus ; au-delà, plan court non interactif de 4 s (CAM_DEPART_COURT) depuis l'entrée : la plaque arrière reste lisible, puis retour au contrôle."
+            },
+            {
               "si_manque": "Aucune action pendant la fenêtre",
               "alors": "Tous les axes restent résolubles avec les indices permanents (vidéo d'Inès, témoins, badge, plaque)."
             },
@@ -761,7 +773,7 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).",
+            "Lila : plus de porte-clés sur le cartable (il est au sol, ≈ 10 m derrière). Bracelet au poignet jusqu'à la montée : le cordon casse hors champ quand la femme la presse de monter ; il tombe au pied de la portière. Elle monte avec son cartable.",
             "Aucune scène ne montre de violence envers Lila (décision d'Audrey)."
           ],
           "points_ouverts": [
@@ -797,8 +809,8 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:38:17",
-            "fin": "16:39",
+            "debut": "16:30:17",
+            "fin": "16:31",
             "lumiere": "lumière basse",
             "meteo": "beau temps",
             "statut": "proposition"
@@ -811,7 +823,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             }
           ],
@@ -832,14 +844,14 @@
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C1_01",
-            "texte": "Pas de coupe : le chapitre 1 commence dans la même ruelle, à 16 h 39.",
+            "texte": "Pas de coupe : le chapitre 1 commence dans la même ruelle, à 16 h 31.",
             "statut": "proposition"
           },
           "indices": [],
           "cameras": {
             "CAM_SHOULDER": "Héroïne et Ariane au premier plan, débouché vide au fond.",
             "CAM_WIDE": "Idem.",
-            "CAM_FIRST": "Le débouché de la ruelle."
+            "CAM_FIRST": "Le débouché de la ruelle, avec la mer au loin."
           },
           "repli": [
             {
@@ -851,21 +863,20 @@
             {
               "id": "ENV_RUE_FUITE_DEBOUCHE",
               "type": "lieu",
-              "description": "Débouché de la ruelle sur le boulevard (hors champ) ; ce qu'on voit au-delà est un choix d'Audrey (V3).",
-              "statut": "proposition"
+              "description": "Débouché de la ruelle : la mer au loin (décision d'Audrey). Contraintes proposées : bande de mer au-dessus du boulevard, dont la chaussée reste masquée (pente, muret, maisons d'angle) ; aucun port ; le rond-point reste invisible.",
+              "statut": "audrey"
             }
           ],
           "continuite": [],
-          "points_ouverts": [
-            "V3 : débouché de la ruelle."
-          ],
+          "points_ouverts": [],
           "refs": [
             "EVT_HORS_VUE",
             "EVT_CH1_START",
             "DLG_P_HEROINE_CHOC"
           ],
           "decisions_audrey": [
-            "Port hors de la scène d'ouverture."
+            "Port hors de la scène d'ouverture.",
+            "Au débouché de la ruelle, on voit la mer au loin (V3, 29/09)."
           ]
         }
       ]
@@ -890,8 +901,8 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:39",
-            "fin": "16:52",
+            "debut": "16:31",
+            "fin": "16:44",
             "lumiere": "fin d'après-midi, lumière chaude",
             "meteo": "beau temps",
             "statut": "proposition"
@@ -904,7 +915,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -1086,7 +1097,7 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "16:52",
+            "debut": "16:44",
             "fin": "17:00",
             "lumiere": "fin d'après-midi ; la place se vide",
             "meteo": "beau temps",
@@ -1100,7 +1111,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -1194,7 +1205,7 @@
           },
           "moment": {
             "jour": "mardi",
-            "debut": "libre (après 16:39)",
+            "debut": "libre (après 16:31)",
             "fin": "+5 min",
             "lumiere": "lumière chaude qui baisse",
             "meteo": "beau temps",
@@ -1208,7 +1219,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             }
           ],
@@ -1294,7 +1305,7 @@
               "id": "ANIM_CHIENNE_PISTE",
               "type": "animation",
               "description": "Cercles truffe basse, traction brève, allure régulière, assise + regard, tête haute et retour.",
-              "statut": "audrey"
+              "statut": "proposition"
             },
             {
               "id": "PROP_BRACELET",
@@ -1344,7 +1355,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -1513,7 +1524,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -1713,13 +1724,13 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
               "id": "CHAR_CASTERAN",
-              "role": "notaire, témoin de bonne foi",
-              "statut": "audrey"
+              "role": "témoin de bonne foi qui s'est trompé (décision Q2) ; notaire (proposition)",
+              "statut": "proposition"
             }
           ],
           "action": [
@@ -1842,7 +1853,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -1924,7 +1935,7 @@
             {
               "id": "VID_INES_ROND_POINT",
               "type": "vidéo",
-              "description": "Vidéo verticale 12 s, horodatée 16:39:10, rendue dans le moteur.",
+              "description": "Vidéo verticale 12 s, horodatée 16:31:10, rendue dans le moteur.",
               "statut": "proposition"
             }
           ],
@@ -1970,7 +1981,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2203,7 +2214,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2218,11 +2229,11 @@
               "statut": "proposition"
             },
             {
-              "texte": "17 h 15, radio : un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 58 (fausse piste loyale).",
+              "texte": "17 h 15, radio : un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 50 (fausse piste loyale).",
               "statut": "proposition"
             },
             {
-              "texte": "Après la vidéo d'Inès : caméra du Relais du Lac, 16 h 48, plaque « …37-TR ».",
+              "texte": "Après la vidéo d'Inès : caméra du Relais du Lac, 16 h 40, plaque « …37-TR ».",
               "statut": "proposition"
             },
             {
@@ -2332,7 +2343,7 @@
             {
               "id": "VID_CCTV_RELAIS",
               "type": "vidéo",
-              "description": "Caméra de station, 16:48, plaque « 37-TR ».",
+              "description": "Caméra de station, 16:40, plaque « 37-TR ».",
               "statut": "proposition"
             },
             {
@@ -2395,7 +2406,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2516,7 +2527,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2615,7 +2626,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2723,7 +2734,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2739,8 +2750,8 @@
           ],
           "action": [
             {
-              "texte": "La pièce est vide : couverture pliée, chaise, verre d'eau. Lila en est partie environ une heure plus tôt (décision : elle n'est retrouvée qu'au chapitre 4).",
-              "statut": "audrey"
+              "texte": "La pièce est vide : couverture pliée, chaise, verre d'eau. Lila en est partie environ une heure plus tôt (conséquence de la décision Q3 d'Audrey : Lila n'est retrouvée qu'au chapitre 4).",
+              "statut": "proposition"
             },
             {
               "texte": "Ariane trouve dans l'herbe la gomme parfumée à la fraise de la trousse de Lila, puis la piste s'arrête sur des traces de pneus fraîches.",
@@ -2862,7 +2873,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -2877,8 +2888,8 @@
             },
             {
               "id": "CHAR_DARRIGADE",
-              "role": "vient apporter du café aux gendarmes",
-              "statut": "audrey"
+              "role": "compagnon de Nadia, tête du réseau (décision Q2) ; ici, vient apporter du café aux gendarmes (proposition)",
+              "statut": "proposition"
             }
           ],
           "action": [
@@ -2975,7 +2986,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3077,13 +3088,13 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
               "id": "CHAR_DARRIGADE",
-              "role": "patron des lieux, courtois",
-              "statut": "audrey"
+              "role": "tête du réseau (décision Q2) ; ici, patron courtois de l'entrepôt (proposition)",
+              "statut": "proposition"
             },
             {
               "id": "DOUANIERS",
@@ -3202,7 +3213,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3324,7 +3335,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3334,13 +3345,13 @@
             },
             {
               "id": "CHAR_NADIA",
-              "role": "mère, venue apporter un vêtement de Lila",
-              "statut": "audrey"
+              "role": "mère de Lila, ignore le trafic (décision Q1) ; ici, apporte un vêtement de Lila (proposition)",
+              "statut": "proposition"
             },
             {
               "id": "CHAR_DARRIGADE",
-              "role": "l'accompagne",
-              "statut": "audrey"
+              "role": "compagnon de Nadia, tête du réseau (décision Q2) ; ici, l'accompagne (proposition)",
+              "statut": "proposition"
             }
           ],
           "action": [
@@ -3442,7 +3453,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3518,12 +3529,12 @@
           "id": "SC_C4_03",
           "titre": "La cabane",
           "lieu": {
-            "texte": "Ancienne cabane de résinier en planches, au fond d'une parcelle : sombre, froide, sans aucun confort.",
+            "texte": "Cabane sombre, froide, sans aucun confort (décision d'Audrey). Proposition : ancienne cabane de résinier en planches, au fond d'une parcelle.",
             "env": [
               "ENV_CABANE"
             ],
             "zones": [],
-            "statut": "audrey"
+            "statut": "proposition"
           },
           "moment": {
             "jour": "jeudi",
@@ -3541,7 +3552,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3566,8 +3577,8 @@
               "statut": "proposition"
             },
             {
-              "texte": "Les gendarmes ouvrent. Lila est là, recroquevillée dans un coin, frigorifiée et terrifiée, **sans aucune trace de violence**.",
-              "statut": "audrey"
+              "texte": "Les gendarmes ouvrent. Lila est là, recroquevillée dans un coin, frigorifiée et terrifiée, **sans aucune trace de violence** (l'absence de violence est une décision d'Audrey ; la mise en scène est une proposition).",
+              "statut": "proposition"
             },
             {
               "texte": "Elle reconnaît Ariane avant de reconnaître les adultes ; Ariane s'approche doucement. L'héroïne s'agenouille, lui met sa veste sur les épaules.",
@@ -3614,8 +3625,8 @@
             {
               "id": "ENV_CABANE",
               "type": "lieu",
-              "description": "Cabane de résinier en planches, sombre, froide, sans aucun confort ; aucun signe de violence.",
-              "statut": "audrey"
+              "description": "Sombre, froide, sans aucun confort, aucun signe de violence (décision d'Audrey). Proposition : cabane de résinier en planches.",
+              "statut": "proposition"
             },
             {
               "id": "ANIM_LILA_RETROUVEE",
@@ -3625,8 +3636,7 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).",
-            "Même tenue qu'au chapitre 1, salie et humide ; aucune blessure."
+            "Lila : même apparence qu'au prologue (tenue V4), salie et humide ; aucune blessure. Ni porte-clés ni bracelet (retrouvés au chapitre 1). Pas de cartable (proposition : resté entre les mains des ravisseurs)."
           ],
           "points_ouverts": [
             "V8 : ce qu'on montre de Lila dans la cabane (durée, cadrage) : à valider par Audrey."
@@ -3664,7 +3674,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3743,7 +3753,7 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
+            "Lila : même tenue qu'en SC_C4_03, veste de l'héroïne sur les épaules ; ni porte-clés, ni bracelet, ni cartable."
           ],
           "points_ouverts": [],
           "refs": [],
@@ -3785,7 +3795,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3882,7 +3892,7 @@
             },
             {
               "id": "CHAR_CHIENNE",
-              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
               "statut": "audrey"
             },
             {
@@ -3892,8 +3902,8 @@
             },
             {
               "id": "CHAR_CASTERAN",
-              "role": "témoin de bonne foi dont les archives servent de preuve",
-              "statut": "audrey"
+              "role": "témoin de bonne foi (décision Q2) ; ses archives servent de preuve (proposition)",
+              "statut": "proposition"
             },
             {
               "id": "CHAR_ARBELOT",

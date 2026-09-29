@@ -533,7 +533,7 @@ def simulate_path(m: Mission, steps: list[str], start: set[str] | None = None) -
         if loc["id"] == "LOC_POSTE" or it["location"] == "LOC_POSTE":
             fire_events(t)
             if "FLAG_GENDARMES_SUR_PLACE" not in have and call_time is not None:
-                earliest = max(earliest, max(hm("16:52"), call_time + 13))
+                earliest = max(earliest, max(hm(m.events["EVT_GENDARMES_ARRIVENT"]["time"]), call_time + 13))
         t = max(t, earliest)
         fire_events(t)
         if not requirements_met(it, have):
@@ -642,8 +642,8 @@ def check_content(m: Mission, r: Report) -> None:
                 r.err(f"[contenu] PZ_05 : fragment « {frag} » incompatible avec « {plate} »")
     # ligne de chronologie : vidéo d'Inès et caméra du Relais
     rel = m.clues.get("CLU_CCTV_RELAIS")
-    if rel and "16 h 48" not in rel["fact"]:
-        r.err("[contenu] CLU_CCTV_RELAIS doit rester à 16 h 48 (9 km depuis le rond-point à 16 h 39)")
+    if rel and "16 h 40" not in rel["fact"]:
+        r.err("[contenu] CLU_CCTV_RELAIS doit rester à 16 h 40 (9 km depuis le rond-point à 16 h 31)")
 
 
 # ------------------------------------------- 8 bis. photo exclusive, états DED_/H_, conditions de dialogue
@@ -765,11 +765,47 @@ def check_open_visuals(m: Mission, r: Report) -> None:
     r.info.append(f"{len(tagged)} indices/déductions liés à des visuels ouverts : hypothèses obligatoires atteignables sans eux")
 
 
+def hms(s: str) -> int:
+    parts = [int(x) for x in s.split(":")]
+    return parts[0] * 3600 + parts[1] * 60 + (parts[2] if len(parts) > 2 else 0)
+
+
+def check_departure_rule(m: Mission, r: Report) -> None:
+    """La joueuse voit toujours le départ du fourgon, où qu'elle soit pendant le prologue.
+
+    Après l'alerte, le départ est retenu tant que la joueuse n'est pas à l'entrée de la ruelle (hold_max_s au plus) ;
+    au-delà, un plan court non interactif montre le départ. Le fourgon doit être hors de vue avant le chapitre 1.
+    """
+    pro = m.meta["prologue"]
+    rule = pro.get("departure_rule")
+    if not rule:
+        r.err("[prologue] departure_rule manquante : rien ne garantit que la joueuse voie le départ du fourgon")
+        return
+    win_min, win_max = pro["window_seconds"]
+    reach = rule["max_prologue_distance_to_entrance_m"] / rule["run_speed_mps"]
+    budget = win_min + rule["hold_max_s"]
+    if reach > budget:
+        r.err(f"[prologue] la joueuse la plus éloignée met {reach:.0f} s pour rejoindre la ruelle, "
+              f"mais le départ n'est retenu que {budget} s après l'alerte")
+    shot = rule.get("fallback_shot") or {}
+    if shot.get("duration_s", 0) < rule["min_visible_departure_s"] or shot.get("interactive", True):
+        r.err("[prologue] le plan de repli doit être non interactif et durer au moins min_visible_departure_s")
+    if rule["descent_to_turn_s"] < rule["min_visible_departure_s"]:
+        r.err("[prologue] le fourgon tourne trop vite pour être vu pendant min_visible_departure_s")
+    end = hms(rule["alert_latest"]) + win_max + rule["hold_max_s"] + rule["descent_to_turn_s"]
+    if end > hms(m.meta["clock"]["chapter_start"]):
+        r.err(f"[prologue] le fourgon peut encore être dans la ruelle après le début du chapitre 1 "
+              f"({end // 3600:02d}:{end % 3600 // 60:02d}:{end % 60:02d})")
+    r.info.append(f"départ du fourgon : joueuse la plus éloignée à l'entrée en {reach:.0f} s ≤ {budget} s ; "
+                  f"hors de vue au plus tard à {end // 3600:02d}:{end % 3600 // 60:02d}:{end % 60:02d}")
+
+
 def validate(mission_dir: Path) -> Report:
     r = Report()
     m = Mission(mission_dir)
     for check in (check_ids, check_refs, check_sources, check_reachability, check_time, check_branches, check_content,
-                  check_window_exclusive, check_states, check_dialogue_requires, check_open_visuals):
+                  check_window_exclusive, check_states, check_dialogue_requires, check_open_visuals,
+                  check_departure_rule):
         check(m, r)
     return r
 

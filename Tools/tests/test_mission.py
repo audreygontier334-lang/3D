@@ -233,6 +233,18 @@ class TestLeValidateurDetecteLesErreurs(unittest.TestCase):
         self.mm.edit("../../dialogues/01-ouverture.json", bad)
         self.assertTrue(any("requires mal formé" in e for e in self.mm.errors()))
 
+    def test_depart_du_fourgon_invisible_pour_une_joueuse_eloignee(self):
+        self.mm.edit("mission.json", lambda d: d["prologue"]["departure_rule"].__setitem__(
+            "max_prologue_distance_to_entrance_m", 300))
+        self.assertTrue(any("la plus éloignée" in e for e in self.mm.errors()))
+
+    def test_regle_de_depart_absente(self):
+        self.mm.edit("mission.json", lambda d: d["prologue"].pop("departure_rule"))
+        self.assertTrue(any("departure_rule manquante" in e for e in self.mm.errors()))
+
+    def test_fourgon_encore_visible_au_chapitre_1(self):
+        self.mm.edit("mission.json", lambda d: d["prologue"]["departure_rule"].__setitem__("alert_latest", "16:30:40"))
+        self.assertTrue(any("après le début du chapitre 1" in e for e in self.mm.errors()))
 
 class TestDecisionsAudrey(unittest.TestCase):
     """Les décisions validées par Audrey le 29/09 ne doivent pas être contredites par les textes et les données."""
@@ -242,7 +254,10 @@ class TestDecisionsAudrey(unittest.TestCase):
         r"\b(la|en|sa|une|de) laisse\b": "laisse (Ariane est libre)",
         r"\bcollier\b": "collier (Ariane n'en porte pas)",
         r"\bl[âa]ch(er|ée|é)\b": "lâcher la chienne (Ariane est déjà libre)",
-        r"front de mer": "front de mer (hors champ en P0–P3)",
+        r"front de mer": "front de mer (pas de promenade sur le front de mer en P0–P3 ; la mer se voit seulement au loin)",
+        r"foulard noir à motifs blancs|bandeau noir à motifs blancs": "motifs paisley (décision d'Audrey du 29/09)",
+        r"ni visibles? ni audibles?|aucune vue sur la mer|mer n'est pas visible|sans horizon maritime|aucun horizon maritime":
+            "la mer se voit au loin au bout de la ruelle (V3, décision d'Audrey du 29/09)",
         r"\{CHIENNE\}": "jeton {CHIENNE} (la chienne s'appelle Ariane)",
         r"ENV_RUE_PORT|Z_RUE_PORT|Z_FRONT\b|LOC_FRONT_MER|LOC_CALE\b|ACT_LACHER": "ancien identifiant",
         r"chienne n'ont pas encore de nom": "le nom d'Ariane est décidé",

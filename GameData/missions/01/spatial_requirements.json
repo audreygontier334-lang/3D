@@ -72,14 +72,20 @@
     {
       "id": "REQ_RUELLE_DEBOUCHE",
       "to": "Codex",
-      "status": "proposition",
-      "text": "Débouché de la ruelle à 70–100 m de la portière, sur le boulevard (hors champ) ; les maisons d'angle masquent la direction prise par un véhicule qui tourne. Ce que l'on voit au-delà (lumière, bout de ciel, mer ou non) est un choix visuel d'Audrey."
+      "status": "decision_audrey_29_09_mer_au_loin",
+      "text": "Débouché de la ruelle à 70–100 m de la portière, sur le boulevard (chaussée hors champ) ; les maisons d'angle masquent la direction prise par un véhicule qui tourne. Décision d'Audrey (29/09) : on voit la mer au loin au-dessus du boulevard. Proposition : pente, muret ou maisons d'angle masquent la chaussée ; aucun port visible ; le rond-point reste invisible."
     },
     {
       "id": "REQ_RUELLE_PERRON",
       "to": "Codex",
       "status": "deferred_chapter1",
       "text": "Remplace REQ_LIGNE_DE_VUE_PERRON. Depuis le perron de l'étude (Z_PLACE), à 1,65 m : l'intérieur de la ruelle est visible en enfilade jusqu'au débouché ; ni le boulevard ni le rond-point ne sont visibles (énigme PZ_03)."
+    },
+    {
+      "id": "REQ_PROLOGUE_DISTANCE_ENTREE",
+      "to": "Codex",
+      "status": "proposition",
+      "text": "Pendant P0–P1, toute position atteignable par la joueuse est à 110 m de marche au plus de l'entrée de la ruelle (règle de départ, mission.json prologue.departure_rule : 110 m à 5 m/s = 22 s ≤ 8 s de fenêtre + 30 s de retenue). Prévoir aussi le plan court CAM_DEPART_COURT (4 s, depuis l'entrée, plaque arrière lisible)."
     }
   ],
   "elements": [
@@ -464,7 +470,7 @@
       "fallback": {
         "type": "partout",
         "ids": [],
-        "note": "Le téléphone fonctionne dans toutes les zones ; l'action est mise en avant à 16 h 39."
+        "note": "Le téléphone fonctionne dans toutes les zones ; l'action est mise en avant à 16 h 31."
       },
       "visual_check": "Aucun besoin visuel particulier."
     },

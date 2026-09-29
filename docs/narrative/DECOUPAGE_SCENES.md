@@ -12,8 +12,8 @@
 |---|---|---|---|
 | V1 | Niveau d'animation de la place de l'école (foule, voitures, parents). | Audrey, pendant la construction 3D | Lila repérable 3 s au portail ; aucun indice n'en dépend. |
 | V2 | Apparence du fourgon : couleur, modèle, lettrage éventuel, feu fendu. | Audrey, pendant la construction 3D | Plaque arrière lisible et portière latérale coulissante. Si ombre de lettrage : l'énigme facultative PZ_06 existe ; sinon elle est retirée. Dans les dialogues, la couleur est un jeton {FOURGON_COULEUR}. |
-| V3 | Ce que l'on voit au débouché de la ruelle : simple lumière, bout de ciel, bande de mer ? | Audrey | Le boulevard et le rond-point ne doivent pas être visibles (énigme du perron). |
-| V4 | Tenue et cheveux de Lila. | Audrey, sur proposition de Codex | Identiques de la sortie d'école à la cabane, y compris sur la photo ; cartable avec porte-clés renard, bracelet en perles. |
+| V3 | Ce que l'on voit au débouché de la ruelle. | ✅ Tranché par Audrey (29/09) : la mer au loin | Bande de mer au loin, au-dessus du boulevard ; la chaussée du boulevard et le rond-point restent invisibles (énigme du perron). Le port reste hors champ. |
+| V4 | Tenue et cheveux de Lila. | Audrey, sur proposition de Codex | Tenue et cheveux identiques de la sortie d'école à la cabane, y compris sur la photo. Accessoires : porte-clés renard sur le cartable jusqu'à l'abordage (il tombe dans la ruelle) ; bracelet en perles au poignet jusqu'à la montée dans le fourgon (il casse et tombe au pied de la portière). Ni l'un ni l'autre ensuite. |
 | V5 | Apparence de Darrigade (et son nom définitif). | Audrey | Rassurant, rien de menaçant à l'image. |
 | V6 | Obscurité des scènes de nuit (chapitre 2). | Audrey | Traces et Ariane lisibles à la lampe dans les trois vues. |
 | V7 | Intensité de la pluie en forêt (chapitre 4). | Audrey | Ariane et les traces lisibles. |
@@ -39,18 +39,18 @@
 
 - ✅ Centre-ville inspiré de celui d'Arcachon, en fin d'après-midi.
 - ✅ Port hors de la scène d'ouverture.
-- ✅ Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs blancs ; bandeau assorti pour l'héroïne.
+- ✅ Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs paisley blancs ; bandeau assorti pour l'héroïne.
 - ✅ Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D.
 
 - **Lieu** 🟡 : Rue piétonne du centre-ville, puis arrivée sur la place de l'école (plan A). Centre-ville inspiré d'Arcachon. — décors `ENV_PROMENADE`, `ENV_ECOLE` ; zones `Z_PROMENADE`, `Z_TEMOINS`
-- **Moment et lumière** 🟡 : mardi, fin septembre, 16:33 → 16:34 ; fin d'après-midi, lumière chaude et basse, ombres longues ; météo : beau temps, léger vent dans les pins
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_DUFAU` sur son banc du square, mots croisés · 🟡 `FIGURANTS_PLACE` passants, commerçants ; densité au choix d'Audrey
+- **Moment et lumière** 🟡 : mardi, fin septembre, 16:25 → 16:26 ; fin d'après-midi, lumière chaude et basse, ombres longues ; météo : beau temps, léger vent dans les pins
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_DUFAU` sur son banc du square, mots croisés · 🟡 `FIGURANTS_PLACE` passants, commerçants ; densité au choix d'Audrey
 
 **Action**
 
 1. 🟡 La joueuse prend la main : marcher, trotter, changer de vue. Ariane marche librement à 1–3 m, flaire les pieds des bancs, revient au rappel.
 2. 🟡 Tutoriel doux, facultatif : ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! ».
-3. 🟡 Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une demi-heure (première graine).
+3. 🟡 Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » garé dans la ruelle depuis une bonne demi-heure (première graine).
 
 **Déplacements**
 
@@ -76,20 +76,20 @@
 
 **Éléments visuels à produire**
 
-- ✅ `ENV_PROMENADE` (lieu) : Rue piétonne commerçante et square avec banc ; architecture inspirée du centre d'Arcachon.
+- 🟡 `ENV_PROMENADE` (lieu) : Centre-ville inspiré d'Arcachon (décision d'Audrey). Proposition : rue piétonne commerçante et square avec banc.
 - 🟡 `CHAR_DUFAU` (personnage) : Retraité, bob, journal de mots croisés, voix râpeuse.
 - 🟡 `ANIM_CHIENNE_LIBRE` (animation) : Marche libre, flair, retour au rappel, rapport de balle.
 
 **Continuité**
 
-- Héroïne : tenue validée (voir docs/DECISIONS.md, PR #3).
-- Ariane : foulard noir à motifs blancs, jamais de laisse ni de collier.
+- Héroïne ✅ : jean, tee-shirt, veste en jean, créoles, bandeau noir à motifs paisley blancs assorti au foulard d'Ariane, baskets noires et blanches style Nike Air Max (sans logo ni nom de marque).
+- Ariane : foulard noir à motifs paisley blancs, jamais de laisse ni de collier.
 
 **Points ouverts**
 
 - V1 : niveau d'animation de la place (choix d'Audrey).
 
-**Raccord** 🟡 → `SC_P0_B` : Sonnerie de l'école à 16 h 34 : la caméra ne coupe pas, la joueuse est déjà sur la place.
+**Raccord** 🟡 → `SC_P0_B` : Sonnerie de l'école à 16 h 26 : la caméra ne coupe pas, la joueuse est déjà sur la place.
 
 Références données : `EVT_START`, `DLG_P_TUTO`, `DLG_P_DUFAU`
 
@@ -102,15 +102,15 @@ Références données : `EVT_START`, `DLG_P_TUTO`, `DLG_P_DUFAU`
 - ✅ Tenue, cheveux et trajet précis de Lila : non validés.
 
 - **Lieu** 🟡 : Place de l'école, devant le portail (plan A). — décors `ENV_ECOLE` ; zones `Z_ECOLE`, `Z_PLACE`
-- **Moment et lumière** 🟡 : mardi, 16:34 → 16:35:40 ; même lumière chaude ; façades éclairées de biais ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_FILLETTE` Lila, 9 ans, sort seule · 🟡 `FIGURANTS_ECOLE` enfants et parents ; densité au choix d'Audrey
+- **Moment et lumière** 🟡 : mardi, 16:26 → 16:27:40 ; même lumière chaude ; façades éclairées de biais ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_FILLETTE` Lila, rentre seule de l'école (âge proposé : 9 ans) · 🟡 `FIGURANTS_ECOLE` enfants et parents ; densité au choix d'Audrey
 
 **Action**
 
-1. 🟡 16 h 34 : sonnerie, les enfants sortent.
-2. 🟡 16 h 35 : Lila sort seule, repère Ariane de loin, lui fait coucou main levée (le bracelet se voit) : « Coucou Ariane ! Demain je t'apporte un biscuit ! ». Ariane remue la queue.
+1. 🟡 16 h 26 : sonnerie, les enfants sortent.
+2. 🟡 16 h 27 : Lila sort seule, repère Ariane de loin, lui fait coucou main levée (le bracelet se voit) : « Coucou Ariane ! Demain je t'apporte un biscuit ! ». Ariane remue la queue.
 3. 🟡 Si la joueuse répond d'un geste, Lila sourit.
-4. 🟡 Lila part seule sur le trottoir de la rue de l'École, vers l'angle de la ruelle des Tamaris (son chemin habituel vers la maison, côté océan). Elle tourne à l'angle et sort du champ de la place vers 16 h 35 min 40.
+4. 🟡 Lila part seule sur le trottoir de la rue de l'École, vers l'angle de la ruelle des Tamaris (son chemin habituel vers la maison, côté océan). Elle tourne à l'angle et sort du champ de la place vers 16 h 27 min 40.
 
 **Déplacements**
 
@@ -143,7 +143,7 @@ Références données : `EVT_START`, `DLG_P_TUTO`, `DLG_P_DUFAU`
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
+- Lila : tenue et cheveux non validés (V4), identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou.
 
 **Points ouverts**
 
@@ -164,23 +164,25 @@ Références données : `EVT_SONNERIE`, `EVT_LILA_COUCOU`, `DLG_P_LILA`
 - ✅ Ambiance de la ruelle validée : maisons variées, d'époques différentes, avec des couleurs, clôtures et haies différentes.
 - ✅ Déplacement précis de Lila, tenue et cheveux : non validés (faux raccord capillaire à éviter).
 - ✅ Apparence du fourgon : à choisir par Audrey ; aucun indice indispensable n'en dépend.
+- ✅ La ruelle est orientée vers le front de mer ; au débouché, on voit la mer au loin (V3, 29/09). Le port reste hors champ.
 
-- **Lieu** 🟡 : Transition du plan A au plan B : angle de la rue de l'École, puis entrée de la ruelle des Tamaris, plus isolée, orientée vers l'océan. Maisons variées d'époques différentes, couleurs, clôtures et haies différentes. — décors `ENV_ECOLE`, `ENV_RUE_FUITE` ; zones `Z_ECOLE`, `Z_CROISEMENT`, `Z_RUE_FUITE`
-- **Moment et lumière** 🟡 : mardi, 16:35:40 → 16:37:50 ; lumière basse qui entre dans la ruelle depuis l'ouest ; façades à contre-jour vers le débouché ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_FILLETTE` Lila · 🟡 `CHAR_K2` « Sandrine », femme au badge et cordon bleu
+- **Lieu** 🟡 : Transition du plan A au plan B : angle de la rue de l'École, puis entrée de la ruelle des Tamaris, plus isolée, orientée vers le front de mer : la mer se voit au loin, au bout de la ruelle. Maisons variées d'époques différentes, couleurs, clôtures et haies différentes. — décors `ENV_ECOLE`, `ENV_RUE_FUITE` ; zones `Z_ECOLE`, `Z_CROISEMENT`, `Z_RUE_FUITE`
+- **Moment et lumière** 🟡 : mardi, 16:27:40 → 16:29:50 ; lumière basse qui entre dans la ruelle depuis l'ouest ; façades à contre-jour vers le débouché ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_FILLETTE` Lila · 🟡 `CHAR_K2` « Sandrine », femme au badge et cordon bleu
 
 **Action**
 
 1. 🟡 La femme attendait à ≈ 10 m dans la ruelle, hors de vue du portail. Elle aborde Lila : « Lila ? Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Lila hésite : « Mais… elle m'a dit de rentrer toute seule. » La femme montre son badge.
 2. 🟡 Elle prend Lila par la main ; elles marchent 15–25 m sur le trottoir vers un fourgon garé sur le bas-côté, dans le sens de la descente, arrière vers l'entrée.
-3. 🟡 La joueuse arrive à l'entrée de la ruelle et découvre la scène à 20–30 m. Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.
-4. 🟡 Au moment de l'abordage, le porte-clés renard se détache du cartable et tombe près du caniveau (non montré en gros plan).
+3. 🟡 Devant la portière, Lila refuse de monter : « Je veux appeler maman d'abord. » La femme fait semblant de téléphoner à Nadia (« Nadia ? Oui, je l'ai, on arrive… ») et négocie. Cette hésitation dure jusqu'à l'alerte (moins d'une minute) : c'est ce qui retient le fourgon.
+4. 🟡 La joueuse arrive à l'entrée de la ruelle et découvre la scène à 20–30 m. Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.
+5. 🟡 Au moment de l'abordage, le porte-clés renard se détache du cartable et tombe près du caniveau (non montré en gros plan).
 
 **Déplacements**
 
 | | Qui | De | Vers | Distance | Durée |
 |---|---|---|---|---|---|
-| 🟡 | Lila et la femme | point d'abordage (≈ 10 m dans la ruelle) | portière latérale du fourgon | 15–25 m | ≈ 25 s |
+| 🟡 | Lila et la femme | point d'abordage (≈ 10 m dans la ruelle) | portière latérale du fourgon | 15–25 m | ≈ 25 s, puis attente devant la portière jusqu'à l'alerte (faux appel) |
 | 🟡 | Duo | angle de la rue de l'École | entrée de la ruelle | variable | au rythme de la joueuse |
 
 **Indices observables**
@@ -198,7 +200,7 @@ Références données : `EVT_SONNERIE`, `EVT_LILA_COUCOU`, `DLG_P_LILA`
 
 **Si un indice est manqué**
 
-- La joueuse est ailleurs → Au plus tard à 16 h 38 min 30, Ariane court vers la ruelle en aboyant ; la joueuse entend Lila appeler et arrive pour voir le départ.
+- La joueuse est ailleurs → Au plus tard à 16 h 30, Ariane court vers la ruelle en aboyant ; Lila crie « Ariane ! ». Le départ attend que la joueuse soit à moins de 5 m de l'entrée (30 s au plus) ; sinon, un plan court de 4 s depuis l'entrée montre le départ.
 
 **Éléments visuels à produire**
 
@@ -209,15 +211,14 @@ Références données : `EVT_SONNERIE`, `EVT_LILA_COUCOU`, `DLG_P_LILA`
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
+- Lila : cartable avec porte-clés renard à l'entrée de la ruelle ; le porte-clés se détache à l'abordage et reste au sol près du caniveau. Bracelet en perles toujours au poignet.
 
 **Points ouverts**
 
 - V2 : apparence du fourgon.
-- V3 : ce qu'on voit au débouché de la ruelle.
 - Trajet précis de Lila : non validé, contraintes seulement (abordage hors de vue du portail, 15–25 m jusqu'à la portière).
 
-**Raccord** 🟡 → `SC_P2` : L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 38 min 30 (Ariane s'élance alors en aboyant et la joueuse la suit).
+**Raccord** 🟡 → `SC_P2` : L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 30 (Ariane s'élance alors en aboyant et la joueuse la suit). Voir la règle de départ dans mission.json (prologue.departure_rule).
 
 Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 
@@ -230,15 +231,16 @@ Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 - ✅ Apparence du fourgon ouverte : aucun indice indispensable n'en dépend.
 
 - **Lieu** 🟡 : Ruelle des Tamaris (plan B), de l'entrée jusqu'au fourgon. — décors `ENV_RUE_FUITE` ; zones `Z_CROISEMENT`, `Z_RUE_FUITE`
-- **Moment et lumière** 🟡 : mardi, 16:37:50 → 16:38:17 ; lumière basse ; contre-jour vers le débouché ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_FILLETTE` Lila · 🟡 `CHAR_K2` « Sandrine » · 🟡 `CHAR_K1` le conducteur, dans la cabine
+- **Moment et lumière** 🟡 : mardi, 16:29:50 → 16:30:17 ; lumière basse ; contre-jour vers le débouché ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_FILLETTE` Lila · 🟡 `CHAR_K2` « Sandrine » · 🟡 `CHAR_K1` le conducteur, dans la cabine
 
 **Action**
 
 1. 🟡 Devant la portière, Lila se retourne, voit Ariane : « Je veux attendre maman… Ariane ! ». Ariane grogne, corps tendu.
 2. 🟡 Invite discrète, sans ralenti imposé : photographier, courir, crier « Lila ! », envoyer Ariane (« Ariane, va ! »). Deux actions au plus en 8–12 s (20–25 s avec l'option d'accessibilité).
-3. ✅ La femme fait monter Lila (pas de violence montrée), claque la portière ; le fourgon déboîte et descend la ruelle.
-4. 🟡 Envoyée, Ariane fonce en aboyant et s'arrête net au bord de la chaussée quand le fourgon démarre ; elle flaire l'endroit où se tenait la femme, puis regarde la haie.
+3. 🟡 La femme fait monter Lila, claque la portière ; le fourgon déboîte et descend la ruelle. (Décision d'Audrey : aucune violence montrée ; la mise en scène exacte est une proposition.)
+4. 🟡 En montant, le bracelet en perles de Lila casse (non montré) et tombe dans le sable au pied de la portière ; il sera trouvé par Ariane au chapitre 1.
+5. 🟡 Envoyée, Ariane fonce en aboyant et s'arrête net au bord de la chaussée quand le fourgon démarre ; elle flaire l'endroit où se tenait la femme, puis regarde la haie.
 
 **Déplacements**
 
@@ -269,6 +271,7 @@ Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 
 **Si un indice est manqué**
 
+- La joueuse n'est pas à l'entrée au moment de l'alerte → Le départ est retenu (Lila résiste, la femme insiste) jusqu'à ce que la joueuse soit à moins de 5 m de l'entrée, 30 s au plus ; au-delà, plan court non interactif de 4 s (CAM_DEPART_COURT) depuis l'entrée : la plaque arrière reste lisible, puis retour au contrôle.
 - Aucune action pendant la fenêtre → Tous les axes restent résolubles avec les indices permanents (vidéo d'Inès, témoins, badge, plaque).
 - Photo manquée → La vidéo d'Inès donne la fin de la plaque (consultation plus longue, 15 min).
 - Badge non vu en train de tomber → Piste d'Ariane avec la bouteille (PZ_02), ou fouille des gendarmes à 18 h 30.
@@ -282,7 +285,7 @@ Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
+- Lila : plus de porte-clés sur le cartable (il est au sol, ≈ 10 m derrière). Bracelet au poignet jusqu'à la montée : le cordon casse hors champ quand la femme la presse de monter ; il tombe au pied de la portière. Elle monte avec son cartable.
 - Aucune scène ne montre de violence envers Lila (décision d'Audrey).
 
 **Points ouverts**
@@ -298,10 +301,11 @@ Références données : `EVT_ALERTE`, `EVT_DEPART`, `ACT_PHOTO`, `ACT_COURIR`, `
 **Décisions d'Audrey qui s'appliquent** ✅
 
 - ✅ Port hors de la scène d'ouverture.
+- ✅ Au débouché de la ruelle, on voit la mer au loin (V3, 29/09).
 
 - **Lieu** 🟡 : Ruelle des Tamaris (plan B), mi-ruelle. — décors `ENV_RUE_FUITE` ; zones `Z_RUE_FUITE`
-- **Moment et lumière** 🟡 : mardi, 16:38:17 → 16:39 ; lumière basse ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs
+- **Moment et lumière** 🟡 : mardi, 16:30:17 → 16:31 ; lumière basse ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs
 
 **Action**
 
@@ -313,7 +317,7 @@ Références données : `EVT_ALERTE`, `EVT_DEPART`, `ACT_PHOTO`, `ACT_COURIR`, `
 
 - `CAM_SHOULDER` : Héroïne et Ariane au premier plan, débouché vide au fond.
 - `CAM_WIDE` : Idem.
-- `CAM_FIRST` : Le débouché de la ruelle.
+- `CAM_FIRST` : Le débouché de la ruelle, avec la mer au loin.
 
 **Si un indice est manqué**
 
@@ -321,13 +325,9 @@ Références données : `EVT_ALERTE`, `EVT_DEPART`, `ACT_PHOTO`, `ACT_COURIR`, `
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_RUE_FUITE_DEBOUCHE` (lieu) : Débouché de la ruelle sur le boulevard (hors champ) ; ce qu'on voit au-delà est un choix d'Audrey (V3).
+- ✅ `ENV_RUE_FUITE_DEBOUCHE` (lieu) : Débouché de la ruelle : la mer au loin (décision d'Audrey). Contraintes proposées : bande de mer au-dessus du boulevard, dont la chaussée reste masquée (pente, muret, maisons d'angle) ; aucun port ; le rond-point reste invisible.
 
-**Points ouverts**
-
-- V3 : débouché de la ruelle.
-
-**Raccord** 🟡 → `SC_C1_01` : Pas de coupe : le chapitre 1 commence dans la même ruelle, à 16 h 39.
+**Raccord** 🟡 → `SC_C1_01` : Pas de coupe : le chapitre 1 commence dans la même ruelle, à 16 h 31.
 
 Références données : `EVT_HORS_VUE`, `EVT_CH1_START`, `DLG_P_HEROINE_CHOC`
 
@@ -338,8 +338,8 @@ Références données : `EVT_HORS_VUE`, `EVT_CH1_START`, `DLG_P_HEROINE_CHOC`
 ### `SC_C1_01` — L'appel et la ruelle vide
 
 - **Lieu** 🟡 : Ruelle des Tamaris (plan B), de l'entrée au bas-côté. — décors `ENV_RUE_FUITE` ; zones `Z_CROISEMENT`, `Z_RUE_FUITE`
-- **Moment et lumière** 🟡 : mardi, 16:39 → 16:52 ; fin d'après-midi, lumière chaude ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `PASSANTS` quelques riverains qui sortent des maisons
+- **Moment et lumière** 🟡 : mardi, 16:31 → 16:44 ; fin d'après-midi, lumière chaude ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `PASSANTS` quelques riverains qui sortent des maisons
 
 **Action**
 
@@ -390,8 +390,8 @@ Références données : `INT_APPEL_17`, `INT_PROTEGER_SCENE`, `INT_EXAMINER_ACCO
 ### `SC_C1_02` — Les gendarmes
 
 - **Lieu** 🟡 : Entrée de la ruelle, puis place de l'Église où s'installe le poste de commandement (plan A). — décors `ENV_RUE_FUITE`, `ENV_PLACE_EGLISE` ; zones `Z_CROISEMENT`, `Z_PLACE`
-- **Moment et lumière** 🟡 : mardi, 16:52 → 17:00 ; fin d'après-midi ; la place se vide ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `GENDARMES` deux ou trois gendarmes
+- **Moment et lumière** 🟡 : mardi, 16:44 → 17:00 ; fin d'après-midi ; la place se vide ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `GENDARMES` deux ou trois gendarmes
 
 **Action**
 
@@ -427,8 +427,8 @@ Références données : `EVT_GENDARMES_ARRIVENT`, `DLG_C1_MENDIONDO_ARRIVEE`, `D
 ### `SC_C1_03` — La piste de Lila
 
 - **Lieu** 🟡 : Ruelle des Tamaris (plan B), du point d'abordage au pied de l'emplacement du fourgon. — décors `ENV_RUE_FUITE` ; zones `Z_CROISEMENT`, `Z_RUE_FUITE`
-- **Moment et lumière** 🟡 : mardi, libre (après 16:39) → +5 min ; lumière chaude qui baisse ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs
+- **Moment et lumière** 🟡 : mardi, libre (après 16:31) → +5 min ; lumière chaude qui baisse ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs
 
 **Action**
 
@@ -464,7 +464,7 @@ Références données : `EVT_GENDARMES_ARRIVENT`, `DLG_C1_MENDIONDO_ARRIVEE`, `D
 
 **Éléments visuels à produire**
 
-- ✅ `ANIM_CHIENNE_PISTE` (animation) : Cercles truffe basse, traction brève, allure régulière, assise + regard, tête haute et retour.
+- 🟡 `ANIM_CHIENNE_PISTE` (animation) : Cercles truffe basse, traction brève, allure régulière, assise + regard, tête haute et retour.
 - 🟡 `PROP_BRACELET` (accessoire) : Bracelet en perles, cordon cassé.
 
 **Continuité**
@@ -479,7 +479,7 @@ Références données : `INT_PISTE_LILA`, `PZ_01`, `DLG_C1_PISTE_LILA`
 
 - **Lieu** 🟡 : Square avec le banc de Dufau et boulangerie Lartigue avec son tableau de liège (plan A). — décors `ENV_PROMENADE`, `ENV_ECOLE` ; zones `Z_TEMOINS`
 - **Moment et lumière** 🟡 : mardi, libre → boulangerie ouverte jusqu'à 19:30 ; fin d'après-midi ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_DUFAU` témoin bougon · 🟡 `CHAR_LARTIGUE` boulangère
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_DUFAU` témoin bougon · 🟡 `CHAR_LARTIGUE` boulangère
 
 **Action**
 
@@ -530,7 +530,7 @@ Références données : `INT_DUFAU`, `INT_LARTIGUE`, `INT_TABLEAU_LIEGE`, `DLG_C
 
 - **Lieu** 🟡 : Portail de l'école et abribus (plan A), puis entrée de la ruelle et haie (plan B). — décors `ENV_ECOLE`, `ENV_RUE_FUITE` ; zones `Z_ECOLE`, `Z_CROISEMENT`, `Z_RUE_FUITE`
 - **Moment et lumière** 🟡 : mardi, libre → +10 min ; fin d'après-midi ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_DIRECTRICE` Mme Pujol, directrice, au portail
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_DIRECTRICE` Mme Pujol, directrice, au portail
 
 **Action**
 
@@ -586,7 +586,7 @@ Références données : `INT_DIRECTRICE`, `INT_AFFICHE_ECOLE`, `INT_BANC_ABRIBUS
 
 - **Lieu** 🟡 : Perron de l'étude Casteran, place de l'Église (plan A), avec vue en enfilade sur la ruelle. — décors `ENV_PLACE_EGLISE` ; zones `Z_PLACE`
 - **Moment et lumière** 🟡 : mardi, à partir de 16:45 → libre ; fin d'après-midi ; la ruelle au loin, à contre-jour ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_CASTERAN` notaire, témoin de bonne foi
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_CASTERAN` témoin de bonne foi qui s'est trompé (décision Q2) ; notaire (proposition)
 
 **Action**
 
@@ -629,7 +629,7 @@ Références données : `INT_CASTERAN`, `INT_LIGNE_DE_VUE`, `PZ_03`, `DLG_C1_CAS
 
 - **Lieu** 🟡 : Butte du skatepark près du rond-point du Lac, au-delà du débouché de la ruelle et du boulevard (extension du chapitre 1). — décors `ENV_ROND_POINT` ; zones `Z_RUE_FUITE`
 - **Moment et lumière** 🟡 : mardi, libre → +4 min ; fin d'après-midi ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_INES` 15 ans, filme ses figures
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_INES` 15 ans, filme ses figures
 
 **Action**
 
@@ -664,7 +664,7 @@ Références données : `INT_CASTERAN`, `INT_LIGNE_DE_VUE`, `PZ_03`, `DLG_C1_CAS
 
 - 🟡 `ENV_ROND_POINT` (lieu) : Rond-point du Lac à trois sorties panneautées (Corniche, Étangs, D652), boulevard, butte du skatepark.
 - 🟡 `CHAR_INES` (personnage) : Adolescente, skate, téléphone.
-- 🟡 `VID_INES_ROND_POINT` (vidéo) : Vidéo verticale 12 s, horodatée 16:39:10, rendue dans le moteur.
+- 🟡 `VID_INES_ROND_POINT` (vidéo) : Vidéo verticale 12 s, horodatée 16:31:10, rendue dans le moteur.
 
 **Points ouverts**
 
@@ -684,7 +684,7 @@ Références données : `INT_INES`, `PZ_04`, `EVT_INES_PARENTS`, `DLG_C1_INES`, 
 
 - **Lieu** 🟡 : Place de l'Église, autour du poste de commandement et de la fontaine (plan A). — décors `ENV_PLACE_EGLISE` ; zones `Z_PLACE`
 - **Moment et lumière** 🟡 : mardi, 17:30 → 18:45 ; le soleil descend ; la place passe dans l'ombre, les toits restent dorés ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_JULIEN` père de Lila, mêlé au trafic · ✅ `CHAR_NADIA` mère de Lila, ne sait rien · ✅ `CHAR_DARRIGADE` compagnon de Nadia, tête du réseau (secret) · 🟡 `CHAR_MENDIONDO` adjudante-cheffe
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_JULIEN` père de Lila, mêlé au trafic · ✅ `CHAR_NADIA` mère de Lila, ne sait rien · ✅ `CHAR_DARRIGADE` compagnon de Nadia, tête du réseau (secret) · 🟡 `CHAR_MENDIONDO` adjudante-cheffe
 
 **Action**
 
@@ -746,13 +746,13 @@ Références données : `EVT_PERE_ARRIVE`, `EVT_NADIA_ARRIVE`, `EVT_DARRIGADE_S_
 
 - **Lieu** 🟡 : Intérieur et abords du véhicule de commandement, place de l'Église (plan A). — décors `ENV_PLACE_EGLISE` ; zones `Z_PLACE`
 - **Moment et lumière** 🟡 : mardi, libre (17:15 : radio) → 19:30 ; ombre sur la place ; écrans du véhicule allumés ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe
 
 **Action**
 
 1. 🟡 Consultation de la plaque : GF-437-TR appartient au fourgon d'un plombier de Dax qui était à Dax : plaque clonée.
-2. 🟡 17 h 15, radio : un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 58 (fausse piste loyale).
-3. 🟡 Après la vidéo d'Inès : caméra du Relais du Lac, 16 h 48, plaque « …37-TR ».
+2. 🟡 17 h 15, radio : un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 50 (fausse piste loyale).
+3. 🟡 Après la vidéo d'Inès : caméra du Relais du Lac, 16 h 40, plaque « …37-TR ».
 4. 🟡 Carte de l'étang de Sorbe ; photo de Lila agrandie (soleil bas face à la fenêtre, ponton, pin avec pot à résine).
 
 **Indices observables**
@@ -780,7 +780,7 @@ Références données : `EVT_PERE_ARRIVE`, `EVT_NADIA_ARRIVE`, `EVT_DARRIGADE_S_
 **Éléments visuels à produire**
 
 - 🟡 `IMG_PHOTO_VIE` (image) : Lila assise, calme mais inquiète, couverture sur les épaules ; fenêtre sur l'étang, soleil bas dans l'axe (azimut ≈ 242°), ponton, pin avec pot à résine. Aucune marque de violence. Tenue et cheveux identiques à SC_P0_B.
-- 🟡 `VID_CCTV_RELAIS` (vidéo) : Caméra de station, 16:48, plaque « 37-TR ».
+- 🟡 `VID_CCTV_RELAIS` (vidéo) : Caméra de station, 16:40, plaque « 37-TR ».
 - 🟡 `PROP_CARTE_ETANG` (accessoire) : Carte de l'étang de Sorbe : base nautique à l'ouest, forêt d'ancien gemmage à l'est.
 
 **Continuité**
@@ -803,7 +803,7 @@ Références données : `INT_PLAQUE_COMPLETE`, `INT_PLAQUE_PARTIELLE`, `INT_CCTV
 
 - **Lieu** 🟡 : Poste de commandement, place de l'Église (plan A). — décors `ENV_PLACE_EGLISE` ; zones `Z_PLACE`
 - **Moment et lumière** 🟡 : mardi, au choix (≤ 19:30) → 19:30 au plus tard ; crépuscule qui approche (coucher ≈ 19 h 45) ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · ✅ `CHAR_NADIA` mère · ✅ `CHAR_DARRIGADE` compagnon
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · ✅ `CHAR_NADIA` mère · ✅ `CHAR_DARRIGADE` compagnon
 
 **Action**
 
@@ -845,7 +845,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Route des Étangs, Relais du Lac (station-service), fourche vers l'étang de Sorbe. — décors `ENV_ROUTE_ETANGS`
 - **Moment et lumière** 🟡 : mardi, ≈ 18:30–19:45 selon l'état → +15 min ; crépuscule (A), nuit tombante (B), nuit noire (C) ; météo : sec ; pluie fine après 23 h en état C
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `GENDARMES` peloton
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `GENDARMES` peloton
 
 **Action**
 
@@ -883,7 +883,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Pistes forestières numérotées, sable et aiguilles de pin, trois airiaux (clairières habitées) sur la rive est de l'étang de Sorbe. — décors `ENV_FORET_RIVE_EST`
 - **Moment et lumière** 🟡 : mardi, nuit → +1 h ; lune et lampes frontales ; contre-jour de l'étang ; météo : sec ou pluie fine (état C)
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `GENDARMES` peloton, radio
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `GENDARMES` peloton, radio
 
 **Action**
 
@@ -931,11 +931,11 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Airial de Hount-Bielha : maison basse, pièce principale dont la fenêtre donne sur l'étang (celle de la photo), grange. — décors `ENV_AIRIAL_HOUNT_BIELHA`
 - **Moment et lumière** 🟡 : mardi, nuit → +20 min ; nuit, lampes ; météo : sec ou pluie fine
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `GENDARMES` peloton · 🟡 `CHAR_K1` Loubère, caché dans la grange
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `GENDARMES` peloton · 🟡 `CHAR_K1` Loubère, caché dans la grange
 
 **Action**
 
-1. ✅ La pièce est vide : couverture pliée, chaise, verre d'eau. Lila en est partie environ une heure plus tôt (décision : elle n'est retrouvée qu'au chapitre 4).
+1. 🟡 La pièce est vide : couverture pliée, chaise, verre d'eau. Lila en est partie environ une heure plus tôt (conséquence de la décision Q3 d'Audrey : Lila n'est retrouvée qu'au chapitre 4).
 2. 🟡 Ariane trouve dans l'herbe la gomme parfumée à la fraise de la trousse de Lila, puis la piste s'arrête sur des traces de pneus fraîches.
 3. 🟡 Ariane marque la grange : les gendarmes interpellent Loubère, qui tentait de brûler des papiers (état A : un document à moitié sauvé). Aucune violence montrée.
 
@@ -977,7 +977,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Place de l'Église, poste de commandement, de nuit. — décors `ENV_PLACE_EGLISE` ; zones `Z_PLACE`
 - **Moment et lumière** 🟡 : mercredi, ≈ 01:00 → +10 min ; nuit, éclairage public ; météo : sec
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `CHAR_ARBELOT` capitaine, section de recherches · ✅ `CHAR_DARRIGADE` vient apporter du café aux gendarmes
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_MENDIONDO` adjudante-cheffe · 🟡 `CHAR_ARBELOT` capitaine, section de recherches · 🟡 `CHAR_DARRIGADE` compagnon de Nadia, tête du réseau (décision Q2) ; ici, vient apporter du café aux gendarmes (proposition)
 
 **Action**
 
@@ -1019,7 +1019,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Salle d'audition de la brigade, puis cour de la gendarmerie. — décors `ENV_GENDARMERIE`
 - **Moment et lumière** 🟡 : mercredi, 09:00 → 10:00 ; lumière grise du matin ; météo : couvert
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_JULIEN` père · 🟡 `CHAR_ARBELOT` capitaine
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_JULIEN` père · 🟡 `CHAR_ARBELOT` capitaine
 
 **Action**
 
@@ -1057,7 +1057,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Entrepôt de Darrigade Logistique, zone portuaire de Bayonne (visite des douanes autorisée). — décors `ENV_ENTREPOT_BAYONNE`
 - **Moment et lumière** 🟡 : mercredi, 14:00 → 16:00 ; néons d'entrepôt, lumière du jour par les quais ; météo : couvert
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_DARRIGADE` patron des lieux, courtois · 🟡 `DOUANIERS` agents des douanes · 🟡 `CHAR_JULIEN` au volant, comme d'habitude
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_DARRIGADE` tête du réseau (décision Q2) ; ici, patron courtois de l'entrepôt (proposition) · 🟡 `DOUANIERS` agents des douanes · 🟡 `CHAR_JULIEN` au volant, comme d'habitude
 
 **Action**
 
@@ -1098,7 +1098,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Quais du port de Bayonne, abords du caboteur Maren Sofie. — décors `ENV_QUAIS_BAYONNE`
 - **Moment et lumière** 🟡 : jeudi, 05:15 → 06:30 ; nuit finissante, projecteurs du port, aube grise ; météo : bruine
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_JULIEN` au volant du camion · 🟡 `GENDARMES` planques · 🟡 `COMPLICE` homme du réseau
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_JULIEN` au volant du camion · 🟡 `GENDARMES` planques · 🟡 `COMPLICE` homme du réseau
 
 **Action**
 
@@ -1147,7 +1147,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Poste de crise en lisière de la forêt de Lande-Haute (camionnette, tables sous auvent). — décors `ENV_PC_FORET`
 - **Moment et lumière** 🟡 : jeudi, 08:00 → 09:00 ; jour gris, pluie froide ; météo : pluie
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `CHAR_ARBELOT` capitaine · ✅ `CHAR_NADIA` mère, venue apporter un vêtement de Lila · ✅ `CHAR_DARRIGADE` l'accompagne
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_ARBELOT` capitaine · 🟡 `CHAR_NADIA` mère de Lila, ignore le trafic (décision Q1) ; ici, apporte un vêtement de Lila (proposition) · 🟡 `CHAR_DARRIGADE` compagnon de Nadia, tête du réseau (décision Q2) ; ici, l'accompagne (proposition)
 
 **Action**
 
@@ -1182,7 +1182,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Forêt de Lande-Haute : pistes numérotées, parcelles de pins, fougères, fossés. — décors `ENV_FORET_LANDE_HAUTE`
 - **Moment et lumière** 🟡 : jeudi, 09:00 → 17:30 ; pluie froide, lumière qui baisse l'après-midi ; météo : pluie
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `GENDARMES` équipes de battue
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `GENDARMES` équipes de battue
 
 **Action**
 
@@ -1223,14 +1223,14 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 - ✅ Q3 : Lila est retrouvée au chapitre 4.
 - ✅ Q3 : elle n'a subi aucune violence mais a été retenue dans une cabane sombre, froide et sans confort.
 
-- **Lieu** ✅ : Ancienne cabane de résinier en planches, au fond d'une parcelle : sombre, froide, sans aucun confort. — décors `ENV_CABANE`
+- **Lieu** 🟡 : Cabane sombre, froide, sans aucun confort (décision d'Audrey). Proposition : ancienne cabane de résinier en planches, au fond d'une parcelle. — décors `ENV_CABANE`
 - **Moment et lumière** 🟡 : jeudi, ≈ 17:45 → ≈ 18:15 ; fin de jour sous la pluie ; intérieur très sombre, lumière des lampes ; météo : pluie
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_FILLETTE` Lila, retenue seule · 🟡 `GENDARMES` équipe · 🟡 `CHAR_K2` « Sandrine », qui revient
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_FILLETTE` Lila, retenue seule · 🟡 `GENDARMES` équipe · 🟡 `CHAR_K2` « Sandrine », qui revient
 
 **Action**
 
 1. 🟡 Ariane accélère, truffe au sol, et s'assied devant une porte cadenassée : aboiement bref, regard vers l'héroïne.
-2. ✅ Les gendarmes ouvrent. Lila est là, recroquevillée dans un coin, frigorifiée et terrifiée, **sans aucune trace de violence**.
+2. 🟡 Les gendarmes ouvrent. Lila est là, recroquevillée dans un coin, frigorifiée et terrifiée, **sans aucune trace de violence** (l'absence de violence est une décision d'Audrey ; la mise en scène est une proposition).
 3. 🟡 Elle reconnaît Ariane avant de reconnaître les adultes ; Ariane s'approche doucement. L'héroïne s'agenouille, lui met sa veste sur les épaules.
 4. 🟡 « Sandrine », qui revenait, est arrêtée sur la piste (ou s'enfuit : choix à faire plus tard).
 
@@ -1252,13 +1252,12 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 **Éléments visuels à produire**
 
-- ✅ `ENV_CABANE` (lieu) : Cabane de résinier en planches, sombre, froide, sans aucun confort ; aucun signe de violence.
+- 🟡 `ENV_CABANE` (lieu) : Sombre, froide, sans aucun confort, aucun signe de violence (décision d'Audrey). Proposition : cabane de résinier en planches.
 - 🟡 `ANIM_LILA_RETROUVEE` (animation) : Lila recroquevillée, lève les yeux vers Ariane, se laisse approcher.
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
-- Même tenue qu'au chapitre 1, salie et humide ; aucune blessure.
+- Lila : même apparence qu'au prologue (tenue V4), salie et humide ; aucune blessure. Ni porte-clés ni bracelet (retrouvés au chapitre 1). Pas de cartable (proposition : resté entre les mains des ravisseurs).
 
 **Points ouverts**
 
@@ -1275,7 +1274,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Piste forestière près des véhicules de secours. — décors `ENV_FORET_LANDE_HAUTE`
 - **Moment et lumière** 🟡 : jeudi, ≈ 18:30 → ≈ 18:45 ; crépuscule pluvieux, gyrophares ; météo : pluie
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_FILLETTE` Lila · ✅ `CHAR_NADIA` mère · ✅ `CHAR_DARRIGADE` compagnon · 🟡 `SECOURS` pompiers, médecin
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_FILLETTE` Lila · ✅ `CHAR_NADIA` mère · ✅ `CHAR_DARRIGADE` compagnon · 🟡 `SECOURS` pompiers, médecin
 
 **Action**
 
@@ -1305,7 +1304,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
+- Lila : même tenue qu'en SC_C4_03, veste de l'héroïne sur les épaules ; ni porte-clés, ni bracelet, ni cartable.
 
 **Raccord** 🟡 → `SC_C5_01` : Ellipse : quelques jours plus tard, départ pour Anvers.
 
@@ -1317,7 +1316,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Anvers : docks, archives du registre des sociétés, bureau de Nordhaven Shipping BV. — décors `ENV_ANVERS`
 - **Moment et lumière** 🟡 : jours suivants, — → — ; lumière du Nord, grise ; météo : variable
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · 🟡 `POLICE_BELGE` police fédérale
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `POLICE_BELGE` police fédérale
 
 **Action**
 
@@ -1362,7 +1361,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - **Lieu** 🟡 : Lescoure : étude Casteran (archives), maison de Nadia, entrepôt de Bayonne. — décors `ENV_PLACE_EGLISE`, `ENV_ENTREPOT_BAYONNE`
 - **Moment et lumière** 🟡 : jours suivants, — → — ; fin d'après-midi dorée, comme l'ouverture (proposition) ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs blancs · ✅ `CHAR_DARRIGADE` tête du réseau · ✅ `CHAR_CASTERAN` témoin de bonne foi dont les archives servent de preuve · 🟡 `CHAR_ARBELOT` capitaine
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_DARRIGADE` tête du réseau · 🟡 `CHAR_CASTERAN` témoin de bonne foi (décision Q2) ; ses archives servent de preuve (proposition) · 🟡 `CHAR_ARBELOT` capitaine
 
 **Action**
 

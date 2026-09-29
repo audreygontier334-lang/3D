@@ -3,8 +3,8 @@
   "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon »",
   "status": "proposition",
   "clock": {
-    "prologue_start": "16:33",
-    "chapter_start": "16:39",
+    "prologue_start": "16:25",
+    "chapter_start": "16:31",
     "deadline": "19:30",
     "travel_cost_per_zone": 1
   },
@@ -36,6 +36,23 @@
       ],
       "alternative": "pause_jusqu_au_choix",
       "max_actions_unchanged": true
+    },
+    "departure_rule": {
+      "_doc": "Proposition. Garantit que la joueuse voit le départ du fourgon, où qu'elle soit sur la place. Lila, devant la portière, refuse de monter tant qu'elle n'a pas « appelé maman » (faux appel de K2, DLG_P_ABORDAGE_04–06) : c'est ce qui retient le fourgon jusqu'à l'alerte. Après l'alerte, le départ est retenu tant que la joueuse n'est pas à l'entrée de la ruelle, dans la limite de hold_max_s ; au-delà, un plan court non interactif montre le départ.",
+      "alert_trigger_distance_m": 5,
+      "alert_latest": "16:30:00",
+      "hold_until_player_within_m_of_entrance": 5,
+      "hold_max_s": 30,
+      "fallback_shot": {
+        "id": "CAM_DEPART_COURT",
+        "duration_s": 4,
+        "from": "entrée de la ruelle",
+        "interactive": false
+      },
+      "descent_to_turn_s": 12,
+      "min_visible_departure_s": 4,
+      "run_speed_mps": 5.0,
+      "max_prologue_distance_to_entrance_m": 110
     },
     "player_flags": [
       "FLAG_COUCOU_RENDU"
