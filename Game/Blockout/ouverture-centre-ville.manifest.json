@@ -1,0 +1,54 @@
+{
+  "manifest_version": 1,
+  "status": "blockout_non_canonique",
+  "scene_id": "SCENE_01_OUVERTURE_CENTRE_VILLE",
+  "source_gltf": "Game/Blockout/ouverture-centre-ville.gltf",
+  "coordinate_system": {
+    "units": "metres",
+    "up_axis": "Y"
+  },
+  "zones": [
+    {"id": "Z_PROMENADE", "centre": [8, 0, -19], "role": "depart_Audrey_et_Ariane"},
+    {"id": "Z_ECOLE", "centre": [0, 0, 0], "role": "sortie_des_classes"},
+    {"id": "Z_CROISEMENT", "centre": [26, 0, -6], "role": "premier_indice_olfactif"},
+    {"id": "Z_RUE_FUITE", "centre": [29, 0, -11], "role": "trajectoire_du_fourgon"},
+    {"id": "Z_PLACE", "centre": [-8, 0, -8], "role": "espace_public_et_temoin"},
+    {"id": "Z_TEMOINS", "centre": [-25, 0, -18], "role": "position_des_PNJ_interrogeables"}
+  ],
+  "event_markers": [
+    {"id": "EVT_SORTIE_ECOLE", "node": "child_placeholder"},
+    {"id": "EVT_FOURGON", "node": "van_placeholder"},
+    {"id": "EVT_DEPART_DUO", "node": "heroine_placeholder"},
+    {"id": "EVT_ARIANE", "node": "ariane_placeholder"},
+    {"id": "EVT_INDICE_ODEUR", "node": "scent_object_marker"},
+    {"id": "EVT_PISTE", "node": "scent_clue_marker"}
+  ],
+  "validation": {
+    "camera_nodes": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"],
+    "required_subject_nodes": ["child_placeholder", "van_placeholder", "ariane_placeholder"],
+    "occluder_prefixes": ["school_main", "west_shop", "corner_house", "east_shop", "tree_trunk"],
+    "frame_aspect_ratio": [16, 9],
+    "safe_frame_margin": 0.05
+  },
+  "audio_policy": {
+    "always_available": ["sortie_ecole", "circulation_locale", "oiseaux_urbains", "vent_dans_les_pins"],
+    "conditional": [
+      {
+        "id": "ressac",
+        "enabled_by_default": false,
+        "condition": "Activer uniquement si la distance a la cote et la propagation sonore sont credibles dans la version finale."
+      }
+    ]
+  },
+  "decision_guards": {
+    "protagonist_shoes": {
+      "canonical_reference": "docs/DECISIONS.md#4-personnage-principal--audrey",
+      "current_value": "baskets_blanches_epaisses",
+      "conflicting_proposal": "baskets_retro_noir_et_blanc",
+      "resolution_required_from": "Audrey"
+    },
+    "personal_photos": {
+      "allowed_in_repository": false
+    }
+  }
+}
