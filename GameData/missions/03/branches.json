@@ -1,0 +1,119 @@
+{
+  "mission": "M03",
+  "branches": [
+    {
+      "id": "BR_C3_ERR_PHARMACIE",
+      "trigger": "Hypothèse « lot de pharmacie » présentée",
+      "time_cost": 15,
+      "effect": "Contre-pesée du lot de pharmacie : conforme ; confiance des gendarmes −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_ERR_PHARMACIE",
+      "recovery": "Comparer les pesées des trois lots.",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_ERR_TOUT",
+      "trigger": "Hypothèse « tout l'entrepôt » présentée",
+      "time_cost": 15,
+      "effect": "Le juge refuse une saisie générale sans élément précis",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_ERR_TOUT",
+      "recovery": "Relire les scellés : un seul lot sort de la série.",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_ERR_JULIEN",
+      "trigger": "Hypothèse « Julien a prévenu » présentée",
+      "time_cost": 15,
+      "effect": "Julien, blessé, se ferme ; confiance des gendarmes −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_ERR_JULIEN",
+      "recovery": "Son téléphone était saisi depuis 10 h.",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_ERR_DOUANES",
+      "trigger": "Hypothèse « un douanier a prévenu » présentée",
+      "time_cost": 15,
+      "effect": "Arbelot rappelle l'heure de prévenance des douanes",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_ERR_DOUANES",
+      "recovery": "Comparer 3 h 02 et 4 h.",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_JULIEN_SE_FERME",
+      "trigger": "Mauvais argument face à Julien",
+      "time_cost": 30,
+      "effect": "Julien se tait ; il faudra revenir",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_JULIEN_SE_FERME",
+      "recovery": "Arbelot le fait céder à 12 h 30 (EVT_C3_JULIEN_CEDE).",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_DOCS_MAUVAIS_LOT",
+      "trigger": "Mauvais lot désigné dans les documents",
+      "time_cost": 30,
+      "effect": "Contre-vérification des douanes",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_DOCS_MAUVAIS_LOT",
+      "recovery": "Les douaniers refont la pesée (EVT_C3_DOUANES_CONTRE_VERIF).",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_ARIANE_MAUVAIS_OBJET",
+      "trigger": "Badge de l'entrepôt donné comme objet de référence",
+      "time_cost": 10,
+      "effect": "Odeurs mêlées : Ariane hésite entre dix cartons",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_ARIANE_MAUVAIS_OBJET",
+      "recovery": "Reprendre avec le badge de « Sandrine ».",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_FOUILLE_MAUVAISE",
+      "trigger": "Ariane envoyée vers le camion au lieu de la voiture",
+      "time_cost": 10,
+      "effect": "Le camion de Julien ne porte que son odeur",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C3_FOUILLE_MAUVAISE",
+      "recovery": "Les gendarmes fouillent la voiture à 7 h (EVT_C3_FOUILLE_VEHICULE).",
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_RESOLU",
+      "trigger": "Tableau présenté avec une hypothèse correcte pour chaque axe obligatoire",
+      "time_cost": 0,
+      "effect": "Fin de chapitre ; départ vers la carte des déplacements (ETP_3)",
+      "flags": [
+        "FLAG_RESOLU"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C3_FIN",
+      "recovery": null,
+      "rejoins": "RES_M03"
+    },
+    {
+      "id": "BR_C3_CLOTURE",
+      "trigger": "Jeudi 9 h 30 sans résolution",
+      "time_cost": 0,
+      "effect": "Arbelot tranche avec les éléments réunis ; état C",
+      "flags": [
+        "FLAG_CLOTURE"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C3_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M03"
+    }
+  ]
+}

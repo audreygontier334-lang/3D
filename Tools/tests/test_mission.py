@@ -688,3 +688,26 @@ class TestRaccordMaquettePR3(unittest.TestCase):
             if el["id"].startswith("ACT_") or m.clues.get(el["id"], {}).get("availability") == "fenetre":
                 with self.subTest(el["id"]):
                     self.assertEqual(set(el["cameras"]), ruelle)
+
+
+class TestMission03(unittest.TestCase):
+    """Chapitre 3 « Le dernier voyage » : sans erreur, et indices de l'étape ETP_3 définis dans le chapitre."""
+
+    def test_aucune_erreur_ni_avertissement(self):
+        r = vm.validate(ROOT / "GameData" / "missions" / "03")
+        self.assertEqual(r.errors, [])
+        self.assertEqual(r.warnings, [])
+
+    def test_indices_de_la_carte_definis_dans_le_chapitre(self):
+        clues = {c["id"] for c in json.loads((ROOT / "GameData/missions/03/clues.json").read_text(encoding="utf-8"))["clues"]}
+        doc = json.loads((ROOT / "GameData/campaign/itineraire.json").read_text(encoding="utf-8"))
+        etp3 = next(e for e in doc["etapes"] if e["id"] == "ETP_3")
+        for c in etp3["candidates"]:
+            for ref in c.get("preuves", []) + c.get("refutation", []):
+                with self.subTest(ref):
+                    self.assertIn(ref, clues)
+
+    def test_le_tableau_attend_l_operation_du_port(self):
+        m = vm.Mission(ROOT / "GameData" / "missions" / "03")
+        self.assertGreaterEqual(vm.hm(m.interactions["INT_C3_PRESENTER_TABLEAU"]["available_from"]),
+                                vm.hm(m.events["EVT_C3_OPERATION"]["time"]))

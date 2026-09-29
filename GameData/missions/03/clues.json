@@ -1,0 +1,216 @@
+{
+  "mission": "M03",
+  "clues": [
+    {
+      "id": "CLU_C3_BADGE_SANDRINE",
+      "name": "Badge de « Sandrine » (scellé du chapitre 1)",
+      "location": "LOC_BRIGADE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Le badge d'animatrice au cordon cassé, conservé sous scellé : il porte l'odeur de « Sandrine ».",
+      "interpretations": [
+        "Objet de référence pour Ariane"
+      ]
+    },
+    {
+      "id": "CLU_C3_BADGE_ENTREPOT",
+      "name": "Badge « DL – quai 4 » (chapitre 2)",
+      "location": "LOC_BRIGADE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Badge magnétique trouvé à Hount-Bielha, manipulé par plusieurs personnes (gendarmes compris).",
+      "interpretations": [
+        "Lien avec le quai 4 de Darrigade Logistique"
+      ]
+    },
+    {
+      "id": "CLU_C3_QUAI_4_CONNU",
+      "name": "Bon de livraison brûlé (état A)",
+      "location": "LOC_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "« …igade Logistique – quai 4 – jeudi 6 h… » : le lot visé est connu avant la visite.",
+      "interpretations": [
+        "Gain de temps à l'entrepôt"
+      ]
+    },
+    {
+      "id": "CLU_C3_OPERATION_ANNONCEE",
+      "name": "Qui connaît l'opération",
+      "location": "LOC_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Arbelot : « Connaissent l'opération de jeudi : mon équipe, Julien, et la famille, que j'ai rassurée hier à 21 h sans donner de détail. Les douaniers ne seront prévenus qu'à 4 h. »",
+      "interpretations": [
+        "Liste fermée de personnes informées"
+      ]
+    },
+    {
+      "id": "CLU_C3_TEMOIGNAGE_JULIEN",
+      "name": "Récit de Julien",
+      "location": "LOC_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Julien : les cartons aux notices fausses, sa démission refusée, et le « dernier voyage » : conduire le camion au quai du Maren Sofie jeudi à 5 h 30 et remettre les clés à « Sandrine ». Il refuse de dire qui dirige : « Si je le dis, elle est morte. »",
+      "interpretations": [
+        "Rendez-vous jeudi 5 h 30",
+        "Julien ne nomme personne"
+      ]
+    },
+    {
+      "id": "CLU_C3_JULIEN_SOUS_SURVEILLANCE",
+      "name": "Nuit de Julien",
+      "location": "LOC_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Julien passe la nuit à la brigade ; son téléphone est entre les mains des enquêteurs depuis 10 h.",
+      "interpretations": [
+        "Julien n'a pu prévenir personne"
+      ]
+    },
+    {
+      "id": "CLU_C3_DARRIGADE_CURIEUX",
+      "name": "Darrigade à l'entrepôt",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Darrigade, affable, offre un café et demande deux fois « comment ça se passera demain matin ».",
+      "interpretations": [
+        "Curiosité appuyée pour l'opération"
+      ]
+    },
+    {
+      "id": "CLU_C3_BONS_LIVRAISON",
+      "name": "Bons de livraison",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Trois lots partent jeudi : pharmacie hospitalière (quai 2), conserves (quai 3), « matériel médical » (quai 4).",
+      "interpretations": [
+        "Le lot du quai 4 est le seul à destination du Maren Sofie"
+      ]
+    },
+    {
+      "id": "CLU_C3_PESEE",
+      "name": "Pesée des palettes",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Pesée : pharmacie et conserves conformes au bon ; lot du quai 4, 180 kg de plus que déclaré.",
+      "interpretations": [
+        "Le lot du quai 4 ne contient pas ce qui est déclaré"
+      ]
+    },
+    {
+      "id": "CLU_C3_SCELLES",
+      "name": "Numéros de scellés",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les scellés du quai 4 ne suivent pas la série de l'entrepôt ; ceux des quais 2 et 3, si.",
+      "interpretations": [
+        "Le lot du quai 4 a été reconditionné"
+      ]
+    },
+    {
+      "id": "CLU_C3_CARTON_SANDRINE",
+      "name": "Carton marqué par Ariane",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Ariane s'assied devant un carton du quai 4 : l'odeur de « Sandrine ».",
+      "interpretations": [
+        "« Sandrine » a manipulé ce lot"
+      ]
+    },
+    {
+      "id": "CLU_C3_NADIA_APPEL",
+      "name": "Appel de Nadia",
+      "location": "LOC_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "22 h : Nadia appelle {HEROINE}. « Les gendarmes m'ont dit que demain matin, il se passerait quelque chose. J'en ai parlé à Xavier, il m'a dit de dormir. »",
+      "interpretations": [
+        "L'information de l'opération est sortie de la famille, de bonne foi"
+      ]
+    },
+    {
+      "id": "CLU_C3_COMPLICE_SEUL",
+      "name": "Le complice arrive seul",
+      "location": "LOC_QUAIS_PLANQUE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "« Sandrine » ne vient pas. Un homme arrive à 6 h 20 dans sa citadine grise ; interpellé, il se tait. Sur son téléphone : « Change de plan, tu y vas seul », reçu à 3 h 02.",
+      "interpretations": [
+        "« Sandrine » a été prévenue entre 22 h et 3 h",
+        "Pas par les douaniers, prévenus à 4 h"
+      ]
+    },
+    {
+      "id": "CLU_C3_TELEPHONE_SANDRINE",
+      "name": "Téléphone abandonné",
+      "location": "LOC_QUAIS_VOITURE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Sous le siège de la citadine, un téléphone prépayé à l'odeur de « Sandrine », éteint à 5 h 50.",
+      "interpretations": [
+        "Son historique peut localiser Lila"
+      ]
+    },
+    {
+      "id": "CLU_C3_TICKET_CARBURANT",
+      "name": "Ticket de carburant",
+      "location": "LOC_QUAIS_VOITURE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Ticket de la station de Lande-Haute, jeudi 5 h 40, dans la portière de la citadine.",
+      "interpretations": [
+        "Le complice venait de Lande-Haute"
+      ]
+    },
+    {
+      "id": "CLU_C3_BORNAGE_UNE_ANTENNE",
+      "name": "Première réponse de bornage",
+      "location": "LOC_QUAIS_PLANQUE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "Une seule antenne au début : zone large incluant le sud de Lande-Haute.",
+      "interpretations": [
+        "Zone encore trop large"
+      ]
+    },
+    {
+      "id": "CLU_C3_BORNAGE_NE",
+      "name": "Bornage complet",
+      "location": "LOC_QUAIS_PLANQUE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "Dernières 48 h : le téléphone borne sur deux antennes dont l'intersection couvre le nord-est de Lande-Haute.",
+      "interpretations": [
+        "Lila est probablement au nord-est de Lande-Haute"
+      ]
+    },
+    {
+      "id": "CLU_C3_CADASTRE_SCI",
+      "name": "Cadastre de Lande-Haute",
+      "location": "LOC_QUAIS_PLANQUE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Une parcelle du nord-est appartient à la SCI Lande-Haute, même gérant de paille que la SCI des Pins de Sorbe.",
+      "interpretations": [
+        "Même réseau de prête-noms que l'airial"
+      ]
+    },
+    {
+      "id": "CLU_C3_VOITURE_CAPBRETON",
+      "name": "Vidéosurveillance de Capbreton",
+      "location": "LOC_QUAIS_PLANQUE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "La citadine de « Sandrine » vue à Capbreton mercredi soir… conduite par un homme (le complice interpellé).",
+      "interpretations": [
+        "La voiture a changé de mains mercredi soir"
+      ]
+    }
+  ]
+}

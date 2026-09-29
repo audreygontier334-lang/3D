@@ -1,0 +1,109 @@
+{
+  "id": "M03",
+  "title": "Chapitre 3 « Le dernier voyage »",
+  "status": "proposition",
+  "min_puzzles": 5,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission sans prologue : départ selon l'état hérité du chapitre 2 (entry_states, chacun avec son heure `start`). Heures > 24:00 = jeudi (30:20 = jeudi 6 h 20).",
+  "clock": {
+    "chapter_start": "09:00",
+    "deadline": "33:30",
+    "travel_cost_per_zone": 35,
+    "_doc": "Déplacement brigade ↔ Bayonne ≈ 35 min ; l'entrepôt n'ouvre qu'à 14 h, les quais qu'à 5 h 15 (jeudi)."
+  },
+  "start_zone": "Z_GENDARMERIE",
+  "entry_states": [
+    {
+      "id": "CH3_ETAT_A",
+      "label": "Avance",
+      "start": "08:30",
+      "grants": [
+        "FLAG_ETAT_A",
+        "CLU_C3_BADGE_SANDRINE",
+        "CLU_C3_BADGE_ENTREPOT",
+        "CLU_C3_QUAI_4_CONNU"
+      ]
+    },
+    {
+      "id": "CH3_ETAT_B",
+      "label": "Standard",
+      "start": "09:00",
+      "grants": [
+        "FLAG_ETAT_B",
+        "CLU_C3_BADGE_SANDRINE",
+        "CLU_C3_BADGE_ENTREPOT"
+      ]
+    },
+    {
+      "id": "CH3_ETAT_C",
+      "label": "Retard",
+      "start": "09:30",
+      "grants": [
+        "FLAG_ETAT_C",
+        "CLU_C3_BADGE_SANDRINE",
+        "CLU_C3_BADGE_ENTREPOT"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace sans énigme facultative ; l'opération du port fixe la fin.",
+    "steps": [
+      "INT_C3_BRIEFING",
+      "INT_C3_JULIEN",
+      "INT_C3_DOCUMENTS",
+      "INT_C3_PLANQUE",
+      "INT_C3_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M03",
+    "dialogue": "DLG_C3_FIN",
+    "next_states": [
+      {
+        "id": "CH4_ETAT_A",
+        "label": "Avance",
+        "condition": {
+          "resolved_before": "31:00",
+          "requires": [
+            "H_C3_ZONE_NE"
+          ]
+        }
+      },
+      {
+        "id": "CH4_ETAT_B",
+        "label": "Standard",
+        "condition": {
+          "resolved_before": "32:00"
+        }
+      },
+      {
+        "id": "CH4_ETAT_C",
+        "label": "Retard",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_ZONE_NE",
+        "from": "H_C3_ZONE_NE"
+      },
+      {
+        "id": "BONUS_CARTON_SANDRINE",
+        "from": "CLU_C3_CARTON_SANDRINE"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/03-dernier-voyage.json"
+  }
+}

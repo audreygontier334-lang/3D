@@ -1,0 +1,235 @@
+{
+  "mission": "M03",
+  "puzzles": [
+    {
+      "id": "PZ_C3_01",
+      "title": "Faire parler Julien",
+      "axis": "lot",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C3_JULIEN",
+      "inputs": [
+        "CLU_C3_OPERATION_ANNONCEE"
+      ],
+      "produces": [
+        "CLU_C3_TEMOIGNAGE_JULIEN"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "ils_ont_deja_deplace_lila",
+        "options": [
+          "menace_de_prison",
+          "promesse_d_immunite",
+          "ils_ont_deja_deplace_lila"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC3_01_1",
+          "text": "Julien a peur pour sa fille, pas pour lui."
+        },
+        {
+          "id": "UI_HINT_PZC3_01_2",
+          "text": "Une promesse d'immunité n'est pas à vous de la faire."
+        },
+        {
+          "id": "UI_HINT_PZC3_01_3",
+          "text": "Montrez-lui que le réseau ne tient pas parole : Lila a déjà été déplacée de l'airial."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C3_JULIEN_SE_FERME",
+        "time_cost": 30
+      },
+      "recovery": [
+        "EVT_C3_JULIEN_CEDE"
+      ]
+    },
+    {
+      "id": "PZ_C3_02",
+      "title": "Les papiers ne mentent pas",
+      "axis": "lot",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C3_DOCUMENTS",
+      "inputs": [
+        "CLU_C3_BONS_LIVRAISON",
+        "CLU_C3_PESEE",
+        "CLU_C3_SCELLES"
+      ],
+      "produces": [
+        "DED_C3_LOT_FALSIFIE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "lot_quai_4",
+        "options": [
+          "lot_quai_2_pharmacie",
+          "lot_quai_3_conserves",
+          "lot_quai_4"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC3_02_1",
+          "text": "Trois lots, trois bons, trois pesées."
+        },
+        {
+          "id": "UI_HINT_PZC3_02_2",
+          "text": "Lequel pèse plus que ce qu'il déclare ?"
+        },
+        {
+          "id": "UI_HINT_PZC3_02_3",
+          "text": "Un seul lot a des scellés hors série et part vers le Maren Sofie."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C3_DOCS_MAUVAIS_LOT",
+        "time_cost": 30
+      },
+      "recovery": [
+        "EVT_C3_DOUANES_CONTRE_VERIF"
+      ]
+    },
+    {
+      "id": "PZ_C3_03",
+      "title": "L'odeur de « Sandrine »",
+      "axis": "piste",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C3_ARIANE_ENTREPOT",
+      "inputs": [
+        "CLU_C3_BADGE_SANDRINE",
+        "CLU_C3_BADGE_ENTREPOT"
+      ],
+      "produces": [
+        "CLU_C3_CARTON_SANDRINE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "CLU_C3_BADGE_SANDRINE",
+        "options": [
+          "CLU_C3_BADGE_SANDRINE",
+          "CLU_C3_BADGE_ENTREPOT",
+          "CLU_C3_BONS_LIVRAISON"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC3_03_1",
+          "text": "Ariane a besoin de l'odeur d'une seule personne."
+        },
+        {
+          "id": "UI_HINT_PZC3_03_2",
+          "text": "Combien de mains ont touché le badge magnétique ?"
+        },
+        {
+          "id": "UI_HINT_PZC3_03_3",
+          "text": "Le badge d'animatrice ne porte que l'odeur de « Sandrine »."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C3_BADGE_ENTREPOT"
+      ],
+      "wrong": {
+        "branch": "BR_C3_ARIANE_MAUVAIS_OBJET",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C3_DOCUMENTS"
+      ]
+    },
+    {
+      "id": "PZ_C3_04",
+      "title": "Où chercher sur le quai ?",
+      "axis": "piste",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C3_ARIANE_VOITURE",
+      "inputs": [
+        "CLU_C3_COMPLICE_SEUL",
+        "CLU_C3_BADGE_SANDRINE"
+      ],
+      "produces": [
+        "CLU_C3_TELEPHONE_SANDRINE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "citadine_du_complice",
+        "options": [
+          "camion_de_julien",
+          "citadine_du_complice",
+          "bord_du_quai"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC3_04_1",
+          "text": "Quel véhicule « Sandrine » a-t-elle conduit ces derniers jours ?"
+        },
+        {
+          "id": "UI_HINT_PZC3_04_2",
+          "text": "Le camion n'a porté que Julien."
+        },
+        {
+          "id": "UI_HINT_PZC3_04_3",
+          "text": "La citadine grise était la sienne avant d'être prêtée."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C3_FOUILLE_MAUVAISE",
+        "time_cost": 10
+      },
+      "recovery": [
+        "EVT_C3_FOUILLE_VEHICULE"
+      ]
+    },
+    {
+      "id": "PZ_C3_05",
+      "title": "Le tableau du quai",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C3_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_C3_LOT_QUAI_4",
+          "H_C3_FUITE_FAMILLE"
+        ],
+        "optional": [
+          "H_C3_ZONE_NE"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC3_05_1",
+          "text": "Deux questions : quel lot, et par où l'information est sortie."
+        },
+        {
+          "id": "UI_HINT_PZC3_05_2",
+          "text": "Qui savait avant 3 h 02 ?"
+        },
+        {
+          "id": "UI_HINT_PZC3_05_3",
+          "text": "Julien n'avait plus de téléphone ; les douanes ont été prévenues à 4 h. Qui a parlé de l'opération, sans penser à mal ?"
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C3_ERR_JULIEN",
+        "time_cost": 15
+      },
+      "recovery": [
+        "EVT_C3_CLOTURE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "mission": "M03",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C3_LOT_FALSIFIE",
+      "axis": "lot",
+      "puzzle": "PZ_C3_02",
+      "any_of": [
+        [
+          "CLU_C3_BONS_LIVRAISON",
+          "CLU_C3_PESEE"
+        ],
+        [
+          "CLU_C3_BONS_LIVRAISON",
+          "CLU_C3_SCELLES"
+        ],
+        [
+          "CLU_C3_QUAI_4_CONNU",
+          "CLU_C3_PESEE"
+        ]
+      ],
+      "text": "Le lot du quai 4, destiné au Maren Sofie, n'est pas ce qu'il prétend être."
+    },
+    {
+      "id": "DED_C3_FUITE_FAMILLE",
+      "axis": "fuite",
+      "any_of": [
+        [
+          "CLU_C3_OPERATION_ANNONCEE",
+          "CLU_C3_NADIA_APPEL",
+          "CLU_C3_COMPLICE_SEUL"
+        ]
+      ],
+      "text": "L'information a quitté le cercle des enquêteurs par la famille, de bonne foi, entre 22 h et 3 h."
+    },
+    {
+      "id": "DED_C3_ZONE_NE",
+      "axis": "piste",
+      "any_of": [
+        [
+          "CLU_C3_BORNAGE_NE",
+          "CLU_C3_TICKET_CARBURANT"
+        ],
+        [
+          "CLU_C3_BORNAGE_NE",
+          "CLU_C3_CADASTRE_SCI"
+        ]
+      ],
+      "text": "« Sandrine » et Lila sont dans le nord-est de la forêt de Lande-Haute."
+    }
+  ]
+}

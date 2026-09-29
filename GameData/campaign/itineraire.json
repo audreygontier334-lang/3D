@@ -561,7 +561,7 @@
           ],
           "sur_place_min": 45,
           "retour_min": 50,
-          "scene_fausse_route": "Le complice interpellé à Capbreton a emprunté la voiture ; il ne sait pas où est Lila.",
+          "scene_fausse_route": "Cabane de pêcheur vide ; un voisin a vu un homme garer la citadine grise mercredi soir, puis repartir avant l'aube. Personne d'autre.",
           "effets": {
             "J_PISTE": -1,
             "J_ALERTE_RESEAU": 1
