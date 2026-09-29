@@ -20,6 +20,8 @@
 - Foulard d'Ariane : **noir à motifs paisley blancs** ; bandeau assorti pour l'héroïne.
 - Chaussures de l'héroïne : **baskets noires et blanches, style Nike Air Max** (dans les assets : sans logo ni nom de marque).
 - **L'enlèvement a lieu vers 16 h 30** (les minutes exactes de la chronologie restent des propositions).
+- **Lila (V4 : A)** : sweat jaune moutarde, jean droit, baskets blanches à scratch, cartable rouge brique, carré châtain court.
+- **Fourgon (V2 : A)** : blanc usé, ombre de lettrage, feu arrière droit fendu, sans logo de constructeur.
 
 Appliqué par Claude le 29/09 : bible, plan des chapitres (toute la recherche reste dans la région jusqu'au chapitre 4, Porto supprimé), données et dialogues du chapitre 1 (Julien reçoit le message ; Nadia ne sait rien ; Darrigade console et s'informe ; Casteran sincère), énigme PZ_08, états de départ du chapitre 2.
 

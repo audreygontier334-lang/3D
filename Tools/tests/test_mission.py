@@ -269,10 +269,9 @@ class TestDecisionsAudrey(unittest.TestCase):
         r"Casteran (est|serait) la tête|tête et architecte|a menti exprès": "Casteran est de bonne foi (Q2 : le compagnon de la mère dirige le réseau)",
         r"retrouvée saine et sauve au chapitre 2|retrouvée au chapitre 2": "Lila est retrouvée au chapitre 4 (Q3)",
         # Direction visuelle du 29/09
-        r"fourgon blanc|camping-car blanc|véhicules? blancs?\b": "couleur du fourgon (choisie par Audrey pendant la construction 3D)",
         r"barrette|H_VEH_ANCIEN": "ancien indice ou identifiant (remplacé : bracelet, H_VEH_PLAQUE_CLONEE)",
         r"\brue des Tamaris\b|rue des Écoles": "ancienne géographie (ruelle des Tamaris distincte de la place ; rue de l'École)",
-        r"Lila[^.|]{0,60}\b(cheveux|coiffure|natte|couettes?|queue de cheval|blonde|brune|rousse)\b": "apparence de Lila non validée par Audrey",
+        r"Lila[^.|]{0,60}\b(natte|couettes?|queue de cheval|blonde|brune|rousse|tresse)\b": "apparence de Lila (V4 A : carré châtain court)",
     }
     # phrases qui énoncent justement la décision
     AUTORISES = ("ni laisse ni collier", "sans laisse ni collier", "ne suppose de laisse ni de collier",

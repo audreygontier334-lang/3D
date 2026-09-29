@@ -11,9 +11,9 @@
 | ID | Question | Décidé par | Contrainte narrative à respecter |
 |---|---|---|---|
 | V1 | Niveau d'animation de la place de l'école (foule, voitures, parents). | Audrey, pendant la construction 3D | Lila repérable 3 s au portail ; aucun indice n'en dépend. |
-| V2 | Apparence du fourgon : couleur, modèle, lettrage éventuel, feu fendu. | Audrey, pendant la construction 3D | Plaque arrière lisible et portière latérale coulissante. Si ombre de lettrage : l'énigme facultative PZ_06 existe ; sinon elle est retirée. Dans les dialogues, la couleur est un jeton {FOURGON_COULEUR}. |
+| V2 | Apparence du fourgon : couleur, modèle, lettrage éventuel, feu fendu. | ✅ Tranché par Audrey (29/09) : option A « Blanc usé » (docs/CHOIX_VISUELS_V2_V4.md) | Blanc cassé, rayures et rouille, ombre de lettrage sur le flanc et les portes arrière (PZ_06 conservée), feu arrière droit fendu ; plaque arrière lisible, portière latérale coulissante, pot qui cogne ; aucun logo de constructeur. |
 | V3 | Ce que l'on voit au débouché de la ruelle. | ✅ Tranché par Audrey (29/09) : la mer au loin | Bande de mer au loin, au-dessus du boulevard ; la chaussée du boulevard et le rond-point restent invisibles (énigme du perron). Le port reste hors champ. |
-| V4 | Tenue et cheveux de Lila. | Audrey, sur proposition de Codex | Tenue et cheveux identiques de la sortie d'école à la cabane, y compris sur la photo. Accessoires : porte-clés renard sur le cartable jusqu'à l'abordage (il tombe dans la ruelle) ; bracelet en perles au poignet jusqu'à la montée dans le fourgon (il casse et tombe au pied de la portière). Ni l'un ni l'autre ensuite. |
+| V4 | Tenue et cheveux de Lila. | ✅ Tranché par Audrey (29/09) : option A « Jaune moutarde » (docs/CHOIX_VISUELS_V2_V4.md) | Sweat jaune moutarde uni, jean droit bleu moyen, baskets blanches à scratch, cartable rouge brique ; cheveux châtains en carré court au menton, sans accessoire. Identiques du prologue à la cabane (salis au chapitre 4). Porte-clés renard jusqu'à l'abordage ; bracelet en perles jusqu'à la montée dans le fourgon. |
 | V5 | Apparence de Darrigade (et son nom définitif). | Audrey | Rassurant, rien de menaçant à l'image. |
 | V6 | Obscurité des scènes de nuit (chapitre 2). | Audrey | Traces et Ariane lisibles à la lampe dans les trois vues. |
 | V7 | Intensité de la pluie en forêt (chapitre 4). | Audrey | Ariane et les traces lisibles. |
@@ -143,12 +143,11 @@ Références données : `EVT_START`, `DLG_P_TUTO`, `DLG_P_DUFAU`
 
 **Continuité**
 
-- Lila : tenue et cheveux non validés (V4), identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou.
+- Lila ✅ (V4 A) : sweat jaune moutarde, jean, baskets blanches à scratch, cartable rouge brique, carré châtain court ; identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou.
 
 **Points ouverts**
 
 - V1 : animation de la place.
-- V4 : tenue et cheveux de Lila.
 - Trajet précis de Lila sur la place : non validé, ajustable.
 
 **Raccord** 🟡 → `SC_P1` : Lila disparaît à l'angle ; la joueuse continue à pied (pas de coupe). Ariane trotte devant vers la ruelle, guidage doux.
@@ -215,7 +214,6 @@ Références données : `EVT_SONNERIE`, `EVT_LILA_COUCOU`, `DLG_P_LILA`
 
 **Points ouverts**
 
-- V2 : apparence du fourgon.
 - Trajet précis de Lila : non validé, contraintes seulement (abordage hors de vue du portail, 15–25 m jusqu'à la portière).
 
 **Raccord** 🟡 → `SC_P2` : L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 30 (Ariane s'élance alors en aboyant et la joueuse la suit). Voir la règle de départ dans mission.json (prologue.departure_rule).
@@ -287,10 +285,6 @@ Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 
 - Lila : plus de porte-clés sur le cartable (il est au sol, ≈ 10 m derrière). Bracelet au poignet jusqu'à la montée : le cordon casse hors champ quand la femme la presse de monter ; il tombe au pied de la portière. Elle monte avec son cartable.
 - Aucune scène ne montre de violence envers Lila (décision d'Audrey).
-
-**Points ouverts**
-
-- V2 : apparence du fourgon (la plaque doit rester lisible quel que soit le choix).
 
 **Raccord** 🟡 → `SC_P3` : Le fourgon tourne au bout de la ruelle ; plan continu, pas de cinématique.
 
@@ -518,10 +512,6 @@ Références données : `INT_PISTE_LILA`, `PZ_01`, `DLG_C1_PISTE_LILA`
 - 🟡 `CHAR_LARTIGUE` (personnage) : Boulangère, tablier.
 - 🟡 `ENV_BOULANGERIE` (lieu) : Boulangerie de quartier avec tableau de liège (annonces, prospectus).
 
-**Points ouverts**
-
-- V2 : les prospectus n'ont de sens que si le fourgon retenu porte une ombre de lettrage.
-
 **Raccord** 🟡 → `SC_C1_05` : L'abribus et l'école sont à quelques pas.
 
 Références données : `INT_DUFAU`, `INT_LARTIGUE`, `INT_TABLEAU_LIEGE`, `DLG_C1_DUFAU`, `DLG_C1_LARTIGUE`, `DLG_C1_LIEGE`
@@ -666,10 +656,6 @@ Références données : `INT_CASTERAN`, `INT_LIGNE_DE_VUE`, `PZ_03`, `DLG_C1_CAS
 - 🟡 `CHAR_INES` (personnage) : Adolescente, skate, téléphone.
 - 🟡 `VID_INES_ROND_POINT` (vidéo) : Vidéo verticale 12 s, horodatée 16:31:10, rendue dans le moteur.
 
-**Points ouverts**
-
-- V2 : dans la vidéo, le fourgon doit ressembler au fourgon de la ruelle, quel que soit l'aspect choisi.
-
 **Raccord** 🟡 → `SC_C1_08` : Retour au poste pour transmettre la vidéo.
 
 Références données : `INT_INES`, `PZ_04`, `EVT_INES_PARENTS`, `DLG_C1_INES`, `DLG_C1_INES_PARENTS`
@@ -786,10 +772,6 @@ Références données : `EVT_PERE_ARRIVE`, `EVT_NADIA_ARRIVE`, `EVT_DARRIGADE_S_
 **Continuité**
 
 - Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes).
-
-**Points ouverts**
-
-- V4 : la photo de Lila fixe définitivement sa tenue et ses cheveux pour la suite.
 
 **Raccord** 🟡 → `SC_C1_10` : Quand la joueuse est prête, elle présente le tableau à Mendiondo.
 

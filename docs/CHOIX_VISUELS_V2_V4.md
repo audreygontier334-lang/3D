@@ -1,8 +1,8 @@
-# Choix visuels à trancher : Lila (V4) et le fourgon (V2)
+# Choix visuels : Lila (V4) et le fourgon (V2)
 
-> **Pour Audrey.** Tout ce document est une **proposition** de Claude (🟡). Pour répondre, une ligne suffit, par exemple « V4 : B, V2 : A », ou « autre » avec ta description. Codex produira ensuite les modèles à partir de ton choix.
->
-> Rappels ✅ : tenue, cheveux et trajet précis de Lila ne sont pas encore validés (faux raccord capillaire à éviter) ; l'apparence du fourgon se choisit pendant la construction 3D ; **aucun indice indispensable ne dépend de ces choix** (vérifié par `Tools/validate_mission.py`).
+> ✅ **Tranché par Audrey le 29/09 : V4 = A « Jaune moutarde », V2 = A « Blanc usé »** (avec ombre de lettrage : PZ_06 conservée, et feu arrière droit fendu). Les autres options sont gardées pour mémoire.
+
+> Les tableaux ci-dessous étaient des propositions de Claude. Le trajet précis de Lila reste non validé ; **aucun indice indispensable ne dépend de ces choix** (vérifié par `Tools/validate_mission.py`).
 
 ## V4 — Lila (9 ans, proposition), tenue et cheveux
 

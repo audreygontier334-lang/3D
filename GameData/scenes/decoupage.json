@@ -11,8 +11,8 @@
     {
       "id": "V2",
       "question": "Apparence du fourgon : couleur, modèle, lettrage éventuel, feu fendu.",
-      "decide_par": "Audrey, pendant la construction 3D",
-      "contrainte": "Plaque arrière lisible et portière latérale coulissante. Si ombre de lettrage : l'énigme facultative PZ_06 existe ; sinon elle est retirée. Dans les dialogues, la couleur est un jeton {FOURGON_COULEUR}."
+      "decide_par": "✅ Tranché par Audrey (29/09) : option A « Blanc usé » (docs/CHOIX_VISUELS_V2_V4.md)",
+      "contrainte": "Blanc cassé, rayures et rouille, ombre de lettrage sur le flanc et les portes arrière (PZ_06 conservée), feu arrière droit fendu ; plaque arrière lisible, portière latérale coulissante, pot qui cogne ; aucun logo de constructeur."
     },
     {
       "id": "V3",
@@ -23,8 +23,8 @@
     {
       "id": "V4",
       "question": "Tenue et cheveux de Lila.",
-      "decide_par": "Audrey, sur proposition de Codex",
-      "contrainte": "Tenue et cheveux identiques de la sortie d'école à la cabane, y compris sur la photo. Accessoires : porte-clés renard sur le cartable jusqu'à l'abordage (il tombe dans la ruelle) ; bracelet en perles au poignet jusqu'à la montée dans le fourgon (il casse et tombe au pied de la portière). Ni l'un ni l'autre ensuite."
+      "decide_par": "✅ Tranché par Audrey (29/09) : option A « Jaune moutarde » (docs/CHOIX_VISUELS_V2_V4.md)",
+      "contrainte": "Sweat jaune moutarde uni, jean droit bleu moyen, baskets blanches à scratch, cartable rouge brique ; cheveux châtains en carré court au menton, sans accessoire. Identiques du prologue à la cabane (salis au chapitre 4). Porte-clés renard jusqu'à l'abordage ; bracelet en perles jusqu'à la montée dans le fourgon."
     },
     {
       "id": "V5",
@@ -327,11 +327,10 @@
             }
           ],
           "continuite": [
-            "Lila : tenue et cheveux non validés (V4), identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou."
+            "Lila ✅ (V4 A) : sweat jaune moutarde, jean, baskets blanches à scratch, cartable rouge brique, carré châtain court ; identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou."
           ],
           "points_ouverts": [
             "V1 : animation de la place.",
-            "V4 : tenue et cheveux de Lila.",
             "Trajet précis de Lila sur la place : non validé, ajustable."
           ],
           "refs": [
@@ -505,7 +504,6 @@
             "Lila : cartable avec porte-clés renard à l'entrée de la ruelle ; le porte-clés se détache à l'abordage et reste au sol près du caniveau. Bracelet en perles toujours au poignet."
           ],
           "points_ouverts": [
-            "V2 : apparence du fourgon.",
             "Trajet précis de Lila : non validé, contraintes seulement (abordage hors de vue du portail, 15–25 m jusqu'à la portière)."
           ],
           "refs": [
@@ -776,9 +774,7 @@
             "Lila : plus de porte-clés sur le cartable (il est au sol, ≈ 10 m derrière). Bracelet au poignet jusqu'à la montée : le cordon casse hors champ quand la femme la presse de monter ; il tombe au pied de la portière. Elle monte avec son cartable.",
             "Aucune scène ne montre de violence envers Lila (décision d'Audrey)."
           ],
-          "points_ouverts": [
-            "V2 : apparence du fourgon (la plaque doit rester lisible quel que soit le choix)."
-          ],
+          "points_ouverts": [],
           "refs": [
             "EVT_ALERTE",
             "EVT_DEPART",
@@ -1479,9 +1475,7 @@
             }
           ],
           "continuite": [],
-          "points_ouverts": [
-            "V2 : les prospectus n'ont de sens que si le fourgon retenu porte une ombre de lettrage."
-          ],
+          "points_ouverts": [],
           "refs": [
             "INT_DUFAU",
             "INT_LARTIGUE",
@@ -1940,9 +1934,7 @@
             }
           ],
           "continuite": [],
-          "points_ouverts": [
-            "V2 : dans la vidéo, le fourgon doit ressembler au fourgon de la ruelle, quel que soit l'aspect choisi."
-          ],
+          "points_ouverts": [],
           "refs": [
             "INT_INES",
             "PZ_04",
@@ -2356,9 +2348,7 @@
           "continuite": [
             "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
           ],
-          "points_ouverts": [
-            "V4 : la photo de Lila fixe définitivement sa tenue et ses cheveux pour la suite."
-          ],
+          "points_ouverts": [],
           "refs": [
             "INT_PLAQUE_COMPLETE",
             "INT_PLAQUE_PARTIELLE",
