@@ -8,9 +8,23 @@
     "private_reference_storage": "outside_repository"
   },
   "quality_gates": {
-    "character_views": ["front", "profile", "back", "in_motion"],
-    "camera_modes": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"],
-    "required_metadata_before_integration": ["source", "author", "license", "license_url"],
+    "character_views": [
+      "front",
+      "profile",
+      "back",
+      "in_motion"
+    ],
+    "camera_modes": [
+      "CAM_SHOULDER",
+      "CAM_WIDE",
+      "CAM_FIRST"
+    ],
+    "required_metadata_before_integration": [
+      "source",
+      "author",
+      "license",
+      "license_url"
+    ],
     "final_assets_require_unreal_playtest": true
   },
   "assets": [
@@ -19,8 +33,14 @@
       "category": "character",
       "priority": "P0",
       "status": "planned",
-      "brief": "Femme brune adulte, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs blancs, créoles et baskets rétro de running noires et blanches sans marque.",
-      "deliverables": ["rigged_mesh", "lods", "pbr_materials", "facial_rig", "validation_turntable"],
+      "brief": "Femme brune adulte, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs paisley blancs assorti au foulard d'Ariane, créoles et baskets rétro de running noires et blanches style Air Max, sans logo ni marque.",
+      "deliverables": [
+        "rigged_mesh",
+        "lods",
+        "pbr_materials",
+        "facial_rig",
+        "validation_turntable"
+      ],
       "dependencies": [],
       "source": null,
       "author": null,
@@ -33,8 +53,14 @@
       "category": "character",
       "priority": "P0",
       "status": "planned",
-      "brief": "Chienne athlétique croisée malinois et bull-terrier, beige fauve, masque et oreilles noirs, blanc au poitrail et aux pattes, une oreille droite et l'autre tombante, foulard noir à motifs blancs, sans collier ni laisse.",
-      "deliverables": ["rigged_mesh", "lods", "fur_material", "foulard_cloth", "validation_turntable"],
+      "brief": "Chienne athlétique croisée malinois et bull-terrier, beige fauve, masque et oreilles noirs, blanc au poitrail et aux pattes, une oreille droite et l'autre tombante, libre sans collier ni laisse, foulard noir à motifs paisley blancs.",
+      "deliverables": [
+        "rigged_mesh",
+        "lods",
+        "fur_material",
+        "foulard_cloth",
+        "validation_turntable"
+      ],
       "dependencies": [],
       "source": null,
       "author": null,
@@ -47,8 +73,12 @@
       "category": "character",
       "priority": "P0",
       "status": "planned",
-      "brief": "Enfant fictive lisible à distance, tenue scolaire ordinaire, sans ressemblance avec une personne réelle.",
-      "deliverables": ["rigged_mesh", "lods", "pbr_materials"],
+      "brief": "Lila fictive, variante V4 A validée : sweat jaune moutarde uni, jean droit bleu moyen, baskets blanches à scratch, cartable rouge brique, carré châtain court sans accessoire. Même tenue et coiffure du prologue à la cabane, avec salissures et humidité au chapitre 4 ; aucune ressemblance avec une enfant réelle.",
+      "deliverables": [
+        "rigged_mesh",
+        "lods",
+        "pbr_materials"
+      ],
       "dependencies": [],
       "source": null,
       "author": null,
@@ -62,8 +92,14 @@
       "priority": "P1",
       "status": "blocked_narrative",
       "brief": "Deux adultes fictifs distincts, vêtements ordinaires, détails d'identification à figer après validation narrative.",
-      "deliverables": ["two_rigged_meshes", "lods", "pbr_materials"],
-      "dependencies": ["NARRATIVE_Q2_IDENTITY"],
+      "deliverables": [
+        "two_rigged_meshes",
+        "lods",
+        "pbr_materials"
+      ],
+      "dependencies": [
+        "NARRATIVE_Q2_IDENTITY"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -76,8 +112,15 @@
       "priority": "P0",
       "status": "planned",
       "brief": "Locomotion et réactions du duo : repos, marche, course ou trot, arrêt, regard, alerte, rappel, flair et transitions assis-debout pour Ariane.",
-      "deliverables": ["heroine_animation_set", "ariane_animation_set", "retarget_profiles"],
-      "dependencies": ["CHAR_HEROINE", "CHAR_ARIANE"],
+      "deliverables": [
+        "heroine_animation_set",
+        "ariane_animation_set",
+        "retarget_profiles"
+      ],
+      "dependencies": [
+        "CHAR_HEROINE",
+        "CHAR_ARIANE"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -90,8 +133,16 @@
       "priority": "P0",
       "status": "blocked_narrative",
       "brief": "Séquence non graphique : marche, hésitation, surprise, interaction avec la portière et départ du fourgon.",
-      "deliverables": ["child_animation_set", "adult_animation_set", "vehicle_interaction_alignment"],
-      "dependencies": ["CHAR_FILLETTE", "CHAR_RAVISSEURS", "VEH_FOURGON"],
+      "deliverables": [
+        "child_animation_set",
+        "adult_animation_set",
+        "vehicle_interaction_alignment"
+      ],
+      "dependencies": [
+        "CHAR_FILLETTE",
+        "CHAR_RAVISSEURS",
+        "VEH_FOURGON"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -103,8 +154,15 @@
       "category": "environment",
       "priority": "P0",
       "status": "blockout",
-      "brief": "Kit modulaire inspiré du centre d'Arcachon : école, commerces, place, trottoirs, rue de fuite et pins ; aucun port visible dans P0-P3.",
-      "deliverables": ["modular_building_kit", "street_kit", "school_gate", "vegetation_set", "collision_meshes", "lods"],
+      "brief": "Kit modulaire inspiré du centre d'Arcachon vers 16 h 30 : école, commerces, place, trottoirs, ruelle distincte et calme, pins ; maisons d'époques, volumes, toitures, couleurs, clôtures et haies variés, sans répétition de façade. Mer visible au loin au débouché de la ruelle, port, chaussée du boulevard et rond-point hors champ à l'ouverture.",
+      "deliverables": [
+        "modular_building_kit",
+        "street_kit",
+        "school_gate",
+        "vegetation_set",
+        "collision_meshes",
+        "lods"
+      ],
       "dependencies": [],
       "source": "Game/Blockout/ouverture-centre-ville.gltf",
       "author": "Codex blockout generator",
@@ -117,9 +175,15 @@
       "category": "vehicle",
       "priority": "P0",
       "status": "planned",
-      "brief": "Fourgon fictif sans marque, portières et habitacle fonctionnels, plaque partiellement observable et détails compatibles avec les déductions.",
-      "deliverables": ["rigged_vehicle", "interior", "door_rig", "lods", "pbr_materials"],
-      "dependencies": ["NARRATIVE_VAN_IDENTITY"],
+      "brief": "Fourgon fictif V2 A « Blanc usé » : blanc cassé, traces d'usage et de rouille, ombre de lettrage « Blanchisserie Océane », feu arrière droit fendu, pare-chocs rayé ; sans logo de constructeur ni marque réelle. Portière coulissante côté trottoir, arrière et plaque lisibles, habitacle et pot d'échappement qui cogne et tremble ; PZ_06 reste facultative.",
+      "deliverables": [
+        "rigged_vehicle",
+        "interior",
+        "door_rig",
+        "lods",
+        "pbr_materials"
+      ],
+      "dependencies": [],
       "source": null,
       "author": null,
       "license": null,
@@ -132,8 +196,15 @@
       "priority": "P1",
       "status": "blocked_narrative",
       "brief": "Objets et traces manipulables ou observables du prologue, avec variantes de lisibilité pour les trois caméras.",
-      "deliverables": ["interactive_props", "inspection_meshes", "collision_meshes", "pbr_materials"],
-      "dependencies": ["NARRATIVE_SPATIAL_REQUIREMENTS"],
+      "deliverables": [
+        "interactive_props",
+        "inspection_meshes",
+        "collision_meshes",
+        "pbr_materials"
+      ],
+      "dependencies": [
+        "NARRATIVE_SPATIAL_REQUIREMENTS"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -145,9 +216,17 @@
       "category": "material",
       "priority": "P1",
       "status": "planned",
-      "brief": "Bibliothèque PBR cohérente pour façades, chaussée, trottoirs, école, végétation, vêtements et véhicule sous lumière chaude de fin d'après-midi.",
-      "deliverables": ["master_materials", "material_instances", "texture_sets", "shader_budget_report"],
-      "dependencies": ["ENV_CENTRE_VILLE", "VEH_FOURGON"],
+      "brief": "Bibliothèque PBR cohérente pour façades variées, chaussée, trottoirs, école, végétation, vêtements validés et fourgon blanc usé, sous lumière basse et chaude de fin d'après-midi vers 16 h 30.",
+      "deliverables": [
+        "master_materials",
+        "material_instances",
+        "texture_sets",
+        "shader_budget_report"
+      ],
+      "dependencies": [
+        "ENV_CENTRE_VILLE",
+        "VEH_FOURGON"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -160,8 +239,14 @@
       "priority": "P1",
       "status": "planned",
       "brief": "Vent dans les pins, circulation locale, oiseaux urbains et sortie d'école spatialisés ; ressac désactivé par défaut.",
-      "deliverables": ["loopable_stems", "spatial_cues", "distance_mix"],
-      "dependencies": ["ENV_CENTRE_VILLE"],
+      "deliverables": [
+        "loopable_stems",
+        "spatial_cues",
+        "distance_mix"
+      ],
+      "dependencies": [
+        "ENV_CENTRE_VILLE"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -174,8 +259,14 @@
       "priority": "P1",
       "status": "planned",
       "brief": "Respiration, pas, foulard, flair et signaux d'alerte mesurés ; aucun son ne résout seul une énigme.",
-      "deliverables": ["foley_set", "spatial_cues", "animation_sync_map"],
-      "dependencies": ["ANIM_DUO_OPENING"],
+      "deliverables": [
+        "foley_set",
+        "spatial_cues",
+        "animation_sync_map"
+      ],
+      "dependencies": [
+        "ANIM_DUO_OPENING"
+      ],
       "source": null,
       "author": null,
       "license": null,
@@ -188,8 +279,16 @@
       "priority": "P1",
       "status": "planned",
       "brief": "Approche, arrêt, portière, démarrage et fuite, cohérents avec la position réelle du véhicule.",
-      "deliverables": ["vehicle_foley", "engine_layers", "spatial_cues", "animation_sync_map"],
-      "dependencies": ["VEH_FOURGON", "ANIM_ENLEVEMENT"],
+      "deliverables": [
+        "vehicle_foley",
+        "engine_layers",
+        "spatial_cues",
+        "animation_sync_map"
+      ],
+      "dependencies": [
+        "VEH_FOURGON",
+        "ANIM_ENLEVEMENT"
+      ],
       "source": null,
       "author": null,
       "license": null,
