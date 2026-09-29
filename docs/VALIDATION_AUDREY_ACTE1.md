@@ -6,6 +6,15 @@
 >
 > Déjà décidé par toi et appliqué : Ariane libre, sans laisse ni collier ; centre-ville inspiré d'Arcachon, sans port ni front de mer au début ; après le départ du fourgon, Ariane sent un objet et mène à un indice.
 
+## ✅ Réponses d'Audrey — 29 septembre 2026, 17 h
+
+- **Q1 — Décision : Autre.** On fait pression sur **le père** de Lila. Il est mêlé au trafic et veut quitter le réseau (« mais on ne quitte pas un réseau de ce genre »). Les parents sont séparés. **La mère arrive après l'enlèvement et ignore tout du trafic.**
+- **Q3 — Décision : Autre.** Lila est retrouvée à l'**étape 4** (compris comme : chapitre 4, à confirmer). Pas de violence, mais elle est **séquestrée dans une cabane sombre et froide, sans aucun confort**.
+- **Q2 — En attente.** Audrey demande d'autres possibilités que celles du tableau ci-dessous.
+
+Conséquences à appliquer (par Claude, proposées en PR) : réécrire le mobile, le rôle de Nadia (plus de message caché ni de douane), l'énigme PZ_08, la chronologie cachée et le plan des chapitres 2 à 4, pour que la recherche de Lila reste crédible jusqu'au chapitre 4.
+
+
 ---
 
 ## Partie 1 — sans révélation sur la fin
@@ -23,7 +32,7 @@ La réponse se découvre à la fin du chapitre 1. Elle décide où part l'enquê
 | **À fabriquer (visuels)** | Rien de plus que prévu. | Un cahier ou dessin d'enfant ; Nadia sans uniforme. | Le père ; l'intérieur du cargo plus tôt dans le jeu. |
 | **Noirceur** | Moyenne : Lila est un moyen de pression, on compte la relâcher. | **Plus forte** : un témoin gênant est en danger réel, l'urgence devient plus pesante. | Moyenne, comme A. |
 
-Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : ……………………………
+Case de décision : ☐ A  ☐ B  ☐ C  ☑ **Autre : pression sur le père, qui veut quitter le réseau ; la mère ignore tout (Audrey, 29/09)**
 
 ---
 
@@ -40,7 +49,7 @@ Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : ………………………
 
 Option écartée : retrouver Lila seulement au chapitre 3 ou 4. Il faudrait voyager à Bayonne ou Porto alors qu'une enfant est encore captive, ce qui n'est pas crédible et serait lourd à vivre.
 
-Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : ……………………………
+Case de décision : ☐ A  ☐ B  ☐ C  ☑ **Autre : retrouvée à l'étape 4, séquestrée sans violence dans une cabane sombre et froide (Audrey, 29/09)**
 
 ---
 
@@ -61,7 +70,7 @@ Dès le chapitre 1, Maître Casteran, la notaire respectée, affirme que le four
 | **À fabriquer (visuels)** | Rien de plus que prévu. | Le chef d'Anvers et son bureau. | Le clerc (modèle 3D, voix), présent dans plusieurs chapitres. |
 | **Noirceur** | Identique dans les trois cas : la fin est une démonstration de preuves, pas une bagarre. | Identique. | Identique. |
 
-Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : ……………………………
+Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : …… *(Audrey demande d'autres possibilités — en cours)*
 
 ---
 
