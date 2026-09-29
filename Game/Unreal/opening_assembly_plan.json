@@ -1,0 +1,608 @@
+{
+  "plan_version": 1,
+  "scene_id": "SCENE_01_OUVERTURE_CENTRE_VILLE",
+  "status": "assembly_handoff_not_playable",
+  "source": {
+    "manifest": "Game/Blockout/ouverture-centre-ville.manifest.json",
+    "manifest_sha256": "d33de90228baa722c9bbf26b0369342a4146a331624534765ecbfea48c062b82",
+    "gltf": "Game/Blockout/ouverture-centre-ville.gltf",
+    "gltf_sha256": "0ed7f8d61f7740ea5e720854930f1ced971c8d715bccc5becc7efb0925d5eef6"
+  },
+  "coordinate_conversion": {
+    "source": "gltf_metres_X_east_Y_up_Z_north",
+    "target": "unreal_centimetres_X_east_Y_south_Z_up",
+    "formula": "[x, y, z] -> [100*x, -100*z, 100*y]"
+  },
+  "actors": [
+    {
+      "id": "ground",
+      "kind": "static_geometry",
+      "location_cm": [
+        1200,
+        1000,
+        -18.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        13000,
+        9000,
+        30.0
+      ]
+    },
+    {
+      "id": "school_sidewalk",
+      "kind": "static_geometry",
+      "location_cm": [
+        -300,
+        100,
+        2.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        4200,
+        400,
+        12.0
+      ]
+    },
+    {
+      "id": "south_sidewalk",
+      "kind": "static_geometry",
+      "location_cm": [
+        2500,
+        2100,
+        2.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        9500,
+        400,
+        12.0
+      ]
+    },
+    {
+      "id": "east_road",
+      "kind": "static_geometry",
+      "location_cm": [
+        2600,
+        1100,
+        -2.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        10000,
+        1200,
+        6.0
+      ]
+    },
+    {
+      "id": "cross_street",
+      "kind": "static_geometry",
+      "location_cm": [
+        4300,
+        200,
+        -2.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        1000,
+        3700,
+        6.0
+      ]
+    },
+    {
+      "id": "school_main",
+      "kind": "static_geometry",
+      "location_cm": [
+        -700,
+        -900,
+        400
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        2400,
+        1100,
+        800
+      ],
+      "role": "sortie sur la place; entrée côté sud"
+    },
+    {
+      "id": "school_roof",
+      "kind": "static_geometry",
+      "location_cm": [
+        -700,
+        -900,
+        845.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        2500,
+        1200,
+        90.0
+      ]
+    },
+    {
+      "id": "school_gate_left",
+      "kind": "static_geometry",
+      "location_cm": [
+        -250.0,
+        -100,
+        80.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        30.0,
+        30.0,
+        160.0
+      ]
+    },
+    {
+      "id": "school_gate_right",
+      "kind": "static_geometry",
+      "location_cm": [
+        250.0,
+        -100,
+        80.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        30.0,
+        30.0,
+        160.0
+      ]
+    },
+    {
+      "id": "west_shop",
+      "kind": "static_geometry",
+      "location_cm": [
+        -3100,
+        2400,
+        320.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        1500,
+        900,
+        640.0
+      ]
+    },
+    {
+      "id": "west_shop_roof",
+      "kind": "static_geometry",
+      "location_cm": [
+        -3100,
+        2400,
+        670.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        1600,
+        1000,
+        60.0
+      ]
+    },
+    {
+      "id": "corner_house",
+      "kind": "static_geometry",
+      "location_cm": [
+        2100,
+        -100,
+        340.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        1200,
+        1000,
+        680.0
+      ],
+      "role": "masque partiellement la sortie est"
+    },
+    {
+      "id": "corner_roof",
+      "kind": "static_geometry",
+      "location_cm": [
+        2100,
+        -100,
+        710.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        1300,
+        1100,
+        70.0
+      ]
+    },
+    {
+      "id": "east_shop",
+      "kind": "static_geometry",
+      "location_cm": [
+        5700,
+        2300,
+        320.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        1400,
+        1000,
+        640.0
+      ]
+    },
+    {
+      "id": "east_shop_roof",
+      "kind": "static_geometry",
+      "location_cm": [
+        5700,
+        2300,
+        670.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        1500,
+        1100,
+        60.0
+      ]
+    },
+    {
+      "id": "tree_trunk_1",
+      "kind": "static_geometry",
+      "location_cm": [
+        -2000,
+        300,
+        220.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        60.0,
+        60.0,
+        440.0
+      ]
+    },
+    {
+      "id": "tree_crown_1",
+      "kind": "static_geometry",
+      "location_cm": [
+        -2000,
+        300,
+        560.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        420.0,
+        420.0,
+        360.0
+      ]
+    },
+    {
+      "id": "tree_trunk_2",
+      "kind": "static_geometry",
+      "location_cm": [
+        3700,
+        2400,
+        220.0
+      ],
+      "collision_profile": "BlockAll",
+      "bounds_size_cm": [
+        60.0,
+        60.0,
+        440.0
+      ]
+    },
+    {
+      "id": "tree_crown_2",
+      "kind": "static_geometry",
+      "location_cm": [
+        3700,
+        2400,
+        560.0
+      ],
+      "collision_profile": "NoCollision",
+      "bounds_size_cm": [
+        420.0,
+        420.0,
+        360.0
+      ]
+    },
+    {
+      "id": "van_placeholder",
+      "kind": "gameplay_placeholder",
+      "location_cm": [
+        2900,
+        1100,
+        110.0
+      ],
+      "collision_profile": "QueryOnly",
+      "bounds_size_cm": [
+        520.0,
+        210.0,
+        220.0
+      ],
+      "role": "couleur provisoire; identité ouverte"
+    },
+    {
+      "id": "heroine_placeholder",
+      "kind": "gameplay_placeholder",
+      "location_cm": [
+        800,
+        1900,
+        83.0
+      ],
+      "collision_profile": "QueryOnly",
+      "bounds_size_cm": [
+        50.0,
+        36.0,
+        166.0
+      ],
+      "role": "volume de test seulement"
+    },
+    {
+      "id": "ariane_placeholder",
+      "kind": "gameplay_placeholder",
+      "location_cm": [
+        1000,
+        1780.0,
+        42.0
+      ],
+      "collision_profile": "QueryOnly",
+      "bounds_size_cm": [
+        105.0,
+        48.0,
+        84.0
+      ],
+      "role": "libre; aucun collier ni laisse"
+    },
+    {
+      "id": "child_placeholder",
+      "kind": "gameplay_placeholder",
+      "location_cm": [
+        100,
+        50.0,
+        62.0
+      ],
+      "collision_profile": "QueryOnly",
+      "bounds_size_cm": [
+        36.0,
+        30.0,
+        124.0
+      ],
+      "role": "silhouette fictive de test"
+    },
+    {
+      "id": "scent_object_marker",
+      "kind": "event_marker",
+      "location_cm": [
+        2600,
+        600,
+        13.0
+      ],
+      "collision_profile": "OverlapOnly",
+      "bounds_size_cm": [
+        35.0,
+        35.0,
+        26.0
+      ],
+      "role": "objet à définir avec Audrey; après départ du fourgon"
+    },
+    {
+      "id": "scent_clue_marker",
+      "kind": "event_marker",
+      "location_cm": [
+        3300,
+        200,
+        13.0
+      ],
+      "collision_profile": "OverlapOnly",
+      "bounds_size_cm": [
+        35.0,
+        35.0,
+        26.0
+      ],
+      "role": "indice olfactif provisoire"
+    }
+  ],
+  "zones": [
+    {
+      "id": "Z_PROMENADE",
+      "centre_cm": [
+        800,
+        1900,
+        0
+      ],
+      "role": "depart_Audrey_et_Ariane"
+    },
+    {
+      "id": "Z_ECOLE",
+      "centre_cm": [
+        0,
+        0,
+        0
+      ],
+      "role": "sortie_des_classes"
+    },
+    {
+      "id": "Z_CROISEMENT",
+      "centre_cm": [
+        2600,
+        600,
+        0
+      ],
+      "role": "premier_indice_olfactif"
+    },
+    {
+      "id": "Z_RUE_FUITE",
+      "centre_cm": [
+        2900,
+        1100,
+        0
+      ],
+      "role": "trajectoire_du_fourgon"
+    },
+    {
+      "id": "Z_PLACE",
+      "centre_cm": [
+        -800,
+        800,
+        0
+      ],
+      "role": "espace_public_et_temoin"
+    },
+    {
+      "id": "Z_TEMOINS",
+      "centre_cm": [
+        -2500,
+        1800,
+        0
+      ],
+      "role": "position_des_PNJ_interrogeables"
+    }
+  ],
+  "event_markers": [
+    {
+      "id": "EVT_SORTIE_ECOLE",
+      "source_node": "child_placeholder",
+      "location_cm": [
+        100,
+        50.0,
+        62.0
+      ]
+    },
+    {
+      "id": "EVT_FOURGON",
+      "source_node": "van_placeholder",
+      "location_cm": [
+        2900,
+        1100,
+        110.0
+      ]
+    },
+    {
+      "id": "EVT_DEPART_DUO",
+      "source_node": "heroine_placeholder",
+      "location_cm": [
+        800,
+        1900,
+        83.0
+      ]
+    },
+    {
+      "id": "EVT_ARIANE",
+      "source_node": "ariane_placeholder",
+      "location_cm": [
+        1000,
+        1780.0,
+        42.0
+      ]
+    },
+    {
+      "id": "EVT_INDICE_ODEUR",
+      "source_node": "scent_object_marker",
+      "location_cm": [
+        2600,
+        600,
+        13.0
+      ]
+    },
+    {
+      "id": "EVT_PISTE",
+      "source_node": "scent_clue_marker",
+      "location_cm": [
+        3300,
+        200,
+        13.0
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "id": "CAM_SHOULDER",
+      "location_cm": [
+        840.0,
+        2100,
+        215.0
+      ],
+      "source_quaternion_xyzw": [
+        0.98056137,
+        -0.00746833,
+        -0.19233814,
+        -0.0380744
+      ],
+      "vertical_fov_degrees": 58.0,
+      "near_clip_cm": 10.0,
+      "far_clip_cm": 20000,
+      "orientation_import": "preserve_from_gltf"
+    },
+    {
+      "id": "CAM_WIDE",
+      "location_cm": [
+        600,
+        2700,
+        470.0
+      ],
+      "source_quaternion_xyzw": [
+        0.97760624,
+        -0.01634169,
+        -0.19273982,
+        -0.08288758
+      ],
+      "vertical_fov_degrees": 65.0,
+      "near_clip_cm": 10.0,
+      "far_clip_cm": 20000,
+      "orientation_import": "preserve_from_gltf"
+    },
+    {
+      "id": "CAM_FIRST",
+      "location_cm": [
+        800,
+        1900,
+        161.0
+      ],
+      "source_quaternion_xyzw": [
+        0.97746849,
+        -0.00487602,
+        -0.20979865,
+        -0.02271777
+      ],
+      "vertical_fov_degrees": 67.0,
+      "near_clip_cm": 10.0,
+      "far_clip_cm": 20000,
+      "orientation_import": "preserve_from_gltf"
+    }
+  ],
+  "runtime_view_cycle": {
+    "ordered_camera_ids": [
+      "CAM_SHOULDER",
+      "CAM_WIDE",
+      "CAM_FIRST"
+    ],
+    "must_not_mutate_gameplay_state": true
+  },
+  "audio_policy": {
+    "always_available": [
+      "sortie_ecole",
+      "circulation_locale",
+      "oiseaux_urbains",
+      "vent_dans_les_pins"
+    ],
+    "conditional": [
+      {
+        "id": "ressac",
+        "enabled_by_default": false,
+        "condition": "Activer uniquement si la distance a la cote et la propagation sonore sont credibles dans la version finale."
+      }
+    ]
+  },
+  "decision_guards": {
+    "protagonist_shoes": {
+      "canonical_reference": "docs/DECISIONS.md#4-personnage-principal--audrey",
+      "current_value": "baskets_retro_running_noires_blanches_sans_marque",
+      "status": "validated_by_Audrey"
+    },
+    "personal_photos": {
+      "allowed_in_repository": false
+    }
+  },
+  "limitations": [
+    "No Unreal project or packaged Windows build exists yet.",
+    "Camera orientation must be preserved by the glTF importer and checked in-engine.",
+    "Collision profiles are an assembly proposal and require an Unreal playtest.",
+    "Placeholders are not final photorealistic characters, vehicle or props."
+  ]
+}
