@@ -259,7 +259,11 @@
           "Le compte genevois est une fausse piste (virement annulé)."
         ]
       }
-    ]
+    ],
+    "rendu": {
+      "decision_audrey": "Composition visuelle à la manière d'un logiciel de portrait-robot de gendarmerie (29/09).",
+      "proposition": "Visage et silhouette assemblés trait par trait (âge, forme du visage, cheveux, yeux, lunettes, signes distinctifs) à partir des choix de la joueuse ; les traits non liés au visage (véhicule, couverture, habitudes, liens de sociétés) s'affichent en fiche à côté. Le portrait reste celui que la joueuse a composé, juste ou faux."
+    }
   },
   "etapes": [
     {
@@ -666,7 +670,7 @@
         "heure_ref": "dimanche 23:00"
       },
       "deadline_dure": "mardi 12:00",
-      "_doc": "Escale supplémentaire proposée pour renforcer l'esprit « poursuite à travers l'Europe » (à valider par Audrey).",
+      "_doc": "Escale de Luxembourg : décision d'Audrey (29/09), pour une vraie poursuite à travers l'Europe dans l'acte II.",
       "indices_nouveaux": [
         {
           "id": "CLU5_REGISTRE_HOLDING",
@@ -820,7 +824,110 @@
           }
         }
       ]
+    },
+    {
+      "id": "ETP_7",
+      "chapitre": 6,
+      "conditionnelle": {
+        "J_ALERTE_RESEAU_min": 3,
+        "ou_fausses_routes_min": 5
+      },
+      "question": "Darrigade a pris la fuite avant l'aube. Où le rattraper ?",
+      "depart": {
+        "lieu": "LESCOURE",
+        "heure_ref": "mercredi 08:00"
+      },
+      "deadline_dure": "mercredi 17:00",
+      "_doc": "Étape de la fin B. Échéance : départ du ferry de 17 h. L'interpellation à l'étranger exige un mandat d'arrêt européen, donc un portrait-robot de Darrigade d'au moins quatre traits justes.",
+      "indices_nouveaux": [
+        {
+          "id": "CLU7_VOITURE_HENDAYE",
+          "source": "lecture automatisée des plaques",
+          "fait": "La voiture de Darrigade est garée au parking de la gare d'Hendaye depuis 6 h 10."
+        },
+        {
+          "id": "CLU7_PEAGE_ESPAGNE",
+          "source": "réquisition au concessionnaire autoroutier espagnol",
+          "fait": "Un taxi payé par carte au nom du prête-nom franchit le péage d'Irun vers Bilbao à 6 h 40."
+        },
+        {
+          "id": "CLU7_RESERVATION_FERRY",
+          "source": "compagnie maritime",
+          "fait": "Réservation au nom du prête-nom sur le ferry Bilbao → Portsmouth de 17 h."
+        },
+        {
+          "id": "CLU7_BILLETS_INTACTS",
+          "source": "agence de voyage",
+          "fait": "Les billets d'avion de vendredi n'ont été ni modifiés ni utilisés."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_BILBAO_FERRY",
+          "nom": "Port de Bilbao, terminal du ferry",
+          "correct": true,
+          "km": 150,
+          "trajet_min": 110,
+          "mode": "voiture",
+          "preuves": [
+            "CLU7_PEAGE_ESPAGNE",
+            "CLU7_RESERVATION_FERRY"
+          ],
+          "effets": {}
+        },
+        {
+          "id": "DEST_AEROPORT_BIARRITZ",
+          "nom": "Aéroport de Biarritz",
+          "correct": false,
+          "km": 40,
+          "trajet_min": 35,
+          "mode": "voiture",
+          "leurre": "Les billets d'avion pour vendredi.",
+          "refutation": [
+            "CLU7_BILLETS_INTACTS"
+          ],
+          "sur_place_min": 40,
+          "retour_min": 100,
+          "scene_fausse_route": "Hall de l'aéroport : aucun passager à son nom ; les billets de vendredi dorment dans le système.",
+          "effets": {
+            "J_CONFIANCE": -1
+          }
+        },
+        {
+          "id": "DEST_HENDAYE_GARE",
+          "nom": "Gare d'Hendaye",
+          "correct": false,
+          "km": 45,
+          "trajet_min": 40,
+          "mode": "voiture",
+          "leurre": "Sa voiture est garée à la gare.",
+          "refutation": [
+            "CLU7_PEAGE_ESPAGNE"
+          ],
+          "sur_place_min": 45,
+          "retour_min": 90,
+          "scene_fausse_route": "La voiture est vide, clés sur la roue ; le chauffeur de taxi de la station se souvient d'une course pour Bilbao.",
+          "effets": {
+            "J_PISTE": -1
+          }
+        }
+      ]
     }
   ],
-  "_semantique": "trajet_min : du lieu de départ de l'étape à la destination. sur_place_min : enquête sur une fausse route. retour_min : de la fausse route à la bonne destination (la piste de retour y mène). Borne du pire cas : départ + Σ(fausses routes : trajet + sur place + retour) + trajet de la bonne destination ≤ deadline_dure."
+  "_semantique": "trajet_min : du lieu de départ de l'étape à la destination. sur_place_min : enquête sur une fausse route. retour_min : de la fausse route à la bonne destination (la piste de retour y mène). Borne du pire cas : départ + Σ(fausses routes : trajet + sur place + retour) + trajet de la bonne destination ≤ deadline_dure.",
+  "fins": [
+    {
+      "id": "FIN_A",
+      "nom": "Arrêté dans les Landes",
+      "condition": "ETP_6 résolue sans déclencher ETP_7",
+      "texte": "Darrigade est interpellé avant sa fuite ; Nadia apprend la vérité chez elle."
+    },
+    {
+      "id": "FIN_B",
+      "nom": "La fuite",
+      "condition": "ETP_7 déclenchée puis résolue",
+      "texte": "Darrigade est arrêté de l'autre côté de la frontière par la police espagnole, grâce au mandat d'arrêt européen fondé sur le portrait établi par la joueuse ; Nadia apprend sa fuite avant la vérité."
+    }
+  ],
+  "_doc_fins": "Décision d'Audrey (29/09) : trop de fausses routes peuvent changer la fin. Proposition : si la jauge « réseau alerté » atteint 3, ou si la joueuse a pris 5 fausses routes ou plus avant ETP_6, Darrigade s'enfuit plus tôt et l'étape supplémentaire ETP_7 s'ouvre. Il reste toujours rattrapable (aucun échec définitif) ; seule la fin change."
 }

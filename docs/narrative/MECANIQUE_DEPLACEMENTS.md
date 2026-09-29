@@ -1,6 +1,6 @@
 # Mécanique de déplacements et portrait-robot — « Carmen Sandiego, version moderne et adulte »
 
-> **Décisions d'Audrey (29/09)** ✅ : la référence de jeu est **Carmen Sandiego des années 2000, en version modernisée et pour adultes** ; le **déplacement** en est le cœur : à chaque étape, la joueuse **choisit sa destination**, et ce choix influe sur les résultats, les conséquences et le temps. C'est **la joueuse qui établit le portrait-robot**.
+> **Décisions d'Audrey (29/09)** ✅ : la référence de jeu est **Carmen Sandiego des années 2000, en version modernisée et pour adultes** ; le **déplacement** en est le cœur : à chaque étape, la joueuse **choisit sa destination**, et ce choix influe sur les résultats, les conséquences et le temps. C'est **la joueuse qui établit le portrait-robot**, composé **comme dans un logiciel de portrait-robot de gendarmerie**. L'**escale de Luxembourg** est gardée. **Trop de fausses routes peuvent changer la fin** (étape de fuite `ETP_7`, fin B).
 > Tout le reste de ce document est une **proposition de Claude** (🟡). Données : `GameData/campaign/itineraire.json` ; vérification : `python3 Tools/validate_itineraire.py` (et tests).
 
 ## 1. La boucle de jeu
@@ -37,18 +37,21 @@
 | `ETP_4` (ch. 5) | Lescoure, samedi | Où mène la chaîne du fret ? | Anvers | Rotterdam (escale), Porto (ancienne route) |
 | `ETP_5` (ch. 5) | Anvers, dimanche soir | Qui détient Nordhaven ? | Luxembourg (holding) | Genève (virement annulé), Amsterdam (boîte aux lettres) |
 | `ETP_6` (ch. 6) | Retour à Lescoure, mardi soir | Où frapper en premier ? | Étude Casteran (archives, témoin de bonne foi) | Maison de Nadia (alerte Darrigade), entrepôt de Bayonne (déjà vidé) |
+| `ETP_7` (ch. 6, **seulement si** réseau alerté = 3 ou ≥ 5 fausses routes) | Lescoure, mercredi 8 h | Darrigade a fui : où le rattraper avant le ferry de 17 h ? | Port de Bilbao, terminal du ferry (mandat d'arrêt européen) | Aéroport de Biarritz (billets intacts), gare d'Hendaye (voiture abandonnée) |
 
-L'étape 1 existe déjà dans la mission 01 (tableau d'hypothèses, branches `BR_ERR_*`) ; proposition : chaque mauvaise destination y devient un vrai court trajet avec les gendarmes et une scène sur place. L'escale `ETP_5` (Luxembourg) est ajoutée pour donner à l'acte II une vraie poursuite à travers l'Europe.
+**Deux fins** ✅ (principe) / 🟡 (contenu) : **fin A**, Darrigade interpellé dans les Landes ; **fin B**, après sa fuite, arrêté en Espagne grâce au mandat d'arrêt européen fondé sur le portrait de la joueuse. Il reste toujours rattrapable : seule la fin change.
+
+L'étape 1 existe déjà dans la mission 01 (tableau d'hypothèses, branches `BR_ERR_*`) ; proposition : chaque mauvaise destination y devient un vrai court trajet avec les gendarmes et une scène sur place. L'escale `ETP_5` (Luxembourg) donne à l'acte II une vraie poursuite à travers l'Europe (✅ gardée par Audrey).
 
 ## 4. Le portrait-robot, établi par la joueuse ✅
 
 - Dans le carnet, une fiche par suspect (« Sandrine », le conducteur, la tête du réseau) ; pour chaque trait, **la joueuse choisit** une valeur parmi plusieurs (âge, cheveux, signe distinctif, couverture, véhicule, habitudes, liens de sociétés…). **Rien n'est jamais prérempli ni deviné par le jeu.**
 - Chaque vrai trait a au moins une source (souvent deux) ; certains témoins se trompent (pièges loyaux : la voiture de « Sandrine » conduite par un homme, Casteran qui a rédigé des statuts de bonne foi).
 - Pour agir (interpellation, perquisition, mandat d'arrêt européen), la joueuse présente son portrait : trop peu de traits → refus ; un trait faux → mauvaise personne interpellée et conséquences sur les jauges.
-- En 3D (proposition pour Codex) : le portrait-robot se compose visuellement (visage et silhouette assemblés trait par trait), comme un vrai logiciel de portrait-robot de gendarmerie.
+- ✅ Rendu : **comme un logiciel de portrait-robot de gendarmerie**. Proposition : le visage et la silhouette s'assemblent trait par trait (âge, forme du visage, cheveux, yeux, lunettes, signes distinctifs) ; les traits non liés au visage (véhicule, couverture, habitudes, sociétés) s'affichent en fiche à côté. Le portrait reste celui que la joueuse a composé, juste ou faux.
 
-## 5. Questions pour Audrey
+## 5. Réponses d'Audrey (29/09)
 
-1. Garder l'escale de Luxembourg (acte II plus « poursuite européenne ») ou aller directement d'Anvers au retour dans les Landes ?
-2. Sévérité : faut-il qu'une accumulation de fausses routes change la fin (par exemple Darrigade qui s'enfuit à l'étranger et une étape de plus pour le rattraper), ou seulement le temps et les indices facultatifs ?
-3. Le portrait-robot : composition visuelle du visage (plus spectaculaire, plus coûteux à produire) ou fiche de traits écrite (plus sobre) ?
+1. Escale de Luxembourg : **gardée**.
+2. Trop de fausses routes **peuvent changer la fin** : étape `ETP_7` et fin B.
+3. Portrait-robot : **comme un logiciel de gendarmerie**.

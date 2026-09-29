@@ -544,3 +544,6 @@ class TestItineraire(unittest.TestCase):
     def test_portrait_robot_vrai_trait_parmi_les_options(self):
         self.assertTrue(any("parmi au moins trois options" in e for e in self.errors(
             lambda d: d["portrait_robot"]["suspects"][0]["traits"][1].__setitem__("vrai", "chauve"))))
+
+    def test_etape_conditionnelle_sans_fin_alternative(self):
+        self.assertTrue(any("sans fin alternative" in e for e in self.errors(lambda d: d.__setitem__("fins", d["fins"][:1]))))

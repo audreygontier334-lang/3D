@@ -87,6 +87,14 @@ def validate(doc: dict, mission_clues: set[str]) -> tuple[list[str], list[str]]:
     if len(lila) != 1 or not lila[0][2]:
         errs.append(f"Lila doit être retrouvée exactement une fois, sur une bonne destination (trouvé : {lila})")
 
+    cond = [e["id"] for e in doc["etapes"] if e.get("conditionnelle")]
+    fins = {f["id"] for f in doc.get("fins", [])}
+    if cond and len(fins) < 2:
+        errs.append(f"étapes conditionnelles {cond} sans fin alternative (fins : {sorted(fins)})")
+    for e in doc["etapes"]:
+        if "conditionnelle" in e and not e["conditionnelle"]:
+            errs.append(f"{e['id']} : condition de déclenchement vide")
+
     pr = doc["portrait_robot"]
     seuils = pr["seuil_par_action"]
     for s in pr["suspects"]:
