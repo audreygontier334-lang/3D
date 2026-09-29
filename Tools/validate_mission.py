@@ -580,7 +580,7 @@ def check_branches(m: Mission, r: Report) -> None:
     referenced = {h["wrong_branch"] for h in m.hypotheses.values() if not h["correct"]}
     referenced |= {p.get("wrong", {}).get("branch") for p in m.puzzles.values()}
     referenced |= {ch.get("effect") for _, ch in m.choices.values()}
-    referenced |= {"BR_APPEL_TARDIF", "BR_RESOLU", "BR_CLOTURE", "BR_NADIA_CONFIANCE"}
+    referenced |= {"BR_APPEL_TARDIF", "BR_RESOLU", "BR_CLOTURE", "BR_PERE_CONFIANCE"}
     for b in m.branches:
         if b not in referenced:
             r.warn(f"[branches] {b} n'est déclenchée par aucune hypothèse, énigme ou choix")

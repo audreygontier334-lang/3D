@@ -15,7 +15,7 @@
 | PZ_05 | La plaque | Véhicule | — | **Oui** | `DED_PLAQUE_CLONEE` |
 | PZ_06 | Les lettres fantômes | Véhicule | — | **Oui** | `DED_LETTRAGE` |
 | PZ_07 | Le fourgon du péage | Destination | — | Non | `DED_PEAGE_EXCLU` |
-| PZ_08 | Ce que Nadia ne dit pas | Personne | ✅ (réaction de la chienne) | Non (rattrapage 18 h 45) | `DED_CHANTAGE` |
+| PZ_08 | Ce que Julien ne dit pas | Personne | ✅ (réaction de la chienne) | Non (rattrapage 18 h 45) | `DED_CHANTAGE` |
 | PZ_09 | Soleil sur l'étang | Destination | — | Non (avantage ch. 2) | `DED_RIVE_EST` |
 | PZ_10 | Le tableau des hypothèses | Tous | — | **Oui** | Résolution |
 
@@ -114,7 +114,7 @@
 - Le panneau du rond-point, point de repère visible depuis la rue des Tamaris.
 
 **Solution et raisonnement.** Debout sur le perron, à hauteur d'yeux, on voit la rue des Tamaris et le début de la courbe, **mais pas le rond-point** : l'auvent masque la chaussée, le platane cache le panneau et les sorties. Casteran a pu voir le fourgon partir vers l'est, pas la sortie qu'il a prise. Son affirmation « j'ai tout vu » n'est pas fiable : `DED_CASTERAN_NON_FIABLE`.
-{HEROINE} ne conclut **pas** qu'elle ment : le carnet note « s'est trompée ou a supposé ». (Graine payée au chapitre 6.)
+{HEROINE} ne conclut **pas** qu'elle ment : le carnet note « s'est trompée ou a supposé ». C'est la vérité : Casteran est de bonne foi (décision d'Audrey sur Q2). La leçon, reprise au chapitre 6 : un témoin respectable n'est pas une preuve.
 
 **Indices progressifs.**
 1. « Un témoin sincère peut se tromper. Où se tenait-elle exactement ? »
@@ -255,33 +255,34 @@
 
 ---
 
-## PZ_08 — Ce que Nadia ne dit pas ✅ duo (réaction de la chienne)
+## PZ_08 — Ce que Julien ne dit pas ✅ duo (réaction d'Ariane)
 
-**Contexte 3D.** Place de l'Église, près de la fontaine et du poste. Nadia arrive à 17 h 35 ; Maître Casteran, sa propriétaire, ne la lâche pas.
+**Contexte 3D.** Place de l'Église, près de la fontaine et du poste. Julien, le père de Lila, arrive à 17 h 30 ; Nadia arrive à 17 h 35 avec son compagnon, Xavier Darrigade, qui se montre très présent auprès de tout le monde — y compris de Julien.
 
-**Objectif.** Obtenir que Nadia révèle le message qu'elle a reçu à 17 h 40.
+**Objectif.** Obtenir que Julien révèle le message qu'il a reçu à 17 h 40.
 
 **Données remises.**
-- `CLU_NADIA_REACTION` (si observée entre 17 h 40 et 17 h 55) : elle lit son téléphone, blêmit, le range précipitamment, dit aux gendarmes « rien, c'est le travail ». **Ariane va se coller contre ses jambes** et gémit doucement — signal de détresse, visible dans toutes les vues.
-- `CLU_TEMOIN_LARTIGUE` : la femme a demandé « l'école de la petite Mercadier ».
+- `CLU_PERE_REACTION` (si observée entre 17 h 40 et 17 h 55) : il lit son téléphone, blêmit, le range, dit aux gendarmes « rien, le boulot ». **Ariane va se coller contre ses jambes** et gémit doucement. Quand Darrigade vient lui poser la main sur l'épaule, **Julien se raidit et ne dit plus un mot** — visible dans toutes les vues.
+- `CLU_TEMOIN_LARTIGUE` : la femme a demandé « l'école de la petite Mercadier » — c'est le nom de Julien.
 - `CLU_BADGE` + `CLU_AFFICHE_COMMUNE` / `CLU_TEMOIN_DIRECTRICE` : fausse animatrice.
 - `DED_RUSE` (si établie).
-- Présence de Casteran : tant qu'elle est à côté, Nadia se tait. Elle s'éloigne si {HEROINE} demande à Mendiondo de prendre sa déposition, ou d'elle-même à 18 h 05 (« je vais préparer du thé à l'étude »).
+- `CLU_TEMOIN_NADIA` (facultatif) : Julien est chauffeur chez Darrigade Logistique et voulait démissionner.
+- Présence de Darrigade : tant qu'il est à côté, Julien se tait. Il s'éloigne si {HEROINE} lui propose d'aller aider à organiser la battue, ou de lui-même à 18 h 05 (« quelques coups de fil pour la battue »).
 
-**Solution et raisonnement.** Parler à Nadia **à l'écart de Casteran**, avec **compassion**, en présentant **un élément montrant que l'enlèvement la visait** : l'inconnue connaissait son nom (Lartigue), ou s'est fait passer pour une animatrice pour rassurer Lila (badge + directrice / `DED_RUSE`). Nadia comprend qu'on ne la soupçonne pas et montre le message (`CLU_MESSAGE_CHANTAGE`) et la photo (`CLU_PHOTO_VIE`). `DED_CHANTAGE`.
+**Solution et raisonnement.** Parler à Julien **à l'écart de Darrigade**, avec **compassion**, en présentant **un élément montrant que l'enlèvement le visait** : l'inconnue a demandé « la petite Mercadier » (Lartigue), ou s'est fait passer pour une animatrice pour rassurer Lila (badge + directrice / `DED_RUSE`). Julien comprend qu'on ne l'accuse pas et montre le message (`CLU_MESSAGE_CHANTAGE`) et la photo (`CLU_PHOTO_VIE`). Il refuse de dire pour qui il travaille et regarde vers Darrigade : c'est une **graine**, pas une preuve. `DED_CHANTAGE`.
 
 **Indices progressifs.**
-1. « Nadia a peur. De quoi, ou de qui ? Regarde comment réagit Ariane. »
-2. « Elle ne parlera pas devant n'importe qui. Et elle ne parlera pas si elle se sent accusée. »
-3. « Montre-lui que tu sais que ce n'était pas un hasard : quelqu'un connaissait son nom. »
+1. « Julien a peur. De quoi, ou de qui ? Regarde comment réagit Ariane… et à quel moment il se tait. »
+2. « Il ne parlera pas devant n'importe qui. Et il ne parlera pas s'il se sent accusé. »
+3. « Montre-lui que tu sais que ce n'était pas un hasard : la femme a demandé ‹ la petite Mercadier › — c'est son nom. »
 
-**Fausse piste loyale.** Nadia se comporte comme quelqu'un de coupable (mensonge, téléphone caché). Le joueur peut la soupçonner de complicité ; le dialogue permet ce soupçon mais il mène à la fermeture.
+**Fausse piste loyale.** Julien se comporte comme un coupable (mensonge, téléphone caché) — et il n'est pas innocent : il est mêlé au trafic. La joueuse peut le soupçonner d'avoir organisé l'enlèvement ; le dialogue permet ce soupçon, mais il mène à la fermeture. La vérité (il est la victime du chantage) se découvre en l'écoutant.
 
-**Conséquence d'erreur.** Accusation, ou discussion devant Casteran : `BR_NADIA_BRUSQUEE`, +5 min, Nadia fermée.
+**Conséquence d'erreur.** Accusation, ou discussion en présence de Darrigade : `BR_PERE_BRUSQUE`, +5 min, Julien fermé.
 
-**Rattrapage.** À 18 h 45, Nadia craque et montre le message aux gendarmes (`EVT_NADIA_CRAQUE`). Le joueur peut ensuite consulter la photo au poste.
+**Rattrapage.** À 18 h 45, Julien montre le message aux gendarmes (`EVT_PERE_CRAQUE`). La joueuse peut ensuite consulter la photo au poste.
 
-**Test de cohérence.** Casteran est bien présente à côté de Nadia de 17 h 35 à 18 h 05 (sauf éloignement demandé). La réaction de la chienne ne dépend pas du son.
+**Test de cohérence.** Darrigade est bien à côté de Julien et de Nadia de 17 h 35 à 18 h 05 (sauf éloignement demandé). Le raidissement de Julien et la réaction d'Ariane ne dépendent pas du son. Ariane ne « désigne » jamais Darrigade : sa méfiance à son égard (`CLU_ARIANE_DARRIGADE`) reste ambiguë et Darrigade l'explique lui-même (« trop de monde »).
 
 ---
 

@@ -239,6 +239,12 @@ class TestDecisionsAudrey(unittest.TestCase):
         r"ENV_RUE_PORT|Z_RUE_PORT|Z_FRONT\b|LOC_FRONT_MER|LOC_CALE\b|ACT_LACHER": "ancien identifiant",
         r"chienne n'ont pas encore de nom": "le nom d'Ariane est décidé",
         r"ça mord|poissons ont fui|canne à pêche": "pêche de Dufau (il est dans le square, pas au bord de l'eau)",
+        # Réponses d'Audrey du 29/09 à Q1–Q3
+        r"douan|TMAU|retenue sur|conteneur bloqué": "Nadia douanière / conteneur bloqué (Q1 : c'est le père qui est visé)",
+        r"CLU_NADIA_REACTION|INT_OBSERVER_NADIA|\bINT_NADIA\b|BR_NADIA_|FLAG_NADIA_(ALLIEE|FERMEE)|EVT_NADIA_CRAQUE|CASTERAN_ELOIGNEE|EVT_CASTERAN_S_ELOIGNE":
+            "ancien identifiant (Nadia porteuse du message, Casteran collée à Nadia)",
+        r"Casteran (est|serait) la tête|tête et architecte|a menti exprès": "Casteran est de bonne foi (Q2 : le compagnon de la mère dirige le réseau)",
+        r"retrouvée saine et sauve au chapitre 2|retrouvée au chapitre 2": "Lila est retrouvée au chapitre 4 (Q3)",
     }
     # phrases qui énoncent justement la décision
     AUTORISES = ("ni laisse ni collier", "sans laisse ni collier", "ne suppose de laisse ni de collier",
@@ -260,6 +266,13 @@ class TestDecisionsAudrey(unittest.TestCase):
                         if re.search(motif, propre, re.IGNORECASE):
                             fautes.append(f"{f.relative_to(ROOT)}:{n} — {raison}")
         self.assertEqual(fautes, [], "\n".join(fautes))
+
+    def test_chantage_vise_le_pere(self):
+        clues = {c["id"]: c for c in json.loads((MISSION / "clues.json").read_text(encoding="utf-8"))["clues"]}
+        self.assertIn("Julien", clues["CLU_MESSAGE_CHANTAGE"]["fact"])
+        interactions = {i["id"]: i for i in json.loads((MISSION / "interactions.json").read_text(encoding="utf-8"))["interactions"]}
+        self.assertIn("CLU_MESSAGE_CHANTAGE", interactions["INT_PERE"]["grants"])
+        self.assertEqual(interactions["INT_PERE"]["requires"]["all"], ["FLAG_DARRIGADE_ELOIGNE"])
 
     def test_zones_de_la_maquette_codex(self):
         zones = {z["id"] for z in json.loads((MISSION / "locations.json").read_text(encoding="utf-8"))["zones"]}

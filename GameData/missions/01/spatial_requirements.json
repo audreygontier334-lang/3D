@@ -2,56 +2,1053 @@
   "mission": "M01",
   "status": "proposition",
   "_doc": "Exigences spatiales de l'ouverture (P0–P3 et chapitre 1) reliées à la maquette de la PR #3. zone_id et marker_id n'utilisent que les zones et repères de Game/Blockout/ouverture-centre-ville.manifest.json. camera_independent = l'élément est jouable et lisible dans les trois vues. fallback = voie de repli si le joueur manque l'élément : evenement_rattrapage (événement automatique), indice_equivalent (autres éléments qui mènent au même constat), toujours_accessible (reste en place jusqu'à l'échéance), partout (réalisable dans toutes les zones), automatique (se produit toujours). time_cost = minutes de jeu (0 dans le prologue, qui est en temps réel). Vérifié par Tools/validate_spatial.py.",
-  "blockout_ref": {"source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3, commit 9af9b47)", "zones": ["Z_PROMENADE", "Z_ECOLE", "Z_CROISEMENT", "Z_RUE_FUITE", "Z_PLACE", "Z_TEMOINS"], "markers": ["EVT_SORTIE_ECOLE", "EVT_FOURGON", "EVT_DEPART_DUO", "EVT_ARIANE", "EVT_INDICE_ODEUR", "EVT_PISTE"], "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"]},
+  "blockout_ref": {
+    "source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3, commit 9af9b47)",
+    "zones": [
+      "Z_PROMENADE",
+      "Z_ECOLE",
+      "Z_CROISEMENT",
+      "Z_RUE_FUITE",
+      "Z_PLACE",
+      "Z_TEMOINS"
+    ],
+    "markers": [
+      "EVT_SORTIE_ECOLE",
+      "EVT_FOURGON",
+      "EVT_DEPART_DUO",
+      "EVT_ARIANE",
+      "EVT_INDICE_ODEUR",
+      "EVT_PISTE"
+    ],
+    "cameras": [
+      "CAM_SHOULDER",
+      "CAM_WIDE",
+      "CAM_FIRST"
+    ]
+  },
   "coordination_requests": [
-    {"id": "REQ_MARQUEUR_PISTE", "to": "Codex", "text": "Placer scent_clue_marker (EVT_PISTE) sous la portière latérale du fourgon, là où la barrette de Lila tombe (fin de la piste de Lila), au lieu de (33, -2)."},
-    {"id": "REQ_DISTANCE_PISTE", "to": "Codex", "text": "Laisser 15 à 25 m de trottoir entre l'angle (EVT_INDICE_ODEUR) et la portière du fourgon, pour que l'allure régulière d'Ariane soit lisible (≈ 6 m dans la maquette actuelle)."},
-    {"id": "REQ_EXTENSION_ROND_POINT", "to": "Codex", "text": "Prolonger Z_RUE_FUITE par une courbe jusqu'au rond-point (≈ 300 m) avec la butte du skatepark, pour le chapitre 1 ; non requis pour P0–P3."},
-    {"id": "REQ_LIGNE_DE_VUE_PERRON", "to": "Codex", "text": "Depuis le perron de l'étude (Z_PLACE), la rue des Tamaris doit être visible jusqu'à la courbe, et le rond-point masqué par l'auvent de la pharmacie et un platane (énigme PZ_03)."}
+    {
+      "id": "REQ_MARQUEUR_PISTE",
+      "to": "Codex",
+      "text": "Placer scent_clue_marker (EVT_PISTE) sous la portière latérale du fourgon, là où la barrette de Lila tombe (fin de la piste de Lila), au lieu de (33, -2)."
+    },
+    {
+      "id": "REQ_DISTANCE_PISTE",
+      "to": "Codex",
+      "text": "Laisser 15 à 25 m de trottoir entre l'angle (EVT_INDICE_ODEUR) et la portière du fourgon, pour que l'allure régulière d'Ariane soit lisible (≈ 6 m dans la maquette actuelle)."
+    },
+    {
+      "id": "REQ_EXTENSION_ROND_POINT",
+      "to": "Codex",
+      "text": "Prolonger Z_RUE_FUITE par une courbe jusqu'au rond-point (≈ 300 m) avec la butte du skatepark, pour le chapitre 1 ; non requis pour P0–P3."
+    },
+    {
+      "id": "REQ_LIGNE_DE_VUE_PERRON",
+      "to": "Codex",
+      "text": "Depuis le perron de l'étude (Z_PLACE), la rue des Tamaris doit être visible jusqu'à la courbe, et le rond-point masqué par l'auvent de la pharmacie et un platane (énigme PZ_03)."
+    }
   ],
   "elements": [
-    {"id": "EVT_START", "kind": "evenement", "zone_id": "Z_PROMENADE", "marker_id": "EVT_DEPART_DUO", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 0, "fallback": {"type": "automatique", "ids": [], "note": "Début fixe du prologue."}, "visual_check": "Héroïne et Ariane visibles ensemble dans les trois vues ; Ariane libre à moins de 3 m."},
-    {"id": "EVT_LILA_COUCOU", "kind": "evenement", "zone_id": "Z_ECOLE", "marker_id": "EVT_SORTIE_ECOLE", "observer": "joueur, Ariane", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "automatique", "ids": [], "note": "Purement narratif ; le lien Lila–Ariane est redit par Nadia (DLG_C1_NADIA_01)."}, "visual_check": "Lila identifiable au portail depuis Z_PROMENADE (≈ 20 m) dans les trois vues."},
-    {"id": "EVT_ALERTE", "kind": "evenement", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur, Ariane (grognement)", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 0, "fallback": {"type": "automatique", "ids": [], "note": "Se produit toujours ; déclenche la fenêtre d'action."}, "visual_check": "Portière latérale du fourgon et Lila visibles depuis Z_PROMENADE dans les trois vues, sans occlusion (check_opening_sightlines.py)."},
-    {"id": "EVT_DEPART", "kind": "evenement", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 0, "fallback": {"type": "automatique", "ids": [], "note": "Le fourgon part toujours, direction de la courbe vers le rond-point."}, "visual_check": "Direction de départ lisible (image et son) dans les trois vues."},
-    {"id": "ACT_PHOTO", "kind": "action", "zone_id": "Z_PROMENADE", "marker_id": "EVT_FOURGON", "observer": "joueur (téléphone)", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."}, "visual_check": "Plaque arrière et lettrage tournés vers Z_PROMENADE ; lisibles à ≈ 25 m via la photo quelle que soit la vue."},
-    {"id": "ACT_COURIR", "kind": "action", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_DUFAU", "CLU_VIDEO_INES"], "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."}, "visual_check": "En arrivant à ≈ 8 m : conducteur, pot qui vibre, feu arrière fendu visibles dans les trois vues."},
-    {"id": "ACT_CRIER", "kind": "action", "zone_id": "Z_PROMENADE", "marker_id": "EVT_FOURGON", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_LARTIGUE", "CLU_BADGE"], "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."}, "visual_check": "La femme se retourne face à Z_PROMENADE ; la chute du cordon dans la haie est visible dans les trois vues."},
-    {"id": "ACT_ENVOYER", "kind": "action", "zone_id": "Z_CROISEMENT", "marker_id": "EVT_ARIANE", "observer": "joueur, Ariane", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["INT_PISTE_BOUTEILLE"], "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."}, "visual_check": "Ariane s'arrête net au bord de la chaussée, sans laisse ; arrêt lisible dans les trois vues."},
-    {"id": "CLU_PHOTO_FOURGON", "kind": "indice", "zone_id": "Z_PROMENADE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_PHOTO_FLOUE", "kind": "indice", "zone_id": "Z_PROMENADE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_OBS_CONDUCTEUR", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_DUFAU", "CLU_FLYER_BLANCHISSERIE"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_OBS_ECHAPPEMENT", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_DUFAU"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_OBS_FEU_FENDU", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_CCTV_RELAIS"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_OBS_PASSAGERE", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_LARTIGUE"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_OBS_BADGE_CHUTE", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["EVT_FOUILLE_HAIE", "INT_PISTE_BOUTEILLE"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "CLU_CHIENNE_IMPREGNEE", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_ARIANE", "observer": "joueur pendant la fenêtre", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["INT_PISTE_BOUTEILLE"], "note": "Indice de fenêtre, jamais indispensable."}, "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."},
-    {"id": "INT_APPEL_17", "kind": "interaction", "zone_id": "Z_RUE_FUITE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 3, "fallback": {"type": "partout", "ids": [], "note": "Le téléphone fonctionne dans toutes les zones ; l'action est mise en avant à 16 h 39."}, "visual_check": "Aucun besoin visuel particulier."},
-    {"id": "INT_PROTEGER_SCENE", "kind": "interaction", "zone_id": "Z_CROISEMENT", "marker_id": "EVT_INDICE_ODEUR", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 1, "fallback": {"type": "indice_equivalent", "ids": ["INT_EXAMINER_ACCOTEMENT"], "note": "Bonus de confiance uniquement."}, "visual_check": "Passants autour du coin, porte-clés au sol visible."},
-    {"id": "INT_EXAMINER_ACCOTEMENT", "kind": "interaction", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_FOURGON", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 2, "fallback": {"type": "toujours_accessible", "ids": [], "note": "Emplacement du fourgon balisé et examinable jusqu'à 19 h 30."}, "visual_check": "Traces de pneus, mégots et caisse lisibles au sol dans les trois vues (surbrillance d'inspection proche)."},
-    {"id": "INT_FOUILLER_HAIE", "kind": "interaction", "zone_id": "Z_RUE_FUITE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 1, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_FOUILLE_HAIE"], "note": "Les gendarmes trouvent le badge à 18 h 30 sinon."}, "visual_check": "Haie à hauteur de hanche, badge caché mais atteignable."},
-    {"id": "INT_DUFAU", "kind": "interaction", "zone_id": "Z_TEMOINS", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 4, "fallback": {"type": "toujours_accessible", "ids": [], "note": "Dufau reste sur son banc jusqu'à 19 h 30 ; Mendiondo le cite comme témoin."}, "visual_check": "Banc du square visible depuis Z_PROMENADE ; Dufau identifiable (bob, journal)."},
-    {"id": "INT_LARTIGUE", "kind": "interaction", "zone_id": "Z_TEMOINS", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 3, "fallback": {"type": "toujours_accessible", "ids": [], "note": "Boulangerie ouverte jusqu'à 19 h 30 (échéance du chapitre)."}, "visual_check": "Vitrine et enseigne lisibles depuis la rue."},
-    {"id": "INT_TABLEAU_LIEGE", "kind": "interaction", "zone_id": "Z_TEMOINS", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 1, "fallback": {"type": "toujours_accessible", "ids": [], "note": "Tableau de liège fixe dans la boulangerie."}, "visual_check": "Prospectus lisibles en inspection rapprochée."},
-    {"id": "INT_BANC_ABRIBUS", "kind": "interaction", "zone_id": "Z_ECOLE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 1, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_DIRECTRICE"], "note": "La bouteille reste sur le banc jusqu'à 19 h 30 ; la directrice établit aussi la fausse animatrice."}, "visual_check": "Bouteille visible sur le banc de l'abribus depuis la rue des Écoles."},
-    {"id": "INT_PLAN_TOURISTIQUE", "kind": "interaction", "zone_id": "Z_ECOLE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 1, "fallback": {"type": "indice_equivalent", "ids": ["INT_CARTE_ETANG"], "note": "Les mêmes distances figurent sur la carte du poste."}, "visual_check": "Panneau lisible en inspection rapprochée."},
-    {"id": "INT_AFFICHE_ECOLE", "kind": "interaction", "zone_id": "Z_ECOLE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 1, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_DIRECTRICE", "CLU_TEMOIN_LARTIGUE"], "note": "L'affiche reste en place ; d'autres preuves établissent la fausse animatrice."}, "visual_check": "Affiche au nouveau logo sur la grille, lisible en inspection."},
-    {"id": "INT_DIRECTRICE", "kind": "interaction", "zone_id": "Z_ECOLE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 3, "fallback": {"type": "indice_equivalent", "ids": ["CLU_AFFICHE_COMMUNE", "CLU_BADGE"], "note": "Témoin facultatif."}, "visual_check": "Directrice présente à la grille jusqu'à 19 h 30."},
-    {"id": "INT_CASTERAN", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 3, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "Témoin trompeur facultatif."}, "visual_check": "Casteran sur son perron à partir de 16 h 45."},
-    {"id": "INT_LIGNE_DE_VUE", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 2, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "La vidéo d'Inès contredit aussi Casteran."}, "visual_check": "Depuis le perron à hauteur d'yeux : rue des Tamaris visible jusqu'à la courbe, rond-point masqué par l'auvent et le platane ; la vue reculée descend à hauteur d'yeux pendant le test."},
-    {"id": "INT_INES", "kind": "interaction", "zone_id": "Z_RUE_FUITE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 4, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_INES_PARENTS"], "note": "Les parents d'Inès l'amènent au poste à 19 h 00."}, "visual_check": "Butte du skatepark au-delà de la maquette actuelle (extension de Z_RUE_FUITE à prévoir)."},
-    {"id": "INT_PISTE_LILA", "kind": "interaction", "zone_id": "Z_CROISEMENT", "marker_id": "EVT_INDICE_ODEUR", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 5, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_LARTIGUE", "CLU_TEMOIN_DIRECTRICE"], "note": "Premier moment olfactif validé par Audrey ; DED_RUSE s'obtient aussi par les témoins."}, "visual_check": "Porte-clés au sol près du caniveau ; langage corporel d'Ariane (cercles, truffe basse, assise) lisible dans les trois vues, Ariane gardée dans le champ en vue subjective."},
-    {"id": "INT_PISTE_BOUTEILLE", "kind": "interaction", "zone_id": "Z_ECOLE", "marker_id": "EVT_ARIANE", "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 5, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_FOUILLE_HAIE"], "note": "Si la piste échoue, les gendarmes fouillent la haie à 18 h 30."}, "visual_check": "Trajet abribus → coin → emplacement du fourgon → haie praticable à pied ; Ariane visible sur tout le trajet."},
-    {"id": "INT_PLAQUE_COMPLETE", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 5, "fallback": {"type": "indice_equivalent", "ids": ["INT_PLAQUE_PARTIELLE"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_PLAQUE_PARTIELLE", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 15, "fallback": {"type": "indice_equivalent", "ids": ["INT_PLAQUE_COMPLETE"], "note": "Menu au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_APPEL_BLANCHISSERIE", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 10, "fallback": {"type": "indice_equivalent", "ids": ["CLU_FLYER_BLANCHISSERIE"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_CCTV_RELAIS", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 10, "fallback": {"type": "indice_equivalent", "ids": ["CLU_VIDEO_INES"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_CARTE_ETANG", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 1, "fallback": {"type": "indice_equivalent", "ids": ["CLU_PLAN_DISTANCES"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_OBSERVER_NADIA", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_NADIA_CRAQUE"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Nadia près de la fontaine, lisible à 15 m ou moins dans les trois vues ; réaction d'Ariane visuelle (pas seulement sonore)."},
-    {"id": "INT_ELOIGNER_CASTERAN", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 1, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_CASTERAN_S_ELOIGNE"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_NADIA", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 5, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_NADIA_CRAQUE"], "note": "Menu ou dialogue au poste, indépendant de la vue."}, "visual_check": "Poste de commandement repérable sur la place."},
-    {"id": "INT_PRESENTER_TABLEAU", "kind": "interaction", "zone_id": "Z_PLACE", "marker_id": null, "observer": "joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": true, "time_cost": 5, "fallback": {"type": "evenement_rattrapage", "ids": ["EVT_CLOTURE"], "note": "Clôture automatique à 19 h 30 avec les hypothèses les mieux étayées."}, "visual_check": "Poste de commandement repérable sur la place (véhicule, tableau)."},
-    {"id": "CLU_PORTE_CLES_LILA", "kind": "indice", "zone_id": "Z_CROISEMENT", "marker_id": "EVT_INDICE_ODEUR", "observer": "joueur, Ariane", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["INT_EXAMINER_ACCOTEMENT"], "note": "Aussi trouvé en examinant le coin et l'emplacement du fourgon. Choix de l'objet encore ouvert pour Audrey."}, "visual_check": "Porte-clés renard au sol près du caniveau, repérable à 2 m ; surbrillance d'inspection."},
-    {"id": "CLU_BARRETTE_LILA", "kind": "indice", "zone_id": "Z_RUE_FUITE", "marker_id": "EVT_PISTE", "observer": "Ariane (s'assied), puis joueur", "cameras": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"], "camera_independent": true, "mandatory": false, "time_cost": 0, "fallback": {"type": "indice_equivalent", "ids": ["CLU_TEMOIN_LARTIGUE"], "note": "Point d'arrivée de la piste de Lila : à la portière latérale du fourgon."}, "visual_check": "Barrette au sol exactement sous la portière latérale ; demande de déplacer scent_clue_marker à cet endroit (voir coordination)."}
+    {
+      "id": "EVT_START",
+      "kind": "evenement",
+      "zone_id": "Z_PROMENADE",
+      "marker_id": "EVT_DEPART_DUO",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 0,
+      "fallback": {
+        "type": "automatique",
+        "ids": [],
+        "note": "Début fixe du prologue."
+      },
+      "visual_check": "Héroïne et Ariane visibles ensemble dans les trois vues ; Ariane libre à moins de 3 m."
+    },
+    {
+      "id": "EVT_LILA_COUCOU",
+      "kind": "evenement",
+      "zone_id": "Z_ECOLE",
+      "marker_id": "EVT_SORTIE_ECOLE",
+      "observer": "joueur, Ariane",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "automatique",
+        "ids": [],
+        "note": "Purement narratif ; le lien Lila–Ariane est redit par Julien (DLG_C1_PERE_01)."
+      },
+      "visual_check": "Lila identifiable au portail depuis Z_PROMENADE (≈ 20 m) dans les trois vues."
+    },
+    {
+      "id": "EVT_ALERTE",
+      "kind": "evenement",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur, Ariane (grognement)",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 0,
+      "fallback": {
+        "type": "automatique",
+        "ids": [],
+        "note": "Se produit toujours ; déclenche la fenêtre d'action."
+      },
+      "visual_check": "Portière latérale du fourgon et Lila visibles depuis Z_PROMENADE dans les trois vues, sans occlusion (check_opening_sightlines.py)."
+    },
+    {
+      "id": "EVT_DEPART",
+      "kind": "evenement",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 0,
+      "fallback": {
+        "type": "automatique",
+        "ids": [],
+        "note": "Le fourgon part toujours, direction de la courbe vers le rond-point."
+      },
+      "visual_check": "Direction de départ lisible (image et son) dans les trois vues."
+    },
+    {
+      "id": "ACT_PHOTO",
+      "kind": "action",
+      "zone_id": "Z_PROMENADE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur (téléphone)",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
+      },
+      "visual_check": "Plaque arrière et lettrage tournés vers Z_PROMENADE ; lisibles à ≈ 25 m via la photo quelle que soit la vue."
+    },
+    {
+      "id": "ACT_COURIR",
+      "kind": "action",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DUFAU",
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
+      },
+      "visual_check": "En arrivant à ≈ 8 m : conducteur, pot qui vibre, feu arrière fendu visibles dans les trois vues."
+    },
+    {
+      "id": "ACT_CRIER",
+      "kind": "action",
+      "zone_id": "Z_PROMENADE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_LARTIGUE",
+          "CLU_BADGE"
+        ],
+        "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
+      },
+      "visual_check": "La femme se retourne face à Z_PROMENADE ; la chute du cordon dans la haie est visible dans les trois vues."
+    },
+    {
+      "id": "ACT_ENVOYER",
+      "kind": "action",
+      "zone_id": "Z_CROISEMENT",
+      "marker_id": "EVT_ARIANE",
+      "observer": "joueur, Ariane",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_PISTE_BOUTEILLE"
+        ],
+        "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
+      },
+      "visual_check": "Ariane s'arrête net au bord de la chaussée, sans laisse ; arrêt lisible dans les trois vues."
+    },
+    {
+      "id": "CLU_PHOTO_FOURGON",
+      "kind": "indice",
+      "zone_id": "Z_PROMENADE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_PHOTO_FLOUE",
+      "kind": "indice",
+      "zone_id": "Z_PROMENADE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_OBS_CONDUCTEUR",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DUFAU",
+          "CLU_FLYER_BLANCHISSERIE"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_OBS_ECHAPPEMENT",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DUFAU"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_OBS_FEU_FENDU",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_CCTV_RELAIS"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_OBS_PASSAGERE",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_LARTIGUE"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_OBS_BADGE_CHUTE",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "EVT_FOUILLE_HAIE",
+          "INT_PISTE_BOUTEILLE"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "CLU_CHIENNE_IMPREGNEE",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_ARIANE",
+      "observer": "joueur pendant la fenêtre",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_PISTE_BOUTEILLE"
+        ],
+        "note": "Indice de fenêtre, jamais indispensable."
+      },
+      "visual_check": "Lisible dans les trois vues pendant la fenêtre de 8–12 s (ou le temps étendu d'accessibilité)."
+    },
+    {
+      "id": "INT_APPEL_17",
+      "kind": "interaction",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 3,
+      "fallback": {
+        "type": "partout",
+        "ids": [],
+        "note": "Le téléphone fonctionne dans toutes les zones ; l'action est mise en avant à 16 h 39."
+      },
+      "visual_check": "Aucun besoin visuel particulier."
+    },
+    {
+      "id": "INT_PROTEGER_SCENE",
+      "kind": "interaction",
+      "zone_id": "Z_CROISEMENT",
+      "marker_id": "EVT_INDICE_ODEUR",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 1,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_EXAMINER_ACCOTEMENT"
+        ],
+        "note": "Bonus de confiance uniquement."
+      },
+      "visual_check": "Passants autour du coin, porte-clés au sol visible."
+    },
+    {
+      "id": "INT_EXAMINER_ACCOTEMENT",
+      "kind": "interaction",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_FOURGON",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 2,
+      "fallback": {
+        "type": "toujours_accessible",
+        "ids": [],
+        "note": "Emplacement du fourgon balisé et examinable jusqu'à 19 h 30."
+      },
+      "visual_check": "Traces de pneus, mégots et caisse lisibles au sol dans les trois vues (surbrillance d'inspection proche)."
+    },
+    {
+      "id": "INT_FOUILLER_HAIE",
+      "kind": "interaction",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 1,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_FOUILLE_HAIE"
+        ],
+        "note": "Les gendarmes trouvent le badge à 18 h 30 sinon."
+      },
+      "visual_check": "Haie à hauteur de hanche, badge caché mais atteignable."
+    },
+    {
+      "id": "INT_DUFAU",
+      "kind": "interaction",
+      "zone_id": "Z_TEMOINS",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 4,
+      "fallback": {
+        "type": "toujours_accessible",
+        "ids": [],
+        "note": "Dufau reste sur son banc jusqu'à 19 h 30 ; Mendiondo le cite comme témoin."
+      },
+      "visual_check": "Banc du square visible depuis Z_PROMENADE ; Dufau identifiable (bob, journal)."
+    },
+    {
+      "id": "INT_LARTIGUE",
+      "kind": "interaction",
+      "zone_id": "Z_TEMOINS",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 3,
+      "fallback": {
+        "type": "toujours_accessible",
+        "ids": [],
+        "note": "Boulangerie ouverte jusqu'à 19 h 30 (échéance du chapitre)."
+      },
+      "visual_check": "Vitrine et enseigne lisibles depuis la rue."
+    },
+    {
+      "id": "INT_TABLEAU_LIEGE",
+      "kind": "interaction",
+      "zone_id": "Z_TEMOINS",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 1,
+      "fallback": {
+        "type": "toujours_accessible",
+        "ids": [],
+        "note": "Tableau de liège fixe dans la boulangerie."
+      },
+      "visual_check": "Prospectus lisibles en inspection rapprochée."
+    },
+    {
+      "id": "INT_BANC_ABRIBUS",
+      "kind": "interaction",
+      "zone_id": "Z_ECOLE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 1,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DIRECTRICE"
+        ],
+        "note": "La bouteille reste sur le banc jusqu'à 19 h 30 ; la directrice établit aussi la fausse animatrice."
+      },
+      "visual_check": "Bouteille visible sur le banc de l'abribus depuis la rue des Écoles."
+    },
+    {
+      "id": "INT_PLAN_TOURISTIQUE",
+      "kind": "interaction",
+      "zone_id": "Z_ECOLE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 1,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_CARTE_ETANG"
+        ],
+        "note": "Les mêmes distances figurent sur la carte du poste."
+      },
+      "visual_check": "Panneau lisible en inspection rapprochée."
+    },
+    {
+      "id": "INT_AFFICHE_ECOLE",
+      "kind": "interaction",
+      "zone_id": "Z_ECOLE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 1,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DIRECTRICE",
+          "CLU_TEMOIN_LARTIGUE"
+        ],
+        "note": "L'affiche reste en place ; d'autres preuves établissent la fausse animatrice."
+      },
+      "visual_check": "Affiche au nouveau logo sur la grille, lisible en inspection."
+    },
+    {
+      "id": "INT_DIRECTRICE",
+      "kind": "interaction",
+      "zone_id": "Z_ECOLE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 3,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_AFFICHE_COMMUNE",
+          "CLU_BADGE"
+        ],
+        "note": "Témoin facultatif."
+      },
+      "visual_check": "Directrice présente à la grille jusqu'à 19 h 30."
+    },
+    {
+      "id": "INT_CASTERAN",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 3,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Témoin trompeur facultatif."
+      },
+      "visual_check": "Casteran sur son perron à partir de 16 h 45."
+    },
+    {
+      "id": "INT_LIGNE_DE_VUE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 2,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "La vidéo d'Inès contredit aussi Casteran."
+      },
+      "visual_check": "Depuis le perron à hauteur d'yeux : rue des Tamaris visible jusqu'à la courbe, rond-point masqué par l'auvent et le platane ; la vue reculée descend à hauteur d'yeux pendant le test."
+    },
+    {
+      "id": "INT_INES",
+      "kind": "interaction",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 4,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_INES_PARENTS"
+        ],
+        "note": "Les parents d'Inès l'amènent au poste à 19 h 00."
+      },
+      "visual_check": "Butte du skatepark au-delà de la maquette actuelle (extension de Z_RUE_FUITE à prévoir)."
+    },
+    {
+      "id": "INT_PISTE_LILA",
+      "kind": "interaction",
+      "zone_id": "Z_CROISEMENT",
+      "marker_id": "EVT_INDICE_ODEUR",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 5,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_LARTIGUE",
+          "CLU_TEMOIN_DIRECTRICE"
+        ],
+        "note": "Premier moment olfactif validé par Audrey ; DED_RUSE s'obtient aussi par les témoins."
+      },
+      "visual_check": "Porte-clés au sol près du caniveau ; langage corporel d'Ariane (cercles, truffe basse, assise) lisible dans les trois vues, Ariane gardée dans le champ en vue subjective."
+    },
+    {
+      "id": "INT_PISTE_BOUTEILLE",
+      "kind": "interaction",
+      "zone_id": "Z_ECOLE",
+      "marker_id": "EVT_ARIANE",
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 5,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_FOUILLE_HAIE"
+        ],
+        "note": "Si la piste échoue, les gendarmes fouillent la haie à 18 h 30."
+      },
+      "visual_check": "Trajet abribus → coin → emplacement du fourgon → haie praticable à pied ; Ariane visible sur tout le trajet."
+    },
+    {
+      "id": "INT_PLAQUE_COMPLETE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 5,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_PLAQUE_PARTIELLE"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_PLAQUE_PARTIELLE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 15,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_PLAQUE_COMPLETE"
+        ],
+        "note": "Menu au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_APPEL_BLANCHISSERIE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 10,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_FLYER_BLANCHISSERIE"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_CCTV_RELAIS",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 10,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_VIDEO_INES"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_CARTE_ETANG",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 1,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_PLAN_DISTANCES"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_OBSERVER_PERE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_PERE_CRAQUE"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Julien près de la fontaine, lisible à 15 m ou moins dans les trois vues ; réaction d'Ariane et raidissement de Julien quand Darrigade lui touche l'épaule : visuels (pas seulement sonores)."
+    },
+    {
+      "id": "INT_ELOIGNER_DARRIGADE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 1,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_DARRIGADE_S_ELOIGNE"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_NADIA_TEMOIGNAGE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 4,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_DIRECTRICE"
+        ],
+        "note": "Témoignage facultatif ; la directrice dit aussi que Lila rentrait seule."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_PERE",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 5,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_PERE_CRAQUE"
+        ],
+        "note": "Menu ou dialogue au poste, indépendant de la vue."
+      },
+      "visual_check": "Poste de commandement repérable sur la place."
+    },
+    {
+      "id": "INT_PRESENTER_TABLEAU",
+      "kind": "interaction",
+      "zone_id": "Z_PLACE",
+      "marker_id": null,
+      "observer": "joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": true,
+      "time_cost": 5,
+      "fallback": {
+        "type": "evenement_rattrapage",
+        "ids": [
+          "EVT_CLOTURE"
+        ],
+        "note": "Clôture automatique à 19 h 30 avec les hypothèses les mieux étayées."
+      },
+      "visual_check": "Poste de commandement repérable sur la place (véhicule, tableau)."
+    },
+    {
+      "id": "CLU_PORTE_CLES_LILA",
+      "kind": "indice",
+      "zone_id": "Z_CROISEMENT",
+      "marker_id": "EVT_INDICE_ODEUR",
+      "observer": "joueur, Ariane",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "INT_EXAMINER_ACCOTEMENT"
+        ],
+        "note": "Aussi trouvé en examinant le coin et l'emplacement du fourgon. Choix de l'objet encore ouvert pour Audrey."
+      },
+      "visual_check": "Porte-clés renard au sol près du caniveau, repérable à 2 m ; surbrillance d'inspection."
+    },
+    {
+      "id": "CLU_BARRETTE_LILA",
+      "kind": "indice",
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_PISTE",
+      "observer": "Ariane (s'assied), puis joueur",
+      "cameras": [
+        "CAM_SHOULDER",
+        "CAM_WIDE",
+        "CAM_FIRST"
+      ],
+      "camera_independent": true,
+      "mandatory": false,
+      "time_cost": 0,
+      "fallback": {
+        "type": "indice_equivalent",
+        "ids": [
+          "CLU_TEMOIN_LARTIGUE"
+        ],
+        "note": "Point d'arrivée de la piste de Lila : à la portière latérale du fourgon."
+      },
+      "visual_check": "Barrette au sol exactement sous la portière latérale ; demande de déplacer scent_clue_marker à cet endroit (voir coordination)."
+    }
   ]
 }

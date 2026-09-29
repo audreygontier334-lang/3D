@@ -20,9 +20,11 @@
 | `DIRECTRICE` | Mme Pujol, directrice |
 | `CASTERAN` | Maître Casteran |
 | `INES` | Inès |
-| `NADIA` | Nadia Mercadier |
+| `NADIA` | Nadia Mercadier, mère de Lila |
 | `PARENT_INES` | Père d'Inès |
 | `NARRATION` | Carnet (texte à l'écran, non voisé) |
+| `JULIEN` | Julien Mercadier, père de Lila |
+| `DARRIGADE` | Xavier Darrigade, compagnon de Nadia |
 
 ## `DLG_P_TUTO`
 
@@ -240,12 +242,12 @@
 
 ## `DLG_C1_CASTERAN`
 
-*INT_CASTERAN. Casteran, élégante, s'est placée d'elle-même près des gendarmes.* — lieu : `LOC_ETUDE_CASTERAN`
+*INT_CASTERAN. Casteran, notaire respectée, s'est approchée de la scène. Elle est sincère.* — lieu : `LOC_ETUDE_CASTERAN`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_CASTERAN_01` | CASTERAN | Quelle horreur. Je loue l'appartement de Nadia, vous savez. Cette enfant, je la vois grandir. | Se placer au centre ; lien avec la famille (graine) | émue, maîtrisée |  |
-| `DLG_C1_CASTERAN_02` | CASTERAN | J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. J'en suis certaine. | Faux témoignage assuré (fausse piste loyale) | assurée, posée |  |
+| `DLG_C1_CASTERAN_01` | CASTERAN | Quelle horreur. Cette petite, je la vois passer tous les jours devant l'étude. | Témoin respectable, sincère | émue, maîtrisée |  |
+| `DLG_C1_CASTERAN_02` | CASTERAN | J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. J'en suis certaine. | Témoignage de bonne foi mais faux : elle a supposé la direction (fausse piste loyale) | assurée, posée |  |
 | `DLG_C1_CASTERAN_03` | HEROINE | Vers le nord ? Vous êtes sûre ? | Doute | prudente |  |
 | `DLG_C1_CASTERAN_03A` | ↳ choix | Merci, maître. Je le dis aux gendarmes. | → `DLG_C1_CASTERAN_04` | |  |
 | `DLG_C1_CASTERAN_03B` | ↳ choix | D'ici, on voit vraiment le rond-point ? | → `DLG_C1_CASTERAN_05` | |  |
@@ -369,67 +371,97 @@
 | `DLG_C1_CARTE_01` | HEROINE | Rive ouest, la base nautique. Rive est, les vieilles forêts de gemmage. | CLU_CARTE_ETANG | pensive |  |
 | `DLG_C1_CARTE_02` | HEROINE | Le soleil en face, sur l'eau… la fenêtre regarde l'ouest. Elle est sur la rive est. | PZ_09 résolu | le déclic | DED_RIVE_EST |
 
+## `DLG_C1_PERE_ARRIVEE`
+
+*EVT_PERE_ARRIVE, 17 h 30. Julien arrive de Bayonne, en tenue de travail.* — lieu : `LOC_POSTE`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_C1_PERE_ARRIVEE_01` | JULIEN | Lila… C'est vrai ? Qui a fait ça ? Qui ? | Arrivée du père ; colère et panique | hors de lui |  |
+| `DLG_C1_PERE_ARRIVEE_02` | MENDIONDO | Monsieur Mercadier ? On fait tout ce qu'on peut. Restez près du poste et gardez votre téléphone allumé. | Cadre ; le téléphone deviendra central | ferme |  |
+
 ## `DLG_C1_NADIA_ARRIVEE`
 
-*EVT_NADIA_ARRIVE, 17 h 35. Casteran la prend aussitôt sous son aile.* — lieu : `LOC_POSTE`
+*EVT_NADIA_ARRIVE, 17 h 35. Nadia arrive avec Xavier Darrigade, son compagnon.* — lieu : `LOC_POSTE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_NADIA_ARRIVEE_01` | NADIA | Où est ma fille ? Où est Lila ? | Arrivée ; douleur brute sans surjeu | panique |  |
+| `DLG_C1_NADIA_ARRIVEE_01` | NADIA | Où est ma fille ? Où est Lila ? | Arrivée ; douleur brute sans surjeu ; elle ne sait rien | panique |  |
 | `DLG_C1_NADIA_ARRIVEE_02` | MENDIONDO | Madame Mercadier, on la cherche. Tous. Asseyez-vous, j'ai besoin de vous. | Autorité bienveillante | ferme, humaine |  |
-| `DLG_C1_NADIA_ARRIVEE_03` | CASTERAN | Nadia, ma chérie. Viens, je reste avec toi. | Casteran s'impose (graine) | enveloppante |  |
-
-## `DLG_C1_NADIA_OBSERVATION`
-
-*INT_OBSERVER_NADIA, entre 17 h 40 et 17 h 55, à moins de 15 m.* — lieu : `LOC_POSTE`
-
-| ID | Locuteur | Réplique | Intention | Émotion | Condition |
-|---|---|---|---|---|---|
-| `DLG_C1_NADIA_OBSERVATION_01` | MENDIONDO | Un problème, madame ? | Nadia vient de lire son téléphone | attentive |  |
-| `DLG_C1_NADIA_OBSERVATION_02` | NADIA | Rien. Le travail. | Mensonge visible | blanche, voix cassée |  |
-| `DLG_C1_NADIA_OBSERVATION_03` | CHIENNE | [va se coller contre les jambes de Nadia, gémit doucement] | La chienne signale la détresse | inquiète |  |
-
-## `DLG_C1_ELOIGNER_CASTERAN`
-
-*INT_ELOIGNER_CASTERAN.* — lieu : `LOC_POSTE`
-
-| ID | Locuteur | Réplique | Intention | Émotion | Condition |
-|---|---|---|---|---|---|
-| `DLG_C1_ELOIGNER_CASTERAN_01` | HEROINE | Adjudante, Maître Casteran dit avoir tout vu. Vous devriez prendre sa déposition maintenant. | Éloigner Casteran de Nadia sans l'affronter | neutre, calculée |  |
-| `DLG_C1_ELOIGNER_CASTERAN_02` | CASTERAN | Bien sûr. Je reviens, Nadia. | Elle s'éloigne | contrariée, masquée |  |
-
-## `DLG_C1_CASTERAN_THE`
-
-*EVT_CASTERAN_S_ELOIGNE, 18 h 05.* — lieu : `LOC_POSTE`
-
-| ID | Locuteur | Réplique | Intention | Émotion | Condition |
-|---|---|---|---|---|---|
-| `DLG_C1_CASTERAN_THE_01` | CASTERAN | Je vais te préparer un thé à l'étude. Ne bouge pas. | Casteran s'éloigne d'elle-même | prévenante |  |
+| `DLG_C1_NADIA_ARRIVEE_03` | DARRIGADE | Xavier Darrigade, son compagnon. Dites-moi ce qu'il vous faut : des voitures, des bras, j'appelle tout le monde. | Darrigade s'impose comme soutien idéal (graine, sans insistance) | calme, efficace, rassurant |  |
+| `DLG_C1_NADIA_ARRIVEE_04` | CHIENNE | [s'arrête à trois mètres de Darrigade, oreilles plaquées, et détourne la tête de la main qu'il lui tend] | Graine ambiguë : Ariane ne désigne personne, elle garde ses distances | méfiante |  |
+| `DLG_C1_NADIA_ARRIVEE_05` | DARRIGADE | Elle a peur, la pauvre bête. Il y a trop de monde. | Il donne lui-même une explication plausible | sourire désarmant |  |
 
 ## `DLG_C1_NADIA`
 
-*INT_NADIA / PZ_08. Près de la fontaine, Casteran éloignée.* — lieu : `LOC_POSTE`
+*INT_NADIA_TEMOIGNAGE, à partir de 17 h 40. Nadia, sincère, ne sait rien du trafic.* — lieu : `LOC_POSTE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_NADIA_01` | NADIA | Vous êtes la dame avec Ariane… Lila parle tout le temps d'elle. | Ouverture ; lien avec la chienne | épuisée |  |
-| `DLG_C1_NADIA_02` | HEROINE | Qu'est-ce que je lui dis ? | Choix d'approche | — |  |
-| `DLG_C1_NADIA_02A` | ↳ choix | « Cette femme connaissait votre nom. Ce n'était pas un hasard. Qu'est-ce qu'on vous demande ? » | → `DLG_C1_NADIA_03` | | si CLU_TEMOIN_LARTIGUE; effet : succès |
-| `DLG_C1_NADIA_02B` | ↳ choix | « Elle s'est fait passer pour une animatrice. Elle savait comment rassurer Lila. Quelqu'un vous vise. » | → `DLG_C1_NADIA_03` | | si l'un de : CLU_BADGE, CLU_TEMOIN_DIRECTRICE, DED_RUSE; effet : succès |
-| `DLG_C1_NADIA_02C` | ↳ choix | « Vous nous mentez. Qu'est-ce que vous cachez ? » | → `DLG_C1_NADIA_07` | | effet : BR_NADIA_BRUSQUEE |
-| `DLG_C1_NADIA_03` | NADIA | Ils ont écrit « pas de police ». Si je parle, je… | Aveu partiel | terrifiée |  |
-| `DLG_C1_NADIA_04` | HEROINE | La police est déjà là. Ce qui la protège, c'est qu'on sache où chercher. | Argument décisif | douce, ferme |  |
-| `DLG_C1_NADIA_05` | NADIA | Au port, j'ai bloqué un conteneur. Des papiers faux. Ils veulent que je le laisse partir avant jeudi six heures. Et… il y a une photo. | Révélation du chantage ; CLU_MESSAGE_CHANTAGE, CLU_PHOTO_VIE | s'effondre en parlant |  |
-| `DLG_C1_NADIA_06` | HEROINE | Elle a l'air d'aller bien. Regardez-moi : elle a l'air d'aller bien. On va la chercher. | Réconfort ; transmettre la photo à Mendiondo | voix qui tient |  |
-| `DLG_C1_NADIA_07` | NADIA | Laissez-moi tranquille ! Vous n'êtes même pas de la police ! | Échec : Nadia se ferme (rattrapage 18 h 45) | colère, larmes |  |
+| `DLG_C1_NADIA_01` | NADIA | C'est vous, la dame avec Ariane ? Lila n'arrête pas de parler d'elle. | Ouverture ; lien avec la chienne | épuisée |  |
+| `DLG_C1_NADIA_02` | HEROINE | Qui savait qu'elle rentrait seule ? | Question clé | douce, précise |  |
+| `DLG_C1_NADIA_03` | NADIA | Personne, presque. C'est elle qui a insisté, à la rentrée. L'école, moi… Julien, son père. Et Xavier. C'est tout. | Cercle proche (graine) | réfléchit en parlant |  |
+| `DLG_C1_NADIA_04` | HEROINE | Et Julien, vous êtes encore proches ? | Relance | neutre |  |
+| `DLG_C1_NADIA_04A` | ↳ choix | « Il avait des ennuis, ces temps-ci ? » | → `DLG_C1_NADIA_05` | |  |
+| `DLG_C1_NADIA_04B` | ↳ choix | « Je vous laisse vous reposer. » | → `DLG_C1_NADIA_07` | |  |
+| `DLG_C1_NADIA_05` | NADIA | On est séparés depuis trois ans. Il est chauffeur chez Xavier, à l'entrepôt de Bayonne. Ces dernières semaines, il voulait démissionner. Il ne m'a pas dit pourquoi. | Julien lié à Darrigade Logistique ; il voulait partir | perdue |  |
+| `DLG_C1_NADIA_06` | NADIA | Vous croyez que ça a un rapport ? Julien ne ferait jamais de mal à Lila. | Sincérité ; elle ne comprend pas | inquiète, défend le père |  |
+| `DLG_C1_NADIA_07` | HEROINE | On va la retrouver. | Clôture | promesse à mi-voix |  |
 
-## `DLG_C1_NADIA_CRAQUE`
+## `DLG_C1_PERE_OBSERVATION`
 
-*EVT_NADIA_CRAQUE, 18 h 45, si Nadia n'a pas parlé.* — lieu : `LOC_POSTE`
+*INT_OBSERVER_PERE, entre 17 h 40 et 17 h 55, à moins de 15 m.* — lieu : `LOC_POSTE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_NADIA_CRAQUE_01` | NADIA | Adjudante… J'ai reçu un message. Je n'arrivais pas à… Tenez. | Rattrapage : message et photo accessibles au poste | effondrée |  |
+| `DLG_C1_PERE_OBSERVATION_01` | MENDIONDO | Un problème, monsieur ? | Julien vient de lire son téléphone | attentive |  |
+| `DLG_C1_PERE_OBSERVATION_02` | JULIEN | Rien. Le boulot. | Mensonge visible | blanc, voix cassée |  |
+| `DLG_C1_PERE_OBSERVATION_03` | CHIENNE | [va se coller contre les jambes de Julien, gémit doucement] | Ariane signale la détresse | inquiète |  |
+| `DLG_C1_PERE_OBSERVATION_04` | DARRIGADE | Julien. Tiens bon. On va la retrouver. | Main sur l'épaule ; Julien se raidit et ne dit plus rien (graine clé) | chaleureux en apparence |  |
+
+## `DLG_C1_ELOIGNER_DARRIGADE`
+
+*INT_ELOIGNER_DARRIGADE.* — lieu : `LOC_POSTE`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_C1_ELOIGNER_DARRIGADE_01` | HEROINE | Monsieur Darrigade, les gendarmes cherchent des volontaires pour la battue de demain. Vous pourriez voir avec eux ? | Éloigner Darrigade de Julien sans l'affronter | neutre, calculée |  |
+| `DLG_C1_ELOIGNER_DARRIGADE_02` | DARRIGADE | Bien sûr. J'y vais. Julien, je reviens. | Il s'éloigne ; la phrase sonne comme un avertissement pour qui écoute bien | aimable |  |
+
+## `DLG_C1_DARRIGADE_APPELS`
+
+*EVT_DARRIGADE_S_ELOIGNE, 18 h 05.* — lieu : `LOC_POSTE`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_C1_DARRIGADE_APPELS_01` | DARRIGADE | Je passe quelques coups de fil pour la battue. Nadia, ne bouge pas. | Il s'éloigne de lui-même, téléphone à l'oreille près du poste (graine : les fuites) | affairé |  |
+
+## `DLG_C1_PERE`
+
+*INT_PERE / PZ_08. Près de la fontaine, Darrigade éloigné.* — lieu : `LOC_POSTE`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_C1_PERE_01` | JULIEN | Vous êtes la dame avec Ariane… Lila n'arrête pas de parler d'elle. | Ouverture ; lien avec la chienne | épuisé |  |
+| `DLG_C1_PERE_02` | HEROINE | Qu'est-ce que je lui dis ? | Choix d'approche | — |  |
+| `DLG_C1_PERE_02A` | ↳ choix | « Cette femme a demandé ‹ la petite Mercadier ›. C'est votre nom. Ce n'était pas un hasard. Qu'est-ce qu'on vous demande ? » | → `DLG_C1_PERE_03` | | si CLU_TEMOIN_LARTIGUE; effet : succès |
+| `DLG_C1_PERE_02B` | ↳ choix | « Elle s'est fait passer pour une animatrice, elle savait comment rassurer Lila. Quelqu'un vous vise. Qu'est-ce qu'on vous demande ? » | → `DLG_C1_PERE_03` | | si l'un de : CLU_BADGE, CLU_TEMOIN_DIRECTRICE, DED_RUSE; effet : succès |
+| `DLG_C1_PERE_02C` | ↳ choix | « Vous nous mentez. Vous êtes dans le coup ? » | → `DLG_C1_PERE_09` | | effet : BR_PERE_BRUSQUE |
+| `DLG_C1_PERE_03` | JULIEN | Ils ont écrit « pas de police ». Si je parle… | Aveu partiel | terrifié |  |
+| `DLG_C1_PERE_04` | HEROINE | La police est déjà là. Ce qui la protège, c'est qu'on sache où chercher. | Argument décisif | douce, ferme |  |
+| `DLG_C1_PERE_05` | JULIEN | Ils veulent que je fasse un dernier voyage. Jeudi, six heures. Après, je la revois. … Il y a une photo. | Révélation du chantage ; CLU_MESSAGE_CHANTAGE, CLU_PHOTO_VIE | s'effondre en parlant |  |
+| `DLG_C1_PERE_06` | HEROINE | Un voyage de quoi ? Pour qui ? | Relance | pressante |  |
+| `DLG_C1_PERE_07` | JULIEN | Je peux pas. Pas ici. Montrez la photo aux gendarmes, c'est tout ce que je peux faire. | Il se tait sur le commanditaire ; son regard file vers Darrigade, au bout de la place (graine) | peur panique, retenue |  |
+| `DLG_C1_PERE_08` | HEROINE | Elle a l'air d'aller bien. Regardez-moi : elle a l'air d'aller bien. On va la chercher. | Réconfort ; transmettre la photo à Mendiondo | voix qui tient |  |
+| `DLG_C1_PERE_09` | JULIEN | Dégagez ! Vous êtes même pas flic ! | Échec : Julien se ferme (rattrapage 18 h 45) | colère, larmes |  |
+
+## `DLG_C1_PERE_CRAQUE`
+
+*EVT_PERE_CRAQUE, 18 h 45, si Julien n'a pas parlé.* — lieu : `LOC_POSTE`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_C1_PERE_CRAQUE_01` | JULIEN | Adjudante… J'ai reçu un message. Tenez. Je peux rien dire de plus. | Rattrapage : message et photo accessibles au poste ; il reste muet sur le reste | effondré |  |
 
 ## `DLG_C1_TABLEAU`
 
@@ -457,6 +489,7 @@
 | `DLG_C1_FIN_02` | MENDIONDO | La rive est. Bien vu. | Reconnaissance si BONUS_RIVE_EST | brève, sincère | BONUS_RIVE_EST |
 | `DLG_C1_FIN_03` | MENDIONDO | Vous venez. Votre chienne passe devant, vous derrière elle, et mes gars devant vous. C'est clair ? | Cadre du chapitre 2 | autorité, confiance naissante |  |
 | `DLG_C1_FIN_04` | HEROINE | Clair. Allez, Ariane. On va chercher Lila. | Clôture émotionnelle | colère froide, détermination |  |
+| `DLG_C1_FIN_05` | DARRIGADE | Nadia, ils partent vers l'étang. Viens, je te ramène à la maison, il faut que tu dormes un peu. | Darrigade apprend la destination (graine de la fuite du chapitre 2) | doux, protecteur |  |
 
 ## `DLG_C1_CLOTURE`
 
@@ -465,6 +498,7 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_CLOTURE_01` | MENDIONDO | Il fait nuit dans un quart d'heure. Je ne peux plus attendre : avec ce qu'on a, on part sur la route des Étangs. Vous venez. | Clôture automatique ; état C | tendue, décidée |  |
+| `DLG_C1_CLOTURE_02` | DARRIGADE | L'étang ? Nadia, viens, je te ramène. | Darrigade apprend la destination (graine de la fuite du chapitre 2) | doux, protecteur |  |
 
 ## Textes d'interface
 

@@ -24,14 +24,15 @@ Notation : **ET** dans une ligne, **OU** entre les lignes d'une même déduction
 |---|---|---|---|---|
 | `DED_SORTIE_ETANGS` — le fourgon a pris la route des Étangs | `CLU_VIDEO_INES` | `CLU_CCTV_RELAIS`, `CLU_TRACES_PNEUS` (parti vers l'est) | `CLU_TEMOIN_CASTERAN` (nord) — levée par `CLU_LIGNE_DE_VUE` ; camping-car de la vidéo | Oriente les recherches vers l'étang de Sorbe |
 | `DED_PEAGE_EXCLU` — le fourgon du péage n'est pas le bon | `CLU_SIGNALEMENT_PEAGE` + `CLU_VIDEO_INES` + `CLU_PLAN_DISTANCES` · ou `CLU_SIGNALEMENT_PEAGE` + `CLU_CCTV_RELAIS` | — | Le signalement officiel lui-même | Évite 30 min perdues sur l'A63 |
-| `DED_CASTERAN_NON_FIABLE` — la notaire ne pouvait pas voir | `CLU_TEMOIN_CASTERAN` + `CLU_LIGNE_DE_VUE` · ou `CLU_TEMOIN_CASTERAN` + `CLU_VIDEO_INES` | — | Respectabilité du témoin | Graine du chapitre 6 ; le carnet note « s'est trompée ou a supposé » |
+| `DED_CASTERAN_NON_FIABLE` — la notaire ne pouvait pas voir | `CLU_TEMOIN_CASTERAN` + `CLU_LIGNE_DE_VUE` · ou `CLU_TEMOIN_CASTERAN` + `CLU_VIDEO_INES` | — | Respectabilité du témoin | Casteran s'est trompée de bonne foi : un témoin respectable n'est pas une preuve (leçon reprise au chapitre 6) |
 | `DED_RIVE_EST` — Lila est sur la rive est | `CLU_PHOTO_VIE` + `CLU_CARTE_ETANG` | `CLU_MESSAGE_CHANTAGE` (heure) | Ponton (évoque la base nautique, rive ouest) | Permet de présenter `H_DEST_RIVE_EST` → état A possible au chapitre 2 |
 | `DED_LETTRAGE` — ancien fourgon de la Blanchisserie Océane | (`CLU_PHOTO_FOURGON` ou `CLU_PHOTO_FLOUE` ou `CLU_VIDEO_INES`) + `CLU_FLYER_BLANCHISSERIE` | `CLU_TEMOIN_DUFAU` (pas un fourgon actuel) | `CLU_FLYER_PRESSING` (numéro en …12) | Débloque l'appel à la blanchisserie |
 | `DED_PLAQUE_CLONEE` — plaque copiée | `CLU_SIV_CLONE` (obtenu avec `CLU_PHOTO_FOURGON` et/ou `CLU_VIDEO_INES`) | `CLU_TEMOIN_DUFAU` (plaque 40) | Le plombier comme suspect — levé par sa géolocalisation | Montre qu'il s'agit de professionnels |
 | `DED_FAUSSE_ANIMATRICE` — elle se faisait passer pour animatrice | `CLU_BADGE` + `CLU_AFFICHE_COMMUNE` · ou `CLU_TEMOIN_DIRECTRICE` · ou `CLU_BADGE` + `CLU_TEMOIN_LARTIGUE` | `CLU_OBS_PASSAGERE`, `DED_RUSE` | Le badge semble authentique au premier regard | Premier « faux-semblant » explicite |
 | `DED_CIBLE` — elle savait qui elle venait chercher | `CLU_TEMOIN_LARTIGUE` · ou `CLU_MESSAGE_CHANTAGE` | `CLU_TEMOIN_DIRECTRICE` (peu de gens savaient que Lila rentrait seule) | Hypothèse d'un enlèvement au hasard | Ouvre la piste du chantage ; clé pour convaincre Nadia |
-| `DED_RUSE` — Lila a été trompée, pas saisie | `CLU_PISTE_LILA` + `CLU_BARRETTE_LILA` | `DLG_P_ABORDAGE` entendu | Hypothèse « enlèvement par la force » si le joueur lit mal Ariane | Argument pour Nadia (PZ_08) |
-| `DED_CHANTAGE` — pression sur Nadia | `CLU_MESSAGE_CHANTAGE` | `CLU_NADIA_REACTION` | Nadia paraît coupable | Enjeu du chapitre 3 (jeudi 6 h) |
+| `DED_RUSE` — Lila a été trompée, pas saisie | `CLU_PISTE_LILA` + `CLU_BARRETTE_LILA` | `DLG_P_ABORDAGE` entendu | Hypothèse « enlèvement par la force » si le joueur lit mal Ariane | Argument pour Julien (PZ_08) |
+| `DED_CHANTAGE` — pression sur Julien, le père | `CLU_MESSAGE_CHANTAGE` | `CLU_PERE_REACTION` | Julien paraît coupable (et il n'est pas innocent : il est mêlé au trafic) | Enjeu du chapitre 3 : le « dernier voyage » de jeudi 6 h |
+| `DED_CERCLE_PROCHE` — l'information vient du cercle proche | `CLU_TEMOIN_NADIA` + (`CLU_TEMOIN_LARTIGUE` ou `CLU_TEMOIN_DIRECTRICE`) | `CLU_PERE_REACTION`, `CLU_ARIANE_DARRIGADE` | — | Graine du chapitre 6 : qui, parmi les proches, a renseigné les ravisseurs ? |
 | `DED_K1_LOUBERE` — le conducteur est probablement Loubère | `CLU_APPEL_BLANCHISSERIE` + `CLU_FLYER_BLANCHISSERIE` + (`CLU_TEMOIN_DUFAU` ou `CLU_OBS_CONDUCTEUR`) | — | Dufau lui-même doute | Permet de présenter `H_K1_LOUBERE` → bonus chapitre 2 (les gendarmes savent qui est sur place) |
 
 ## 2. Hypothèses du tableau (PZ_10)
@@ -63,7 +64,7 @@ Pour chaque preuve dont dépend une hypothèse obligatoire : au moins une voie *
 | `CLU_SIV_CLONE` | Consultation de plaque (photo et/ou vidéo) | Non (15 min au pire) | — |
 | `CLU_TEMOIN_DIRECTRICE` | Directrice | Non | — |
 | `CLU_BADGE` (+ affiche) | Pistage avec la bouteille, ou fouille de la haie | Oui (mauvais objet) | `EVT_FOUILLE_HAIE` 18 h 30 |
-| `CLU_TEMOIN_LARTIGUE` | Boulangère (ouverte jusqu'à 19 h 30) | Non | `CLU_MESSAGE_CHANTAGE` via `EVT_NADIA_CRAQUE` 18 h 45 couvre `DED_CIBLE` |
+| `CLU_TEMOIN_LARTIGUE` | Boulangère (ouverte jusqu'à 19 h 30) | Non | `CLU_MESSAGE_CHANTAGE` via `EVT_PERE_CRAQUE` 18 h 45 couvre `DED_CIBLE` |
 
 Le validateur rejoue les **11 combinaisons d'actions du prologue** (aucune action, une ou deux actions parmi photo, course, cri, Ariane envoyée), chacune en mode normal et en mode « le joueur échoue à tout ce qui est facultatif ». Les trois hypothèses obligatoires restent atteignables dans les 22 cas.
 
@@ -74,10 +75,10 @@ Le validateur rejoue les **11 combinaisons d'actions du prologue** (aucune actio
 | Le joueur n'a rien fait pendant l'enlèvement | Tous les axes se résolvent avec les indices permanents (vidéo, prospectus, badge, témoins). |
 | Le joueur braque Inès | Ses parents apportent la vidéo à 19 h. |
 | Le joueur ne trouve pas le badge | Les gendarmes fouillent la haie à 18 h 30 ; la directrice suffit de toute façon pour `DED_FAUSSE_ANIMATRICE`. |
-| Le joueur accuse Nadia | Elle montre le message elle-même à 18 h 45. |
+| La joueuse accuse Julien | Il montre le message lui-même à 18 h 45. |
 | Le joueur croit la notaire | Pénalité de temps, résultat négatif, option grisée ; la vidéo reste disponible. |
 | Le joueur se trompe sur tous les axes, plusieurs fois | Pire cas vérifié : parcours de référence terminé à 17 h 28 ; même avec toutes les mauvaises options essayées une à une, 19 h 23 < 19 h 30. |
 | Le joueur n'avance plus du tout | Clôture de 19 h 30 : les gendarmes partent sur la route des Étangs, chapitre 2 en état C. |
 | La vue choisie masque un indice | Indices placés et testés pour les trois caméras ; photo et vidéos en `CAM_INSPECT`. |
-| Joueur sans son | Le cognement du pot est doublé par un indice visuel ; la réaction de la chienne à Nadia est visuelle. |
+| Joueur sans son | Le cognement du pot est doublé par un indice visuel ; la réaction d'Ariane à Julien et à Darrigade, et le raidissement de Julien, sont visuels. |
 | Un objet indispensable disparaît | Aucun objet n'est déplaçable par les PNJ ; la boulangerie ferme à 19 h 30 mais son témoignage a un équivalent (message de chantage). |

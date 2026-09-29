@@ -12,8 +12,8 @@
 
 1. **16 h 33.** Le joueur prend la main dans la rue piétonne du centre-ville avec Ariane, qui marche librement à ses côtés. Il apprend à marcher, changer de vue et donner des ordres pendant une courte promenade où l'on croise Marcel Dufau sur son banc et où Lila, sortant de l'école, fait coucou à Ariane.
 2. **16 h 36–16 h 38.** Une femme au badge d'animatrice aborde Lila au coin de la rue. Rien d'alarmant… jusqu'à ce que Lila hésite devant un fourgon blanc et appelle la chienne. Le joueur dispose d'une **fenêtre d'une dizaine de secondes** : photographier, courir, crier le prénom de Lila, envoyer Ariane (« Ariane, va ! »). Il peut en combiner deux. **Le fourgon part toujours** — mais ce que le joueur a fait détermine ce qu'il sait.
-3. **16 h 39 → 19 h 30.** Chapitre 1. Appel au 17, arrivée des gendarmes, témoins qui se contredisent, arrivée de la mère qui cache un message. Chaque action consomme du temps de jeu. Le joueur doit établir trois conclusions distinctes sur un **tableau d'hypothèses** : le **véhicule**, les **personnes**, la **destination**.
-4. **Résolution.** Quand le tableau est présenté à l'adjudante-cheffe Mendiondo, les gendarmes déclenchent le dispositif. Une bonne déduction rapide donne un avantage au chapitre 2 ; une erreur coûte du temps et produit un résultat négatif qui relance l'enquête. **Aucun échec définitif.**
+3. **16 h 39 → 19 h 30.** Chapitre 1. Appel au 17, arrivée des gendarmes, témoins qui se contredisent, arrivée du père qui cache un message, de la mère qui ne comprend rien et de son compagnon qui console tout le monde. Chaque action consomme du temps de jeu. Le joueur doit établir trois conclusions distinctes sur un **tableau d'hypothèses** : le **véhicule**, les **personnes**, la **destination**.
+4. **Résolution.** Quand le tableau est présenté à l'adjudante-cheffe Mendiondo, les gendarmes déclenchent le dispositif. Une bonne déduction rapide donne de meilleures traces au chapitre 2 (Lila, elle, a déjà été déplacée) ; une erreur coûte du temps et produit un résultat négatif qui relance l'enquête. **Aucun échec définitif.**
 
 ---
 
@@ -181,9 +181,12 @@ Ordre libre. Chaque ligne est détaillée dans les énigmes ou dans les dialogue
 | Transmettre la plaque | `LOC_POSTE` | 5 min (plaque complète) / 15 min (partielle) | `CLU_PHOTO_FOURGON` ou `CLU_VIDEO_INES` | `CLU_SIV_CLONE` (PZ_05) |
 | Faire appeler la blanchisserie | `LOC_POSTE` | 10 min | `DED_LETTRAGE` établi (PZ_06) | `CLU_APPEL_BLANCHISSERIE` |
 | Suggérer la vidéo du Relais du Lac | `LOC_POSTE` | 10 min | `CLU_VIDEO_INES` | `CLU_CCTV_RELAIS` |
-| Arrivée de Nadia | `LOC_POSTE` | — | 17 h 35 (automatique) | `EVT_NADIA_ARRIVE` |
-| Observer Nadia | à ≤ 15 m d'elle entre 17 h 40 et 17 h 55 | 0 | — | `CLU_NADIA_REACTION` |
-| Parler à Nadia | `LOC_POSTE` | 5 min | après 17 h 40 | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` si réussi (PZ_08) |
+| Arrivée de Julien (père) | `LOC_POSTE` | — | 17 h 30 (automatique) | `EVT_PERE_ARRIVE` |
+| Arrivée de Nadia et Darrigade | `LOC_POSTE` | — | 17 h 35 (automatique) | `EVT_NADIA_ARRIVE`, `CLU_ARIANE_DARRIGADE` |
+| Écouter Nadia | `LOC_POSTE` | 4 min | après 17 h 40 | `CLU_TEMOIN_NADIA` (facultatif) |
+| Observer Julien | à ≤ 15 m de lui entre 17 h 40 et 17 h 55 | 0 | — | `CLU_PERE_REACTION` |
+| Éloigner Darrigade (proposer la battue) | `LOC_POSTE` | 1 min | après 17 h 35 | `FLAG_DARRIGADE_ELOIGNE` |
+| Parler à Julien | `LOC_POSTE` | 5 min | après 17 h 40, Darrigade éloigné | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` si réussi (PZ_08) |
 | Présenter le tableau | `LOC_POSTE` | 5 min | au moins une hypothèse par axe | Résolution ou branche d'erreur (PZ_09) |
 
 ### 4.4 Événements automatiques
@@ -192,11 +195,12 @@ Ordre libre. Chaque ligne est détaillée dans les énigmes ou dans les dialogue
 |---|---|---|
 | 16 h 45 | Casteran s'approche de la scène, parle aux passants | Devient interrogeable |
 | 17 h 15 | Radio : un agent du péage de l'A63 signale un fourgon blanc à 16 h 58 | `CLU_SIGNALEMENT_PEAGE` (fausse piste loyale, PZ_07) |
-| 17 h 35 | Nadia arrive de Bayonne, effondrée | `EVT_NADIA_ARRIVE` ; Casteran l'entoure |
-| 17 h 40 | Nadia reçoit un message, s'isole près de la fontaine | Observable (`CLU_NADIA_REACTION`) |
-| 18 h 05 | Casteran quitte Nadia pour « préparer du thé à l'étude » (plus tôt si {HEROINE} demande à Mendiondo de prendre sa déposition) | `EVT_CASTERAN_S_ELOIGNE` |
+| 17 h 30 | Julien, le père, arrive de Bayonne en tenue de travail | `EVT_PERE_ARRIVE` |
+| 17 h 35 | Nadia arrive, effondrée, avec son compagnon Xavier Darrigade ; Ariane garde ses distances avec lui | `EVT_NADIA_ARRIVE`, `CLU_ARIANE_DARRIGADE` |
+| 17 h 40 | Julien reçoit un message, s'isole près de la fontaine | Observable (`CLU_PERE_REACTION`) |
+| 18 h 05 | Darrigade s'éloigne pour « quelques coups de fil pour la battue » (plus tôt si {HEROINE} l'y envoie) | `EVT_DARRIGADE_S_ELOIGNE` |
 | 18 h 30 | Si le badge n'a pas été trouvé, les gendarmes fouillent la haie et le trouvent | `CLU_BADGE` (rattrapage, coût nul pour le joueur mais pas de bonus) |
-| 18 h 45 | Si Nadia n'a pas parlé, elle craque et montre le message aux gendarmes | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` (rattrapage) |
+| 18 h 45 | Si Julien n'a pas parlé, il montre le message aux gendarmes | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` (rattrapage) |
 | 19 h 00 | Si la vidéo d'Inès n'a pas été obtenue, ses parents l'amènent au poste | `CLU_VIDEO_INES` (rattrapage) |
 | 19 h 30 | Clôture | Voir §6 |
 
@@ -212,8 +216,8 @@ Chaque branche : déclencheur · effet sur le temps · état de mission · nouve
 |---|---|---|---|---|---|
 | `BR_APPEL_TARDIF` | Le joueur fait autre chose avant d'appeler le 17 | gendarmes = appel + 13 min | `FLAG_APPEL_TARDIF` ; Mendiondo le lui reproche (`DLG_C1_MENDIONDO_REPROCHE`) | — | Aucune perte d'indice |
 | `BR_PISTE_MAUVAIS_OBJET` | Pistage lancé avec les mégots ou le porte-clés au lieu de la bouteille (PZ_02) | +5 min | — | Mégots → piste courte vers l'accotement (le conducteur n'est pas sorti) ; porte-clés → `CLU_PISTE_LILA` | L'indice de la chienne (regard vers le banc) et Lartigue orientent vers la bouteille |
-| `BR_NADIA_BRUSQUEE` | Le joueur accuse Nadia ou révèle devant Casteran qu'elle cache quelque chose | +5 min | `FLAG_NADIA_FERMEE` ; elle se ferme | — | Rattrapage automatique à 18 h 45 |
-| `BR_NADIA_CONFIANCE` | PZ_08 réussi | — | `FLAG_NADIA_ALLIEE` | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` | — |
+| `BR_PERE_BRUSQUE` | La joueuse accuse Julien ou lui parle en présence de Darrigade | +5 min | `FLAG_PERE_FERME` ; il se ferme | — | Rattrapage automatique à 18 h 45 |
+| `BR_PERE_CONFIANCE` | PZ_08 réussi | — | `FLAG_PERE_ALLIE` | `CLU_MESSAGE_CHANTAGE`, `CLU_PHOTO_VIE` | — |
 | `BR_ERR_NORD` | Tableau présenté avec destination « Corniche nord » | +25 min | option exclue | `CLU_NEG_NORD` (patrouille : rien ; aucun témoin sur la corniche) | Ré-présenter le tableau |
 | `BR_ERR_A63` | Destination « A63 / Espagne » | +30 min | option exclue | `CLU_NEG_A63` (aucun fourgon de ce modèle au péage entre 16 h 55 et 17 h 30) | Ré-présenter |
 | `BR_ERR_PORT` | Destination « port de Capbreton » | +20 min | option exclue | `CLU_NEG_PORT` (capitainerie : aucun fourgon ; caisses livrées par le poissonnier) | Ré-présenter |
@@ -235,11 +239,13 @@ Une option exclue ne peut plus être choisie. Si plusieurs axes sont faux lors d
 
 | État | Condition | Chapitre 2 commence avec |
 |---|---|---|
-| **A — Avance** | Résolu avant 18 h 15 **et** hypothèse facultative `H_DEST_RIVE_EST` présentée sur le tableau (possible seulement si la déduction `DED_RIVE_EST` est établie) | Crépuscule, traces de pneus fraîches sur la piste, recherche limitée à 2 airiaux sur 3 |
-| **B — Standard** | Résolu avant 19 h 00, ou sans `H_DEST_RIVE_EST` présentée | Nuit tombante, 3 airiaux à vérifier |
-| **C — Retard** | Résolu après 19 h 00 ou clôture automatique à 19 h 30 | Nuit noire, pluie fine à partir de 23 h (piste canine dégradée), toute la rive à couvrir |
+| **A — Avance** | Résolu avant 18 h 15 **et** hypothèse facultative `H_DEST_RIVE_EST` présentée sur le tableau (possible seulement si la déduction `DED_RIVE_EST` est établie) | Crépuscule ; 2 airiaux sur 3 à vérifier ; traces du transfert très fraîches ; Loubère surpris en train de brûler des papiers (un document à moitié sauvé, utile au chapitre 3) |
+| **B — Standard** | Résolu avant 19 h 00, ou sans `H_DEST_RIVE_EST` présentée | Nuit tombante ; 3 airiaux à vérifier ; traces du transfert lisibles |
+| **C — Retard** | Résolu après 19 h 00 ou clôture automatique à 19 h 30 | Nuit noire, pluie fine à partir de 23 h (piste d'Ariane dégradée) ; toute la rive à couvrir ; Loubère interpellé plus tard, traces pauvres |
 
-Bonus indépendants : `CLU_CHIENNE_IMPREGNEE` (la chienne réagit à l'odeur de « Sandrine » au chapitre 2) ; `H_K1_LOUBERE` présentée (exige `DED_K1_LOUBERE` ; les gendarmes savent qui est sur place, négociation possible) ; `FLAG_NADIA_ALLIEE` (Nadia aide aux chapitres 2 et 3).
+**Quel que soit l'état, Lila n'est plus à l'airial** (décision d'Audrey : elle est retrouvée au chapitre 4). Darrigade apprend la destination en même temps que Nadia (`DLG_C1_FIN_05` / `DLG_C1_CLOTURE_02`) et fait déplacer Lila environ une heure avant l'arrivée des gendarmes. Ce que l'état change, c'est la qualité des traces laissées par ce transfert, donc les indices de départ des chapitres 3 et 4.
+
+Bonus indépendants : `CLU_CHIENNE_IMPREGNEE` (la chienne réagit à l'odeur de « Sandrine » au chapitre 2) ; `H_K1_LOUBERE` présentée (exige `DED_K1_LOUBERE` ; les gendarmes savent qui est sur place, négociation possible) ; `FLAG_PERE_ALLIE` (Julien accepte plus vite de coopérer au chapitre 3).
 
 Clôture automatique à 19 h 30 : si un axe n'est pas établi, Mendiondo retient l'hypothèse la mieux étayée par les preuves effectivement réunies (ordre de priorité défini dans `GameData/missions/01/hypotheses.json`) ; les preuves obligatoires étant garanties par les rattrapages, la destination correcte est toujours retenue.
 
@@ -272,8 +278,10 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Personnage | `CHAR_DUFAU` *(nouveau)* | Retraité, ancien pêcheur, bob, journal de mots croisés et stylo, voix râpeuse | P0, ch.1 | Moyenne |
 | Personnage | `CHAR_INES` *(nouveau)* | Ado, skate, téléphone | ch.1 | Moyenne |
 | Personnage | `CHAR_LARTIGUE` *(nouveau)* | Boulangère, tablier | ch.1 | Moyenne |
-| Personnage | `CHAR_CASTERAN` *(nouveau)* | Notaire, la soixantaine, élégante, foulard, ton posé | ch.1 | Haute |
-| Personnage | `CHAR_NADIA` *(nouveau)* | Mère, trentaine, tenue de travail (sans uniforme visible), téléphone | ch.1 | Haute |
+| Personnage | `CHAR_CASTERAN` *(nouveau)* | Notaire, la soixantaine, élégante, foulard, ton posé | ch.1 | Moyenne |
+| Personnage | `CHAR_NADIA` *(nouveau)* | Mère, trentaine, aide-soignante (tenue de ville), téléphone ; ne sait rien | ch.1 | Haute |
+| Personnage | `CHAR_JULIEN` *(nouveau)* | Père, trentaine, chauffeur : tenue de travail d'entrepôt sans logo réel, téléphone | ch.1 | Haute |
+| Personnage | `CHAR_DARRIGADE` *(nouveau)* | Compagnon de Nadia, la quarantaine, soigné, veste sobre, gestes calmes et rassurants ; rien de menaçant à l'image | ch.1 | Haute |
 | Personnage | `CHAR_MENDIONDO` *(nouveau)* | Adjudante-cheffe, uniforme de gendarmerie, quarantaine | ch.1 | Haute |
 | Véhicule | `VEH_FOURGON` | Fourgon blanc sans marque réelle, ombre de lettrage « BLANCHISSERIE OCÉANE » sur le flanc et les portes arrière, plaque GF-437-TR (la terre masque le 3 sur la photo), feu arrière droit fendu, pot qui cogne | P2, vidéo, CCTV | Haute |
 | Accessoire | `PROP_BADGE` | Badge plastifié « Accueil périscolaire — Commune de Lescoure — Sandrine V. », **ancien** logo | ch.1 | Haute |
@@ -285,7 +293,10 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Image | `IMG_PHOTO_VIE` | Lila assise, calme mais inquiète, couverture sur les épaules ; derrière elle, fenêtre sur l'étang, soleil bas dans l'axe, ponton, pins dont un porte un pot à résine. **Aucune marque de violence** | ch.1 | Haute |
 | Animation | `ANIM_CHIENNE_*` | Ariane libre, sans laisse : envoi et rappel à la voix, flair au sol, tête haute, cercles/hésitation, marquage assis + regard, arrêt au bord de la route, grognement retenu | P2, pistages | Haute |
 | Animation | `ANIM_K2_*` | Se pencher vers l'enfant, main tendue, presser, se retourner surprise | P1–P2 | Haute |
-| Animation | `ANIM_NADIA_*` | Arrivée en courant, s'isoler pour lire, cacher le téléphone, s'effondrer | ch.1 | Haute |
+| Animation | `ANIM_NADIA_*` | Arrivée en courant, s'effondrer, parler en cherchant ses mots | ch.1 | Haute |
+| Animation | `ANIM_JULIEN_*` | Arrivée, lire le téléphone et le cacher, se raidir sous une main posée sur l'épaule, regard fuyant vers Darrigade | ch.1 | Haute |
+| Animation | `ANIM_DARRIGADE_*` | Consoler, main sur l'épaule, téléphoner en marchant près du poste, tendre la main à Ariane | ch.1 | Haute |
+| Animation | `ANIM_CHIENNE_DISTANCE` | Ariane s'arrête à distance, oreilles plaquées, détourne la tête d'une main tendue (sans grogner) | ch.1 | Haute |
 | Ambiance | `AMB_CENTRE_VILLE`, `AMB_SORTIE_ECOLE`, `AMB_PLACE` | Vent dans les pins, oiseaux urbains, cris d'enfants, cloches, circulation légère (pas de ressac en P0–P3) ; ambiance qui se vide après l'enlèvement | tout | Haute |
 | Effet | `SFX_POT_ECHAPPEMENT` | Cognement métallique caractéristique (entendu en P0, P2, dans la vidéo d'Inès) — **doublé visuellement** (pot qui vibre) pour rester accessible sans le son | P0–P2 | Haute |
 | Effet | `SFX_PORTIERE`, `SFX_SONNERIE_ECOLE`, `SFX_NOTIF_TELEPHONE` | — | P1–ch.1 | Moyenne |

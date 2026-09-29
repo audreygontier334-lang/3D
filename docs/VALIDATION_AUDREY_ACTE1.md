@@ -9,10 +9,11 @@
 ## ✅ Réponses d'Audrey — 29 septembre 2026, 17 h
 
 - **Q1 — Décision : Autre.** On fait pression sur **le père** de Lila. Il est mêlé au trafic et veut quitter le réseau (« mais on ne quitte pas un réseau de ce genre »). Les parents sont séparés. **La mère arrive après l'enlèvement et ignore tout du trafic.**
-- **Q3 — Décision : Autre.** Lila est retrouvée à l'**étape 4** (compris comme : chapitre 4, à confirmer). Pas de violence, mais elle est **séquestrée dans une cabane sombre et froide, sans aucun confort**.
-- **Q2 — En attente.** Audrey demande d'autres possibilités que celles du tableau ci-dessous.
+- **Q3 — Décision : Autre.** Lila est retrouvée à l'**étape 4** (chapitre 4, confirmé). Pas de violence, mais elle est **séquestrée dans une cabane sombre et froide, sans aucun confort**.
+- **Q2 — Décision : Autre (proposée ensuite par Claude).** Le réseau est dirigé par **le compagnon de la mère** (Xavier Darrigade, nom provisoire) : rassurant, présent auprès de la famille dès le chapitre 1. Casteran devient un témoin **de bonne foi** qui s'est trompé.
+- **Q3 précisé** : « étape 4 » = **chapitre 4** (confirmé par Audrey).
 
-Conséquences à appliquer (par Claude, proposées en PR) : réécrire le mobile, le rôle de Nadia (plus de message caché ni de douane), l'énigme PZ_08, la chronologie cachée et le plan des chapitres 2 à 4, pour que la recherche de Lila reste crédible jusqu'au chapitre 4.
+Appliqué par Claude le 29/09 : bible, plan des chapitres (toute la recherche reste dans la région jusqu'au chapitre 4, Porto supprimé), données et dialogues du chapitre 1 (Julien reçoit le message ; Nadia ne sait rien ; Darrigade console et s'informe ; Casteran sincère), énigme PZ_08, états de départ du chapitre 2.
 
 
 ---
@@ -70,7 +71,7 @@ Dès le chapitre 1, Maître Casteran, la notaire respectée, affirme que le four
 | **À fabriquer (visuels)** | Rien de plus que prévu. | Le chef d'Anvers et son bureau. | Le clerc (modèle 3D, voix), présent dans plusieurs chapitres. |
 | **Noirceur** | Identique dans les trois cas : la fin est une démonstration de preuves, pas une bagarre. | Identique. | Identique. |
 
-Case de décision : ☐ A  ☐ B  ☐ C  ☐ Autre : …… *(Audrey demande d'autres possibilités — en cours)*
+Case de décision : ☐ A  ☐ B  ☐ C  ☑ **Autre : le compagnon de la mère dirige le réseau (Audrey, 29/09)**
 
 ---
 

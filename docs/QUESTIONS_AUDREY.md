@@ -1,5 +1,8 @@
 # Questions pour Audrey — arbitrages créatifs
 
+> ✅ **Tranché par Audrey le 29/09** : Q1 (pression sur le père, la mère ignore tout), Q2 (le compagnon de la mère dirige le réseau), Q3 (Lila retrouvée au chapitre 4, séquestrée sans violence dans une cabane sombre et froide), prénom de la chienne (Ariane) et décor (centre-ville inspiré d'Arcachon). Détail : `docs/VALIDATION_AUDREY_ACTE1.md`. Les options ci-dessous sur ces points sont conservées pour mémoire. Restent ouvertes : nom de l'héroïne, métier, nom du village, voyages, erreurs, sécurité d'Ariane, titre.
+
+
 > Seulement les vrais choix, qui changent l'histoire ou le jeu. Pour chacun : ma recommandation et ses effets. Tant que tu n'as pas tranché, tout reste une **proposition**. Réponds directement dans la PR (commentaire) ou dans la conversation, même en une ligne (« Q1 : A »).
 >
 > ⚠️ Q2 contient un spoiler sur la fin.
@@ -58,8 +61,8 @@ L'allure est décidée (centre-ville inspiré d'Arcachon). Reste à savoir si la
 Le nom « Lescoure-Plage » est provisoire.
 
 ### Q7 — L'ampleur des voyages
-Proposition : Bayonne, puis Porto, puis Anvers, puis retour au village. Chaque ville est motivée par la route du navire *Maren Sofie* et la fuite de la complice.
-- Garder ces trois villes ?
+Proposition mise à jour après tes choix du 29/09 : Lila restant captive jusqu'au chapitre 4, l'acte I reste dans la région (étang de Sorbe, Bayonne, forêt landaise). **Porto est supprimé** ; il ne reste qu'une ville étrangère, Anvers (chapitre 5), puis le retour au village.
+- Garder Anvers seule ?
 - Rester en France (Bayonne, La Rochelle, Le Havre) ?
 - Ajouter une ville (Rotterdam, Lisbonne) ? Je le déconseille : chaque ville coûte cher à produire en 3D photoréaliste.
 
