@@ -4,14 +4,14 @@
 
 ## Intention
 
-Un village fictif de la côte landaise en fin d'après-midi : océan à proximité, rue d'école, commerces modestes, pins maritimes et lumière naturelle. Atmosphère crédible et habitée, où le basculement vers le thriller provient de l'événement et du son, sans filtre horrifique permanent. Les détails géographiques et l'heure restent à valider avec Audrey et la chronologie de Claude.
+Un centre-ville côtier inspiré du centre d'Arcachon, en lumière chaude de fin d'après-midi : rue d'école, commerces, place et circulation quotidienne. Le port peut exister ailleurs dans l'histoire mais reste hors champ de P0–P3 ; aucune promenade sur le front de mer dans l'ouverture. Atmosphère crédible et habitée, où le basculement vers le thriller provient de l'événement et du son. L'implantation exacte reste à coordonner avec Claude.
 
 ## Personnages prioritaires
 
 | ID | Modèle 3D attendu | Animations minimales de la première scène | État |
 | --- | --- | --- | --- |
 | `CHAR_HEROINE` | Femme brune adulte, jean, tee-shirt, veste en jean, bandeau noué, créoles, baskets blanches épaisses sans marque ; visage expressif, sérieux/colère | Repos, marche, course, arrêt brusque, regard, geste d'alerte, interaction avec chienne/téléphone | À créer et faire valider |
-| `CHAR_CHIENNE` | Chienne athlétique d'environ 35 kg, beige fauve, masque et oreilles noirs, blanc au poitrail et aux pattes, une oreille dressée et l'autre tombante | Repos, marche en laisse, trot, flair au sol, alerte, regard vers héroïne, rappel, passage assis/debout | À créer et faire valider |
+| `CHAR_CHIENNE` | Ariane, chienne athlétique d'environ 35 kg, beige fauve, masque et oreilles noirs, blanc au poitrail et aux pattes, une oreille dressée et l'autre tombante ; foulard noir à paisley blanc, sans collier ni laisse | Repos, marche libre naturelle, trot, flair au sol, alerte, regard vers héroïne, rappel, passage assis/debout | À créer et faire valider |
 | `CHAR_FILLETTE` | Enfant fictive, silhouette lisible à distance, tenue d'école ordinaire sans ressemblance avec une personne réelle | Marche, hésitation, surprise, accompagnement contraint non graphique | À créer |
 | `CHAR_RAVISSEURS` | Deux adultes distincts, vêtements ordinaires ; identité assez lisible pour les déductions mais sans révélation automatique | Conduite, approche, interaction avec portière, départ | À créer après scénario |
 
@@ -21,10 +21,10 @@ La fidélité du visage d'Audrey et de la morphologie de sa chienne demandera un
 
 | ID | Besoin interactif ou narratif |
 | --- | --- |
-| `ENV_PROMENADE` | Zone piétonne navigable où le duo se déplace et où la chienne réagit à l'environnement. |
+| `ENV_PROMENADE` | Parcours piéton du centre-ville navigable où le duo se déplace et où Ariane réagit à l'environnement. |
 | `ENV_ECOLE` | Sortie, trajet visible de la fillette, points de vue et témoins cohérents. |
-| `ENV_RUE_PORT` | Passage du fourgon, obstacles de ligne de vue, bifurcation permettant la déduction de sa direction. |
-| `ENV_LITTORAL` | Mer, dunes, pins maritimes, végétation et horizon crédibles pour le sud-ouest atlantique. |
+| `ENV_RUE_PORT` | Identifiant provisoire hérité du premier plan : rue de fuite du fourgon, obstacles de ligne de vue et bifurcation. Aucun port visible dans P0–P3. |
+| `ENV_LITTORAL` | Décor éventuel d'une scène ultérieure ; aucun horizon maritime visible dans P0–P3. |
 | `VEH_FOURGON` | Portières, habitacle, plaque partiellement observable, variante/trace identifiable sans gros plan forcé. |
 
 Chaque indice visuel scénarisé par Claude doit être visible à la distance et dans la durée indiquées dans la mission. Sa lisibilité sera vérifiée dans **tous les modes de caméra**.
@@ -41,7 +41,7 @@ Chaque indice visuel scénarisé par Claude doit être visible à la distance et
 ## Son et vidéo
 
 - Ambiances distinctes : ressac, vent dans les pins, circulation locale, sortie d'école ; mélange spatial et transitions selon la distance.
-- Chienne : respiration, pas, collier/laisse, flair, signaux d'alerte mesurés. Aucun son ne révèle seul une énigme obligatoire.
+- Ariane : respiration, pas, foulard discret, flair, signaux d'alerte mesurés. Aucun son ne révèle seul une énigme obligatoire.
 - Fourgon : approche, arrêt, portière, démarrage et direction sonore cohérente avec la position réelle du véhicule.
 - Voix et musique : dialogues fournis par Claude avec identifiants stables ; tension musicale progressive après le départ du fourgon, sans masquer les indices audio.
 - Cinématique d'ouverture courte, idéalement rendue avec les mêmes modèles et lieux que la scène jouable ; aucun faux trailer pré-rendu présenté comme gameplay.
@@ -56,4 +56,4 @@ Chaque indice visuel scénarisé par Claude doit être visible à la distance et
 
 ## État réel des livrables
 
-Le dépôt contient à ce stade la conception. **Aucun** modèle photoréaliste articulé, aucune animation finale, aucun enregistrement sonore final et aucun installateur PC n'y sont encore livrés. La prochaine étape technique est un projet Unreal vérifiable avec une scène minimale, puis le remplacement progressif des objets de travail par les assets validés.
+Le dépôt contient une première maquette spatiale glTF sur la PR #3. **Aucun** modèle photoréaliste articulé, aucune animation finale, aucun enregistrement sonore final et aucun installateur PC n'y sont encore livrés. La prochaine étape technique est un projet Unreal vérifiable avec une scène navigable, puis le remplacement progressif des objets de travail par les assets validés.
