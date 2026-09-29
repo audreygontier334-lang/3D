@@ -23,11 +23,11 @@
 - Titre provisoire : « Faux-semblants ».
 - Nom « Xavier Darrigade » pour le compagnon de Nadia.
 - Ville fictive et noms des lieux ; étendue des voyages après le chapitre 4.
-- Trajectoire exacte de Lila entre l'école et la rue adjacente, chorégraphie de l'enlèvement, tenue et coiffure. Les images exploratoires comportaient un faux raccord capillaire ; elles ne valident pas ces éléments.
+- Trajectoire exacte de Lila entre l'école et la rue adjacente et chorégraphie de l'enlèvement. La tenue et la coiffure ont ensuite été choisies dans `CHOIX_VISUELS_V2_V4.md` : V4 A, sweat moutarde, jean droit, baskets blanches à scratch, cartable rouge brique, carré court châtain. Les anciennes images exploratoires ne sont pas des références de continuité.
 - Position finale des témoins, lignes de vue et indices dans la rue adjacente, à fixer après le découpage narratif puis à tester dans les trois caméras.
-- Apparence provisoire du fourgon et densité provisoire de passants dans la maquette ; aucun indice essentiel ne doit dépendre de leur aspect non validé.
+- Densité et mouvements des passants dans la maquette. La direction du fourgon est choisie dans `CHOIX_VISUELS_V2_V4.md` : V2 A, blanc usé, ombre de lettrage conservée et feu arrière droit fendu. Le modèle photoréaliste final reste à présenter à Audrey.
 - Troisième personne derrière l'épaule comme vue de départ.
-- Unreal Engine comme moteur envisagé pour la version PC photoréaliste ; aucun projet compilable n'existe encore.
+- Le projet Unreal 5.4 existe dans `Game/Unreal/FauxSemblants/`. Audrey a confirmé une première compilation C++ réussie sur son PC. La construction de `L_Prologue`, la compilation des corrections de reprise et leur validation en jeu restent à vérifier ; le blockout ne constitue pas une production photoréaliste terminée.
 
 ## À soumettre à Audrey au fil du travail
 
