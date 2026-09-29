@@ -1,6 +1,6 @@
 # Scène 01 — implantation spatiale proposée
 
-**Statut : blockout technique réversible, aligné sur le découpage de la PR #4.** Ce document ne valide ni la chorégraphie définitive, ni l'apparence de Lila ou du fourgon, ni un choix narratif supplémentaire.
+**Statut : blockout technique réversible, aligné sur le découpage de la PR #4.** Les options V4 « Jaune moutarde » pour Lila et V2 « Blanc usé » pour le fourgon sont des décisions d'Audrey ; les substituts géométriques ne préjugent pas du rendu photoréaliste final. La chorégraphie précise de Lila et le mouvement final des caméras restent à valider. Aucun autre choix narratif n'est fixé ici.
 
 ## Deux plans distincts
 
@@ -39,7 +39,7 @@ Chaque lieu dispose de trois contrôles statiques 16:9 : épaule, reculée et pr
 
 La zone jouable du blockout reste à 68,0 m au plus de l'entrée de la ruelle, sous la limite de 110 m demandée par la règle de départ (retenue maximale : 30 s).
 
-Le coude bâti est maintenant testé depuis le départ de la promenade, le portail et le banc de Dufau : Lila dans la ruelle, K2 et le fourgon doivent être occultés depuis toute la place. Le banc se trouve à moins de 30 m du portail ; Dufau voit l'angle de rue, pas l'intérieur. Le fourgon, Lila et K2 sont placés côté trottoir. Le débouché est à 79,5 m de la portière.
+Le coude bâti est maintenant testé depuis le départ de la promenade, le portail et le banc de Dufau : Lila dans la ruelle, K2 et le fourgon doivent être occultés depuis toute la place. Le banc se trouve à moins de 30 m du portail ; Dufau voit l'angle de rue, pas l'intérieur. Le fourgon, Lila et K2 sont placés côté trottoir. Le débouché est à 79,62 m de la portière.
 
 Ces contrôles géométriques ne valident pas les silhouettes entières en animation, les obstacles dynamiques, l'éclairage final ni la caméra jouable dans Unreal.
 
