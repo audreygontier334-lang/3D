@@ -1,0 +1,65 @@
+{
+  "contract_version": 1,
+  "status": "accepted_for_next_blockout_regeneration",
+  "source_request": {
+    "pull_request": 4,
+    "commit": "5b46b2b0b7ae4109a62f70242507286b3875d4a4",
+    "file": "GameData/missions/01/spatial_requirements.json"
+  },
+  "coordinate_system": {
+    "units": "metres",
+    "axes": "X east, Y up, Z north"
+  },
+  "reference_vehicle": {
+    "node": "van_placeholder",
+    "centre": [29.0, 1.1, -11.0],
+    "size": [5.2, 2.2, 2.1]
+  },
+  "accepted_adjustments": {
+    "scent_origin": {
+      "zone_id": "Z_CROISEMENT",
+      "marker_id": "EVT_INDICE_ODEUR",
+      "node": "scent_object_marker",
+      "current_position": [26.0, 0.13, -6.0],
+      "target_position": [12.0, 0.13, -6.0],
+      "reason": "Donner 15 à 25 m de lecture au déplacement régulier d'Ariane avant la portière."
+    },
+    "scent_clue": {
+      "zone_id": "Z_RUE_FUITE",
+      "marker_id": "EVT_PISTE",
+      "node": "scent_clue_marker",
+      "current_position": [33.0, 0.13, -2.0],
+      "target_position": [29.0, 0.13, -9.95],
+      "relation": "sous_la_portiere_laterale_cote_nord",
+      "reason": "Placer la barrette de Lila sous la portière latérale du fourgon."
+    },
+    "chapter1_roundabout_extension": {
+      "zone_id": "Z_RUE_FUITE",
+      "scope": "chapter_1_streamed_extension",
+      "minimum_route_length_m": 300,
+      "required_features": ["courbe_rue_tamaris", "rond_point", "butte_skatepark"],
+      "required_for_p0_p3": false,
+      "implementation": "deferred_until_chapter1_level",
+      "reason": "Éviter d'alourdir la maquette P0–P3 tout en conservant l'exigence narrative."
+    },
+    "perron_line_of_sight": {
+      "zone_id": "Z_PLACE",
+      "viewpoint_role": "perron_etude_notaire",
+      "visible_until": "courbe_rue_tamaris",
+      "must_hide": "rond_point",
+      "occluders": ["auvent_pharmacie", "platane"],
+      "required_for_p0_p3": false,
+      "implementation": "deferred_until_chapter1_level",
+      "reason": "Rendre l'énigme de ligne de vue PZ_03 vérifiable en 3D."
+    }
+  },
+  "computed_targets": {
+    "scent_path_distance_m": 17.469,
+    "accepted_range_m": [15.0, 25.0]
+  },
+  "guards": {
+    "no_narrative_choice_canonicalized": true,
+    "no_private_photo_reference": true,
+    "opening_cameras_unchanged": ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"]
+  }
+}
