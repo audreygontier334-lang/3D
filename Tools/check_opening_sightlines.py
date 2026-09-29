@@ -70,5 +70,36 @@ for shot in spec["validation"]["shots"]:
             hidden = bool(blocked) or abs(x) > safe or abs(y) > safe
             print(f"  {camera_name} -> {hidden_name}: " + (f"hidden {blocked}" if hidden else "CHECK visible"))
             if not hidden: failures.append(f"{camera_name}: {hidden_name} must be hidden")
+
+# The kidnapping must stay hidden from every declared public-square checkpoint,
+# not just from cameras currently aimed at the school.
+global_checks = spec["validation"]["global_occlusion_checks"]
+for observer_name in global_checks["observer_nodes"]:
+    observer = nodes[observer_name]
+    for hidden_name in global_checks["must_hide"]:
+        blocked = [b["name"] for b in occluders if intersects_box(observer["translation"], nodes[hidden_name]["translation"], b)]
+        print(f"GLOBAL {observer_name} -> {hidden_name}: " + (f"hidden {blocked}" if blocked else "CHECK visible"))
+        if not blocked:
+            failures.append(f"{observer_name}: {hidden_name} visible from public square")
+
+# Dufau sees the corner that the van passed, but not the inside of the alley.
+dufau = nodes["dufau_placeholder"]
+angle = nodes[global_checks["dufau_visible_target"]]
+angle_blocked = [b["name"] for b in occluders if intersects_box(dufau["translation"], angle["translation"], b)]
+if angle_blocked:
+    failures.append(f"dufau_placeholder: alley angle hidden by {angle_blocked}")
+
+fallback = spec["validation"]["fallback_shot"]
+fallback_camera = nodes[fallback["camera_node"]]
+fallback_up = rotate(fallback_camera["rotation"], (0, 1, 0))
+if fallback_up[1] <= .9:
+    failures.append("CAM_DEPART_COURT: camera horizon is inverted or rolled")
+for subject_name in fallback["required_subject_nodes"]:
+    x, y, blocked = projection(fallback_camera, nodes[subject_name]["translation"])
+    visible = abs(x) <= safe and abs(y) <= safe and not blocked
+    print(f"FALLBACK {fallback['camera_node']} -> {subject_name}: x={x:+.2f}, y={y:+.2f}, " +
+          ("clear" if visible else f"CHECK {blocked}"))
+    if not visible:
+        failures.append(f"{fallback['camera_node']}: {subject_name} must be visible")
 if failures:
     raise SystemExit("Sightline checks failed: " + ", ".join(failures))
