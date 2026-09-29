@@ -7,7 +7,7 @@
 - `FauxSemblants.uproject` : le projet (Unreal Engine 5.4 ou plus récent).
 - `Source/FauxSemblants/` : le code C++ du jeu :
   - `FSHeroCharacter` : l'héroïne jouable, marche et course, trois vues (épaule, reculée, subjective) ;
-  - `FSDogCharacter` : Ariane, libre, qui suit, revient au rappel et s'arrête toujours au bord de la chaussée ;
+  - `FSDogCharacter` : Ariane, libre, qui suit et revient au rappel par déplacement direct ; l'envoi vise un point du trottoir, avec navigation et limite de chaussée encore à vérifier ;
   - `FSPrologueDirector` : la scène d'ouverture minutée (sortie de Lila, abordage, refus devant la portière, alerte, fenêtre d'action, départ du fourgon retenu ou plan court) ;
   - `FSMissionSubsystem` : l'horloge, les indices obtenus, les déductions, les textes, la sauvegarde locale ;
   - `FSGameMode`, `FSSaveGame`.
@@ -75,3 +75,14 @@ Le script reconstruit `L_Prologue` ; enregistrer ailleurs toute modification man
 - Tester ensuite les trottoirs, les six vues et le rappel d’Ariane autour du coude. Le déplacement direct d’Ariane n’a pas encore de navigation autour des obstacles ; ce point reste à réaliser.
 
 Vérification hors Unreal : syntaxe Python contrôlée. La compilation C++ et ces essais en jeu nécessitent Unreal ; ils ne sont pas attestés par le contrôle de syntaxe.
+
+## Premier essai sur un PC à 16 Go de RAM
+
+Un profil temporaire dans `DefaultEngine.ini` limite le rendu à 30 images/s, réserve 512 Mo au pool de textures et désactive flou de mouvement, profondeur de champ et reflets écran. Ces réglages visent la charge graphique ; ils ne garantissent pas de résoudre une saturation de RAM pendant la compilation des shaders. Ils pourront être retirés pour la production finale.
+
+1. Enregistrer le travail puis fermer Unreal avant de récupérer la branche `claude/stoic-gauss-axnd0g` dans GitHub Desktop (Fetch puis Pull).
+2. Après une éventuelle compilation C++, fermer Visual Studio. Fermer les applications inutiles après avoir enregistré leur travail.
+3. Rouvrir le projet, attendre la compilation des shaders, puis exécuter `Scripts/setup_prologue.py` via Outils › Exécuter un script Python. Le script reconstruit le niveau : sauvegarder ailleurs les modifications manuelles avant de le relancer.
+4. Lancer Jouer et relever le message exact si une erreur apparaît. Ces réglages n'ont pas encore été mesurés sur le PC d'Audrey.
+
+Ne pas effacer le cache des shaders pour cet essai : il faudrait ensuite les recompiler.
