@@ -1,82 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
-<metadata>source_sha256=edb3af93d2929cef689c2988d24fcbbb897e813482220d5184b0de6261c3a612</metadata>
+<metadata>source_sha256=c35d7b4ce0071882ee6563eff3955b4fee063b659bd8e6b130d8e2ff3c9455ab</metadata>
 <rect width="100%" height="100%" fill="#f4f0e7"/>
 <style>text{font-family:Arial,sans-serif;fill:#20242a}.label{font-size:13px}.small{font-size:11px}.title{font-size:24px;font-weight:700}.zone{fill:none;stroke:#2f6e9f;stroke-width:2;stroke-dasharray:8 5}.camera{fill:#2c5b88;stroke:#16334f;stroke-width:1}</style>
 <text x="55" y="42" class="title">Ouverture — place de l’école et ruelle (vue du dessus)</text>
-<rect x="183.51" y="457.68" width="490.38" height="254.27" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>school_square</title></rect>
-<rect x="219.84" y="630.22" width="417.73" height="36.32" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>school_sidewalk</title></rect>
-<rect x="256.16" y="689.24" width="217.95" height="99.89" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_main</title></rect>
-<rect x="251.62" y="684.70" width="227.03" height="108.97" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>school_roof</title></rect>
-<rect x="404.00" y="664.54" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_left</title></rect>
-<rect x="449.41" y="664.54" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_right</title></rect>
-<rect x="110.86" y="430.43" width="127.14" height="90.81" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>square_shop_west</title></rect>
-<rect x="106.32" y="425.89" width="136.22" height="99.89" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>square_shop_west_roof</title></rect>
-<rect x="614.86" y="548.49" width="118.05" height="163.46" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_corner_mask</title></rect>
-<rect x="610.32" y="543.95" width="127.14" height="172.54" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>alley_corner_roof</title></rect>
-<rect x="271.60" y="609.33" width="5.45" height="5.45" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_trunk_square</title></rect>
-<rect x="255.25" y="592.98" width="38.14" height="38.14" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_crown_square</title></rect>
-<rect x="637.57" y="480.38" width="217.95" height="81.73" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>alley_entry_road</title></rect>
-<rect x="728.38" y="416.81" width="563.03" height="81.73" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>alley_road</title></rect>
-<rect x="728.38" y="501.26" width="563.03" height="25.43" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>alley_sidewalk_north</title></rect>
-<rect x="728.38" y="388.66" width="563.03" height="25.43" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>alley_sidewalk_south</title></rect>
-<rect x="773.78" y="543.95" width="90.81" height="81.73" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1900</title></rect>
-<rect x="905.46" y="557.57" width="81.73" height="72.65" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1930</title></rect>
-<rect x="1014.43" y="543.95" width="118.05" height="81.73" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1970</title></rect>
-<rect x="1168.81" y="548.49" width="99.89" height="90.81" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_recent</title></rect>
-<rect x="810.11" y="298.76" width="108.97" height="81.73" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_1</title></rect>
-<rect x="973.57" y="285.14" width="90.81" height="90.81" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_2</title></rect>
-<rect x="1105.24" y="298.76" width="136.22" height="81.73" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_3</title></rect>
-<rect x="828.27" y="530.78" width="72.65" height="4.54" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>hedge_north_1</title></rect>
-<rect x="982.65" y="530.78" width="108.97" height="4.54" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>hedge_north_2</title></rect>
-<rect x="850.97" y="382.76" width="99.89" height="4.54" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>wall_south_1</title></rect>
-<rect x="1050.76" y="382.76" width="136.22" height="4.54" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>fence_south_2</title></rect>
-<rect x="499.08" y="492.00" width="4.54" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>heroine_place_placeholder</title></rect>
-<text x="508.35" y="487.00" class="small">heroine_place_placeholder</text>
-<rect x="473.88" y="559.93" width="9.54" height="4.36" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>ariane_place_placeholder</title></rect>
-<text x="485.65" y="555.11" class="small">ariane_place_placeholder</text>
-<rect x="435.78" y="650.92" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_school_placeholder</title></rect>
-<text x="444.78" y="645.92" class="small">child_school_placeholder</text>
-<rect x="762.43" y="464.76" width="4.54" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>heroine_alley_placeholder</title></rect>
-<text x="771.70" y="459.76" class="small">heroine_alley_placeholder</text>
-<rect x="832.58" y="469.12" width="9.54" height="4.36" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>ariane_alley_placeholder</title></rect>
-<text x="844.35" y="464.30" class="small">ariane_alley_placeholder</text>
-<rect x="971.57" y="464.76" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_alley_placeholder</title></rect>
-<text x="980.57" y="459.76" class="small">child_alley_placeholder</text>
-<rect x="980.38" y="473.84" width="4.54" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>k2_placeholder</title></rect>
-<text x="989.65" y="468.84" class="small">k2_placeholder</text>
-<rect x="1004.44" y="448.14" width="47.22" height="19.07" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>van_placeholder</title></rect>
-<text x="1035.05" y="450.68" class="small">van_placeholder</text>
-<rect x="826.27" y="482.92" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_object_marker</title></rect>
-<text x="835.27" y="477.92" class="small">scent_object_marker</text>
-<rect x="1003.35" y="465.21" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_clue_marker</title></rect>
-<text x="1012.35" y="460.21" class="small">scent_clue_marker</text>
-<rect x="1289.14" y="455.41" width="4.54" height="4.54" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>alley_exit_marker</title></rect>
-<text x="1298.41" y="450.68" class="small">alley_exit_marker</text>
-<circle cx="501.35" cy="494.00" r="19.98" class="zone"><title>depart_Audrey_et_Ariane_plan_A</title></circle>
-<text x="525.33" y="494.00" class="label">Z_PROMENADE</text>
-<circle cx="428.70" cy="657.46" r="19.98" class="zone"><title>sortie_des_classes_plan_A</title></circle>
-<text x="452.68" y="657.46" class="label">Z_ECOLE</text>
-<circle cx="746.54" cy="521.24" r="19.98" class="zone"><title>transition_place_vers_ruelle</title></circle>
-<text x="770.52" y="521.24" class="label">Z_CROISEMENT</text>
-<circle cx="1009.89" cy="457.68" r="19.98" class="zone"><title>abordage_et_depart_fourgon_plan_B</title></circle>
-<text x="1033.87" y="457.68" class="label">Z_RUE_FUITE</text>
-<circle cx="356.05" cy="584.81" r="19.98" class="zone"><title>espace_public_et_poste</title></circle>
-<text x="380.03" y="584.81" class="label">Z_PLACE</text>
-<circle cx="201.68" cy="494.00" r="19.98" class="zone"><title>position_des_PNJ_interrogeables</title></circle>
-<text x="225.65" y="494.00" class="label">Z_TEMOINS</text>
-<polygon points="504.98,465.84 495.98,483.84 513.98,483.84" class="camera"><title>CAM_PLACE_SHOULDER</title></polygon>
-<text x="516.98" y="479.84" class="small">CAM_PLACE_SHOULDER</text>
-<polygon points="492.27,411.35 483.27,429.35 501.27,429.35" class="camera"><title>CAM_PLACE_WIDE</title></polygon>
-<text x="504.27" y="425.35" class="small">CAM_PLACE_WIDE</text>
-<polygon points="501.35,484.00 492.35,502.00 510.35,502.00" class="camera"><title>CAM_PLACE_FIRST</title></polygon>
-<text x="513.35" y="498.00" class="small">CAM_PLACE_FIRST</text>
-<polygon points="768.34,438.59 759.34,456.59 777.34,456.59" class="camera"><title>CAM_RUELLE_SHOULDER</title></polygon>
-<text x="780.34" y="452.59" class="small">CAM_RUELLE_SHOULDER</text>
-<polygon points="746.54,384.11 737.54,402.11 755.54,402.11" class="camera"><title>CAM_RUELLE_WIDE</title></polygon>
-<text x="758.54" y="398.11" class="small">CAM_RUELLE_WIDE</text>
-<polygon points="764.70,456.76 755.70,474.76 773.70,474.76" class="camera"><title>CAM_RUELLE_FIRST</title></polygon>
-<text x="776.70" y="470.76" class="small">CAM_RUELLE_FIRST</text>
+<rect x="143.77" y="588.03" width="318.69" height="165.25" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>school_square</title></rect>
+<rect x="167.38" y="700.16" width="271.48" height="23.61" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>school_sidewalk</title></rect>
+<rect x="190.98" y="738.52" width="141.64" height="64.92" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_main</title></rect>
+<rect x="188.03" y="735.57" width="147.54" height="70.82" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>school_roof</title></rect>
+<rect x="286.36" y="721.77" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_left</title></rect>
+<rect x="315.87" y="721.77" width="4.00" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>school_gate_right</title></rect>
+<rect x="96.56" y="570.33" width="82.62" height="59.02" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>square_shop_west</title></rect>
+<rect x="93.61" y="567.38" width="88.52" height="64.92" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>square_shop_west_roof</title></rect>
+<rect x="424.10" y="647.05" width="76.72" height="106.23" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_corner_mask</title></rect>
+<rect x="421.15" y="644.10" width="82.62" height="112.13" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>alley_corner_roof</title></rect>
+<rect x="415.25" y="517.21" width="94.43" height="129.84" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_corner_south_mask</title></rect>
+<rect x="412.30" y="514.26" width="100.33" height="135.74" fill="#886657" stroke="#30343a" stroke-width="0.8"><title>alley_corner_south_roof</title></rect>
+<rect x="200.79" y="686.36" width="4.00" height="4.00" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_trunk_square</title></rect>
+<rect x="190.39" y="675.97" width="24.79" height="24.79" fill="#4e7a52" stroke="#30343a" stroke-width="0.8"><title>tree_crown_square</title></rect>
+<rect x="438.85" y="602.79" width="141.64" height="53.11" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>alley_entry_road</title></rect>
+<rect x="421.15" y="561.48" width="885.25" height="53.11" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>alley_road</title></rect>
+<rect x="421.15" y="616.36" width="885.25" height="16.52" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>alley_sidewalk_north</title></rect>
+<rect x="421.15" y="543.18" width="885.25" height="16.52" fill="#b7afa0" stroke="#30343a" stroke-width="0.8"><title>alley_sidewalk_south</title></rect>
+<rect x="527.38" y="644.10" width="59.02" height="53.11" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1900</title></rect>
+<rect x="612.95" y="652.95" width="53.11" height="47.21" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1930</title></rect>
+<rect x="683.77" y="644.10" width="76.72" height="53.11" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_1970</title></rect>
+<rect x="784.10" y="647.05" width="64.92" height="59.02" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_recent</title></rect>
+<rect x="550.98" y="484.75" width="70.82" height="53.11" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_1</title></rect>
+<rect x="657.21" y="475.90" width="59.02" height="59.02" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_2</title></rect>
+<rect x="742.79" y="484.75" width="88.52" height="53.11" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>alley_house_south_3</title></rect>
+<rect x="562.79" y="635.02" width="47.21" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>hedge_north_1</title></rect>
+<rect x="663.11" y="635.02" width="70.82" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>hedge_north_2</title></rect>
+<rect x="577.54" y="538.82" width="64.92" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>wall_south_1</title></rect>
+<rect x="707.38" y="538.82" width="88.52" height="4.00" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>fence_south_2</title></rect>
+<rect x="225.80" y="644.98" width="12.98" height="4.13" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>bench_dufau</title></rect>
+<rect x="1182.46" y="555.57" width="11.80" height="64.92" fill="#5b626b" stroke="#30343a" stroke-width="0.8"><title>boulevard_road_screen</title></rect>
+<rect x="1244.43" y="552.62" width="5.90" height="70.82" fill="#c4aa7a" stroke="#30343a" stroke-width="0.8"><title>sea_horizon_band</title></rect>
+<rect x="348.33" y="609.64" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>heroine_place_placeholder</title></rect>
+<text x="357.33" y="604.64" class="small">heroine_place_placeholder</text>
+<rect x="332.48" y="653.90" width="6.20" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>ariane_place_placeholder</title></rect>
+<text x="342.57" y="648.90" class="small">ariane_place_placeholder</text>
+<rect x="307.02" y="712.92" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_school_placeholder</title></rect>
+<text x="316.02" y="707.92" class="small">child_school_placeholder</text>
+<rect x="230.30" y="645.05" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>dufau_placeholder</title></rect>
+<text x="239.30" y="640.05" class="small">dufau_placeholder</text>
+<rect x="410.30" y="645.05" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>alley_angle_marker</title></rect>
+<text x="419.30" y="640.05" class="small">alley_angle_marker</text>
+<rect x="519.48" y="591.93" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>heroine_alley_placeholder</title></rect>
+<text x="528.48" y="586.93" class="small">heroine_alley_placeholder</text>
+<rect x="565.59" y="620.26" width="6.20" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>ariane_alley_placeholder</title></rect>
+<text x="575.69" y="615.26" class="small">ariane_alley_placeholder</text>
+<rect x="669.97" y="620.26" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_alley_placeholder</title></rect>
+<text x="678.97" y="615.26" class="small">child_alley_placeholder</text>
+<rect x="675.87" y="623.21" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>k2_placeholder</title></rect>
+<text x="684.87" y="618.21" class="small">k2_placeholder</text>
+<rect x="677.28" y="601.90" width="30.69" height="12.39" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>van_placeholder</title></rect>
+<text x="699.62" y="601.10" class="small">van_placeholder</text>
+<rect x="575.54" y="620.26" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_object_marker</title></rect>
+<text x="584.54" y="615.26" class="small">scent_object_marker</text>
+<rect x="693.57" y="612.30" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_clue_marker</title></rect>
+<text x="702.57" y="607.30" class="small">scent_clue_marker</text>
+<rect x="1162.75" y="586.03" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>alley_exit_marker</title></rect>
+<text x="1171.75" y="581.03" class="small">alley_exit_marker</text>
+<circle cx="350.33" cy="611.64" r="12.98" class="zone"><title>depart_Audrey_et_Ariane_plan_A</title></circle>
+<text x="367.31" y="611.64" class="label">Z_PROMENADE</text>
+<circle cx="303.11" cy="717.87" r="12.98" class="zone"><title>sortie_des_classes_plan_A</title></circle>
+<text x="320.10" y="717.87" class="label">Z_ECOLE</text>
+<circle cx="509.67" cy="629.34" r="12.98" class="zone"><title>transition_place_vers_ruelle</title></circle>
+<text x="526.66" y="629.34" class="label">Z_CROISEMENT</text>
+<circle cx="680.82" cy="588.03" r="12.98" class="zone"><title>abordage_et_depart_fourgon_plan_B</title></circle>
+<text x="697.80" y="588.03" class="label">Z_RUE_FUITE</text>
+<circle cx="255.90" cy="670.66" r="12.98" class="zone"><title>espace_public_et_poste</title></circle>
+<text x="272.89" y="670.66" class="label">Z_PLACE</text>
+<circle cx="155.57" cy="611.64" r="12.98" class="zone"><title>position_des_PNJ_interrogeables</title></circle>
+<text x="172.56" y="611.64" class="label">Z_TEMOINS</text>
+<polygon points="352.69,589.84 343.69,607.84 361.69,607.84" class="camera"><title>CAM_PLACE_SHOULDER</title></polygon>
+<text x="364.69" y="603.84" class="small">CAM_PLACE_SHOULDER</text>
+<polygon points="344.43,554.43 335.43,572.43 353.43,572.43" class="camera"><title>CAM_PLACE_WIDE</title></polygon>
+<text x="356.43" y="568.43" class="small">CAM_PLACE_WIDE</text>
+<polygon points="350.33,601.64 341.33,619.64 359.33,619.64" class="camera"><title>CAM_PLACE_FIRST</title></polygon>
+<text x="362.33" y="615.64" class="small">CAM_PLACE_FIRST</text>
+<polygon points="523.84,600.46 514.84,618.46 532.84,618.46" class="camera"><title>CAM_RUELLE_SHOULDER</title></polygon>
+<text x="535.84" y="614.46" class="small">CAM_RUELLE_SHOULDER</text>
+<polygon points="509.67,560.33 500.67,578.33 518.67,578.33" class="camera"><title>CAM_RUELLE_WIDE</title></polygon>
+<text x="521.67" y="574.33" class="small">CAM_RUELLE_WIDE</text>
+<polygon points="521.48,601.64 512.48,619.64 530.48,619.64" class="camera"><title>CAM_RUELLE_FIRST</title></polygon>
+<text x="533.48" y="615.64" class="small">CAM_RUELLE_FIRST</text>
+<polygon points="533.28,601.64 524.28,619.64 542.28,619.64" class="camera"><title>CAM_DEPART_COURT</title></polygon>
+<text x="545.28" y="615.64" class="small">CAM_DEPART_COURT</text>
 <text x="55" y="874" class="small">Beige : bâtiments · gris : voirie · vert : végétation · rouge : sujets · orange : indices · cercles bleus : zones · triangles : caméras</text>
-<text x="1010" y="874" class="small">Échelle de travail : 1 m = 9.1 px</text>
+<text x="1010" y="874" class="small">Échelle de travail : 1 m = 5.9 px</text>
 </svg>
