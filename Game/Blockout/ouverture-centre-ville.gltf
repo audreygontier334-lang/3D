@@ -55,7 +55,15 @@
         41,
         42,
         43,
-        44
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
       ]
     }
   ],
@@ -64,12 +72,12 @@
       "name": "ground",
       "mesh": 0,
       "translation": [
-        35,
+        60,
         -0.18,
         -20
       ],
       "scale": [
-        170,
+        240,
         0.3,
         110
       ]
@@ -221,6 +229,37 @@
       ]
     },
     {
+      "name": "alley_corner_south_mask",
+      "mesh": 2,
+      "translation": [
+        27,
+        4.0,
+        -23
+      ],
+      "scale": [
+        16,
+        8,
+        22
+      ],
+      "extras": {
+        "role": "coude bâti : masque toute la ruelle depuis les zones de la place"
+      }
+    },
+    {
+      "name": "alley_corner_south_roof",
+      "mesh": 6,
+      "translation": [
+        27,
+        8.35,
+        -23
+      ],
+      "scale": [
+        17,
+        0.7,
+        23
+      ]
+    },
+    {
       "name": "tree_trunk_square",
       "mesh": 13,
       "translation": [
@@ -266,12 +305,12 @@
       "name": "alley_road",
       "mesh": 0,
       "translation": [
-        64,
+        95,
         -0.02,
         -22
       ],
       "scale": [
-        62,
+        150,
         0.06,
         9
       ]
@@ -280,12 +319,12 @@
       "name": "alley_sidewalk_north",
       "mesh": 1,
       "translation": [
-        64,
+        95,
         0.02,
         -15.8
       ],
       "scale": [
-        62,
+        150,
         0.12,
         2.8
       ]
@@ -294,12 +333,12 @@
       "name": "alley_sidewalk_south",
       "mesh": 1,
       "translation": [
-        64,
+        95,
         0.02,
         -28.2
       ],
       "scale": [
-        62,
+        150,
         0.12,
         2.8
       ]
@@ -510,6 +549,57 @@
       }
     },
     {
+      "name": "bench_dufau",
+      "mesh": 1,
+      "translation": [
+        -12,
+        0.45,
+        -12
+      ],
+      "scale": [
+        2.2,
+        0.9,
+        0.7
+      ],
+      "extras": {
+        "role": "banc du square, moins de 30 m du portail"
+      }
+    },
+    {
+      "name": "dufau_placeholder",
+      "mesh": 9,
+      "translation": [
+        -12,
+        1.05,
+        -12
+      ],
+      "scale": [
+        0.55,
+        1.4,
+        0.45
+      ],
+      "extras": {
+        "role": "Dufau assis; mots croisés"
+      }
+    },
+    {
+      "name": "alley_angle_marker",
+      "mesh": 14,
+      "translation": [
+        18.5,
+        1.0,
+        -12
+      ],
+      "scale": [
+        0.4,
+        2.0,
+        0.4
+      ],
+      "extras": {
+        "role": "angle visible depuis le banc; intérieur invisible"
+      }
+    },
+    {
       "name": "heroine_alley_placeholder",
       "mesh": 9,
       "translation": [
@@ -532,7 +622,7 @@
       "translation": [
         45,
         0.42,
-        -20.5
+        -16.2
       ],
       "scale": [
         1.05,
@@ -547,9 +637,9 @@
       "name": "child_alley_placeholder",
       "mesh": 11,
       "translation": [
-        60,
+        62.5,
         0.62,
-        -21
+        -16.2
       ],
       "scale": [
         0.36,
@@ -557,16 +647,16 @@
         0.3
       ],
       "extras": {
-        "role": "Lila devant le fourgon, plan B"
+        "role": "Lila devant la portière, plan B; tenue validée"
       }
     },
     {
       "name": "k2_placeholder",
       "mesh": 12,
       "translation": [
-        61,
+        63.5,
         0.83,
-        -20
+        -15.7
       ],
       "scale": [
         0.5,
@@ -574,7 +664,7 @@
         0.36
       ],
       "extras": {
-        "role": "femme au badge, plan B"
+        "role": "femme au badge sur le trottoir, plan B"
       }
     },
     {
@@ -583,7 +673,7 @@
       "translation": [
         66,
         1.1,
-        -22
+        -18.6
       ],
       "scale": [
         5.2,
@@ -591,16 +681,16 @@
         2.1
       ],
       "extras": {
-        "role": "apparence provisoire; plaque arrière vers l'entrée"
+        "role": "blanc usé validé; plaque arrière vers l'entrée; côté trottoir"
       }
     },
     {
       "name": "scent_object_marker",
       "mesh": 14,
       "translation": [
-        44,
+        46.5,
         0.13,
-        -19
+        -16.2
       ],
       "scale": [
         0.35,
@@ -608,16 +698,16 @@
         0.35
       ],
       "extras": {
-        "role": "porte-clés de Lila; proposition"
+        "role": "porte-clés de Lila"
       }
     },
     {
       "name": "scent_clue_marker",
       "mesh": 14,
       "translation": [
-        63.5,
+        66.5,
         0.13,
-        -20.95
+        -17.55
       ],
       "scale": [
         0.35,
@@ -625,14 +715,14 @@
         0.35
       ],
       "extras": {
-        "role": "bracelet en perles au pied de la portière; proposition"
+        "role": "bracelet en perles validé, au pied de la portière latérale"
       }
     },
     {
       "name": "alley_exit_marker",
       "mesh": 14,
       "translation": [
-        95,
+        146,
         0.25,
         -22
       ],
@@ -642,7 +732,41 @@
         0.5
       ],
       "extras": {
-        "role": "débouché; mer/ciel/lumière à choisir par Audrey"
+        "role": "débouché vers front de mer, 79,5 m après la portière"
+      }
+    },
+    {
+      "name": "boulevard_road_screen",
+      "mesh": 1,
+      "translation": [
+        150,
+        0.75,
+        -22
+      ],
+      "scale": [
+        2,
+        1.5,
+        11
+      ],
+      "extras": {
+        "role": "masque la chaussée du boulevard et le rond-point"
+      }
+    },
+    {
+      "name": "sea_horizon_band",
+      "mesh": 4,
+      "translation": [
+        160,
+        3.2,
+        -22
+      ],
+      "scale": [
+        1,
+        1.6,
+        12
+      ],
+      "extras": {
+        "role": "bande de mer lointaine validée; aucun port"
       }
     },
     {
@@ -705,13 +829,13 @@
       "translation": [
         37.4,
         2.15,
-        -23
+        -18.2
       ],
       "rotation": [
-        -0.015779156671992072,
-        -0.7349992049124052,
-        -0.01711407775820751,
-        0.6776682782418983
+        -0.015477303287470327,
+        -0.7232901985740717,
+        -0.016219796422052304,
+        0.6901801648364394
       ],
       "extras": {
         "role": "point de contrôle statique; suffixe = mode de caméra"
@@ -723,13 +847,13 @@
       "translation": [
         35,
         4.2,
-        -29
+        -25
       ],
       "rotation": [
-        -0.03383042413152308,
-        -0.7999945920707684,
-        -0.04530802912522068,
-        0.5973368710848128
+        -0.032938495379567286,
+        -0.7971535040015632,
+        -0.04366755095856329,
+        0.6012940142504674
       ],
       "extras": {
         "role": "point de contrôle statique; suffixe = mode de caméra"
@@ -741,13 +865,31 @@
       "translation": [
         37,
         1.61,
-        -21
+        -18
       ],
       "rotation": [
-        -0.008624777473044503,
-        -0.7070541798289155,
-        -0.008624777473044503,
-        0.7070541798289156
+        -0.008126260949560217,
+        -0.7205173461502217,
+        -0.008444817774466616,
+        0.6933378706174771
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_DEPART_COURT",
+      "camera": 6,
+      "translation": [
+        39,
+        1.61,
+        -18
+      ],
+      "rotation": [
+        -0.007021674849762165,
+        -0.7001978011983923,
+        -0.006887086536465684,
+        0.7138811548978444
       ],
       "extras": {
         "role": "point de contrôle statique; suffixe = mode de caméra"
@@ -805,6 +947,15 @@
       "type": "perspective",
       "perspective": {
         "yfov": 1.1693705988362009,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_DEPART_COURT",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 0.9424777960769379,
         "znear": 0.1,
         "zfar": 220
       }
@@ -1116,8 +1267,8 @@
       "name": "fourgon",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.72,
-          0.72,
+          0.78,
+          0.76,
           0.69,
           1
         ],
@@ -1274,6 +1425,6 @@
       0,
       0
     ],
-    "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; débouché ouvert à décision"
+    "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; mer lointaine visible, route et rond-point masqués; soleil de référence vers 16 h 30"
   }
 }
