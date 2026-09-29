@@ -1,17 +1,17 @@
 {
-  "contract_version": 2,
+  "contract_version": 3,
   "status": "applied_to_two_shot_blockout",
   "source_request": {
     "pull_request": 4,
-    "commit": "8c80bbfeb153e3cfc43d8e8ccc0ddf1185e21d21",
+    "commit": "e9cf6bcf0b4e94c6be6c6112c9d54e52c82dc3db",
     "file": "docs/narrative/DECOUPAGE_SCENES.md"
   },
   "coordinate_system": {"units": "metres", "axes": "X east, Y up, Z north"},
   "reference_vehicle": {
     "node": "van_placeholder",
-    "centre": [66.0, 1.1, -22.0],
+    "centre": [66.0, 1.1, -18.6],
     "size": [5.2, 2.2, 2.1],
-    "appearance_status": "placeholder_not_canonical"
+    "appearance_status": "validated_white_used_visual_applied_as_placeholder"
   },
   "accepted_adjustments": {
     "separate_shots": {
@@ -23,22 +23,30 @@
       "zone_id": "Z_CROISEMENT",
       "marker_id": "EVT_INDICE_ODEUR",
       "node": "scent_object_marker",
-      "target_position": [44.0, 0.13, -19.0],
+      "target_position": [46.5, 0.13, -16.2],
       "status": "narrative_proposal"
     },
     "scent_clue": {
       "zone_id": "Z_RUE_FUITE",
       "marker_id": "EVT_PISTE",
       "node": "scent_clue_marker",
-      "target_position": [63.5, 0.13, -20.95],
+      "target_position": [66.5, 0.13, -17.55],
       "relation": "au_pied_de_la_portiere_laterale",
       "object": "bracelet_en_perles",
-      "status": "narrative_proposal_not_hair_dependent"
+      "status": "validated_clue_not_hair_dependent"
     },
     "alley_exit": {
       "node": "alley_exit_marker",
-      "status": "open_for_Audrey",
-      "options": ["lumiere", "ciel", "bande_de_mer"]
+      "status": "decision_Audrey_29_09",
+      "sea_node": "sea_horizon_band",
+      "visible": ["bande_de_mer_lointaine"],
+      "must_remain_hidden": ["port", "chaussee_boulevard", "rond_point"]
+    },
+    "departure_rule": {
+      "maximum_distance_to_alley_entry_m": 110,
+      "hold_max_s": 30,
+      "fallback_camera": "CAM_DEPART_COURT",
+      "fallback_duration_s": 4
     },
     "chapter1_roundabout_extension": {
       "scope": "chapter_1_streamed_extension",
@@ -47,16 +55,18 @@
       "implementation": "deferred_until_chapter1_level"
     }
   },
-  "computed_targets": {"scent_path_distance_m": 19.597, "accepted_range_m": [15.0, 25.0]},
+  "computed_targets": {"scent_path_distance_m": 20.045, "accepted_range_m": [15.0, 25.0], "van_door_to_exit_m": 79.5},
   "guards": {
     "no_narrative_choice_canonicalized": true,
     "no_private_photo_reference": true,
-    "lila_movement_wardrobe_hair_open": true,
+    "lila_precise_route_open": true,
     "place_activity_open": true,
-    "van_appearance_open": true,
+    "van_appearance_validated": true,
+    "lila_appearance_validated": true,
     "opening_cameras": [
       "CAM_PLACE_SHOULDER", "CAM_PLACE_WIDE", "CAM_PLACE_FIRST",
       "CAM_RUELLE_SHOULDER", "CAM_RUELLE_WIDE", "CAM_RUELLE_FIRST"
-    ]
+    ],
+    "fallback_cameras": ["CAM_DEPART_COURT"]
   }
 }
