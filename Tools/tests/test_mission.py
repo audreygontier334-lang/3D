@@ -14,6 +14,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
 import render_dialogues  # noqa: E402
+import validate_spatial as vs  # noqa: E402
 import validate_mission as vm  # noqa: E402
 
 MISSION = ROOT / "GameData" / "missions" / "01"
@@ -266,6 +267,59 @@ class TestDecisionsAudrey(unittest.TestCase):
         texte = (ROOT / "docs/cases/01-ouverture.md").read_text(encoding="utf-8")
         ligne_a = next(l for l in texte.splitlines() if l.startswith("| **A — Avance**"))
         self.assertIn("H_DEST_RIVE_EST", ligne_a)
+
+
+class TestExigencesSpatiales(unittest.TestCase):
+    """spatial_requirements.json : lien entre la mission et la maquette 3D de la PR #3."""
+
+    def setUp(self):
+        self.mm = MutableMission()
+
+    def tearDown(self):
+        self.mm.cleanup()
+
+    def errors(self):
+        return vs.validate(self.mm.dir).errors
+
+    def edit_el(self, eid, fn):
+        def f(d):
+            for el in d["elements"]:
+                if el["id"] == eid:
+                    fn(el)
+        self.mm.edit("spatial_requirements.json", f)
+
+    def test_fichier_valide(self):
+        r = vs.validate(MISSION)
+        self.assertEqual(r.errors, [], "\n".join(r.errors))
+
+    def test_zone_inconnue_refusee(self):
+        self.edit_el("INT_DUFAU", lambda el: el.__setitem__("zone_id", "Z_PORT"))
+        self.assertTrue(any("zone inconnue Z_PORT" in e for e in self.errors()))
+
+    def test_repere_inconnu_refuse(self):
+        self.edit_el("CLU_PORTE_CLES_LILA", lambda el: el.__setitem__("marker_id", "EVT_LAISSE"))
+        self.assertTrue(any("repère inconnu EVT_LAISSE" in e for e in self.errors()))
+
+    def test_obligatoire_sans_repli_refuse(self):
+        self.edit_el("INT_INES", lambda el: el.__setitem__("fallback", None))
+        self.assertTrue(any("INT_INES" in e and "aucune solution de repli" in e for e in self.errors()))
+
+    def test_obligatoire_dependant_d_une_seule_camera_refuse(self):
+        self.edit_el("INT_DUFAU", lambda el: el.__setitem__("cameras", ["CAM_FIRST"]))
+        self.assertTrue(any("INT_DUFAU" in e and "toutes les vues" in e for e in self.errors()))
+
+    def test_rattrapage_qui_n_en_est_pas_un(self):
+        self.edit_el("INT_INES", lambda el: el["fallback"].__setitem__("ids", ["EVT_RADIO_PEAGE"]))
+        self.assertTrue(any("n'est pas un événement de rattrapage" in e for e in self.errors()))
+
+    def test_zone_divergente_des_donnees(self):
+        self.edit_el("INT_LARTIGUE", lambda el: el.__setitem__("zone_id", "Z_ECOLE"))
+        self.assertTrue(any("INT_LARTIGUE" in e and "zone du lieu" in e for e in self.errors()))
+
+    def test_interaction_non_couverte(self):
+        self.mm.edit("spatial_requirements.json", lambda d: d.__setitem__(
+            "elements", [e for e in d["elements"] if e["id"] != "INT_APPEL_17"]))
+        self.assertTrue(any("INT_APPEL_17" in e and "[couverture]" in e for e in self.errors()))
 
 
 class TestSchemas(unittest.TestCase):

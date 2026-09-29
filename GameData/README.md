@@ -17,6 +17,7 @@ GameData/
     hypotheses.json       tableau d'hypothèses en trois axes (H_)
     branches.json         conséquences des erreurs et des choix (BR_)
     puzzles.json          énigmes, solutions, aides à trois niveaux (PZ_, UI_HINT_)
+    spatial_requirements.json  lien avec la maquette 3D : zone, repère, caméras, repli, coût
   dialogues/
     01-ouverture.json     répliques (DLG_) et textes d'interface (UI_)
 ```
@@ -44,6 +45,7 @@ Proposé par Codex dans sa revue de la PR #4, accepté par Claude :
 
 ```
 python3 Tools/validate_mission.py
+python3 Tools/validate_spatial.py
 python3 -m unittest discover -s Tools/tests -v
 python3 Tools/render_dialogues.py        # après toute modification des dialogues
 ```

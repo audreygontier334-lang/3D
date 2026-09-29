@@ -6,7 +6,7 @@
      "answer": {"type": "association", "pairs": {"A": "arret_conversation", "A_bis": "piste_ancienne", "B": "marche_calme", "C": "objet_trouve", "D": "fin_de_piste_vehicule"}},
      "hints": [
        {"id": "UI_HINT_PZ01_1", "text": "Observe la façon dont Ariane se déplace, pas seulement où elle va."},
-       {"id": "UI_HINT_PZ01_2", "text": "Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche « Langage de Ariane »."},
+       {"id": "UI_HINT_PZ01_2", "text": "Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche « Langage d’Ariane »."},
        {"id": "UI_HINT_PZ01_3", "text": "À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ?"}],
      "red_herrings": [], "wrong": {"branch": null, "time_cost": 5, "result": "Lecture « enlèvement par la force » (incertaine, sans effet sur la résolution)"},
      "recovery": ["INT_LARTIGUE", "INT_DIRECTRICE"]},

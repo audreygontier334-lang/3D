@@ -25,7 +25,7 @@
 
 ## PZ_01 — La piste de Lila ✅ duo
 
-**Contexte 3D.** Angle rue des Écoles / rue des Tamaris (`LOC_COIN_ECOLES`). Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. La chienne connaît Lila, qui la caresse souvent.
+**Contexte 3D.** Angle rue des Écoles / rue des Tamaris (`LOC_COIN_ECOLES`). Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. Ariane connaît Lila, qui la caresse souvent.
 
 **Objectif.** Comprendre comment Lila a été emmenée : de force ou par ruse ?
 
@@ -47,12 +47,12 @@
 
 **Indices progressifs.**
 1. « Observe la façon dont Ariane se déplace, pas seulement où elle va. »
-2. « Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche "Langage de Ariane" du carnet. »
+2. « Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche "Langage d'Ariane" du carnet. »
 3. « À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ? »
 
 **Fausse piste loyale.** La traction vers la boulangerie : elle est réelle (Lila y passe chaque matin), mais la truffe intermittente indique une odeur ancienne. La fiche du carnet explique ce signal dès le tutoriel.
 
-**Conséquence d'erreur.** Si le joueur associe « lutte » à B ou suit la boulangerie : la déduction `DED_RUSE` n'est pas créée ; {HEROINE} note une hypothèse incertaine (`H_FORCE`). Coût : 5 min de piste inutile vers la boulangerie.
+**Conséquence d'erreur.** Si le joueur associe « lutte » à B ou suit la boulangerie : la déduction `DED_RUSE` n'est pas créée ; {HEROINE} note une lecture incertaine « enlevée de force » (sans effet sur le tableau). Coût : 5 min de piste inutile vers la boulangerie.
 
 **Rattrapage.** Le témoignage de Lartigue (l'inconnue connaissait le nom de famille de Lila) et celui de la directrice (aucune « Sandrine » parmi les animatrices) mènent au même constat par une autre voie. La piste peut être relancée tant que la scène n'est pas piétinée (jusqu'à 19 h 30).
 
