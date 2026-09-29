@@ -3,13 +3,15 @@
 > **Statut : proposition non canonique**, à valider par Audrey.
 > Documents liés : énigmes `01-enigmes.md` · preuves `01-preuves.md` · répliques `../dialogues/01-ouverture.md` · données `../../GameData/missions/01/`.
 > Les identifiants (`LOC_`, `CLU_`, `EVT_`, `ACT_`, `BR_`, `H_`, `DED_`, `PZ_`, `DLG_`) sont stables et partagés avec les données.
+>
+> **Décisions d'Audrey appliquées (29/09)** : centre-ville côtier inspiré du centre d'Arcachon, lumière chaude de fin d'après-midi ; **aucun port ni front de mer visible dans P0–P3** ; la chienne s'appelle **Ariane**, elle est libre dès le départ (ni laisse ni collier), foulard noir à motifs blancs ; après le départ du fourgon, Ariane sent un objet et mène à un indice. Tout le reste de ce document est une **proposition** (voir `docs/VALIDATION_AUDREY_ACTE1.md` et `docs/QUESTIONS_AUDREY.md`).
 
 ---
 
 ## 0. En une page (à lire en premier)
 
-1. **16 h 33.** Le joueur prend la main sur le front de mer avec {CHIENNE}. Il apprend à marcher, changer de vue et donner des ordres pendant une courte balade où l'on croise Marcel Dufau et où Lila, sortant de l'école, fait coucou à la chienne.
-2. **16 h 36–16 h 38.** Une femme au badge d'animatrice aborde Lila au coin de la rue. Rien d'alarmant… jusqu'à ce que Lila hésite devant un fourgon blanc et appelle la chienne. Le joueur dispose d'une **fenêtre d'une dizaine de secondes** : photographier, courir, crier le prénom de Lila, lâcher la chienne. Il peut en combiner deux. **Le fourgon part toujours** — mais ce que le joueur a fait détermine ce qu'il sait.
+1. **16 h 33.** Le joueur prend la main dans la rue piétonne du centre-ville avec Ariane, qui marche librement à ses côtés. Il apprend à marcher, changer de vue et donner des ordres pendant une courte promenade où l'on croise Marcel Dufau sur son banc et où Lila, sortant de l'école, fait coucou à Ariane.
+2. **16 h 36–16 h 38.** Une femme au badge d'animatrice aborde Lila au coin de la rue. Rien d'alarmant… jusqu'à ce que Lila hésite devant un fourgon blanc et appelle la chienne. Le joueur dispose d'une **fenêtre d'une dizaine de secondes** : photographier, courir, crier le prénom de Lila, envoyer Ariane (« Ariane, va ! »). Il peut en combiner deux. **Le fourgon part toujours** — mais ce que le joueur a fait détermine ce qu'il sait.
 3. **16 h 39 → 19 h 30.** Chapitre 1. Appel au 17, arrivée des gendarmes, témoins qui se contredisent, arrivée de la mère qui cache un message. Chaque action consomme du temps de jeu. Le joueur doit établir trois conclusions distinctes sur un **tableau d'hypothèses** : le **véhicule**, les **personnes**, la **destination**.
 4. **Résolution.** Quand le tableau est présenté à l'adjudante-cheffe Mendiondo, les gendarmes déclenchent le dispositif. Une bonne déduction rapide donne un avantage au chapitre 2 ; une erreur coûte du temps et produit un résultat négatif qui relance l'enquête. **Aucun échec définitif.**
 
@@ -17,46 +19,47 @@
 
 ## 1. Espace de jeu
 
-### 1.1 Plan schématique (ouest = océan)
+### 1.1 Plan schématique (aligné sur la maquette de la PR #3)
+
+Coordonnées de la maquette glTF de Codex : mètres, X vers l'est, Z vers le nord, portail de l'école à l'origine. Les distances sont des ordres de grandeur ; c'est la maquette qui fait foi pour les lignes de vue.
 
 ```
-                         N
-                         ▲
-           route de la Corniche (vers Lescoure-Nord, 11 km)
-                         │
-   PLAGE   ┊ FRONT DE MER┊                         SKATEPARK (butte)
-  (océan)  ┊  LOC_FRONT  ┊   place de l'Église           ● LOC_SKATEPARK
-           ┊   _MER      ┊  ┌───────────┐                 \
-           ┊             ┊  │ ÉTUDE     │ pharmacie        \
-           ┊   ◉ départ  ┊  │ CASTERAN  │ (auvent)          \
-           ┊             ┊  └─────┬─────┘  🌳 platane        \
-           ┊             ┊ rue des│Écoles                 ┌────────────┐
-           ┊             ┊   ÉCOLE│des Pins (120 m au N)  │ ROND-POINT │──► route des Étangs (E)
-           ┊             ┊ boulangerie · abribus          │ LOC_ROND_  │    Relais du Lac 9 km
-           ┊  LOC_CALE ◉─┊───────coin──[fourgon]─────────►│   POINT    │    étang de Sorbe 14 km
-           ┊  (banc de   ┊  rue du Port   ~70 m   légère  └────────────┘
-           ┊   Dufau)    ┊          (haie de pittosporum)  courbe      │ D652 (S) : Capbreton,
-           ┊             ┊                                             ▼ péage A63 (32 km)
-           ┊  vers le port du courant (sud, 600 m)
+                               N
+                               ▲
+      Z_TEMOINS (-25,-18)        Z_PLACE (-8,-8)        Z_ECOLE (0,0)
+      boulangerie Lartigue       place de l'Église      grille de l'école des Pins
+      banc de Dufau (square)     étude Casteran,        abribus + plan touristique
+                                 pharmacie à auvent,
+                                 platane, fontaine
+                                          Z_CROISEMENT (26,-6)
+                  Z_PROMENADE (8,-19)     angle rue des Écoles / rue des Tamaris
+                  départ du duo           (abordage, porte-clés de Lila)
+                  rue piétonne                     │
+                                          Z_RUE_FUITE (29,-11)
+                                          stationnement + haie, rue des Tamaris
+                                          ──► courbe ──► rond-point est (≈ 300 m, hors maquette)
+                                                         sorties : Corniche (N), Étangs (E), D652 (S)
 ```
+
+La mer et le port existent (plage à l'ouest, port au sud) mais **ne sont ni visibles ni audibles** dans P0–P3 : pas de ressac dans l'ambiance de l'ouverture.
 
 ### 1.2 Lieux
 
-| ID | Lieu | Fonction | Accessible |
-|---|---|---|---|
-| `LOC_FRONT_MER` | Promenade du front de mer | Départ, tutoriel, point de vue sur la rue du Port | Toujours |
-| `LOC_CALE` | Cale de mise à l'eau, banc de Dufau | Témoin Dufau ; angle de vue direct sur le fourgon (≈ 70 m) | Toujours |
-| `LOC_COIN_ECOLES` | Angle rue des Écoles / rue du Port | Lieu de l'abordage ; porte-clés de Lila | Toujours (après l'événement, zone balisée mais examinable) |
-| `LOC_ACCOTEMENT` | Accotement sablonneux rue du Port + haie | Stationnement du fourgon ; traces, mégots, barrette, badge | Toujours |
-| `LOC_ABRIBUS` | Abribus et banc, rue des Écoles | Bouteille d'eau de « Sandrine » | Toujours |
-| `LOC_BOULANGERIE` | Boulangerie Lartigue | Témoin ; tableau de liège avec le prospectus de la blanchisserie | Toujours (ouverte jusqu'à 19 h 30) |
-| `LOC_ECOLE` | Grille de l'école des Pins | Affiche de la commune (nouveau logo) ; directrice | Toujours |
-| `LOC_ETUDE_CASTERAN` | Perron de l'étude notariale | Témoin Casteran ; test de ligne de vue | Toujours |
-| `LOC_SKATEPARK` | Butte du skatepark | Témoin Inès ; vue plongeante sur le rond-point | Toujours |
-| `LOC_ROND_POINT` | Rond-point est | Sorties : Corniche (N), Étangs (E), D652 (S) | Toujours |
-| `LOC_POSTE` | Véhicule de commandement des gendarmes, place de l'Église | Remise des pistes, tableau d'hypothèses, résultats | À partir de 16 h 52 |
+| ID | Lieu | Zone (PR #3) | Fonction | Accessible |
+|---|---|---|---|---|
+| `LOC_PROMENADE` | Rue piétonne du centre-ville | `Z_PROMENADE` | Départ, tutoriel, vue sur le croisement et le fourgon (≈ 20–25 m) | Toujours |
+| `LOC_BANC_DUFAU` | Banc de Dufau, square des Tamaris | `Z_TEMOINS` | Témoin Dufau ; vue de biais sur le fourgon (≈ 55 m) | Toujours |
+| `LOC_COIN_ECOLES` | Angle rue des Écoles / rue des Tamaris | `Z_CROISEMENT` | Lieu de l'abordage ; porte-clés de Lila (objet senti par Ariane) | Toujours (après l'événement, zone balisée mais examinable) |
+| `LOC_ACCOTEMENT` | Stationnement sablonneux et haie, rue des Tamaris | `Z_RUE_FUITE` | Stationnement du fourgon ; traces, mégots, barrette, badge | Toujours |
+| `LOC_ABRIBUS` | Abribus et banc, rue des Écoles | `Z_ECOLE` | Bouteille d'eau de « Sandrine » ; plan touristique | Toujours |
+| `LOC_BOULANGERIE` | Boulangerie Lartigue | `Z_TEMOINS` | Témoin ; tableau de liège avec le prospectus de la blanchisserie | Toujours (ouverte jusqu'à 19 h 30) |
+| `LOC_ECOLE` | Grille de l'école des Pins | `Z_ECOLE` | Affiche de la commune (nouveau logo) ; directrice | Toujours |
+| `LOC_ETUDE_CASTERAN` | Perron de l'étude notariale | `Z_PLACE` | Témoin Casteran ; test de ligne de vue | Toujours |
+| `LOC_SKATEPARK` | Butte du skatepark | `Z_RUE_FUITE` (prolongement) | Témoin Inès ; vue plongeante sur le rond-point | Toujours |
+| `LOC_ROND_POINT` | Rond-point est | `Z_RUE_FUITE` (prolongement) | Sorties : Corniche (N), Étangs (E), D652 (S) | Toujours |
+| `LOC_POSTE` | Véhicule de commandement des gendarmes, place de l'Église | `Z_PLACE` | Remise des pistes, tableau d'hypothèses, résultats | À partir de 16 h 52 |
 
-**Limites du prologue avant l'événement** : la zone jouable est le front de mer entre la plage et la cale. L'entrée de la rue des Écoles est fermée par une palissade de travaux (réelle, visible), et la rue du Port n'est pas attrayante (aucun point d'intérêt). Aucun mur invisible n'est nécessaire.
+**Limites du prologue avant l'événement** : toute la maquette P0–P3 est accessible, sans palissade ni mur invisible. Si le joueur s'approche trop tôt du couple, la règle d'accélération (§2) s'applique.
 
 ### 1.3 Distances et temps (utilisés par l'énigme de chronométrie)
 
@@ -79,17 +82,17 @@ La chronologie cachée complète est dans `BIBLE.md` §5. Ici, uniquement ce qui
 
 | Heure | Événement | ID |
 |---|---|---|
-| 16 h 33 | Prise en main sur le front de mer | `EVT_START` |
+| 16 h 33 | Prise en main dans la rue piétonne, Ariane libre à côté de {HEROINE} | `EVT_START` |
 | 16 h 34 | Sonnerie ; enfants à la grille (audible, visible au loin) | `EVT_SONNERIE` |
-| 16 h 35 | Lila descend la rue des Écoles, fait coucou à {CHIENNE} depuis le trottoir d'en face | `EVT_LILA_COUCOU` |
+| 16 h 35 | Lila descend la rue des Écoles, fait coucou à Ariane depuis le trottoir d'en face | `EVT_LILA_COUCOU` |
 | 16 h 36 | Une femme au cordon bleu aborde Lila au coin, lui parle, lui prend la main | `EVT_ABORDAGE` |
 | 16 h 37 | Elles marchent jusqu'au fourgon garé sur l'accotement | `EVT_MARCHE_FOURGON` |
-| 16 h 37 + 50 s | **Alerte** : Lila s'arrête devant la portière, se retourne, appelle la chienne ; {CHIENNE} grogne | `EVT_ALERTE` |
+| 16 h 37 + 50 s | **Alerte** : Lila s'arrête devant la portière, se retourne, appelle « Ariane ! » ; Ariane grogne | `EVT_ALERTE` |
 | + 8 à 12 s | La femme fait monter Lila, portière claquée, départ | `EVT_DEPART` |
 | + 6 s | Le fourgon disparaît dans la courbe vers le rond-point | `EVT_HORS_VUE` |
 | 16 h 39 | Fin du prologue, début du chapitre 1 (commande « Appeler le 17 » mise en avant) | `EVT_CH1_START` |
 
-**Règle d'accélération** : si {HEROINE} s'approche à moins de 25 m du couple avant `EVT_ALERTE`, la femme presse Lila ; `EVT_ALERTE` et `EVT_DEPART` sont avancés et le départ se produit quand {HEROINE} est à ≈ 20 m. L'issue est fixe, l'angle d'observation varie.
+**Règle d'accélération** : si {HEROINE} ou Ariane s'approche à moins de 12 m du couple avant `EVT_ALERTE`, la femme presse Lila ; `EVT_ALERTE` et `EVT_DEPART` sont avancés et le départ se produit quand le duo est à ≈ 8 m. Ariane, libre, reste dans un rayon de 3 m autour de {HEROINE} tant qu'elle n'a pas reçu d'ordre d'envoi. L'issue est fixe, l'angle d'observation varie.
 
 ---
 
@@ -99,9 +102,9 @@ La chronologie cachée complète est dans `BIBLE.md` §5. Ici, uniquement ce qui
 
 Objectifs doux (facultatifs, affichés comme suggestions) :
 - marcher, trotter, changer de vue (`CAM_SHOULDER`, `CAM_WIDE`, `CAM_FIRST`) ;
-- donner à {CHIENNE} les ordres « Au pied », « Reste », « Cherche » (balle lancée sur la plage), « Montre » ;
-- saluer Dufau sur son banc (`DLG_P_DUFAU_*`) : il grommelle à propos du fourgon « qui fait un boucan de casserole » et qui est garé là « depuis une demi-heure » — **première graine**, sans insistance ;
-- voir Lila faire coucou (`EVT_LILA_COUCOU`) ; {CHIENNE} remue la queue. Si le joueur répond (geste), Lila sourit (`DLG_P_LILA_01`).
+- donner à Ariane les ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! » ; Ariane est libre, sans laisse ni collier, et revient au rappel ;
+- saluer Dufau sur son banc du square (`DLG_P_DUFAU_*`) : il grommelle à propos du fourgon « qui fait un boucan de casserole » et qui est garé là « depuis une demi-heure » — **première graine**, sans insistance ;
+- voir Lila faire coucou (`EVT_LILA_COUCOU`) ; Ariane remue la queue. Si le joueur répond (geste), Lila sourit (`DLG_P_LILA_01`).
 
 Temps : réel, compressé. Si le joueur reste immobile, l'horloge avance quand même jusqu'à `EVT_ABORDAGE` (au plus 3 min réelles).
 
@@ -109,7 +112,7 @@ Temps : réel, compressé. Si le joueur reste immobile, l'horloge avance quand m
 
 Rien d'explicitement suspect : une adulte avec un badge raccompagne une enfant. Détails observables pour un joueur attentif :
 - Lila ralentit, regarde autour d'elle ; la femme se penche, parle, montre son badge (`OBS` non collecté automatiquement — il sera confirmé par la piste de Lila, énigme PZ_01) ;
-- {CHIENNE} fixe la rue, oreille droite dressée : **signal d'intérêt**, aucun texte ne l'explique.
+- Ariane fixe la rue, oreille droite dressée : **signal d'intérêt**, aucun texte ne l'explique.
 
 ### 3.3 Séquence P2 — La fenêtre d'action (alerte → hors de vue)
 
@@ -117,17 +120,21 @@ Au moment `EVT_ALERTE`, une **invite contextuelle discrète** apparaît (pas de 
 
 | ID action | Commande | Durée | Effet sur les indices | Compatible avec |
 |---|---|---|---|---|
-| `ACT_PHOTO` | Lever le téléphone et photographier | 2 s | Immobile : `CLU_PHOTO_FOURGON` (plaque partielle « GF-4·7 », lettrage fantôme, fragment de numéro). En course : `CLU_PHOTO_FLOUE` (lettrage seul) | `ACT_CRIER`, `ACT_LACHER` ; en course = floue |
+| `ACT_PHOTO` | Lever le téléphone et photographier | 2 s | Immobile : `CLU_PHOTO_FOURGON` (plaque partielle « GF-4·7 », lettrage fantôme, fragment de numéro). En course : `CLU_PHOTO_FLOUE` (lettrage seul) | `ACT_CRIER`, `ACT_ENVOYER` ; en course = floue |
 | `ACT_COURIR` | Sprinter vers le fourgon | continu | Arrivée à ≈ 25 m au départ : `CLU_OBS_CONDUCTEUR`, `CLU_OBS_ECHAPPEMENT`, `CLU_OBS_FEU_FENDU` | `ACT_CRIER`, `ACT_PHOTO` (floue) |
 | `ACT_CRIER` | Appeler « Lila ! » | 1 s | La femme se retourne : `CLU_OBS_PASSAGERE` (visage, tenue). Elle se précipite, le cordon s'accroche : `CLU_OBS_BADGE_CHUTE` (le joueur voit où il tombe) | tout |
-| `ACT_LACHER` | Lâcher la laisse / « Va ! » | 1 s | {CHIENNE} fonce, aboie, **s'arrête net au bord de la chaussée** (éducation), flaire l'endroit où se tenait la femme : `CLU_CHIENNE_IMPREGNEE` ; elle regarde ensuite la haie (aide pour PZ_02) | `ACT_PHOTO`, `ACT_CRIER` |
+| `ACT_ENVOYER` | Envoyer Ariane : « Ariane, va ! » (elle est déjà libre) | 1 s | Ariane fonce, aboie, **s'arrête net au bord de la chaussée** (éducation), flaire l'endroit où se tenait la femme : `CLU_CHIENNE_IMPREGNEE` ; elle regarde ensuite la haie (aide pour PZ_02) | `ACT_PHOTO`, `ACT_CRIER` |
 | — | Ne rien faire / rester figé | — | Aucun indice de fenêtre ; tous les axes restent résolubles par les indices permanents | — |
 
 Deux actions maximum sont réalistes dans la fenêtre. Le jeu n'impose aucune limite artificielle : c'est le temps qui limite.
 
-**Sécurité de la chienne** : aucune issue où {CHIENNE} est blessée. Elle s'arrête toujours au bord de la route. Le rappel (« Au pied ! ») est instantané.
+**Photo exclusive** : `ACT_PHOTO` donne **soit** la photo nette (`CLU_PHOTO_FOURGON`, joueur immobile), **soit** la photo floue (`CLU_PHOTO_FLOUE`, si `ACT_COURIR` est combiné) — jamais les deux. Le validateur le vérifie.
 
-**Toutes vues** : le fourgon, la plaque arrière et le lettrage sont orientés vers le front de mer, visibles en `CAM_SHOULDER`, `CAM_WIDE` et `CAM_FIRST`. Le visage de la femme n'est lisible qu'avec `ACT_CRIER` (elle se retourne) — c'est voulu et indépendant de la caméra.
+**Accessibilité** : une option « Temps d'action étendu » (menu Accessibilité, désactivée par défaut) porte la fenêtre de 8–12 s à 20–25 s, ou met l'action en pause jusqu'au choix. Le nombre d'actions (deux au maximum) et leurs conséquences restent identiques.
+
+**Sécurité d'Ariane** : aucune issue où Ariane est blessée. Libre, elle s'arrête toujours au bord de la chaussée, même sans ordre. Le rappel (« Au pied ! ») est instantané. Aucune branche ne suppose de laisse ni de collier.
+
+**Toutes vues** : le fourgon, la plaque arrière et le lettrage sont orientés vers `Z_PROMENADE`, visibles en `CAM_SHOULDER`, `CAM_WIDE` et `CAM_FIRST`. Le visage de la femme n'est lisible qu'avec `ACT_CRIER` (elle se retourne) — c'est voulu et indépendant de la caméra.
 
 ### 3.4 Séquence P3 — Hors de vue (16 h 38 – 16 h 39)
 
@@ -159,7 +166,7 @@ Ordre libre. Chaque ligne est détaillée dans les énigmes ou dans les dialogue
 
 | Interaction | Lieu | Coût | Condition | Indices obtenus |
 |---|---|---|---|---|
-| Témoignage Dufau | `LOC_CALE` | 4 min | — | `CLU_TEMOIN_DUFAU` |
+| Témoignage Dufau | `LOC_BANC_DUFAU` | 4 min | — | `CLU_TEMOIN_DUFAU` |
 | Témoignage Lartigue | `LOC_BOULANGERIE` | 3 min | — | `CLU_TEMOIN_LARTIGUE` |
 | Examiner le tableau de liège | `LOC_BOULANGERIE` | 1 min | — | `CLU_FLYER_BLANCHISSERIE`, `CLU_FLYER_PRESSING` |
 | Examiner le banc de l'abribus | `LOC_ABRIBUS` | 1 min | — | `CLU_BOUTEILLE`, `CLU_TICKET_BOULANGERIE` (le lien avec la femme vient de Lartigue) |
@@ -222,15 +229,17 @@ Une option exclue ne peut plus être choisie. Si plusieurs axes sont faux lors d
 
 ## 6. Résolution et états de départ du chapitre 2
 
-À la présentation correcte, Mendiondo appelle le parquet ; le **dispositif Alerte Enlèvement** est demandé avec la description du fourgon, et un peloton est envoyé vers l'étang de Sorbe. {HEROINE} et {CHIENNE} partent avec les gendarmes pour la première approche (`DLG_C1_FIN_*`).
+**Vocabulaire** : une **déduction** `DED_` est établie dans le carnet quand le joueur relie les bons indices ; une **hypothèse** `H_` est ce qu'il **présente** sur le tableau. Les états de fin et les bonus dépendent de ce qui est présenté (`H_`) ; une hypothèse facultative ne peut être présentée que si sa déduction est établie. Le validateur refuse la confusion des deux.
+
+À la présentation correcte, Mendiondo appelle le parquet ; le **dispositif Alerte Enlèvement** est demandé avec la description du fourgon, et un peloton est envoyé vers l'étang de Sorbe. {HEROINE} et Ariane partent avec les gendarmes pour la première approche (`DLG_C1_FIN_*`).
 
 | État | Condition | Chapitre 2 commence avec |
 |---|---|---|
-| **A — Avance** | Résolu avant 18 h 15 **et** `DED_RIVE_EST` établie | Crépuscule, traces de pneus fraîches sur la piste, recherche limitée à 2 airiaux sur 3 |
-| **B — Standard** | Résolu avant 19 h 00, ou sans `DED_RIVE_EST` | Nuit tombante, 3 airiaux à vérifier |
+| **A — Avance** | Résolu avant 18 h 15 **et** hypothèse facultative `H_DEST_RIVE_EST` présentée sur le tableau (possible seulement si la déduction `DED_RIVE_EST` est établie) | Crépuscule, traces de pneus fraîches sur la piste, recherche limitée à 2 airiaux sur 3 |
+| **B — Standard** | Résolu avant 19 h 00, ou sans `H_DEST_RIVE_EST` présentée | Nuit tombante, 3 airiaux à vérifier |
 | **C — Retard** | Résolu après 19 h 00 ou clôture automatique à 19 h 30 | Nuit noire, pluie fine à partir de 23 h (piste canine dégradée), toute la rive à couvrir |
 
-Bonus indépendants : `CLU_CHIENNE_IMPREGNEE` (la chienne réagit à l'odeur de « Sandrine » au chapitre 2) ; `DED_K1_LOUBERE` (les gendarmes savent qui est sur place, négociation possible) ; `FLAG_NADIA_ALLIEE` (Nadia aide aux chapitres 2 et 3).
+Bonus indépendants : `CLU_CHIENNE_IMPREGNEE` (la chienne réagit à l'odeur de « Sandrine » au chapitre 2) ; `H_K1_LOUBERE` présentée (exige `DED_K1_LOUBERE` ; les gendarmes savent qui est sur place, négociation possible) ; `FLAG_NADIA_ALLIEE` (Nadia aide aux chapitres 2 et 3).
 
 Clôture automatique à 19 h 30 : si un axe n'est pas établi, Mendiondo retient l'hypothèse la mieux étayée par les preuves effectivement réunies (ordre de priorité défini dans `GameData/missions/01/hypotheses.json`) ; les preuves obligatoires étant garanties par les rattrapages, la destination correcte est toujours retenue.
 
@@ -240,10 +249,10 @@ Clôture automatique à 19 h 30 : si un axe n'est pas établi, Mendiondo retient
 
 | Moment | Vérification |
 |---|---|
-| Fourgon dans le prologue | Plaque et lettrage face au front de mer, lisibles à 70 m en `CAM_FIRST` avec zoom téléphone, et en `CAM_SHOULDER` / `CAM_WIDE` via la photo |
+| Fourgon dans le prologue | Plaque et lettrage tournés vers `Z_PROMENADE`, lisibles à ≈ 25 m en `CAM_FIRST` avec zoom téléphone, et en `CAM_SHOULDER` / `CAM_WIDE` via la photo ; vérifiable dans la maquette par `Tools/check_opening_sightlines.py` (PR #3) |
 | Ligne de vue Casteran (PZ_03) | Le test se fait en se plaçant sur le perron : une silhouette-repère (panneau du rond-point) est masquée par l'auvent et le platane quelle que soit la vue ; en `CAM_WIDE` la caméra se rapproche automatiquement de la hauteur des yeux pendant le test |
 | Vidéo d'Inès, photo de vie | Consultées en `CAM_INSPECT` (plein écran), indépendantes de la vue |
-| Pistage | Langage corporel de la chienne lisible dans les trois vues ; en `CAM_FIRST`, la chienne est gardée dans le champ par un léger recentrage |
+| Pistage | Langage corporel d'Ariane lisible dans les trois vues ; en `CAM_FIRST`, Ariane est gardée dans le champ par un léger recentrage |
 
 ---
 
@@ -253,14 +262,14 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 
 | Type | ID | Description | Mission / moment | Priorité |
 |---|---|---|---|---|
-| Lieu | `ENV_PROMENADE` | Front de mer, cale, banc de Dufau, palissade de travaux | P0–P3 | Haute |
+| Lieu | `ENV_PROMENADE` | Rue piétonne du centre-ville, square des Tamaris avec banc de Dufau ; aucune vue sur la mer ou le port | P0–P3 | Haute |
 | Lieu | `ENV_ECOLE` | Rue des Écoles, grille, affiche de la commune (nouveau logo), abribus, plan touristique, boulangerie avec tableau de liège | P1, ch.1 | Haute |
-| Lieu | `ENV_RUE_PORT` | Rue du Port, accotement sablonneux, haie de pittosporum, courbe vers le rond-point | P2, ch.1 | Haute |
+| Lieu | `ENV_RUE_FUITE` | Rue des Tamaris (ex-`ENV_RUE_PORT`), stationnement sablonneux, haie de pittosporum, courbe vers le rond-point | P2, ch.1 | Haute |
 | Lieu | `ENV_PLACE_EGLISE` *(nouveau)* | Place de l'Église, étude notariale avec perron, pharmacie à auvent, platane, fontaine, véhicule de commandement | ch.1 | Haute |
 | Lieu | `ENV_ROND_POINT` *(nouveau)* | Rond-point à trois sorties panneautées + butte du skatepark | ch.1 | Moyenne |
 | Personnage | `CHAR_FILLETTE` | Lila, 9 ans : cartable à porte-clés renard, barrette à fleur | P1–P2 | Haute |
 | Personnage | `CHAR_RAVISSEURS` | K1 : ≈ 45 ans, casquette grise, barbe courte grisonnante, veste de travail grise. K2 : ≈ 40 ans, carré blond, lunettes, gilet bleu marine, cordon bleu avec badge | P2 | Haute |
-| Personnage | `CHAR_DUFAU` *(nouveau)* | Retraité, bob, canne à pêche, voix râpeuse | P0, ch.1 | Moyenne |
+| Personnage | `CHAR_DUFAU` *(nouveau)* | Retraité, ancien pêcheur, bob, journal plié, voix râpeuse | P0, ch.1 | Moyenne |
 | Personnage | `CHAR_INES` *(nouveau)* | Ado, skate, téléphone | ch.1 | Moyenne |
 | Personnage | `CHAR_LARTIGUE` *(nouveau)* | Boulangère, tablier | ch.1 | Moyenne |
 | Personnage | `CHAR_CASTERAN` *(nouveau)* | Notaire, la soixantaine, élégante, foulard, ton posé | ch.1 | Haute |
@@ -274,10 +283,10 @@ Aucun fichier média n'est créé ici. IDs de décor et personnages alignés sur
 | Vidéo | `VID_INES_ROND_POINT` | Vidéo verticale 12 s, horodatée 16:39:10, camping-car blanc (toit haut, porte-vélos) sur la Corniche à 16:39:16, skate au premier plan, fourgon au rond-point sortie « Étangs » | ch.1 | Haute |
 | Vidéo | `VID_CCTV_RELAIS` | Caméra de station, noir et blanc, 16:48, fourgon avec clignotant droit inactif | ch.1 | Moyenne |
 | Image | `IMG_PHOTO_VIE` | Lila assise, calme mais inquiète, couverture sur les épaules ; derrière elle, fenêtre sur l'étang, soleil bas dans l'axe, ponton, pins dont un porte un pot à résine. **Aucune marque de violence** | ch.1 | Haute |
-| Animation | `ANIM_CHIENNE_*` | Flair au sol, tête haute, cercles/hésitation, marquage assis + regard, arrêt au bord de la route, grognement retenu | P2, pistages | Haute |
+| Animation | `ANIM_CHIENNE_*` | Ariane libre, sans laisse : envoi et rappel à la voix, flair au sol, tête haute, cercles/hésitation, marquage assis + regard, arrêt au bord de la route, grognement retenu | P2, pistages | Haute |
 | Animation | `ANIM_K2_*` | Se pencher vers l'enfant, main tendue, presser, se retourner surprise | P1–P2 | Haute |
 | Animation | `ANIM_NADIA_*` | Arrivée en courant, s'isoler pour lire, cacher le téléphone, s'effondrer | ch.1 | Haute |
-| Ambiance | `AMB_FRONT_MER`, `AMB_SORTIE_ECOLE`, `AMB_PLACE` | Ressac, vent dans les pins, cris d'enfants, cloches, circulation légère ; ambiance qui se vide après l'enlèvement | tout | Haute |
+| Ambiance | `AMB_CENTRE_VILLE`, `AMB_SORTIE_ECOLE`, `AMB_PLACE` | Vent dans les pins, oiseaux urbains, cris d'enfants, cloches, circulation légère (pas de ressac en P0–P3) ; ambiance qui se vide après l'enlèvement | tout | Haute |
 | Effet | `SFX_POT_ECHAPPEMENT` | Cognement métallique caractéristique (entendu en P0, P2, dans la vidéo d'Inès) — **doublé visuellement** (pot qui vibre) pour rester accessible sans le son | P0–P2 | Haute |
 | Effet | `SFX_PORTIERE`, `SFX_SONNERIE_ECOLE`, `SFX_NOTIF_TELEPHONE` | — | P1–ch.1 | Moyenne |
 | Voix | `VO_*` | Toutes les répliques de `../dialogues/01-ouverture.md` | — | Haute |

@@ -1,23 +1,25 @@
 {
   "mission": "M01",
+  "_doc": "Zones alignées sur la maquette glTF de la PR #3 (Game/Blockout/ouverture-centre-ville.manifest.json). Le rond-point et la butte du skatepark prolongent Z_RUE_FUITE au-delà de la maquette actuelle (≈ 300 m) : extension demandée à Codex pour le chapitre 1.",
   "locations": [
-    {"id": "LOC_FRONT_MER", "name": "Promenade du front de mer", "zone": "Z_FRONT", "env": "ENV_PROMENADE", "available_from": "16:33"},
-    {"id": "LOC_CALE", "name": "Cale et banc de Dufau", "zone": "Z_FRONT", "env": "ENV_PROMENADE", "available_from": "16:33"},
-    {"id": "LOC_COIN_ECOLES", "name": "Angle rue des Écoles / rue du Port", "zone": "Z_RUE_PORT", "env": "ENV_RUE_PORT", "available_from": "16:39"},
-    {"id": "LOC_ACCOTEMENT", "name": "Accotement et haie, rue du Port", "zone": "Z_RUE_PORT", "env": "ENV_RUE_PORT", "available_from": "16:39"},
-    {"id": "LOC_ABRIBUS", "name": "Abribus, rue des Écoles", "zone": "Z_ECOLES", "env": "ENV_ECOLE", "available_from": "16:39"},
-    {"id": "LOC_BOULANGERIE", "name": "Boulangerie Lartigue", "zone": "Z_ECOLES", "env": "ENV_ECOLE", "available_from": "16:39", "available_until": "19:30"},
-    {"id": "LOC_ECOLE", "name": "Grille de l'école des Pins", "zone": "Z_ECOLES", "env": "ENV_ECOLE", "available_from": "16:39"},
+    {"id": "LOC_PROMENADE", "name": "Rue piétonne du centre-ville (départ du duo)", "zone": "Z_PROMENADE", "env": "ENV_PROMENADE", "available_from": "16:33"},
+    {"id": "LOC_BANC_DUFAU", "name": "Banc de Dufau, square des Tamaris", "zone": "Z_TEMOINS", "env": "ENV_PROMENADE", "available_from": "16:33"},
+    {"id": "LOC_COIN_ECOLES", "name": "Angle rue des Écoles / rue des Tamaris", "zone": "Z_CROISEMENT", "env": "ENV_RUE_FUITE", "available_from": "16:39"},
+    {"id": "LOC_ACCOTEMENT", "name": "Stationnement et haie, rue des Tamaris", "zone": "Z_RUE_FUITE", "env": "ENV_RUE_FUITE", "available_from": "16:39"},
+    {"id": "LOC_ABRIBUS", "name": "Abribus, rue des Écoles", "zone": "Z_ECOLE", "env": "ENV_ECOLE", "available_from": "16:39"},
+    {"id": "LOC_BOULANGERIE", "name": "Boulangerie Lartigue", "zone": "Z_TEMOINS", "env": "ENV_ECOLE", "available_from": "16:39", "available_until": "19:30"},
+    {"id": "LOC_ECOLE", "name": "Grille de l'école des Pins", "zone": "Z_ECOLE", "env": "ENV_ECOLE", "available_from": "16:39"},
     {"id": "LOC_ETUDE_CASTERAN", "name": "Perron de l'étude notariale", "zone": "Z_PLACE", "env": "ENV_PLACE_EGLISE", "available_from": "16:39"},
     {"id": "LOC_POSTE", "name": "Poste de commandement de la gendarmerie", "zone": "Z_PLACE", "env": "ENV_PLACE_EGLISE", "available_from": "16:52"},
-    {"id": "LOC_SKATEPARK", "name": "Butte du skatepark", "zone": "Z_ROND_POINT", "env": "ENV_ROND_POINT", "available_from": "16:39"},
-    {"id": "LOC_ROND_POINT", "name": "Rond-point est", "zone": "Z_ROND_POINT", "env": "ENV_ROND_POINT", "available_from": "16:39"}
+    {"id": "LOC_SKATEPARK", "name": "Butte du skatepark", "zone": "Z_RUE_FUITE", "env": "ENV_ROND_POINT", "available_from": "16:39"},
+    {"id": "LOC_ROND_POINT", "name": "Rond-point est", "zone": "Z_RUE_FUITE", "env": "ENV_ROND_POINT", "available_from": "16:39"}
   ],
   "zones": [
-    {"id": "Z_FRONT", "neighbors": ["Z_RUE_PORT"]},
-    {"id": "Z_RUE_PORT", "neighbors": ["Z_FRONT", "Z_ECOLES", "Z_ROND_POINT"]},
-    {"id": "Z_ECOLES", "neighbors": ["Z_RUE_PORT", "Z_PLACE"]},
-    {"id": "Z_PLACE", "neighbors": ["Z_ECOLES", "Z_ROND_POINT"]},
-    {"id": "Z_ROND_POINT", "neighbors": ["Z_RUE_PORT", "Z_PLACE"]}
+    {"id": "Z_PROMENADE", "neighbors": ["Z_ECOLE", "Z_CROISEMENT", "Z_TEMOINS"]},
+    {"id": "Z_ECOLE", "neighbors": ["Z_PROMENADE", "Z_CROISEMENT", "Z_PLACE"]},
+    {"id": "Z_CROISEMENT", "neighbors": ["Z_PROMENADE", "Z_ECOLE", "Z_RUE_FUITE"]},
+    {"id": "Z_RUE_FUITE", "neighbors": ["Z_CROISEMENT", "Z_PLACE"]},
+    {"id": "Z_PLACE", "neighbors": ["Z_ECOLE", "Z_RUE_FUITE", "Z_TEMOINS"]},
+    {"id": "Z_TEMOINS", "neighbors": ["Z_PROMENADE", "Z_PLACE"]}
   ]
 }

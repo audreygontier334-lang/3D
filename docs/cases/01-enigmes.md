@@ -25,7 +25,7 @@
 
 ## PZ_01 — La piste de Lila ✅ duo
 
-**Contexte 3D.** Angle rue des Écoles / rue du Port (`LOC_COIN_ECOLES`). Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. La chienne connaît Lila, qui la caresse souvent.
+**Contexte 3D.** Angle rue des Écoles / rue des Tamaris (`LOC_COIN_ECOLES`). Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. La chienne connaît Lila, qui la caresse souvent.
 
 **Objectif.** Comprendre comment Lila a été emmenée : de force ou par ruse ?
 
@@ -33,7 +33,7 @@
 - `CLU_PORTE_CLES_LILA` (objet de référence évident, l'odeur de Lila).
 - Le comportement de la chienne pendant la piste, en quatre points (animations `ANIM_CHIENNE_*`) :
   - **A — l'angle** : cercles serrés sur 2 m², truffe basse ; puis une traction brève vers la boulangerie, truffe intermittente ;
-  - **B — le trottoir de la rue du Port** : allure régulière, droite, truffe basse, sur 25 m ;
+  - **B — le trottoir de la rue des Tamaris** : allure régulière, droite, truffe basse, sur 25 m ;
   - **C — l'accotement** : s'assied, regarde {HEROINE} (découverte : barrette à fleur, `CLU_BARRETTE_LILA`) ;
   - **D — le bord de la chaussée** : tête haute, cercles, retour vers {HEROINE}.
 - Le carnet propose, pour chaque point, trois interprétations à associer.
@@ -46,9 +46,9 @@
 - Conclusion `DED_RUSE` : *Lila a suivi l'inconnue sans résister, jusqu'au fourgon. Elle a été trompée, pas saisie.* Ce qui suppose que l'inconnue avait de quoi la rassurer.
 
 **Indices progressifs.**
-1. « Observe la façon dont {CHIENNE} se déplace, pas seulement où elle va. »
-2. « Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche "Langage de {CHIENNE}" du carnet. »
-3. « À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi {CHIENNE} lève-t-elle la tête ? »
+1. « Observe la façon dont Ariane se déplace, pas seulement où elle va. »
+2. « Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche "Langage de Ariane" du carnet. »
+3. « À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ? »
 
 **Fausse piste loyale.** La traction vers la boulangerie : elle est réelle (Lila y passe chaque matin), mais la truffe intermittente indique une odeur ancienne. La fiche du carnet explique ce signal dès le tutoriel.
 
@@ -82,7 +82,7 @@
 **Solution et raisonnement.** La bouteille (heure du ticket, témoignage de Lartigue, rouge à lèvres) porte l'odeur de la femme. Les mégots sont ceux du conducteur, qui n'est pas sorti. Le porte-clés est l'odeur de Lila. Avec la bouteille, la chienne suit une piste abribus → angle (se confond un instant avec celle de Lila) → accotement → **haie**, où elle s'assied : `CLU_BADGE`, arraché par la portière.
 
 **Indices progressifs.**
-1. « Pour suivre quelqu'un, {CHIENNE} a besoin d'un objet que cette personne a touché, et seulement elle. »
+1. « Pour suivre quelqu'un, Ariane a besoin d'un objet que cette personne a touché, et seulement elle. »
 2. « Qui a acheté quelque chose à la boulangerie à 16 h 12 ? Où s'est-elle assise ensuite ? »
 3. « Le conducteur est-il sorti du fourgon ? Si non, les mégots ne mènent nulle part. Le porte-clés, c'est Lila. Il reste un objet. »
 
@@ -92,7 +92,7 @@
 
 **Rattrapage.**
 - Si le joueur a crié (`CLU_OBS_BADGE_CHUTE`), il sait où chercher : fouille directe de la haie, sans pistage.
-- Si la chienne a été lâchée (`CLU_CHIENNE_IMPREGNEE`), elle tire spontanément vers la haie lors de l'examen de l'accotement.
+- Si Ariane a été envoyée pendant la fenêtre (`ACT_ENVOYER` → `CLU_CHIENNE_IMPREGNEE`), elle part spontanément vers la haie lors de l'examen de l'accotement.
 - À 18 h 30, les gendarmes fouillent la haie et trouvent le badge (`EVT_FOUILLE_HAIE`).
 
 **Test de cohérence.**
@@ -111,9 +111,9 @@
 **Données remises.**
 - `CLU_TEMOIN_CASTERAN` : « J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. »
 - Le perron lui-même, où {HEROINE} peut se placer (action « Se mettre à sa place »).
-- Le panneau du rond-point, point de repère visible depuis la rue du Port.
+- Le panneau du rond-point, point de repère visible depuis la rue des Tamaris.
 
-**Solution et raisonnement.** Debout sur le perron, à hauteur d'yeux, on voit la rue du Port et le début de la courbe, **mais pas le rond-point** : l'auvent masque la chaussée, le platane cache le panneau et les sorties. Casteran a pu voir le fourgon partir vers l'est, pas la sortie qu'il a prise. Son affirmation « j'ai tout vu » n'est pas fiable : `DED_CASTERAN_NON_FIABLE`.
+**Solution et raisonnement.** Debout sur le perron, à hauteur d'yeux, on voit la rue des Tamaris et le début de la courbe, **mais pas le rond-point** : l'auvent masque la chaussée, le platane cache le panneau et les sorties. Casteran a pu voir le fourgon partir vers l'est, pas la sortie qu'il a prise. Son affirmation « j'ai tout vu » n'est pas fiable : `DED_CASTERAN_NON_FIABLE`.
 {HEROINE} ne conclut **pas** qu'elle ment : le carnet note « s'est trompée ou a supposé ». (Graine payée au chapitre 6.)
 
 **Indices progressifs.**
@@ -129,7 +129,7 @@
 
 **Test de cohérence.**
 - Dans la scène, un rayon de visibilité depuis la hauteur d'yeux (1,65 m) au perron ne doit atteindre aucune des trois sorties du rond-point. À vérifier par Codex dans les trois caméras.
-- Depuis le perron, la rue du Port est visible jusqu'à la courbe (Casteran a bien vu le fourgon partir).
+- Depuis le perron, la rue des Tamaris est visible jusqu'à la courbe (Casteran a bien vu le fourgon partir).
 
 ---
 
@@ -141,7 +141,7 @@
 
 **Données remises.**
 - Dialogue de persuasion (`DLG_C1_INES_*`) : Inès a peur que ses parents apprennent qu'elle devait être à l'étude. Deux approches réussissent : rassurer (« personne ne te reprochera d'aider ») ou l'impliquer (« tu as peut-être filmé la seule image du fourgon »). La menace (« les gendarmes vont saisir ton téléphone ») la braque ; elle part (rattrapage à 19 h).
-- `CLU_VIDEO_INES` : 12 s, horodatée 16:39:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis la rue du Port (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
+- `CLU_VIDEO_INES` : 12 s, horodatée 16:39:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis la rue des Tamaris (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
   - 16:39:12 : le fourgon entre, passe devant la sortie D652 **sans** la prendre ;
   - 16:39:13–14 : masqué par le skateur ;
   - 16:39:15 : arrière du fourgon sur la route des Étangs, derrière le panneau « Étang de Sorbe 14 » ; plaque arrière partiellement lisible « ··-·37-TR » ; le cognement du pot est audible ;
@@ -262,7 +262,7 @@
 **Objectif.** Obtenir que Nadia révèle le message qu'elle a reçu à 17 h 40.
 
 **Données remises.**
-- `CLU_NADIA_REACTION` (si observée entre 17 h 40 et 17 h 55) : elle lit son téléphone, blêmit, le range précipitamment, dit aux gendarmes « rien, c'est le travail ». **{CHIENNE} va se coller contre ses jambes** et gémit doucement — signal de détresse, visible dans toutes les vues.
+- `CLU_NADIA_REACTION` (si observée entre 17 h 40 et 17 h 55) : elle lit son téléphone, blêmit, le range précipitamment, dit aux gendarmes « rien, c'est le travail ». **Ariane va se coller contre ses jambes** et gémit doucement — signal de détresse, visible dans toutes les vues.
 - `CLU_TEMOIN_LARTIGUE` : la femme a demandé « l'école de la petite Mercadier ».
 - `CLU_BADGE` + `CLU_AFFICHE_COMMUNE` / `CLU_TEMOIN_DIRECTRICE` : fausse animatrice.
 - `DED_RUSE` (si établie).
@@ -271,7 +271,7 @@
 **Solution et raisonnement.** Parler à Nadia **à l'écart de Casteran**, avec **compassion**, en présentant **un élément montrant que l'enlèvement la visait** : l'inconnue connaissait son nom (Lartigue), ou s'est fait passer pour une animatrice pour rassurer Lila (badge + directrice / `DED_RUSE`). Nadia comprend qu'on ne la soupçonne pas et montre le message (`CLU_MESSAGE_CHANTAGE`) et la photo (`CLU_PHOTO_VIE`). `DED_CHANTAGE`.
 
 **Indices progressifs.**
-1. « Nadia a peur. De quoi, ou de qui ? Regarde comment réagit {CHIENNE}. »
+1. « Nadia a peur. De quoi, ou de qui ? Regarde comment réagit Ariane. »
 2. « Elle ne parlera pas devant n'importe qui. Et elle ne parlera pas si elle se sent accusée. »
 3. « Montre-lui que tu sais que ce n'était pas un hasard : quelqu'un connaissait son nom. »
 
@@ -305,7 +305,7 @@
 
 **Fausse piste loyale.** Le ponton, qui évoque la base nautique et ses pontons de la rive ouest.
 
-**Conséquence d'erreur.** Conclure « rive ouest » : aucune pénalité immédiate, mais `DED_RIVE_EST` absente → le chapitre 2 démarre au mieux en état B ; au chapitre 2, les traces de pneus à la base nautique sont anciennes et le joueur se réoriente (rattrapage au chapitre 2).
+**Conséquence d'erreur.** Conclure « rive ouest » : aucune pénalité immédiate, mais `DED_RIVE_EST` non établie, donc `H_DEST_RIVE_EST` impossible à présenter → le chapitre 2 démarre au mieux en état B ; au chapitre 2, les traces de pneus à la base nautique sont anciennes et le joueur se réoriente (rattrapage au chapitre 2).
 
 **Rattrapage.** La photo reste consultable dans le carnet à tout moment ; l'énigme peut être résolue jusqu'à la présentation du tableau.
 

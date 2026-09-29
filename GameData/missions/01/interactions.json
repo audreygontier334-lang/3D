@@ -11,7 +11,7 @@
     {"id": "INT_FOUILLER_HAIE", "location": "LOC_ACCOTEMENT", "cost": 1,
      "requires": {"any": ["CLU_OBS_BADGE_CHUTE", "CLU_CHIENNE_IMPREGNEE"]},
      "grants": ["CLU_BADGE"], "dialogue": "DLG_C1_HAIE"},
-    {"id": "INT_DUFAU", "location": "LOC_CALE", "cost": 4,
+    {"id": "INT_DUFAU", "location": "LOC_BANC_DUFAU", "cost": 4,
      "grants": ["CLU_TEMOIN_DUFAU"], "dialogue": "DLG_C1_DUFAU"},
     {"id": "INT_LARTIGUE", "location": "LOC_BOULANGERIE", "cost": 3,
      "grants": ["CLU_TEMOIN_LARTIGUE"], "dialogue": "DLG_C1_LARTIGUE"},

@@ -123,7 +123,7 @@ class TestLeValidateurDetecteLesErreurs(unittest.TestCase):
 
     def test_indice_sans_source(self):
         def add(d):
-            d["clues"].append({"id": "CLU_ORPHELIN", "name": "x", "location": "LOC_CALE", "kind": "objet",
+            d["clues"].append({"id": "CLU_ORPHELIN", "name": "x", "location": "LOC_BANC_DUFAU", "kind": "objet",
                                "availability": "toujours", "fact": "x", "interpretations": ["x"]})
         self.mm.edit("clues.json", add)
         self.assertTrue(any("CLU_ORPHELIN" in e and "aucune source" in e for e in self.mm.errors()))
@@ -170,9 +170,102 @@ class TestLeValidateurDetecteLesErreurs(unittest.TestCase):
         self.mm.edit("../../dialogues/01-ouverture.json", bad)
         self.assertTrue(any("DLG_NULLE_PART" in e for e in self.mm.errors()))
 
+    # --- corrections demandées par Codex (revue PR #4)
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_photo_nette_et_floue_ne_se_cumulent_pas(self):
+        def cumul(d):
+            for a in d["prologue"]["actions"]:
+                if a["id"] == "ACT_PHOTO":
+                    a["grants_instead_if_with"]["ACT_COURIR"] = ["CLU_PHOTO_FLOUE", "CLU_PHOTO_FOURGON"]
+        self.mm.edit("mission.json", cumul)
+        self.assertTrue(any("[fenêtre]" in e and "CLU_PHOTO_FOURGON" in e for e in self.mm.errors()))
+
+    def test_accessibilite_ne_change_pas_le_nombre_d_actions(self):
+        self.mm.edit("mission.json", lambda d: d["prologue"]["window_accessibility"].__setitem__("max_actions_unchanged", False))
+        self.assertTrue(any("accessibilité" in e for e in self.mm.errors()))
+
+    def test_etat_de_fin_sur_une_deduction_refuse(self):
+        def bad(d):
+            d["resolution"]["chapter2_states"][0]["condition"]["requires"] = ["DED_RIVE_EST"]
+        self.mm.edit("mission.json", bad)
+        self.assertTrue(any("[états]" in e and "DED_RIVE_EST" in e for e in self.mm.errors()))
+
+    def test_bonus_sur_une_deduction_refuse(self):
+        def bad(d):
+            for b in d["resolution"]["bonuses"]:
+                if b["id"] == "BONUS_K1_IDENTIFIE":
+                    b["from"] = "DED_K1_LOUBERE"
+        self.mm.edit("mission.json", bad)
+        self.assertTrue(any("[états]" in e and "DED_K1_LOUBERE" in e for e in self.mm.errors()))
+
+    def test_hypothese_bonus_sans_deduction_refusee(self):
+        def bad(d):
+            for h in d["hypotheses"]:
+                if h["id"] == "H_DEST_RIVE_EST":
+                    h["requires_any_of"] = [["CLU_PHOTO_VIE"]]
+        self.mm.edit("hypotheses.json", bad)
+        self.assertTrue(any("[états]" in e and "H_DEST_RIVE_EST" in e for e in self.mm.errors()))
+
+    def test_condition_de_dialogue_en_prose_refusee(self):
+        def bad(d):
+            d["scenes"][0]["lines"][0]["condition"] = "si le joueur a été gentil"
+        self.mm.edit("../../dialogues/01-ouverture.json", bad)
+        self.assertTrue(any("condition en prose" in e for e in self.mm.errors()))
+
+    def test_condition_de_dialogue_id_inconnu(self):
+        def bad(d):
+            d["scenes"][0]["lines"][0]["requires"] = {"all": ["CLU_INVENTE"]}
+        self.mm.edit("../../dialogues/01-ouverture.json", bad)
+        self.assertTrue(any("CLU_INVENTE" in e for e in self.mm.errors()))
+
+    def test_condition_de_dialogue_cle_inconnue(self):
+        def bad(d):
+            d["scenes"][0]["lines"][0]["requires"] = {"quand": "demain"}
+        self.mm.edit("../../dialogues/01-ouverture.json", bad)
+        self.assertTrue(any("requires mal formé" in e for e in self.mm.errors()))
+
+
+class TestDecisionsAudrey(unittest.TestCase):
+    """Les décisions validées par Audrey le 29/09 ne doivent pas être contredites par les textes et les données."""
+
+    SOURCES = ["docs/cases", "docs/dialogues", "docs/narrative", "GameData/missions", "GameData/dialogues"]
+    INTERDITS = {
+        r"\b(la|en|sa|une|de) laisse\b": "laisse (Ariane est libre)",
+        r"\bcollier\b": "collier (Ariane n'en porte pas)",
+        r"\bl[âa]ch(er|ée|é)\b": "lâcher la chienne (Ariane est déjà libre)",
+        r"front de mer": "front de mer (hors champ en P0–P3)",
+        r"\{CHIENNE\}": "jeton {CHIENNE} (la chienne s'appelle Ariane)",
+        r"ENV_RUE_PORT|Z_RUE_PORT|Z_FRONT\b|LOC_FRONT_MER|LOC_CALE\b|ACT_LACHER": "ancien identifiant",
+    }
+    # phrases qui énoncent justement la décision
+    AUTORISES = ("ni laisse ni collier", "sans laisse ni collier", "ne suppose de laisse ni de collier",
+                 "aucun port ni front de mer", "ni front de mer", "sans laisse", "ne la lâche pas",
+                 "(ex-`ENV_RUE_PORT`)")
+
+    def test_aucune_contradiction_avec_les_decisions(self):
+        import re
+        fautes = []
+        for base in self.SOURCES:
+            for f in sorted((ROOT / base).rglob("*")):
+                if f.suffix not in (".md", ".json") or not f.is_file():
+                    continue
+                for n, ligne in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+                    propre = ligne
+                    for ok in self.AUTORISES:
+                        propre = propre.replace(ok, "")
+                    for motif, raison in self.INTERDITS.items():
+                        if re.search(motif, propre, re.IGNORECASE):
+                            fautes.append(f"{f.relative_to(ROOT)}:{n} — {raison}")
+        self.assertEqual(fautes, [], "\n".join(fautes))
+
+    def test_zones_de_la_maquette_codex(self):
+        zones = {z["id"] for z in json.loads((MISSION / "locations.json").read_text(encoding="utf-8"))["zones"]}
+        self.assertEqual(zones, {"Z_PROMENADE", "Z_ECOLE", "Z_CROISEMENT", "Z_RUE_FUITE", "Z_PLACE", "Z_TEMOINS"})
+
+    def test_etats_de_fin_documentes_avec_les_hypotheses(self):
+        texte = (ROOT / "docs/cases/01-ouverture.md").read_text(encoding="utf-8")
+        ligne_a = next(l for l in texte.splitlines() if l.startswith("| **A — Avance**"))
+        self.assertIn("H_DEST_RIVE_EST", ligne_a)
 
 
 class TestSchemas(unittest.TestCase):
@@ -194,3 +287,7 @@ class TestSchemas(unittest.TestCase):
             for item in items:
                 with self.subTest(schema=name, id=item.get("id", name)):
                     jsonschema.validate(item, sch(name))
+
+
+if __name__ == "__main__":
+    unittest.main()

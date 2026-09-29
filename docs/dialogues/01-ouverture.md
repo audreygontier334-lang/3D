@@ -2,14 +2,14 @@
 
 > **Statut : proposition non canonique.** Fichier **généré** depuis `GameData/dialogues/01-ouverture.json` par `Tools/render_dialogues.py` : modifier le JSON, puis relancer le script. Ne pas éditer ce fichier à la main.
 >
-> `{HEROINE}` et `{CHIENNE}` sont remplacés par le moteur. Colonnes : **intention** = ce que la ligne doit accomplir dans le jeu ; **émotion** = indication pour la voix et l'animation.
+> `{HEROINE}` est remplacé par le moteur (nom de la protagoniste à décider). Colonnes : **intention** = ce que la ligne doit accomplir dans le jeu ; **émotion** = indication pour la voix et l'animation.
 
 ## Locuteurs
 
 | ID | Personnage |
 |---|---|
 | `HEROINE` | {HEROINE} |
-| `CHIENNE` | {CHIENNE} (sons et comportement, jamais de parole) |
+| `CHIENNE` | Ariane (sons et comportement, jamais de parole) |
 | `LILA` | Lila Mercadier |
 | `K2` | La femme au badge |
 | `DUFAU` | Marcel Dufau |
@@ -26,18 +26,18 @@
 
 ## `DLG_P_TUTO`
 
-*Prologue, premières secondes. Textes d'aide non voisés.* — lieu : `LOC_FRONT_MER`
+*Prologue, premières secondes. Textes d'aide non voisés.* — lieu : `LOC_PROMENADE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_P_TUTO_01` | NARRATION | Mardi, fin septembre. 16 h 33. Lescoure-Plage. | Poser le lieu et l'heure | neutre |  |
 | `DLG_P_TUTO_02` | NARRATION | Changer de vue : épaule, large, subjective. L'enquête ne dépend jamais de la vue choisie. | Tutoriel caméra | neutre |  |
-| `DLG_P_TUTO_03` | NARRATION | Ordres à {CHIENNE} : Au pied · Reste · Cherche · Montre. | Tutoriel ordres | neutre |  |
-| `DLG_P_TUTO_04` | HEROINE | Allez, {CHIENNE}, cherche ! … Bon, tu ne la rapportes pas, mais tu la trouves. C'est déjà ça. | Après le premier « Cherche » avec la balle ; établir la complicité | amusée, tendre |  |
+| `DLG_P_TUTO_03` | NARRATION | Ordres à Ariane : Au pied · Reste · Cherche · Montre. | Tutoriel ordres | neutre |  |
+| `DLG_P_TUTO_04` | HEROINE | Allez, Ariane, cherche ! … Bon, tu ne la rapportes pas, mais tu la trouves. C'est déjà ça. | Après le premier « Cherche » avec la balle ; établir la complicité | amusée, tendre |  |
 
 ## `DLG_P_DUFAU`
 
-*Facultatif. {HEROINE} passe devant le banc de Dufau, sur la cale.* — lieu : `LOC_CALE`
+*Facultatif. {HEROINE} passe devant le banc de Dufau, dans le square des Tamaris.* — lieu : `LOC_BANC_DUFAU`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -49,12 +49,12 @@
 
 ## `DLG_P_LILA`
 
-*EVT_LILA_COUCOU. Lila, sur le trottoir d'en face, voit la chienne.* — lieu : `LOC_FRONT_MER`
+*EVT_LILA_COUCOU. Lila, sur le trottoir d'en face, voit la chienne.* — lieu : `LOC_PROMENADE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_P_LILA_01` | LILA | Coucou {CHIENNE} ! Demain je t'apporte un biscuit ! | Rendre Lila attachante et établir qu'elle connaît la chienne (odeur familière) | joyeuse, fière de rentrer seule |  |
-| `DLG_P_LILA_02` | HEROINE | Elle va te le rappeler, t'inquiète pas ! | Réponse si le joueur fait un geste | chaleureuse | le joueur répond au coucou |
+| `DLG_P_LILA_01` | LILA | Coucou Ariane ! Demain je t'apporte un biscuit ! | Rendre Lila attachante et établir qu'elle connaît Ariane (odeur familière) | joyeuse, fière de rentrer seule |  |
+| `DLG_P_LILA_02` | HEROINE | Elle va te le rappeler, t'inquiète pas ! | Réponse si le joueur fait un geste | chaleureuse | FLAG_COUCOU_RENDU |
 | `DLG_P_LILA_03` | CHIENNE | [remue la queue, petit jappement] | Lien chienne-enfant | enjouée |  |
 
 ## `DLG_P_ABORDAGE`
@@ -69,17 +69,17 @@
 
 ## `DLG_P_ALERTE`
 
-*EVT_ALERTE puis fenêtre d'action. Variantes selon ACT_CRIER / ACT_LACHER.* — lieu : `LOC_ACCOTEMENT`
+*EVT_ALERTE puis fenêtre d'action. Variantes selon ACT_CRIER / ACT_ENVOYER.* — lieu : `LOC_ACCOTEMENT`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_P_ALERTE_01` | LILA | Je veux attendre maman… {CHIENNE} ! | Déclencheur de l'alerte, visible et audible dans toutes les vues | peur montante |  |
+| `DLG_P_ALERTE_01` | LILA | Je veux attendre maman… Ariane ! | Déclencheur de l'alerte, visible et audible dans toutes les vues | peur montante |  |
 | `DLG_P_ALERTE_02` | CHIENNE | [grognement sourd, oreille droite dressée, corps tendu] | La chienne perçoit le danger avant {HEROINE} | alerte |  |
 | `DLG_P_ALERTE_03` | K2 | Monte, on va être en retard. | Pression, sans violence explicite | sèche |  |
 | `DLG_P_ALERTE_04` | HEROINE | Lila ! | ACT_CRIER | cri, alarme | ACT_CRIER |
 | `DLG_P_ALERTE_05` | K2 | Vas-y, vas-y ! | Réaction à ACT_CRIER : elle se retourne, visage visible, cordon arraché | paniquée | ACT_CRIER |
-| `DLG_P_ALERTE_06` | HEROINE | {CHIENNE}, va ! | ACT_LACHER | ordre, urgence | ACT_LACHER |
-| `DLG_P_ALERTE_07` | CHIENNE | [aboiements, sprint, arrêt net au bord de la chaussée, flaire le trottoir] | ACT_LACHER : la chienne s'arrête toujours au bord de la route | furieuse puis concentrée | ACT_LACHER |
+| `DLG_P_ALERTE_06` | HEROINE | Ariane, va ! | ACT_ENVOYER | ordre, urgence | ACT_ENVOYER |
+| `DLG_P_ALERTE_07` | CHIENNE | [aboiements, sprint, arrêt net au bord de la chaussée, flaire le trottoir] | ACT_ENVOYER : Ariane, libre, s'arrête toujours au bord de la chaussée | furieuse puis concentrée | ACT_ENVOYER |
 
 ## `DLG_P_HEROINE_CHOC`
 
@@ -87,11 +87,11 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_P_HEROINE_CHOC_01` | HEROINE | Non, non, non… Elle ne voulait pas monter. | Aucune action : sidération | choc, souffle court | aucune action |
+| `DLG_P_HEROINE_CHOC_01` | HEROINE | Non, non, non… Elle ne voulait pas monter. | Aucune action : sidération | choc, souffle court | aucun de : ACT_PHOTO, ACT_COURIR, ACT_CRIER, ACT_ENVOYER |
 | `DLG_P_HEROINE_CHOC_02` | HEROINE | Je l'ai. Je l'ai, la plaque… en partie. | ACT_PHOTO immobile | tremblante, se raccroche au concret | CLU_PHOTO_FOURGON |
 | `DLG_P_HEROINE_CHOC_03` | HEROINE | Floue… Elle est floue. Mais on voit quelque chose sur le côté. | ACT_PHOTO en course | haletante, rageuse | CLU_PHOTO_FLOUE |
 | `DLG_P_HEROINE_CHOC_04` | HEROINE | Casquette grise. Barbe. Et ce bruit… c'est lui, le fourgon de tout à l'heure. | ACT_COURIR : mémoriser à voix haute | essoufflée, colère | ACT_COURIR |
-| `DLG_P_HEROINE_CHOC_05` | HEROINE | Au pied. C'est bien, c'est bien… Tu l'as sentie, hein ? | ACT_LACHER : rappel de la chienne | voix qui tremble, main sur la chienne | ACT_LACHER |
+| `DLG_P_HEROINE_CHOC_05` | HEROINE | Au pied. C'est bien, c'est bien… Tu l'as sentie, hein ? | ACT_ENVOYER : rappel d'Ariane à la voix | voix qui tremble, main posée sur Ariane | ACT_ENVOYER |
 | `DLG_P_HEROINE_CHOC_06` | NARRATION | Appeler le 17. | Action principale mise en avant | neutre |  |
 
 ## `DLG_C1_OPERATRICE`
@@ -101,7 +101,7 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_OPERATRICE_01` | OPERATRICE | Gendarmerie, j'écoute. | Ouverture | calme professionnel |  |
-| `DLG_C1_OPERATRICE_02` | HEROINE | Une petite fille vient d'être emmenée dans un fourgon blanc. Lescoure-Plage, rue du Port. À l'instant. | Signalement | urgente, essaie de rester claire |  |
+| `DLG_C1_OPERATRICE_02` | HEROINE | Une petite fille vient d'être emmenée dans un fourgon blanc. Lescoure-Plage, rue des Tamaris. À l'instant. | Signalement | urgente, essaie de rester claire |  |
 | `DLG_C1_OPERATRICE_03` | OPERATRICE | Vous êtes en sécurité ? Vous pouvez me décrire le véhicule et les personnes ? | Questions standard | posée |  |
 | `DLG_C1_OPERATRICE_04` | HEROINE | Qu'est-ce que je dis ? | Menu de description | — |  |
 | `DLG_C1_OPERATRICE_04A` | ↳ choix | « Fourgon blanc, plaque qui commence par GF-4. » | → `DLG_C1_OPERATRICE_05` | | si CLU_PHOTO_FOURGON |
@@ -132,7 +132,7 @@
 
 ## `DLG_C1_HAIE`
 
-*INT_FOUILLER_HAIE (après ACT_CRIER ou ACT_LACHER).* — lieu : `LOC_ACCOTEMENT`
+*INT_FOUILLER_HAIE (après ACT_CRIER ou ACT_ENVOYER).* — lieu : `LOC_ACCOTEMENT`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -163,7 +163,7 @@
 
 ## `DLG_C1_DUFAU`
 
-*INT_DUFAU. Sur la cale. Dufau est secoué mais reste lui-même.* — lieu : `LOC_CALE`
+*INT_DUFAU. Sur son banc du square. Dufau est secoué mais reste lui-même.* — lieu : `LOC_BANC_DUFAU`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -258,7 +258,7 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_LIGNE_DE_VUE_01` | HEROINE | L'auvent de la pharmacie… et le platane. On voit la rue du Port jusqu'au virage. Le rond-point, non. | Constat spatial | lente, surprise |  |
+| `DLG_C1_LIGNE_DE_VUE_01` | HEROINE | L'auvent de la pharmacie… et le platane. On voit la rue des Tamaris jusqu'au virage. Le rond-point, non. | Constat spatial | lente, surprise |  |
 | `DLG_C1_LIGNE_DE_VUE_02` | HEROINE | Elle ne pouvait pas savoir quelle sortie il a prise. Elle a supposé. Ou elle s'est trompée. | Conclusion prudente (pas d'accusation) | pensive |  |
 
 ## `DLG_C1_INES`
@@ -276,7 +276,7 @@
 | `DLG_C1_INES_04` | INES | … OK. Mais c'est vous qui leur dites. | Accord | soulagée |  |
 | `DLG_C1_INES_05` | INES | Enlevée ? Attendez… Il y avait un camion blanc, oui. Regardez. | Accord, prise de conscience | choquée |  |
 | `DLG_C1_INES_06` | INES | Ben qu'ils viennent, alors. Moi je me casse. | Échec : Inès part (rattrapage à 19 h) | vexée, effrayée |  |
-| `DLG_C1_INES_07` | HEROINE | Tu peux me l'envoyer ? Et la garder. Surtout, ne l'efface pas. | Obtention de CLU_VIDEO_INES | reconnaissante | succès |
+| `DLG_C1_INES_07` | HEROINE | Tu peux me l'envoyer ? Et la garder. Surtout, ne l'efface pas. | Obtention de CLU_VIDEO_INES | reconnaissante | résultat = succes |
 
 ## `DLG_C1_INES_PARENTS`
 
@@ -288,7 +288,7 @@
 
 ## `DLG_C1_PISTE_LILA`
 
-*INT_PISTE_LILA / PZ_01. {HEROINE} présente le porte-clés à la chienne.* — lieu : `LOC_COIN_ECOLES`
+*INT_PISTE_LILA / PZ_01. {HEROINE} fait sentir le porte-clés de Lila à Ariane (objet senti après le départ du fourgon).* — lieu : `LOC_COIN_ECOLES`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -306,10 +306,10 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_PISTE_BOUTEILLE_01` | HEROINE | Sens bien. Cherche. | Lancer la piste avec l'objet choisi | déterminée |  |
-| `DLG_C1_PISTE_BOUTEILLE_02` | HEROINE | Elle ne va nulle part… Il n'est pas sorti du fourgon, c'est ça ? | Échec mégots : piste de 2 m | frustrée | objet = CLU_MEGOTS |
-| `DLG_C1_PISTE_BOUTEILLE_03` | HEROINE | Tu repars vers le coin… C'est Lila, ça. Ce n'est pas ce que je cherche. | Échec porte-clés : relance de la piste de Lila | patiente | objet = CLU_PORTE_CLES_LILA |
-| `DLG_C1_PISTE_BOUTEILLE_04` | HEROINE | L'abribus, le coin, le fourgon… la haie. Qu'est-ce qu'il y a là-dedans ? | Réussite : piste de la femme jusqu'à la haie | tendue | objet = CLU_BOUTEILLE |
-| `DLG_C1_PISTE_BOUTEILLE_05` | HEROINE | Un badge. « Sandrine V. » Tu l'as trouvée, {CHIENNE}. | CLU_BADGE | victoire sombre | objet = CLU_BOUTEILLE |
+| `DLG_C1_PISTE_BOUTEILLE_02` | HEROINE | Elle ne va nulle part… Il n'est pas sorti du fourgon, c'est ça ? | Échec mégots : piste de 2 m | frustrée | objet choisi = CLU_MEGOTS |
+| `DLG_C1_PISTE_BOUTEILLE_03` | HEROINE | Tu repars vers le coin… C'est Lila, ça. Ce n'est pas ce que je cherche. | Échec porte-clés : relance de la piste de Lila | patiente | objet choisi = CLU_PORTE_CLES_LILA |
+| `DLG_C1_PISTE_BOUTEILLE_04` | HEROINE | L'abribus, le coin, le fourgon… la haie. Qu'est-ce qu'il y a là-dedans ? | Réussite : piste de la femme jusqu'à la haie | tendue | objet choisi = CLU_BOUTEILLE |
+| `DLG_C1_PISTE_BOUTEILLE_05` | HEROINE | Un badge. « Sandrine V. » Tu l'as trouvée, Ariane. | CLU_BADGE | victoire sombre | objet choisi = CLU_BOUTEILLE |
 
 ## `DLG_C1_FOUILLE_HAIE`
 
@@ -412,10 +412,10 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_NADIA_01` | NADIA | Vous êtes la dame au chien… Lila parle tout le temps d'elle. | Ouverture ; lien avec la chienne | épuisée |  |
+| `DLG_C1_NADIA_01` | NADIA | Vous êtes la dame avec Ariane… Lila parle tout le temps d'elle. | Ouverture ; lien avec la chienne | épuisée |  |
 | `DLG_C1_NADIA_02` | HEROINE | Qu'est-ce que je lui dis ? | Choix d'approche | — |  |
 | `DLG_C1_NADIA_02A` | ↳ choix | « Cette femme connaissait votre nom. Ce n'était pas un hasard. Qu'est-ce qu'on vous demande ? » | → `DLG_C1_NADIA_03` | | si CLU_TEMOIN_LARTIGUE; effet : succès |
-| `DLG_C1_NADIA_02B` | ↳ choix | « Elle s'est fait passer pour une animatrice. Elle savait comment rassurer Lila. Quelqu'un vous vise. » | → `DLG_C1_NADIA_03` | | si CLU_BADGE\|CLU_TEMOIN_DIRECTRICE\|DED_RUSE; effet : succès |
+| `DLG_C1_NADIA_02B` | ↳ choix | « Elle s'est fait passer pour une animatrice. Elle savait comment rassurer Lila. Quelqu'un vous vise. » | → `DLG_C1_NADIA_03` | | si l'un de : CLU_BADGE, CLU_TEMOIN_DIRECTRICE, DED_RUSE; effet : succès |
 | `DLG_C1_NADIA_02C` | ↳ choix | « Vous nous mentez. Qu'est-ce que vous cachez ? » | → `DLG_C1_NADIA_07` | | effet : BR_NADIA_BRUSQUEE |
 | `DLG_C1_NADIA_03` | NADIA | Ils ont écrit « pas de police ». Si je parle, je… | Aveu partiel | terrifiée |  |
 | `DLG_C1_NADIA_04` | HEROINE | La police est déjà là. Ce qui la protège, c'est qu'on sache où chercher. | Argument décisif | douce, ferme |  |
@@ -441,7 +441,7 @@
 | `DLG_C1_TABLEAU_02` | MENDIONDO | Sur quoi vous vous appuyez ? Je ne peux pas envoyer des hommes sur une intuition. | Hypothèse sans preuve épinglée (pas de pénalité) | agacée, juste |  |
 | `DLG_C1_TABLEAU_03` | MENDIONDO | La patrouille de la Corniche n'a rien. Un camping-car, c'est tout. | BR_ERR_NORD | tendue |  |
 | `DLG_C1_TABLEAU_04` | MENDIONDO | La vidéo du péage : c'est un autre modèle, avec une échelle sur le toit. On a perdu une demi-heure. | BR_ERR_A63 | dure |  |
-| `DLG_C1_TABLEAU_05` | MENDIONDO | La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses rue du Port. | BR_ERR_PORT | lasse |  |
+| `DLG_C1_TABLEAU_05` | MENDIONDO | La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses rue des Tamaris. | BR_ERR_PORT | lasse |  |
 | `DLG_C1_TABLEAU_06` | MENDIONDO | Le plombier était à Dax, et les fourgons de la blanchisserie au dépôt. Ce n'est pas ça. | BR_ERR_VEHICULE | sèche |  |
 | `DLG_C1_TABLEAU_07` | MENDIONDO | La mairie n'a aucune Sandrine. Et ce logo n'existe plus depuis l'an dernier. | BR_ERR_PERSONNE | sèche |  |
 | `DLG_C1_TABLEAU_08` | MENDIONDO | Reprenez. On n'a pas le luxe de se tromper deux fois. | Relance après erreur | pression, pas de mépris |  |
@@ -456,7 +456,7 @@
 | `DLG_C1_FIN_01` | MENDIONDO | Parquet ? Mendiondo. Je demande l'Alerte Enlèvement. J'ai le véhicule, deux suspects, et un secteur : l'étang de Sorbe. | Conséquence concrète de l'enquête | nette, rapide |  |
 | `DLG_C1_FIN_02` | MENDIONDO | La rive est. Bien vu. | Reconnaissance si BONUS_RIVE_EST | brève, sincère | BONUS_RIVE_EST |
 | `DLG_C1_FIN_03` | MENDIONDO | Vous venez. Votre chienne passe devant, vous derrière elle, et mes gars devant vous. C'est clair ? | Cadre du chapitre 2 | autorité, confiance naissante |  |
-| `DLG_C1_FIN_04` | HEROINE | Clair. Allez, {CHIENNE}. On va chercher Lila. | Clôture émotionnelle | colère froide, détermination |  |
+| `DLG_C1_FIN_04` | HEROINE | Clair. Allez, Ariane. On va chercher Lila. | Clôture émotionnelle | colère froide, détermination |  |
 
 ## `DLG_C1_CLOTURE`
 
@@ -488,13 +488,13 @@
 | `UI_CARNET_FAITS` | Ce que j'ai constaté | Onglet : faits observés (CLU_) |
 | `UI_CARNET_DEDUCTIONS` | Ce que j'en déduis | Onglet : déductions (DED_) |
 | `UI_CARNET_HYPOTHESES` | Tableau des hypothèses | Onglet |
-| `UI_CARNET_CHIENNE` | Langage de {CHIENNE} | Fiche d'aide au pistage |
+| `UI_CARNET_CHIENNE` | Langage d'Ariane | Fiche d'aide au pistage |
 | `UI_CARNET_CHIENNE_1` | Truffe au sol, allure régulière : elle suit une piste fraîche. | Fiche chienne |
 | `UI_CARNET_CHIENNE_2` | Truffe intermittente : odeur plus ancienne. | Fiche chienne |
 | `UI_CARNET_CHIENNE_3` | Cercles serrés : quelqu'un s'est arrêté ici, ou la piste se croise. | Fiche chienne |
 | `UI_CARNET_CHIENNE_4` | Assise, regard vers moi : elle a trouvé quelque chose. | Fiche chienne |
 | `UI_CARNET_CHIENNE_5` | Tête haute, retour vers moi : la piste s'arrête. | Fiche chienne |
-| `UI_CARNET_CHIENNE_LIMITE` | {CHIENNE} ne suit pas un véhicule. Ce qu'elle trouve oriente l'enquête ; ce n'est pas une preuve. | Fiche chienne |
+| `UI_CARNET_CHIENNE_LIMITE` | Ariane ne suit pas un véhicule. Ce qu'elle trouve oriente l'enquête ; ce n'est pas une preuve. | Fiche chienne |
 | `UI_HORLOGE` | Il est {heure}. | Horloge du carnet |
 | `UI_RAPPEL_APPEL` | Personne n'a encore appelé les secours. | Rappel si INT_APPEL_17 non fait après 2 min |
 | `UI_RAPPEL_TROIS_AXES` | Mendiondo attend trois réponses : le véhicule, les personnes, la destination. | Rappel après 30 min sans nouvelle hypothèse |
@@ -502,7 +502,7 @@
 | `UI_RAPPEL_NUIT` | Le soleil baisse. Il reste peu de temps avant la nuit. | Rappel à 19 h 00 |
 | `UI_ECHEC_PREUVE_MANQUANTE` | Cette hypothèse n'est soutenue par aucune preuve épinglée. | Message d'échec doux |
 | `UI_ECHEC_OPTION_EXCLUE` | Cette piste a été vérifiée : elle est exclue. | Option grisée |
-| `UI_ECHEC_PISTE_VIDE` | {CHIENNE} ne trouve rien à suivre avec cet objet. | Pistage sans résultat |
+| `UI_ECHEC_PISTE_VIDE` | Ariane ne trouve rien à suivre avec cet objet. | Pistage sans résultat |
 | `UI_CONTRADICTION` | Contradiction : {indice_a} ne s'accorde pas avec {indice_b}. | Signalée dans le carnet quand deux indices s'opposent |
 | `UI_FIN_CHAPITRE` | Chapitre 1 terminé — {heure}. Hypothèses retenues : {n}/3. Découvertes facultatives : {bonus}. | Écran de fin |
 

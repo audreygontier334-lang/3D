@@ -3,15 +3,19 @@
   "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon blanc »",
   "status": "proposition",
   "clock": {"prologue_start": "16:33", "chapter_start": "16:39", "deadline": "19:30", "travel_cost_per_zone": 1},
-  "start_zone": "Z_FRONT",
+  "start_zone": "Z_PROMENADE",
   "prologue": {
     "events": ["EVT_START", "EVT_SONNERIE", "EVT_LILA_COUCOU", "EVT_ABORDAGE", "EVT_MARCHE_FOURGON", "EVT_ALERTE", "EVT_DEPART", "EVT_HORS_VUE", "EVT_CH1_START"],
     "window_max_actions": 2,
+    "_doc_window": "grants_instead_if_with REMPLACE grants quand l'autre action est combinée (photo en course = floue au lieu de nette, jamais les deux). Option d'accessibilité : window_accessibility étend la fenêtre sans changer le nombre d'actions ni leurs effets.",
+    "window_seconds": [8, 12],
+    "window_accessibility": {"id": "OPT_TEMPS_ACTION_ETENDU", "default": false, "window_seconds": [20, 25], "alternative": "pause_jusqu_au_choix", "max_actions_unchanged": true},
+    "player_flags": ["FLAG_COUCOU_RENDU"],
     "actions": [
-      {"id": "ACT_PHOTO", "grants": ["CLU_PHOTO_FOURGON"], "grants_if_with": {"ACT_COURIR": ["CLU_PHOTO_FLOUE"]}, "dialogue": "DLG_P_HEROINE_CHOC"},
+      {"id": "ACT_PHOTO", "grants": ["CLU_PHOTO_FOURGON"], "grants_instead_if_with": {"ACT_COURIR": ["CLU_PHOTO_FLOUE"]}, "dialogue": "DLG_P_HEROINE_CHOC"},
       {"id": "ACT_COURIR", "grants": ["CLU_OBS_CONDUCTEUR", "CLU_OBS_ECHAPPEMENT", "CLU_OBS_FEU_FENDU"], "dialogue": "DLG_P_HEROINE_CHOC"},
       {"id": "ACT_CRIER", "grants": ["CLU_OBS_PASSAGERE", "CLU_OBS_BADGE_CHUTE"], "dialogue": "DLG_P_ALERTE"},
-      {"id": "ACT_LACHER", "grants": ["CLU_CHIENNE_IMPREGNEE"], "dialogue": "DLG_P_ALERTE"}
+      {"id": "ACT_ENVOYER", "grants": ["CLU_CHIENNE_IMPREGNEE"], "dialogue": "DLG_P_ALERTE"}
     ],
     "dialogues": ["DLG_P_DUFAU", "DLG_P_LILA", "DLG_P_ABORDAGE", "DLG_P_ALERTE", "DLG_P_HEROINE_CHOC", "DLG_P_TUTO"]
   },

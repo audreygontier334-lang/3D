@@ -15,7 +15,7 @@
 ## Chaîne des destinations
 
 ```
-Prologue + Ch.1  Lescoure-Plage (village, port du courant)
+Prologue + Ch.1  Lescoure-Plage (centre-ville côtier ; port hors champ)
       │  vidéo du rond-point + chronométrie + photo de vie
       ▼
 Ch.2  Étang de Sorbe, rive est (forêt, airiaux, nuit)
@@ -36,12 +36,12 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale)
 ---
 
 ## Prologue — « Sortie d'école »
-- **Question centrale** : que s'est-il passé au coin de la rue du Port ?
-- **Lieu** : front de mer et rue de l'École, Lescoure-Plage, mardi 16 h 25 – 16 h 39.
+- **Question centrale** : que s'est-il passé au coin de la rue des Tamaris ?
+- **Lieu** : centre-ville de Lescoure-Plage (rue piétonne, école, place de l'Église, rue des Tamaris), mardi 16 h 33 – 16 h 39. Aucun port ni front de mer visible.
 - **Suspect** : un fourgon blanc, deux adultes.
 - **Enjeu temporel** : une fenêtre d'une minute pendant l'enlèvement ; ce que le joueur fait détermine les indices de départ.
-- **Mécanique introduite** : déplacement, caméras, ordres à la chienne, observation en temps réel.
-- **Révélation** : la fillette connaissait la chienne ; l'inconnue portait un badge officiel.
+- **Mécanique introduite** : déplacement, caméras, ordres à Ariane (libre, à la voix), observation en temps réel.
+- **Révélation** : la fillette connaissait Ariane ; l'inconnue portait un badge officiel.
 
 ## Chapitre 1 — « Le fourgon blanc »
 - **Question** : quel véhicule, quelles personnes, quelle direction ?

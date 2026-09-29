@@ -2,13 +2,13 @@
 
 > **Statut : proposition de Claude, non canonique.** Rien dans ce document ne devient décision avant validation d'Audrey. Les éléments déjà validés sont repris de `docs/DECISIONS.md` et signalés ✅. Tout le reste est marqué 🟡 *proposition*.
 >
-> Noms : la protagoniste et sa chienne n'ont pas encore de nom de jeu. Les textes utilisent les jetons `{HEROINE}` et `{CHIENNE}`, remplacés par le moteur. Les autres noms sont provisoires.
+> Noms : la protagoniste et sa chienne n'ont pas encore de nom de jeu. Les textes utilisent les jetons `{HEROINE}` et `Ariane`, remplacés par le moteur. Les autres noms sont provisoires.
 
 ---
 
 ## 1. Résumé public (sans spoilers)
 
-Un mardi de fin septembre, à Lescoure-Plage 🟡 — un village fictif de la côte landaise, entre océan, dunes et forêt de pins —, une femme promène sa chienne sur le front de mer ✅. À la sortie de l'école, elle voit une fillette du quartier monter dans un fourgon blanc avec une inconnue. Quelques secondes plus tard, le fourgon a disparu ✅.
+Un mardi de fin septembre, à Lescoure-Plage 🟡 — une petite ville côtière fictive entre océan, dunes et forêt de pins —, une femme se promène avec sa chienne Ariane dans le centre-ville ✅ (centre inspiré de celui d'Arcachon, lumière chaude de fin d'après-midi ✅). À la sortie de l'école, elle voit une fillette du quartier monter dans un fourgon blanc avec une inconnue. Quelques secondes plus tard, le fourgon a disparu ✅.
 
 Elle n'est ni policière ni détective. Mais elle a vu la scène, sa chienne connaît l'odeur de l'enfant, et les premières heures comptent. Aux côtés des gendarmes, elle interroge les témoins, confronte des versions qui ne concordent pas, suit les pistes que flaire sa chienne et apprend à distinguer ce qu'elle a vu de ce qu'elle croit avoir vu.
 
@@ -23,14 +23,15 @@ Retrouver la fillette n'est que le début. L'enlèvement n'avait rien d'un hasar
 ## 2. Le duo ✅ (caractéristiques validées) / 🟡 (caractérisation proposée)
 
 ### {HEROINE}
-- ✅ Femme brune d'une trentaine d'années, jean, tee-shirt, veste en jean, bandeau noué, créoles, baskets blanches épaisses ; expression sérieuse ou en colère selon la scène.
-- 🟡 Habite Lescoure depuis plusieurs années ; connaît les commerçants, les habitudes du port, les véhicules qui passent. Elle croise souvent Lila, la fillette, qui caresse sa chienne à la sortie de l'école.
+- ✅ Femme brune d'une trentaine d'années, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs blancs, créoles, baskets rétro de running noires et blanches sans marque ; attitude naturelle et expression adaptée à la scène (référence : `docs/DECISIONS.md`, PR #3).
+- 🟡 Habite Lescoure depuis plusieurs années ; connaît les commerçants, les habitudes du port, les véhicules qui passent. Elle croise souvent Lila, la fillette, qui caresse Ariane à la sortie de l'école.
 - 🟡 Caractère : directe, obstinée, peu patiente avec les discours creux ; elle se méfie de ses propres impressions et apprend à les vérifier. Sa colère est un moteur, pas un défaut à punir.
 - 🟡 Statut : **civile et témoin**. Elle ne procède à aucune arrestation, ne fouille pas illégalement, ne délivre aucun mandat. Son rôle : observer, relier, convaincre les autorités d'agir au bon endroit.
 - ❓ Métier et passé : à trancher (voir `QUESTIONS_AUDREY.md`, Q5).
 
-### {CHIENNE}
+### Ariane
 - ✅ Croisée malinois / bull terrier, environ 35 kg, beige fauve, masque et oreilles noirs, poitrail et bouts de pattes blancs, musclée, une oreille droite et l'autre tombante.
+- ✅ Libre dès le départ : **ni laisse ni collier** ; elle porte seulement un foulard noir à motifs blancs assorti au bandeau de {HEROINE}. Comportement naturel.
 - 🟡 Chienne de compagnie **non dressée pour la police**, mais très éduquée : rappel, « au pied », « reste », « cherche », « montre ». Grande sensibilité aux émotions de sa maîtresse.
 - 🟡 **Capacités plausibles** : suivre la piste fraîche d'une personne à pied à partir d'un objet de référence ; retrouver un objet porteur d'une odeur ; signaler une personne cachée à courte distance ; réagir à un individu qu'elle a déjà senti.
 - 🟡 **Limites affichées au joueur** : elle ne suit pas un véhicule au-delà de quelques mètres ; la piste se dégrade avec le temps, la pluie, le bitume chaud et les passages nombreux ; elle peut se tromper de piste si l'objet de référence est contaminé ; elle ne « désigne » jamais un coupable. Une piste canine est une **orientation**, jamais une preuve juridique — les gendarmes le rappellent.
@@ -82,11 +83,11 @@ Retrouver la fillette n'est que le début. L'enlèvement n'avait rien d'un hasar
 | J-3 semaines | Nadia bloque le conteneur TMAU 482113-7 et signale les certificats. |
 | J-10 jours | Casteran entend Nadia dire que Lila rentre seule désormais. Elle transmet l'itinéraire. |
 | J-2 | Loubère pose de fausses plaques, clonées sur un fourgon identique appartenant à un plombier de Dax. Il retire le lettrage de la blanchisserie ; il en reste une ombre. |
-| J 15 h 50 | Le fourgon arrive par la route de la forêt et se gare sur l'accotement sablonneux de la rue du Port. Dufau le remarque (pot d'échappement qui cogne). |
+| J 15 h 50 | Le fourgon arrive par la route de la forêt et se gare sur l'accotement sablonneux de la rue des Tamaris. Dufau le remarque (pot d'échappement qui cogne). |
 | J 16 h 12 | « Sandrine » achète une bouteille d'eau à la boulangerie, demande le chemin de l'école alors qu'elle porte un badge d'animatrice périscolaire. Elle laisse la bouteille sur le banc de l'abribus. |
 | J 16 h 30 | Sortie de l'école élémentaire des Pins. |
 | J 16 h 36 | « Sandrine » aborde Lila au coin de la rue des Écoles : « Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Elle connaît le prénom de Nadia. Lila la suit, hésitante. |
-| J 16 h 38 | Lila monte dans le fourgon. Le cordon du badge de « Sandrine » s'accroche à la portière et tombe dans la haie. Le fourgon part vers le sud, tourne à droite au bout de la rue du Port, prend au rond-point la route des Étangs. |
+| J 16 h 38 | Lila monte dans le fourgon. Le cordon du badge de « Sandrine » s'accroche à la portière et tombe dans la haie. Le fourgon part vers le sud, tourne à droite au bout de la rue des Tamaris, prend au rond-point la route des Étangs. |
 | J 16 h 38 | Casteran, sur le seuil de son étude, a observé la scène de loin. Elle affirmera ensuite, pour égarer les recherches, que le fourgon est parti vers le nord par la corniche. |
 | J 16 h 39 | Vidéo d'Inès : le fourgon au rond-point, sortie route des Étangs. |
 | J 16 h 58 | Un autre fourgon blanc (modèle différent, échelle sur le toit) passe au péage de l'A63 ; un agent le signale à tort à 17 h 15. |

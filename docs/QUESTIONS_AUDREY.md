@@ -4,6 +4,13 @@
 >
 > ⚠️ Q2 contient un spoiler sur la fin.
 
+## Déjà décidé par Audrey (29/09) — appliqué dans cette PR
+- La chienne s'appelle **Ariane** ; libre, sans laisse ni collier, foulard noir à motifs blancs.
+- L'ouverture a lieu dans un **centre-ville côtier inspiré de celui d'Arcachon**, en fin d'après-midi dorée ; aucun port ni front de mer dans les premières minutes.
+- Après le départ du fourgon, Ariane sent un objet et mène à un indice.
+
+Le détail des trois grands choix (Q1–Q3) est présenté simplement dans `docs/VALIDATION_AUDREY_ACTE1.md`.
+
 ## Les trois arbitrages les plus importants
 
 ### Q1 — Pourquoi Lila est-elle enlevée ?
@@ -31,7 +38,7 @@ Maître Casteran apparaît dès le premier chapitre comme un témoin respectable
 ## Autres arbitrages
 
 ### Q4 — Les noms
-- **Nom de la chienne** : il est prononcé à voix haute dans une quinzaine de répliques (ordres, encouragements). Les textes utilisent `{CHIENNE}` en attendant.
+- ~~Nom de la chienne~~ : **Ariane** (décidé).
 - **Nom de la protagoniste** : les dialogues l'évitent pour l'instant (`{HEROINE}`). Veux-tu qu'elle porte ton prénom, un autre prénom, ou qu'elle ne soit jamais nommée ?
 
 ### Q5 — Le métier et le passé de la protagoniste
@@ -42,11 +49,12 @@ Cela change ce qu'elle remarque et comment les gens lui parlent.
 | B. Ancienne militaire / secouriste | Justifie son sang-froid, mais tire le jeu vers l'action et le cliché. |
 | C. Aucun métier précisé | Plus neutre, mais on perd une source d'indices et de caractère. |
 
-### Q6 — Le village
+### Q6 — La ville
+L'allure est décidée (centre-ville inspiré d'Arcachon). Reste à savoir si la ville est inventée ou réelle.
 | Option | Effets |
 |---|---|
-| **A. Village fictif, « Lescoure-Plage », entre dunes, courant et étangs** *(recommandé)* | Liberté totale pour le plan (lignes de vue, rond-point, étang) ; aucune personne ou commerce réel mis en cause. |
-| B. Village réel de la côte landaise | Authenticité, mais contraintes fortes (plan réel, école, gendarmerie, commerçants réels) et risque de gêner des habitants. |
+| **A. Ville fictive, « Lescoure-Plage », au centre inspiré d'Arcachon, entre dunes et étangs** *(recommandé)* | Liberté totale pour le plan (lignes de vue, rond-point, étang) ; aucune personne ou commerce réel mis en cause. |
+| B. Arcachon réelle | Authenticité, mais contraintes fortes (vrai plan, vraie école, vraie gendarmerie, commerçants réels), distances régionales à refaire et risque de gêner des habitants. |
 Le nom « Lescoure-Plage » est provisoire.
 
 ### Q7 — L'ampleur des voyages

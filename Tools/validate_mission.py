@@ -114,6 +114,7 @@ class Mission:
                     out.add(g)
             if src.get("fail_flag"):
                 out.add(src["fail_flag"])
+        out |= set(self.meta["prologue"].get("player_flags", []))
         return out
 
 
@@ -277,7 +278,7 @@ def check_refs(m: Mission, r: Report) -> None:
     need(pro["dialogues"], "prologue", scene_ids)
     for a in m.actions.values():
         need(a["grants"], f"action {a['id']}")
-        for other, g in a.get("grants_if_with", {}).items():
+        for other, g in a.get("grants_instead_if_with", {}).items():
             need([other], f"action {a['id']}", set(m.actions))
             need(g, f"action {a['id']}")
         need([a["dialogue"]], f"action {a['id']}", scene_ids)
@@ -314,7 +315,7 @@ def clue_sources(m: Mission) -> dict[str, list[str]]:
     for a in m.actions.values():
         for g in a["grants"]:
             src[g].append(a["id"])
-        for gs in a.get("grants_if_with", {}).values():
+        for gs in a.get("grants_instead_if_with", {}).values():
             for g in gs:
                 src[g].append(a["id"])
     return src
@@ -342,10 +343,10 @@ def prologue_scenarios(m: Mission) -> list[tuple[tuple[str, ...], set[str]]]:
             grants: set[str] = set()
             for a in combo:
                 act = m.actions[a]
-                special = [o for o in act.get("grants_if_with", {}) if o in combo]
+                special = [o for o in act.get("grants_instead_if_with", {}) if o in combo]
                 if special:
                     for o in special:
-                        grants |= set(act["grants_if_with"][o])
+                        grants |= set(act["grants_instead_if_with"][o])
                 else:
                     grants |= set(act["grants"])
             out.append((combo, grants))
@@ -645,12 +646,95 @@ def check_content(m: Mission, r: Report) -> None:
         r.err("[contenu] CLU_CCTV_RELAIS doit rester à 16 h 48 (9 km depuis le rond-point à 16 h 39)")
 
 
+# ------------------------------------------- 8 bis. photo exclusive, états DED_/H_, conditions de dialogue
+
+def check_window_exclusive(m: Mission, r: Report) -> None:
+    """Une action « remplacée » (ex. photo en course) ne doit jamais donner aussi son résultat normal."""
+    for combo, grants in prologue_scenarios(m):
+        for a in combo:
+            act = m.actions[a]
+            for other in act.get("grants_instead_if_with", {}):
+                if other in combo:
+                    others = set()
+                    for b in combo:
+                        if b != a:
+                            others |= set(m.actions[b]["grants"])
+                    leaked = (set(act["grants"]) & grants) - others
+                    if leaked:
+                        r.err(f"[fenêtre] {'+'.join(combo)} : {', '.join(sorted(leaked))} obtenu(s) alors que "
+                              f"{a} avec {other} doit le(s) remplacer")
+    pro = m.meta["prologue"]
+    acc = pro.get("window_accessibility")
+    if not acc or not acc.get("max_actions_unchanged"):
+        r.err("[fenêtre] option d'accessibilité absente ou modifiant le nombre d'actions")
+
+
+def check_states(m: Mission, r: Report) -> None:
+    """DED_ = déduction établie dans le carnet ; H_ = hypothèse présentée sur le tableau. Ne pas les confondre."""
+    res = m.meta["resolution"]
+    for st in res["chapter2_states"]:
+        for x in st["condition"].get("requires", []):
+            if x.startswith("DED_"):
+                r.err(f"[états] {st['id']} dépend de {x} : un état de fin dépend du tableau présenté, utiliser l'hypothèse H_ correspondante")
+            elif x not in m.hypotheses:
+                r.err(f"[états] {st['id']} : hypothèse inconnue {x}")
+    for b in res["bonuses"]:
+        src = b["from"]
+        if src.startswith("DED_"):
+            r.err(f"[états] bonus {b['id']} tiré de {src} : utiliser l'hypothèse H_ présentée")
+        elif src.startswith("H_"):
+            h = m.hypotheses.get(src)
+            if not h:
+                r.err(f"[états] bonus {b['id']} : hypothèse inconnue {src}")
+            elif not any(x.startswith("DED_") for grp in h.get("requires_any_of", []) for x in grp):
+                r.err(f"[états] {src} donne un bonus sans exiger de déduction DED_ établie")
+    for h in m.hypotheses.values():
+        if h.get("bonus") and h["bonus"] not in {b["id"] for b in res["bonuses"]}:
+            r.err(f"[états] {h['id']} : bonus {h['bonus']} absent de mission.json")
+
+
+REQ_KEYS = {"all", "any", "none", "selected", "outcome"}
+OUTCOMES = {"succes", "echec"}
+
+
+def dialogue_nodes(m: Mission):
+    for sc in m.scenes.values():
+        for ln in sc["lines"]:
+            yield sc["id"], ln
+            for ch in ln.get("choices", []):
+                yield sc["id"], ch
+
+
+def check_dialogue_requires(m: Mission, r: Report) -> None:
+    known = set(m.clues) | set(m.deductions) | set(m.hypotheses) | set(m.actions) | m.flags_defined()
+    known |= {b["id"] for b in m.meta["resolution"]["bonuses"]}
+    for sid, node in dialogue_nodes(m):
+        where = f"{sid}/{node['id']}"
+        if "condition" in node:
+            r.err(f"[dialogues] {where} : condition en prose « {node['condition']} » ; utiliser requires")
+        req = node.get("requires")
+        if req is None:
+            continue
+        if not isinstance(req, dict) or not req or set(req) - REQ_KEYS:
+            r.err(f"[dialogues] {where} : requires mal formé {req!r}")
+            continue
+        for k in ("all", "any", "none"):
+            for x in req.get(k, []):
+                if x not in known:
+                    r.err(f"[dialogues] {where} : {k} référence un ID inconnu {x}")
+        if "selected" in req and req["selected"] not in m.clues:
+            r.err(f"[dialogues] {where} : objet sélectionné inconnu {req['selected']}")
+        if "outcome" in req and req["outcome"] not in OUTCOMES:
+            r.err(f"[dialogues] {where} : résultat {req['outcome']} hors de {sorted(OUTCOMES)}")
+
+
 # ------------------------------------------------------------------------- main
 
 def validate(mission_dir: Path) -> Report:
     r = Report()
     m = Mission(mission_dir)
-    for check in (check_ids, check_refs, check_sources, check_reachability, check_time, check_branches, check_content):
+    for check in (check_ids, check_refs, check_sources, check_reachability, check_time, check_branches, check_content,
+                  check_window_exclusive, check_states, check_dialogue_requires):
         check(m, r)
     return r
 

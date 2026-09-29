@@ -28,7 +28,7 @@ def render(doc: dict) -> str:
         "`GameData/dialogues/01-ouverture.json` par `Tools/render_dialogues.py` : "
         "modifier le JSON, puis relancer le script. Ne pas éditer ce fichier à la main.",
         ">",
-        "> `{HEROINE}` et `{CHIENNE}` sont remplacés par le moteur. Colonnes : **intention** = ce que "
+        "> `{HEROINE}` est remplacé par le moteur (nom de la protagoniste à décider). Colonnes : **intention** = ce que "
         "la ligne doit accomplir dans le jeu ; **émotion** = indication pour la voix et l'animation.",
         "",
         "## Locuteurs",
@@ -43,9 +43,9 @@ def render(doc: dict) -> str:
                 "| ID | Locuteur | Réplique | Intention | Émotion | Condition |", "|---|---|---|---|---|---|"]
         for ln in sc["lines"]:
             out.append(f"| `{ln['id']}` | {ln['speaker']} | {esc(ln['text'])} | {esc(ln['intent'])} | "
-                       f"{esc(ln['emotion'])} | {esc(ln.get('condition', ''))} |")
+                       f"{esc(ln['emotion'])} | {esc(fmt_req(ln.get('requires')))} |")
             for ch in ln.get("choices", []):
-                cond = ch.get("condition", "")
+                cond = fmt_req(ch.get("requires"))
                 eff = ch.get("effect", "")
                 extra = "; ".join(x for x in (f"si {cond}" if cond else "", f"effet : {eff}" if eff else "") if x)
                 out.append(f"| `{ch['id']}` | ↳ choix | {esc(ch['text'])} | → `{ch['goto']}` | | {esc(extra)} |")
@@ -55,6 +55,24 @@ def render(doc: dict) -> str:
     out += ["", "Les aides progressives des énigmes (`UI_HINT_*`) sont dans `GameData/missions/01/puzzles.json` "
             "et reprises dans `docs/cases/01-enigmes.md`.", ""]
     return "\n".join(out)
+
+
+def fmt_req(req) -> str:
+    """Condition structurée → texte lisible (la donnée reste la structure JSON)."""
+    if not req:
+        return ""
+    parts = []
+    if req.get("all"):
+        parts.append(" et ".join(req["all"]))
+    if req.get("any"):
+        parts.append("l'un de : " + ", ".join(req["any"]))
+    if req.get("none"):
+        parts.append("aucun de : " + ", ".join(req["none"]))
+    if req.get("selected"):
+        parts.append("objet choisi = " + req["selected"])
+    if req.get("outcome"):
+        parts.append("résultat = " + req["outcome"])
+    return " ; ".join(parts)
 
 
 def main(argv: list[str]) -> int:

@@ -61,9 +61,6 @@
                 "emotion": {
                   "type": "string"
                 },
-                "condition": {
-                  "type": "string"
-                },
                 "choices": {
                   "type": "array",
                   "items": {
@@ -85,14 +82,17 @@
                         "type": "string",
                         "pattern": "^DLG_[A-Z0-9_]+$"
                       },
-                      "condition": {
-                        "type": "string"
-                      },
                       "effect": {
                         "type": "string"
+                      },
+                      "requires": {
+                        "$ref": "#/$defs/requires"
                       }
                     }
                   }
+                },
+                "requires": {
+                  "$ref": "#/$defs/requires"
                 }
               }
             }
@@ -120,6 +120,47 @@
           "context": {
             "type": "string"
           }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "requires": {
+      "type": "object",
+      "description": "Condition lisible par le jeu, même format que les interactions. all = tous requis ; any = au moins un ; none = aucun ; selected = objet choisi dans l'interaction en cours ; outcome = résultat de l'interaction en cours.",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "all": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "any": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "none": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "selected": {
+          "type": "string",
+          "pattern": "^CLU_[A-Z0-9_]+$"
+        },
+        "outcome": {
+          "enum": [
+            "succes",
+            "echec"
+          ]
         }
       }
     }
