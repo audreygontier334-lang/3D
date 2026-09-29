@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+import math
 import json
 import shutil
 import sys
@@ -743,3 +744,42 @@ class TestMission04(unittest.TestCase):
         doc = json.loads((ROOT / "GameData/campaign/itineraire.json").read_text(encoding="utf-8"))
         lila = [c for e in doc["etapes"] for c in e["candidates"] if c.get("lila_retrouvee")]
         self.assertEqual([c["id"] for c in lila], ["DEST_LANDE_HAUTE_NE"])
+
+
+class TestSqueletteUnreal(unittest.TestCase):
+    """Le squelette Unreal reste aligné sur la maquette de Codex et sur la mission (pas de coordonnées qui dérivent)."""
+
+    UE = ROOT / "Game" / "Unreal" / "FauxSemblants"
+    GLTF = ROOT / "Game" / "Blockout" / "ouverture-centre-ville.gltf"
+
+    def setUp(self):
+        if not self.GLTF.exists():
+            self.skipTest("maquette de la PR #3 absente de cette branche")
+        self.nodes = {n["name"]: n for n in json.loads(self.GLTF.read_text(encoding="utf-8"))["nodes"]}
+        self.cpp = (self.UE / "Source/FauxSemblants/Private/FSPrologueDirector.cpp").read_text(encoding="utf-8")
+
+    def test_volumes_remplaces_existent_dans_la_maquette(self):
+        import ast
+        src = (self.UE / "Scripts/setup_prologue.py").read_text(encoding="utf-8")
+        tree = ast.parse(src)
+        dynamic = next(ast.literal_eval(n.value) for n in ast.walk(tree)
+                       if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "DYNAMIC")
+        self.assertTrue(dynamic <= set(self.nodes), sorted(dynamic - set(self.nodes)))
+
+    def test_lila_et_sandrine_arrivent_devant_le_fourgon(self):
+        import re
+        keys = {name: re.findall(r"\{(\d+), ([\d.]+)f, (-?[\d.]+)f\}", block)
+                for name, block in re.findall(r"const FFSKey (\w+)\[\] = \{(.*?)\};", self.cpp, re.S)}
+        van = self.nodes["van_placeholder"]["translation"]
+        for name in ("LilaKeys", "K2Keys"):
+            with self.subTest(name):
+                _, x, z = keys[name][-1]
+                self.assertLess(math.dist((float(x), float(z)), (van[0], van[2])), 4.5)
+                self.assertGreater(float(z), -17.2 - 0.01)  # sur le trottoir nord, pas sur la chaussée
+
+    def test_repères_de_la_mission_utilisés_par_le_code(self):
+        import re
+        m = vm.Mission(MISSION)
+        ids = set(re.findall(r'TEXT\("((?:DLG|ACT|FLAG)_[A-Z0-9_]+)"\)', self.cpp))
+        known = set(m.lines) | set(m.actions) | m.flags_defined() | {"FLAG_APPEL_17"}
+        self.assertEqual(ids - known, set())
