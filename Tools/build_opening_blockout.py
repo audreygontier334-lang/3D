@@ -40,7 +40,7 @@ palette = {
     "creme": [0.83, 0.75, 0.62, 1], "rose": [0.76, 0.58, 0.55, 1],
     "bleu": [0.50, 0.66, 0.70, 1], "blanc": [0.84, 0.84, 0.80, 1],
     "toit": [0.48, 0.31, 0.24, 1], "ecole": [0.83, 0.72, 0.55, 1],
-    "fourgon": [0.72, 0.72, 0.69, 1], "heroine": [0.16, 0.29, 0.52, 1],
+    "fourgon": [0.78, 0.76, 0.69, 1], "heroine": [0.16, 0.29, 0.52, 1],
     "ariane": [0.62, 0.44, 0.25, 1], "fillette": [0.70, 0.34, 0.37, 1],
     "k2": [0.35, 0.30, 0.42, 1], "vegetation": [0.22, 0.37, 0.22, 1],
     "repere": [0.91, 0.67, 0.12, 1],
@@ -61,7 +61,7 @@ def box(name, centre, size, material, note=None):
 
 
 # Plan A: school square. The alley begins after the eastern corner.
-box("ground", [35, -.18, -20], [170, .30, 110], "sol")
+box("ground", [60, -.18, -20], [240, .30, 110], "sol")
 box("school_square", [0, -.02, -8], [54, .06, 28], "sol")
 box("school_sidewalk", [0, .02, -1], [46, .12, 4], "trottoir")
 box("school_main", [-7, 4, 9], [24, 8, 11], "ecole", "école, plan A")
@@ -73,14 +73,17 @@ box("square_shop_west_roof", [-28, 6.7, -20], [15, .6, 11], "toit")
 box("alley_corner_mask", [27, 4.0, -3], [13, 8, 18], "rose",
     "masque le fourgon et l'abordage depuis la place")
 box("alley_corner_roof", [27, 8.35, -3], [14, .7, 19], "toit")
+box("alley_corner_south_mask", [27, 4.0, -23], [16, 8, 22], "creme",
+    "coude bâti : masque toute la ruelle depuis les zones de la place")
+box("alley_corner_south_roof", [27, 8.35, -23], [17, .7, 23], "toit")
 box("tree_trunk_square", [-17, 2.2, -5], [.6, 4.4, .6], "vegetation")
 box("tree_crown_square", [-17, 5.6, -5], [4.2, 3.6, 4.2], "vegetation")
 
 # Transition and plan B: a narrower alley that turns away from the square.
 box("alley_entry_road", [35, -.02, -15], [24, .06, 9], "sol")
-box("alley_road", [64, -.02, -22], [62, .06, 9], "sol")
-box("alley_sidewalk_north", [64, .02, -15.8], [62, .12, 2.8], "trottoir")
-box("alley_sidewalk_south", [64, .02, -28.2], [62, .12, 2.8], "trottoir")
+box("alley_road", [95, -.02, -22], [150, .06, 9], "sol")
+box("alley_sidewalk_north", [95, .02, -15.8], [150, .12, 2.8], "trottoir")
+box("alley_sidewalk_south", [95, .02, -28.2], [150, .12, 2.8], "trottoir")
 # Varied placeholder houses, deliberately different in size, colour and setback.
 for args in [
     ("alley_house_1900", [43, 3.7, -8], [10, 7.4, 9], "creme"),
@@ -100,14 +103,21 @@ for name, x, z, length in [("hedge_north_1", 48, -13.7, 8), ("hedge_north_2", 67
 box("heroine_place_placeholder", [8, .83, -18], [.5, 1.66, .36], "heroine", "plan A checkpoint")
 box("ariane_place_placeholder", [5.5, .42, -10.5], [1.05, .84, .48], "ariane", "plan A checkpoint")
 box("child_school_placeholder", [1, .62, -.5], [.36, 1.24, .30], "fillette", "Lila au portail, plan A")
+box("bench_dufau", [-12, .45, -12], [2.2, .9, .7], "trottoir", "banc du square, moins de 30 m du portail")
+box("dufau_placeholder", [-12, 1.05, -12], [.55, 1.4, .45], "heroine", "Dufau assis; mots croisés")
+box("alley_angle_marker", [18.5, 1.0, -12], [.4, 2.0, .4], "repere", "angle visible depuis le banc; intérieur invisible")
 box("heroine_alley_placeholder", [37, .83, -21], [.5, 1.66, .36], "heroine", "entrée de ruelle, plan B")
-box("ariane_alley_placeholder", [45, .42, -20.5], [1.05, .84, .48], "ariane", "entrée de ruelle, plan B")
-box("child_alley_placeholder", [60, .62, -21], [.36, 1.24, .30], "fillette", "Lila devant le fourgon, plan B")
-box("k2_placeholder", [61, .83, -20], [.5, 1.66, .36], "k2", "femme au badge, plan B")
-box("van_placeholder", [66, 1.1, -22], [5.2, 2.2, 2.1], "fourgon", "apparence provisoire; plaque arrière vers l'entrée")
-box("scent_object_marker", [44, .13, -19], [.35, .26, .35], "repere", "porte-clés de Lila; proposition")
-box("scent_clue_marker", [63.5, .13, -20.95], [.35, .26, .35], "repere", "bracelet en perles au pied de la portière; proposition")
-box("alley_exit_marker", [95, .25, -22], [.5, .5, .5], "repere", "débouché; mer/ciel/lumière à choisir par Audrey")
+box("ariane_alley_placeholder", [45, .42, -16.2], [1.05, .84, .48], "ariane", "entrée de ruelle, plan B")
+box("child_alley_placeholder", [62.5, .62, -16.2], [.36, 1.24, .30], "fillette", "Lila devant la portière, plan B; tenue validée")
+box("k2_placeholder", [63.5, .83, -15.7], [.5, 1.66, .36], "k2", "femme au badge sur le trottoir, plan B")
+box("van_placeholder", [66, 1.1, -18.6], [5.2, 2.2, 2.1], "fourgon", "blanc usé validé; plaque arrière vers l'entrée; côté trottoir")
+box("scent_object_marker", [46.5, .13, -16.2], [.35, .26, .35], "repere", "porte-clés de Lila")
+box("scent_clue_marker", [66.5, .13, -17.55], [.35, .26, .35], "repere", "bracelet en perles validé, au pied de la portière latérale")
+box("alley_exit_marker", [146, .25, -22], [.5, .5, .5], "repere", "débouché vers front de mer, 79,5 m après la portière")
+box("boulevard_road_screen", [150, .75, -22], [2, 1.5, 11], "trottoir",
+    "masque la chaussée du boulevard et le rond-point")
+box("sea_horizon_band", [160, 3.2, -22], [1, 1.6, 12], "bleu",
+    "bande de mer lointaine validée; aucun port")
 
 
 def camera_rotation(eye, target):
@@ -144,9 +154,10 @@ camera_specs = [
     ("CAM_PLACE_SHOULDER", [8.4, 2.15, -20], [2, 1.0, -1], 58),
     ("CAM_PLACE_WIDE", [7, 4.7, -26], [1, 1.0, -2], 65),
     ("CAM_PLACE_FIRST", [8, 1.61, -18], [1.5, 1.0, -1], 67),
-    ("CAM_RUELLE_SHOULDER", [37.4, 2.15, -23], [62, 1.0, -21], 58),
-    ("CAM_RUELLE_WIDE", [35, 4.2, -29], [62, 1.0, -21], 65),
-    ("CAM_RUELLE_FIRST", [37, 1.61, -21], [62, 1.0, -21], 67),
+    ("CAM_RUELLE_SHOULDER", [37.4, 2.15, -18.2], [63, 1.0, -17], 58),
+    ("CAM_RUELLE_WIDE", [35, 4.2, -25], [63, 1.0, -17], 65),
+    ("CAM_RUELLE_FIRST", [37, 1.61, -18], [63, 1.0, -17], 67),
+    ("CAM_DEPART_COURT", [39, 1.61, -18], [70, 1.0, -18.6], 54),
 ]
 for name, eye, target, fov in camera_specs:
     cameras.append({"name": name, "type": "perspective", "perspective": {"yfov": math.radians(fov), "znear": .1, "zfar": 220}})
@@ -170,7 +181,7 @@ gltf = {
         {"bufferView": 1, "componentType": 5126, "count": 24, "type": "VEC3"},
         {"bufferView": 2, "componentType": 5123, "count": 36, "type": "SCALAR", "min": [0], "max": [23]}],
     "extras": {"axis": "X east, Y up, Z north", "unit": "metre", "school_gate": [0, 0, 0],
-               "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; débouché ouvert à décision"},
+               "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; mer lointaine visible, route et rond-point masqués; soleil de référence vers 16 h 30"},
 }
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 OUTPUT.write_text(json.dumps(gltf, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
