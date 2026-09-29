@@ -20,6 +20,10 @@
 2. **Epic Games Launcher** : https://www.unrealengine.com/download. Onglet *Unreal Engine › Bibliothèque* → installe **Unreal Engine 5.4** (ou plus récent). Compte environ 60 à 100 Go.
 3. **Visual Studio 2022 Community** (gratuit) : https://visualstudio.microsoft.com. À l'installation, coche **« Développement de jeux en C++ »** et **« Développement Desktop en C++ »**. Unreal en a besoin pour compiler le code.
 
+### Sur un PC portable avec deux cartes graphiques (par exemple Intel + NVIDIA)
+
+Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran › Graphiques*, ajoute `UnrealEditor.exe` (dans `C:\Program Files\Epic Games\UE_5.4\Engine\Binaries\Win64\`) et choisis **« Hautes performances »**. Branche le chargeur pendant que tu travailles.
+
 ## Ouvrir le projet
 
 1. Dans l'explorateur Windows, va dans `3D\Game\Unreal\FauxSemblants\`.
