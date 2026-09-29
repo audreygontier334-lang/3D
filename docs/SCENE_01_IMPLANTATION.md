@@ -42,6 +42,8 @@ Le changement de vue ne modifie ni les indices présents, ni le temps écoulé, 
 
 `Game/Blockout/ouverture-centre-ville.gltf` est un fichier 3D glTF autonome, généré par `Tools/build_opening_blockout.py`. Il contient la place de l'école, la rue de fuite, des façades et volumes provisoires pour le fourgon, l'héroïne, Ariane et la fillette, ainsi que trois points de contrôle caméra. Les unités sont des mètres (X vers l'est, Y vers le haut, Z vers le nord ; portail de l'école à l'origine). Il sert à vérifier les dimensions et les angles avant l'assemblage dans Unreal. **Ce n'est ni une scène jouable, ni un rendu photoréaliste, ni un asset final.** Les volumes humains et canins sont de simples repères géométriques sans ressemblance réelle.
 
+Contrôle reproductible des trois cadrages statiques, en format 16:9 : `python3 Tools/build_opening_blockout.py && python3 Tools/check_opening_sightlines.py`. Le script projette le centre de la fillette, du fourgon et d'Ariane dans chaque image, avec une marge de 5 %, puis vérifie qu'aucun volume de bâtiment ou tronc ne coupe les lignes de visée. Les trois cadrages passent ce contrôle. Il faudra encore vérifier dans Unreal les silhouettes entières, les mouvements, les autres rapports d'image, les obstacles dynamiques et la lisibilité des indices.
+
 ## Ce qui sera testé dans la vraie 3D
 
 - Parcours à pied de l'école au croisement et de la promenade aux témoins.
