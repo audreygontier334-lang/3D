@@ -1,0 +1,119 @@
+{
+  "mission": "M04",
+  "_doc": "Coût en minutes. Déplacement sous la pluie : 15 min par zone.",
+  "interactions": [
+    {
+      "id": "INT_C4_BRIEFING",
+      "location": "LOC_PC_FORESTIER",
+      "cost": 10,
+      "mandatory": true,
+      "grants": [
+        "CLU_C4_CARTE_PARCELLES"
+      ],
+      "dialogue": "DLG_C4_BRIEFING"
+    },
+    {
+      "id": "INT_C4_CADASTRE",
+      "location": "LOC_PC_FORESTIER",
+      "cost": 20,
+      "puzzle": "PZ_C4_01",
+      "grants": [
+        "CLU_C4_CADASTRE_HOURCADE"
+      ],
+      "dialogue": "DLG_C4_CADASTRE"
+    },
+    {
+      "id": "INT_C4_REGISTRE",
+      "location": "LOC_PC_FORESTIER",
+      "cost": 15,
+      "requires": {
+        "all": [
+          "CLU_C4_CADASTRE_HOURCADE"
+        ]
+      },
+      "grants": [
+        "CLU_C4_GERANT_SCI"
+      ],
+      "dialogue": "DLG_C4_REGISTRE"
+    },
+    {
+      "id": "INT_C4_STATION",
+      "location": "LOC_STATION_LANDE_HAUTE",
+      "cost": 15,
+      "grants": [
+        "CLU_C4_STATION_GERANT"
+      ],
+      "dialogue": "DLG_C4_STATION"
+    },
+    {
+      "id": "INT_C4_TRACES",
+      "location": "LOC_PISTE_7",
+      "cost": 15,
+      "puzzle": "PZ_C4_02",
+      "available_until": "14:00",
+      "blocked_by": [
+        "FLAG_ETAT_C"
+      ],
+      "grants": [
+        "CLU_C4_TRACES_PISTE_7"
+      ],
+      "dialogue": "DLG_C4_TRACES"
+    },
+    {
+      "id": "INT_C4_ARIANE_PISTE",
+      "location": "LOC_PISTE_7",
+      "cost": 15,
+      "puzzle": "PZ_C4_03",
+      "requires": {
+        "all": [
+          "CLU_C4_PYJAMA_LILA"
+        ]
+      },
+      "grants": [
+        "CLU_C4_ARIANE_HOURCADE"
+      ],
+      "dialogue": "DLG_C4_ARIANE_PISTE"
+    },
+    {
+      "id": "INT_C4_BARTHE",
+      "location": "LOC_CABANE_BARTHE",
+      "cost": 10,
+      "grants": [
+        "CLU_C4_BARTHE_VIDE"
+      ],
+      "dialogue": "DLG_C4_BARTHE"
+    },
+    {
+      "id": "INT_C4_LOUS_PINS",
+      "location": "LOC_CABANE_LOUS_PINS",
+      "cost": 10,
+      "grants": [
+        "CLU_C4_LOUS_PINS_CHASSEURS"
+      ],
+      "dialogue": "DLG_C4_LOUS_PINS"
+    },
+    {
+      "id": "INT_C4_HOURCADE_ABORDS",
+      "location": "LOC_CABANE_HOURCADE",
+      "cost": 10,
+      "grants": [
+        "CLU_C4_PORTE_CADENASSEE"
+      ],
+      "dialogue": "DLG_C4_HOURCADE_ABORDS"
+    },
+    {
+      "id": "INT_C4_PRESENTER_TABLEAU",
+      "location": "LOC_PISTE_7",
+      "cost": 5,
+      "puzzle": "PZ_C4_04",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "CLU_C4_CARTE_PARCELLES"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C4_TABLEAU"
+    }
+  ]
+}

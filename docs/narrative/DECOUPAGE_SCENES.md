@@ -17,7 +17,7 @@
 | V5 | Apparence de Darrigade (et son nom définitif). | Audrey | Rassurant, rien de menaçant à l'image. |
 | V6 | Obscurité des scènes de nuit (chapitre 2). | Audrey | Traces et Ariane lisibles à la lampe dans les trois vues. |
 | V7 | Intensité de la pluie en forêt (chapitre 4). | Audrey | Ariane et les traces lisibles. |
-| V8 | Ce que l'on montre de Lila dans la cabane (durée, cadrage). | Audrey | Aucune violence, pas de complaisance ; décision d'Audrey : cabane sombre, froide, sans confort. |
+| V8 | Ce que l'on montre de Lila dans la cabane (durée, cadrage). | ✅ Tranché par Audrey (29/09) : scène sobre | Quelques secondes : Lila recroquevillée lève les yeux vers Ariane ; aucun gros plan sur sa détresse ; aucune violence (Q3) ; cabane sombre, froide, sans confort. |
 
 ## Sommaire
 
@@ -1205,6 +1205,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 - ✅ Q3 : Lila est retrouvée au chapitre 4.
 - ✅ Q3 : elle n'a subi aucune violence mais a été retenue dans une cabane sombre, froide et sans confort.
+- ✅ V8 : scène sobre, quelques secondes, Lila recroquevillée lève les yeux vers Ariane, sans gros plan sur sa détresse (29/09).
 
 - **Lieu** 🟡 : Cabane sombre, froide, sans aucun confort (décision d'Audrey). Proposition : ancienne cabane de résinier en planches, au fond d'une parcelle. — décors `ENV_CABANE`
 - **Moment et lumière** 🟡 : jeudi, ≈ 17:45 → ≈ 18:15 ; fin de jour sous la pluie ; intérieur très sombre, lumière des lampes ; météo : pluie
@@ -1226,7 +1227,7 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 **Caméras**
 
 - `CAM_SHOULDER` : Plan large sur Ariane devant la porte, puis intérieur.
-- `CAM_WIDE` : Caméra rapprochée ; pas de plan qui s'attarde sur la détresse de Lila.
+- `CAM_WIDE` : Caméra rapprochée, sobre ; pas de plan qui s'attarde sur la détresse de Lila (décision V8).
 - `CAM_FIRST` : Hauteur d'yeux d'adulte qui s'agenouille.
 
 **Si un indice est manqué**
@@ -1236,15 +1237,11 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 **Éléments visuels à produire**
 
 - 🟡 `ENV_CABANE` (lieu) : Sombre, froide, sans aucun confort, aucun signe de violence (décision d'Audrey). Proposition : cabane de résinier en planches.
-- 🟡 `ANIM_LILA_RETROUVEE` (animation) : Lila recroquevillée, lève les yeux vers Ariane, se laisse approcher.
+- ✅ `ANIM_LILA_RETROUVEE` (animation) : Quelques secondes : Lila recroquevillée lève les yeux vers Ariane et se laisse approcher ; aucun gros plan sur sa détresse (décision V8).
 
 **Continuité**
 
 - Lila : même apparence qu'au prologue (tenue V4), salie et humide ; aucune blessure. Ni porte-clés ni bracelet (retrouvés au chapitre 1). Pas de cartable (proposition : resté entre les mains des ravisseurs).
-
-**Points ouverts**
-
-- V8 : ce qu'on montre de Lila dans la cabane (durée, cadrage) : à valider par Audrey.
 
 **Raccord** 🟡 → `SC_C4_04` : Lila est portée jusqu'aux véhicules.
 

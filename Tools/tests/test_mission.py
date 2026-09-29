@@ -711,3 +711,35 @@ class TestMission03(unittest.TestCase):
         m = vm.Mission(ROOT / "GameData" / "missions" / "03")
         self.assertGreaterEqual(vm.hm(m.interactions["INT_C3_PRESENTER_TABLEAU"]["available_from"]),
                                 vm.hm(m.events["EVT_C3_OPERATION"]["time"]))
+
+
+class TestMission04(unittest.TestCase):
+    """Chapitre 4 « La cabane » : Lila est toujours retrouvée (décision Q3), quel que soit l'état ou la route."""
+
+    DIR = ROOT / "GameData" / "missions" / "04"
+
+    def test_aucune_erreur_ni_avertissement(self):
+        r = vm.validate(self.DIR)
+        self.assertEqual(r.errors, [])
+        self.assertEqual(r.warnings, [])
+
+    def test_toute_fin_de_chapitre_retrouve_lila(self):
+        m = vm.Mission(self.DIR)
+        flag = m.meta["lila_retrouvee_flag"]
+        fins = [b for b in m.branches.values() if set(b["flags"]) & {"FLAG_RESOLU", "FLAG_CLOTURE"}]
+        self.assertEqual(len(fins), 2)
+        for b in fins:
+            with self.subTest(b["id"]):
+                self.assertIn(flag, b["flags"])
+
+    def test_bonne_cabane_atteignable_avec_echecs_dans_chaque_etat(self):
+        m = vm.Mission(self.DIR)
+        for st in m.meta["entry_states"]:
+            with self.subTest(st["id"]):
+                have = vm.reachable(m, set(st["grants"]), adversarial=True)
+                self.assertIn("DED_C4_BONNE_CABANE", have)
+
+    def test_la_carte_mene_a_la_cabane(self):
+        doc = json.loads((ROOT / "GameData/campaign/itineraire.json").read_text(encoding="utf-8"))
+        lila = [c for e in doc["etapes"] for c in e["candidates"] if c.get("lila_retrouvee")]
+        self.assertEqual([c["id"] for c in lila], ["DEST_LANDE_HAUTE_NE"])

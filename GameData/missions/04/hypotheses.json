@@ -1,0 +1,70 @@
+{
+  "mission": "M04",
+  "_doc": "Tableau du chapitre 4 : choisir la cabane à ouvrir. Une erreur fait forcer une mauvaise porte, jamais échouer (Q3).",
+  "axes": [
+    {
+      "id": "cabane",
+      "label": "UI_C4_AXE_CABANE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "reseau",
+      "label": "UI_C4_AXE_RESEAU",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C4_HOURCADE",
+      "axis": "cabane",
+      "correct": true,
+      "label": "UI_H_C4_HOURCADE",
+      "requires_any_of": [
+        [
+          "DED_C4_BONNE_CABANE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C4_BARTHE",
+      "axis": "cabane",
+      "correct": false,
+      "label": "UI_H_C4_BARTHE",
+      "unlocked_by": [
+        "CLU_C4_CARTE_PARCELLES"
+      ],
+      "contradicted_by": [
+        "CLU_C4_BARTHE_VIDE",
+        "CLU_C4_CADASTRE_HOURCADE"
+      ],
+      "wrong_branch": "BR_C4_ERR_BARTHE"
+    },
+    {
+      "id": "H_C4_LOUS_PINS",
+      "axis": "cabane",
+      "correct": false,
+      "label": "UI_H_C4_LOUS_PINS",
+      "unlocked_by": [
+        "CLU_C4_CARTE_PARCELLES"
+      ],
+      "contradicted_by": [
+        "CLU_C4_LOUS_PINS_CHASSEURS",
+        "CLU_C4_CADASTRE_HOURCADE"
+      ],
+      "wrong_branch": "BR_C4_ERR_LOUS_PINS"
+    },
+    {
+      "id": "H_C4_MEME_GERANT",
+      "axis": "reseau",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C4_MEME_GERANT",
+      "requires_any_of": [
+        [
+          "DED_C4_MEME_GERANT"
+        ]
+      ],
+      "bonus": "BONUS_MEME_GERANT"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "mission": "M04",
+  "branches": [
+    {
+      "id": "BR_C4_ERR_BARTHE",
+      "trigger": "Hypothèse « Barthe » présentée",
+      "time_cost": 40,
+      "effect": "Porte forcée à Barthe : vide depuis des mois ; fraîcheur de la piste −1",
+      "flags": [],
+      "grants": [
+        "CLU_C4_BARTHE_VIDE"
+      ],
+      "dialogue": "DLG_C4_ERR_BARTHE",
+      "recovery": "Le cadastre désigne Hourcade.",
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_ERR_LOUS_PINS",
+      "trigger": "Hypothèse « Lous Pins » présentée",
+      "time_cost": 40,
+      "effect": "Cabane de chasse : rien de récent ; fraîcheur de la piste −1",
+      "flags": [],
+      "grants": [
+        "CLU_C4_LOUS_PINS_CHASSEURS"
+      ],
+      "dialogue": "DLG_C4_ERR_LOUS_PINS",
+      "recovery": "Le cadastre désigne Hourcade.",
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_CADASTRE_ERREUR",
+      "trigger": "Mauvaise parcelle lue sur le cadastre",
+      "time_cost": 20,
+      "effect": "Recherche inutile au registre",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C4_CADASTRE_ERREUR",
+      "recovery": "Relire les propriétaires : seule une parcelle appartient à une SCI.",
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_TRACES_PERDUES",
+      "trigger": "Mauvaise branche choisie sur la piste 7",
+      "time_cost": 15,
+      "effect": "La pluie efface le reste des traces",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C4_TRACES_PERDUES",
+      "recovery": "Ariane, avec le pyjama, ou l'hélicoptère à 15 h.",
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_ARIANE_MAUVAIS_OBJET",
+      "trigger": "Couverture de la voiture donnée comme objet de référence",
+      "time_cost": 10,
+      "effect": "Odeurs mêlées : Ariane tourne en rond",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C4_ARIANE_MAUVAIS_OBJET",
+      "recovery": "Reprendre avec le pyjama apporté par Nadia.",
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_RESOLU",
+      "trigger": "Tableau présenté avec la bonne cabane",
+      "time_cost": 0,
+      "effect": "Les gendarmes ouvrent Hourcade : Lila est retrouvée (décision Q3)",
+      "flags": [
+        "FLAG_RESOLU",
+        "FLAG_LILA_RETROUVEE"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C4_CABANE",
+      "recovery": null,
+      "rejoins": "RES_M04"
+    },
+    {
+      "id": "BR_C4_CLOTURE",
+      "trigger": "19 h 30 sans résolution",
+      "time_cost": 0,
+      "effect": "La battue ouvre Hourcade avant la nuit : Lila est retrouvée (décision Q3) ; état C",
+      "flags": [
+        "FLAG_CLOTURE",
+        "FLAG_LILA_RETROUVEE"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C4_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M04"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "mission": "M04",
+  "zones": [
+    {
+      "id": "Z_PC_FORESTIER",
+      "neighbors": [
+        "Z_STATION",
+        "Z_PISTE_7"
+      ]
+    },
+    {
+      "id": "Z_STATION",
+      "neighbors": [
+        "Z_PC_FORESTIER"
+      ]
+    },
+    {
+      "id": "Z_PISTE_7",
+      "neighbors": [
+        "Z_PC_FORESTIER",
+        "Z_BARTHE",
+        "Z_LOUS_PINS",
+        "Z_HOURCADE"
+      ]
+    },
+    {
+      "id": "Z_BARTHE",
+      "neighbors": [
+        "Z_PISTE_7"
+      ]
+    },
+    {
+      "id": "Z_LOUS_PINS",
+      "neighbors": [
+        "Z_PISTE_7"
+      ]
+    },
+    {
+      "id": "Z_HOURCADE",
+      "neighbors": [
+        "Z_PISTE_7"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_PC_FORESTIER",
+      "name": "Maison forestière, poste de commandement",
+      "zone": "Z_PC_FORESTIER",
+      "env": "ENV_FORET_LANDE_HAUTE"
+    },
+    {
+      "id": "LOC_STATION_LANDE_HAUTE",
+      "name": "Station-service de Lande-Haute",
+      "zone": "Z_STATION",
+      "env": "ENV_FORET_LANDE_HAUTE"
+    },
+    {
+      "id": "LOC_PISTE_7",
+      "name": "Piste forestière 7, sous la pluie",
+      "zone": "Z_PISTE_7",
+      "env": "ENV_FORET_LANDE_HAUTE"
+    },
+    {
+      "id": "LOC_CABANE_BARTHE",
+      "name": "Cabane de Barthe",
+      "zone": "Z_BARTHE",
+      "env": "ENV_FORET_LANDE_HAUTE"
+    },
+    {
+      "id": "LOC_CABANE_LOUS_PINS",
+      "name": "Cabane de Lous Pins",
+      "zone": "Z_LOUS_PINS",
+      "env": "ENV_FORET_LANDE_HAUTE"
+    },
+    {
+      "id": "LOC_CABANE_HOURCADE",
+      "name": "Cabane de Hourcade",
+      "zone": "Z_HOURCADE",
+      "env": "ENV_CABANE"
+    }
+  ]
+}

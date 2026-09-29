@@ -623,7 +623,7 @@ def check_branches(m: Mission, r: Report) -> None:
     for b in m.branches:
         if b not in referenced:
             r.warn(f"[branches] {b} n'est déclenchée par aucune hypothèse, énigme ou choix")
-    if not any(b.get("flags") == ["FLAG_RESOLU"] for b in m.branches.values()):
+    if not any("FLAG_RESOLU" in b.get("flags", []) for b in m.branches.values()):
         r.err("[branches] aucune branche de résolution")
     if not any(e.get("ends_chapter") for e in m.events.values()):
         r.err("[branches] aucune clôture automatique : le chapitre pourrait ne jamais finir")

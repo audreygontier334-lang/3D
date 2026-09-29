@@ -1,0 +1,56 @@
+{
+  "mission": "M04",
+  "_doc": "Jeudi. Les événements `fallback` garantissent que Lila est retrouvée avant la nuit (décision Q3).",
+  "events": [
+    {
+      "id": "EVT_C4_NADIA_ARRIVE",
+      "time": "10:30",
+      "grants": [
+        "CLU_C4_PYJAMA_LILA",
+        "CLU_C4_COUVERTURE_VOITURE"
+      ],
+      "dialogue": "DLG_C4_NADIA_ARRIVE"
+    },
+    {
+      "id": "EVT_C4_HELICO",
+      "time": "15:00",
+      "unless": [
+        "CLU_C4_HELICO_CHALEUR"
+      ],
+      "grants": [
+        "CLU_C4_HELICO_CHALEUR"
+      ],
+      "dialogue": "DLG_C4_HELICO",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C4_BATTUE_HOURCADE",
+      "time": "16:30",
+      "unless": [
+        "CLU_C4_PORTE_CADENASSEE"
+      ],
+      "grants": [
+        "CLU_C4_PORTE_CADENASSEE"
+      ],
+      "dialogue": "DLG_C4_BATTUE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C4_SANDRINE_REVIENT",
+      "time": "17:00",
+      "grants": [
+        "CLU_C4_SANDRINE_INTERPELLEE"
+      ],
+      "dialogue": "DLG_C4_SANDRINE"
+    },
+    {
+      "id": "EVT_C4_CLOTURE",
+      "time": "19:30",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C4_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

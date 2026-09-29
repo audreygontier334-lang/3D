@@ -1,0 +1,102 @@
+{
+  "id": "M04",
+  "title": "Chapitre 4 « La cabane »",
+  "status": "proposition",
+  "min_puzzles": 4,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission sans prologue : départ selon l'état hérité du chapitre 3 et du trajet vers Lande-Haute (entry_states, chacun avec son heure `start`). Décision Q3 d'Audrey : Lila est retrouvée dans ce chapitre, quelle que soit la route (résolution ou clôture). Décision V8 : scène de la cabane sobre.",
+  "lila_retrouvee_flag": "FLAG_LILA_RETROUVEE",
+  "clock": {
+    "chapter_start": "08:00",
+    "deadline": "19:30",
+    "travel_cost_per_zone": 15,
+    "_doc": "Jeudi, pluie froide ; la nuit tombe vers 19 h 45."
+  },
+  "start_zone": "Z_PC_FORESTIER",
+  "entry_states": [
+    {
+      "id": "CH4_ETAT_A",
+      "label": "Avance",
+      "start": "07:15",
+      "grants": [
+        "FLAG_ETAT_A"
+      ]
+    },
+    {
+      "id": "CH4_ETAT_B",
+      "label": "Standard",
+      "start": "08:00",
+      "grants": [
+        "FLAG_ETAT_B"
+      ]
+    },
+    {
+      "id": "CH4_ETAT_C",
+      "label": "Retard (traces effacées par la pluie)",
+      "start": "09:15",
+      "grants": [
+        "FLAG_ETAT_C"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace : cadastre et témoin de la station suffisent à désigner la cabane.",
+    "steps": [
+      "INT_C4_BRIEFING",
+      "INT_C4_CADASTRE",
+      "INT_C4_STATION",
+      "INT_C4_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M04",
+    "dialogue": "DLG_C4_CABANE",
+    "next_states": [
+      {
+        "id": "CH5_ETAT_A",
+        "label": "Avance",
+        "condition": {
+          "resolved_before": "13:00",
+          "requires": [
+            "H_C4_MEME_GERANT"
+          ]
+        }
+      },
+      {
+        "id": "CH5_ETAT_B",
+        "label": "Standard",
+        "condition": {
+          "resolved_before": "17:00"
+        }
+      },
+      {
+        "id": "CH5_ETAT_C",
+        "label": "Retard",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_MEME_GERANT",
+        "from": "H_C4_MEME_GERANT"
+      },
+      {
+        "id": "BONUS_SANDRINE_ARRETEE",
+        "from": "CLU_C4_SANDRINE_INTERPELLEE"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/04-cabane.json"
+  }
+}

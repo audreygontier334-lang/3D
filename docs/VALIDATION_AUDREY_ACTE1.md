@@ -24,6 +24,7 @@
 - **Fourgon (V2 : A)** : blanc usé, ombre de lettrage, feu arrière droit fendu, sans logo de constructeur.
 - **Mécanique de référence** : Carmen Sandiego des années 2000, modernisée et pour adultes ; choix de destination à chaque étape, avec effets sur les résultats, les conséquences et le temps (`docs/narrative/MECANIQUE_DEPLACEMENTS.md`).
 - **Portrait-robot** : c'est la joueuse qui l'établit.
+- **V8, la cabane** : scène sobre, quelques secondes, Lila recroquevillée lève les yeux vers Ariane, sans gros plan sur sa détresse.
 
 Appliqué par Claude le 29/09 : bible, plan des chapitres (toute la recherche reste dans la région jusqu'au chapitre 4, Porto supprimé), données et dialogues du chapitre 1 (Julien reçoit le message ; Nadia ne sait rien ; Darrigade console et s'informe ; Casteran sincère), énigme PZ_08, états de départ du chapitre 2.
 

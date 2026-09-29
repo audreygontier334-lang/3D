@@ -47,8 +47,8 @@
     {
       "id": "V8",
       "question": "Ce que l'on montre de Lila dans la cabane (durée, cadrage).",
-      "decide_par": "Audrey",
-      "contrainte": "Aucune violence, pas de complaisance ; décision d'Audrey : cabane sombre, froide, sans confort."
+      "decide_par": "✅ Tranché par Audrey (29/09) : scène sobre",
+      "contrainte": "Quelques secondes : Lila recroquevillée lève les yeux vers Ariane ; aucun gros plan sur sa détresse ; aucune violence (Q3) ; cabane sombre, froide, sans confort."
     }
   ],
   "chapitres": [
@@ -3603,7 +3603,7 @@
           ],
           "cameras": {
             "CAM_SHOULDER": "Plan large sur Ariane devant la porte, puis intérieur.",
-            "CAM_WIDE": "Caméra rapprochée ; pas de plan qui s'attarde sur la détresse de Lila.",
+            "CAM_WIDE": "Caméra rapprochée, sobre ; pas de plan qui s'attarde sur la détresse de Lila (décision V8).",
             "CAM_FIRST": "Hauteur d'yeux d'adulte qui s'agenouille."
           },
           "repli": [
@@ -3622,20 +3622,19 @@
             {
               "id": "ANIM_LILA_RETROUVEE",
               "type": "animation",
-              "description": "Lila recroquevillée, lève les yeux vers Ariane, se laisse approcher.",
-              "statut": "proposition"
+              "description": "Quelques secondes : Lila recroquevillée lève les yeux vers Ariane et se laisse approcher ; aucun gros plan sur sa détresse (décision V8).",
+              "statut": "audrey"
             }
           ],
           "continuite": [
             "Lila : même apparence qu'au prologue (tenue V4), salie et humide ; aucune blessure. Ni porte-clés ni bracelet (retrouvés au chapitre 1). Pas de cartable (proposition : resté entre les mains des ravisseurs)."
           ],
-          "points_ouverts": [
-            "V8 : ce qu'on montre de Lila dans la cabane (durée, cadrage) : à valider par Audrey."
-          ],
+          "points_ouverts": [],
           "refs": [],
           "decisions_audrey": [
             "Q3 : Lila est retrouvée au chapitre 4.",
-            "Q3 : elle n'a subi aucune violence mais a été retenue dans une cabane sombre, froide et sans confort."
+            "Q3 : elle n'a subi aucune violence mais a été retenue dans une cabane sombre, froide et sans confort.",
+            "V8 : scène sobre, quelques secondes, Lila recroquevillée lève les yeux vers Ariane, sans gros plan sur sa détresse (29/09)."
           ]
         },
         {
