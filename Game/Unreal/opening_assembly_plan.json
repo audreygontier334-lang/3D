@@ -4,9 +4,9 @@
   "status": "assembly_handoff_not_playable",
   "source": {
     "manifest": "Game/Blockout/ouverture-centre-ville.manifest.json",
-    "manifest_sha256": "d33de90228baa722c9bbf26b0369342a4146a331624534765ecbfea48c062b82",
+    "manifest_sha256": "0cca1fb47a781d38cfe7ad5f4157fbdb9f864d322bbde309cdf2d9090825710f",
     "gltf": "Game/Blockout/ouverture-centre-ville.gltf",
-    "gltf_sha256": "0ed7f8d61f7740ea5e720854930f1ced971c8d715bccc5becc7efb0925d5eef6"
+    "gltf_sha256": "9bf293f9d0c72db7ecb1082c07ece826bb012d5259a8a703e5310a5506b21ee3"
   },
   "coordinate_conversion": {
     "source": "gltf_metres_X_east_Y_up_Z_north",
@@ -369,7 +369,7 @@
       "id": "scent_object_marker",
       "kind": "event_marker",
       "location_cm": [
-        2600,
+        1200,
         600,
         13.0
       ],
@@ -379,14 +379,14 @@
         35.0,
         26.0
       ],
-      "role": "objet à définir avec Audrey; après départ du fourgon"
+      "role": "départ de la piste olfactive; après départ du fourgon"
     },
     {
       "id": "scent_clue_marker",
       "kind": "event_marker",
       "location_cm": [
-        3300,
-        200,
+        2900,
+        995.0,
         13.0
       ],
       "collision_profile": "OverlapOnly",
@@ -395,7 +395,7 @@
         35.0,
         26.0
       ],
-      "role": "indice olfactif provisoire"
+      "role": "barrette de Lila tombée sous la portière latérale du fourgon"
     }
   ],
   "zones": [
@@ -420,7 +420,7 @@
     {
       "id": "Z_CROISEMENT",
       "centre_cm": [
-        2600,
+        1200,
         600,
         0
       ],
@@ -495,7 +495,7 @@
       "id": "EVT_INDICE_ODEUR",
       "source_node": "scent_object_marker",
       "location_cm": [
-        2600,
+        1200,
         600,
         13.0
       ]
@@ -504,8 +504,8 @@
       "id": "EVT_PISTE",
       "source_node": "scent_clue_marker",
       "location_cm": [
-        3300,
-        200,
+        2900,
+        995.0,
         13.0
       ]
     }

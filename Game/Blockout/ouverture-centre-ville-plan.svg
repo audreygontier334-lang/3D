@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
-<metadata>source_sha256=053a158b74b26b2fed3241cfcca66a5c81599ca9bba88c034ad525d8d939846a</metadata>
+<metadata>source_sha256=4758056c55d0a67c2ddc188fd0d04e48a6523ca1c707fb6cd689a60b3b585d0c</metadata>
 <rect width="100%" height="100%" fill="#f4f0e7"/>
 <style>text{font-family:Arial,sans-serif;fill:#20242a}.label{font-size:13px}.small{font-size:11px}.title{font-size:24px;font-weight:700}.zone{fill:none;stroke:#2f6e9f;stroke-width:2;stroke-dasharray:8 5}.camera{fill:#2c5b88;stroke:#16334f;stroke-width:1}</style>
 <text x="55" y="42" class="title">Ouverture P0–P3 — plan technique (vue du dessus)</text>
@@ -30,16 +30,16 @@
 <text x="619.93" y="430.66" class="small">ariane_placeholder</text>
 <rect x="518.73" y="612.88" width="4.00" height="4.00" fill="#d85b62" stroke="#30343a" stroke-width="0.8"><title>child_placeholder</title></rect>
 <text x="527.73" y="607.88" class="small">child_placeholder</text>
-<rect x="774.83" y="556.54" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_object_marker</title></rect>
-<text x="783.83" y="551.54" class="small">scent_object_marker</text>
-<rect x="846.54" y="597.51" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_clue_marker</title></rect>
-<text x="855.54" y="592.51" class="small">scent_clue_marker</text>
+<rect x="631.41" y="556.54" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_object_marker</title></rect>
+<text x="640.41" y="551.54" class="small">scent_object_marker</text>
+<rect x="805.56" y="516.07" width="4.00" height="4.00" fill="#f2ad3b" stroke="#30343a" stroke-width="0.8"><title>scent_clue_marker</title></rect>
+<text x="814.56" y="511.07" class="small">scent_clue_marker</text>
 <circle cx="592.44" cy="425.37" r="22.54" class="zone"><title>depart_Audrey_et_Ariane</title></circle>
 <text x="618.98" y="425.37" class="label">Z_PROMENADE</text>
 <circle cx="510.49" cy="620.00" r="22.54" class="zone"><title>sortie_des_classes</title></circle>
 <text x="537.02" y="620.00" class="label">Z_ECOLE</text>
-<circle cx="776.83" cy="558.54" r="22.54" class="zone"><title>premier_indice_olfactif</title></circle>
-<text x="803.37" y="558.54" class="label">Z_CROISEMENT</text>
+<circle cx="633.41" cy="558.54" r="22.54" class="zone"><title>premier_indice_olfactif</title></circle>
+<text x="659.95" y="558.54" class="label">Z_CROISEMENT</text>
 <circle cx="807.56" cy="507.32" r="22.54" class="zone"><title>trajectoire_du_fourgon</title></circle>
 <text x="834.10" y="507.32" class="label">Z_RUE_FUITE</text>
 <circle cx="428.54" cy="538.05" r="22.54" class="zone"><title>espace_public_et_temoin</title></circle>

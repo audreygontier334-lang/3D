@@ -10,7 +10,7 @@
   "zones": [
     {"id": "Z_PROMENADE", "centre": [8, 0, -19], "role": "depart_Audrey_et_Ariane"},
     {"id": "Z_ECOLE", "centre": [0, 0, 0], "role": "sortie_des_classes"},
-    {"id": "Z_CROISEMENT", "centre": [26, 0, -6], "role": "premier_indice_olfactif"},
+    {"id": "Z_CROISEMENT", "centre": [12, 0, -6], "role": "premier_indice_olfactif"},
     {"id": "Z_RUE_FUITE", "centre": [29, 0, -11], "role": "trajectoire_du_fourgon"},
     {"id": "Z_PLACE", "centre": [-8, 0, -8], "role": "espace_public_et_temoin"},
     {"id": "Z_TEMOINS", "centre": [-25, 0, -18], "role": "position_des_PNJ_interrogeables"}

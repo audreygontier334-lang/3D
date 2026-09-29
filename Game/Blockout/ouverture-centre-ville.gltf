@@ -387,7 +387,7 @@
       "name": "scent_object_marker",
       "mesh": 10,
       "translation": [
-        26,
+        12,
         0.13,
         -6
       ],
@@ -397,16 +397,16 @@
         0.35
       ],
       "extras": {
-        "role": "objet à définir avec Audrey; après départ du fourgon"
+        "role": "départ de la piste olfactive; après départ du fourgon"
       }
     },
     {
       "name": "scent_clue_marker",
       "mesh": 10,
       "translation": [
-        33,
+        29,
         0.13,
-        -2
+        -9.95
       ],
       "scale": [
         0.35,
@@ -414,7 +414,7 @@
         0.35
       ],
       "extras": {
-        "role": "indice olfactif provisoire"
+        "role": "barrette de Lila tombée sous la portière latérale du fourgon"
       }
     },
     {

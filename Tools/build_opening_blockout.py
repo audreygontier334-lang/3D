@@ -101,8 +101,10 @@ box("van_placeholder", [29, 1.1, -11], [5.2, 2.2, 2.1], "fourgon", "couleur prov
 box("heroine_placeholder", [8, .83, -19], [.5, 1.66, .36], "heroine", "volume de test seulement")
 box("ariane_placeholder", [10, .42, -17.8], [1.05, .84, .48], "ariane", "libre; aucun collier ni laisse")
 box("child_placeholder", [1, .62, -.5], [.36, 1.24, .30], "fillette", "silhouette fictive de test")
-box("scent_object_marker", [26, .13, -6], [.35, .26, .35], "repere", "objet à définir avec Audrey; après départ du fourgon")
-box("scent_clue_marker", [33, .13, -2], [.35, .26, .35], "repere", "indice olfactif provisoire")
+box("scent_object_marker", [12, .13, -6], [.35, .26, .35], "repere",
+    "départ de la piste olfactive; après départ du fourgon")
+box("scent_clue_marker", [29, .13, -9.95], [.35, .26, .35], "repere",
+    "barrette de Lila tombée sous la portière latérale du fourgon")
 
 
 def camera_rotation(eye, target):

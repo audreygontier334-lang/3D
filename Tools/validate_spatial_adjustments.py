@@ -8,10 +8,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "Game" / "Blockout" / "claude-spatial-adjustments.json"
+SCENE = ROOT / "Game" / "Blockout" / "ouverture-centre-ville.gltf"
+MANIFEST = ROOT / "Game" / "Blockout" / "ouverture-centre-ville.manifest.json"
 
 
 def main() -> int:
     data = json.loads(CONTRACT.read_text(encoding="utf-8"))
+    scene = json.loads(SCENE.read_text(encoding="utf-8"))
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    nodes = {node["name"]: node for node in scene["nodes"]}
+    zones = {zone["id"]: zone for zone in manifest["zones"]}
     errors = []
     accepted = data["accepted_adjustments"]
     origin = accepted["scent_origin"]["target_position"]
@@ -20,6 +26,13 @@ def main() -> int:
     low, high = data["computed_targets"]["accepted_range_m"]
     if not low <= distance <= high:
         errors.append(f"piste olfactive {distance:.3f} m hors plage {low}-{high} m")
+    for key in ("scent_origin", "scent_clue"):
+        item = accepted[key]
+        actual = nodes[item["node"]]["translation"]
+        if actual != item["target_position"]:
+            errors.append(f"{item['node']} n'applique pas la position cible {item['target_position']}")
+    if zones[accepted["scent_origin"]["zone_id"]]["centre"] != [origin[0], 0, origin[2]]:
+        errors.append("le centre de Z_CROISEMENT ne suit pas le départ de la piste")
 
     van = data["reference_vehicle"]
     centre, size = van["centre"], van["size"]
