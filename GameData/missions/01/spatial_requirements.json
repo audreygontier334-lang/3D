@@ -3,7 +3,8 @@
   "status": "proposition",
   "_doc": "Exigences spatiales de l'ouverture (P0–P3 et chapitre 1) reliées à la maquette de la PR #3. zone_id et marker_id n'utilisent que les zones et repères de Game/Blockout/ouverture-centre-ville.manifest.json. camera_independent = l'élément est jouable et lisible dans les trois vues. fallback = voie de repli si le joueur manque l'élément : evenement_rattrapage (événement automatique), indice_equivalent (autres éléments qui mènent au même constat), toujours_accessible (reste en place jusqu'à l'échéance), partout (réalisable dans toutes les zones), automatique (se produit toujours). time_cost = minutes de jeu (0 dans le prologue, qui est en temps réel). Vérifié par Tools/validate_spatial.py. Décisions d'Audrey du 29/09 : la place de l'école (plan A : Z_PROMENADE, Z_ECOLE, Z_PLACE, Z_TEMOINS) et la ruelle des Tamaris (plan B : Z_CROISEMENT = entrée de la ruelle, Z_RUE_FUITE = la ruelle) sont deux lieux et deux plans distincts ; l'enlèvement a lieu dans la ruelle. Les identifiants de zones sont conservés ; leur disposition est à adapter dans la maquette (demandes REQ_RUELLE_*).",
   "blockout_ref": {
-    "source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3, commit bcb280a)",
+    "source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3)",
+    "commit": "1d0434d",
     "zones": [
       "Z_PROMENADE",
       "Z_ECOLE",
@@ -14,6 +15,7 @@
     ],
     "markers": [
       "EVT_SORTIE_ECOLE",
+      "EVT_ABORDAGE",
       "EVT_FOURGON",
       "EVT_DEPART_DUO",
       "EVT_ARIANE",
@@ -21,10 +23,39 @@
       "EVT_PISTE"
     ],
     "cameras": [
-      "CAM_SHOULDER",
-      "CAM_WIDE",
-      "CAM_FIRST"
-    ]
+      "CAM_PLACE_SHOULDER",
+      "CAM_PLACE_WIDE",
+      "CAM_PLACE_FIRST",
+      "CAM_RUELLE_SHOULDER",
+      "CAM_RUELLE_WIDE",
+      "CAM_RUELLE_FIRST"
+    ],
+    "plans": {
+      "PLAN_A_PLACE_ECOLE": {
+        "cameras": [
+          "CAM_PLACE_SHOULDER",
+          "CAM_PLACE_WIDE",
+          "CAM_PLACE_FIRST"
+        ],
+        "zones": [
+          "Z_PROMENADE",
+          "Z_ECOLE",
+          "Z_PLACE",
+          "Z_TEMOINS"
+        ]
+      },
+      "PLAN_B_RUELLE": {
+        "cameras": [
+          "CAM_RUELLE_SHOULDER",
+          "CAM_RUELLE_WIDE",
+          "CAM_RUELLE_FIRST"
+        ],
+        "zones": [
+          "Z_CROISEMENT",
+          "Z_RUE_FUITE"
+        ]
+      }
+    }
   },
   "coordination_requests": [
     {
@@ -102,9 +133,9 @@
       "marker_id": "EVT_DEPART_DUO",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -123,9 +154,9 @@
       "marker_id": "EVT_SORTIE_ECOLE",
       "observer": "joueur, Ariane",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -144,9 +175,12 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur, Ariane (grognement)",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST",
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -156,7 +190,8 @@
         "ids": [],
         "note": "Se produit toujours ; déclenche la fenêtre d'action."
       },
-      "visual_check": "Plan B. Depuis l'entrée de la ruelle (Z_CROISEMENT) : Lila, la femme, la portière latérale et l'arrière du fourgon visibles à 20–30 m dans les trois vues, sans clôture ni haie haute dans l'axe."
+      "visual_check": "Plan B. Depuis l'entrée de la ruelle (Z_CROISEMENT) : Lila, la femme, la portière latérale et l'arrière du fourgon visibles à 20–30 m dans les trois vues, sans clôture ni haie haute dans l'axe.",
+      "transversal": "Alerte forcée : si la joueuse est encore sur la place, Ariane s'élance depuis le plan A vers la ruelle ; la scène elle-même se joue dans le plan B."
     },
     {
       "id": "EVT_DEPART",
@@ -165,9 +200,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -186,9 +221,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur (téléphone)",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -209,9 +244,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -233,9 +268,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -257,9 +292,9 @@
       "marker_id": "EVT_ARIANE",
       "observer": "joueur, Ariane",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -280,9 +315,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -303,9 +338,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -326,9 +361,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -350,9 +385,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -373,9 +408,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -396,9 +431,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -419,9 +454,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -443,9 +478,9 @@
       "marker_id": "EVT_ARIANE",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -466,9 +501,12 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST",
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -478,7 +516,8 @@
         "ids": [],
         "note": "Le téléphone fonctionne dans toutes les zones ; l'action est mise en avant à 16 h 31."
       },
-      "visual_check": "Aucun besoin visuel particulier."
+      "visual_check": "Aucun besoin visuel particulier.",
+      "transversal": "Le téléphone fonctionne partout : l'appel peut être passé depuis la place ou la ruelle."
     },
     {
       "id": "INT_PROTEGER_SCENE",
@@ -487,9 +526,9 @@
       "marker_id": "EVT_INDICE_ODEUR",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -510,9 +549,9 @@
       "marker_id": "EVT_FOURGON",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -531,9 +570,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -554,9 +593,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -575,9 +614,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -596,9 +635,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -617,9 +656,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -640,9 +679,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -663,9 +702,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -687,9 +726,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -711,9 +750,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -734,9 +773,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -757,9 +796,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -780,9 +819,9 @@
       "marker_id": "EVT_INDICE_ODEUR",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -804,9 +843,9 @@
       "marker_id": "EVT_ARIANE",
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -827,9 +866,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -850,9 +889,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -873,9 +912,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -896,9 +935,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -919,9 +958,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -942,9 +981,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -965,9 +1004,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -988,9 +1027,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -1011,9 +1050,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -1034,9 +1073,9 @@
       "marker_id": null,
       "observer": "joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_PLACE_SHOULDER",
+        "CAM_PLACE_WIDE",
+        "CAM_PLACE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": true,
@@ -1057,9 +1096,9 @@
       "marker_id": "EVT_INDICE_ODEUR",
       "observer": "joueur, Ariane",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,
@@ -1080,9 +1119,9 @@
       "marker_id": "EVT_PISTE",
       "observer": "Ariane (s'assied), puis joueur",
       "cameras": [
-        "CAM_SHOULDER",
-        "CAM_WIDE",
-        "CAM_FIRST"
+        "CAM_RUELLE_SHOULDER",
+        "CAM_RUELLE_WIDE",
+        "CAM_RUELLE_FIRST"
       ],
       "camera_independent": true,
       "mandatory": false,

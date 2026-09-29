@@ -349,8 +349,8 @@ class TestExigencesSpatiales(unittest.TestCase):
         self.assertTrue(any("INT_INES" in e and "aucune solution de repli" in e for e in self.errors()))
 
     def test_obligatoire_dependant_d_une_seule_camera_refuse(self):
-        self.edit_el("INT_DUFAU", lambda el: el.__setitem__("cameras", ["CAM_FIRST"]))
-        self.assertTrue(any("INT_DUFAU" in e and "toutes les vues" in e for e in self.errors()))
+        self.edit_el("INT_DUFAU", lambda el: el.__setitem__("cameras", ["CAM_PLACE_FIRST"]))
+        self.assertTrue(any("INT_DUFAU" in e and "trois vues de son lieu" in e for e in self.errors()))
 
     def test_rattrapage_qui_n_en_est_pas_un(self):
         self.edit_el("INT_INES", lambda el: el["fallback"].__setitem__("ids", ["EVT_RADIO_PEAGE"]))
@@ -621,3 +621,70 @@ class TestMission02Horaires(unittest.TestCase):
         m.events["EVT_C2_MENDIONDO_PIECE"]["time"] = "23:59"
         _, _, problems = vm.simulate_path(m, self.SANS_PIECE, start=set(st["grants"]), start_time=vm.hm(st["start"]))
         self.assertTrue(any("INT_C2_CHRONO" in p for p in problems))
+
+
+class TestRaccordMaquettePR3(unittest.TestCase):
+    """spatial_requirements.json suit la maquette réelle de la PR #3 : noms de caméras par lieu et commit de référence."""
+
+    CODEX_BRANCH = "origin/codex/implantation-ouverture"
+
+    def setUp(self):
+        self.mm = MutableMission()
+        self.spec = json.loads((MISSION / "spatial_requirements.json").read_text(encoding="utf-8"))
+
+    def tearDown(self):
+        self.mm.cleanup()
+
+    def edit_el(self, eid, fn):
+        def f(d):
+            for el in d["elements"]:
+                if el["id"] == eid:
+                    fn(el)
+        self.mm.edit("spatial_requirements.json", f)
+
+    def test_valide_avec_le_manifeste_du_commit_de_reference(self):
+        man = vs.manifest_from_git(self.spec["blockout_ref"]["commit"])
+        if man is None:
+            self.skipTest("commit de référence de la PR #3 absent du dépôt local")
+        self.assertEqual(vs.validate(MISSION, man).errors, [])
+
+    def test_reference_a_jour_avec_la_branche_de_codex(self):
+        man = vs.manifest_from_git(self.CODEX_BRANCH)
+        if man is None:
+            self.skipTest("branche de la PR #3 non récupérée (git fetch)")
+        zones, markers, cams, plans = vs.manifest_sets(man)
+        ref = self.spec["blockout_ref"]
+        self.assertEqual((zones, markers, cams), (set(ref["zones"]), set(ref["markers"]), set(ref["cameras"])),
+                         "blockout_ref est périmé par rapport à la branche de la PR #3 : mettre à jour la référence")
+        self.assertEqual(plans, {k: set(v["cameras"]) for k, v in ref["plans"].items()})
+
+    def test_ancien_manifeste_detecte(self):
+        man = vs.manifest_from_git("bcb280a")
+        if man is None:
+            self.skipTest("ancien commit bcb280a absent du dépôt local")
+        self.assertTrue(any("caméra inconnue" in e for e in vs.validate(MISSION, man).errors))
+
+    def test_anciens_noms_de_camera_refuses(self):
+        self.edit_el("CLU_BRACELET_LILA", lambda el: el.__setitem__("cameras", ["CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"]))
+        self.assertTrue(any("CLU_BRACELET_LILA : caméra inconnue CAM_SHOULDER" in e for e in vs.validate(self.mm.dir).errors))
+
+    def test_six_vues_pour_un_indice_d_un_seul_lieu_refuse(self):
+        six = self.spec["blockout_ref"]["cameras"]
+        self.edit_el("CLU_BRACELET_LILA", lambda el: el.__setitem__("cameras", six))
+        self.assertTrue(any("CLU_BRACELET_LILA : vues déclarées" in e for e in vs.validate(self.mm.dir).errors))
+
+    def test_element_transversal_doit_declarer_les_deux_lieux(self):
+        self.edit_el("INT_APPEL_17", lambda el: el.__setitem__("cameras", el["cameras"][:3]))
+        self.assertTrue(any("INT_APPEL_17 : élément transversal" in e for e in vs.validate(self.mm.dir).errors))
+
+    def test_commit_de_reference_obligatoire(self):
+        self.mm.edit("spatial_requirements.json", lambda d: d["blockout_ref"].pop("commit"))
+        self.assertTrue(any("sans commit de référence" in e for e in vs.validate(self.mm.dir).errors))
+
+    def test_indices_de_fenetre_dans_les_trois_vues_de_leur_lieu(self):
+        m = vm.Mission(MISSION)
+        ruelle = set(self.spec["blockout_ref"]["plans"]["PLAN_B_RUELLE"]["cameras"])
+        for el in self.spec["elements"]:
+            if el["id"].startswith("ACT_") or m.clues.get(el["id"], {}).get("availability") == "fenetre":
+                with self.subTest(el["id"]):
+                    self.assertEqual(set(el["cameras"]), ruelle)
