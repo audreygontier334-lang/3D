@@ -6,7 +6,7 @@
     "manifest": "Game/Blockout/ouverture-centre-ville.manifest.json",
     "manifest_sha256": "56f35b5cc630632513269ce171991a71fbca02994f24980f2d62e06637e67497",
     "gltf": "Game/Blockout/ouverture-centre-ville.gltf",
-    "gltf_sha256": "c7b5365356cb4e2de8d800807cf9dfa1c5d3e35c0797ffbd47227eade4b6e346"
+    "gltf_sha256": "6507d391a2989fc3f56be0ad85e728647d164362d23912f7cbdefc8b4c59fb55"
   },
   "coordinate_conversion": {
     "source": "gltf_metres_X_east_Y_up_Z_north",
@@ -585,7 +585,7 @@
       "kind": "event_marker",
       "location_cm": [
         6350.0,
-        1990.0,
+        2095.0,
         13.0
       ],
       "collision_profile": "OverlapOnly",
@@ -729,7 +729,7 @@
       "source_node": "scent_clue_marker",
       "location_cm": [
         6350.0,
-        1990.0,
+        2095.0,
         13.0
       ]
     }
