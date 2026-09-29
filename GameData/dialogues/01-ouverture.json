@@ -101,8 +101,8 @@
     },
     {
       "id": "DLG_P_LILA",
-      "context": "EVT_LILA_COUCOU. Lila, sur le trottoir d'en face, voit la chienne.",
-      "location": "LOC_PROMENADE",
+      "context": "EVT_LILA_COUCOU. Lila sort du portail de l'école et voit Ariane sur la place (plan A).",
+      "location": "LOC_ECOLE",
       "lines": [
         {
           "id": "DLG_P_LILA_01",
@@ -134,7 +134,7 @@
     },
     {
       "id": "DLG_P_ABORDAGE",
-      "context": "EVT_ABORDAGE. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.",
+      "context": "EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.",
       "location": "LOC_COIN_ECOLES",
       "lines": [
         {
@@ -328,7 +328,7 @@
         {
           "id": "DLG_C1_OPERATRICE_02",
           "speaker": "HEROINE",
-          "text": "Une petite fille vient d'être emmenée dans un fourgon blanc. Lescoure-Plage, rue des Tamaris. À l'instant.",
+          "text": "Une petite fille vient d'être emmenée dans un fourgon {FOURGON_COULEUR}. Lescoure-Plage, la ruelle des Tamaris, à côté de l'école. À l'instant.",
           "intent": "Signalement",
           "emotion": "urgente, essaie de rester claire"
         },
@@ -348,7 +348,7 @@
           "choices": [
             {
               "id": "DLG_C1_OPERATRICE_04A",
-              "text": "« Fourgon blanc, plaque qui commence par GF-4. »",
+              "text": "« Un fourgon {FOURGON_COULEUR}, plaque qui commence par GF-4. »",
               "goto": "DLG_C1_OPERATRICE_05",
               "requires": {
                 "all": [
@@ -378,7 +378,7 @@
             },
             {
               "id": "DLG_C1_OPERATRICE_04D",
-              "text": "« Un fourgon blanc, parti vers le rond-point. C'est tout ce que j'ai vu. »",
+              "text": "« Un fourgon {FOURGON_COULEUR}, parti vers le bout de la ruelle. C'est tout ce que j'ai vu. »",
               "goto": "DLG_C1_OPERATRICE_05"
             }
           ]
@@ -428,7 +428,7 @@
         {
           "id": "DLG_C1_EXAMEN_ACCOTEMENT_02",
           "speaker": "HEROINE",
-          "text": "Garé face au rond-point. Et ça, c'est de l'huile fraîche.",
+          "text": "Garé dans le sens de la descente. Et ça, c'est de l'huile fraîche.",
           "intent": "CLU_TRACES_PNEUS",
           "emotion": "concentrée"
         },
@@ -484,7 +484,7 @@
         {
           "id": "DLG_C1_MENDIONDO_ARRIVEE_02",
           "speaker": "HEROINE",
-          "text": "Elle s'appelle Lila. Neuf ans. Une femme l'a fait monter dans un fourgon blanc. Elle ne voulait pas.",
+          "text": "Elle s'appelle Lila. Neuf ans. Une femme l'a fait monter dans un fourgon {FOURGON_COULEUR}. Elle ne voulait pas.",
           "intent": "Déposition résumée (le détail est dans le carnet)",
           "emotion": "contenue"
         },
@@ -547,7 +547,7 @@
         {
           "id": "DLG_C1_DUFAU_01",
           "speaker": "DUFAU",
-          "text": "La petite Mercadier ? Bon Dieu… Je l'ai vu, votre fourgon, je vous l'ai dit. Il est arrivé du rond-point vers moins dix.",
+          "text": "La petite Mercadier ? Bon Dieu… Je l'ai vu, votre fourgon, je vous l'ai dit. Il est passé devant l'école vers moins dix et il s'est garé dans la ruelle.",
           "intent": "Heure d'arrivée ; Dufau fiable",
           "emotion": "choqué, bourru"
         },
@@ -602,7 +602,7 @@
         {
           "id": "DLG_C1_DUFAU_05",
           "speaker": "DUFAU",
-          "text": "Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien. Tout blanc.",
+          "text": "Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien d'écrit.",
           "intent": "Écarter la blanchisserie actuelle ; graine du lettrage retiré",
           "emotion": "catégorique"
         },
@@ -803,14 +803,14 @@
         {
           "id": "DLG_C1_CASTERAN_02",
           "speaker": "CASTERAN",
-          "text": "J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. J'en suis certaine.",
+          "text": "J'étais sur mon perron, j'ai tout vu. Il est descendu jusqu'au bout de la ruelle et il a tourné à droite, vers la Corniche. J'en suis certaine.",
           "intent": "Témoignage de bonne foi mais faux : elle a supposé la direction (fausse piste loyale)",
           "emotion": "assurée, posée"
         },
         {
           "id": "DLG_C1_CASTERAN_03",
           "speaker": "HEROINE",
-          "text": "Vers le nord ? Vous êtes sûre ?",
+          "text": "Vers la Corniche ? Vous êtes sûre ?",
           "intent": "Doute",
           "emotion": "prudente",
           "choices": [
@@ -821,7 +821,7 @@
             },
             {
               "id": "DLG_C1_CASTERAN_03B",
-              "text": "D'ici, on voit vraiment le rond-point ?",
+              "text": "D'ici, on voit vraiment de quel côté il a tourné ?",
               "goto": "DLG_C1_CASTERAN_05"
             }
           ]
@@ -850,7 +850,7 @@
         {
           "id": "DLG_C1_LIGNE_DE_VUE_01",
           "speaker": "HEROINE",
-          "text": "L'auvent de la pharmacie… et le platane. On voit la rue des Tamaris jusqu'au virage. Le rond-point, non.",
+          "text": "On voit la ruelle jusqu'au bout… et après, plus rien. Le boulevard est caché par les maisons. Le rond-point, n'en parlons pas.",
           "intent": "Constat spatial",
           "emotion": "lente, surprise"
         },
@@ -919,7 +919,7 @@
         {
           "id": "DLG_C1_INES_05",
           "speaker": "INES",
-          "text": "Enlevée ? Attendez… Il y avait un camion blanc, oui. Regardez.",
+          "text": "Enlevée ? Attendez… Il y avait un fourgon, oui. Regardez.",
           "intent": "Accord, prise de conscience",
           "emotion": "choquée"
         },
@@ -992,8 +992,8 @@
         {
           "id": "DLG_C1_PISTE_LILA_05",
           "speaker": "HEROINE",
-          "text": "Qu'est-ce que tu as trouvé ? … Sa barrette.",
-          "intent": "Point C : CLU_BARRETTE_LILA",
+          "text": "Qu'est-ce que tu as trouvé ? … Son bracelet.",
+          "intent": "Point C : CLU_BRACELET_LILA",
           "emotion": "émue"
         },
         {
@@ -1170,7 +1170,7 @@
         {
           "id": "DLG_C1_RELAIS_02",
           "speaker": "MENDIONDO",
-          "text": "Seize heures quarante-huit. Un fourgon blanc, clignotant droit mort. Il prend la fourche de l'étang de Sorbe.",
+          "text": "Seize heures quarante-huit. Un fourgon qui finit en 37-TR, clignotant droit mort. Il prend la fourche de l'étang de Sorbe.",
           "intent": "CLU_CCTV_RELAIS",
           "emotion": "grave, énergique"
         }
@@ -1184,7 +1184,7 @@
         {
           "id": "DLG_C1_RADIO_PEAGE_01",
           "speaker": "GENDARME",
-          "text": "Péage de l'A63 : un agent signale un fourgon blanc à seize heures cinquante-huit, direction Espagne.",
+          "text": "Péage de l'A63 : un agent signale un fourgon correspondant au signalement à seize heures cinquante-huit, direction Espagne. Pas de plaque relevée.",
           "intent": "Fausse piste loyale (PZ_07)",
           "emotion": "radio, grésillements"
         },
@@ -1576,7 +1576,7 @@
         {
           "id": "DLG_C1_TABLEAU_05",
           "speaker": "MENDIONDO",
-          "text": "La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses rue des Tamaris.",
+          "text": "La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses dans la ruelle.",
           "intent": "BR_ERR_PORT",
           "emotion": "lasse"
         },
@@ -1604,7 +1604,7 @@
         {
           "id": "DLG_C1_TABLEAU_09",
           "speaker": "MENDIONDO",
-          "text": "Un ancien fourgon de blanchisserie avec une plaque clonée. Une fausse animatrice qui savait qui elle venait chercher. La route des Étangs. … C'est solide.",
+          "text": "Un fourgon sous une plaque clonée. Une fausse animatrice qui savait qui elle venait chercher. La route des Étangs. … C'est solide.",
           "intent": "BR_RESOLU",
           "emotion": "décidée"
         }
@@ -1696,9 +1696,14 @@
       "context": "Colonne du tableau d'hypothèses"
     },
     {
-      "id": "UI_H_VEH_ANCIEN_BLANCHISSERIE",
-      "text": "Un ancien fourgon de la Blanchisserie Océane, sous une plaque clonée",
+      "id": "UI_H_VEH_PLAQUE_CLONEE",
+      "text": "Un fourgon qui roule sous une plaque clonée",
       "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_VEH_ORIGINE_BLANCHISSERIE",
+      "text": "Précision : un ancien fourgon de la Blanchisserie Océane",
+      "context": "Hypothèse facultative"
     },
     {
       "id": "UI_H_VEH_PLOMBIER",
@@ -1855,5 +1860,9 @@
       "text": "Chapitre 1 terminé — {heure}. Hypothèses retenues : {n}/3. Découvertes facultatives : {bonus}.",
       "context": "Écran de fin"
     }
-  ]
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)",
+    "{FOURGON_COULEUR}": "couleur du fourgon, choisie par Audrey pendant la construction 3D (adjectif masculin : blanc, gris, bleu…)"
+  }
 }

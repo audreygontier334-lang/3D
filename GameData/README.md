@@ -20,6 +20,10 @@ GameData/
     spatial_requirements.json  lien avec la maquette 3D : zone, repère, caméras, repli, coût
   dialogues/
     01-ouverture.json     répliques (DLG_) et textes d'interface (UI_)
+  scenes/
+    decoupage.json        découpage scène par scène (SC_) du prologue au chapitre 6 : lieu, moment, lumière,
+                          personnages, actions, déplacements, indices, caméras, replis, visuels à produire,
+                          statut « audrey » / « proposition » — source pour les visuels de Codex
 ```
 
 ## Principes
@@ -29,8 +33,9 @@ GameData/
 - **Temps de jeu.** L'horloge n'avance que par les interactions (`cost`) et les changements de zone (`travel_cost_per_zone`). Les événements se déclenchent à heure fixe ; ceux marqués `fallback` sont des rattrapages qui garantissent l'accès aux preuves obligatoires.
 - **Conditions.** `requires.all` (toutes) et `requires.any` (au moins une) portent sur des `CLU_`, `DED_` ou `FLAG_`. `blocked_by` rend une interaction indisponible. Les dialogues utilisent le même format (`requires` : `all` / `any` / `none`, plus `selected` pour l'objet choisi et `outcome` pour le résultat de l'interaction en cours) ; aucune condition en prose n'est acceptée par le validateur.
 - **Déduction ≠ hypothèse présentée.** `DED_` = établi dans le carnet ; `H_` = présenté sur le tableau. États de fin et bonus dépendent de `H_` ; une `H_` facultative exige sa `DED_`.
+- **Visuels encore ouverts.** Un indice ou une déduction qui dépend d'un détail visuel non décidé porte `open_visual` (`apparence_fourgon`, `animation_place_ecole`, `apparence_lila`). Le validateur vérifie que les hypothèses obligatoires restent atteignables sans eux (décision d'Audrey du 29/09).
 - **Aucun échec bloquant.** Chaque hypothèse fausse pointe vers une branche qui coûte du temps, donne un résultat négatif et rejoint l'issue `RES_M01`. Une clôture automatique termine le chapitre.
-- **Jetons de texte.** `{HEROINE}` (nom de la protagoniste, à décider), `{heure}` etc. sont remplacés par le moteur. La chienne s'appelle Ariane (décision d'Audrey) : son nom est écrit en clair.
+- **Jetons de texte.** `{HEROINE}` (nom de la protagoniste, à décider), `{FOURGON_COULEUR}` (couleur du fourgon, choisie par Audrey pendant la construction 3D), `{heure}` etc. sont remplacés par le moteur. La chienne s'appelle Ariane (décision d'Audrey) : son nom est écrit en clair.
 - **Médias.** Les champs `assets` et `env` renvoient aux IDs du tableau d'assets de `docs/cases/01-ouverture.md` §8 et de `docs/DIRECTION_VISUELLE.md`. Aucun fichier média n'est livré ici.
 
 ## Intégration Unreal — accord Claude / Codex (29/09)
@@ -48,4 +53,5 @@ python3 Tools/validate_mission.py
 python3 Tools/validate_spatial.py
 python3 -m unittest discover -s Tools/tests -v
 python3 Tools/render_dialogues.py        # après toute modification des dialogues
+python3 Tools/render_decoupage.py        # après toute modification du découpage
 ```

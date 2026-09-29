@@ -161,6 +161,14 @@ class TestLeValidateurDetecteLesErreurs(unittest.TestCase):
         self.mm.edit("puzzles.json", bad)
         self.assertTrue(any("PZ_04" in e for e in self.mm.errors()))
 
+    def test_indice_obligatoire_lie_a_un_visuel_ouvert(self):
+        def tag(d):
+            for x in d["deductions"]:
+                if x["id"] == "DED_PLAQUE_CLONEE":
+                    x["open_visual"] = ["apparence_fourgon"]
+        self.mm.edit("deductions.json", tag)
+        self.assertTrue(any("[visuels ouverts]" in e for e in self.mm.errors()))
+
     def test_choix_de_dialogue_vers_une_ligne_absente(self):
         def bad(d):
             for sc in d["scenes"]:
@@ -229,7 +237,7 @@ class TestLeValidateurDetecteLesErreurs(unittest.TestCase):
 class TestDecisionsAudrey(unittest.TestCase):
     """Les décisions validées par Audrey le 29/09 ne doivent pas être contredites par les textes et les données."""
 
-    SOURCES = ["docs/cases", "docs/dialogues", "docs/narrative", "GameData/missions", "GameData/dialogues"]
+    SOURCES = ["docs/cases", "docs/dialogues", "docs/narrative", "GameData/missions", "GameData/dialogues", "GameData/scenes"]
     INTERDITS = {
         r"\b(la|en|sa|une|de) laisse\b": "laisse (Ariane est libre)",
         r"\bcollier\b": "collier (Ariane n'en porte pas)",
@@ -240,16 +248,21 @@ class TestDecisionsAudrey(unittest.TestCase):
         r"chienne n'ont pas encore de nom": "le nom d'Ariane est décidé",
         r"ça mord|poissons ont fui|canne à pêche": "pêche de Dufau (il est dans le square, pas au bord de l'eau)",
         # Réponses d'Audrey du 29/09 à Q1–Q3
-        r"douan|TMAU|retenue sur|conteneur bloqué": "Nadia douanière / conteneur bloqué (Q1 : c'est le père qui est visé)",
+        r"douanière|Nadia[^.|]{0,60}douan|TMAU|retenue sur|conteneur bloqué": "Nadia douanière / conteneur bloqué (Q1 : c'est le père qui est visé)",
         r"CLU_NADIA_REACTION|INT_OBSERVER_NADIA|\bINT_NADIA\b|BR_NADIA_|FLAG_NADIA_(ALLIEE|FERMEE)|EVT_NADIA_CRAQUE|CASTERAN_ELOIGNEE|EVT_CASTERAN_S_ELOIGNE":
             "ancien identifiant (Nadia porteuse du message, Casteran collée à Nadia)",
         r"Casteran (est|serait) la tête|tête et architecte|a menti exprès": "Casteran est de bonne foi (Q2 : le compagnon de la mère dirige le réseau)",
         r"retrouvée saine et sauve au chapitre 2|retrouvée au chapitre 2": "Lila est retrouvée au chapitre 4 (Q3)",
+        # Direction visuelle du 29/09
+        r"fourgon blanc|camping-car blanc|véhicules? blancs?\b": "couleur du fourgon (choisie par Audrey pendant la construction 3D)",
+        r"barrette|H_VEH_ANCIEN": "ancien indice ou identifiant (remplacé : bracelet, H_VEH_PLAQUE_CLONEE)",
+        r"\brue des Tamaris\b|rue des Écoles": "ancienne géographie (ruelle des Tamaris distincte de la place ; rue de l'École)",
+        r"Lila[^.|]{0,60}\b(cheveux|coiffure|natte|couettes?|queue de cheval|blonde|brune|rousse)\b": "apparence de Lila non validée par Audrey",
     }
     # phrases qui énoncent justement la décision
     AUTORISES = ("ni laisse ni collier", "sans laisse ni collier", "ne suppose de laisse ni de collier",
                  "aucun port ni front de mer", "ni front de mer", "sans laisse", "ne la lâche pas",
-                 "(ex-`ENV_RUE_PORT`)")
+                 "(ex-`ENV_RUE_PORT`)", "orientée vers le front de mer", "sa tenue et ses cheveux", "jamais de laisse ni de collier")
 
     def test_aucune_contradiction_avec_les_decisions(self):
         import re
@@ -260,6 +273,8 @@ class TestDecisionsAudrey(unittest.TestCase):
                     continue
                 for n, ligne in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
                     propre = ligne
+                    if re.search(r"non valid|à proposer|à valider|au choix d'Audrey|choix d'Audrey|identiques? dans toutes", ligne):
+                        propre = re.sub(r"(?i)cheveux|coiffure|tenue", "", propre)
                     for ok in self.AUTORISES:
                         propre = propre.replace(ok, "")
                     for motif, raison in self.INTERDITS.items():
@@ -360,3 +375,76 @@ class TestSchemas(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestDecoupageScenes(unittest.TestCase):
+    """GameData/scenes/decoupage.json : chaque scène donne assez d'informations pour produire les visuels sans inventer l'action."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.doc = json.loads((ROOT / "GameData" / "scenes" / "decoupage.json").read_text(encoding="utf-8"))
+        cls.scenes = [(ch["id"], s) for ch in cls.doc["chapitres"] for s in ch["scenes"]]
+        cls.m = vm.Mission(MISSION)
+
+    def test_champs_complets_et_statuts(self):
+        STATUTS = {"audrey", "proposition"}
+        for _, s in self.scenes:
+            with self.subTest(s["id"]):
+                self.assertTrue(s["lieu"]["texte"] and s["lieu"]["env"])
+                for k in ("jour", "debut", "fin", "lumiere", "meteo"):
+                    self.assertTrue(s["moment"][k], k)
+                self.assertTrue(s["personnages"] and s["action"] and s["repli"] and s["visuels"])
+                self.assertEqual(set(s["cameras"]) >= {"CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST"}, True)
+                self.assertTrue(all(s["cameras"][c] for c in ("CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST")))
+                elems = [s["lieu"], s["moment"], s["raccord_suivant"]] + s["personnages"] + s["action"] + s["deplacements"] + s["indices"] + s["visuels"]
+                for e in elems:
+                    self.assertIn(e["statut"], STATUTS)
+
+    def test_ids_uniques_et_raccords(self):
+        ids = [s["id"] for _, s in self.scenes]
+        self.assertEqual(len(ids), len(set(ids)))
+        for _, s in self.scenes:
+            with self.subTest(s["id"]):
+                self.assertIn(s["raccord_suivant"]["vers"], set(ids) | {"FIN"})
+
+    def test_references_du_prologue_et_du_chapitre_1(self):
+        m = self.m
+        known = (set(m.clues) | set(m.interactions) | set(m.events) | set(m.scenes) | set(m.puzzles) | set(m.actions)
+                 | set(m.branches) | set(m.deductions) | {e for e in m.meta["prologue"]["events"]})
+        for ch, s in self.scenes:
+            if ch not in ("PRO", "C1"):
+                continue
+            for r in s["refs"] + [i["id"] for i in s["indices"] if i["id"].startswith(("CLU_", "EVT_"))]:
+                with self.subTest(scene=s["id"], ref=r):
+                    self.assertIn(r, known)
+
+    def test_tous_les_indices_du_chapitre_1_sont_places(self):
+        cov = {i["id"] for ch, s in self.scenes if ch in ("PRO", "C1") for i in s["indices"]}
+        for c in self.m.clues.values():
+            if c["availability"] == "branche":
+                continue
+            with self.subTest(c["id"]):
+                self.assertIn(c["id"], cov)
+
+    def test_indice_indispensable_toujours_avec_repli(self):
+        for _, s in self.scenes:
+            if any(i["indispensable"] for i in s["indices"]):
+                with self.subTest(s["id"]):
+                    self.assertTrue(any(r["si_manque"] not in ("—", "") for r in s["repli"]))
+
+    def test_continuite_de_lila(self):
+        for _, s in self.scenes:
+            if any(p["id"] == "CHAR_FILLETTE" for p in s["personnages"]):
+                with self.subTest(s["id"]):
+                    self.assertTrue(any("Lila" in c for c in s["continuite"]))
+
+    def test_aucun_indice_indispensable_ne_depend_d_un_visuel_ouvert(self):
+        for _, s in self.scenes:
+            for i in s["indices"]:
+                if i["indispensable"]:
+                    with self.subTest(scene=s["id"], indice=i["id"]):
+                        self.assertNotRegex(i["ce_qu_on_voit"], r"(?i)lettrage|couleur|feu fendu|cheveux|tenue")
+
+    def test_markdown_a_jour(self):
+        import render_decoupage
+        self.assertEqual(render_decoupage.main(["x", "--check"]), 0, "Relancer : python3 Tools/render_decoupage.py")

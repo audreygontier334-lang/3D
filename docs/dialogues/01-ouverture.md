@@ -51,7 +51,7 @@
 
 ## `DLG_P_LILA`
 
-*EVT_LILA_COUCOU. Lila, sur le trottoir d'en face, voit la chienne.* — lieu : `LOC_PROMENADE`
+*EVT_LILA_COUCOU. Lila sort du portail de l'école et voit Ariane sur la place (plan A).* — lieu : `LOC_ECOLE`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -61,7 +61,7 @@
 
 ## `DLG_P_ABORDAGE`
 
-*EVT_ABORDAGE. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.* — lieu : `LOC_COIN_ECOLES`
+*EVT_ABORDAGE, dans la ruelle des Tamaris, à une dizaine de mètres de son entrée, hors de vue du portail. Répliques audibles seulement si {HEROINE} est à moins de 30 m ; sinon, gestes seuls.* — lieu : `LOC_COIN_ECOLES`
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
@@ -103,13 +103,13 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_OPERATRICE_01` | OPERATRICE | Gendarmerie, j'écoute. | Ouverture | calme professionnel |  |
-| `DLG_C1_OPERATRICE_02` | HEROINE | Une petite fille vient d'être emmenée dans un fourgon blanc. Lescoure-Plage, rue des Tamaris. À l'instant. | Signalement | urgente, essaie de rester claire |  |
+| `DLG_C1_OPERATRICE_02` | HEROINE | Une petite fille vient d'être emmenée dans un fourgon {FOURGON_COULEUR}. Lescoure-Plage, la ruelle des Tamaris, à côté de l'école. À l'instant. | Signalement | urgente, essaie de rester claire |  |
 | `DLG_C1_OPERATRICE_03` | OPERATRICE | Vous êtes en sécurité ? Vous pouvez me décrire le véhicule et les personnes ? | Questions standard | posée |  |
 | `DLG_C1_OPERATRICE_04` | HEROINE | Qu'est-ce que je dis ? | Menu de description | — |  |
-| `DLG_C1_OPERATRICE_04A` | ↳ choix | « Fourgon blanc, plaque qui commence par GF-4. » | → `DLG_C1_OPERATRICE_05` | | si CLU_PHOTO_FOURGON |
+| `DLG_C1_OPERATRICE_04A` | ↳ choix | « Un fourgon {FOURGON_COULEUR}, plaque qui commence par GF-4. » | → `DLG_C1_OPERATRICE_05` | | si CLU_PHOTO_FOURGON |
 | `DLG_C1_OPERATRICE_04B` | ↳ choix | « Un homme au volant, casquette grise, barbe. Le pot cogne. » | → `DLG_C1_OPERATRICE_05` | | si ACT_COURIR |
 | `DLG_C1_OPERATRICE_04C` | ↳ choix | « Une femme blonde, lunettes, gilet bleu, un badge. » | → `DLG_C1_OPERATRICE_05` | | si CLU_OBS_PASSAGERE |
-| `DLG_C1_OPERATRICE_04D` | ↳ choix | « Un fourgon blanc, parti vers le rond-point. C'est tout ce que j'ai vu. » | → `DLG_C1_OPERATRICE_05` | |  |
+| `DLG_C1_OPERATRICE_04D` | ↳ choix | « Un fourgon {FOURGON_COULEUR}, parti vers le bout de la ruelle. C'est tout ce que j'ai vu. » | → `DLG_C1_OPERATRICE_05` | |  |
 | `DLG_C1_OPERATRICE_05` | OPERATRICE | C'est noté. Une patrouille arrive. Restez sur place, ne touchez à rien, et gardez votre téléphone allumé. | Clôture ; consigne de préserver la scène | ferme, rassurante |  |
 
 ## `DLG_C1_SCENE`
@@ -128,7 +128,7 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_EXAMEN_ACCOTEMENT_01` | HEROINE | Son porte-clés. Le renard. | CLU_PORTE_CLES_LILA | gorge serrée |  |
-| `DLG_C1_EXAMEN_ACCOTEMENT_02` | HEROINE | Garé face au rond-point. Et ça, c'est de l'huile fraîche. | CLU_TRACES_PNEUS | concentrée |  |
+| `DLG_C1_EXAMEN_ACCOTEMENT_02` | HEROINE | Garé dans le sens de la descente. Et ça, c'est de l'huile fraîche. | CLU_TRACES_PNEUS | concentrée |  |
 | `DLG_C1_EXAMEN_ACCOTEMENT_03` | HEROINE | Trois mégots. Il a attendu longtemps. | CLU_MEGOTS | froide |  |
 | `DLG_C1_EXAMEN_ACCOTEMENT_04` | HEROINE | Une caisse de la criée… de Capbreton ? | CLU_CAISSE_POISSON (fausse piste) | intriguée |  |
 
@@ -148,7 +148,7 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_MENDIONDO_ARRIVEE_01` | MENDIONDO | Adjudante-cheffe Mendiondo. C'est vous qui avez appelé ? Racontez-moi, dans l'ordre. | Autorité, méthode | sèche, efficace |  |
-| `DLG_C1_MENDIONDO_ARRIVEE_02` | HEROINE | Elle s'appelle Lila. Neuf ans. Une femme l'a fait monter dans un fourgon blanc. Elle ne voulait pas. | Déposition résumée (le détail est dans le carnet) | contenue |  |
+| `DLG_C1_MENDIONDO_ARRIVEE_02` | HEROINE | Elle s'appelle Lila. Neuf ans. Une femme l'a fait monter dans un fourgon {FOURGON_COULEUR}. Elle ne voulait pas. | Déposition résumée (le détail est dans le carnet) | contenue |  |
 | `DLG_C1_MENDIONDO_ARRIVEE_03` | MENDIONDO | D'accord. Le parquet est prévenu. Mais pour une alerte, il me faut un véhicule, des personnes et une direction. Pas des impressions. | Poser les trois axes du tableau | exigeante |  |
 | `DLG_C1_MENDIONDO_ARRIVEE_04` | MENDIONDO | Notre maître-chien est à plus de deux heures. Votre chienne connaît la petite ? | Justifier la présence du duo | pragmatique, à contrecœur |  |
 | `DLG_C1_MENDIONDO_ARRIVEE_05` | HEROINE | Elle la caresse tous les jours à la sortie de l'école. | Réponse | ferme |  |
@@ -169,7 +169,7 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_DUFAU_01` | DUFAU | La petite Mercadier ? Bon Dieu… Je l'ai vu, votre fourgon, je vous l'ai dit. Il est arrivé du rond-point vers moins dix. | Heure d'arrivée ; Dufau fiable | choqué, bourru |  |
+| `DLG_C1_DUFAU_01` | DUFAU | La petite Mercadier ? Bon Dieu… Je l'ai vu, votre fourgon, je vous l'ai dit. Il est passé devant l'école vers moins dix et il s'est garé dans la ruelle. | Heure d'arrivée ; Dufau fiable | choqué, bourru |  |
 | `DLG_C1_DUFAU_02` | HEROINE | Le conducteur, vous l'avez vu ? | Relance | pressante |  |
 | `DLG_C1_DUFAU_02A` | ↳ choix | Le conducteur ? | → `DLG_C1_DUFAU_03` | |  |
 | `DLG_C1_DUFAU_02B` | ↳ choix | C'était une livraison ? | → `DLG_C1_DUFAU_05` | |  |
@@ -177,7 +177,7 @@
 | `DLG_C1_DUFAU_02D` | ↳ choix | Cette caisse de poisson, là ? | → `DLG_C1_DUFAU_08` | | si CLU_CAISSE_POISSON |
 | `DLG_C1_DUFAU_03` | DUFAU | Il n'est pas sorti. Il fumait, vitre baissée, une cigarette après l'autre. Casquette grise. | Le conducteur n'est pas sorti (utile pour PZ_02) | précis |  |
 | `DLG_C1_DUFAU_04` | DUFAU | Il m'a fait penser à Franck, l'ancien de la blanchisserie. Mais je n'ai plus mes yeux de vingt ans, hein. Je ne veux accuser personne. | Piste K1, avec prudence | hésitant, honnête |  |
-| `DLG_C1_DUFAU_05` | DUFAU | Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien. Tout blanc. | Écarter la blanchisserie actuelle ; graine du lettrage retiré | catégorique |  |
+| `DLG_C1_DUFAU_05` | DUFAU | Une livraison ? Pas la blanchisserie, en tout cas. Eux, c'est le mardi matin. Et leur camion a le nom écrit en gros dessus. Celui-là, rien d'écrit. | Écarter la blanchisserie actuelle ; graine du lettrage retiré | catégorique |  |
 | `DLG_C1_DUFAU_06` | DUFAU | Et ce pot… Un cognement pareil, ça s'oublie pas. | Signature sonore | grimace |  |
 | `DLG_C1_DUFAU_07` | DUFAU | Une plaque des Landes, le 40, ça je l'ai vu. Le reste… | Détail de plaque partiel | désolé |  |
 | `DLG_C1_DUFAU_08` | DUFAU | Ça ? Le poissonnier en empile toujours là, il livre les restaurants. Rien à voir. | Désamorcer la fausse piste du port | haussement d'épaules |  |
@@ -247,10 +247,10 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_CASTERAN_01` | CASTERAN | Quelle horreur. Cette petite, je la vois passer tous les jours devant l'étude. | Témoin respectable, sincère | émue, maîtrisée |  |
-| `DLG_C1_CASTERAN_02` | CASTERAN | J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. J'en suis certaine. | Témoignage de bonne foi mais faux : elle a supposé la direction (fausse piste loyale) | assurée, posée |  |
-| `DLG_C1_CASTERAN_03` | HEROINE | Vers le nord ? Vous êtes sûre ? | Doute | prudente |  |
+| `DLG_C1_CASTERAN_02` | CASTERAN | J'étais sur mon perron, j'ai tout vu. Il est descendu jusqu'au bout de la ruelle et il a tourné à droite, vers la Corniche. J'en suis certaine. | Témoignage de bonne foi mais faux : elle a supposé la direction (fausse piste loyale) | assurée, posée |  |
+| `DLG_C1_CASTERAN_03` | HEROINE | Vers la Corniche ? Vous êtes sûre ? | Doute | prudente |  |
 | `DLG_C1_CASTERAN_03A` | ↳ choix | Merci, maître. Je le dis aux gendarmes. | → `DLG_C1_CASTERAN_04` | |  |
-| `DLG_C1_CASTERAN_03B` | ↳ choix | D'ici, on voit vraiment le rond-point ? | → `DLG_C1_CASTERAN_05` | |  |
+| `DLG_C1_CASTERAN_03B` | ↳ choix | D'ici, on voit vraiment de quel côté il a tourné ? | → `DLG_C1_CASTERAN_05` | |  |
 | `DLG_C1_CASTERAN_04` | CASTERAN | Faites, faites. Et dites-leur qu'ils peuvent compter sur moi. | Clôture aimable | courtoise |  |
 | `DLG_C1_CASTERAN_05` | CASTERAN | Ma chère, j'ai soixante-deux ans, pas quatre-vingt-dix. Je sais ce que j'ai vu. | Se draper dans son autorité ; ouvre le test de ligne de vue | piquée, souriante |  |
 
@@ -260,7 +260,7 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_LIGNE_DE_VUE_01` | HEROINE | L'auvent de la pharmacie… et le platane. On voit la rue des Tamaris jusqu'au virage. Le rond-point, non. | Constat spatial | lente, surprise |  |
+| `DLG_C1_LIGNE_DE_VUE_01` | HEROINE | On voit la ruelle jusqu'au bout… et après, plus rien. Le boulevard est caché par les maisons. Le rond-point, n'en parlons pas. | Constat spatial | lente, surprise |  |
 | `DLG_C1_LIGNE_DE_VUE_02` | HEROINE | Elle ne pouvait pas savoir quelle sortie il a prise. Elle a supposé. Ou elle s'est trompée. | Conclusion prudente (pas d'accusation) | pensive |  |
 
 ## `DLG_C1_INES`
@@ -276,7 +276,7 @@
 | `DLG_C1_INES_03B` | ↳ choix | « Une petite fille a été enlevée. Tu as peut-être la seule image du fourgon. » | → `DLG_C1_INES_05` | | effet : succès |
 | `DLG_C1_INES_03C` | ↳ choix | « Si tu ne me montres pas, les gendarmes vont prendre ton téléphone. » | → `DLG_C1_INES_06` | | effet : BR_INES_BRAQUEE |
 | `DLG_C1_INES_04` | INES | … OK. Mais c'est vous qui leur dites. | Accord | soulagée |  |
-| `DLG_C1_INES_05` | INES | Enlevée ? Attendez… Il y avait un camion blanc, oui. Regardez. | Accord, prise de conscience | choquée |  |
+| `DLG_C1_INES_05` | INES | Enlevée ? Attendez… Il y avait un fourgon, oui. Regardez. | Accord, prise de conscience | choquée |  |
 | `DLG_C1_INES_06` | INES | Ben qu'ils viennent, alors. Moi je me casse. | Échec : Inès part (rattrapage à 19 h) | vexée, effrayée |  |
 | `DLG_C1_INES_07` | HEROINE | Tu peux me l'envoyer ? Et la garder. Surtout, ne l'efface pas. | Obtention de CLU_VIDEO_INES | reconnaissante | résultat = succes |
 
@@ -298,7 +298,7 @@
 | `DLG_C1_PISTE_LILA_02` | HEROINE | Elle tourne… Elles se sont arrêtées ici. Elles ont parlé. | Point A (si bonne interprétation) | à voix basse |  |
 | `DLG_C1_PISTE_LILA_03` | HEROINE | Non, pas la boulangerie. Ça, c'est ce matin. | Point A bis : écarter la piste ancienne | concentrée |  |
 | `DLG_C1_PISTE_LILA_04` | HEROINE | Tout droit. Pas d'écart. Elle marchait normalement… Elle l'a suivie. | Point B : pas de lutte | douleur contenue |  |
-| `DLG_C1_PISTE_LILA_05` | HEROINE | Qu'est-ce que tu as trouvé ? … Sa barrette. | Point C : CLU_BARRETTE_LILA | émue |  |
+| `DLG_C1_PISTE_LILA_05` | HEROINE | Qu'est-ce que tu as trouvé ? … Son bracelet. | Point C : CLU_BRACELET_LILA | émue |  |
 | `DLG_C1_PISTE_LILA_06` | HEROINE | C'est fini, hein ? Elle est montée là. Tu ne peux pas suivre un moteur. C'est bien, ma belle, c'est bien. | Point D : limite de la chienne, récompense | tendre, frustrée |  |
 
 ## `DLG_C1_PISTE_BOUTEILLE`
@@ -351,7 +351,7 @@
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
 | `DLG_C1_RELAIS_01` | HEROINE | La route des Étangs passe devant le Relais du Lac. Ils ont une caméra à la pompe. | Suggestion du joueur | pressante |  |
-| `DLG_C1_RELAIS_02` | MENDIONDO | Seize heures quarante-huit. Un fourgon blanc, clignotant droit mort. Il prend la fourche de l'étang de Sorbe. | CLU_CCTV_RELAIS | grave, énergique |  |
+| `DLG_C1_RELAIS_02` | MENDIONDO | Seize heures quarante-huit. Un fourgon qui finit en 37-TR, clignotant droit mort. Il prend la fourche de l'étang de Sorbe. | CLU_CCTV_RELAIS | grave, énergique |  |
 
 ## `DLG_C1_RADIO_PEAGE`
 
@@ -359,7 +359,7 @@
 
 | ID | Locuteur | Réplique | Intention | Émotion | Condition |
 |---|---|---|---|---|---|
-| `DLG_C1_RADIO_PEAGE_01` | GENDARME | Péage de l'A63 : un agent signale un fourgon blanc à seize heures cinquante-huit, direction Espagne. | Fausse piste loyale (PZ_07) | radio, grésillements |  |
+| `DLG_C1_RADIO_PEAGE_01` | GENDARME | Péage de l'A63 : un agent signale un fourgon correspondant au signalement à seize heures cinquante-huit, direction Espagne. Pas de plaque relevée. | Fausse piste loyale (PZ_07) | radio, grésillements |  |
 | `DLG_C1_RADIO_PEAGE_02` | MENDIONDO | L'Espagne… Si c'est ça, on a déjà perdu une heure. | Rendre la fausse piste crédible | inquiète |  |
 
 ## `DLG_C1_CARTE`
@@ -473,11 +473,11 @@
 | `DLG_C1_TABLEAU_02` | MENDIONDO | Sur quoi vous vous appuyez ? Je ne peux pas envoyer des hommes sur une intuition. | Hypothèse sans preuve épinglée (pas de pénalité) | agacée, juste |  |
 | `DLG_C1_TABLEAU_03` | MENDIONDO | La patrouille de la Corniche n'a rien. Un camping-car, c'est tout. | BR_ERR_NORD | tendue |  |
 | `DLG_C1_TABLEAU_04` | MENDIONDO | La vidéo du péage : c'est un autre modèle, avec une échelle sur le toit. On a perdu une demi-heure. | BR_ERR_A63 | dure |  |
-| `DLG_C1_TABLEAU_05` | MENDIONDO | La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses rue des Tamaris. | BR_ERR_PORT | lasse |  |
+| `DLG_C1_TABLEAU_05` | MENDIONDO | La capitainerie n'a vu aucun fourgon. Et le poissonnier dépose toujours ses caisses dans la ruelle. | BR_ERR_PORT | lasse |  |
 | `DLG_C1_TABLEAU_06` | MENDIONDO | Le plombier était à Dax, et les fourgons de la blanchisserie au dépôt. Ce n'est pas ça. | BR_ERR_VEHICULE | sèche |  |
 | `DLG_C1_TABLEAU_07` | MENDIONDO | La mairie n'a aucune Sandrine. Et ce logo n'existe plus depuis l'an dernier. | BR_ERR_PERSONNE | sèche |  |
 | `DLG_C1_TABLEAU_08` | MENDIONDO | Reprenez. On n'a pas le luxe de se tromper deux fois. | Relance après erreur | pression, pas de mépris |  |
-| `DLG_C1_TABLEAU_09` | MENDIONDO | Un ancien fourgon de blanchisserie avec une plaque clonée. Une fausse animatrice qui savait qui elle venait chercher. La route des Étangs. … C'est solide. | BR_RESOLU | décidée |  |
+| `DLG_C1_TABLEAU_09` | MENDIONDO | Un fourgon sous une plaque clonée. Une fausse animatrice qui savait qui elle venait chercher. La route des Étangs. … C'est solide. | BR_RESOLU | décidée |  |
 
 ## `DLG_C1_FIN`
 
@@ -507,7 +507,8 @@
 | `UI_AXE_VEHICULE` | Véhicule | Colonne du tableau d'hypothèses |
 | `UI_AXE_PERSONNES` | Personnes | Colonne du tableau d'hypothèses |
 | `UI_AXE_DESTINATION` | Destination | Colonne du tableau d'hypothèses |
-| `UI_H_VEH_ANCIEN_BLANCHISSERIE` | Un ancien fourgon de la Blanchisserie Océane, sous une plaque clonée | Hypothèse |
+| `UI_H_VEH_PLAQUE_CLONEE` | Un fourgon qui roule sous une plaque clonée | Hypothèse |
+| `UI_H_VEH_ORIGINE_BLANCHISSERIE` | Précision : un ancien fourgon de la Blanchisserie Océane | Hypothèse facultative |
 | `UI_H_VEH_PLOMBIER` | Le fourgon du plombier de Dax | Hypothèse |
 | `UI_H_VEH_BLANCHISSERIE_ACTIVE` | Un fourgon actuel de la Blanchisserie Océane | Hypothèse |
 | `UI_H_K2_FAUSSE_ANIMATRICE` | Une inconnue déguisée en animatrice, qui savait qui elle venait chercher | Hypothèse |

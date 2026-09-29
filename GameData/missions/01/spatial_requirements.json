@@ -1,9 +1,9 @@
 {
   "mission": "M01",
   "status": "proposition",
-  "_doc": "Exigences spatiales de l'ouverture (P0–P3 et chapitre 1) reliées à la maquette de la PR #3. zone_id et marker_id n'utilisent que les zones et repères de Game/Blockout/ouverture-centre-ville.manifest.json. camera_independent = l'élément est jouable et lisible dans les trois vues. fallback = voie de repli si le joueur manque l'élément : evenement_rattrapage (événement automatique), indice_equivalent (autres éléments qui mènent au même constat), toujours_accessible (reste en place jusqu'à l'échéance), partout (réalisable dans toutes les zones), automatique (se produit toujours). time_cost = minutes de jeu (0 dans le prologue, qui est en temps réel). Vérifié par Tools/validate_spatial.py.",
+  "_doc": "Exigences spatiales de l'ouverture (P0–P3 et chapitre 1) reliées à la maquette de la PR #3. zone_id et marker_id n'utilisent que les zones et repères de Game/Blockout/ouverture-centre-ville.manifest.json. camera_independent = l'élément est jouable et lisible dans les trois vues. fallback = voie de repli si le joueur manque l'élément : evenement_rattrapage (événement automatique), indice_equivalent (autres éléments qui mènent au même constat), toujours_accessible (reste en place jusqu'à l'échéance), partout (réalisable dans toutes les zones), automatique (se produit toujours). time_cost = minutes de jeu (0 dans le prologue, qui est en temps réel). Vérifié par Tools/validate_spatial.py. Décisions d'Audrey du 29/09 : la place de l'école (plan A : Z_PROMENADE, Z_ECOLE, Z_PLACE, Z_TEMOINS) et la ruelle des Tamaris (plan B : Z_CROISEMENT = entrée de la ruelle, Z_RUE_FUITE = la ruelle) sont deux lieux et deux plans distincts ; l'enlèvement a lieu dans la ruelle. Les identifiants de zones sont conservés ; leur disposition est à adapter dans la maquette (demandes REQ_RUELLE_*).",
   "blockout_ref": {
-    "source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3, commit 9af9b47)",
+    "source": "Game/Blockout/ouverture-centre-ville.manifest.json (PR #3, commit bcb280a)",
     "zones": [
       "Z_PROMENADE",
       "Z_ECOLE",
@@ -30,22 +30,56 @@
     {
       "id": "REQ_MARQUEUR_PISTE",
       "to": "Codex",
-      "text": "Placer scent_clue_marker (EVT_PISTE) sous la portière latérale du fourgon, là où la barrette de Lila tombe (fin de la piste de Lila), au lieu de (33, -2)."
+      "status": "implemented_bcb280a_a_deplacer_dans_la_ruelle",
+      "text": "Repère scent_clue_marker (EVT_PISTE) sous la portière latérale du fourgon, là où tombe le bracelet de Lila. Fait au commit bcb280a ; à reporter dans la ruelle séparée."
     },
     {
       "id": "REQ_DISTANCE_PISTE",
       "to": "Codex",
-      "text": "Laisser 15 à 25 m de trottoir entre l'angle (EVT_INDICE_ODEUR) et la portière du fourgon, pour que l'allure régulière d'Ariane soit lisible (≈ 6 m dans la maquette actuelle)."
+      "status": "implemented_bcb280a_a_deplacer_dans_la_ruelle",
+      "text": "15 à 25 m de trottoir entre le point d'abordage (EVT_INDICE_ODEUR) et la portière. Fait (17,45 m) ; à conserver dans la ruelle séparée."
     },
     {
       "id": "REQ_EXTENSION_ROND_POINT",
       "to": "Codex",
-      "text": "Prolonger Z_RUE_FUITE par une courbe jusqu'au rond-point (≈ 300 m) avec la butte du skatepark, pour le chapitre 1 ; non requis pour P0–P3."
+      "status": "deferred_chapter1",
+      "text": "Prolonger au-delà du débouché de la ruelle : boulevard (≈ 300 m, hors champ en P0–P3) jusqu'au rond-point du Lac et à la butte du skatepark, pour le chapitre 1."
     },
     {
-      "id": "REQ_LIGNE_DE_VUE_PERRON",
+      "id": "REQ_RUELLE_DISTINCTE",
       "to": "Codex",
-      "text": "Depuis le perron de l'étude (Z_PLACE), la rue des Tamaris doit être visible jusqu'à la courbe, et le rond-point masqué par l'auvent de la pharmacie et un platane (énigme PZ_03)."
+      "status": "nouvelle_decision_audrey_29_09",
+      "text": "Décision d'Audrey : la place de l'école (Z_PROMENADE, Z_ECOLE, Z_PLACE, Z_TEMOINS) et la ruelle des Tamaris (Z_CROISEMENT = entrée, Z_RUE_FUITE = ruelle) sont deux lieux et deux plans distincts. Ambiance validée : maisons variées d'époques différentes, couleurs, clôtures et haies différentes."
+    },
+    {
+      "id": "REQ_RUELLE_HORS_VUE_PORTAIL",
+      "to": "Codex",
+      "status": "proposition",
+      "text": "Entrée de la ruelle à 40–60 m du portail, derrière un angle de rue : depuis le portail, on ne voit pas l'intérieur de la ruelle (l'abordage, à ≈ 10 m dans la ruelle, reste invisible depuis la place)."
+    },
+    {
+      "id": "REQ_RUELLE_VUE_ENTREE",
+      "to": "Codex",
+      "status": "proposition",
+      "text": "Depuis l'entrée de la ruelle (Z_CROISEMENT), à hauteur d'yeux et dans les trois vues : point d'abordage, trajet jusqu'au fourgon (15–25 m), portière latérale et arrière du fourgon visibles sans clôture ni haie haute dans l'axe. Nouveau point de contrôle caméra à prévoir pour check_opening_sightlines.py."
+    },
+    {
+      "id": "REQ_RUELLE_ORIENTATION_FOURGON",
+      "to": "Codex",
+      "status": "proposition",
+      "text": "Fourgon garé sur le bas-côté dans le sens de la descente vers l'océan : arrière et plaque vers l'entrée de la ruelle ; portière latérale côté trottoir d'arrivée et haie. Aucune exigence sur la couleur, le modèle ou le lettrage (choix d'Audrey pendant la construction 3D)."
+    },
+    {
+      "id": "REQ_RUELLE_DEBOUCHE",
+      "to": "Codex",
+      "status": "proposition",
+      "text": "Débouché de la ruelle à 70–100 m de la portière, sur le boulevard (hors champ) ; les maisons d'angle masquent la direction prise par un véhicule qui tourne. Ce que l'on voit au-delà (lumière, bout de ciel, mer ou non) est un choix visuel d'Audrey."
+    },
+    {
+      "id": "REQ_RUELLE_PERRON",
+      "to": "Codex",
+      "status": "deferred_chapter1",
+      "text": "Remplace REQ_LIGNE_DE_VUE_PERRON. Depuis le perron de l'étude (Z_PLACE), à 1,65 m : l'intérieur de la ruelle est visible en enfilade jusqu'au débouché ; ni le boulevard ni le rond-point ne sont visibles (énigme PZ_03)."
     }
   ],
   "elements": [
@@ -89,7 +123,7 @@
         "ids": [],
         "note": "Purement narratif ; le lien Lila–Ariane est redit par Julien (DLG_C1_PERE_01)."
       },
-      "visual_check": "Lila identifiable au portail depuis Z_PROMENADE (≈ 20 m) dans les trois vues."
+      "visual_check": "Plan A. Lila repérable au moins 3 s au portail depuis la place (≈ 20 m), dans les trois vues, quel que soit le niveau d'animation de la place (choix ouvert d'Audrey)."
     },
     {
       "id": "EVT_ALERTE",
@@ -110,7 +144,7 @@
         "ids": [],
         "note": "Se produit toujours ; déclenche la fenêtre d'action."
       },
-      "visual_check": "Portière latérale du fourgon et Lila visibles depuis Z_PROMENADE dans les trois vues, sans occlusion (check_opening_sightlines.py)."
+      "visual_check": "Plan B. Depuis l'entrée de la ruelle (Z_CROISEMENT) : Lila, la femme, la portière latérale et l'arrière du fourgon visibles à 20–30 m dans les trois vues, sans clôture ni haie haute dans l'axe."
     },
     {
       "id": "EVT_DEPART",
@@ -129,14 +163,14 @@
       "fallback": {
         "type": "automatique",
         "ids": [],
-        "note": "Le fourgon part toujours, direction de la courbe vers le rond-point."
+        "note": "Le fourgon part toujours ; il descend la ruelle et tourne au bout, hors de vue."
       },
-      "visual_check": "Direction de départ lisible (image et son) dans les trois vues."
+      "visual_check": "Plan B. Le fourgon descend la ruelle vers son débouché ; plaque arrière lisible au moins 4 s ; on ne voit pas de quel côté il tourne au bout."
     },
     {
       "id": "ACT_PHOTO",
       "kind": "action",
-      "zone_id": "Z_PROMENADE",
+      "zone_id": "Z_CROISEMENT",
       "marker_id": "EVT_FOURGON",
       "observer": "joueur (téléphone)",
       "cameras": [
@@ -154,7 +188,7 @@
         ],
         "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
       },
-      "visual_check": "Plaque arrière et lettrage tournés vers Z_PROMENADE ; lisibles à ≈ 25 m via la photo quelle que soit la vue."
+      "visual_check": "Depuis l'entrée de la ruelle : plaque arrière face à la joueuse (fourgon garé dans le sens de la descente) ; lisible via la photo quelle que soit la vue et quel que soit l'aspect du fourgon."
     },
     {
       "id": "ACT_COURIR",
@@ -178,12 +212,12 @@
         ],
         "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
       },
-      "visual_check": "En arrivant à ≈ 8 m : conducteur, pot qui vibre, feu arrière fendu visibles dans les trois vues."
+      "visual_check": "Course dans la ruelle : le fourgon déboîte du bas-côté, profil du conducteur visible 1–2 s par la vitre ; pot qui tremble ; feu arrière (si le fourgon retenu a un feu fendu)."
     },
     {
       "id": "ACT_CRIER",
       "kind": "action",
-      "zone_id": "Z_PROMENADE",
+      "zone_id": "Z_CROISEMENT",
       "marker_id": "EVT_FOURGON",
       "observer": "joueur",
       "cameras": [
@@ -202,7 +236,7 @@
         ],
         "note": "Action facultative : ce qu'elle apporte s'obtient aussi par ces éléments permanents."
       },
-      "visual_check": "La femme se retourne face à Z_PROMENADE ; la chute du cordon dans la haie est visible dans les trois vues."
+      "visual_check": "La femme se retourne vers l'entrée de la ruelle ; portière et haie du côté du trottoir d'arrivée : la chute du cordon dans la haie est visible dans les trois vues."
     },
     {
       "id": "ACT_ENVOYER",
@@ -230,7 +264,7 @@
     {
       "id": "CLU_PHOTO_FOURGON",
       "kind": "indice",
-      "zone_id": "Z_PROMENADE",
+      "zone_id": "Z_CROISEMENT",
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
@@ -253,7 +287,7 @@
     {
       "id": "CLU_PHOTO_FLOUE",
       "kind": "indice",
-      "zone_id": "Z_PROMENADE",
+      "zone_id": "Z_RUE_FUITE",
       "marker_id": "EVT_FOURGON",
       "observer": "joueur pendant la fenêtre",
       "cameras": [
@@ -455,7 +489,7 @@
         ],
         "note": "Bonus de confiance uniquement."
       },
-      "visual_check": "Passants autour du coin, porte-clés au sol visible."
+      "visual_check": "Passants qui arrivent de la place vers l'entrée de la ruelle ; porte-clés au sol visible à 10 m dans la ruelle."
     },
     {
       "id": "INT_EXAMINER_ACCOTEMENT",
@@ -476,7 +510,7 @@
         "ids": [],
         "note": "Emplacement du fourgon balisé et examinable jusqu'à 19 h 30."
       },
-      "visual_check": "Traces de pneus, mégots et caisse lisibles au sol dans les trois vues (surbrillance d'inspection proche)."
+      "visual_check": "Bas-côté sablonneux de la ruelle : traces de pneus, mégots et caisse lisibles au sol dans les trois vues (surbrillance d'inspection proche)."
     },
     {
       "id": "INT_FOUILLER_HAIE",
@@ -520,7 +554,7 @@
         "ids": [],
         "note": "Dufau reste sur son banc jusqu'à 19 h 30 ; Mendiondo le cite comme témoin."
       },
-      "visual_check": "Banc du square visible depuis Z_PROMENADE ; Dufau identifiable (bob, journal)."
+      "visual_check": "Banc du square visible depuis la place ; Dufau identifiable (bob, journal) ; de son banc, il voit passer les véhicules devant l'école et l'entrée de la ruelle, pas l'intérieur."
     },
     {
       "id": "INT_LARTIGUE",
@@ -585,7 +619,7 @@
         ],
         "note": "La bouteille reste sur le banc jusqu'à 19 h 30 ; la directrice établit aussi la fausse animatrice."
       },
-      "visual_check": "Bouteille visible sur le banc de l'abribus depuis la rue des Écoles."
+      "visual_check": "Bouteille visible sur le banc de l'abribus depuis la rue de l'École (plan A)."
     },
     {
       "id": "INT_PLAN_TOURISTIQUE",
@@ -702,7 +736,7 @@
         ],
         "note": "La vidéo d'Inès contredit aussi Casteran."
       },
-      "visual_check": "Depuis le perron à hauteur d'yeux : rue des Tamaris visible jusqu'à la courbe, rond-point masqué par l'auvent et le platane ; la vue reculée descend à hauteur d'yeux pendant le test."
+      "visual_check": "Depuis le perron à hauteur d'yeux (1,65 m) : intérieur de la ruelle visible jusqu'à son débouché ; boulevard et rond-point invisibles (maisons d'angle). La vue reculée descend à hauteur d'yeux pendant le test."
     },
     {
       "id": "INT_INES",
@@ -725,7 +759,7 @@
         ],
         "note": "Les parents d'Inès l'amènent au poste à 19 h 00."
       },
-      "visual_check": "Butte du skatepark au-delà de la maquette actuelle (extension de Z_RUE_FUITE à prévoir)."
+      "visual_check": "Butte du skatepark près du rond-point du Lac, au-delà du débouché de la ruelle et du boulevard (extension du chapitre 1)."
     },
     {
       "id": "INT_PISTE_LILA",
@@ -772,7 +806,7 @@
         ],
         "note": "Si la piste échoue, les gendarmes fouillent la haie à 18 h 30."
       },
-      "visual_check": "Trajet abribus → coin → emplacement du fourgon → haie praticable à pied ; Ariane visible sur tout le trajet."
+      "visual_check": "Trajet abribus (plan A) → entrée de la ruelle → emplacement du fourgon → haie (plan B), praticable à pied ; Ariane visible sur tout le trajet."
     },
     {
       "id": "INT_PLAQUE_COMPLETE",
@@ -1025,10 +1059,10 @@
         ],
         "note": "Aussi trouvé en examinant le coin et l'emplacement du fourgon. Choix de l'objet encore ouvert pour Audrey."
       },
-      "visual_check": "Porte-clés renard au sol près du caniveau, repérable à 2 m ; surbrillance d'inspection."
+      "visual_check": "Porte-clés renard au sol près du caniveau, à ≈ 10 m dans la ruelle, invisible depuis le portail ; repérable à 2 m ; surbrillance d'inspection."
     },
     {
-      "id": "CLU_BARRETTE_LILA",
+      "id": "CLU_BRACELET_LILA",
       "kind": "indice",
       "zone_id": "Z_RUE_FUITE",
       "marker_id": "EVT_PISTE",
@@ -1048,7 +1082,7 @@
         ],
         "note": "Point d'arrivée de la piste de Lila : à la portière latérale du fourgon."
       },
-      "visual_check": "Barrette au sol exactement sous la portière latérale ; demande de déplacer scent_clue_marker à cet endroit (voir coordination)."
+      "visual_check": "Bracelet au sol sous la portière latérale, 15–25 m après le porte-clés ; repère scent_clue_marker à replacer dans la ruelle (REQ_RUELLE_PISTE)."
     }
   ]
 }

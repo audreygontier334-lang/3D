@@ -1,6 +1,6 @@
 # Mission 01 — Énigmes du prologue et du chapitre 1
 
-> **Statut : proposition non canonique.** 10 énigmes, dont 3 liées au duo avec la chienne (PZ_01, PZ_02, PZ_08). Chaque énigme renvoie aux indices (`CLU_`) décrits dans `01-ouverture.md` et `GameData/missions/01/clues.json`.
+> **Statut : proposition** (décisions d'Audrey du 29/09 appliquées : ruelle distincte de la place, apparence du fourgon ouverte, Q1–Q3). 10 énigmes, dont 3 liées au duo avec la chienne (PZ_01, PZ_02, PZ_08). Chaque énigme renvoie aux indices (`CLU_`) décrits dans `01-ouverture.md` et `GameData/missions/01/clues.json`.
 >
 > **Règle générale des aides** : les indices progressifs sont proposés dans le carnet, à la demande du joueur, niveau par niveau. Le niveau 3 donne la démarche, jamais la réponse à cliquer. Demander une aide ne coûte pas de temps de jeu (option d'accessibilité), mais est comptabilisé pour les statistiques de fin de chapitre.
 
@@ -13,7 +13,7 @@
 | PZ_03 | Ce que voyait la notaire | Destination | — | Non | `DED_CASTERAN_NON_FIABLE` |
 | PZ_04 | Douze secondes de vidéo | Destination | — | **Oui** | `DED_SORTIE_ETANGS` |
 | PZ_05 | La plaque | Véhicule | — | **Oui** | `DED_PLAQUE_CLONEE` |
-| PZ_06 | Les lettres fantômes | Véhicule | — | **Oui** | `DED_LETTRAGE` |
+| PZ_06 | Les lettres fantômes | Véhicule | — | Non (dépend de l'aspect du fourgon, encore ouvert) | `DED_LETTRAGE` |
 | PZ_07 | Le fourgon du péage | Destination | — | Non | `DED_PEAGE_EXCLU` |
 | PZ_08 | Ce que Julien ne dit pas | Personne | ✅ (réaction de la chienne) | Non (rattrapage 18 h 45) | `DED_CHANTAGE` |
 | PZ_09 | Soleil sur l'étang | Destination | — | Non (avantage ch. 2) | `DED_RIVE_EST` |
@@ -25,30 +25,30 @@
 
 ## PZ_01 — La piste de Lila ✅ duo
 
-**Contexte 3D.** Angle rue des Écoles / rue des Tamaris (`LOC_COIN_ECOLES`). Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. Ariane connaît Lila, qui la caresse souvent.
+**Contexte 3D.** Ruelle des Tamaris, à une dizaine de mètres de son entrée (`LOC_COIN_ECOLES`), hors de vue du portail de l'école. Le porte-clés renard de Lila (`CLU_PORTE_CLES_LILA`) est au sol, près du caniveau. Ariane connaît Lila, qui la caresse souvent.
 
 **Objectif.** Comprendre comment Lila a été emmenée : de force ou par ruse ?
 
 **Données remises.**
 - `CLU_PORTE_CLES_LILA` (objet de référence évident, l'odeur de Lila).
 - Le comportement de la chienne pendant la piste, en quatre points (animations `ANIM_CHIENNE_*`) :
-  - **A — l'angle** : cercles serrés sur 2 m², truffe basse ; puis une traction brève vers la boulangerie, truffe intermittente ;
-  - **B — le trottoir de la rue des Tamaris** : allure régulière, droite, truffe basse, sur 25 m ;
-  - **C — l'accotement** : s'assied, regarde {HEROINE} (découverte : barrette à fleur, `CLU_BARRETTE_LILA`) ;
+  - **A — le point d'abordage** : cercles serrés sur 2 m², truffe basse ; puis une traction brève vers l'entrée de la ruelle et la place (direction de la boulangerie), truffe intermittente ;
+  - **B — le trottoir de la ruelle** : allure régulière, droite, truffe basse, sur 15 à 25 m ;
+  - **C — le bas-côté, au pied de la portière** : s'assied, regarde {HEROINE} (découverte : bracelet en perles, `CLU_BRACELET_LILA`) ;
   - **D — le bord de la chaussée** : tête haute, cercles, retour vers {HEROINE}.
 - Le carnet propose, pour chaque point, trois interprétations à associer.
 
 **Solution et raisonnement.**
 - A : Lila s'est **arrêtée** et a piétiné sur place (conversation). La traction vers la boulangerie, truffe intermittente, correspond à une **piste plus ancienne** (son trajet du matin) : à ignorer.
 - B : elle a **marché normalement** jusqu'au fourgon — aucun écart, aucune trace de lutte.
-- C : **objet trouvé** : la barrette, tombée au moment de monter.
+- C : **objet trouvé** : le bracelet, arraché au moment de monter (cordon cassé).
 - D : **fin de piste** : Lila est partie en véhicule. La chienne ne peut pas suivre plus loin (limite affichée).
 - Conclusion `DED_RUSE` : *Lila a suivi l'inconnue sans résister, jusqu'au fourgon. Elle a été trompée, pas saisie.* Ce qui suppose que l'inconnue avait de quoi la rassurer.
 
 **Indices progressifs.**
 1. « Observe la façon dont Ariane se déplace, pas seulement où elle va. »
 2. « Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche "Langage d'Ariane" du carnet. »
-3. « À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ? »
+3. « Au point d'abordage, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ? »
 
 **Fausse piste loyale.** La traction vers la boulangerie : elle est réelle (Lila y passe chaque matin), mais la truffe intermittente indique une odeur ancienne. La fiche du carnet explique ce signal dès le tutoriel.
 
@@ -57,7 +57,7 @@
 **Rattrapage.** Le témoignage de Lartigue (l'inconnue connaissait le nom de famille de Lila) et celui de la directrice (aucune « Sandrine » parmi les animatrices) mènent au même constat par une autre voie. La piste peut être relancée tant que la scène n'est pas piétinée (jusqu'à 19 h 30).
 
 **Test de cohérence.**
-- La barrette est placée exactement sur la position de la portière latérale de `VEH_FOURGON` dans le prologue.
+- Le bracelet est placé exactement sur la position de la portière latérale de `VEH_FOURGON` dans le prologue.
 - La piste B longe le trottoir que la femme et Lila ont emprunté dans l'animation `EVT_MARCHE_FOURGON`.
 - La piste s'arrête au bord de la chaussée même si le joueur la relance.
 
@@ -65,7 +65,7 @@
 
 ## PZ_02 — L'objet de référence ✅ duo
 
-**Contexte 3D.** Abribus de la rue des Écoles (`LOC_ABRIBUS`), puis la rue jusqu'à la haie de pittosporum de l'accotement.
+**Contexte 3D.** Abribus de la rue de l'École (`LOC_ABRIBUS`, plan A), puis l'entrée de la ruelle et le trottoir jusqu'à la haie de pittosporum, au pied de l'emplacement du fourgon (plan B). La piste traverse donc les deux lieux.
 
 **Objectif.** Faire suivre à la chienne la piste de l'inconnue, pour retrouver ce qu'elle a pu laisser.
 
@@ -104,32 +104,32 @@
 
 ## PZ_03 — Ce que voyait la notaire
 
-**Contexte 3D.** Perron de l'étude Casteran, place de l'Église (`LOC_ETUDE_CASTERAN`). Entre le perron et le rond-point : l'auvent vert de la pharmacie et un grand platane.
+**Contexte 3D.** Perron de l'étude Casteran, place de l'Église (`LOC_ETUDE_CASTERAN`). Du perron, on voit en enfilade l'intérieur de la ruelle des Tamaris jusqu'à son débouché ; au-delà, les maisons masquent le boulevard et le rond-point.
 
-**Objectif.** Évaluer le témoignage de Maître Casteran, selon qui le fourgon est parti « vers le nord, par la Corniche ».
+**Objectif.** Évaluer le témoignage de Maître Casteran, selon qui le fourgon a tourné à droite au bout de la ruelle, « vers la Corniche ».
 
 **Données remises.**
-- `CLU_TEMOIN_CASTERAN` : « J'étais sur mon perron, j'ai tout vu. Il a tourné à gauche au rond-point, vers la Corniche. »
+- `CLU_TEMOIN_CASTERAN` : « J'étais sur mon perron, j'ai tout vu. Il est descendu jusqu'au bout de la ruelle et il a tourné à droite, vers la Corniche. »
 - Le perron lui-même, où {HEROINE} peut se placer (action « Se mettre à sa place »).
-- Le panneau du rond-point, point de repère visible depuis la rue des Tamaris.
+- Le débouché de la ruelle, lumineux, et les façades qui le bordent.
 
-**Solution et raisonnement.** Debout sur le perron, à hauteur d'yeux, on voit la rue des Tamaris et le début de la courbe, **mais pas le rond-point** : l'auvent masque la chaussée, le platane cache le panneau et les sorties. Casteran a pu voir le fourgon partir vers l'est, pas la sortie qu'il a prise. Son affirmation « j'ai tout vu » n'est pas fiable : `DED_CASTERAN_NON_FIABLE`.
+**Solution et raisonnement.** Debout sur le perron, à hauteur d'yeux, on voit la ruelle jusqu'à son débouché, **mais pas le boulevard** : les maisons d'angle ferment la vue. Un véhicule qui tourne au bout disparaît sans qu'on puisse voir de quel côté. Casteran a vu le fourgon descendre la ruelle, pas la direction qu'il a prise. Son affirmation « j'ai tout vu » n'est pas fiable : `DED_CASTERAN_NON_FIABLE`.
 {HEROINE} ne conclut **pas** qu'elle ment : le carnet note « s'est trompée ou a supposé ». C'est la vérité : Casteran est de bonne foi (décision d'Audrey sur Q2). La leçon, reprise au chapitre 6 : un témoin respectable n'est pas une preuve.
 
 **Indices progressifs.**
 1. « Un témoin sincère peut se tromper. Où se tenait-elle exactement ? »
 2. « Place-toi sur le perron. Que vois-tu vraiment d'ici ? »
-3. « Cherche le panneau du rond-point depuis le perron. Si tu ne le vois pas, elle non plus. »
+3. « Regarde le bout de la ruelle depuis le perron. Vois-tu le boulevard ? Si tu ne vois pas de quel côté on tourne, elle non plus. »
 
-**Fausse piste loyale.** L'assurance et la respectabilité de la notaire. Et, dans la vidéo d'Inès, un camping-car blanc sur la Corniche à 16:39:16 (voir PZ_04).
+**Fausse piste loyale.** L'assurance et la respectabilité de la notaire. Et, dans la vidéo d'Inès, un camping-car qui part vers la Corniche à 16:39:16 (voir PZ_04).
 
 **Conséquence d'erreur.** Croire Casteran mène à présenter « Corniche nord » (`BR_ERR_NORD`, +25 min, `CLU_NEG_NORD`).
 
 **Rattrapage.** La vidéo d'Inès contredit directement ce témoignage ; `CLU_NEG_NORD` également. Le test de ligne de vue reste faisable à tout moment.
 
 **Test de cohérence.**
-- Dans la scène, un rayon de visibilité depuis la hauteur d'yeux (1,65 m) au perron ne doit atteindre aucune des trois sorties du rond-point. À vérifier par Codex dans les trois caméras.
-- Depuis le perron, la rue des Tamaris est visible jusqu'à la courbe (Casteran a bien vu le fourgon partir).
+- Depuis la hauteur d'yeux (1,65 m) au perron, aucun rayon de visibilité n'atteint la chaussée du boulevard au-delà du débouché (exigence `REQ_RUELLE_PERRON`, à vérifier par Codex dans les trois caméras).
+- Depuis le perron, l'intérieur de la ruelle est visible jusqu'au débouché (Casteran a bien vu le fourgon descendre).
 
 ---
 
@@ -141,19 +141,19 @@
 
 **Données remises.**
 - Dialogue de persuasion (`DLG_C1_INES_*`) : Inès a peur que ses parents apprennent qu'elle devait être à l'étude. Deux approches réussissent : rassurer (« personne ne te reprochera d'aider ») ou l'impliquer (« tu as peut-être filmé la seule image du fourgon »). La menace (« les gendarmes vont saisir ton téléphone ») la braque ; elle part (rattrapage à 19 h).
-- `CLU_VIDEO_INES` : 12 s, horodatée 16:39:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis la rue des Tamaris (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
+- `CLU_VIDEO_INES` : 12 s, horodatée 16:39:10, lecture image par image en `CAM_INSPECT`. Le rond-point tourne dans le sens inverse des aiguilles d'une montre. Depuis le boulevard (entrée ouest), la première sortie est la D652 (sud), la deuxième la route des Étangs (est), la troisième la Corniche (nord).
   - 16:39:12 : le fourgon entre, passe devant la sortie D652 **sans** la prendre ;
   - 16:39:13–14 : masqué par le skateur ;
   - 16:39:15 : arrière du fourgon sur la route des Étangs, derrière le panneau « Étang de Sorbe 14 » ; plaque arrière partiellement lisible « ··-·37-TR » ; le cognement du pot est audible ;
-  - 16:39:16 : un **camping-car blanc** (toit haut, porte-vélos) s'éloigne sur la Corniche.
+  - 16:39:16 : un **camping-car** (toit haut, porte-vélos, plaque masquée par les vélos) s'éloigne vers la Corniche.
 - `CLU_PLAN_DISTANCES` pour le nom des sorties.
 
-**Solution et raisonnement.** Le fourgon ne prend pas la D652 (visible à 16:39:12), réapparaît sur la route des Étangs à 16:39:15. Le véhicule blanc sur la Corniche est un camping-car : toit plus haut, porte-vélos, silhouette différente, pas de cognement. `DED_SORTIE_ETANGS`.
+**Solution et raisonnement.** Le fourgon ne prend pas la D652 (visible à 16:39:12), réapparaît sur la route des Étangs à 16:39:15. Le véhicule qui part vers la Corniche est un camping-car : silhouette différente, porte-vélos, pas de plaque « 37-TR », pas de cognement. **Ce raisonnement ne dépend ni de la couleur ni du modèle exact du fourgon.** `DED_SORTIE_ETANGS`.
 
 **Indices progressifs.**
 1. « Repasse la vidéo image par image. Où est le fourgon juste avant et juste après le passage du skateur ? »
-2. « Il y a deux véhicules blancs dans cette vidéo. Compare leur hauteur, leur arrière et le bruit. »
-3. « Le fourgon cogne. Le véhicule sur la Corniche a un porte-vélos. Sur quelle route voit-on la plaque "37-TR" ? »
+2. « Il y a deux grands véhicules dans cette vidéo. Compare leur silhouette, leur arrière et la plaque. »
+3. « Le camping-car a un porte-vélos et pas de plaque lisible ; le fourgon, si. Sur quelle route voit-on la plaque ‹ 37-TR › ? »
 
 **Fausse piste loyale.** Le camping-car sur la Corniche, qui semble confirmer Casteran.
 
@@ -163,7 +163,7 @@
 
 **Test de cohérence.**
 - Le signal sonore du pot est doublé par un indice visuel (échappement qui tremble, fumée) pour les joueurs sans son.
-- Les horodatages sont compatibles : départ 16:38, 300 m, rond-point 16:39:12, Relais du Lac (9 km) 16:48.
+- Les horodatages sont compatibles : départ de la portière 16:38:05, débouché de la ruelle ≈ 16:38:17, boulevard ≈ 300 m, rond-point 16:39:12, Relais du Lac (9 km) 16:48.
 
 ---
 
@@ -190,13 +190,15 @@
 
 **Conséquence d'erreur.** Présenter « fourgon du plombier » : `BR_ERR_VEHICULE`, +15 min, `CLU_NEG_VEHICULE`.
 
-**Rattrapage.** Une seule source suffit : avec la photo seule ou la vidéo seule, la consultation avec `?` renvoie 12 véhicules dont un seul fourgon blanc de ce modèle ; coût 15 min au lieu de 5.
+**Rattrapage.** Une seule source suffit : avec la photo seule ou la vidéo seule, la consultation avec `?` renvoie 12 véhicules dont un seul fourgon ; coût 15 min au lieu de 5.
 
-**Test de cohérence.** Les deux fragments sont compatibles entre eux et avec le modèle `VEH_FOURGON`. Le numéro n'appartient à aucune personne réelle (format fictif à vérifier par Codex avant publication).
+**Test de cohérence.** Les deux fragments sont compatibles entre eux. La plaque arrière existe quel que soit l'aspect du fourgon retenu par Audrey : c'est pourquoi l'axe « véhicule » obligatoire repose sur elle seule. Le numéro n'appartient à aucune personne réelle (format fictif à vérifier par Codex avant publication).
 
 ---
 
-## PZ_06 — Les lettres fantômes
+## PZ_06 — Les lettres fantômes (facultative)
+
+> **Dépend d'un visuel encore ouvert.** Audrey choisira l'apparence du fourgon pendant la construction 3D. Si le fourgon retenu porte une ombre de lettrage, cette énigme existe et donne un bonus (origine du fourgon, puis identité de Loubère) ; sinon, elle est retirée sans rien casser. Elle n'entre plus dans l'hypothèse obligatoire du véhicule.
 
 **Contexte 3D.** Boulangerie, tableau de liège (`LOC_BOULANGERIE`) ; carnet.
 
@@ -230,10 +232,10 @@
 
 **Contexte 3D.** Poste de commandement ; radio des gendarmes ; carte murale et plan touristique.
 
-**Objectif.** Évaluer le signalement d'un fourgon blanc au péage de l'A63 à 16 h 58 (`CLU_SIGNALEMENT_PEAGE`, reçu à 17 h 15).
+**Objectif.** Évaluer le signalement d'un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 58 (`CLU_SIGNALEMENT_PEAGE`, reçu à 17 h 15).
 
 **Données remises.**
-- Signalement : fourgon blanc, péage de l'A63, 16 h 58, direction Espagne.
+- Signalement : fourgon « correspondant au signalement », péage de l'A63, 16 h 58, direction Espagne ; plaque non relevée.
 - `CLU_VIDEO_INES` : le fourgon est au rond-point à 16:39:12.
 - `CLU_PLAN_DISTANCES` : rond-point → péage A63 : 32 km, environ 28 min.
 - Optionnel : `CLU_CCTV_RELAIS` (fourgon au Relais du Lac à 16 h 48).
@@ -324,7 +326,7 @@
 
 | Axe | Hypothèses (✔ = correcte) |
 |---|---|
-| Véhicule | ✔ `H_VEH_ANCIEN_BLANCHISSERIE` (ancien fourgon de la blanchisserie, plaque clonée) · `H_VEH_PLOMBIER` · `H_VEH_BLANCHISSERIE_ACTIVE` |
+| Véhicule | ✔ `H_VEH_PLAQUE_CLONEE` (fourgon sous plaque clonée) · facultatif : ✔ `H_VEH_ORIGINE_BLANCHISSERIE` · `H_VEH_PLOMBIER` · `H_VEH_BLANCHISSERIE_ACTIVE` |
 | Personnes | ✔ `H_K2_FAUSSE_ANIMATRICE` (inconnue déguisée en animatrice, qui connaissait la famille) · `H_K2_VRAIE_ANIMATRICE` ; optionnel : ✔ `H_K1_LOUBERE` |
 | Destination | ✔ `H_DEST_ETANGS` (route des Étangs, secteur étang de Sorbe) · `H_DEST_NORD` · `H_DEST_A63` · `H_DEST_PORT` ; optionnel : ✔ `H_DEST_RIVE_EST` |
 

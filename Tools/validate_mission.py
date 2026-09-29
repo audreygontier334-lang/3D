@@ -730,11 +730,46 @@ def check_dialogue_requires(m: Mission, r: Report) -> None:
 
 # ------------------------------------------------------------------------- main
 
+# ------------------------------------------------ 10. détails visuels encore ouverts
+
+OPEN_VISUALS = {"apparence_fourgon", "animation_place_ecole", "apparence_lila"}
+
+
+def check_open_visuals(m: Mission, r: Report) -> None:
+    """Décision d'Audrey (29/09) : aucun indice indispensable ne dépend d'un détail visuel encore ouvert.
+
+    Les indices et déductions marqués `open_visual` sont retirés ; les hypothèses obligatoires doivent
+    rester atteignables dans tous les scénarios du prologue, même si le joueur échoue au facultatif.
+    """
+    tagged = set()
+    for store in (m.clues, m.deductions):
+        for i, x in store.items():
+            for tag in x.get("open_visual", []):
+                if tag not in OPEN_VISUALS:
+                    r.err(f"[visuels ouverts] {i} : étiquette inconnue « {tag} »")
+                tagged.add(i)
+    if not tagged:
+        return
+    saved = {i: m.deductions.pop(i) for i in list(m.deductions) if i in tagged}
+    try:
+        required = [h for h in m.hypotheses.values() if h["correct"] and not h.get("optional")]
+        for combo, grants in prologue_scenarios(m):
+            have = reachable(m, grants - tagged, adversarial=True) - tagged
+            have = derive(m, have)
+            for h in required:
+                if not any(set(s) <= have for s in h.get("requires_any_of", [])):
+                    r.err(f"[visuels ouverts] {h['id']} dépend d'un détail visuel encore ouvert "
+                          f"(scénario {list(combo) or ['aucune action']})")
+    finally:
+        m.deductions.update(saved)
+    r.info.append(f"{len(tagged)} indices/déductions liés à des visuels ouverts : hypothèses obligatoires atteignables sans eux")
+
+
 def validate(mission_dir: Path) -> Report:
     r = Report()
     m = Mission(mission_dir)
     for check in (check_ids, check_refs, check_sources, check_reachability, check_time, check_branches, check_content,
-                  check_window_exclusive, check_states, check_dialogue_requires):
+                  check_window_exclusive, check_states, check_dialogue_requires, check_open_visuals):
         check(m, r)
     return r
 

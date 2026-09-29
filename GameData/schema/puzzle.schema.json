@@ -95,6 +95,9 @@
       "items": {
         "type": "string"
       }
+    },
+    "note_audrey": {
+      "type": "string"
     }
   }
 }

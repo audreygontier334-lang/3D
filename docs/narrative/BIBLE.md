@@ -8,7 +8,7 @@
 
 ## 1. Résumé public (sans spoilers)
 
-Un mardi de fin septembre, à Lescoure-Plage 🟡 — une petite ville côtière fictive entre océan, dunes et forêt de pins —, une femme se promène avec sa chienne Ariane dans le centre-ville ✅ (centre inspiré de celui d'Arcachon, lumière chaude de fin d'après-midi ✅). À la sortie de l'école, elle voit une fillette du quartier monter dans un fourgon blanc avec une inconnue. Quelques secondes plus tard, le fourgon a disparu ✅.
+Un mardi de fin septembre, à Lescoure-Plage 🟡 — une petite ville côtière fictive entre océan, dunes et forêt de pins —, une femme se promène avec sa chienne Ariane dans le centre-ville ✅ (centre inspiré de celui d'Arcachon, lumière chaude de fin d'après-midi ✅). À la sortie de l'école, une fillette du quartier part seule vers la ruelle voisine ✅. Quelques instants plus tard, dans cette ruelle plus isolée ✅, la femme la voit monter dans un fourgon avec une inconnue. Quelques secondes après, le fourgon a disparu ✅.
 
 Elle n'est ni policière ni détective. Mais elle a vu la scène, sa chienne connaît l'odeur de l'enfant, et les premières heures comptent. Aux côtés des gendarmes, elle interroge les témoins, confronte des versions qui ne concordent pas, suit les pistes que flaire sa chienne et apprend à distinguer ce qu'elle a vu de ce qu'elle croit avoir vu.
 
@@ -90,14 +90,15 @@ L'enlèvement n'avait rien d'un hasard. Le père de la fillette cache quelque ch
 | J-3 semaines | Julien ouvre un carton abîmé à l'entrepôt : boîtes de médicaments aux notices fausses. Il annonce à Darrigade qu'il arrête. |
 | J-10 jours | À table, Nadia raconte que Lila rentre seule depuis la rentrée. Darrigade transmet l'itinéraire à « Sandrine ». |
 | J-2 | Loubère pose de fausses plaques, clonées sur un fourgon identique appartenant à un plombier de Dax. Il retire le lettrage de la blanchisserie ; il en reste une ombre. |
-| J 15 h 50 | Le fourgon arrive et se gare sur l'accotement sablonneux de la rue des Tamaris. Dufau le remarque (pot d'échappement qui cogne). |
+| J 15 h 50 | Le fourgon passe devant l'école et se gare sur le bas-côté sablonneux de la ruelle des Tamaris, dans le sens de la descente. Dufau le remarque depuis son banc (pot d'échappement qui cogne). |
+| J 16 h 30 | « Sandrine » quitte l'abribus et va attendre à une dizaine de mètres dans la ruelle, hors de vue du portail. |
 | J 16 h 12 | « Sandrine » achète une bouteille d'eau à la boulangerie et demande « l'école de la petite Mercadier ». Elle laisse la bouteille sur le banc de l'abribus. |
-| J 16 h 36 | « Sandrine » aborde Lila : « Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Elle connaît le prénom de Nadia. Lila la suit, hésitante. |
-| J 16 h 38 | Lila monte dans le fourgon. Le cordon du badge s'accroche à la portière et tombe dans la haie. Le fourgon prend au rond-point la route des Étangs. |
-| J 16 h 38 | Casteran, sur son perron, voit le fourgon partir vers l'est mais pas le rond-point ; elle **suppose** qu'il a pris la Corniche et l'affirme de bonne foi. |
+| J 16 h 36 | Dans la ruelle, « Sandrine » aborde Lila : « Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Elle connaît le prénom de Nadia. Lila la suit, hésitante. |
+| J 16 h 38 | Lila monte dans le fourgon. Le cordon du badge s'accroche à la portière et tombe dans la haie. Le fourgon descend la ruelle, tourne sur le boulevard, puis prend au rond-point du Lac la route des Étangs. |
+| J 16 h 38 | Casteran, sur son perron, voit le fourgon descendre la ruelle mais pas le boulevard ; elle **suppose** qu'il a tourné vers la Corniche et l'affirme de bonne foi. |
 | J 16 h 39 | Vidéo d'Inès : le fourgon au rond-point, sortie route des Étangs. |
-| J 16 h 48 | Caméra du Relais du Lac : fourgon blanc, clignotant arrière droit hors service. |
-| J 16 h 58 | Un autre fourgon blanc passe au péage de l'A63 ; un agent le signale à tort à 17 h 15. |
+| J 16 h 48 | Caméra du Relais du Lac : le fourgon (plaque « …37-TR ») prend la fourche de l'étang de Sorbe. |
+| J 16 h 58 | Un autre fourgon, d'un autre modèle, passe au péage de l'A63 ; un agent le signale à tort à 17 h 15. |
 | J 17 h 05 | Arrivée à l'airial de Hount-Bielha, rive est de l'étang de Sorbe (SCI des Pins de Sorbe). |
 | J 17 h 30 | Julien arrive de Bayonne ; Nadia et Darrigade arrivent à 17 h 35. |
 | J 17 h 35 | « Sandrine » photographie Lila, fenêtre face à l'étang, soleil couchant dans l'axe. |

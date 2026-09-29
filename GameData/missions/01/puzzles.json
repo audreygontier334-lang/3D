@@ -175,11 +175,11 @@
         },
         {
           "id": "UI_HINT_PZ04_2",
-          "text": "Il y a deux véhicules blancs dans cette vidéo. Compare leur hauteur, leur arrière et le bruit."
+          "text": "Il y a deux grands véhicules dans cette vidéo. Compare leur silhouette, leur arrière et la plaque."
         },
         {
           "id": "UI_HINT_PZ04_3",
-          "text": "Le fourgon cogne. Le véhicule sur la Corniche a un porte-vélos. Sur quelle route voit-on la plaque « 37-TR » ?"
+          "text": "Le camping-car a un porte-vélos et pas de plaque lisible ; le fourgon, si. Sur quelle route voit-on la plaque « 37-TR » ?"
         }
       ],
       "red_herrings": [],
@@ -243,7 +243,7 @@
       "title": "Les lettres fantômes",
       "axis": "vehicule",
       "duo": false,
-      "mandatory": true,
+      "mandatory": false,
       "interaction": "INT_TABLEAU_LIEGE",
       "inputs": [
         "CLU_PHOTO_FOURGON",
@@ -289,7 +289,8 @@
       "recovery": [
         "INT_INES",
         "INT_APPEL_BLANCHISSERIE"
-      ]
+      ],
+      "note_audrey": "Facultative depuis la décision du 29/09 : le lettrage fantôme dépend de l'apparence du fourgon, encore ouverte."
     },
     {
       "id": "PZ_07",
@@ -461,11 +462,12 @@
       "answer": {
         "type": "board",
         "correct": [
-          "H_VEH_ANCIEN_BLANCHISSERIE",
+          "H_VEH_PLAQUE_CLONEE",
           "H_K2_FAUSSE_ANIMATRICE",
           "H_DEST_ETANGS"
         ],
         "optional": [
+          "H_VEH_ORIGINE_BLANCHISSERIE",
           "H_K1_LOUBERE",
           "H_DEST_RIVE_EST"
         ]

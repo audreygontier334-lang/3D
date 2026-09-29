@@ -1,6 +1,6 @@
 {
   "id": "M01",
-  "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon blanc »",
+  "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon »",
   "status": "proposition",
   "clock": {
     "prologue_start": "16:33",
@@ -132,6 +132,10 @@
       }
     ],
     "bonuses": [
+      {
+        "id": "BONUS_ORIGINE_FOURGON",
+        "from": "H_VEH_ORIGINE_BLANCHISSERIE"
+      },
       {
         "id": "BONUS_K1_IDENTIFIE",
         "from": "H_K1_LOUBERE"

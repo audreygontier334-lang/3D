@@ -1,6 +1,6 @@
 # Questions pour Audrey — arbitrages créatifs
 
-> ✅ **Tranché par Audrey le 29/09** : Q1 (pression sur le père, la mère ignore tout), Q2 (le compagnon de la mère dirige le réseau), Q3 (Lila retrouvée au chapitre 4, séquestrée sans violence dans une cabane sombre et froide), prénom de la chienne (Ariane) et décor (centre-ville inspiré d'Arcachon). Détail : `docs/VALIDATION_AUDREY_ACTE1.md`. Les options ci-dessous sur ces points sont conservées pour mémoire. Restent ouvertes : nom de l'héroïne, métier, nom du village, voyages, erreurs, sécurité d'Ariane, titre.
+> ✅ **Tranché par Audrey le 29/09** : Q1 (pression sur le père, la mère ignore tout), Q2 (le compagnon de la mère dirige le réseau), Q3 (Lila retrouvée au chapitre 4, séquestrée sans violence dans une cabane sombre et froide), prénom de la chienne (Ariane) et décor (centre-ville inspiré d'Arcachon). Détail : `docs/VALIDATION_AUDREY_ACTE1.md`. Les options ci-dessous sur ces points sont conservées pour mémoire. Choix **visuels** à trancher pendant la construction 3D : voir le tableau V1–V8 en tête de `docs/narrative/DECOUPAGE_SCENES.md`. Restent ouvertes : nom de l'héroïne, métier, nom du village, voyages, erreurs, sécurité d'Ariane, titre.
 
 
 > Seulement les vrais choix, qui changent l'histoire ou le jeu. Pour chacun : ma recommandation et ses effets. Tant que tu n'as pas tranché, tout reste une **proposition**. Réponds directement dans la PR (commentaire) ou dans la conversation, même en une ligne (« Q1 : A »).

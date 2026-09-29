@@ -61,6 +61,17 @@
       "items": {
         "type": "string"
       }
+    },
+    "open_visual": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "apparence_fourgon",
+          "animation_place_ecole",
+          "apparence_lila"
+        ]
+      },
+      "description": "Détail visuel encore ouvert dont dépend cet élément (décision d'Audrey du 29/09) ; interdit dans la chaîne d'une hypothèse obligatoire."
     }
   }
 }

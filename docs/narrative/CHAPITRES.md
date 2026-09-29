@@ -38,14 +38,14 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale, l'entrepôt, la maison)
 ---
 
 ## Prologue — « Sortie d'école »
-- **Question centrale** : que s'est-il passé au coin de la rue des Tamaris ?
-- **Lieu** : centre-ville de Lescoure-Plage (rue piétonne, école, place de l'Église, rue des Tamaris), mardi 16 h 33 – 16 h 39. Aucun port ni front de mer visible.
-- **Suspect** : un fourgon blanc, deux adultes.
+- **Question centrale** : que s'est-il passé dans la ruelle des Tamaris ?
+- **Lieu** ✅ : centre-ville inspiré d'Arcachon ; **deux lieux distincts** : la place de l'école (rue piétonne, portail, place de l'Église) puis la ruelle des Tamaris, plus isolée, où a lieu l'enlèvement. Mardi 16 h 33 – 16 h 39. Port hors de l'ouverture.
+- **Suspect** : un fourgon (apparence choisie plus tard par Audrey), deux adultes.
 - **Enjeu temporel** : une fenêtre de quelques secondes pendant l'enlèvement ; ce que le joueur fait détermine les indices de départ.
 - **Mécanique introduite** : déplacement, caméras, ordres à Ariane, observation en temps réel.
 - **Révélation** : la fillette connaissait Ariane ; l'inconnue portait un badge officiel.
 
-## Chapitre 1 — « Le fourgon blanc »
+## Chapitre 1 — « Le fourgon »
 - **Question** : quel véhicule, quelles personnes, quelle direction ?
 - **Lieu** : Lescoure-Plage, mardi 16 h 39 – 19 h 30 (temps de jeu).
 - **Suspects** : le conducteur (Loubère) et la fausse animatrice (« Sandrine »).
@@ -60,7 +60,7 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale, l'entrepôt, la maison)
 - **Suspect** : Loubère, resté sur place pour effacer les traces.
 - **Enjeu temporel** : chaque heure éloigne Lila ; l'état de départ dépend du chapitre 1.
 - **Mécanique nouvelle** : pistage nocturne sur sable et aiguilles de pin, lecture de traces (pneus, pas, portière), coordination radio avec le peloton — le joueur localise, les gendarmes interviennent.
-- **Révélation** : l'airial est **vide** ; Lila en est partie environ une heure avant. Ariane retrouve l'**élastique à cheveux** de Lila dans l'herbe, et la piste s'arrête sur des traces de pneus fraîches d'une voiture (pas le fourgon). Loubère est interpellé et se tait. Question qui reste : **qui les a prévenus ?**
+- **Révélation** : l'airial est **vide** ; Lila en est partie environ une heure avant. Ariane retrouve dans l'herbe la **gomme parfumée** tombée de la trousse de Lila, et la piste s'arrête sur des traces de pneus fraîches d'une voiture (pas le fourgon). Loubère est interpellé et se tait. Question qui reste : **qui les a prévenus ?**
 - **Graine** : les gendarmes n'ont parlé de l'étang qu'au poste de commandement, où Darrigade proposait son aide.
 
 ## Chapitre 3 — « Le dernier voyage »

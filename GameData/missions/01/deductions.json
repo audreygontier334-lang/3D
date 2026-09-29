@@ -9,7 +9,7 @@
       "any_of": [
         [
           "CLU_PISTE_LILA",
-          "CLU_BARRETTE_LILA"
+          "CLU_BRACELET_LILA"
         ]
       ],
       "text": "Lila a suivi l'inconnue sans résister jusqu'au fourgon : elle a été trompée, pas saisie."
@@ -73,7 +73,10 @@
           "CLU_OBS_CONDUCTEUR"
         ]
       ],
-      "text": "Le conducteur est probablement Franck Loubère, ancien livreur de la Blanchisserie Océane."
+      "text": "Le conducteur est probablement Franck Loubère, ancien livreur de la Blanchisserie Océane.",
+      "open_visual": [
+        "apparence_fourgon"
+      ]
     },
     {
       "id": "DED_LETTRAGE",
@@ -93,7 +96,10 @@
           "CLU_FLYER_BLANCHISSERIE"
         ]
       ],
-      "text": "Le fourgon est un ancien véhicule de la Blanchisserie Océane dont le nom a été retiré."
+      "text": "Le fourgon est un ancien véhicule de la Blanchisserie Océane dont le nom a été retiré.",
+      "open_visual": [
+        "apparence_fourgon"
+      ]
     },
     {
       "id": "DED_PLAQUE_CLONEE",
