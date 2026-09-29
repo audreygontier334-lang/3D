@@ -9,7 +9,7 @@
   "scene": 0,
   "scenes": [
     {
-      "name": "P0-P3 centre-ville",
+      "name": "Ouverture plans A et B",
       "nodes": [
         0,
         1,
@@ -38,7 +38,24 @@
         24,
         25,
         26,
-        27
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
       ]
     }
   ],
@@ -47,75 +64,47 @@
       "name": "ground",
       "mesh": 0,
       "translation": [
-        12,
+        35,
         -0.18,
-        -10
+        -20
       ],
       "scale": [
-        130,
+        170,
         0.3,
-        90
+        110
+      ]
+    },
+    {
+      "name": "school_square",
+      "mesh": 0,
+      "translation": [
+        0,
+        -0.02,
+        -8
+      ],
+      "scale": [
+        54,
+        0.06,
+        28
       ]
     },
     {
       "name": "school_sidewalk",
       "mesh": 1,
       "translation": [
-        -3,
+        0,
         0.02,
         -1
       ],
       "scale": [
-        42,
+        46,
         0.12,
         4
-      ]
-    },
-    {
-      "name": "south_sidewalk",
-      "mesh": 1,
-      "translation": [
-        25,
-        0.02,
-        -21
-      ],
-      "scale": [
-        95,
-        0.12,
-        4
-      ]
-    },
-    {
-      "name": "east_road",
-      "mesh": 0,
-      "translation": [
-        26,
-        -0.02,
-        -11
-      ],
-      "scale": [
-        100,
-        0.06,
-        12
-      ]
-    },
-    {
-      "name": "cross_street",
-      "mesh": 0,
-      "translation": [
-        43,
-        -0.02,
-        -2
-      ],
-      "scale": [
-        10,
-        0.06,
-        37
       ]
     },
     {
       "name": "school_main",
-      "mesh": 4,
+      "mesh": 7,
       "translation": [
         -7,
         4,
@@ -127,12 +116,12 @@
         11
       ],
       "extras": {
-        "role": "sortie sur la place; entrée côté sud"
+        "role": "école, plan A"
       }
     },
     {
       "name": "school_roof",
-      "mesh": 3,
+      "mesh": 6,
       "translation": [
         -7,
         8.45,
@@ -146,7 +135,7 @@
     },
     {
       "name": "school_gate_left",
-      "mesh": 10,
+      "mesh": 14,
       "translation": [
         -2.5,
         0.8,
@@ -160,7 +149,7 @@
     },
     {
       "name": "school_gate_right",
-      "mesh": 10,
+      "mesh": 14,
       "translation": [
         2.5,
         0.8,
@@ -173,71 +162,12 @@
       ]
     },
     {
-      "name": "west_shop",
+      "name": "square_shop_west",
       "mesh": 2,
       "translation": [
-        -31,
+        -28,
         3.2,
-        -24
-      ],
-      "scale": [
-        15,
-        6.4,
-        9
-      ]
-    },
-    {
-      "name": "west_shop_roof",
-      "mesh": 3,
-      "translation": [
-        -31,
-        6.7,
-        -24
-      ],
-      "scale": [
-        16,
-        0.6,
-        10
-      ]
-    },
-    {
-      "name": "corner_house",
-      "mesh": 2,
-      "translation": [
-        21,
-        3.4,
-        1
-      ],
-      "scale": [
-        12,
-        6.8,
-        10
-      ],
-      "extras": {
-        "role": "masque partiellement la sortie est"
-      }
-    },
-    {
-      "name": "corner_roof",
-      "mesh": 3,
-      "translation": [
-        21,
-        7.1,
-        1
-      ],
-      "scale": [
-        13,
-        0.7,
-        11
-      ]
-    },
-    {
-      "name": "east_shop",
-      "mesh": 2,
-      "translation": [
-        57,
-        3.2,
-        -23
+        -20
       ],
       "scale": [
         14,
@@ -246,12 +176,12 @@
       ]
     },
     {
-      "name": "east_shop_roof",
-      "mesh": 3,
+      "name": "square_shop_west_roof",
+      "mesh": 6,
       "translation": [
-        57,
+        -28,
         6.7,
-        -23
+        -20
       ],
       "scale": [
         15,
@@ -260,85 +190,281 @@
       ]
     },
     {
-      "name": "tree_trunk_1",
-      "mesh": 9,
+      "name": "alley_corner_mask",
+      "mesh": 3,
       "translation": [
-        -20,
-        2.2,
+        27,
+        4.0,
         -3
       ],
       "scale": [
-        0.6,
-        4.4,
-        0.6
-      ]
-    },
-    {
-      "name": "tree_crown_1",
-      "mesh": 9,
-      "translation": [
-        -20,
-        5.6,
-        -3
-      ],
-      "scale": [
-        4.2,
-        3.6,
-        4.2
-      ]
-    },
-    {
-      "name": "tree_trunk_2",
-      "mesh": 9,
-      "translation": [
-        37,
-        2.2,
-        -24
-      ],
-      "scale": [
-        0.6,
-        4.4,
-        0.6
-      ]
-    },
-    {
-      "name": "tree_crown_2",
-      "mesh": 9,
-      "translation": [
-        37,
-        5.6,
-        -24
-      ],
-      "scale": [
-        4.2,
-        3.6,
-        4.2
-      ]
-    },
-    {
-      "name": "van_placeholder",
-      "mesh": 5,
-      "translation": [
-        29,
-        1.1,
-        -11
-      ],
-      "scale": [
-        5.2,
-        2.2,
-        2.1
+        13,
+        8,
+        18
       ],
       "extras": {
-        "role": "couleur provisoire; identité ouverte"
+        "role": "masque le fourgon et l'abordage depuis la place"
       }
     },
     {
-      "name": "heroine_placeholder",
+      "name": "alley_corner_roof",
       "mesh": 6,
+      "translation": [
+        27,
+        8.35,
+        -3
+      ],
+      "scale": [
+        14,
+        0.7,
+        19
+      ]
+    },
+    {
+      "name": "tree_trunk_square",
+      "mesh": 13,
+      "translation": [
+        -17,
+        2.2,
+        -5
+      ],
+      "scale": [
+        0.6,
+        4.4,
+        0.6
+      ]
+    },
+    {
+      "name": "tree_crown_square",
+      "mesh": 13,
+      "translation": [
+        -17,
+        5.6,
+        -5
+      ],
+      "scale": [
+        4.2,
+        3.6,
+        4.2
+      ]
+    },
+    {
+      "name": "alley_entry_road",
+      "mesh": 0,
+      "translation": [
+        35,
+        -0.02,
+        -15
+      ],
+      "scale": [
+        24,
+        0.06,
+        9
+      ]
+    },
+    {
+      "name": "alley_road",
+      "mesh": 0,
+      "translation": [
+        64,
+        -0.02,
+        -22
+      ],
+      "scale": [
+        62,
+        0.06,
+        9
+      ]
+    },
+    {
+      "name": "alley_sidewalk_north",
+      "mesh": 1,
+      "translation": [
+        64,
+        0.02,
+        -15.8
+      ],
+      "scale": [
+        62,
+        0.12,
+        2.8
+      ]
+    },
+    {
+      "name": "alley_sidewalk_south",
+      "mesh": 1,
+      "translation": [
+        64,
+        0.02,
+        -28.2
+      ],
+      "scale": [
+        62,
+        0.12,
+        2.8
+      ]
+    },
+    {
+      "name": "alley_house_1900",
+      "mesh": 2,
+      "translation": [
+        43,
+        3.7,
+        -8
+      ],
+      "scale": [
+        10,
+        7.4,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_1930",
+      "mesh": 4,
+      "translation": [
+        57,
+        3.0,
+        -7
+      ],
+      "scale": [
+        9,
+        6.0,
+        8
+      ]
+    },
+    {
+      "name": "alley_house_1970",
+      "mesh": 5,
+      "translation": [
+        71,
+        2.5,
+        -8
+      ],
+      "scale": [
+        13,
+        5.0,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_recent",
+      "mesh": 3,
+      "translation": [
+        87,
+        3.4,
+        -7
+      ],
+      "scale": [
+        11,
+        6.8,
+        10
+      ]
+    },
+    {
+      "name": "alley_house_south_1",
+      "mesh": 3,
+      "translation": [
+        48,
+        3.2,
+        -35
+      ],
+      "scale": [
+        12,
+        6.4,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_south_2",
+      "mesh": 2,
+      "translation": [
+        65,
+        3.8,
+        -36
+      ],
+      "scale": [
+        10,
+        7.6,
+        10
+      ]
+    },
+    {
+      "name": "alley_house_south_3",
+      "mesh": 4,
+      "translation": [
+        82,
+        2.6,
+        -35
+      ],
+      "scale": [
+        15,
+        5.2,
+        9
+      ]
+    },
+    {
+      "name": "hedge_north_1",
+      "mesh": 13,
+      "translation": [
+        48,
+        0.75,
+        -13.7
+      ],
+      "scale": [
+        8,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "hedge_north_2",
+      "mesh": 13,
+      "translation": [
+        67,
+        0.75,
+        -13.7
+      ],
+      "scale": [
+        12,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "wall_south_1",
+      "mesh": 5,
+      "translation": [
+        52,
+        0.75,
+        -30.0
+      ],
+      "scale": [
+        11,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "fence_south_2",
+      "mesh": 5,
+      "translation": [
+        76,
+        0.75,
+        -30.0
+      ],
+      "scale": [
+        15,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "heroine_place_placeholder",
+      "mesh": 9,
       "translation": [
         8,
         0.83,
-        -19
+        -18
       ],
       "scale": [
         0.5,
@@ -346,16 +472,16 @@
         0.36
       ],
       "extras": {
-        "role": "volume de test seulement"
+        "role": "plan A checkpoint"
       }
     },
     {
-      "name": "ariane_placeholder",
-      "mesh": 7,
+      "name": "ariane_place_placeholder",
+      "mesh": 10,
       "translation": [
-        10,
+        5.5,
         0.42,
-        -17.8
+        -10.5
       ],
       "scale": [
         1.05,
@@ -363,12 +489,12 @@
         0.48
       ],
       "extras": {
-        "role": "libre; aucun collier ni laisse"
+        "role": "plan A checkpoint"
       }
     },
     {
-      "name": "child_placeholder",
-      "mesh": 8,
+      "name": "child_school_placeholder",
+      "mesh": 11,
       "translation": [
         1,
         0.62,
@@ -380,16 +506,101 @@
         0.3
       ],
       "extras": {
-        "role": "silhouette fictive de test"
+        "role": "Lila au portail, plan A"
+      }
+    },
+    {
+      "name": "heroine_alley_placeholder",
+      "mesh": 9,
+      "translation": [
+        37,
+        0.83,
+        -21
+      ],
+      "scale": [
+        0.5,
+        1.66,
+        0.36
+      ],
+      "extras": {
+        "role": "entrée de ruelle, plan B"
+      }
+    },
+    {
+      "name": "ariane_alley_placeholder",
+      "mesh": 10,
+      "translation": [
+        45,
+        0.42,
+        -20.5
+      ],
+      "scale": [
+        1.05,
+        0.84,
+        0.48
+      ],
+      "extras": {
+        "role": "entrée de ruelle, plan B"
+      }
+    },
+    {
+      "name": "child_alley_placeholder",
+      "mesh": 11,
+      "translation": [
+        60,
+        0.62,
+        -21
+      ],
+      "scale": [
+        0.36,
+        1.24,
+        0.3
+      ],
+      "extras": {
+        "role": "Lila devant le fourgon, plan B"
+      }
+    },
+    {
+      "name": "k2_placeholder",
+      "mesh": 12,
+      "translation": [
+        61,
+        0.83,
+        -20
+      ],
+      "scale": [
+        0.5,
+        1.66,
+        0.36
+      ],
+      "extras": {
+        "role": "femme au badge, plan B"
+      }
+    },
+    {
+      "name": "van_placeholder",
+      "mesh": 8,
+      "translation": [
+        66,
+        1.1,
+        -22
+      ],
+      "scale": [
+        5.2,
+        2.2,
+        2.1
+      ],
+      "extras": {
+        "role": "apparence provisoire; plaque arrière vers l'entrée"
       }
     },
     {
       "name": "scent_object_marker",
-      "mesh": 10,
+      "mesh": 14,
       "translation": [
-        12,
+        44,
         0.13,
-        -6
+        -19
       ],
       "scale": [
         0.35,
@@ -397,16 +608,16 @@
         0.35
       ],
       "extras": {
-        "role": "départ de la piste olfactive; après départ du fourgon"
+        "role": "porte-clés de Lila; proposition"
       }
     },
     {
       "name": "scent_clue_marker",
-      "mesh": 10,
+      "mesh": 14,
       "translation": [
-        29,
+        63.5,
         0.13,
-        -9.95
+        -19.9
       ],
       "scale": [
         0.35,
@@ -414,90 +625,188 @@
         0.35
       ],
       "extras": {
-        "role": "barrette de Lila tombée sous la portière latérale du fourgon"
+        "role": "bracelet en perles au pied de la portière; proposition"
       }
     },
     {
-      "name": "CAM_SHOULDER",
+      "name": "alley_exit_marker",
+      "mesh": 14,
+      "translation": [
+        95,
+        0.25,
+        -22
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "extras": {
+        "role": "débouché; mer/ciel/lumière à choisir par Audrey"
+      }
+    },
+    {
+      "name": "CAM_PLACE_SHOULDER",
       "camera": 0,
       "translation": [
         8.4,
         2.15,
-        -21
+        -20
       ],
       "rotation": [
-        0.9805613707978358,
-        -0.007468334473947891,
-        -0.19233814444985842,
-        -0.038074404379315356
+        -0.004632933238498711,
+        0.9864286418682845,
+        0.028267364471494378,
+        0.1616725905567636
       ],
       "extras": {
-        "role": "point de contrôle visuel statique; pas une caméra jouable"
+        "role": "point de contrôle statique; suffixe = mode de caméra"
       }
     },
     {
-      "name": "CAM_WIDE",
+      "name": "CAM_PLACE_WIDE",
       "camera": 1,
       "translation": [
-        6,
+        7,
         4.7,
-        -27
+        -26
       ],
       "rotation": [
-        0.9776062388931266,
-        -0.01634168946065097,
-        -0.19273982462946965,
-        -0.08288757967637878
+        -0.009061529234122463,
+        0.9897742913781798,
+        0.07360775909839908,
+        0.12184678336038747
       ],
       "extras": {
-        "role": "point de contrôle visuel statique; pas une caméra jouable"
+        "role": "point de contrôle statique; suffixe = mode de caméra"
       }
     },
     {
-      "name": "CAM_FIRST",
+      "name": "CAM_PLACE_FIRST",
       "camera": 2,
       "translation": [
         8,
         1.61,
-        -19
+        -18
       ],
       "rotation": [
-        0.9774684932961759,
-        -0.004876022095176625,
-        -0.20979864589880973,
-        -0.022717772797017845
+        -0.003041763232875462,
+        0.9832367852841715,
+        0.016472446375407568,
+        0.18156219389204475
       ],
       "extras": {
-        "role": "point de contrôle visuel statique; pas une caméra jouable"
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_SHOULDER",
+      "camera": 3,
+      "translation": [
+        37.4,
+        2.15,
+        -23
+      ],
+      "rotation": [
+        -0.015779156671992072,
+        -0.7349992049124052,
+        -0.01711407775820751,
+        0.6776682782418983
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_WIDE",
+      "camera": 4,
+      "translation": [
+        35,
+        4.2,
+        -29
+      ],
+      "rotation": [
+        -0.03383042413152308,
+        -0.7999945920707684,
+        -0.04530802912522068,
+        0.5973368710848128
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_FIRST",
+      "camera": 5,
+      "translation": [
+        37,
+        1.61,
+        -21
+      ],
+      "rotation": [
+        -0.008624777473044503,
+        -0.7070541798289155,
+        -0.008624777473044503,
+        0.7070541798289156
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
       }
     }
   ],
   "cameras": [
     {
-      "name": "CAM_SHOULDER",
+      "name": "CAM_PLACE_SHOULDER",
       "type": "perspective",
       "perspective": {
         "yfov": 1.0122909661567112,
         "znear": 0.1,
-        "zfar": 200
+        "zfar": 220
       }
     },
     {
-      "name": "CAM_WIDE",
+      "name": "CAM_PLACE_WIDE",
       "type": "perspective",
       "perspective": {
         "yfov": 1.1344640137963142,
         "znear": 0.1,
-        "zfar": 200
+        "zfar": 220
       }
     },
     {
-      "name": "CAM_FIRST",
+      "name": "CAM_PLACE_FIRST",
       "type": "perspective",
       "perspective": {
         "yfov": 1.1693705988362009,
         "znear": 0.1,
-        "zfar": 200
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_SHOULDER",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.0122909661567112,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_WIDE",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1344640137963142,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_FIRST",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1693705988362009,
+        "znear": 0.1,
+        "zfar": 220
       }
     }
   ],
@@ -529,7 +838,7 @@
       ]
     },
     {
-      "name": "cube_batiment",
+      "name": "cube_creme",
       "primitives": [
         {
           "attributes": {
@@ -542,7 +851,7 @@
       ]
     },
     {
-      "name": "cube_toit",
+      "name": "cube_rose",
       "primitives": [
         {
           "attributes": {
@@ -555,7 +864,7 @@
       ]
     },
     {
-      "name": "cube_ecole",
+      "name": "cube_bleu",
       "primitives": [
         {
           "attributes": {
@@ -568,7 +877,7 @@
       ]
     },
     {
-      "name": "cube_fourgon",
+      "name": "cube_blanc",
       "primitives": [
         {
           "attributes": {
@@ -581,7 +890,7 @@
       ]
     },
     {
-      "name": "cube_heroine",
+      "name": "cube_toit",
       "primitives": [
         {
           "attributes": {
@@ -594,7 +903,7 @@
       ]
     },
     {
-      "name": "cube_ariane",
+      "name": "cube_ecole",
       "primitives": [
         {
           "attributes": {
@@ -607,7 +916,7 @@
       ]
     },
     {
-      "name": "cube_fillette",
+      "name": "cube_fourgon",
       "primitives": [
         {
           "attributes": {
@@ -620,7 +929,7 @@
       ]
     },
     {
-      "name": "cube_vegetation",
+      "name": "cube_heroine",
       "primitives": [
         {
           "attributes": {
@@ -633,7 +942,7 @@
       ]
     },
     {
-      "name": "cube_repere",
+      "name": "cube_ariane",
       "primitives": [
         {
           "attributes": {
@@ -642,6 +951,58 @@
           },
           "indices": 2,
           "material": 10
+        }
+      ]
+    },
+    {
+      "name": "cube_fillette",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 11
+        }
+      ]
+    },
+    {
+      "name": "cube_k2",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 12
+        }
+      ]
+    },
+    {
+      "name": "cube_vegetation",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 13
+        }
+      ]
+    },
+    {
+      "name": "cube_repere",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 14
         }
       ]
     }
@@ -674,12 +1035,51 @@
       }
     },
     {
-      "name": "batiment",
+      "name": "creme",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.8,
+          0.83,
+          0.75,
+          0.62,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "rose",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
           0.76,
+          0.58,
+          0.55,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "bleu",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
           0.66,
+          0.7,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "blanc",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.84,
+          0.84,
+          0.8,
           1
         ],
         "metallicFactor": 0,
@@ -690,9 +1090,9 @@
       "name": "toit",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.49,
-          0.35,
-          0.29,
+          0.48,
+          0.31,
+          0.24,
           1
         ],
         "metallicFactor": 0,
@@ -716,9 +1116,9 @@
       "name": "fourgon",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.84,
-          0.84,
-          0.79,
+          0.72,
+          0.72,
+          0.69,
           1
         ],
         "metallicFactor": 0,
@@ -758,6 +1158,19 @@
           0.7,
           0.34,
           0.37,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "k2",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.35,
+          0.3,
+          0.42,
           1
         ],
         "metallicFactor": 0,
@@ -861,6 +1274,6 @@
       0,
       0
     ],
-    "scene_notes": "centre-ville côtier, sans port ni mer visible; route et indices provisoires"
+    "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; débouché ouvert à décision"
   }
 }
