@@ -43,9 +43,8 @@
   "decision_guards": {
     "protagonist_shoes": {
       "canonical_reference": "docs/DECISIONS.md#4-personnage-principal--audrey",
-      "current_value": "baskets_blanches_epaisses",
-      "conflicting_proposal": "baskets_retro_noir_et_blanc",
-      "resolution_required_from": "Audrey"
+      "current_value": "baskets_retro_running_noires_blanches_sans_marque",
+      "status": "validated_by_Audrey"
     },
     "personal_photos": {
       "allowed_in_repository": false
