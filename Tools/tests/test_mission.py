@@ -462,3 +462,33 @@ class TestDecoupageScenes(unittest.TestCase):
     def test_markdown_a_jour(self):
         import render_decoupage
         self.assertEqual(render_decoupage.main(["x", "--check"]), 0, "Relancer : python3 Tools/render_decoupage.py")
+
+
+class TestExportUnreal(unittest.TestCase):
+    """Tools/export_unreal.py : les Data Tables générées couvrent toutes les données, avec des noms de ligne uniques."""
+
+    def test_export_complet(self):
+        import export_unreal as eu
+        out = Path(tempfile.mkdtemp())
+        try:
+            counts = eu.export(out)
+            manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["tables"], counts)
+            for table, n in counts.items():
+                with self.subTest(table):
+                    rows = json.loads((out / f"{table}.json").read_text(encoding="utf-8"))
+                    names = [r["Name"] for r in rows]
+                    self.assertEqual(len(names), n)
+                    self.assertEqual(len(names), len(set(names)))
+                    self.assertIn(table, manifest["row_structs"])
+            m = vm.Mission(MISSION)
+            self.assertEqual(counts["DT_M01_Clues"], len(m.clues))
+            self.assertEqual(counts["DT_M01_Interactions"], len(m.interactions))
+            mission = json.loads((out / "DA_M01_Mission.json").read_text(encoding="utf-8"))
+            self.assertIn("departure_rule", mission["prologue"])
+            lines = {r["Name"] for r in json.loads((out / "DT_M01_DialogueLines.json").read_text(encoding="utf-8"))}
+            for it in m.interactions.values():
+                if it.get("dialogue"):
+                    self.assertTrue(any(l.startswith(it["dialogue"] + "_") for l in lines), it["dialogue"])
+        finally:
+            shutil.rmtree(out)

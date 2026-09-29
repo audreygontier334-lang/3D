@@ -54,4 +54,5 @@ python3 Tools/validate_spatial.py
 python3 -m unittest discover -s Tools/tests -v
 python3 Tools/render_dialogues.py        # après toute modification des dialogues
 python3 Tools/render_decoupage.py        # après toute modification du découpage
+python3 Tools/export_unreal.py           # Data Tables Unreal dans build/unreal/M01/ (voir docs/INTEGRATION_UNREAL.md)
 ```
