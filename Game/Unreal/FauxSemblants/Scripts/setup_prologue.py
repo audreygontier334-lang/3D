@@ -67,9 +67,16 @@ def box(label, centre, size, mi, movable=False, tags=()):
     comp.set_static_mesh(cube)
     comp.set_material(0, mi)
     actor.set_actor_scale3d(unreal.Vector(size[0], size[2], size[1]))
+    if "PorteCles" in tags or "Bracelet" in tags:
+        comp.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
     if tags:
         actor.set_editor_property("tags", [unreal.Name(t) for t in tags])
     return actor
+
+
+def source_position(gltf, name):
+    """Position exacte du repère : le glTF reste la source de vérité."""
+    return next(node["translation"] for node in gltf["nodes"] if node.get("name") == name)
 
 
 def copy_data():
@@ -84,8 +91,18 @@ def copy_data():
 def build_level():
     if not os.path.exists(GLTF):
         raise RuntimeError(f"Maquette introuvable : {GLTF}. Récupérer la branche qui contient Game/Blockout/.")
-    gltf = json.load(open(GLTF, encoding="utf-8"))
-    level_sub.new_level(LEVEL)
+    with open(GLTF, encoding="utf-8") as source:
+        gltf = json.load(source)
+    # Vérifier les sources et classes avant de remplacer le niveau existant.
+    for name in ("van_placeholder", "scent_object_marker", "scent_clue_marker"):
+        source_position(gltf, name)
+    dog_class = unreal.load_class(None, "/Script/FauxSemblants.FSDogCharacter")
+    director_class = unreal.load_class(None, "/Script/FauxSemblants.FSPrologueDirector")
+    game_mode = unreal.load_class(None, "/Script/FauxSemblants.FSGameMode")
+    if not (dog_class and director_class and game_mode):
+        raise RuntimeError("Classes C++ introuvables : compiler le projet avant de construire le niveau.")
+    if not level_sub.new_level(LEVEL):
+        raise RuntimeError("Impossible de créer L_Prologue ; vérifier le Journal de sortie.")
 
     colors = {m["name"]: m["pbrMetallicRoughness"]["baseColorFactor"][:3] for m in gltf["materials"]}
     mats = {name: material(name, rgb) for name, rgb in colors.items()}
@@ -104,9 +121,9 @@ def build_level():
     # Figurants animés par AFSPrologueDirector (couleurs des choix V2 et V4 d'Audrey).
     box("Lila", (1.0, 0.65, 1.6), (0.36, 1.30, 0.30), material("lila_jaune_moutarde", (0.83, 0.63, 0.09)), True, ["Lila"])
     box("Sandrine", (47.4, 0.84, -16.1), (0.5, 1.68, 0.36), material("k2", (0.23, 0.21, 0.32)), True, ["K2"])
-    box("Fourgon", (66.0, 1.1, -18.6), (5.2, 2.2, 2.1), material("fourgon_blanc_use", (0.86, 0.85, 0.80)), True, ["Fourgon"])
-    box("PorteCles", (46.5, 0.05, -16.2), (0.12, 0.05, 0.12), material("porte_cles", (0.88, 0.41, 0.11)), True, ["PorteCles"])
-    box("Bracelet", (66.2, 0.05, -17.4), (0.12, 0.04, 0.12), material("bracelet", (0.95, 0.89, 0.96)), True, ["Bracelet"])
+    box("Fourgon", source_position(gltf, "van_placeholder"), (5.2, 2.2, 2.1), material("fourgon_blanc_use", (0.86, 0.85, 0.80)), True, ["Fourgon"])
+    box("PorteCles", source_position(gltf, "scent_object_marker"), (0.12, 0.05, 0.12), material("porte_cles", (0.88, 0.41, 0.11)), True, ["PorteCles"])
+    box("Bracelet", source_position(gltf, "scent_clue_marker"), (0.12, 0.04, 0.12), material("bracelet", (0.95, 0.89, 0.96)), True, ["Bracelet"])
 
     entrance = actors_sub.spawn_actor_from_class(unreal.TargetPoint, to_ue(37.0, 0.0, -16.6), unreal.Rotator(0, 0, 0))
     entrance.set_actor_label("EntreeRuelle")
@@ -132,11 +149,6 @@ def build_level():
 
     # Départ de la joueuse (rue piétonne, face au nord) et Ariane, libre à côté d'elle.
     actors_sub.spawn_actor_from_class(unreal.PlayerStart, to_ue(8.0, 1.0, -18.0), unreal.Rotator(0.0, 0.0, -90.0))
-    dog_class = unreal.load_class(None, "/Script/FauxSemblants.FSDogCharacter")
-    director_class = unreal.load_class(None, "/Script/FauxSemblants.FSPrologueDirector")
-    game_mode = unreal.load_class(None, "/Script/FauxSemblants.FSGameMode")
-    if not (dog_class and director_class and game_mode):
-        raise RuntimeError("Classes C++ introuvables : compiler le projet (Visual Studio) avant de lancer ce script.")
     dog = actors_sub.spawn_actor_from_class(dog_class, to_ue(9.5, 0.4, -17.2), unreal.Rotator(0.0, 0.0, -90.0))
     dog.set_actor_label("Ariane")
     director = actors_sub.spawn_actor_from_class(director_class, unreal.Vector(0, 0, 0), unreal.Rotator(0, 0, 0))

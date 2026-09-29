@@ -144,17 +144,20 @@ void AFSPrologueDirector::MoveAlong(AActor* Actor, const TArray<FFSKey>& Keys, f
 	}
 }
 
-float AFSPrologueDirector::DistanceToEntrance() const
+float AFSPrologueDirector::DistanceToEntrance(bool bIncludeDog) const
 {
 	const APawn* Hero = UGameplayStatics::GetPlayerPawn(this, 0);
 	if (!Hero || !Entrance)
 	{
-		return 0.f;
+		return TNumericLimits<float>::Max();
 	}
 	float D = FVector::Dist2D(Hero->GetActorLocation(), Entrance->GetActorLocation());
 	for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It)
 	{
-		D = FMath::Min(D, FVector::Dist2D(It->GetActorLocation(), Entrance->GetActorLocation()));
+		if (bIncludeDog)
+		{
+			D = FMath::Min(D, FVector::Dist2D(It->GetActorLocation(), Entrance->GetActorLocation()));
+		}
 	}
 	return D;
 }
@@ -240,8 +243,8 @@ void AFSPrologueDirector::StartDeparture()
 {
 	Phase = EPhase::Departing;
 	DepartT = T;
-	if (Lila) { Lila->SetActorHiddenInGame(true); }
-	if (K2) { K2->SetActorHiddenInGame(true); }
+	if (Lila) { Lila->SetActorHiddenInGame(true); Lila->SetActorEnableCollision(false); }
+	if (K2) { K2->SetActorHiddenInGame(true); K2->SetActorEnableCollision(false); }
 	if (Bracelet) { Bracelet->SetActorHiddenInGame(false); }
 	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
 	if (bFallbackShot && PC && DepartCourtCamera)
@@ -289,7 +292,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 
 	if (Phase == EPhase::Before || Phase == EPhase::Window || Phase == EPhase::Holding)
 	{
-		if (Lila) { Lila->SetActorHiddenInGame(T < 120.f); }
+		if (Lila) { Lila->SetActorHiddenInGame(T < 120.f); Lila->SetActorEnableCollision(T >= 120.f); }
 		MoveAlong(Lila, LilaPath, FMath::Min(T, 280.f), 0.65f);
 		MoveAlong(K2, K2Path, FMath::Min(T, 280.f), 0.84f);
 		if (Keyring && T >= 176.f) { Keyring->SetActorHiddenInGame(false); }
@@ -322,7 +325,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 	}
 	case EPhase::Holding:
 		// Départ retenu (Lila résiste) tant que la joueuse n'est pas à l'entrée de la ruelle, hold_max_s au plus.
-		if (Dist <= HoldDistanceCm)
+		if (DistanceToEntrance(false) <= HoldDistanceCm)
 		{
 			StartDeparture();
 		}
@@ -350,7 +353,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 		}
 		if (U >= 1.f)
 		{
-			if (Van) { Van->SetActorHiddenInGame(true); }
+			if (Van) { Van->SetActorHiddenInGame(true); Van->SetActorEnableCollision(false); }
 			Phase = EPhase::Gone;
 			SayLine(TEXT("DLG_P_HEROINE_CHOC_01"), 6.f);
 			Say(TEXT("T : Appeler le 17"), 60.f, 7);

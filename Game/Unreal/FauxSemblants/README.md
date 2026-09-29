@@ -1,6 +1,6 @@
 # Faux-semblants — projet Unreal (squelette, jalon 1)
 
-> **Statut : squelette écrit par Claude sans pouvoir lancer Unreal. Il n'a encore jamais été compilé.** Attends-toi à quelques erreurs à la première compilation : copie-les à Claude, qui les corrigera. Les personnages et décors sont des **volumes provisoires** (boîtes aux bonnes dimensions et couleurs), pas les graphismes finaux.
+ > **Statut : jalon de blockout. Audrey a confirmé l'ouverture du projet et une première compilation C++ réussie. Les corrections de reprise doivent encore être compilées et essayées en jeu sur son PC.** Les personnages et décors sont des **volumes provisoires** (boîtes aux bonnes dimensions et couleurs), pas les graphismes finaux.
 
 ## Ce que contient ce squelette
 
@@ -58,3 +58,20 @@ Mardi 16 h 25 sur la place de l'école. À 16 h 27, Lila (volume jaune moutarde)
 - La règle d'accélération (la femme presse Lila si le duo approche à moins de 12 m) n'est pas encore codée.
 - Le chapitre 1, la carte des déplacements et le portrait-robot viendront ensuite.
 - Les données sont lues en JSON (`Content/Data/M01/`, recopiées par le script) ; le passage aux Data Tables décrit dans `docs/INTEGRATION_UNREAL.md` viendra plus tard.
+
+## Reprise : contrôles du premier essai
+
+Après récupération des corrections, fermer l’éditeur, reconstruire le projet C++, puis rouvrir Unreal et lancer le script. Depuis le Journal de sortie, sélectionner Python et exécuter :
+
+```python
+import os, runpy, unreal; runpy.run_path(os.path.join(unreal.Paths.project_dir(), "Scripts", "setup_prologue.py"), run_name="__main__")
+```
+
+Le script reconstruit `L_Prologue` ; enregistrer ailleurs toute modification manuelle du niveau avant de le relancer. Les classes C++ et les repères du glTF sont vérifiés avant la reconstruction.
+
+- Avant la sortie de Lila et après la disparition du fourgon : leurs anciennes positions ne doivent pas bloquer la joueuse.
+- Les petits indices ne bloquent pas la marche et reprennent les positions du glTF.
+- Envoyer Ariane vers la ruelle en restant sur la place : son arrivée peut déclencher l’alerte, mais ne suffit pas à libérer le départ du fourgon. La retenue attend la joueuse ou expire avec le plan court.
+- Tester ensuite les trottoirs, les six vues et le rappel d’Ariane autour du coude. Le déplacement direct d’Ariane n’a pas encore de navigation autour des obstacles ; ce point reste à réaliser.
+
+Vérification hors Unreal : syntaxe Python contrôlée. La compilation C++ et ces essais en jeu nécessitent Unreal ; ils ne sont pas attestés par le contrôle de syntaxe.

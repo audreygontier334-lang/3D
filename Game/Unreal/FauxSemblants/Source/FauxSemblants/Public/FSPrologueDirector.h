@@ -57,7 +57,8 @@ private:
 	void OpenWindow();
 	void StartDeparture();
 	void Grant(const TArray<FName>& Ids);
-	float DistanceToEntrance() const;
+	// L'alerte accepte Ariane ; la retenue du départ attend uniquement la joueuse.
+	float DistanceToEntrance(bool bIncludeDog = true) const;
 	AActor* FindTagged(FName Tag) const;
 
 	UPROPERTY() TObjectPtr<AActor> Lila;
