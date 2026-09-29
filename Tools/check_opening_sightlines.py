@@ -9,12 +9,19 @@ import math
 from pathlib import Path
 
 
-SCENE = Path(__file__).resolve().parents[1] / "Game/Blockout/ouverture-centre-ville.gltf"
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / "Game/Blockout/ouverture-centre-ville.manifest.json"
+spec = json.loads(MANIFEST.read_text(encoding="utf-8"))
+SCENE = ROOT / spec["source_gltf"]
 data = json.loads(SCENE.read_text(encoding="utf-8"))
 nodes = {node["name"]: node for node in data["nodes"]}
-subjects = ("child_placeholder", "van_placeholder", "ariane_placeholder")
+subjects = tuple(spec["validation"]["required_subject_nodes"])
+camera_names = tuple(spec["validation"]["camera_nodes"])
+occluder_prefixes = tuple(spec["validation"]["occluder_prefixes"])
+aspect_width, aspect_height = spec["validation"]["frame_aspect_ratio"]
+safe_limit = 1 - spec["validation"]["safe_frame_margin"]
 occluders = tuple(node for node in data["nodes"] if node["name"].startswith(
-    ("school_main", "west_shop", "corner_house", "east_shop", "tree_trunk")))
+    occluder_prefixes))
 
 
 def dot(a, b):
@@ -53,7 +60,7 @@ def intersects_box(origin, destination, box):
 
 
 failures = []
-for camera in (nodes[name] for name in ("CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST")):
+for camera in (nodes[name] for name in camera_names):
     eye, q = camera["translation"], camera["rotation"]
     right = rotate(q, (1, 0, 0))
     up = rotate(q, (0, 1, 0))
@@ -64,11 +71,10 @@ for camera in (nodes[name] for name in ("CAM_SHOULDER", "CAM_WIDE", "CAM_FIRST")
         target = nodes[name]["translation"]
         direction = tuple(target[i] - eye[i] for i in range(3))
         distance = dot(direction, forward)
-        x = dot(direction, right) / (distance * vertical * 16 / 9) if distance > 0 else math.inf
+        x = dot(direction, right) / (distance * vertical * aspect_width / aspect_height) if distance > 0 else math.inf
         y = dot(direction, up) / (distance * vertical) if distance > 0 else math.inf
         blocked = [box["name"] for box in occluders if intersects_box(eye, target, box)]
-        # Allow a 5% safety margin at the frame boundary for these event markers.
-        visible = abs(x) <= .95 and abs(y) <= .95 and not blocked
+        visible = abs(x) <= safe_limit and abs(y) <= safe_limit and not blocked
         print(f"  {name}: x={x:+.2f}, y={y:+.2f}, " + ("clear" if visible else f"CHECK {blocked}"))
         if not visible:
             failures.append(f"{camera['name']}: {name}")
