@@ -9,6 +9,7 @@
 - **Pas de voyage lointain tant que Lila est captive.** Du prologue au chapitre 4, tout se passe dans la région : Lescoure, l'étang de Sorbe, Bayonne, la forêt landaise. On ne part à l'étranger qu'une fois l'enfant en sécurité.
 - **Une urgence qui dure sans lasser.** Lila reste captive un peu plus de deux jours. Chaque chapitre a sa propre échéance (la nuit, le départ du navire, la pluie et le froid), et chaque fuite d'information remet la pression.
 - **Chaque destination est déduite**, jamais imposée : le joueur la choisit parmi plusieurs candidates à partir d'un faisceau de preuves.
+- ✅ **Référence : Carmen Sandiego (années 2000), modernisée et pour adultes.** À chaque étape, la joueuse choisit sa destination sur la carte ; trajets, fausses routes, jauges et **portrait-robot établi par la joueuse** : voir `MECANIQUE_DEPLACEMENTS.md` et `GameData/campaign/itineraire.json`.
 - **Chaque chapitre renouvelle une mécanique** et en réutilise une ancienne.
 - **Pas d'échec définitif.** Une mauvaise déduction coûte du temps et modifie la situation de départ du chapitre suivant ; elle ne bloque jamais l'histoire. Lila est toujours retrouvée au chapitre 4.
 - **Autorités crédibles.** Les interpellations, fouilles et saisies sont faites par les gendarmes ou les polices étrangères, sur la base des éléments que le joueur leur apporte.

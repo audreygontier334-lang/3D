@@ -492,3 +492,55 @@ class TestExportUnreal(unittest.TestCase):
                     self.assertTrue(any(l.startswith(it["dialogue"] + "_") for l in lines), it["dialogue"])
         finally:
             shutil.rmtree(out)
+
+
+class TestItineraire(unittest.TestCase):
+    """GameData/campaign/itineraire.json : déplacements à la Carmen Sandiego et portrait-robot établi par la joueuse."""
+
+    @classmethod
+    def setUpClass(cls):
+        import validate_itineraire as vi
+        cls.vi = vi
+        cls.doc = json.loads((ROOT / "GameData" / "campaign" / "itineraire.json").read_text(encoding="utf-8"))
+        cls.clues = {c["id"] for c in json.loads((MISSION / "clues.json").read_text(encoding="utf-8"))["clues"]}
+
+    def errors(self, mutate=None):
+        doc = copy.deepcopy(self.doc)
+        if mutate:
+            mutate(doc)
+        return self.vi.validate(doc, self.clues)[0]
+
+    def test_itineraire_valide(self):
+        self.assertEqual(self.errors(), [])
+
+    def test_deux_bonnes_destinations_refusees(self):
+        self.assertTrue(any("bonne(s) destination" in e for e in self.errors(
+            lambda d: d["etapes"][1]["candidates"][1].__setitem__("correct", True))))
+
+    def test_bonne_destination_sur_une_seule_preuve(self):
+        self.assertTrue(any("une seule preuve" in e for e in self.errors(
+            lambda d: d["etapes"][1]["candidates"][0].__setitem__("preuves", ["CLU2_BADGE_ENTREPOT"]))))
+
+    def test_echeance_depassee(self):
+        self.assertTrue(any("au-delà de l'échéance" in e for e in self.errors(
+            lambda d: d["etapes"][0].__setitem__("deadline_dure", "mardi 18:00"))))
+
+    def test_fausse_route_sans_refutation(self):
+        self.assertTrue(any("refutation" in e for e in self.errors(
+            lambda d: d["etapes"][2]["candidates"][1].pop("refutation"))))
+
+    def test_trajet_invraisemblable(self):
+        self.assertTrue(any("invraisemblable" in e for e in self.errors(
+            lambda d: d["etapes"][1]["candidates"][0].__setitem__("trajet_min", 5))))
+
+    def test_lila_retrouvee_une_seule_fois(self):
+        self.assertTrue(any("Lila doit être retrouvée" in e for e in self.errors(
+            lambda d: d["etapes"][2]["candidates"][0].pop("lila_retrouvee"))))
+
+    def test_portrait_robot_jamais_prerempli(self):
+        self.assertTrue(any("prérempli" in e for e in self.errors(
+            lambda d: d["portrait_robot"]["suspects"][0]["traits"][0].__setitem__("valeur_par_defaut", "environ 40 ans"))))
+
+    def test_portrait_robot_vrai_trait_parmi_les_options(self):
+        self.assertTrue(any("parmi au moins trois options" in e for e in self.errors(
+            lambda d: d["portrait_robot"]["suspects"][0]["traits"][1].__setitem__("vrai", "chauve"))))

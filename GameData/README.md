@@ -20,6 +20,8 @@ GameData/
     spatial_requirements.json  lien avec la maquette 3D : zone, repère, caméras, repli, coût
   dialogues/
     01-ouverture.json     répliques (DLG_) et textes d'interface (UI_)
+  campaign/
+    itineraire.json       déplacements à la Carmen Sandiego (ETP_), jauges (J_), portrait-robot établi par la joueuse
   scenes/
     decoupage.json        découpage scène par scène (SC_) du prologue au chapitre 6 : lieu, moment, lumière,
                           personnages, actions, déplacements, indices, caméras, replis, visuels à produire,
@@ -51,6 +53,7 @@ Proposé par Codex dans sa revue de la PR #4, accepté par Claude :
 ```
 python3 Tools/validate_mission.py
 python3 Tools/validate_spatial.py
+python3 Tools/validate_itineraire.py     # déplacements de campagne et portrait-robot
 python3 -m unittest discover -s Tools/tests -v
 python3 Tools/render_dialogues.py        # après toute modification des dialogues
 python3 Tools/render_decoupage.py        # après toute modification du découpage

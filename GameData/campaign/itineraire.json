@@ -1,0 +1,826 @@
+{
+  "status": "proposition",
+  "_doc": "Couche « déplacements » de la campagne, inspirée de Carmen Sandiego (années 2000), modernisée et pour adultes. À chaque étape, la joueuse choisit une destination sur la carte parmi plusieurs candidates ; chaque trajet coûte du temps réel de campagne, change l'état du monde et peut mener à une fausse route (enquête sur place, résultat négatif loyal, piste de retour). La bonne destination est toujours déductible d'au moins deux indices indépendants ; aucune erreur ne bloque l'histoire ; Lila est toujours retrouvée au chapitre 4 (décision Q3 d'Audrey). Validé par Tools/validate_itineraire.py.",
+  "clock_start": "mardi 16:25",
+  "jauges": [
+    {
+      "id": "J_ALERTE_RESEAU",
+      "label": "Réseau alerté",
+      "min": 0,
+      "max": 3,
+      "start": 0,
+      "effets": "Chaque niveau fait disparaître un indice facultatif de l'étape suivante (le réseau nettoie derrière lui). Ne supprime jamais un indice obligatoire."
+    },
+    {
+      "id": "J_CONFIANCE",
+      "label": "Confiance des gendarmes",
+      "min": 0,
+      "max": 3,
+      "start": 1,
+      "effets": "À 2 ou plus : réquisitions plus rapides (−30 min) et moyens de transport accélérés (hélicoptère de la gendarmerie en forêt, vol direct pour l'acte II). À 0 : chaque demande coûte +30 min."
+    },
+    {
+      "id": "J_PISTE",
+      "label": "Fraîcheur de la piste",
+      "min": 0,
+      "max": 3,
+      "start": 3,
+      "effets": "Efficacité du flair d'Ariane. Baisse avec le temps, la pluie et les fausses routes ; à 0, Ariane donne une direction mais plus d'objet précis (les indices obligatoires ont toujours une autre source)."
+    }
+  ],
+  "portrait_robot": {
+    "_doc": "Décision d'Audrey (29/09) : c'est la joueuse qui établit le portrait-robot. Équivalent moderne du mandat de Carmen Sandiego. Le jeu ne remplit jamais un champ : la joueuse choisit elle-même une valeur par trait dans son carnet, d'après les témoignages et les preuves (chaque trait vrai a au moins une source, souvent deux ; certains témoins se trompent). Pour une action décisive (interpellation, perquisition, mandat d'arrêt européen), elle présente le portrait aux autorités. Traits renseignés < seuil : refus du magistrat (+45 min, confiance −1). Un trait faux : mauvaise personne interpellée (+90 min, confiance −1, réseau alerté +1) ; la vraie cible reste toujours rattrapable. Les traits non renseignés ne sont jamais devinés par le jeu.",
+    "seuil_par_action": {
+      "interpellation": 3,
+      "perquisition": 3,
+      "mandat_arret_europeen": 4
+    },
+    "suspects": [
+      {
+        "id": "K2",
+        "nom_de_code": "« Sandrine »",
+        "action": "interpellation",
+        "etapes": [
+          "ETP_1",
+          "ETP_2",
+          "ETP_3"
+        ],
+        "traits": [
+          {
+            "champ": "age",
+            "options": [
+              "25–30 ans",
+              "environ 40 ans",
+              "plus de 55 ans"
+            ],
+            "vrai": "environ 40 ans",
+            "sources": [
+              "CLU_OBS_PASSAGERE"
+            ]
+          },
+          {
+            "champ": "cheveux",
+            "options": [
+              "carré blond",
+              "brune, cheveux longs",
+              "rousse, chignon"
+            ],
+            "vrai": "carré blond",
+            "sources": [
+              "CLU_OBS_PASSAGERE",
+              "CLU_TEMOIN_LARTIGUE"
+            ]
+          },
+          {
+            "champ": "signe_distinctif",
+            "options": [
+              "lunettes et rouge à lèvres",
+              "tatouage à la main",
+              "cicatrice au menton"
+            ],
+            "vrai": "lunettes et rouge à lèvres",
+            "sources": [
+              "CLU_OBS_PASSAGERE",
+              "CLU_BOUTEILLE"
+            ]
+          },
+          {
+            "champ": "couverture",
+            "options": [
+              "badge d'animatrice périscolaire",
+              "gilet d'infirmière",
+              "tenue de factrice"
+            ],
+            "vrai": "badge d'animatrice périscolaire",
+            "sources": [
+              "CLU_BADGE",
+              "CLU_TEMOIN_LARTIGUE"
+            ]
+          },
+          {
+            "champ": "vehicule",
+            "options": [
+              "citadine grise",
+              "fourgon",
+              "moto"
+            ],
+            "vrai": "citadine grise",
+            "sources": [
+              "CLU2_TRACES_VOITURE_SUD",
+              "CLU3_VOITURE_CAPBRETON"
+            ]
+          }
+        ],
+        "pieges": [
+          "Le fourgon est celui du conducteur, pas le sien.",
+          "À Capbreton, sa voiture est conduite par un homme : le complice, pas elle."
+        ]
+      },
+      {
+        "id": "K1",
+        "nom_de_code": "le conducteur",
+        "action": "interpellation",
+        "etapes": [
+          "ETP_1",
+          "ETP_2"
+        ],
+        "traits": [
+          {
+            "champ": "tenue",
+            "options": [
+              "casquette grise",
+              "bonnet noir",
+              "tête nue"
+            ],
+            "vrai": "casquette grise",
+            "sources": [
+              "CLU_TEMOIN_DUFAU",
+              "CLU_OBS_CONDUCTEUR"
+            ]
+          },
+          {
+            "champ": "habitude",
+            "options": [
+              "fume cigarette sur cigarette",
+              "mâche du chewing-gum",
+              "écoute la radio fort"
+            ],
+            "vrai": "fume cigarette sur cigarette",
+            "sources": [
+              "CLU_TEMOIN_DUFAU",
+              "CLU_MEGOTS"
+            ]
+          },
+          {
+            "champ": "vehicule",
+            "options": [
+              "fourgon au pot qui cogne",
+              "citadine grise",
+              "camping-car"
+            ],
+            "vrai": "fourgon au pot qui cogne",
+            "sources": [
+              "CLU_OBS_ECHAPPEMENT",
+              "CLU_TEMOIN_DUFAU"
+            ]
+          },
+          {
+            "champ": "passe",
+            "options": [
+              "ancien livreur de la blanchisserie",
+              "ancien gendarme",
+              "pêcheur de Capbreton"
+            ],
+            "vrai": "ancien livreur de la blanchisserie",
+            "sources": [
+              "CLU_APPEL_BLANCHISSERIE",
+              "CLU_TEMOIN_DUFAU"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DARRIGADE",
+        "nom_de_code": "la tête du réseau",
+        "action": "mandat_arret_europeen",
+        "etapes": [
+          "ETP_4",
+          "ETP_5",
+          "ETP_6"
+        ],
+        "traits": [
+          {
+            "champ": "lien_societe",
+            "options": [
+              "Darrigade Logistique",
+              "Blanchisserie Océane",
+              "Sud Loc Services seulement"
+            ],
+            "vrai": "Darrigade Logistique",
+            "sources": [
+              "CLU5_CONNAISSEMENT",
+              "CLU6_PRETE_NOM_PAYE"
+            ]
+          },
+          {
+            "champ": "prete_nom",
+            "options": [
+              "gérant des SCI et de la holding",
+              "Casteran",
+              "Julien"
+            ],
+            "vrai": "gérant des SCI et de la holding",
+            "sources": [
+              "CLU5_SIGNATURE_PRETE_NOM",
+              "CLU3_CADASTRE_SCI"
+            ]
+          },
+          {
+            "champ": "acces_information",
+            "options": [
+              "présent au poste de commandement",
+              "gendarme infiltré",
+              "voisin de Dufau"
+            ],
+            "vrai": "présent au poste de commandement",
+            "sources": [
+              "CLU6_STATUTS_CASTERAN",
+              "CLU2_MESSAGE_DERNIER_VOYAGE"
+            ]
+          },
+          {
+            "champ": "fuite_prevue",
+            "options": [
+              "billets pour vendredi avec Nadia",
+              "bateau à Hossegor",
+              "aucune"
+            ],
+            "vrai": "billets pour vendredi avec Nadia",
+            "sources": [
+              "CLU6_DARRIGADE_BILLETS"
+            ]
+          },
+          {
+            "champ": "financement",
+            "options": [
+              "holding luxembourgeoise",
+              "compte genevois",
+              "espèces de la criée"
+            ],
+            "vrai": "holding luxembourgeoise",
+            "sources": [
+              "CLU5_REGISTRE_HOLDING",
+              "CLU6_PRETE_NOM_PAYE"
+            ]
+          }
+        ],
+        "pieges": [
+          "Casteran a rédigé les statuts de bonne foi (Q2) : l'accuser fait perdre la confiance des gendarmes.",
+          "Le compte genevois est une fausse piste (virement annulé)."
+        ]
+      }
+    ]
+  },
+  "etapes": [
+    {
+      "id": "ETP_1",
+      "chapitre": 1,
+      "question": "Où le fourgon a-t-il emmené Lila ?",
+      "depart": {
+        "lieu": "LESCOURE",
+        "heure_ref": "mardi 17:30"
+      },
+      "deadline_dure": "mardi 21:30",
+      "_doc": "Déjà jouable dans la mission 01 : le choix se fait au tableau d'hypothèses (H_DEST_*). Proposition : chaque mauvaise destination devient un vrai court déplacement avec les gendarmes (scène de fausse route) au lieu d'un simple écran.",
+      "candidates": [
+        {
+          "id": "DEST_ETANG_SORBE",
+          "nom": "Étang de Sorbe, rive est",
+          "correct": true,
+          "km": 14,
+          "trajet_min": 20,
+          "mode": "voiture",
+          "preuves": [
+            "CLU_VIDEO_INES",
+            "CLU_CCTV_RELAIS",
+            "CLU_PHOTO_VIE"
+          ],
+          "effets": {
+            "J_PISTE": 0
+          }
+        },
+        {
+          "id": "DEST_CORNICHE",
+          "nom": "Corniche nord",
+          "correct": false,
+          "km": 6,
+          "trajet_min": 10,
+          "mode": "voiture",
+          "leurre": "Témoignage sincère de Casteran (Q2 : de bonne foi, elle s'est trompée).",
+          "refutation": [
+            "CLU_VIDEO_INES",
+            "CLU_LIGNE_DE_VUE"
+          ],
+          "sur_place_min": 25,
+          "retour_min": 15,
+          "scene_fausse_route": "Parking de la Corniche : un camping-car à porte-vélos, pas de fourgon ; un surfeur n'a vu passer que lui.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_CONFIANCE": 0,
+            "J_ALERTE_RESEAU": 0
+          }
+        },
+        {
+          "id": "DEST_A63",
+          "nom": "Péage de l'A63, direction Espagne",
+          "correct": false,
+          "km": 32,
+          "trajet_min": 28,
+          "mode": "voiture",
+          "leurre": "Signalement radio d'un fourgon au péage à 16 h 50.",
+          "refutation": [
+            "CLU_PLAN_DISTANCES",
+            "CLU_VIDEO_INES",
+            "CLU_NEG_A63"
+          ],
+          "sur_place_min": 20,
+          "retour_min": 35,
+          "scene_fausse_route": "Cabine du péage : vidéo d'un fourgon d'un autre modèle, échelle sur le toit.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_CONFIANCE": -1,
+            "J_ALERTE_RESEAU": 0
+          }
+        },
+        {
+          "id": "DEST_PORT_CAPBRETON",
+          "nom": "Port de Capbreton",
+          "correct": false,
+          "km": 24,
+          "trajet_min": 22,
+          "mode": "voiture",
+          "leurre": "Caisse de la criée au bord de la ruelle.",
+          "refutation": [
+            "CLU_TEMOIN_DUFAU",
+            "CLU_NEG_PORT"
+          ],
+          "sur_place_min": 25,
+          "retour_min": 30,
+          "scene_fausse_route": "Capitainerie : aucun fourgon ; le poissonnier livre ses caisses tous les mardis.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_CONFIANCE": 0,
+            "J_ALERTE_RESEAU": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ETP_2",
+      "chapitre": 2,
+      "question": "L'airial est vide. Où continuer la traque ?",
+      "depart": {
+        "lieu": "ETANG_SORBE",
+        "heure_ref": "mercredi 01:00"
+      },
+      "deadline_dure": "mercredi 20:00",
+      "indices_nouveaux": [
+        {
+          "id": "CLU2_MESSAGE_DERNIER_VOYAGE",
+          "source": "ch.1 (message de chantage reçu par Julien)",
+          "fait": "« Un dernier voyage, jeudi 6 h. Après, tu es libre. Elle aussi. »"
+        },
+        {
+          "id": "CLU2_BADGE_ENTREPOT",
+          "source": "Ariane, airial (flair)",
+          "fait": "Badge d'accès magnétique « DL – quai 4 » tombé dans l'herbe près des traces de voiture."
+        },
+        {
+          "id": "CLU2_TRACES_VOITURE_SUD",
+          "source": "lecture de traces, piste forestière",
+          "fait": "Pneus d'une citadine, direction la D817 vers le sud (Bayonne)."
+        },
+        {
+          "id": "CLU2_TICKET_MARINA",
+          "source": "poubelle de l'airial",
+          "fait": "Ticket du parking de la marina d'Hossegor, daté d'il y a trois semaines."
+        },
+        {
+          "id": "CLU2_TRACES_BOUCLE_NORD",
+          "source": "lecture de traces",
+          "fait": "Des traces partent au nord puis reviennent : demi-tour sur la piste 12."
+        },
+        {
+          "id": "CLU2_TRACEUR_PLOMBIER",
+          "source": "ch.1 (fichier des immatriculations)",
+          "fait": "Le vrai fourgon GF-437-TR était chez un client à Dax pendant l'enlèvement."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_BAYONNE_PORT",
+          "nom": "Port de Bayonne, entrepôt Darrigade Logistique",
+          "correct": true,
+          "km": 38,
+          "trajet_min": 35,
+          "mode": "voiture",
+          "preuves": [
+            "CLU2_MESSAGE_DERNIER_VOYAGE",
+            "CLU2_BADGE_ENTREPOT",
+            "CLU2_TRACES_VOITURE_SUD"
+          ],
+          "effets": {}
+        },
+        {
+          "id": "DEST_HOSSEGOR_MARINA",
+          "nom": "Marina d'Hossegor",
+          "correct": false,
+          "km": 22,
+          "trajet_min": 25,
+          "mode": "voiture",
+          "leurre": "Ticket de parking de la marina.",
+          "refutation": [
+            "CLU2_TICKET_MARINA"
+          ],
+          "sur_place_min": 60,
+          "retour_min": 30,
+          "scene_fausse_route": "Pontons de nuit : le bateau loué il y a trois semaines est à quai, vide ; le loueur confirme la date.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_ALERTE_RESEAU": 0
+          }
+        },
+        {
+          "id": "DEST_MIMIZAN",
+          "nom": "Pistes forestières vers Mimizan (nord)",
+          "correct": false,
+          "km": 30,
+          "trajet_min": 40,
+          "mode": "voiture",
+          "leurre": "Premières traces orientées au nord.",
+          "refutation": [
+            "CLU2_TRACES_BOUCLE_NORD",
+            "CLU2_TRACES_VOITURE_SUD"
+          ],
+          "sur_place_min": 60,
+          "retour_min": 80,
+          "scene_fausse_route": "Barrière forestière fermée depuis la veille, cadenas rouillé : personne n'est passé.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_CONFIANCE": -1
+          }
+        },
+        {
+          "id": "DEST_DAX",
+          "nom": "Dax, chez le plombier",
+          "correct": false,
+          "km": 45,
+          "trajet_min": 40,
+          "mode": "voiture",
+          "leurre": "La plaque clonée appartient à un plombier de Dax.",
+          "refutation": [
+            "CLU2_TRACEUR_PLOMBIER"
+          ],
+          "sur_place_min": 45,
+          "retour_min": 45,
+          "scene_fausse_route": "Le plombier, réveillé en pleine nuit, montre son fourgon et son traceur : innocent. Les gendarmes s'agacent.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_CONFIANCE": -1,
+            "J_ALERTE_RESEAU": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ETP_3",
+      "chapitre": 3,
+      "question": "« Sandrine » a abandonné son téléphone. Où fouiller ?",
+      "depart": {
+        "lieu": "BAYONNE_PORT",
+        "heure_ref": "jeudi 06:30"
+      },
+      "deadline_dure": "jeudi 19:30",
+      "_doc": "Garantie Q3 : quelle que soit la route, Lila est retrouvée au chapitre 4 avant la nuit ; les fausses routes réduisent la fraîcheur de la piste et allongent l'exposition au froid, jamais au-delà de la décision d'Audrey (aucune violence).",
+      "indices_nouveaux": [
+        {
+          "id": "CLU3_BORNAGE_NE",
+          "source": "réquisition téléphonique",
+          "fait": "Dernières 48 h : le téléphone borne sur deux antennes dont l'intersection couvre le nord-est de Lande-Haute."
+        },
+        {
+          "id": "CLU3_BORNAGE_UNE_ANTENNE",
+          "source": "réquisition téléphonique (première réponse)",
+          "fait": "Une seule antenne au début : zone large incluant le sud de Lande-Haute."
+        },
+        {
+          "id": "CLU3_CADASTRE_SCI",
+          "source": "cadastre, carte des parcelles",
+          "fait": "Une parcelle du nord-est appartient à la SCI Lande-Haute, même gérant de paille que la SCI des Pins de Sorbe."
+        },
+        {
+          "id": "CLU3_VOITURE_CAPBRETON",
+          "source": "vidéosurveillance",
+          "fait": "La citadine de « Sandrine » vue à Capbreton mercredi soir… conduite par un homme."
+        },
+        {
+          "id": "CLU3_TICKET_CARBURANT",
+          "source": "voiture abandonnée",
+          "fait": "Ticket de carburant de la station de Lande-Haute, jeudi 5 h 40."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_LANDE_HAUTE_NE",
+          "nom": "Forêt de Lande-Haute, secteur nord-est",
+          "correct": true,
+          "km": 52,
+          "trajet_min": 45,
+          "mode": "voiture",
+          "preuves": [
+            "CLU3_BORNAGE_NE",
+            "CLU3_CADASTRE_SCI",
+            "CLU3_TICKET_CARBURANT"
+          ],
+          "effets": {},
+          "lila_retrouvee": true
+        },
+        {
+          "id": "DEST_LANDE_HAUTE_SUD",
+          "nom": "Forêt de Lande-Haute, secteur sud",
+          "correct": false,
+          "km": 48,
+          "trajet_min": 40,
+          "mode": "voiture",
+          "leurre": "Première réponse de bornage, sur une seule antenne.",
+          "refutation": [
+            "CLU3_BORNAGE_NE"
+          ],
+          "sur_place_min": 60,
+          "retour_min": 20,
+          "scene_fausse_route": "Cabanes de résinier du sud : portes ouvertes, toiles d'araignée intactes ; personne depuis des mois.",
+          "effets": {
+            "J_PISTE": -1
+          }
+        },
+        {
+          "id": "DEST_CAPBRETON_CABANE",
+          "nom": "Cabane de pêcheur, Capbreton",
+          "correct": false,
+          "km": 40,
+          "trajet_min": 35,
+          "mode": "voiture",
+          "leurre": "La voiture de « Sandrine » vue à Capbreton.",
+          "refutation": [
+            "CLU3_VOITURE_CAPBRETON",
+            "CLU3_TICKET_CARBURANT"
+          ],
+          "sur_place_min": 45,
+          "retour_min": 50,
+          "scene_fausse_route": "Le complice interpellé à Capbreton a emprunté la voiture ; il ne sait pas où est Lila.",
+          "effets": {
+            "J_PISTE": -1,
+            "J_ALERTE_RESEAU": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ETP_4",
+      "chapitre": 5,
+      "question": "Lila est sauvée. Où mène la chaîne du fret ?",
+      "depart": {
+        "lieu": "LESCOURE",
+        "heure_ref": "samedi 09:00"
+      },
+      "deadline_dure": "lundi 18:00",
+      "_doc": "Acte II : voyages internationaux autorisés (Lila est en sécurité). Échéance : fin du déchargement du Maren Sofie ; ensuite, les preuves matérielles se dispersent.",
+      "indices_nouveaux": [
+        {
+          "id": "CLU5_CONNAISSEMENT",
+          "source": "saisie de l'entrepôt (ch.3)",
+          "fait": "Connaissement : port de déchargement Anvers, destinataire Nordhaven Shipping BV."
+        },
+        {
+          "id": "CLU5_AIS_NAVIRE",
+          "source": "suivi AIS du navire",
+          "fait": "Le Maren Sofie fait route vers l'Escaut, ETA dimanche 22 h."
+        },
+        {
+          "id": "CLU5_ESCALE_ROTTERDAM",
+          "source": "planning de l'armateur",
+          "fait": "Escale technique à Rotterdam : ravitaillement, aucun déchargement prévu."
+        },
+        {
+          "id": "CLU5_SCELLES",
+          "source": "comparaison de documents",
+          "fait": "Les numéros de scellés ne changent qu'à Anvers."
+        },
+        {
+          "id": "CLU5_VIEILLE_ROUTE_LEIXOES",
+          "source": "archives de l'entrepôt",
+          "fait": "Contrats vers Leixões (Porto) arrêtés il y a deux ans."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_ANVERS",
+          "nom": "Anvers (docks, Nordhaven Shipping BV)",
+          "correct": true,
+          "km": 1050,
+          "trajet_min": 330,
+          "mode": "avion + train",
+          "preuves": [
+            "CLU5_CONNAISSEMENT",
+            "CLU5_AIS_NAVIRE",
+            "CLU5_SCELLES"
+          ],
+          "effets": {}
+        },
+        {
+          "id": "DEST_ROTTERDAM",
+          "nom": "Rotterdam",
+          "correct": false,
+          "km": 1120,
+          "trajet_min": 360,
+          "mode": "avion + train",
+          "leurre": "Escale du navire.",
+          "refutation": [
+            "CLU5_ESCALE_ROTTERDAM",
+            "CLU5_SCELLES"
+          ],
+          "sur_place_min": 180,
+          "retour_min": 75,
+          "scene_fausse_route": "Terminal de Rotterdam : le navire a ravitaillé et repart ; rien n'a quitté la cale.",
+          "effets": {
+            "J_ALERTE_RESEAU": 1
+          }
+        },
+        {
+          "id": "DEST_PORTO",
+          "nom": "Porto (Leixões)",
+          "correct": false,
+          "km": 700,
+          "trajet_min": 240,
+          "mode": "avion",
+          "leurre": "Ancienne route commerciale de l'entrepôt.",
+          "refutation": [
+            "CLU5_VIEILLE_ROUTE_LEIXOES",
+            "CLU5_AIS_NAVIRE"
+          ],
+          "sur_place_min": 180,
+          "retour_min": 300,
+          "scene_fausse_route": "Bureau du transitaire à Leixões : dossier Darrigade clos depuis deux ans.",
+          "effets": {
+            "J_CONFIANCE": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ETP_5",
+      "chapitre": 5,
+      "question": "Qui détient vraiment Nordhaven Shipping ?",
+      "depart": {
+        "lieu": "ANVERS",
+        "heure_ref": "dimanche 23:00"
+      },
+      "deadline_dure": "mardi 12:00",
+      "_doc": "Escale supplémentaire proposée pour renforcer l'esprit « poursuite à travers l'Europe » (à valider par Audrey).",
+      "indices_nouveaux": [
+        {
+          "id": "CLU5_REGISTRE_HOLDING",
+          "source": "registre belge des sociétés",
+          "fait": "Nordhaven Shipping BV est détenue à 100 % par Nordhaven Holding SA, Luxembourg."
+        },
+        {
+          "id": "CLU5_SIGNATURE_PRETE_NOM",
+          "source": "organigramme",
+          "fait": "L'administrateur de la holding est le même prête-nom que celui des SCI landaises."
+        },
+        {
+          "id": "CLU5_VIREMENT_GENEVE",
+          "source": "relevé saisi",
+          "fait": "Un virement vers une banque genevoise… annulé la veille."
+        },
+        {
+          "id": "CLU5_BUREAU_AMSTERDAM",
+          "source": "site web de la société",
+          "fait": "« Bureau commercial à Amsterdam » : adresse de domiciliation partagée par 300 sociétés."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_LUXEMBOURG",
+          "nom": "Luxembourg (Nordhaven Holding SA)",
+          "correct": true,
+          "km": 250,
+          "trajet_min": 160,
+          "mode": "train",
+          "preuves": [
+            "CLU5_REGISTRE_HOLDING",
+            "CLU5_SIGNATURE_PRETE_NOM"
+          ],
+          "effets": {}
+        },
+        {
+          "id": "DEST_GENEVE",
+          "nom": "Genève (banque)",
+          "correct": false,
+          "km": 800,
+          "trajet_min": 240,
+          "mode": "avion",
+          "leurre": "Virement vers Genève.",
+          "refutation": [
+            "CLU5_VIREMENT_GENEVE"
+          ],
+          "sur_place_min": 120,
+          "retour_min": 240,
+          "scene_fausse_route": "La banque confirme l'annulation ; le compte est vide depuis l'ouverture.",
+          "effets": {
+            "J_ALERTE_RESEAU": 1
+          }
+        },
+        {
+          "id": "DEST_AMSTERDAM",
+          "nom": "Amsterdam (bureau commercial)",
+          "correct": false,
+          "km": 160,
+          "trajet_min": 110,
+          "mode": "train",
+          "leurre": "Adresse commerciale affichée.",
+          "refutation": [
+            "CLU5_BUREAU_AMSTERDAM"
+          ],
+          "sur_place_min": 90,
+          "retour_min": 240,
+          "scene_fausse_route": "Boîte aux lettres dans un centre de domiciliation : aucun employé.",
+          "effets": {
+            "J_CONFIANCE": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ETP_6",
+      "chapitre": 6,
+      "question": "Retour dans les Landes : où frapper en premier pour prouver le rôle de Darrigade ?",
+      "depart": {
+        "lieu": "LESCOURE",
+        "heure_ref": "mardi 20:00"
+      },
+      "deadline_dure": "jeudi 12:00",
+      "_doc": "Dernier choix : l'ordre des visites compte. Aller d'abord chez Nadia alerte Darrigade (il prépare sa fuite) ; les archives de Casteran (témoin de bonne foi, Q2) donnent la preuve ; la perquisition exige une fiche de signalement complète. Le vol retour Luxembourg → Biarritz est une transition (mardi 14:00 → 20:00) ; le choix porte sur l'ordre des visites sur place.",
+      "indices_nouveaux": [
+        {
+          "id": "CLU6_STATUTS_CASTERAN",
+          "source": "Casteran, de bonne foi, ouvre ses archives",
+          "fait": "Les statuts de Sud Loc Services et des deux SCI ont été commandés et payés par Darrigade."
+        },
+        {
+          "id": "CLU6_PRETE_NOM_PAYE",
+          "source": "relevés saisis à Luxembourg",
+          "fait": "Le prête-nom est rémunéré par Darrigade Logistique."
+        },
+        {
+          "id": "CLU6_DARRIGADE_BILLETS",
+          "source": "agence de voyage",
+          "fait": "Deux billets pour Nadia et Darrigade, départ vendredi."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "DEST_ETUDE_CASTERAN",
+          "nom": "Étude Casteran, Lescoure-Plage",
+          "correct": true,
+          "km": 1,
+          "trajet_min": 12,
+          "mode": "à pied",
+          "preuves": [
+            "CLU6_STATUTS_CASTERAN",
+            "CLU6_PRETE_NOM_PAYE"
+          ],
+          "effets": {}
+        },
+        {
+          "id": "DEST_MAISON_NADIA",
+          "nom": "Maison de Nadia",
+          "correct": false,
+          "km": 4,
+          "trajet_min": 10,
+          "mode": "voiture",
+          "leurre": "Protéger Nadia en priorité.",
+          "refutation": [
+            "CLU6_DARRIGADE_BILLETS",
+            "CLU6_STATUTS_CASTERAN"
+          ],
+          "sur_place_min": 60,
+          "retour_min": 10,
+          "scene_fausse_route": "Darrigade ouvre la porte, affable ; il comprend. Nadia ne se doute de rien (Q1).",
+          "effets": {
+            "J_ALERTE_RESEAU": 1
+          }
+        },
+        {
+          "id": "DEST_ENTREPOT_BAYONNE",
+          "nom": "Entrepôt de Bayonne",
+          "correct": false,
+          "km": 40,
+          "trajet_min": 35,
+          "mode": "voiture",
+          "leurre": "Le cœur logistique du réseau.",
+          "refutation": [
+            "CLU6_PRETE_NOM_PAYE"
+          ],
+          "sur_place_min": 90,
+          "retour_min": 35,
+          "scene_fausse_route": "Entrepôt déjà vidé et scellé depuis le chapitre 3 : rien de neuf sur Darrigade lui-même.",
+          "effets": {
+            "J_CONFIANCE": -1
+          }
+        }
+      ]
+    }
+  ],
+  "_semantique": "trajet_min : du lieu de départ de l'étape à la destination. sur_place_min : enquête sur une fausse route. retour_min : de la fausse route à la bonne destination (la piste de retour y mène). Borne du pire cas : départ + Σ(fausses routes : trajet + sur place + retour) + trajet de la bonne destination ≤ deadline_dure."
+}
