@@ -23,7 +23,7 @@ def colour(actor):
         return "#d85b62"
     if actor["kind"] == "event_marker":
         return "#f2ad3b"
-    if name.startswith(("east_road", "cross_street")):
+    if "road" in name or name == "school_square":
         return "#5b626b"
     if "sidewalk" in name:
         return "#b7afa0"
@@ -60,7 +60,7 @@ def build_svg():
         f'<metadata>source_sha256={hashlib.sha256(PLAN_PATH.read_bytes()).hexdigest()}</metadata>',
         '<rect width="100%" height="100%" fill="#f4f0e7"/>',
         '<style>text{font-family:Arial,sans-serif;fill:#20242a}.label{font-size:13px}.small{font-size:11px}.title{font-size:24px;font-weight:700}.zone{fill:none;stroke:#2f6e9f;stroke-width:2;stroke-dasharray:8 5}.camera{fill:#2c5b88;stroke:#16334f;stroke-width:1}</style>',
-        '<text x="55" y="42" class="title">Ouverture P0–P3 — plan technique (vue du dessus)</text>',
+        '<text x="55" y="42" class="title">Ouverture — place de l’école et ruelle (vue du dessus)</text>',
     ]
 
     for actor in sorted(actors, key=lambda item: item["kind"] != "static_geometry"):
