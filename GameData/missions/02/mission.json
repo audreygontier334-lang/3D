@@ -1,0 +1,105 @@
+{
+  "id": "M02",
+  "title": "Chapitre 2 « L'airial »",
+  "status": "proposition",
+  "min_puzzles": 4,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission sans prologue en temps réel : la situation de départ dépend de l'état hérité du chapitre 1 (entry_states). Heures > 24:00 = mercredi.",
+  "clock": {
+    "chapter_start": "19:15",
+    "deadline": "25:00",
+    "travel_cost_per_zone": 10
+  },
+  "start_zone": "Z_FOURCHE",
+  "entry_states": [
+    {
+      "id": "CH2_ETAT_A",
+      "label": "Avance (arrivée ≈ 18 h 45)",
+      "grants": [
+        "FLAG_ETAT_A",
+        "CLU_C2_MESSAGE_DERNIER_VOYAGE",
+        "CLU_C2_TRACEUR_PLOMBIER"
+      ]
+    },
+    {
+      "id": "CH2_ETAT_B",
+      "label": "Standard (arrivée ≈ 19 h 15)",
+      "grants": [
+        "FLAG_ETAT_B",
+        "CLU_C2_MESSAGE_DERNIER_VOYAGE",
+        "CLU_C2_TRACEUR_PLOMBIER"
+      ]
+    },
+    {
+      "id": "CH2_ETAT_C",
+      "label": "Retard (arrivée ≈ 19 h 45, pluie fine après 23 h)",
+      "grants": [
+        "FLAG_ETAT_C",
+        "CLU_C2_MESSAGE_DERNIER_VOYAGE",
+        "CLU_C2_TRACEUR_PLOMBIER"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace depuis l'état B, sans énigme facultative.",
+    "steps": [
+      "INT_C2_BRIEFING",
+      "INT_C2_RELAIS",
+      "INT_C2_PIECE",
+      "INT_C2_BORDES",
+      "INT_C2_CHRONO",
+      "INT_C2_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M02",
+    "dialogue": "DLG_C2_FIN",
+    "next_states": [
+      {
+        "id": "CH3_ETAT_A",
+        "label": "Avance",
+        "condition": {
+          "resolved_before": "23:00",
+          "requires": [
+            "H_C2_QUAI_4"
+          ]
+        }
+      },
+      {
+        "id": "CH3_ETAT_B",
+        "label": "Standard",
+        "condition": {
+          "resolved_before": "24:30"
+        }
+      },
+      {
+        "id": "CH3_ETAT_C",
+        "label": "Retard",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_QUAI_4",
+        "from": "H_C2_QUAI_4"
+      },
+      {
+        "id": "BONUS_GOMME",
+        "from": "CLU_C2_GOMME_LILA"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/02-airial.json"
+  }
+}

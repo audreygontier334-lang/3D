@@ -519,7 +519,7 @@ class TestItineraire(unittest.TestCase):
 
     def test_bonne_destination_sur_une_seule_preuve(self):
         self.assertTrue(any("une seule preuve" in e for e in self.errors(
-            lambda d: d["etapes"][1]["candidates"][0].__setitem__("preuves", ["CLU2_BADGE_ENTREPOT"]))))
+            lambda d: d["etapes"][1]["candidates"][0].__setitem__("preuves", ["CLU_C2_BADGE_ENTREPOT"]))))
 
     def test_echeance_depassee(self):
         self.assertTrue(any("au-delà de l'échéance" in e for e in self.errors(
@@ -547,3 +547,21 @@ class TestItineraire(unittest.TestCase):
 
     def test_etape_conditionnelle_sans_fin_alternative(self):
         self.assertTrue(any("sans fin alternative" in e for e in self.errors(lambda d: d.__setitem__("fins", d["fins"][:1]))))
+
+
+class TestMission02(unittest.TestCase):
+    """Chapitre 2 « L'airial » : mission sans prologue, démarrée depuis les états A, B ou C du chapitre 1."""
+
+    def test_aucune_erreur_ni_avertissement(self):
+        r = vm.validate(ROOT / "GameData" / "missions" / "02")
+        self.assertEqual(r.errors, [])
+        self.assertEqual(r.warnings, [])
+
+    def test_indices_de_la_carte_definis_dans_le_chapitre(self):
+        clues = {c["id"] for c in json.loads((ROOT / "GameData/missions/02/clues.json").read_text(encoding="utf-8"))["clues"]}
+        doc = json.loads((ROOT / "GameData/campaign/itineraire.json").read_text(encoding="utf-8"))
+        etp2 = next(e for e in doc["etapes"] if e["id"] == "ETP_2")
+        for c in etp2["candidates"]:
+            for ref in c.get("preuves", []) + c.get("refutation", []):
+                with self.subTest(ref):
+                    self.assertIn(ref, clues)

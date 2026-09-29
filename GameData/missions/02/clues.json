@@ -1,0 +1,242 @@
+{
+  "mission": "M02",
+  "clues": [
+    {
+      "id": "CLU_C2_MESSAGE_DERNIER_VOYAGE",
+      "name": "Message reçu par Julien (chapitre 1)",
+      "location": "LOC_FOURCHE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "« Un dernier voyage, jeudi 6 h. Après, tu es libre. Elle aussi. »",
+      "interpretations": [
+        "Le réseau garde Lila jusqu'à jeudi 6 h",
+        "Le « voyage » part d'un lieu lié au travail de Julien"
+      ]
+    },
+    {
+      "id": "CLU_C2_TRACEUR_PLOMBIER",
+      "name": "Fichier des immatriculations (chapitre 1)",
+      "location": "LOC_FOURCHE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "Le vrai fourgon GF-437-TR était chez un client à Dax pendant l'enlèvement (traceur de flotte).",
+      "interpretations": [
+        "Le plombier de Dax est hors de cause"
+      ]
+    },
+    {
+      "id": "CLU_C2_CARTE_AIRIAUX",
+      "name": "Carte des airiaux de la rive est",
+      "location": "LOC_FOURCHE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Trois airiaux : Lartigau (famille à l'année), Bordes (gîte loué à la semaine), Hount-Bielha (SCI des Pins de Sorbe, officiellement inoccupé).",
+      "interpretations": [
+        "Un seul airial n'a personne pour témoigner"
+      ]
+    },
+    {
+      "id": "CLU_C2_RADIO_CHIFFREE",
+      "name": "Radio des gendarmes",
+      "location": "LOC_FOURCHE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Mendiondo : « Nos radios sont numériques et chiffrées. Personne ne nous écoute avec un scanner. »",
+      "interpretations": [
+        "La fuite ne vient pas de la radio"
+      ]
+    },
+    {
+      "id": "CLU_C2_ETANG_AU_POSTE",
+      "name": "Où l'on a parlé de l'étang",
+      "location": "LOC_FOURCHE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Mendiondo : « Le mot étang n'a été prononcé qu'au poste de commandement, à partir de 17 h 45, et sur la radio. »",
+      "interpretations": [
+        "Ceux qui l'ont entendu étaient au poste"
+      ]
+    },
+    {
+      "id": "CLU_C2_RELAIS_GERANT",
+      "name": "Gérant du Relais du Lac",
+      "location": "LOC_RELAIS_DU_LAC",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "« Votre fourgon, c'était vers 16 h 40. Et tout à l'heure, vers 18 h 35, une petite voiture grise est ressortie de la route de l'étang, pressée, vers le sud. »",
+      "interpretations": [
+        "Quelqu'un a quitté l'étang vers 18 h 35",
+        "Direction sud"
+      ]
+    },
+    {
+      "id": "CLU_C2_TRACES_FOURGON_PISTE",
+      "name": "Traces du fourgon",
+      "location": "LOC_PISTE_12",
+      "kind": "trace",
+      "availability": "toujours",
+      "fact": "Au carrefour de la piste 12, les pneus du fourgon (sculpture usée, même empreinte que dans la ruelle) prennent la branche de Hount-Bielha.",
+      "interpretations": [
+        "Le fourgon est allé à Hount-Bielha"
+      ]
+    },
+    {
+      "id": "CLU_C2_TRACES_BOUCLE_NORD",
+      "name": "Traces vers le nord",
+      "location": "LOC_PISTE_12",
+      "kind": "trace",
+      "availability": "toujours",
+      "fact": "Des traces de citadine partent au nord puis reviennent : demi-tour sur la piste 12.",
+      "interpretations": [
+        "La voiture n'est pas partie vers le nord"
+      ]
+    },
+    {
+      "id": "CLU_C2_LARTIGAU_LUMIERE",
+      "name": "Famille Lartigau",
+      "location": "LOC_AIRIAL_LARTIGAU",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "La famille dîne ; personne n'est venu. « La maison du fond, Hount-Bielha, a de la lumière depuis dimanche. C'est bizarre, elle est vide d'habitude. »",
+      "interpretations": [
+        "Lartigau n'est pas le bon airial",
+        "Hount-Bielha occupé depuis dimanche"
+      ]
+    },
+    {
+      "id": "CLU_C2_BORDES_VOITURE",
+      "name": "Locataires du gîte de Bordes",
+      "location": "LOC_AIRIAL_BORDES",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Un couple de randonneurs : « Vers 18 h 30, une petite voiture grise est passée très vite sur la piste, vers la route. Une femme au volant, et quelqu'un de petit à l'arrière. »",
+      "interpretations": [
+        "Lila a été emmenée vers 18 h 30",
+        "Une femme conduisait"
+      ]
+    },
+    {
+      "id": "CLU_C2_PIECE_PHOTO",
+      "name": "La pièce de la photo",
+      "location": "LOC_HB_PIECE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "La fenêtre, le ponton et le pin au pot de résine sont exactement ceux de la photo de Lila reçue par Julien.",
+      "interpretations": [
+        "Lila a été retenue ici"
+      ]
+    },
+    {
+      "id": "CLU_C2_COUVERTURE",
+      "name": "Couverture et verre d'eau",
+      "location": "LOC_HB_PIECE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Couverture pliée, verre d'eau à moitié plein, chaise tirée près de la fenêtre. Le poêle est froid depuis une heure au moins.",
+      "interpretations": [
+        "Lila est partie depuis environ une heure"
+      ]
+    },
+    {
+      "id": "CLU_C2_COUSSIN",
+      "name": "Coussin de la chaise",
+      "location": "LOC_HB_PIECE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Le coussin de la chaise près de la fenêtre, où seule une enfant a pu s'asseoir en boule.",
+      "interpretations": [
+        "Objet porteur de la seule odeur de Lila"
+      ]
+    },
+    {
+      "id": "CLU_C2_GOMME_LILA",
+      "name": "Gomme parfumée",
+      "location": "LOC_HB_PRAIRIE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Une gomme parfumée à la fraise, de celles qu'on garde dans une trousse, dans l'herbe près du chemin.",
+      "interpretations": [
+        "Lila est passée par ici en partant"
+      ]
+    },
+    {
+      "id": "CLU_C2_TRACES_VOITURE_SUD",
+      "name": "Traces de la citadine",
+      "location": "LOC_HB_PRAIRIE",
+      "kind": "trace",
+      "availability": "toujours",
+      "fact": "Au bout de la piste d'Ariane, des pneus de citadine, frais, partent vers la D817, direction sud (Bayonne).",
+      "interpretations": [
+        "Lila a été emmenée vers le sud"
+      ]
+    },
+    {
+      "id": "CLU_C2_BADGE_ENTREPOT",
+      "name": "Badge magnétique",
+      "location": "LOC_HB_PRAIRIE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Un badge d'accès magnétique « DL – quai 4 » tombé dans l'herbe près des traces de la voiture.",
+      "interpretations": [
+        "« DL » : une entreprise à quais",
+        "Lien avec un entrepôt"
+      ]
+    },
+    {
+      "id": "CLU_C2_LOUBERE_SILENCE",
+      "name": "Loubère dans la grange",
+      "location": "LOC_HB_GRANGE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Loubère, trouvé par Ariane, brûlait des papiers dans un bidon. Interpellé par les gendarmes, il se tait.",
+      "interpretations": [
+        "Il est resté pour effacer les traces",
+        "Quelqu'un l'a prévenu de faire le ménage"
+      ]
+    },
+    {
+      "id": "CLU_C2_DOC_BRULE",
+      "name": "Document à moitié brûlé",
+      "location": "LOC_HB_GRANGE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Un bon de livraison à moitié brûlé : « …igade Logistique – quai 4 – jeudi 6 h… ».",
+      "interpretations": [
+        "Le quai 4 et jeudi 6 h : le « dernier voyage »"
+      ]
+    },
+    {
+      "id": "CLU_C2_TICKET_MARINA",
+      "name": "Ticket de parking",
+      "location": "LOC_HB_PRAIRIE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Ticket du parking de la marina d'Hossegor, daté d'il y a trois semaines.",
+      "interpretations": [
+        "Ancien passage à la marina, sans rapport avec ce soir"
+      ]
+    },
+    {
+      "id": "CLU_C2_NEG_LARTIGAU",
+      "name": "Fausse route : Lartigau",
+      "location": "LOC_AIRIAL_LARTIGAU",
+      "kind": "resultat",
+      "availability": "branche",
+      "fact": "Les gendarmes ont investi un dîner de famille : rien, sinon des enfants terrorisés.",
+      "interpretations": [
+        "Mauvais airial"
+      ]
+    },
+    {
+      "id": "CLU_C2_NEG_BORDES",
+      "name": "Fausse route : Bordes",
+      "location": "LOC_AIRIAL_BORDES",
+      "kind": "resultat",
+      "availability": "branche",
+      "fact": "Gîte fouillé : deux randonneurs, leurs sacs et leurs cartes. Rien d'autre.",
+      "interpretations": [
+        "Mauvais airial"
+      ]
+    }
+  ]
+}

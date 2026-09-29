@@ -106,8 +106,8 @@
             ],
             "vrai": "citadine grise",
             "sources": [
-              "CLU2_TRACES_VOITURE_SUD",
-              "CLU3_VOITURE_CAPBRETON"
+              "CLU_C2_TRACES_VOITURE_SUD",
+              "CLU_C3_VOITURE_CAPBRETON"
             ]
           }
         ],
@@ -198,8 +198,8 @@
             ],
             "vrai": "Darrigade Logistique",
             "sources": [
-              "CLU5_CONNAISSEMENT",
-              "CLU6_PRETE_NOM_PAYE"
+              "CLU_C5_CONNAISSEMENT",
+              "CLU_C6_PRETE_NOM_PAYE"
             ]
           },
           {
@@ -211,8 +211,8 @@
             ],
             "vrai": "gérant des SCI et de la holding",
             "sources": [
-              "CLU5_SIGNATURE_PRETE_NOM",
-              "CLU3_CADASTRE_SCI"
+              "CLU_C5_SIGNATURE_PRETE_NOM",
+              "CLU_C3_CADASTRE_SCI"
             ]
           },
           {
@@ -224,8 +224,8 @@
             ],
             "vrai": "présent au poste de commandement",
             "sources": [
-              "CLU6_STATUTS_CASTERAN",
-              "CLU2_MESSAGE_DERNIER_VOYAGE"
+              "CLU_C6_STATUTS_CASTERAN",
+              "CLU_C2_MESSAGE_DERNIER_VOYAGE"
             ]
           },
           {
@@ -237,7 +237,7 @@
             ],
             "vrai": "billets pour vendredi avec Nadia",
             "sources": [
-              "CLU6_DARRIGADE_BILLETS"
+              "CLU_C6_DARRIGADE_BILLETS"
             ]
           },
           {
@@ -249,8 +249,8 @@
             ],
             "vrai": "holding luxembourgeoise",
             "sources": [
-              "CLU5_REGISTRE_HOLDING",
-              "CLU6_PRETE_NOM_PAYE"
+              "CLU_C5_REGISTRE_HOLDING",
+              "CLU_C6_PRETE_NOM_PAYE"
             ]
           }
         ],
@@ -370,32 +370,32 @@
       "deadline_dure": "mercredi 20:00",
       "indices_nouveaux": [
         {
-          "id": "CLU2_MESSAGE_DERNIER_VOYAGE",
+          "id": "CLU_C2_MESSAGE_DERNIER_VOYAGE",
           "source": "ch.1 (message de chantage reçu par Julien)",
           "fait": "« Un dernier voyage, jeudi 6 h. Après, tu es libre. Elle aussi. »"
         },
         {
-          "id": "CLU2_BADGE_ENTREPOT",
+          "id": "CLU_C2_BADGE_ENTREPOT",
           "source": "Ariane, airial (flair)",
           "fait": "Badge d'accès magnétique « DL – quai 4 » tombé dans l'herbe près des traces de voiture."
         },
         {
-          "id": "CLU2_TRACES_VOITURE_SUD",
+          "id": "CLU_C2_TRACES_VOITURE_SUD",
           "source": "lecture de traces, piste forestière",
           "fait": "Pneus d'une citadine, direction la D817 vers le sud (Bayonne)."
         },
         {
-          "id": "CLU2_TICKET_MARINA",
+          "id": "CLU_C2_TICKET_MARINA",
           "source": "poubelle de l'airial",
           "fait": "Ticket du parking de la marina d'Hossegor, daté d'il y a trois semaines."
         },
         {
-          "id": "CLU2_TRACES_BOUCLE_NORD",
+          "id": "CLU_C2_TRACES_BOUCLE_NORD",
           "source": "lecture de traces",
           "fait": "Des traces partent au nord puis reviennent : demi-tour sur la piste 12."
         },
         {
-          "id": "CLU2_TRACEUR_PLOMBIER",
+          "id": "CLU_C2_TRACEUR_PLOMBIER",
           "source": "ch.1 (fichier des immatriculations)",
           "fait": "Le vrai fourgon GF-437-TR était chez un client à Dax pendant l'enlèvement."
         }
@@ -409,9 +409,9 @@
           "trajet_min": 35,
           "mode": "voiture",
           "preuves": [
-            "CLU2_MESSAGE_DERNIER_VOYAGE",
-            "CLU2_BADGE_ENTREPOT",
-            "CLU2_TRACES_VOITURE_SUD"
+            "CLU_C2_MESSAGE_DERNIER_VOYAGE",
+            "CLU_C2_BADGE_ENTREPOT",
+            "CLU_C2_TRACES_VOITURE_SUD"
           ],
           "effets": {}
         },
@@ -424,7 +424,7 @@
           "mode": "voiture",
           "leurre": "Ticket de parking de la marina.",
           "refutation": [
-            "CLU2_TICKET_MARINA"
+            "CLU_C2_TICKET_MARINA"
           ],
           "sur_place_min": 60,
           "retour_min": 30,
@@ -443,8 +443,8 @@
           "mode": "voiture",
           "leurre": "Premières traces orientées au nord.",
           "refutation": [
-            "CLU2_TRACES_BOUCLE_NORD",
-            "CLU2_TRACES_VOITURE_SUD"
+            "CLU_C2_TRACES_BOUCLE_NORD",
+            "CLU_C2_TRACES_VOITURE_SUD"
           ],
           "sur_place_min": 60,
           "retour_min": 80,
@@ -463,7 +463,7 @@
           "mode": "voiture",
           "leurre": "La plaque clonée appartient à un plombier de Dax.",
           "refutation": [
-            "CLU2_TRACEUR_PLOMBIER"
+            "CLU_C2_TRACEUR_PLOMBIER"
           ],
           "sur_place_min": 45,
           "retour_min": 45,
@@ -488,27 +488,27 @@
       "_doc": "Garantie Q3 : quelle que soit la route, Lila est retrouvée au chapitre 4 avant la nuit ; les fausses routes réduisent la fraîcheur de la piste et allongent l'exposition au froid, jamais au-delà de la décision d'Audrey (aucune violence).",
       "indices_nouveaux": [
         {
-          "id": "CLU3_BORNAGE_NE",
+          "id": "CLU_C3_BORNAGE_NE",
           "source": "réquisition téléphonique",
           "fait": "Dernières 48 h : le téléphone borne sur deux antennes dont l'intersection couvre le nord-est de Lande-Haute."
         },
         {
-          "id": "CLU3_BORNAGE_UNE_ANTENNE",
+          "id": "CLU_C3_BORNAGE_UNE_ANTENNE",
           "source": "réquisition téléphonique (première réponse)",
           "fait": "Une seule antenne au début : zone large incluant le sud de Lande-Haute."
         },
         {
-          "id": "CLU3_CADASTRE_SCI",
+          "id": "CLU_C3_CADASTRE_SCI",
           "source": "cadastre, carte des parcelles",
           "fait": "Une parcelle du nord-est appartient à la SCI Lande-Haute, même gérant de paille que la SCI des Pins de Sorbe."
         },
         {
-          "id": "CLU3_VOITURE_CAPBRETON",
+          "id": "CLU_C3_VOITURE_CAPBRETON",
           "source": "vidéosurveillance",
           "fait": "La citadine de « Sandrine » vue à Capbreton mercredi soir… conduite par un homme."
         },
         {
-          "id": "CLU3_TICKET_CARBURANT",
+          "id": "CLU_C3_TICKET_CARBURANT",
           "source": "voiture abandonnée",
           "fait": "Ticket de carburant de la station de Lande-Haute, jeudi 5 h 40."
         }
@@ -522,9 +522,9 @@
           "trajet_min": 45,
           "mode": "voiture",
           "preuves": [
-            "CLU3_BORNAGE_NE",
-            "CLU3_CADASTRE_SCI",
-            "CLU3_TICKET_CARBURANT"
+            "CLU_C3_BORNAGE_NE",
+            "CLU_C3_CADASTRE_SCI",
+            "CLU_C3_TICKET_CARBURANT"
           ],
           "effets": {},
           "lila_retrouvee": true
@@ -538,7 +538,7 @@
           "mode": "voiture",
           "leurre": "Première réponse de bornage, sur une seule antenne.",
           "refutation": [
-            "CLU3_BORNAGE_NE"
+            "CLU_C3_BORNAGE_NE"
           ],
           "sur_place_min": 60,
           "retour_min": 20,
@@ -556,8 +556,8 @@
           "mode": "voiture",
           "leurre": "La voiture de « Sandrine » vue à Capbreton.",
           "refutation": [
-            "CLU3_VOITURE_CAPBRETON",
-            "CLU3_TICKET_CARBURANT"
+            "CLU_C3_VOITURE_CAPBRETON",
+            "CLU_C3_TICKET_CARBURANT"
           ],
           "sur_place_min": 45,
           "retour_min": 50,
@@ -581,27 +581,27 @@
       "_doc": "Acte II : voyages internationaux autorisés (Lila est en sécurité). Échéance : fin du déchargement du Maren Sofie ; ensuite, les preuves matérielles se dispersent.",
       "indices_nouveaux": [
         {
-          "id": "CLU5_CONNAISSEMENT",
+          "id": "CLU_C5_CONNAISSEMENT",
           "source": "saisie de l'entrepôt (ch.3)",
           "fait": "Connaissement : port de déchargement Anvers, destinataire Nordhaven Shipping BV."
         },
         {
-          "id": "CLU5_AIS_NAVIRE",
+          "id": "CLU_C5_AIS_NAVIRE",
           "source": "suivi AIS du navire",
           "fait": "Le Maren Sofie fait route vers l'Escaut, ETA dimanche 22 h."
         },
         {
-          "id": "CLU5_ESCALE_ROTTERDAM",
+          "id": "CLU_C5_ESCALE_ROTTERDAM",
           "source": "planning de l'armateur",
           "fait": "Escale technique à Rotterdam : ravitaillement, aucun déchargement prévu."
         },
         {
-          "id": "CLU5_SCELLES",
+          "id": "CLU_C5_SCELLES",
           "source": "comparaison de documents",
           "fait": "Les numéros de scellés ne changent qu'à Anvers."
         },
         {
-          "id": "CLU5_VIEILLE_ROUTE_LEIXOES",
+          "id": "CLU_C5_VIEILLE_ROUTE_LEIXOES",
           "source": "archives de l'entrepôt",
           "fait": "Contrats vers Leixões (Porto) arrêtés il y a deux ans."
         }
@@ -615,9 +615,9 @@
           "trajet_min": 330,
           "mode": "avion + train",
           "preuves": [
-            "CLU5_CONNAISSEMENT",
-            "CLU5_AIS_NAVIRE",
-            "CLU5_SCELLES"
+            "CLU_C5_CONNAISSEMENT",
+            "CLU_C5_AIS_NAVIRE",
+            "CLU_C5_SCELLES"
           ],
           "effets": {}
         },
@@ -630,8 +630,8 @@
           "mode": "avion + train",
           "leurre": "Escale du navire.",
           "refutation": [
-            "CLU5_ESCALE_ROTTERDAM",
-            "CLU5_SCELLES"
+            "CLU_C5_ESCALE_ROTTERDAM",
+            "CLU_C5_SCELLES"
           ],
           "sur_place_min": 180,
           "retour_min": 75,
@@ -649,8 +649,8 @@
           "mode": "avion",
           "leurre": "Ancienne route commerciale de l'entrepôt.",
           "refutation": [
-            "CLU5_VIEILLE_ROUTE_LEIXOES",
-            "CLU5_AIS_NAVIRE"
+            "CLU_C5_VIEILLE_ROUTE_LEIXOES",
+            "CLU_C5_AIS_NAVIRE"
           ],
           "sur_place_min": 180,
           "retour_min": 300,
@@ -673,22 +673,22 @@
       "_doc": "Escale de Luxembourg : décision d'Audrey (29/09), pour une vraie poursuite à travers l'Europe dans l'acte II.",
       "indices_nouveaux": [
         {
-          "id": "CLU5_REGISTRE_HOLDING",
+          "id": "CLU_C5_REGISTRE_HOLDING",
           "source": "registre belge des sociétés",
           "fait": "Nordhaven Shipping BV est détenue à 100 % par Nordhaven Holding SA, Luxembourg."
         },
         {
-          "id": "CLU5_SIGNATURE_PRETE_NOM",
+          "id": "CLU_C5_SIGNATURE_PRETE_NOM",
           "source": "organigramme",
           "fait": "L'administrateur de la holding est le même prête-nom que celui des SCI landaises."
         },
         {
-          "id": "CLU5_VIREMENT_GENEVE",
+          "id": "CLU_C5_VIREMENT_GENEVE",
           "source": "relevé saisi",
           "fait": "Un virement vers une banque genevoise… annulé la veille."
         },
         {
-          "id": "CLU5_BUREAU_AMSTERDAM",
+          "id": "CLU_C5_BUREAU_AMSTERDAM",
           "source": "site web de la société",
           "fait": "« Bureau commercial à Amsterdam » : adresse de domiciliation partagée par 300 sociétés."
         }
@@ -702,8 +702,8 @@
           "trajet_min": 160,
           "mode": "train",
           "preuves": [
-            "CLU5_REGISTRE_HOLDING",
-            "CLU5_SIGNATURE_PRETE_NOM"
+            "CLU_C5_REGISTRE_HOLDING",
+            "CLU_C5_SIGNATURE_PRETE_NOM"
           ],
           "effets": {}
         },
@@ -716,7 +716,7 @@
           "mode": "avion",
           "leurre": "Virement vers Genève.",
           "refutation": [
-            "CLU5_VIREMENT_GENEVE"
+            "CLU_C5_VIREMENT_GENEVE"
           ],
           "sur_place_min": 120,
           "retour_min": 240,
@@ -734,7 +734,7 @@
           "mode": "train",
           "leurre": "Adresse commerciale affichée.",
           "refutation": [
-            "CLU5_BUREAU_AMSTERDAM"
+            "CLU_C5_BUREAU_AMSTERDAM"
           ],
           "sur_place_min": 90,
           "retour_min": 240,
@@ -757,17 +757,17 @@
       "_doc": "Dernier choix : l'ordre des visites compte. Aller d'abord chez Nadia alerte Darrigade (il prépare sa fuite) ; les archives de Casteran (témoin de bonne foi, Q2) donnent la preuve ; la perquisition exige une fiche de signalement complète. Le vol retour Luxembourg → Biarritz est une transition (mardi 14:00 → 20:00) ; le choix porte sur l'ordre des visites sur place.",
       "indices_nouveaux": [
         {
-          "id": "CLU6_STATUTS_CASTERAN",
+          "id": "CLU_C6_STATUTS_CASTERAN",
           "source": "Casteran, de bonne foi, ouvre ses archives",
           "fait": "Les statuts de Sud Loc Services et des deux SCI ont été commandés et payés par Darrigade."
         },
         {
-          "id": "CLU6_PRETE_NOM_PAYE",
+          "id": "CLU_C6_PRETE_NOM_PAYE",
           "source": "relevés saisis à Luxembourg",
           "fait": "Le prête-nom est rémunéré par Darrigade Logistique."
         },
         {
-          "id": "CLU6_DARRIGADE_BILLETS",
+          "id": "CLU_C6_DARRIGADE_BILLETS",
           "source": "agence de voyage",
           "fait": "Deux billets pour Nadia et Darrigade, départ vendredi."
         }
@@ -781,8 +781,8 @@
           "trajet_min": 12,
           "mode": "à pied",
           "preuves": [
-            "CLU6_STATUTS_CASTERAN",
-            "CLU6_PRETE_NOM_PAYE"
+            "CLU_C6_STATUTS_CASTERAN",
+            "CLU_C6_PRETE_NOM_PAYE"
           ],
           "effets": {}
         },
@@ -795,8 +795,8 @@
           "mode": "voiture",
           "leurre": "Protéger Nadia en priorité.",
           "refutation": [
-            "CLU6_DARRIGADE_BILLETS",
-            "CLU6_STATUTS_CASTERAN"
+            "CLU_C6_DARRIGADE_BILLETS",
+            "CLU_C6_STATUTS_CASTERAN"
           ],
           "sur_place_min": 60,
           "retour_min": 10,
@@ -814,7 +814,7 @@
           "mode": "voiture",
           "leurre": "Le cœur logistique du réseau.",
           "refutation": [
-            "CLU6_PRETE_NOM_PAYE"
+            "CLU_C6_PRETE_NOM_PAYE"
           ],
           "sur_place_min": 90,
           "retour_min": 35,
@@ -841,22 +841,22 @@
       "_doc": "Étape de la fin B. Échéance : départ du ferry de 17 h. L'interpellation à l'étranger exige un mandat d'arrêt européen, donc un portrait-robot de Darrigade d'au moins quatre traits justes.",
       "indices_nouveaux": [
         {
-          "id": "CLU7_VOITURE_HENDAYE",
+          "id": "CLU_C7_VOITURE_HENDAYE",
           "source": "lecture automatisée des plaques",
           "fait": "La voiture de Darrigade est garée au parking de la gare d'Hendaye depuis 6 h 10."
         },
         {
-          "id": "CLU7_PEAGE_ESPAGNE",
+          "id": "CLU_C7_PEAGE_ESPAGNE",
           "source": "réquisition au concessionnaire autoroutier espagnol",
           "fait": "Un taxi payé par carte au nom du prête-nom franchit le péage d'Irun vers Bilbao à 6 h 40."
         },
         {
-          "id": "CLU7_RESERVATION_FERRY",
+          "id": "CLU_C7_RESERVATION_FERRY",
           "source": "compagnie maritime",
           "fait": "Réservation au nom du prête-nom sur le ferry Bilbao → Portsmouth de 17 h."
         },
         {
-          "id": "CLU7_BILLETS_INTACTS",
+          "id": "CLU_C7_BILLETS_INTACTS",
           "source": "agence de voyage",
           "fait": "Les billets d'avion de vendredi n'ont été ni modifiés ni utilisés."
         }
@@ -870,8 +870,8 @@
           "trajet_min": 110,
           "mode": "voiture",
           "preuves": [
-            "CLU7_PEAGE_ESPAGNE",
-            "CLU7_RESERVATION_FERRY"
+            "CLU_C7_PEAGE_ESPAGNE",
+            "CLU_C7_RESERVATION_FERRY"
           ],
           "effets": {}
         },
@@ -884,7 +884,7 @@
           "mode": "voiture",
           "leurre": "Les billets d'avion pour vendredi.",
           "refutation": [
-            "CLU7_BILLETS_INTACTS"
+            "CLU_C7_BILLETS_INTACTS"
           ],
           "sur_place_min": 40,
           "retour_min": 100,
@@ -902,7 +902,7 @@
           "mode": "voiture",
           "leurre": "Sa voiture est garée à la gare.",
           "refutation": [
-            "CLU7_PEAGE_ESPAGNE"
+            "CLU_C7_PEAGE_ESPAGNE"
           ],
           "sur_place_min": 45,
           "retour_min": 90,

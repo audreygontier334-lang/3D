@@ -1,0 +1,88 @@
+{
+  "mission": "M02",
+  "zones": [
+    {
+      "id": "Z_FOURCHE",
+      "neighbors": [
+        "Z_PISTE"
+      ]
+    },
+    {
+      "id": "Z_PISTE",
+      "neighbors": [
+        "Z_FOURCHE",
+        "Z_LARTIGAU",
+        "Z_BORDES",
+        "Z_HOUNT_BIELHA"
+      ]
+    },
+    {
+      "id": "Z_LARTIGAU",
+      "neighbors": [
+        "Z_PISTE"
+      ]
+    },
+    {
+      "id": "Z_BORDES",
+      "neighbors": [
+        "Z_PISTE"
+      ]
+    },
+    {
+      "id": "Z_HOUNT_BIELHA",
+      "neighbors": [
+        "Z_PISTE"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_RELAIS_DU_LAC",
+      "name": "Relais du Lac (station-service)",
+      "zone": "Z_FOURCHE",
+      "env": "ENV_RELAIS_DU_LAC"
+    },
+    {
+      "id": "LOC_FOURCHE",
+      "name": "Fourche de l'étang de Sorbe, véhicule de commandement avancé",
+      "zone": "Z_FOURCHE",
+      "env": "ENV_ROUTE_ETANGS"
+    },
+    {
+      "id": "LOC_PISTE_12",
+      "name": "Carrefour de la piste 12",
+      "zone": "Z_PISTE",
+      "env": "ENV_FORET_RIVE_EST"
+    },
+    {
+      "id": "LOC_AIRIAL_LARTIGAU",
+      "name": "Airial de Lartigau (famille à l'année)",
+      "zone": "Z_LARTIGAU",
+      "env": "ENV_FORET_RIVE_EST"
+    },
+    {
+      "id": "LOC_AIRIAL_BORDES",
+      "name": "Airial de Bordes (gîte loué)",
+      "zone": "Z_BORDES",
+      "env": "ENV_FORET_RIVE_EST"
+    },
+    {
+      "id": "LOC_HB_PIECE",
+      "name": "Hount-Bielha : pièce aux fenêtres sur l'étang",
+      "zone": "Z_HOUNT_BIELHA",
+      "env": "ENV_AIRIAL_HOUNT_BIELHA"
+    },
+    {
+      "id": "LOC_HB_PRAIRIE",
+      "name": "Hount-Bielha : prairie et chemin d'accès",
+      "zone": "Z_HOUNT_BIELHA",
+      "env": "ENV_AIRIAL_HOUNT_BIELHA"
+    },
+    {
+      "id": "LOC_HB_GRANGE",
+      "name": "Hount-Bielha : grange",
+      "zone": "Z_HOUNT_BIELHA",
+      "env": "ENV_AIRIAL_HOUNT_BIELHA"
+    }
+  ]
+}

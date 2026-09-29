@@ -1,0 +1,60 @@
+{
+  "mission": "M02",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C2_BON_AIRIAL",
+      "axis": "airial",
+      "any_of": [
+        [
+          "CLU_C2_PIECE_PHOTO"
+        ],
+        [
+          "CLU_C2_TRACES_FOURGON_PISTE",
+          "CLU_C2_LARTIGAU_LUMIERE"
+        ]
+      ],
+      "puzzle": "PZ_C2_01",
+      "text": "Lila a été retenue à Hount-Bielha : la pièce est celle de la photo."
+    },
+    {
+      "id": "DED_C2_DEPART_1830",
+      "axis": "fuite",
+      "any_of": [
+        [
+          "CLU_C2_COUVERTURE",
+          "CLU_C2_BORDES_VOITURE"
+        ],
+        [
+          "CLU_C2_COUVERTURE",
+          "CLU_C2_RELAIS_GERANT"
+        ]
+      ],
+      "text": "Lila a été emmenée vers 18 h 30, bien avant que le convoi quitte Lescoure."
+    },
+    {
+      "id": "DED_C2_FUITE_POSTE",
+      "axis": "fuite",
+      "any_of": [
+        [
+          "DED_C2_DEPART_1830",
+          "CLU_C2_RADIO_CHIFFREE",
+          "CLU_C2_ETANG_AU_POSTE"
+        ]
+      ],
+      "puzzle": "PZ_C2_02",
+      "text": "Ils ont été prévenus par quelqu'un qui était au poste de commandement quand on a parlé de l'étang."
+    },
+    {
+      "id": "DED_C2_QUAI_4",
+      "axis": "piste",
+      "any_of": [
+        [
+          "CLU_C2_DOC_BRULE",
+          "CLU_C2_BADGE_ENTREPOT"
+        ]
+      ],
+      "text": "Le « dernier voyage » de jeudi 6 h part du quai 4 d'une entreprise « DL »."
+    }
+  ]
+}

@@ -103,7 +103,8 @@ class Mission:
         for pz in self.puzzles.values():
             for h in pz.get("hints", []):
                 self.hints[h["id"]] = (pz["id"], h)
-        self.actions = {a["id"]: a for a in self.meta["prologue"]["actions"]}
+        self.prologue = self.meta.get("prologue")
+        self.actions = {a["id"]: a for a in self.prologue["actions"]} if self.prologue else {}
 
     # IDs obtenables (indices + drapeaux) par source
     def flags_defined(self) -> set[str]:
@@ -114,7 +115,10 @@ class Mission:
                     out.add(g)
             if src.get("fail_flag"):
                 out.add(src["fail_flag"])
-        out |= set(self.meta["prologue"].get("player_flags", []))
+        if self.prologue:
+            out |= set(self.prologue.get("player_flags", []))
+        for st in self.meta.get("entry_states", []):
+            out |= {g for g in st.get("grants", []) if g.startswith("FLAG_")}
         return out
 
 
@@ -274,7 +278,7 @@ def check_refs(m: Mission, r: Report) -> None:
         if sc.get("location") and sc["location"] not in m.locations:
             r.err(f"[dialogues] scène {sc['id']} : lieu inconnu « {sc['location']} »")
 
-    pro = m.meta["prologue"]
+    pro = m.prologue or {"dialogues": []}
     need(pro["dialogues"], "prologue", scene_ids)
     for a in m.actions.values():
         need(a["grants"], f"action {a['id']}")
@@ -318,6 +322,10 @@ def clue_sources(m: Mission) -> dict[str, list[str]]:
         for gs in a.get("grants_instead_if_with", {}).values():
             for g in gs:
                 src[g].append(a["id"])
+    for st in m.meta.get("entry_states", []):
+        for g in st.get("grants", []):
+            if g in src:
+                src[g].append(st["id"])
     return src
 
 
@@ -335,6 +343,11 @@ def check_sources(m: Mission, r: Report) -> None:
 # ------------------------------------------------------------- 4-5. atteignabilité
 
 def prologue_scenarios(m: Mission) -> list[tuple[tuple[str, ...], set[str]]]:
+    """Situations de départ à vérifier : combinaisons d'actions du prologue, ou, pour une mission sans prologue,
+    états hérités du chapitre précédent (`entry_states`)."""
+    if not m.prologue:
+        states = m.meta.get("entry_states", [])
+        return [((st["id"],), set(st.get("grants", []))) for st in states] or [((), set())]
     acts = list(m.actions)
     k = m.meta["prologue"]["window_max_actions"]
     out = []
@@ -469,10 +482,13 @@ def check_reachability(m: Mission, r: Report) -> None:
                         r.err(f"[énigmes] {p['id']} obligatoire : {prod} inatteignable dans le scénario {list(combo)} avec échecs")
                         break
     duo = [p for p in m.puzzles.values() if p.get("duo")]
-    if len(m.puzzles) < 8:
-        r.err(f"[énigmes] {len(m.puzzles)} énigmes : il en faut au moins 8")
-    if len(duo) < 2:
-        r.err(f"[énigmes] {len(duo)} énigmes liées à la chienne : il en faut au moins 2")
+    # Mandat initial : 8 énigmes dont 2 avec la chienne pour le premier acte jouable (M01) ;
+    # les chapitres suivants déclarent leur propre minimum dans mission.json (`min_puzzles`, `min_duo_puzzles`).
+    min_p, min_duo = m.meta.get("min_puzzles", 8), m.meta.get("min_duo_puzzles", 2)
+    if len(m.puzzles) < min_p:
+        r.err(f"[énigmes] {len(m.puzzles)} énigmes : il en faut au moins {min_p}")
+    if len(duo) < min_duo:
+        r.err(f"[énigmes] {len(duo)} énigmes liées à la chienne : il en faut au moins {min_duo}")
 
 
 # ------------------------------------------------------------------ 6. le temps
@@ -581,6 +597,7 @@ def check_branches(m: Mission, r: Report) -> None:
     referenced |= {p.get("wrong", {}).get("branch") for p in m.puzzles.values()}
     referenced |= {ch.get("effect") for _, ch in m.choices.values()}
     referenced |= {"BR_APPEL_TARDIF", "BR_RESOLU", "BR_CLOTURE", "BR_PERE_CONFIANCE"}
+    referenced |= {b["id"] for b in m.branches.values() if set(b.get("flags", [])) & {"FLAG_RESOLU", "FLAG_CLOTURE"}}
     for b in m.branches:
         if b not in referenced:
             r.warn(f"[branches] {b} n'est déclenchée par aucune hypothèse, énigme ou choix")
@@ -650,6 +667,8 @@ def check_content(m: Mission, r: Report) -> None:
 
 def check_window_exclusive(m: Mission, r: Report) -> None:
     """Une action « remplacée » (ex. photo en course) ne doit jamais donner aussi son résultat normal."""
+    if not m.prologue:
+        return
     for combo, grants in prologue_scenarios(m):
         for a in combo:
             act = m.actions[a]
@@ -663,7 +682,9 @@ def check_window_exclusive(m: Mission, r: Report) -> None:
                     if leaked:
                         r.err(f"[fenêtre] {'+'.join(combo)} : {', '.join(sorted(leaked))} obtenu(s) alors que "
                               f"{a} avec {other} doit le(s) remplacer")
-    pro = m.meta["prologue"]
+    pro = m.prologue
+    if not pro:
+        return
     acc = pro.get("window_accessibility")
     if not acc or not acc.get("max_actions_unchanged"):
         r.err("[fenêtre] option d'accessibilité absente ou modifiant le nombre d'actions")
@@ -672,7 +693,7 @@ def check_window_exclusive(m: Mission, r: Report) -> None:
 def check_states(m: Mission, r: Report) -> None:
     """DED_ = déduction établie dans le carnet ; H_ = hypothèse présentée sur le tableau. Ne pas les confondre."""
     res = m.meta["resolution"]
-    for st in res["chapter2_states"]:
+    for st in res.get("chapter2_states") or res.get("next_states", []):
         for x in st["condition"].get("requires", []):
             if x.startswith("DED_"):
                 r.err(f"[états] {st['id']} dépend de {x} : un état de fin dépend du tableau présenté, utiliser l'hypothèse H_ correspondante")
@@ -776,7 +797,9 @@ def check_departure_rule(m: Mission, r: Report) -> None:
     Après l'alerte, le départ est retenu tant que la joueuse n'est pas à l'entrée de la ruelle (hold_max_s au plus) ;
     au-delà, un plan court non interactif montre le départ. Le fourgon doit être hors de vue avant le chapitre 1.
     """
-    pro = m.meta["prologue"]
+    pro = m.prologue
+    if not pro:
+        return
     rule = pro.get("departure_rule")
     if not rule:
         r.err("[prologue] departure_rule manquante : rien ne garantit que la joueuse voie le départ du fourgon")

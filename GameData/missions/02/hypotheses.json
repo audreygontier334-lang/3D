@@ -1,0 +1,113 @@
+{
+  "mission": "M02",
+  "_doc": "Tableau du chapitre 2. La destination suivante se choisit ensuite sur la carte (GameData/campaign/itineraire.json, ETP_2).",
+  "axes": [
+    {
+      "id": "airial",
+      "label": "UI_C2_AXE_AIRIAL",
+      "required_for_resolution": true
+    },
+    {
+      "id": "fuite",
+      "label": "UI_C2_AXE_FUITE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "piste",
+      "label": "UI_C2_AXE_PISTE",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C2_HOUNT_BIELHA",
+      "axis": "airial",
+      "correct": true,
+      "label": "UI_H_C2_HOUNT_BIELHA",
+      "requires_any_of": [
+        [
+          "DED_C2_BON_AIRIAL"
+        ]
+      ]
+    },
+    {
+      "id": "H_C2_LARTIGAU",
+      "axis": "airial",
+      "correct": false,
+      "label": "UI_H_C2_LARTIGAU",
+      "unlocked_by": [
+        "CLU_C2_CARTE_AIRIAUX"
+      ],
+      "contradicted_by": [
+        "CLU_C2_LARTIGAU_LUMIERE",
+        "CLU_C2_PIECE_PHOTO"
+      ],
+      "wrong_branch": "BR_C2_ERR_LARTIGAU"
+    },
+    {
+      "id": "H_C2_BORDES",
+      "axis": "airial",
+      "correct": false,
+      "label": "UI_H_C2_BORDES",
+      "unlocked_by": [
+        "CLU_C2_CARTE_AIRIAUX"
+      ],
+      "contradicted_by": [
+        "CLU_C2_BORDES_VOITURE",
+        "CLU_C2_PIECE_PHOTO"
+      ],
+      "wrong_branch": "BR_C2_ERR_BORDES"
+    },
+    {
+      "id": "H_C2_FUITE_POSTE",
+      "axis": "fuite",
+      "correct": true,
+      "label": "UI_H_C2_FUITE_POSTE",
+      "requires_any_of": [
+        [
+          "DED_C2_FUITE_POSTE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C2_FUITE_RADIO",
+      "axis": "fuite",
+      "correct": false,
+      "label": "UI_H_C2_FUITE_RADIO",
+      "unlocked_by": [
+        "CLU_C2_LOUBERE_SILENCE"
+      ],
+      "contradicted_by": [
+        "CLU_C2_RADIO_CHIFFREE"
+      ],
+      "wrong_branch": "BR_C2_ERR_RADIO"
+    },
+    {
+      "id": "H_C2_FUITE_CONVOI_VU",
+      "axis": "fuite",
+      "correct": false,
+      "label": "UI_H_C2_FUITE_CONVOI_VU",
+      "unlocked_by": [
+        "CLU_C2_COUVERTURE"
+      ],
+      "contradicted_by": [
+        "CLU_C2_BORDES_VOITURE",
+        "CLU_C2_RELAIS_GERANT"
+      ],
+      "wrong_branch": "BR_C2_ERR_CONVOI"
+    },
+    {
+      "id": "H_C2_QUAI_4",
+      "axis": "piste",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C2_QUAI_4",
+      "requires_any_of": [
+        [
+          "DED_C2_QUAI_4"
+        ]
+      ],
+      "bonus": "BONUS_QUAI_4"
+    }
+  ]
+}

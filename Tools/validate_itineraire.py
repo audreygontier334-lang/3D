@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT = ROOT / "GameData" / "campaign" / "itineraire.json"
-MISSION_CLUES = ROOT / "GameData" / "missions" / "01" / "clues.json"
+MISSIONS = ROOT / "GameData" / "missions"
 JOURS = ["mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche", "lundi"]
 VITESSE_MAX = {"à pied": 6, "voiture": 100, "train": 200, "avion": 800, "avion + train": 800, "avion + voiture": 800}
 
@@ -117,7 +117,8 @@ def validate(doc: dict, mission_clues: set[str]) -> tuple[list[str], list[str]]:
 def main(argv: list[str]) -> int:
     path = Path(argv[1]) if len(argv) > 1 else DEFAULT
     doc = json.loads(path.read_text(encoding="utf-8"))
-    clues = {c["id"] for c in json.loads(MISSION_CLUES.read_text(encoding="utf-8"))["clues"]}
+    clues = {c["id"] for f in sorted(MISSIONS.glob("*/clues.json"))
+             for c in json.loads(f.read_text(encoding="utf-8"))["clues"]}
     errs, info = validate(doc, clues)
     for i in info:
         print(f"  · {i}")

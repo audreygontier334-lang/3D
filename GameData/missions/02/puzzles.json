@@ -1,0 +1,199 @@
+{
+  "mission": "M02",
+  "puzzles": [
+    {
+      "id": "PZ_C2_01",
+      "title": "Le carrefour de la piste 12",
+      "axis": "airial",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C2_TRACES_PISTE",
+      "inputs": [
+        "CLU_C2_CARTE_AIRIAUX"
+      ],
+      "produces": [
+        "CLU_C2_TRACES_FOURGON_PISTE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "LOC_AIRIAL_HOUNT_BIELHA",
+        "options": [
+          "LOC_AIRIAL_LARTIGAU",
+          "LOC_AIRIAL_BORDES",
+          "LOC_AIRIAL_HOUNT_BIELHA"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC2_01_1",
+          "text": "Trois branches, trois séries de traces. Laquelle ressemble à l'empreinte relevée dans la ruelle ?"
+        },
+        {
+          "id": "UI_HINT_PZC2_01_2",
+          "text": "Une sculpture de pneu usée, un fourgon lourd : les traces sont plus profondes."
+        },
+        {
+          "id": "UI_HINT_PZC2_01_3",
+          "text": "Les traces profondes et usées prennent la branche qui mène à l'airial officiellement inoccupé."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C2_TRACES_BOUCLE_NORD"
+      ],
+      "wrong": {
+        "branch": "BR_C2_PISTE_MAUVAISE",
+        "time_cost": 20
+      },
+      "recovery": [
+        "INT_C2_PIECE",
+        "EVT_C2_MENDIONDO_PIECE"
+      ]
+    },
+    {
+      "id": "PZ_C2_02",
+      "title": "Qui les a prévenus ?",
+      "axis": "fuite",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C2_CHRONO",
+      "inputs": [
+        "CLU_C2_COUVERTURE",
+        "CLU_C2_BORDES_VOITURE",
+        "CLU_C2_RELAIS_GERANT",
+        "CLU_C2_RADIO_CHIFFREE",
+        "CLU_C2_ETANG_AU_POSTE"
+      ],
+      "produces": [
+        "DED_C2_FUITE_POSTE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "poste_de_commandement",
+        "options": [
+          "radio_ecoutee",
+          "convoi_apercu",
+          "poste_de_commandement"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC2_02_1",
+          "text": "À quelle heure Lila a-t-elle quitté l'airial ? À quelle heure le convoi est-il parti ?"
+        },
+        {
+          "id": "UI_HINT_PZC2_02_2",
+          "text": "Qui pouvait savoir, avant 18 h 30, que les recherches allaient vers l'étang ?"
+        },
+        {
+          "id": "UI_HINT_PZC2_02_3",
+          "text": "La radio est chiffrée ; le convoi n'était pas encore parti. Il ne reste qu'un endroit où l'on a parlé de l'étang."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C2_LOUBERE_SILENCE"
+      ],
+      "wrong": {
+        "branch": "BR_C2_ERR_CONVOI",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C2_BORDES",
+        "INT_C2_RELAIS",
+        "EVT_C2_RANDONNEURS_APPELLENT"
+      ]
+    },
+    {
+      "id": "PZ_C2_03",
+      "title": "L'odeur de Lila",
+      "axis": "piste",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C2_ARIANE_PISTE",
+      "inputs": [
+        "CLU_C2_COUVERTURE",
+        "CLU_C2_COUSSIN"
+      ],
+      "produces": [
+        "CLU_C2_TRACES_VOITURE_SUD",
+        "CLU_C2_BADGE_ENTREPOT"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "CLU_C2_COUSSIN",
+        "options": [
+          "CLU_C2_COUVERTURE",
+          "CLU_C2_COUSSIN",
+          "CLU_C2_TICKET_MARINA"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC2_03_1",
+          "text": "Ariane a besoin d'un objet qui ne porte que l'odeur de Lila."
+        },
+        {
+          "id": "UI_HINT_PZC2_03_2",
+          "text": "Qui a plié la couverture ? Qui a rempli le verre ?"
+        },
+        {
+          "id": "UI_HINT_PZC2_03_3",
+          "text": "Seule une enfant s'est assise en boule sur la chaise près de la fenêtre."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C2_COUVERTURE"
+      ],
+      "wrong": {
+        "branch": "BR_C2_ARIANE_MAUVAIS_OBJET",
+        "time_cost": 10
+      },
+      "recovery": [
+        "EVT_C2_EQUIPE_CYNO"
+      ]
+    },
+    {
+      "id": "PZ_C2_04",
+      "title": "Le tableau de la nuit",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C2_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_C2_HOUNT_BIELHA",
+          "H_C2_FUITE_POSTE"
+        ],
+        "optional": [
+          "H_C2_QUAI_4"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC2_04_1",
+          "text": "Deux questions ce soir : où était Lila, et comment ils ont su qu'il fallait partir."
+        },
+        {
+          "id": "UI_HINT_PZC2_04_2",
+          "text": "Pour la fuite, compare les heures : départ de Lila, départ du convoi."
+        },
+        {
+          "id": "UI_HINT_PZC2_04_3",
+          "text": "Relis ce que Mendiondo a dit de la radio et de l'endroit où l'on a parlé de l'étang."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C2_ERR_RADIO",
+        "time_cost": 10
+      },
+      "recovery": [
+        "EVT_C2_CLOTURE"
+      ]
+    }
+  ]
+}
