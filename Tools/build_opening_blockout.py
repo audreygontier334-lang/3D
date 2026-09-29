@@ -137,9 +137,9 @@ def camera_rotation(eye, target):
 
 cameras = []
 for name, eye, target, fov in [
-    ("CAM_SHOULDER", [8.4, 2.15, -21], [13, 1.15, -8], 72),
-    ("CAM_WIDE", [6, 4.7, -27], [14, 1.1, -8], 65),
-    ("CAM_FIRST", [8, 1.61, -19], [12.5, 1.1, -8], 80),
+    ("CAM_SHOULDER", [8.4, 2.15, -21], [13.5, 1.1, -8.5], 58),
+    ("CAM_WIDE", [6, 4.7, -27], [14, 1.1, -7.5], 65),
+    ("CAM_FIRST", [8, 1.61, -19], [12.5, 1.1, -9], 67),
 ]:
     cameras.append({"name": name, "type": "perspective", "perspective": {"yfov": math.radians(fov), "znear": .1, "zfar": 200}})
     nodes.append({"name": name, "camera": len(cameras) - 1, "translation": eye, "rotation": camera_rotation(eye, target),
