@@ -3,6 +3,8 @@ setlocal EnableExtensions
 chcp 65001 >nul
 title Faux-semblants - mise a jour et lancement
 
+set "REPO=C:\Dev\3D"
+if exist "%REPO%\.git" goto repo_ok
 set "REPO=%USERPROFILE%\Documents\GitHub\3D"
 if exist "%REPO%\.git" goto repo_ok
 
@@ -34,6 +36,8 @@ where git >nul 2>nul
 if not errorlevel 1 goto git_ok
 
 set "GIT="
+if exist "C:\Dev\outils\MinGit\cmd\git.exe" set "GIT=C:\Dev\outils\MinGit\cmd\git.exe"
+if defined GIT goto git_ok
 if exist "%ProgramFiles%\Git\cmd\git.exe" set "GIT=%ProgramFiles%\Git\cmd\git.exe"
 if defined GIT goto git_ok
 
