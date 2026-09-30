@@ -12,7 +12,7 @@
 
 ## Partage du travail
 
-- **Claude** (branche `claude/prologue-lisible`) : écran titre, carton d'ouverture, objectif affiché, sous-titres des dialogues, carnet d'indices, écran de fin du prologue. Tout est dessiné par un `AHUD` C++ (`AFSHUD`), sans asset. **Ne duplique pas ces éléments.** Tu pourras plus tard les habiller (police, cadres, sons d'interface) sans changer leur logique.
+- **Claude** (branches `claude/prologue-lisible` → `claude/confort-jeu` → `claude/menu-inventaire` → `claude/ariane-vivante`, chacune construite sur la précédente) : écran titre, menu principal (commandes modifiables, son, options, aide, sauvegardes), objectif, sous-titres, carnet, inventaire, téléphone, ordres et comportements d'Ariane. Tout est dessiné par un `AHUD` C++ (`AFSHUD`), sans asset. **Ne duplique pas ces éléments.** Tu pourras plus tard les habiller (police, cadres, sons d'interface) sans changer leur logique.
 - **Codex** (toi, branche `codex/...`) : tout ce qui se voit et s'entend dans le monde 3D, ainsi que son intégration dans le niveau.
 - Les textes (répliques, indices, objectifs) viennent de `GameData/` : ne les recopie pas à la main.
 
@@ -42,9 +42,16 @@ Liste pour Audrey tous les visuels déjà produits : images de concept (rue arca
 
 - Héroïne (décision n° 5), Ariane (décision n° 6), Lila (V4 A), la femme au badge (K2), Dufau sur le banc, les enfants à la sortie, et le fourgon (V2 A : blanc usé, ombre de lettrage, feu arrière droit fendu, plaque lisible, portière latérale côté trottoir).
 - Animations minimales : marche, course et repos pour l'héroïne ; marche libre, trot, flair et alerte pour Ariane ; marche pour Lila et K2 ; roulage et portière pour le fourgon. Les déplacements sont pilotés par `AFSPrologueDirector` : remplace les volumes sans casser les tags.
+- **Ariane** a une personnalité décrite par Audrey (01/10), déjà codée par Claude dans `AFSDogCharacter` (branche `claude/ariane-vivante`, humeur lue par `GetMood()` et `IsSitting()`). Il faut les animations et les sons correspondants :
+  - oreilles : au repos, une droite et l'autre tombante ; à l'affût, les deux dressées ; triste ou grondée, couchées en arrière ;
+  - queue : haute à l'affût, basse quand elle est triste, qui remue quand elle est contente ;
+  - sautille de joie, s'assoit face à l'héroïne pour « parler » (aboie, grommelle, couine, frétille), montre un endroit ;
+  - course « en flèche » truffe au sol, grognement, s'interpose pour protéger, saut de plus de 2 m, reptation, ouverture de porte.
 - **Montre chaque personnage à Audrey (face, profil, dos, en mouvement) avant de le considérer comme validé.**
 
 ### 3. Son
+
+Les catégories de volume existent déjà : classes `/Game/Audio/SC_Musique`, `SC_Effets`, `SC_Voix`, `SC_Ambiance`, `SC_Interface` (menu Son de Claude). Range chaque son dans la bonne classe. Tu peux remplacer les sons d'interface provisoires (`SFX_UI_*`, `SFX_Notification`, `SFX_Photo`) en gardant leurs noms.
 
 Ambiance de la place (enfants, oiseaux, vent dans les pins, circulation locale), sonnerie de l'école à 16 h 26, pot d'échappement qui cogne, portière et démarrage du fourgon, respiration, pas et aboiements d'Ariane. Les sons doivent être spatialisés et déclenchés par les événements du directeur (voir `docs/DIRECTION_VISUELLE.md`, section « Son et vidéo »).
 
