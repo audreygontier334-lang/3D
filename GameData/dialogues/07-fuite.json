@@ -1,7 +1,7 @@
 {
   "mission": "M07",
-  "status": "proposition",
-  "_doc": "Répliques de la variante « La fuite » (fin B, proposition de Claude). Darrigade reste toujours rattrapable ; Nadia apprend sa fuite avant la vérité (Q1).",
+  "status": "validé par Audrey (30/09)",
+  "_doc": "Répliques de la variante « La fuite » (fin B, écrites par Claude, validées par Audrey le 30/09). Darrigade reste toujours rattrapable ; Nadia apprend sa fuite avant la vérité (Q1).",
   "speakers": {
     "HEROINE": "{HEROINE}",
     "CHIENNE": "Ariane (sons et comportement, jamais de parole)",

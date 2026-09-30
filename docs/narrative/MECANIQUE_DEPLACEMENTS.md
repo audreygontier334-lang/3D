@@ -41,7 +41,7 @@
 
 Missions jouables : `ETP_1` → M01, `ETP_2` → M02, `ETP_3` → M03 et M04, `ETP_4` et `ETP_5` → M05 (Anvers), `ETP_6` → M06 (fin A), `ETP_7` → M07 « La fuite » (fin B), dans `GameData/missions/`.
 
-**Deux fins** ✅ (principe) / 🟡 (contenu) : **fin A**, Darrigade interpellé dans les Landes ; **fin B**, après sa fuite, arrêté en Espagne grâce au mandat d'arrêt européen fondé sur le portrait de la joueuse. Il reste toujours rattrapable : seule la fin change.
+**Deux fins** ✅ (principe) / ✅ (contenu validé le 30/09) : **fin A**, Darrigade interpellé dans les Landes ; **fin B**, après sa fuite, arrêté en Espagne grâce au mandat d'arrêt européen fondé sur le portrait de la joueuse. Il reste toujours rattrapable : seule la fin change.
 
 L'étape 1 existe déjà dans la mission 01 (tableau d'hypothèses, branches `BR_ERR_*`) ; proposition : chaque mauvaise destination y devient un vrai court trajet avec les gendarmes et une scène sur place. L'escale `ETP_5` (Luxembourg) donne à l'acte II une vraie poursuite à travers l'Europe (✅ gardée par Audrey).
 

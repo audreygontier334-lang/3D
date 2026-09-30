@@ -804,6 +804,19 @@ class TestActeII(unittest.TestCase):
                 with self.subTest(enigme=pz, trait=champ):
                     self.assertEqual(darrigade[champ], valeur)
 
+    def test_valide_par_audrey(self):
+        doc = json.loads((ROOT / "GameData/scenes/decoupage.json").read_text(encoding="utf-8"))
+        for ch in doc["chapitres"]:
+            if ch["id"] not in ("C5", "C6", "C6B"):
+                continue
+            for s in ch["scenes"]:
+                elems = [s["lieu"], s["moment"], s["raccord_suivant"]] + s["personnages"] + s["action"] + s["indices"] + s["visuels"]
+                with self.subTest(s["id"]):
+                    self.assertEqual({e["statut"] for e in elems}, {"audrey"})
+        for num in self.ETAPES:
+            with self.subTest(num):
+                self.assertTrue(vm.Mission(ROOT / "GameData" / "missions" / num).meta["status"].startswith("validé par Audrey"))
+
     def test_casteran_de_bonne_foi_et_nadia_ignorante(self):
         m6 = vm.Mission(ROOT / "GameData" / "missions" / "06")
         self.assertFalse(m6.hypotheses["H_C6_CASTERAN"]["correct"])

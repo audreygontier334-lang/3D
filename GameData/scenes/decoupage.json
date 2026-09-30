@@ -3769,7 +3769,7 @@
               "ENV_ANVERS_HANGAR"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "lundi",
@@ -3777,7 +3777,7 @@
             "fin": "≈ 12:00",
             "lumiere": "lumière du Nord, grise et plate ; grues orange contre le ciel",
             "meteo": "vent froid, bruine par moments",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -3793,33 +3793,33 @@
             {
               "id": "VERMEULEN",
               "role": "inspectrice de la police fédérale belge",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "DOUANIER",
               "role": "douanier du hangar d'inspection",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "action": [
             {
               "texte": "Briefing : trois conteneurs du quai 4 de Bayonne, déchargement jusqu'à 18 h.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Comparer les scellés au relevé de Bayonne ; lire le pont-bascule ; Ariane, avec le gant du complice envoyé par Arbelot, marque un conteneur.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Faire ouvrir un conteneur au hangar : un mauvais choix coûte du temps et alerte le réseau.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C5_02",
             "texte": "Vermeulen emmène l'héroïne perquisitionner le bureau de Nordhaven.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -3833,7 +3833,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C5_PESEE",
@@ -3846,7 +3846,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": true,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C5_ARIANE_481207",
@@ -3859,7 +3859,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -3879,13 +3879,13 @@
               "id": "ENV_ANVERS_QUAI",
               "type": "lieu",
               "description": "Quai à conteneurs, grues portiques, navire caboteur à quai.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "ENV_ANVERS_HANGAR",
               "type": "lieu",
               "description": "Hangar d'inspection des douanes, scanner à conteneurs.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [],
@@ -3898,7 +3898,8 @@
             "EVT_C5_SCANNER"
           ],
           "decisions_audrey": [
-            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic."
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         },
         {
@@ -3910,7 +3911,7 @@
               "ENV_ANVERS_BUREAU"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "lundi",
@@ -3918,7 +3919,7 @@
             "fin": "≈ 16:00",
             "lumiere": "néons, fenêtres sur les grues",
             "meteo": "bruine",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -3934,37 +3935,37 @@
             {
               "id": "VERMEULEN",
               "role": "inspectrice de la police fédérale belge",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "EMPLOYEE",
               "role": "employée de la réception",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "action": [
             {
               "texte": "Perquisition : relevé d'un virement genevois annulé, papier à en-tête d'Amsterdam, courrier réglé depuis Luxembourg.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Rapprocher la signature de l'administrateur de la holding de celle des SCI landaises.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Ariane s'arrête net devant le portemanteau et recule : une écharpe grise porte l'odeur de Darrigade.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Tableau : le conteneur et le vrai propriétaire ; la douane ouvre 481207 (médicaments falsifiés). Départ pour Luxembourg (ETP_5).",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C6_01",
             "texte": "Luxembourg, puis vol retour vers Biarritz le mardi.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -3978,7 +3979,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": true,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C5_ECHARPE_DARRIGADE",
@@ -3991,7 +3992,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -4011,7 +4012,7 @@
               "id": "ENV_ANVERS_BUREAU",
               "type": "lieu",
               "description": "Petit bureau de transitaire, classeurs, portemanteau, vue sur les docks.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [],
@@ -4023,7 +4024,8 @@
             "INT_C5_PRESENTER_TABLEAU"
           ],
           "decisions_audrey": [
-            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic."
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         }
       ]
@@ -4042,7 +4044,7 @@
               "ENV_ETUDE_CASTERAN"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "mardi",
@@ -4050,7 +4052,7 @@
             "fin": "≈ 23:00",
             "lumiere": "nuit, lampes de bureau",
             "meteo": "temps sec",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -4066,7 +4068,7 @@
             {
               "id": "CHAR_ARBELOT",
               "role": "capitaine",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CHAR_CASTERAN",
@@ -4076,32 +4078,32 @@
             {
               "id": "CHAR_JULIEN",
               "role": "père de Lila, sous contrôle judiciaire",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "action": [
             {
               "texte": "Briefing : les relevés de Luxembourg montrent que Darrigade Logistique paie le prête-nom.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Casteran, de bonne foi, ouvre ses archives : Darrigade a apporté et payé les dossiers des sociétés écrans.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Julien : chauffeur sous pression, jamais un chef.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Fiche de signalement de Darrigade, composée par la joueuse (au moins trois traits prouvés).",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C6_02",
             "texte": "Mercredi matin, Nadia vient signer sa déposition.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -4115,7 +4117,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C6_CASTERAN_TEMOIGNE",
@@ -4128,7 +4130,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": true,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -4148,7 +4150,7 @@
               "id": "ENV_ETUDE_CASTERAN",
               "type": "lieu",
               "description": "Étude notariale ancienne, rayonnages d'archives, lampe verte.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [],
@@ -4161,7 +4163,8 @@
             "INT_C6_PORTRAIT"
           ],
           "decisions_audrey": [
-            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         },
         {
@@ -4173,7 +4176,7 @@
               "ENV_BRIGADE"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "mercredi",
@@ -4181,7 +4184,7 @@
             "fin": "≈ 10:30",
             "lumiere": "matin clair",
             "meteo": "beau temps",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -4207,28 +4210,28 @@
             {
               "id": "JUGE",
               "role": "juge d'instruction",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "action": [
             {
               "texte": "Nadia signe sa déposition et dit, sans le voir, que Darrigade savait tout du trajet de Lila et de l'opération.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Darrigade attend au café ; Ariane s'assied devant le coffre de sa voiture, comme devant la porte de Hourcade.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Démonstration devant le juge : qui dirige, et comment il savait.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C6_03",
             "texte": "Le juge signe : perquisition immédiate.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -4242,7 +4245,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": true,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C6_ARIANE_VOITURE",
@@ -4255,7 +4258,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -4274,7 +4277,7 @@
               "id": "ENV_BRIGADE",
               "type": "lieu",
               "description": "Brigade de gendarmerie de bourg, parking, café en face.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [],
@@ -4286,7 +4289,8 @@
           ],
           "decisions_audrey": [
             "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
-            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         },
         {
@@ -4299,7 +4303,7 @@
               "ENV_ECOLE"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "mercredi, puis quelques jours plus tard",
@@ -4307,7 +4311,7 @@
             "fin": "≈ 16:30",
             "lumiere": "fin d'après-midi dorée à l'école, comme l'ouverture",
             "meteo": "beau temps",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -4323,7 +4327,7 @@
             {
               "id": "CHAR_ARBELOT",
               "role": "capitaine",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CHAR_DARRIGADE",
@@ -4344,22 +4348,22 @@
           "action": [
             {
               "texte": "Perquisition : Ariane s'assied devant un placard ; une veste de pluie porte encore la boue de Lande-Haute.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Darrigade, affable jusqu'au bout, est interpellé (fin A).",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Épilogue : Nadia apprend la vérité ; Lila court vers Ariane à la sortie de l'école.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "FIN",
             "texte": "Générique.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -4373,7 +4377,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -4392,7 +4396,7 @@
               "id": "ENV_MAISON_NADIA",
               "type": "lieu",
               "description": "Maison soignée de lotissement, entrée, placard.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [
@@ -4407,7 +4411,8 @@
             "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
             "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.",
             "Q3 : Lila est retrouvée au chapitre 4, sans violence subie.",
-            "Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite."
+            "Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         }
       ]
@@ -4427,7 +4432,7 @@
               "ENV_TERMINAL_BILBAO"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "mercredi",
@@ -4435,7 +4440,7 @@
             "fin": "≈ 16:00",
             "lumiere": "matin clair, puis lumière de fin d'après-midi sur le port",
             "meteo": "beau temps",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -4451,17 +4456,17 @@
             {
               "id": "CHAR_ARBELOT",
               "role": "capitaine",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "TAXI",
               "role": "chauffeur de taxi d'Hendaye",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "POLICIA",
               "role": "agente de la police portuaire de Bilbao",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CHAR_DARRIGADE",
@@ -4472,22 +4477,22 @@
           "action": [
             {
               "texte": "Seulement si le réseau est alerté (jauge à 3) ou après 5 fausses routes : Darrigade a fui avant l'aube.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Péage d'Irun, chauffeur de taxi, réservation du ferry ; fiche de signalement à quatre traits pour le mandat d'arrêt européen.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Au terminal : deux hommes de son âge ; Ariane recule devant l'homme à la casquette. Interpellation dans la file 3 (fin B).",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C7_02",
             "texte": "Quelques jours plus tard, à Lescoure.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [
             {
@@ -4501,7 +4506,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": true,
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "CLU_C7_ARIANE_TERMINAL",
@@ -4514,7 +4519,7 @@
                 "CAM_FIRST"
               ],
               "indispensable": false,
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "cameras": {
@@ -4533,13 +4538,13 @@
               "id": "ENV_TERMINAL_BILBAO",
               "type": "lieu",
               "description": "Terminal de ferry moderne, files d'embarquement, passerelle.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "id": "ENV_GARE_HENDAYE",
               "type": "lieu",
               "description": "Parking de gare frontalière, station de taxis.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [],
@@ -4554,7 +4559,8 @@
           ],
           "decisions_audrey": [
             "Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite.",
-            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         },
         {
@@ -4566,7 +4572,7 @@
               "ENV_ECOLE"
             ],
             "zones": [],
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "moment": {
             "jour": "quelques jours plus tard",
@@ -4574,7 +4580,7 @@
             "fin": "≈ 16:40",
             "lumiere": "fin d'après-midi dorée, comme l'ouverture",
             "meteo": "beau temps",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "personnages": [
             {
@@ -4601,18 +4607,18 @@
           "action": [
             {
               "texte": "Nadia a appris la fuite avant la vérité ; l'héroïne la rassure.",
-              "statut": "proposition"
+              "statut": "audrey"
             },
             {
               "texte": "Lila court vers Ariane.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "FIN",
             "texte": "Générique.",
-            "statut": "proposition"
+            "statut": "audrey"
           },
           "indices": [],
           "cameras": {
@@ -4631,7 +4637,7 @@
               "id": "ENV_ECOLE",
               "type": "lieu",
               "description": "Même parvis qu'à l'ouverture.",
-              "statut": "proposition"
+              "statut": "audrey"
             }
           ],
           "continuite": [
@@ -4641,7 +4647,8 @@
           "refs": [],
           "decisions_audrey": [
             "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
-            "Q3 : Lila est retrouvée au chapitre 4, sans violence subie."
+            "Q3 : Lila est retrouvée au chapitre 4, sans violence subie.",
+            "Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia."
           ]
         }
       ]

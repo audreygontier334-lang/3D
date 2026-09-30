@@ -1298,24 +1298,25 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 **Décisions d'Audrey qui s'appliquent** ✅
 
 - ✅ Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Port d'Anvers, rive gauche : poste de la police fédérale, quai du Maren Sofie, pont-bascule, hangar d'inspection des douanes. — décors `ENV_ANVERS_POLICE`, `ENV_ANVERS_QUAI`, `ENV_ANVERS_HANGAR`
-- **Moment et lumière** 🟡 : lundi, 07:00 → ≈ 12:00 ; lumière du Nord, grise et plate ; grues orange contre le ciel ; météo : vent froid, bruine par moments
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `VERMEULEN` inspectrice de la police fédérale belge · 🟡 `DOUANIER` douanier du hangar d'inspection
+- **Lieu** ✅ : Port d'Anvers, rive gauche : poste de la police fédérale, quai du Maren Sofie, pont-bascule, hangar d'inspection des douanes. — décors `ENV_ANVERS_POLICE`, `ENV_ANVERS_QUAI`, `ENV_ANVERS_HANGAR`
+- **Moment et lumière** ✅ : lundi, 07:00 → ≈ 12:00 ; lumière du Nord, grise et plate ; grues orange contre le ciel ; météo : vent froid, bruine par moments
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `VERMEULEN` inspectrice de la police fédérale belge · ✅ `DOUANIER` douanier du hangar d'inspection
 
 **Action**
 
-1. 🟡 Briefing : trois conteneurs du quai 4 de Bayonne, déchargement jusqu'à 18 h.
-2. 🟡 Comparer les scellés au relevé de Bayonne ; lire le pont-bascule ; Ariane, avec le gant du complice envoyé par Arbelot, marque un conteneur.
-3. 🟡 Faire ouvrir un conteneur au hangar : un mauvais choix coûte du temps et alerte le réseau.
+1. ✅ Briefing : trois conteneurs du quai 4 de Bayonne, déchargement jusqu'à 18 h.
+2. ✅ Comparer les scellés au relevé de Bayonne ; lire le pont-bascule ; Ariane, avec le gant du complice envoyé par Arbelot, marque un conteneur.
+3. ✅ Faire ouvrir un conteneur au hangar : un mauvais choix coûte du temps et alerte le réseau.
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `CLU_C5_SCELLE_CHANGE` | Scellé de série Nordhaven sur 481207 ; scellés de Bayonne sur les deux autres. | portes des conteneurs | ≤ 1 m | SHOULDER, WIDE, FIRST | non |
-| 🟡 | `CLU_C5_PESEE` | Écran du pont-bascule : 13,8 t pour 9,2 t déclarées. | cabine de pesée | plein écran | SHOULDER, WIDE, FIRST | **oui** |
-| 🟡 | `CLU_C5_ARIANE_481207` | Ariane assise devant les portes de 481207. | quai | ≤ 5 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C5_SCELLE_CHANGE` | Scellé de série Nordhaven sur 481207 ; scellés de Bayonne sur les deux autres. | portes des conteneurs | ≤ 1 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C5_PESEE` | Écran du pont-bascule : 13,8 t pour 9,2 t déclarées. | cabine de pesée | plein écran | SHOULDER, WIDE, FIRST | **oui** |
+| ✅ | `CLU_C5_ARIANE_481207` | Ariane assise devant les portes de 481207. | quai | ≤ 5 m | SHOULDER, WIDE, FIRST | non |
 
 **Caméras**
 
@@ -1330,10 +1331,10 @@ Références données : `INT_PRESENTER_TABLEAU`, `PZ_10`, `BR_RESOLU`, `BR_CLOTU
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_ANVERS_QUAI` (lieu) : Quai à conteneurs, grues portiques, navire caboteur à quai.
-- 🟡 `ENV_ANVERS_HANGAR` (lieu) : Hangar d'inspection des douanes, scanner à conteneurs.
+- ✅ `ENV_ANVERS_QUAI` (lieu) : Quai à conteneurs, grues portiques, navire caboteur à quai.
+- ✅ `ENV_ANVERS_HANGAR` (lieu) : Hangar d'inspection des douanes, scanner à conteneurs.
 
-**Raccord** 🟡 → `SC_C5_02` : Vermeulen emmène l'héroïne perquisitionner le bureau de Nordhaven.
+**Raccord** ✅ → `SC_C5_02` : Vermeulen emmène l'héroïne perquisitionner le bureau de Nordhaven.
 
 Références données : `INT_C5_BRIEFING`, `INT_C5_SCELLES_QUAI`, `INT_C5_PESEE`, `INT_C5_ARIANE_QUAI`, `EVT_C5_SCANNER`
 
@@ -1342,24 +1343,25 @@ Références données : `INT_C5_BRIEFING`, `INT_C5_SCELLES_QUAI`, `INT_C5_PESEE`
 **Décisions d'Audrey qui s'appliquent** ✅
 
 - ✅ Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Bureau de Nordhaven Shipping BV : deux pièces au-dessus d'un entrepôt, près des docks. — décors `ENV_ANVERS_BUREAU`
-- **Moment et lumière** 🟡 : lundi, ≈ 12:00 → ≈ 16:00 ; néons, fenêtres sur les grues ; météo : bruine
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `VERMEULEN` inspectrice de la police fédérale belge · 🟡 `EMPLOYEE` employée de la réception
+- **Lieu** ✅ : Bureau de Nordhaven Shipping BV : deux pièces au-dessus d'un entrepôt, près des docks. — décors `ENV_ANVERS_BUREAU`
+- **Moment et lumière** ✅ : lundi, ≈ 12:00 → ≈ 16:00 ; néons, fenêtres sur les grues ; météo : bruine
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `VERMEULEN` inspectrice de la police fédérale belge · ✅ `EMPLOYEE` employée de la réception
 
 **Action**
 
-1. 🟡 Perquisition : relevé d'un virement genevois annulé, papier à en-tête d'Amsterdam, courrier réglé depuis Luxembourg.
-2. 🟡 Rapprocher la signature de l'administrateur de la holding de celle des SCI landaises.
-3. 🟡 Ariane s'arrête net devant le portemanteau et recule : une écharpe grise porte l'odeur de Darrigade.
-4. 🟡 Tableau : le conteneur et le vrai propriétaire ; la douane ouvre 481207 (médicaments falsifiés). Départ pour Luxembourg (ETP_5).
+1. ✅ Perquisition : relevé d'un virement genevois annulé, papier à en-tête d'Amsterdam, courrier réglé depuis Luxembourg.
+2. ✅ Rapprocher la signature de l'administrateur de la holding de celle des SCI landaises.
+3. ✅ Ariane s'arrête net devant le portemanteau et recule : une écharpe grise porte l'odeur de Darrigade.
+4. ✅ Tableau : le conteneur et le vrai propriétaire ; la douane ouvre 481207 (médicaments falsifiés). Départ pour Luxembourg (ETP_5).
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `CLU_C5_COURRIER_LUX` | Factures adressées à Nordhaven Holding SA, Luxembourg. | bureau | plein écran | SHOULDER, WIDE, FIRST | **oui** |
-| 🟡 | `CLU_C5_ECHARPE_DARRIGADE` | Ariane recule devant une écharpe grise. | portemanteau | ≤ 3 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C5_COURRIER_LUX` | Factures adressées à Nordhaven Holding SA, Luxembourg. | bureau | plein écran | SHOULDER, WIDE, FIRST | **oui** |
+| ✅ | `CLU_C5_ECHARPE_DARRIGADE` | Ariane recule devant une écharpe grise. | portemanteau | ≤ 3 m | SHOULDER, WIDE, FIRST | non |
 
 **Caméras**
 
@@ -1374,9 +1376,9 @@ Références données : `INT_C5_BRIEFING`, `INT_C5_SCELLES_QUAI`, `INT_C5_PESEE`
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_ANVERS_BUREAU` (lieu) : Petit bureau de transitaire, classeurs, portemanteau, vue sur les docks.
+- ✅ `ENV_ANVERS_BUREAU` (lieu) : Petit bureau de transitaire, classeurs, portemanteau, vue sur les docks.
 
-**Raccord** 🟡 → `SC_C6_01` : Luxembourg, puis vol retour vers Biarritz le mardi.
+**Raccord** ✅ → `SC_C6_01` : Luxembourg, puis vol retour vers Biarritz le mardi.
 
 Références données : `INT_C5_BUREAU`, `INT_C5_SIGNATURES`, `INT_C5_ARIANE_BUREAU`, `INT_C5_PRESENTER_TABLEAU`
 
@@ -1389,24 +1391,25 @@ Références données : `INT_C5_BUREAU`, `INT_C5_SIGNATURES`, `INT_C5_ARIANE_BUR
 **Décisions d'Audrey qui s'appliquent** ✅
 
 - ✅ Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Lescoure : brigade, puis étude Casteran sur la place de l'Église, le soir. — décors `ENV_BRIGADE`, `ENV_ETUDE_CASTERAN`
-- **Moment et lumière** 🟡 : mardi, 20:00 → ≈ 23:00 ; nuit, lampes de bureau ; météo : temps sec
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_ARBELOT` capitaine · ✅ `CHAR_CASTERAN` notaire, témoin de bonne foi (Q2) · 🟡 `CHAR_JULIEN` père de Lila, sous contrôle judiciaire
+- **Lieu** ✅ : Lescoure : brigade, puis étude Casteran sur la place de l'Église, le soir. — décors `ENV_BRIGADE`, `ENV_ETUDE_CASTERAN`
+- **Moment et lumière** ✅ : mardi, 20:00 → ≈ 23:00 ; nuit, lampes de bureau ; météo : temps sec
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_ARBELOT` capitaine · ✅ `CHAR_CASTERAN` notaire, témoin de bonne foi (Q2) · ✅ `CHAR_JULIEN` père de Lila, sous contrôle judiciaire
 
 **Action**
 
-1. 🟡 Briefing : les relevés de Luxembourg montrent que Darrigade Logistique paie le prête-nom.
-2. 🟡 Casteran, de bonne foi, ouvre ses archives : Darrigade a apporté et payé les dossiers des sociétés écrans.
-3. 🟡 Julien : chauffeur sous pression, jamais un chef.
-4. 🟡 Fiche de signalement de Darrigade, composée par la joueuse (au moins trois traits prouvés).
+1. ✅ Briefing : les relevés de Luxembourg montrent que Darrigade Logistique paie le prête-nom.
+2. ✅ Casteran, de bonne foi, ouvre ses archives : Darrigade a apporté et payé les dossiers des sociétés écrans.
+3. ✅ Julien : chauffeur sous pression, jamais un chef.
+4. ✅ Fiche de signalement de Darrigade, composée par la joueuse (au moins trois traits prouvés).
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `CLU_C6_STATUTS_CASTERAN` | Registre des honoraires : payeur Darrigade. | archives | plein écran | SHOULDER, WIDE, FIRST | non |
-| 🟡 | `CLU_C6_CASTERAN_TEMOIGNE` | Casteran raconte qui lui a apporté les dossiers. | bureau de l'étude | ≤ 2 m | SHOULDER, WIDE, FIRST | **oui** |
+| ✅ | `CLU_C6_STATUTS_CASTERAN` | Registre des honoraires : payeur Darrigade. | archives | plein écran | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C6_CASTERAN_TEMOIGNE` | Casteran raconte qui lui a apporté les dossiers. | bureau de l'étude | ≤ 2 m | SHOULDER, WIDE, FIRST | **oui** |
 
 **Caméras**
 
@@ -1421,9 +1424,9 @@ Références données : `INT_C5_BUREAU`, `INT_C5_SIGNATURES`, `INT_C5_ARIANE_BUR
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_ETUDE_CASTERAN` (lieu) : Étude notariale ancienne, rayonnages d'archives, lampe verte.
+- ✅ `ENV_ETUDE_CASTERAN` (lieu) : Étude notariale ancienne, rayonnages d'archives, lampe verte.
 
-**Raccord** 🟡 → `SC_C6_02` : Mercredi matin, Nadia vient signer sa déposition.
+**Raccord** ✅ → `SC_C6_02` : Mercredi matin, Nadia vient signer sa déposition.
 
 Références données : `INT_C6_BRIEFING`, `INT_C6_CASTERAN`, `INT_C6_ARCHIVES`, `INT_C6_JULIEN`, `INT_C6_PORTRAIT`
 
@@ -1433,23 +1436,24 @@ Références données : `INT_C6_BRIEFING`, `INT_C6_CASTERAN`, `INT_C6_ARCHIVES`,
 
 - ✅ Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.
 - ✅ Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Brigade de Lescoure et parking devant ; café d'en face ; bureau du juge. — décors `ENV_BRIGADE`
-- **Moment et lumière** 🟡 : mercredi, 09:00 → ≈ 10:30 ; matin clair ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_NADIA` mère de Lila, ignore tout (Q1) · ✅ `CHAR_DARRIGADE` compagnon, tête du réseau (Q2) · 🟡 `JUGE` juge d'instruction
+- **Lieu** ✅ : Brigade de Lescoure et parking devant ; café d'en face ; bureau du juge. — décors `ENV_BRIGADE`
+- **Moment et lumière** ✅ : mercredi, 09:00 → ≈ 10:30 ; matin clair ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_NADIA` mère de Lila, ignore tout (Q1) · ✅ `CHAR_DARRIGADE` compagnon, tête du réseau (Q2) · ✅ `JUGE` juge d'instruction
 
 **Action**
 
-1. 🟡 Nadia signe sa déposition et dit, sans le voir, que Darrigade savait tout du trajet de Lila et de l'opération.
-2. 🟡 Darrigade attend au café ; Ariane s'assied devant le coffre de sa voiture, comme devant la porte de Hourcade.
-3. 🟡 Démonstration devant le juge : qui dirige, et comment il savait.
+1. ✅ Nadia signe sa déposition et dit, sans le voir, que Darrigade savait tout du trajet de Lila et de l'opération.
+2. ✅ Darrigade attend au café ; Ariane s'assied devant le coffre de sa voiture, comme devant la porte de Hourcade.
+3. ✅ Démonstration devant le juge : qui dirige, et comment il savait.
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `CLU_C6_NADIA_TEMOIGNE` | Nadia raconte, reconnaissante, tout ce que Xavier savait. | salle d'audition | ≤ 2 m | SHOULDER, WIDE, FIRST | **oui** |
-| 🟡 | `CLU_C6_ARIANE_VOITURE` | Ariane assise devant le coffre. | parking | ≤ 5 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C6_NADIA_TEMOIGNE` | Nadia raconte, reconnaissante, tout ce que Xavier savait. | salle d'audition | ≤ 2 m | SHOULDER, WIDE, FIRST | **oui** |
+| ✅ | `CLU_C6_ARIANE_VOITURE` | Ariane assise devant le coffre. | parking | ≤ 5 m | SHOULDER, WIDE, FIRST | non |
 
 **Caméras**
 
@@ -1463,9 +1467,9 @@ Références données : `INT_C6_BRIEFING`, `INT_C6_CASTERAN`, `INT_C6_ARCHIVES`,
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_BRIGADE` (lieu) : Brigade de gendarmerie de bourg, parking, café en face.
+- ✅ `ENV_BRIGADE` (lieu) : Brigade de gendarmerie de bourg, parking, café en face.
 
-**Raccord** 🟡 → `SC_C6_03` : Le juge signe : perquisition immédiate.
+**Raccord** ✅ → `SC_C6_03` : Le juge signe : perquisition immédiate.
 
 Références données : `EVT_C6_NADIA_VIENT`, `INT_C6_ARIANE_PARKING`, `INT_C6_PRESENTER_TABLEAU`
 
@@ -1477,22 +1481,23 @@ Références données : `EVT_C6_NADIA_VIENT`, `INT_C6_ARIANE_PARKING`, `INT_C6_P
 - ✅ Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.
 - ✅ Q3 : Lila est retrouvée au chapitre 4, sans violence subie.
 - ✅ Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Maison de Nadia et Darrigade, entrée et placard ; puis sortie de l'école quelques jours plus tard. — décors `ENV_MAISON_NADIA`, `ENV_ECOLE`
-- **Moment et lumière** 🟡 : mercredi, puis quelques jours plus tard, ≈ 10:30 → ≈ 16:30 ; fin d'après-midi dorée à l'école, comme l'ouverture ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_ARBELOT` capitaine · ✅ `CHAR_DARRIGADE` compagnon, tête du réseau (Q2) · ✅ `CHAR_NADIA` mère · ✅ `CHAR_FILLETTE` Lila
+- **Lieu** ✅ : Maison de Nadia et Darrigade, entrée et placard ; puis sortie de l'école quelques jours plus tard. — décors `ENV_MAISON_NADIA`, `ENV_ECOLE`
+- **Moment et lumière** ✅ : mercredi, puis quelques jours plus tard, ≈ 10:30 → ≈ 16:30 ; fin d'après-midi dorée à l'école, comme l'ouverture ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_ARBELOT` capitaine · ✅ `CHAR_DARRIGADE` compagnon, tête du réseau (Q2) · ✅ `CHAR_NADIA` mère · ✅ `CHAR_FILLETTE` Lila
 
 **Action**
 
-1. 🟡 Perquisition : Ariane s'assied devant un placard ; une veste de pluie porte encore la boue de Lande-Haute.
-2. 🟡 Darrigade, affable jusqu'au bout, est interpellé (fin A).
-3. 🟡 Épilogue : Nadia apprend la vérité ; Lila court vers Ariane à la sortie de l'école.
+1. ✅ Perquisition : Ariane s'assied devant un placard ; une veste de pluie porte encore la boue de Lande-Haute.
+2. ✅ Darrigade, affable jusqu'au bout, est interpellé (fin A).
+3. ✅ Épilogue : Nadia apprend la vérité ; Lila court vers Ariane à la sortie de l'école.
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `VESTE_CABANE` | Veste de pluie, boue de Lande-Haute sur les manches. | placard | ≤ 2 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `VESTE_CABANE` | Veste de pluie, boue de Lande-Haute sur les manches. | placard | ≤ 2 m | SHOULDER, WIDE, FIRST | non |
 
 **Caméras**
 
@@ -1506,13 +1511,13 @@ Références données : `EVT_C6_NADIA_VIENT`, `INT_C6_ARIANE_PARKING`, `INT_C6_P
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_MAISON_NADIA` (lieu) : Maison soignée de lotissement, entrée, placard.
+- ✅ `ENV_MAISON_NADIA` (lieu) : Maison soignée de lotissement, entrée, placard.
 
 **Continuité**
 
 - Lila : carré châtain court (V4 A), vêtements de tous les jours, cartable rouge brique ; sereine, jamais filmée en gros plan sur l'épreuve passée.
 
-**Raccord** 🟡 → `FIN` : Générique.
+**Raccord** ✅ → `FIN` : Générique.
 
 Références données : `INT_C6_PRESENTER_TABLEAU`, `EVT_C6_CLOTURE`
 
@@ -1526,23 +1531,24 @@ Références données : `INT_C6_PRESENTER_TABLEAU`, `EVT_C6_CLOTURE`
 
 - ✅ Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite.
 - ✅ Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Brigade de Lescoure, parking de la gare d'Hendaye, terminal du ferry de Bilbao. — décors `ENV_BRIGADE`, `ENV_GARE_HENDAYE`, `ENV_TERMINAL_BILBAO`
-- **Moment et lumière** 🟡 : mercredi, 08:00 → ≈ 16:00 ; matin clair, puis lumière de fin d'après-midi sur le port ; météo : beau temps
-- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · 🟡 `CHAR_ARBELOT` capitaine · 🟡 `TAXI` chauffeur de taxi d'Hendaye · 🟡 `POLICIA` agente de la police portuaire de Bilbao · ✅ `CHAR_DARRIGADE` tête du réseau, en fuite
+- **Lieu** ✅ : Brigade de Lescoure, parking de la gare d'Hendaye, terminal du ferry de Bilbao. — décors `ENV_BRIGADE`, `ENV_GARE_HENDAYE`, `ENV_TERMINAL_BILBAO`
+- **Moment et lumière** ✅ : mercredi, 08:00 → ≈ 16:00 ; matin clair, puis lumière de fin d'après-midi sur le port ; météo : beau temps
+- **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_ARBELOT` capitaine · ✅ `TAXI` chauffeur de taxi d'Hendaye · ✅ `POLICIA` agente de la police portuaire de Bilbao · ✅ `CHAR_DARRIGADE` tête du réseau, en fuite
 
 **Action**
 
-1. 🟡 Seulement si le réseau est alerté (jauge à 3) ou après 5 fausses routes : Darrigade a fui avant l'aube.
-2. 🟡 Péage d'Irun, chauffeur de taxi, réservation du ferry ; fiche de signalement à quatre traits pour le mandat d'arrêt européen.
-3. 🟡 Au terminal : deux hommes de son âge ; Ariane recule devant l'homme à la casquette. Interpellation dans la file 3 (fin B).
+1. ✅ Seulement si le réseau est alerté (jauge à 3) ou après 5 fausses routes : Darrigade a fui avant l'aube.
+2. ✅ Péage d'Irun, chauffeur de taxi, réservation du ferry ; fiche de signalement à quatre traits pour le mandat d'arrêt européen.
+3. ✅ Au terminal : deux hommes de son âge ; Ariane recule devant l'homme à la casquette. Interpellation dans la file 3 (fin B).
 
 **Indices observables**
 
 | | Indice | Ce qu'on voit | Point de vue | Distance | Caméras | Indispensable |
 |---|---|---|---|---|---|---|
-| 🟡 | `CLU_C7_RESERVATION_FERRY` | Réservation au nom du prête-nom, ferry de 17 h. | écran de la brigade | plein écran | SHOULDER, WIDE, FIRST | **oui** |
-| 🟡 | `CLU_C7_ARIANE_TERMINAL` | Ariane recule à dix mètres de l'homme à la casquette. | terminal | ≤ 10 m | SHOULDER, WIDE, FIRST | non |
+| ✅ | `CLU_C7_RESERVATION_FERRY` | Réservation au nom du prête-nom, ferry de 17 h. | écran de la brigade | plein écran | SHOULDER, WIDE, FIRST | **oui** |
+| ✅ | `CLU_C7_ARIANE_TERMINAL` | Ariane recule à dix mètres de l'homme à la casquette. | terminal | ≤ 10 m | SHOULDER, WIDE, FIRST | non |
 
 **Caméras**
 
@@ -1556,10 +1562,10 @@ Références données : `INT_C6_PRESENTER_TABLEAU`, `EVT_C6_CLOTURE`
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_TERMINAL_BILBAO` (lieu) : Terminal de ferry moderne, files d'embarquement, passerelle.
-- 🟡 `ENV_GARE_HENDAYE` (lieu) : Parking de gare frontalière, station de taxis.
+- ✅ `ENV_TERMINAL_BILBAO` (lieu) : Terminal de ferry moderne, files d'embarquement, passerelle.
+- ✅ `ENV_GARE_HENDAYE` (lieu) : Parking de gare frontalière, station de taxis.
 
-**Raccord** 🟡 → `SC_C7_02` : Quelques jours plus tard, à Lescoure.
+**Raccord** ✅ → `SC_C7_02` : Quelques jours plus tard, à Lescoure.
 
 Références données : `INT_C7_REQUISITION`, `INT_C7_COMPAGNIE`, `INT_C7_MANDAT`, `INT_C7_TERMINAL`, `INT_C7_ARIANE_TERMINAL`, `EVT_C7_ENREGISTREMENT`
 
@@ -1569,15 +1575,16 @@ Références données : `INT_C7_REQUISITION`, `INT_C7_COMPAGNIE`, `INT_C7_MANDAT
 
 - ✅ Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.
 - ✅ Q3 : Lila est retrouvée au chapitre 4, sans violence subie.
+- ✅ Chapitres 5, 6 et 6 bis validés par Audrey (30/09) : médicaments falsifiés, écharpe et veste de Darrigade, ferry de Bilbao, Vermeulen, sœur de Nadia.
 
-- **Lieu** 🟡 : Sortie de l'école de Lescoure. — décors `ENV_ECOLE`
-- **Moment et lumière** 🟡 : quelques jours plus tard, ≈ 16:25 → ≈ 16:40 ; fin d'après-midi dorée, comme l'ouverture ; météo : beau temps
+- **Lieu** ✅ : Sortie de l'école de Lescoure. — décors `ENV_ECOLE`
+- **Moment et lumière** ✅ : quelques jours plus tard, ≈ 16:25 → ≈ 16:40 ; fin d'après-midi dorée, comme l'ouverture ; météo : beau temps
 - **Personnages** : ✅ `CHAR_HEROINE` {HEROINE}, joueuse · ✅ `CHAR_CHIENNE` Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs · ✅ `CHAR_NADIA` mère · ✅ `CHAR_FILLETTE` Lila
 
 **Action**
 
-1. 🟡 Nadia a appris la fuite avant la vérité ; l'héroïne la rassure.
-2. 🟡 Lila court vers Ariane.
+1. ✅ Nadia a appris la fuite avant la vérité ; l'héroïne la rassure.
+2. ✅ Lila court vers Ariane.
 
 **Caméras**
 
@@ -1591,10 +1598,10 @@ Références données : `INT_C7_REQUISITION`, `INT_C7_COMPAGNIE`, `INT_C7_MANDAT
 
 **Éléments visuels à produire**
 
-- 🟡 `ENV_ECOLE` (lieu) : Même parvis qu'à l'ouverture.
+- ✅ `ENV_ECOLE` (lieu) : Même parvis qu'à l'ouverture.
 
 **Continuité**
 
 - Lila : carré châtain court (V4 A), vêtements de tous les jours, cartable rouge brique ; sereine, jamais filmée en gros plan sur l'épreuve passée.
 
-**Raccord** 🟡 → `FIN` : Générique.
+**Raccord** ✅ → `FIN` : Générique.
