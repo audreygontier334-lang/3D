@@ -1,5 +1,5 @@
 // Faux-semblants — Ariane : libre (ni laisse ni collier, décision d'Audrey), suit l'héroïne à 1–3 m,
-// revient au rappel, et, envoyée, fonce vers un point puis s'arrête net (bord de chaussée).
+// revient au rappel, et, envoyée, vise un point provisoire du trottoir (navigation autour des obstacles non livrée).
 #pragma once
 
 #include "CoreMinimal.h"
@@ -26,6 +26,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FauxSemblants")
 	void Recall();
 
+	uint32 GetSendRequestId() const { return SendRequestId; }
+	bool HasReachedSendTarget(uint32 RequestId) const;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "FauxSemblants")
 	TObjectPtr<UStaticMeshComponent> PlaceholderBody;
 
@@ -43,4 +46,5 @@ private:
 	EState State = EState::Follow;
 	FVector SentTarget = FVector::ZeroVector;
 	float HoldTime = 0.f;
+	uint32 SendRequestId = 0;
 };
