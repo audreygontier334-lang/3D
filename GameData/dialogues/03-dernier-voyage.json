@@ -1,0 +1,531 @@
+{
+  "mission": "M03",
+  "status": "proposition",
+  "_doc": "Répliques du chapitre 3 (proposition de Claude).",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "ARBELOT": "Capitaine Arbelot, section de recherches",
+    "JULIEN": "Julien Mercadier, père de Lila",
+    "DARRIGADE": "Xavier Darrigade, compagnon de Nadia",
+    "DOUANIER": "Agent des douanes",
+    "NADIA": "Nadia Mercadier, mère de Lila",
+    "GENDARME": "Gendarme (radio)"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C3_BRIEFING",
+      "context": "INT_C3_BRIEFING. Mercredi matin, bureau d'Arbelot.",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_BRIEFING_01",
+          "speaker": "ARBELOT",
+          "text": "Jeudi, 5 h 30, quai du Maren Sofie. Julien conduira le camion ; nous serons là.",
+          "intent": "Poser l'opération",
+          "emotion": "froid, méthodique"
+        },
+        {
+          "id": "DLG_C3_BRIEFING_02",
+          "speaker": "ARBELOT",
+          "text": "Qui est au courant : mon équipe, Julien, et la famille, que je rassurerai ce soir sans détail. Les douanes, à 4 h seulement.",
+          "intent": "Liste fermée, base de la déduction",
+          "emotion": "précis"
+        },
+        {
+          "id": "DLG_C3_BRIEFING_03",
+          "speaker": "ARBELOT",
+          "text": "Julien dormira ici. Son téléphone reste chez nous.",
+          "intent": "Exclure Julien de la fuite",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_JULIEN",
+      "context": "INT_C3_JULIEN. Salle d'audition (PZ_C3_01).",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_JULIEN_01",
+          "speaker": "JULIEN",
+          "text": "S'ils apprennent que je parle, c'est fini pour elle.",
+          "intent": "Peur",
+          "emotion": "brisé"
+        },
+        {
+          "id": "DLG_C3_JULIEN_02",
+          "speaker": "HEROINE",
+          "text": "Ils vous ont promis de la rendre. Hier soir, ils l'ont déjà déplacée. Ils ne tiennent pas parole.",
+          "intent": "Bon argument",
+          "emotion": "douce, ferme",
+          "requires": {
+            "outcome": "succes"
+          }
+        },
+        {
+          "id": "DLG_C3_JULIEN_03",
+          "speaker": "JULIEN",
+          "text": "Des cartons de médicaments, des notices fausses. J'ai dit que j'arrêtais. Jeudi, 5 h 30, je conduis au Maren Sofie et je donne les clés à la femme. Qui dirige ? Si je le dis, elle est morte.",
+          "intent": "Témoignage ; il ne nomme personne",
+          "emotion": "à voix basse",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_JULIEN_SE_FERME",
+      "context": "BR_C3_JULIEN_SE_FERME.",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_JULIEN_SE_FERME_01",
+          "speaker": "JULIEN",
+          "text": "Je n'ai rien à vous dire.",
+          "intent": "Conséquence d'un mauvais argument",
+          "emotion": "fermé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_JULIEN_CEDE",
+      "context": "EVT_C3_JULIEN_CEDE (rattrapage).",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_JULIEN_CEDE_01",
+          "speaker": "ARBELOT",
+          "text": "Il a parlé. Jeudi, 5 h 30, quai du Maren Sofie.",
+          "intent": "Rattrapage",
+          "emotion": "sobre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_DARRIGADE",
+      "context": "INT_C3_DARRIGADE. Accueil de l'entrepôt, visite autorisée par les douanes.",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "lines": [
+        {
+          "id": "DLG_C3_DARRIGADE_01",
+          "speaker": "DARRIGADE",
+          "text": "Un café ? Je vous en prie, visitez tout. Et demain matin, ça se passera comment, concrètement ?",
+          "intent": "Graine : curiosité appuyée",
+          "emotion": "affable"
+        },
+        {
+          "id": "DLG_C3_DARRIGADE_02",
+          "speaker": "HEROINE",
+          "text": "Je ne sais pas. Je suis juste là pour la chienne.",
+          "intent": "Méfiance sans accusation",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_DOCUMENTS",
+      "context": "INT_C3_DOCUMENTS. Bons, pesées et scellés en plein écran (PZ_C3_02).",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "lines": [
+        {
+          "id": "DLG_C3_DOCUMENTS_01",
+          "speaker": "DOUANIER",
+          "text": "Trois lots partent jeudi. Comparez ce qui est déclaré et ce qui est pesé.",
+          "intent": "Poser l'énigme",
+          "emotion": "professionnel"
+        },
+        {
+          "id": "DLG_C3_DOCUMENTS_02",
+          "speaker": "DOUANIER",
+          "text": "Quai 4 : cent quatre-vingts kilos de trop, scellés hors série. On le bloque.",
+          "intent": "Conclusion",
+          "emotion": "grave",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_DOCS_MAUVAIS_LOT",
+      "context": "BR_C3_DOCS_MAUVAIS_LOT.",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "lines": [
+        {
+          "id": "DLG_C3_DOCS_MAUVAIS_LOT_01",
+          "speaker": "DOUANIER",
+          "text": "Ce lot-là est conforme. On refait tout, ça va prendre du temps.",
+          "intent": "Conséquence",
+          "emotion": "agacé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_DOUANES",
+      "context": "EVT_C3_DOUANES_CONTRE_VERIF (rattrapage).",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "lines": [
+        {
+          "id": "DLG_C3_DOUANES_01",
+          "speaker": "DOUANIER",
+          "text": "Contre-vérification faite : c'est le quai 4.",
+          "intent": "Rattrapage",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ARIANE_ENTREPOT",
+      "context": "INT_C3_ARIANE_ENTREPOT (PZ_C3_03).",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "lines": [
+        {
+          "id": "DLG_C3_ARIANE_ENTREPOT_01",
+          "speaker": "CHIENNE",
+          "text": "[longe les rayonnages, s'assied devant un carton du quai 4, regarde l'héroïne]",
+          "intent": "Marquage",
+          "emotion": "concentrée",
+          "requires": {
+            "selected": "CLU_C3_BADGE_SANDRINE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ARIANE_MAUVAIS_OBJET",
+      "context": "BR_C3_ARIANE_MAUVAIS_OBJET.",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "lines": [
+        {
+          "id": "DLG_C3_ARIANE_MAUVAIS_OBJET_01",
+          "speaker": "CHIENNE",
+          "text": "[hésite, passe d'un carton à l'autre, revient vers l'héroïne]",
+          "intent": "Odeurs mêlées",
+          "emotion": "perdue"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_NADIA_APPEL",
+      "context": "EVT_C3_NADIA_APPELLE, 22 h, au téléphone.",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_NADIA_APPEL_01",
+          "speaker": "NADIA",
+          "text": "Les gendarmes m'ont dit que demain matin, il se passerait quelque chose. J'en ai parlé à Xavier, il m'a dit de dormir. Je n'y arrive pas.",
+          "intent": "Fuite involontaire, Nadia de bonne foi (Q1)",
+          "emotion": "épuisée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_PLANQUE",
+      "context": "INT_C3_PLANQUE. Jeudi, 5 h 15, bruine, projecteurs du port.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_PLANQUE_01",
+          "speaker": "ARBELOT",
+          "text": "Le camion arrive. Personne ne bouge avant qu'elle prenne les clés.",
+          "intent": "Tension",
+          "emotion": "murmuré"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_OPERATION",
+      "context": "EVT_C3_OPERATION, 6 h 20.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_OPERATION_01",
+          "speaker": "GENDARME",
+          "text": "Ce n'est pas elle. Un homme, dans sa voiture grise. On l'interpelle.",
+          "intent": "« Sandrine » a été prévenue",
+          "emotion": "radio"
+        },
+        {
+          "id": "DLG_C3_OPERATION_02",
+          "speaker": "ARBELOT",
+          "text": "Message reçu à 3 h 02 : « Change de plan, tu y vas seul. » Les douanes ne savaient rien avant 4 h.",
+          "intent": "Heure de la fuite",
+          "emotion": "glacial"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ARIANE_VOITURE",
+      "context": "INT_C3_ARIANE_VOITURE (PZ_C3_04).",
+      "location": "LOC_QUAIS_VOITURE",
+      "lines": [
+        {
+          "id": "DLG_C3_ARIANE_VOITURE_01",
+          "speaker": "CHIENNE",
+          "text": "[fait le tour de la citadine, gratte la portière passager, s'assied]",
+          "intent": "Marquage",
+          "emotion": "sûre",
+          "requires": {
+            "outcome": "succes"
+          }
+        },
+        {
+          "id": "DLG_C3_ARIANE_VOITURE_02",
+          "speaker": "HEROINE",
+          "text": "Un téléphone sous le siège. Et un ticket d'essence : Lande-Haute, 5 h 40.",
+          "intent": "Deux indices de la suite",
+          "emotion": "fébrile",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_FOUILLE_MAUVAISE",
+      "context": "BR_C3_FOUILLE_MAUVAISE.",
+      "location": "LOC_QUAIS_VOITURE",
+      "lines": [
+        {
+          "id": "DLG_C3_FOUILLE_MAUVAISE_01",
+          "speaker": "CHIENNE",
+          "text": "[renifle la cabine du camion, se désintéresse]",
+          "intent": "Mauvais véhicule",
+          "emotion": "indifférente"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_FOUILLE",
+      "context": "EVT_C3_FOUILLE_VEHICULE (rattrapage).",
+      "location": "LOC_QUAIS_VOITURE",
+      "lines": [
+        {
+          "id": "DLG_C3_FOUILLE_01",
+          "speaker": "GENDARME",
+          "text": "Fouille de la voiture : un téléphone sous le siège, un ticket d'essence.",
+          "intent": "Rattrapage",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_REQUISITION",
+      "context": "INT_C3_REQUISITION.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_REQUISITION_01",
+          "speaker": "ARBELOT",
+          "text": "Première réponse : une antenne, une zone énorme. … Deuxième antenne : le nord-est de Lande-Haute.",
+          "intent": "Bornage en deux temps (leurre loyal)",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_BORNAGE_AUTO",
+      "context": "EVT_C3_BORNAGE_AUTO (rattrapage).",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_BORNAGE_AUTO_01",
+          "speaker": "ARBELOT",
+          "text": "L'opérateur a répondu : nord-est de Lande-Haute.",
+          "intent": "Rattrapage",
+          "emotion": "sobre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_CADASTRE",
+      "context": "INT_C3_CADASTRE.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_CADASTRE_01",
+          "speaker": "HEROINE",
+          "text": "SCI Lande-Haute… même gérant que la SCI des Pins de Sorbe.",
+          "intent": "Lien entre les deux lieux",
+          "emotion": "saisie"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_VIDEO",
+      "context": "INT_C3_VIDEO_CAPBRETON.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_VIDEO_01",
+          "speaker": "GENDARME",
+          "text": "Capbreton, hier soir : la voiture grise, un homme au volant. Celui qu'on vient d'arrêter.",
+          "intent": "Leurre expliqué",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_TABLEAU",
+      "context": "INT_C3_PRESENTER_TABLEAU, sur le capot, à l'aube (PZ_C3_05).",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_TABLEAU_01",
+          "speaker": "ARBELOT",
+          "text": "Qu'est-ce qu'on sait, maintenant ?",
+          "intent": "Ouvrir le tableau",
+          "emotion": "fatigué"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_FIN",
+      "context": "BR_C3_RESOLU.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_FIN_01",
+          "speaker": "ARBELOT",
+          "text": "Deux fuites, et les deux fois l'information passait par la famille. À partir de maintenant, on ne dit plus rien à personne.",
+          "intent": "Révélation du chapitre, sans nommer Darrigade",
+          "emotion": "grave"
+        },
+        {
+          "id": "DLG_C3_FIN_02",
+          "speaker": "HEROINE",
+          "text": "Et maintenant, on va où ?",
+          "intent": "Transition vers la carte des déplacements (ETP_3)",
+          "emotion": "déterminée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_CLOTURE",
+      "context": "EVT_C3_CLOTURE, jeudi 9 h 30.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_CLOTURE_01",
+          "speaker": "ARBELOT",
+          "text": "On ne peut plus attendre. On part avec ce qu'on a.",
+          "intent": "Clôture automatique, état C",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ERR_PHARMACIE",
+      "context": "BR_C3_ERR_PHARMACIE.",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "lines": [
+        {
+          "id": "DLG_C3_ERR_PHARMACIE_01",
+          "speaker": "DOUANIER",
+          "text": "Les médicaments de l'hôpital sont conformes, au gramme près.",
+          "intent": "Réfutation",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ERR_TOUT",
+      "context": "BR_C3_ERR_TOUT.",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_ERR_TOUT_01",
+          "speaker": "ARBELOT",
+          "text": "Le juge ne signera pas une saisie de tout l'entrepôt. Il me faut un lot.",
+          "intent": "Réalisme judiciaire",
+          "emotion": "agacé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ERR_JULIEN",
+      "context": "BR_C3_ERR_JULIEN.",
+      "location": "LOC_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C3_ERR_JULIEN_01",
+          "speaker": "JULIEN",
+          "text": "Mon téléphone est chez vous depuis hier matin. Vous croyez vraiment que je risquerais ma fille ?",
+          "intent": "Conséquence d'une accusation injuste",
+          "emotion": "blessé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C3_ERR_DOUANES",
+      "context": "BR_C3_ERR_DOUANES.",
+      "location": "LOC_QUAIS_PLANQUE",
+      "lines": [
+        {
+          "id": "DLG_C3_ERR_DOUANES_01",
+          "speaker": "ARBELOT",
+          "text": "Les douanes ont été prévenues à 4 h. Le message est parti à 3 h 02.",
+          "intent": "Réfutation par la chronologie",
+          "emotion": "patient"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C3_AXE_LOT",
+      "text": "Quel lot",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C3_AXE_FUITE",
+      "text": "Par où l'information est sortie",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C3_AXE_PISTE",
+      "text": "La suite (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C3_LOT_QUAI_4",
+      "text": "Le lot du quai 4",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_LOT_PHARMACIE",
+      "text": "Le lot de pharmacie hospitalière",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_TOUT_ENTREPOT",
+      "text": "Tout l'entrepôt",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_FUITE_FAMILLE",
+      "text": "Par la famille, de bonne foi",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_FUITE_JULIEN",
+      "text": "Julien a prévenu le réseau",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_FUITE_DOUANES",
+      "text": "Un douanier a prévenu le réseau",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C3_ZONE_NE",
+      "text": "Nord-est de la forêt de Lande-Haute",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "manifest_version": 3,
+  "status": "blockout_non_canonique",
+  "scene_id": "SCENE_01_OUVERTURE_CENTRE_VILLE",
+  "narrative_source": {"pull_request": 4, "commit": "e9cf6bcf0b4e94c6be6c6112c9d54e52c82dc3db"},
+  "source_gltf": "Game/Blockout/ouverture-centre-ville.gltf",
+  "coordinate_system": {"units": "metres", "up_axis": "Y"},
+  "zones": [
+    {"id": "Z_PROMENADE", "centre": [8, 0, -18], "role": "depart_Audrey_et_Ariane_plan_A"},
+    {"id": "Z_ECOLE", "centre": [0, 0, 0], "role": "sortie_des_classes_plan_A"},
+    {"id": "Z_CROISEMENT", "centre": [35, 0, -15], "role": "transition_place_vers_ruelle"},
+    {"id": "Z_RUE_FUITE", "centre": [64, 0, -22], "role": "abordage_et_depart_fourgon_plan_B"},
+    {"id": "Z_PLACE", "centre": [-8, 0, -8], "role": "espace_public_et_poste"},
+    {"id": "Z_TEMOINS", "centre": [-25, 0, -18], "role": "position_des_PNJ_interrogeables"}
+  ],
+  "event_markers": [
+    {"id": "EVT_SORTIE_ECOLE", "node": "child_school_placeholder"},
+    {"id": "EVT_ABORDAGE", "node": "child_alley_placeholder"},
+    {"id": "EVT_FOURGON", "node": "van_placeholder"},
+    {"id": "EVT_DEPART_DUO", "node": "heroine_place_placeholder"},
+    {"id": "EVT_ARIANE", "node": "ariane_alley_placeholder"},
+    {"id": "EVT_INDICE_ODEUR", "node": "scent_object_marker"},
+    {"id": "EVT_PISTE", "node": "scent_clue_marker"}
+  ],
+  "validation": {
+    "camera_nodes": ["CAM_PLACE_SHOULDER", "CAM_PLACE_WIDE", "CAM_PLACE_FIRST", "CAM_RUELLE_SHOULDER", "CAM_RUELLE_WIDE", "CAM_RUELLE_FIRST"],
+    "fallback_camera_nodes": ["CAM_DEPART_COURT"],
+    "required_subject_nodes": ["child_school_placeholder", "ariane_place_placeholder", "child_alley_placeholder", "k2_placeholder", "van_placeholder", "ariane_alley_placeholder", "dufau_placeholder"],
+    "shots": [
+      {
+        "id": "PLAN_A_PLACE_ECOLE",
+        "camera_nodes": ["CAM_PLACE_SHOULDER", "CAM_PLACE_WIDE", "CAM_PLACE_FIRST"],
+        "required_subject_nodes": ["child_school_placeholder", "ariane_place_placeholder"],
+        "must_be_occluded": ["van_placeholder", "child_alley_placeholder"]
+      },
+      {
+        "id": "PLAN_B_RUELLE",
+        "camera_nodes": ["CAM_RUELLE_SHOULDER", "CAM_RUELLE_WIDE", "CAM_RUELLE_FIRST"],
+        "required_subject_nodes": ["child_alley_placeholder", "k2_placeholder", "van_placeholder", "ariane_alley_placeholder"],
+        "must_be_occluded": ["child_school_placeholder"]
+      }
+    ],
+    "fallback_shot": {
+      "id": "PLAN_B_DEPART_COURT",
+      "duration_s": 4,
+      "camera_node": "CAM_DEPART_COURT",
+      "required_subject_nodes": ["van_placeholder"],
+      "purpose": "Montrer le depart et la plaque si la joueuse n'atteint pas l'entree de la ruelle."
+    },
+    "departure_rule": {
+      "alley_entry_m": [35, 0, -15],
+      "reachable_bounds_xz_m": [[-30, -30], [35, 5]],
+      "maximum_distance_to_entry_m": 110,
+      "hold_max_s": 30,
+      "fallback_duration_s": 4
+    },
+    "global_occlusion_checks": {
+      "observer_nodes": ["heroine_place_placeholder", "child_school_placeholder", "dufau_placeholder"],
+      "must_hide": ["child_alley_placeholder", "k2_placeholder", "van_placeholder"],
+      "dufau_visible_target": "alley_angle_marker"
+    },
+    "camera_modes": ["SHOULDER", "WIDE", "FIRST"],
+    "occluder_prefixes": ["school_main", "square_shop", "alley_corner", "alley_house", "tree_trunk", "hedge", "wall", "fence"],
+    "frame_aspect_ratio": [16, 9],
+    "safe_frame_margin": 0.05
+  },
+  "open_visual_choices": {
+    "V1_place_animation": "Audrey choisira la densite pendant la construction photorealiste."
+  },
+  "open_staging_choices": {
+    "lila_route": "Le cheminement precis ecole-vers-ruelle et le mouvement de Lila restent a valider.",
+    "final_camera_motion": "Le blockout ne fixe que des points de controle et non le montage final."
+  },
+  "validated_visual_constraints": {
+    "V3_alley_exit": "Mer visible au loin; port, chaussee du boulevard et rond-point invisibles.",
+    "V2_van_appearance": "Fourgon blanc use, ombre de lettrage, feu arriere droit fendu, sans marque reelle.",
+    "V4_lila_appearance": "Sweat jaune moutarde, jean droit bleu, baskets blanches a scratch, cartable rouge brique, carre chatain court sans accessoire.",
+    "lighting_time": "vers_16h30_fin_apres_midi",
+    "ariane_scarf": "noir_paisley_blanc",
+    "heroine_headband": "assorti_au_foulard_paisley"
+  },
+  "audio_policy": {
+    "always_available": ["sortie_ecole", "circulation_locale", "oiseaux_urbains", "vent_dans_les_pins"],
+    "conditional": [{"id": "ressac", "enabled_by_default": false, "condition": "Activer uniquement si V3 et la propagation sonore le justifient."}]
+  },
+  "decision_guards": {
+    "protagonist_shoes": {
+      "canonical_reference": "docs/DECISIONS.md#4-personnage-principal--audrey",
+      "current_value": "baskets_style_air_max_noires_blanches_sans_logo_ni_marque",
+      "status": "validated_by_Audrey"
+    },
+    "personal_photos": {"allowed_in_repository": false},
+    "lila_hair_or_clothing_reference": true,
+    "van_appearance_is_canonical": true,
+    "lila_precise_route_is_canonical": false
+  }
+}

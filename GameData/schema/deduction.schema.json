@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/deduction.schema.json",
+  "title": "Déduction du joueur",
+  "type": "object",
+  "required": [
+    "id",
+    "axis",
+    "any_of",
+    "text"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^DED_[A-Z0-9_]+$"
+    },
+    "axis": {
+      "enum": [
+        "vehicule",
+        "personne",
+        "destination"
+      ]
+    },
+    "any_of": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^(CLU|DED|FLAG)_[A-Z0-9_]+$"
+        }
+      },
+      "description": "Ensembles de preuves suffisants (OU entre ensembles, ET dans un ensemble)"
+    },
+    "puzzle": {
+      "type": "string",
+      "pattern": "^PZ_[A-Z0-9_]+$"
+    },
+    "text": {
+      "type": "string"
+    },
+    "open_visual": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "apparence_fourgon",
+          "animation_place_ecole",
+          "apparence_lila"
+        ]
+      },
+      "description": "Détail visuel encore ouvert dont dépend cet élément (décision d'Audrey du 29/09) ; interdit dans la chaîne d'une hypothèse obligatoire."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+build/
+
+# Projet Unreal (générés localement)
+Game/Unreal/FauxSemblants/Binaries/
+Game/Unreal/FauxSemblants/Intermediate/
+Game/Unreal/FauxSemblants/Saved/
+Game/Unreal/FauxSemblants/DerivedDataCache/
+Game/Unreal/FauxSemblants/.vs/
+Game/Unreal/FauxSemblants/*.sln
+Game/Unreal/FauxSemblants/Content/Data/

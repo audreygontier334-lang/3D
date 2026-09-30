@@ -1,0 +1,400 @@
+{
+  "mission": "M04",
+  "status": "proposition",
+  "_doc": "Répliques du chapitre 4 (proposition de Claude). Scène de la cabane : décision V8 d'Audrey (sobre).",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "ARBELOT": "Capitaine Arbelot, section de recherches",
+    "GERANT": "Gérant de la station de Lande-Haute",
+    "NADIA": "Nadia Mercadier, mère de Lila",
+    "DARRIGADE": "Xavier Darrigade, compagnon de Nadia",
+    "GENDARME": "Gendarme (radio)",
+    "LILA": "Lila Mercadier"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C4_BRIEFING",
+      "context": "INT_C4_BRIEFING. Maison forestière, pluie sur les vitres.",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_BRIEFING_01",
+          "speaker": "ARBELOT",
+          "text": "Trois cabanes de résinier dans la zone : Barthe, Lous Pins, Hourcade. On n'a pas les hommes pour tout ouvrir en même temps.",
+          "intent": "Poser le choix",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C4_BRIEFING_02",
+          "speaker": "ARBELOT",
+          "text": "Et la pluie ne va pas s'arrêter. Chaque heure efface un peu plus.",
+          "intent": "Échéance",
+          "emotion": "sombre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_CADASTRE",
+      "context": "INT_C4_CADASTRE (PZ_C4_01).",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_CADASTRE_01",
+          "speaker": "HEROINE",
+          "text": "Barthe, la commune. Lous Pins, la chasse. Hourcade… SCI Lande-Haute.",
+          "intent": "Lecture du cadastre",
+          "emotion": "concentrée",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_CADASTRE_ERREUR",
+      "context": "BR_C4_CADASTRE_ERREUR.",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_CADASTRE_ERREUR_01",
+          "speaker": "ARBELOT",
+          "text": "Cette parcelle est à la commune. Relisez.",
+          "intent": "Conséquence",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_REGISTRE",
+      "context": "INT_C4_REGISTRE.",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_REGISTRE_01",
+          "speaker": "ARBELOT",
+          "text": "Même gérant pour les deux SCI. Une boîte aux lettres à Bayonne.",
+          "intent": "Lien de réseau (bonus)",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_STATION",
+      "context": "INT_C4_STATION.",
+      "location": "LOC_STATION_LANDE_HAUTE",
+      "lines": [
+        {
+          "id": "DLG_C4_STATION_01",
+          "speaker": "GERANT",
+          "text": "Une femme blonde, des lunettes. Mardi soir et hier : de l'eau, des barres, des lingettes. Elle repartait par la piste 7.",
+          "intent": "Témoin",
+          "emotion": "inquiet"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_TRACES",
+      "context": "INT_C4_TRACES (PZ_C4_02), avant que la pluie n'efface tout.",
+      "location": "LOC_PISTE_7",
+      "lines": [
+        {
+          "id": "DLG_C4_TRACES_01",
+          "speaker": "CHIENNE",
+          "text": "[truffe au sol, s'arrête sur la branche est, attend]",
+          "intent": "Signal d'Ariane",
+          "emotion": "attentive"
+        },
+        {
+          "id": "DLG_C4_TRACES_02",
+          "speaker": "HEROINE",
+          "text": "Des pneus… Encore lisibles. Vers l'est.",
+          "intent": "Lecture des traces",
+          "emotion": "pressée",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_TRACES_PERDUES",
+      "context": "BR_C4_TRACES_PERDUES.",
+      "location": "LOC_PISTE_7",
+      "lines": [
+        {
+          "id": "DLG_C4_TRACES_PERDUES_01",
+          "speaker": "HEROINE",
+          "text": "Plus rien. La pluie a tout pris.",
+          "intent": "Conséquence",
+          "emotion": "découragée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_NADIA_ARRIVE",
+      "context": "EVT_C4_NADIA_ARRIVE, 10 h 30, au poste forestier.",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_NADIA_ARRIVE_01",
+          "speaker": "NADIA",
+          "text": "Son pyjama. Elle dort avec. Je ne l'ai pas lavé.",
+          "intent": "Objet de référence ; Nadia de bonne foi",
+          "emotion": "au bord des larmes"
+        },
+        {
+          "id": "DLG_C4_NADIA_ARRIVE_02",
+          "speaker": "DARRIGADE",
+          "text": "Je l'ai conduite, elle ne pouvait pas. Vous êtes près du but, n'est-ce pas ?",
+          "intent": "Graine : toujours là, toujours curieux",
+          "emotion": "doux"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_ARIANE_PISTE",
+      "context": "INT_C4_ARIANE_PISTE (PZ_C4_03).",
+      "location": "LOC_PISTE_7",
+      "lines": [
+        {
+          "id": "DLG_C4_ARIANE_PISTE_01",
+          "speaker": "HEROINE",
+          "text": "Cherche Lila, Ariane. Cherche.",
+          "intent": "Ordre",
+          "emotion": "voix cassée",
+          "requires": {
+            "selected": "CLU_C4_PYJAMA_LILA"
+          }
+        },
+        {
+          "id": "DLG_C4_ARIANE_PISTE_02",
+          "speaker": "CHIENNE",
+          "text": "[accélère malgré la pluie, truffe au sol, s'assied devant la porte de Hourcade, aboiement bref]",
+          "intent": "Pistage final",
+          "emotion": "sûre",
+          "requires": {
+            "selected": "CLU_C4_PYJAMA_LILA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_ARIANE_MAUVAIS_OBJET",
+      "context": "BR_C4_ARIANE_MAUVAIS_OBJET.",
+      "location": "LOC_PISTE_7",
+      "lines": [
+        {
+          "id": "DLG_C4_ARIANE_MAUVAIS_OBJET_01",
+          "speaker": "CHIENNE",
+          "text": "[tourne en rond, revient vers l'héroïne]",
+          "intent": "Odeurs mêlées",
+          "emotion": "perdue"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_BARTHE",
+      "context": "INT_C4_BARTHE.",
+      "location": "LOC_CABANE_BARTHE",
+      "lines": [
+        {
+          "id": "DLG_C4_BARTHE_01",
+          "speaker": "HEROINE",
+          "text": "Des toiles d'araignée sur le seuil. Personne n'est entré depuis des mois.",
+          "intent": "Élimination",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_LOUS_PINS",
+      "context": "INT_C4_LOUS_PINS.",
+      "location": "LOC_CABANE_LOUS_PINS",
+      "lines": [
+        {
+          "id": "DLG_C4_LOUS_PINS_01",
+          "speaker": "HEROINE",
+          "text": "Des cartouches, un calendrier de battue. Une cabane de chasseurs.",
+          "intent": "Élimination",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_HOURCADE_ABORDS",
+      "context": "INT_C4_HOURCADE_ABORDS.",
+      "location": "LOC_CABANE_HOURCADE",
+      "lines": [
+        {
+          "id": "DLG_C4_HOURCADE_ABORDS_01",
+          "speaker": "HEROINE",
+          "text": "Un cadenas neuf. De la boue fraîche.",
+          "intent": "Indice",
+          "emotion": "retenant son souffle"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_HELICO",
+      "context": "EVT_C4_HELICO (rattrapage).",
+      "location": "LOC_PC_FORESTIER",
+      "lines": [
+        {
+          "id": "DLG_C4_HELICO_01",
+          "speaker": "GENDARME",
+          "text": "Caméra thermique : une petite source de chaleur, immobile, à Hourcade.",
+          "intent": "Rattrapage",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_BATTUE",
+      "context": "EVT_C4_BATTUE_HOURCADE (rattrapage).",
+      "location": "LOC_CABANE_HOURCADE",
+      "lines": [
+        {
+          "id": "DLG_C4_BATTUE_01",
+          "speaker": "GENDARME",
+          "text": "Hourcade : cadenas neuf, traces fraîches.",
+          "intent": "Rattrapage",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_TABLEAU",
+      "context": "INT_C4_PRESENTER_TABLEAU, à la radio avec Arbelot (PZ_C4_04).",
+      "location": "LOC_PISTE_7",
+      "lines": [
+        {
+          "id": "DLG_C4_TABLEAU_01",
+          "speaker": "ARBELOT",
+          "text": "Quelle porte ?",
+          "intent": "Ouvrir le choix",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_CABANE",
+      "context": "BR_C4_RESOLU. Décision V8 d'Audrey : scène sobre, quelques secondes, Lila recroquevillée qui lève les yeux vers Ariane, aucun gros plan sur sa détresse.",
+      "location": "LOC_CABANE_HOURCADE",
+      "lines": [
+        {
+          "id": "DLG_C4_CABANE_01",
+          "speaker": "CHIENNE",
+          "text": "[s'approche doucement, se couche à un mètre, attend]",
+          "intent": "Ariane la trouve la première",
+          "emotion": "douce"
+        },
+        {
+          "id": "DLG_C4_CABANE_02",
+          "speaker": "LILA",
+          "text": "Ariane…",
+          "intent": "Lila reconnaît Ariane avant les adultes",
+          "emotion": "voix faible"
+        },
+        {
+          "id": "DLG_C4_CABANE_03",
+          "speaker": "HEROINE",
+          "text": "C'est fini. On te ramène.",
+          "intent": "L'héroïne s'agenouille et lui met sa veste sur les épaules",
+          "emotion": "douce"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_SANDRINE",
+      "context": "EVT_C4_SANDRINE_REVIENT.",
+      "location": "LOC_CABANE_HOURCADE",
+      "lines": [
+        {
+          "id": "DLG_C4_SANDRINE_01",
+          "speaker": "GENDARME",
+          "text": "Une femme sur la piste 7, à pied. On l'a. Sans incident.",
+          "intent": "Interpellation sans violence montrée (proposition)",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_CLOTURE",
+      "context": "EVT_C4_CLOTURE, 19 h 30 : la battue ouvre Hourcade avant la nuit (Q3).",
+      "location": "LOC_CABANE_HOURCADE",
+      "lines": [
+        {
+          "id": "DLG_C4_CLOTURE_01",
+          "speaker": "ARBELOT",
+          "text": "La battue est à Hourcade. Elle est là. Elle est vivante.",
+          "intent": "Lila retrouvée quoi qu'il arrive (Q3), état C",
+          "emotion": "soulagé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_ERR_BARTHE",
+      "context": "BR_C4_ERR_BARTHE.",
+      "location": "LOC_CABANE_BARTHE",
+      "lines": [
+        {
+          "id": "DLG_C4_ERR_BARTHE_01",
+          "speaker": "ARBELOT",
+          "text": "Barthe est vide. On a perdu quarante minutes.",
+          "intent": "Conséquence",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C4_ERR_LOUS_PINS",
+      "context": "BR_C4_ERR_LOUS_PINS.",
+      "location": "LOC_CABANE_LOUS_PINS",
+      "lines": [
+        {
+          "id": "DLG_C4_ERR_LOUS_PINS_01",
+          "speaker": "ARBELOT",
+          "text": "Une cabane de chasse. Rien. On repart.",
+          "intent": "Conséquence",
+          "emotion": "sec"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C4_AXE_CABANE",
+      "text": "Quelle cabane ouvrir",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C4_AXE_RESEAU",
+      "text": "Le réseau (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C4_HOURCADE",
+      "text": "Cabane de Hourcade",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C4_BARTHE",
+      "text": "Cabane de Barthe",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C4_LOUS_PINS",
+      "text": "Cabane de Lous Pins",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C4_MEME_GERANT",
+      "text": "L'airial et la cabane appartiennent aux mêmes prête-noms",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}

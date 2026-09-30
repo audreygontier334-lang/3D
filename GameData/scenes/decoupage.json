@@ -1,0 +1,3970 @@
+{
+  "status": "proposition — les éléments marqués « audrey » sont des décisions d'Audrey (29/09)",
+  "_doc": "Découpage par chapitre et par scène, source unique pour la production des visuels (Codex). Chaque détail porte un statut : « audrey » = validé par Audrey ; « proposition » = proposé par Claude. Le rendu lisible est docs/narrative/DECOUPAGE_SCENES.md (généré par Tools/render_decoupage.py). Les références (refs) renvoient aux IDs de GameData/missions/01.",
+  "choix_visuels_ouverts": [
+    {
+      "id": "V1",
+      "question": "Niveau d'animation de la place de l'école (foule, voitures, parents).",
+      "decide_par": "Audrey, pendant la construction 3D",
+      "contrainte": "Lila repérable 3 s au portail ; aucun indice n'en dépend."
+    },
+    {
+      "id": "V2",
+      "question": "Apparence du fourgon : couleur, modèle, lettrage éventuel, feu fendu.",
+      "decide_par": "✅ Tranché par Audrey (29/09) : option A « Blanc usé » (docs/CHOIX_VISUELS_V2_V4.md)",
+      "contrainte": "Blanc cassé, rayures et rouille, ombre de lettrage sur le flanc et les portes arrière (PZ_06 conservée), feu arrière droit fendu ; plaque arrière lisible, portière latérale coulissante, pot qui cogne ; aucun logo de constructeur."
+    },
+    {
+      "id": "V3",
+      "question": "Ce que l'on voit au débouché de la ruelle.",
+      "decide_par": "✅ Tranché par Audrey (29/09) : la mer au loin",
+      "contrainte": "Bande de mer au loin, au-dessus du boulevard ; la chaussée du boulevard et le rond-point restent invisibles (énigme du perron). Le port reste hors champ."
+    },
+    {
+      "id": "V4",
+      "question": "Tenue et cheveux de Lila.",
+      "decide_par": "✅ Tranché par Audrey (29/09) : option A « Jaune moutarde » (docs/CHOIX_VISUELS_V2_V4.md)",
+      "contrainte": "Sweat jaune moutarde uni, jean droit bleu moyen, baskets blanches à scratch, cartable rouge brique ; cheveux châtains en carré court au menton, sans accessoire. Identiques du prologue à la cabane (salis au chapitre 4). Porte-clés renard jusqu'à l'abordage ; bracelet en perles jusqu'à la montée dans le fourgon."
+    },
+    {
+      "id": "V5",
+      "question": "Apparence de Darrigade (et son nom définitif).",
+      "decide_par": "Audrey",
+      "contrainte": "Rassurant, rien de menaçant à l'image."
+    },
+    {
+      "id": "V6",
+      "question": "Obscurité des scènes de nuit (chapitre 2).",
+      "decide_par": "Audrey",
+      "contrainte": "Traces et Ariane lisibles à la lampe dans les trois vues."
+    },
+    {
+      "id": "V7",
+      "question": "Intensité de la pluie en forêt (chapitre 4).",
+      "decide_par": "Audrey",
+      "contrainte": "Ariane et les traces lisibles."
+    },
+    {
+      "id": "V8",
+      "question": "Ce que l'on montre de Lila dans la cabane (durée, cadrage).",
+      "decide_par": "✅ Tranché par Audrey (29/09) : scène sobre",
+      "contrainte": "Quelques secondes : Lila recroquevillée lève les yeux vers Ariane ; aucun gros plan sur sa détresse ; aucune violence (Q3) ; cabane sombre, froide, sans confort."
+    }
+  ],
+  "chapitres": [
+    {
+      "id": "PRO",
+      "titre": "Prologue — Sortie d'école",
+      "scenes": [
+        {
+          "id": "SC_P0_A",
+          "titre": "Promenade dans le centre-ville",
+          "lieu": {
+            "texte": "Rue piétonne du centre-ville, puis arrivée sur la place de l'école (plan A). Centre-ville inspiré d'Arcachon.",
+            "env": [
+              "ENV_PROMENADE",
+              "ENV_ECOLE"
+            ],
+            "zones": [
+              "Z_PROMENADE",
+              "Z_TEMOINS"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi, fin septembre",
+            "debut": "16:25",
+            "fin": "16:26",
+            "lumiere": "fin d'après-midi, lumière chaude et basse, ombres longues",
+            "meteo": "beau temps, léger vent dans les pins",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DUFAU",
+              "role": "assis sur le banc du square (décision d'Audrey) ; mots croisés (proposition)",
+              "statut": "audrey"
+            },
+            {
+              "id": "FIGURANTS_PLACE",
+              "role": "passants, commerçants ; densité au choix d'Audrey",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La joueuse prend la main : marcher, trotter, changer de vue. Ariane marche librement à 1–3 m, flaire les pieds des bancs, revient au rappel.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Tutoriel doux, facultatif : ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! ».",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » entré dans la ruelle il y a une bonne demi-heure ; il l'a vu en passant devant (première graine).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Duo",
+              "de": "rue piétonne (Z_PROMENADE)",
+              "vers": "place de l'école",
+              "distance": "30–40 m",
+              "duree": "libre (≈ 1 min)",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_P0_B",
+            "texte": "Sonnerie de l'école à 16 h 26 : la caméra ne coupe pas, la joueuse est déjà sur la place.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_TEMOIN_DUFAU",
+              "ce_qu_on_voit": "Graine seulement : Dufau parle du fourgon garé dans la ruelle (le témoignage complet vient au chapitre 1).",
+              "point_de_vue": "à côté du banc",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Vue de départ ; Ariane visible à côté de l'héroïne.",
+            "CAM_WIDE": "Lecture de la place et des commerces.",
+            "CAM_FIRST": "Facultative ; Ariane gardée dans le champ par léger recentrage."
+          },
+          "repli": [
+            {
+              "si_manque": "La joueuse ne parle pas à Dufau",
+              "alors": "Aucune conséquence : il redit tout au chapitre 1 (`INT_DUFAU`)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_PROMENADE",
+              "type": "lieu",
+              "description": "Centre-ville inspiré d'Arcachon, square avec banc où Dufau est assis (décisions d'Audrey). Proposition : rue piétonne commerçante ; depuis le banc, vue sur la rue de l'École et l'angle de la ruelle, mais pas sur l'intérieur de la ruelle.",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DUFAU",
+              "type": "personnage",
+              "description": "Retraité, bob, journal de mots croisés, voix râpeuse.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_CHIENNE_LIBRE",
+              "type": "animation",
+              "description": "Marche libre, flair, retour au rappel, rapport de balle.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Héroïne ✅ : jean, tee-shirt, veste en jean, créoles, bandeau noir à motifs paisley blancs assorti au foulard d'Ariane, baskets noires et blanches style Nike Air Max (sans logo ni nom de marque).",
+            "Ariane : foulard noir à motifs paisley blancs, jamais de laisse ni de collier."
+          ],
+          "points_ouverts": [
+            "V1 : niveau d'animation de la place (choix d'Audrey)."
+          ],
+          "refs": [
+            "EVT_START",
+            "DLG_P_TUTO",
+            "DLG_P_DUFAU"
+          ],
+          "decisions_audrey": [
+            "Centre-ville inspiré de celui d'Arcachon, en fin d'après-midi.",
+            "Port hors de la scène d'ouverture.",
+            "Ariane libre dès le départ, sans laisse ni collier, foulard noir à motifs paisley blancs ; bandeau assorti pour l'héroïne.",
+            "Niveau d'animation de la place : à choisir par Audrey pendant la construction 3D.",
+            "Un square avec un banc sur la place ; Dufau est assis sur ce banc (29/09)."
+          ]
+        },
+        {
+          "id": "SC_P0_B",
+          "titre": "Sortie d'école",
+          "lieu": {
+            "texte": "Place de l'école, devant le portail (plan A).",
+            "env": [
+              "ENV_ECOLE"
+            ],
+            "zones": [
+              "Z_ECOLE",
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:26",
+            "fin": "16:27:40",
+            "lumiere": "même lumière chaude ; façades éclairées de biais",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila, rentre seule de l'école (âge proposé : 9 ans)",
+              "statut": "audrey"
+            },
+            {
+              "id": "FIGURANTS_ECOLE",
+              "role": "enfants et parents ; densité au choix d'Audrey",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "16 h 26 : sonnerie, les enfants sortent.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "16 h 27 : Lila sort seule, repère Ariane de loin, lui fait coucou main levée (le bracelet se voit) : « Coucou Ariane ! Demain je t'apporte un biscuit ! ». Ariane remue la queue.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Si la joueuse répond d'un geste, Lila sourit.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Lila part seule sur le trottoir de la rue de l'École, vers l'angle de la ruelle des Tamaris (son chemin habituel vers la maison, côté océan). Elle tourne à l'angle et sort du champ de la place vers 16 h 27 min 40.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Lila",
+              "de": "portail",
+              "vers": "entrée de la ruelle",
+              "distance": "40–60 m",
+              "duree": "≈ 40 s",
+              "statut": "proposition"
+            },
+            {
+              "qui": "Duo",
+              "de": "place",
+              "vers": "libre ; Ariane commence à trotter vers l'angle de la ruelle (promenade habituelle vers l'océan)",
+              "distance": "—",
+              "duree": "—",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_P1",
+            "texte": "Lila disparaît à l'angle ; la joueuse continue à pied (pas de coupe). Ariane trotte devant vers la ruelle, guidage doux.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "EVT_LILA_COUCOU",
+              "ce_qu_on_voit": "Lila, son cartable (porte-clés renard) et son bracelet en perles.",
+              "point_de_vue": "depuis la place",
+              "distance": "≈ 20 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Lila repérable au moins 3 s au portail.",
+            "CAM_WIDE": "Lila repérable dans la foule ; son trajet jusqu'à l'angle lisible.",
+            "CAM_FIRST": "Lila repérable ; la caméra ne force pas le regard."
+          },
+          "repli": [
+            {
+              "si_manque": "La joueuse ne voit pas le coucou",
+              "alors": "Purement narratif : le lien Lila–Ariane est redit par Julien et Nadia au chapitre 1."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ECOLE",
+              "type": "lieu",
+              "description": "Portail de l'école des Pins sur la place, affiche de la commune au nouveau logo, abribus avec banc et plan touristique.",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "type": "personnage",
+              "description": "Lila, 9 ans. Tenue et cheveux à proposer puis valider par Audrey ; cartable avec porte-clés renard ; bracelet en perles.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_LILA_COUCOU",
+              "type": "animation",
+              "description": "Coucou main levée, sourire, reprise de la marche.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila ✅ (V4 A) : sweat jaune moutarde, jean, baskets blanches à scratch, cartable rouge brique, carré châtain court ; identiques dans toutes ses apparitions. Ici : cartable sur le dos avec le porte-clés renard accroché ; bracelet en perles au poignet, visible quand elle lève la main pour le coucou."
+          ],
+          "points_ouverts": [
+            "V1 : animation de la place.",
+            "Trajet précis de Lila sur la place : non validé, ajustable."
+          ],
+          "refs": [
+            "EVT_SONNERIE",
+            "EVT_LILA_COUCOU",
+            "DLG_P_LILA"
+          ],
+          "decisions_audrey": [
+            "Une fillette rentre seule de l'école.",
+            "La place de l'école est un lieu et un plan distincts de la ruelle.",
+            "Tenue, cheveux et trajet précis de Lila : non validés."
+          ]
+        },
+        {
+          "id": "SC_P1",
+          "titre": "Vers la ruelle : l'abordage",
+          "lieu": {
+            "texte": "Transition du plan A au plan B : angle de la rue de l'École, puis entrée de la ruelle des Tamaris, plus isolée, orientée vers le front de mer : la mer se voit au loin, au bout de la ruelle. Maisons variées d'époques différentes, couleurs, clôtures et haies différentes.",
+            "env": [
+              "ENV_ECOLE",
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_ECOLE",
+              "Z_CROISEMENT",
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:27:40",
+            "fin": "16:29:50",
+            "lumiere": "lumière basse qui entre dans la ruelle depuis l'ouest ; façades à contre-jour vers le débouché",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_K2",
+              "role": "« Sandrine », femme au badge et cordon bleu",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La femme attendait à ≈ 10 m dans la ruelle, hors de vue du portail. Elle aborde Lila : « Lila ? Ta maman a eu un souci au travail, elle m'a demandé de te ramener. » Lila hésite : « Mais… elle m'a dit de rentrer toute seule. » La femme montre son badge.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Elle prend Lila par la main ; elles marchent 15–25 m sur le trottoir vers un fourgon garé sur le bas-côté, dans le sens de la descente, arrière vers l'entrée.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Devant la portière, Lila refuse de monter : « Je veux appeler maman d'abord. » La femme fait semblant de téléphoner à Nadia (« Nadia ? Oui, je l'ai, on arrive… ») et négocie. Cette hésitation dure jusqu'à l'alerte (moins d'une minute) : c'est ce qui retient le fourgon.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "La joueuse arrive à l'entrée de la ruelle et découvre la scène à 20–30 m. Rien d'explicitement violent. Ariane fixe la ruelle, oreille droite dressée.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Au moment de l'abordage, le porte-clés renard se détache du cartable et tombe près du caniveau (non montré en gros plan).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Lila et la femme",
+              "de": "point d'abordage (≈ 10 m dans la ruelle)",
+              "vers": "portière latérale du fourgon",
+              "distance": "15–25 m",
+              "duree": "≈ 25 s, puis attente devant la portière jusqu'à l'alerte (faux appel)",
+              "statut": "proposition"
+            },
+            {
+              "qui": "Duo",
+              "de": "angle de la rue de l'École",
+              "vers": "entrée de la ruelle",
+              "distance": "variable",
+              "duree": "au rythme de la joueuse",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_P2",
+            "texte": "L'alerte se déclenche dès que la joueuse ou Ariane arrive à moins de 5 m de l'entrée de la ruelle, et au plus tard à 16 h 30 (Ariane s'élance alors en aboyant et la joueuse la suit). Voir la règle de départ dans mission.json (prologue.departure_rule).",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "OBS_ABORDAGE",
+              "ce_qu_on_voit": "La femme se penche, parle, montre un badge, prend la main de Lila.",
+              "point_de_vue": "entrée de la ruelle",
+              "distance": "20–30 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_PORTE_CLES_LILA",
+              "ce_qu_on_voit": "Le porte-clés tombe (visible seulement de près ; il sera trouvé au chapitre 1).",
+              "point_de_vue": "dans la ruelle",
+              "distance": "≈ 10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Entrée de la ruelle : Lila, la femme et le fourgon dans le cadre.",
+            "CAM_WIDE": "Caméra rapprochée par les clôtures ; rien ne doit masquer le trottoir.",
+            "CAM_FIRST": "Hauteur d'yeux ; la scène est lisible sans zoom."
+          },
+          "repli": [
+            {
+              "si_manque": "La joueuse est ailleurs",
+              "alors": "Au plus tard à 16 h 30, Ariane court vers la ruelle en aboyant ; Lila crie « Ariane ! ». Le départ attend que la joueuse soit à moins de 5 m de l'entrée (30 s au plus) ; sinon, un plan court de 4 s depuis l'entrée montre le départ."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_RUE_FUITE",
+              "type": "lieu",
+              "description": "Ruelle des Tamaris (plan B) : ambiance validée par Audrey (maisons variées, époques, couleurs, clôtures et haies différentes). Proposition : bas-côté sablonneux, haie de pittosporum côté trottoir d'arrivée.",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_K2",
+              "type": "personnage",
+              "description": "Femme d'environ 40 ans, tenue ordinaire, cordon bleu avec badge ; détails à proposer.",
+              "statut": "proposition"
+            },
+            {
+              "id": "VEH_FOURGON",
+              "type": "véhicule",
+              "description": "Apparence au choix d'Audrey (couleur, modèle, lettrage) — décision ✅. Exigences proposées : garé dans le sens de la descente, plaque arrière vers l'entrée, portière latérale côté trottoir.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_K2_ABORDAGE",
+              "type": "animation",
+              "description": "Se pencher vers l'enfant, montrer le badge, tendre la main, marcher en pressant le pas.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : cartable avec porte-clés renard à l'entrée de la ruelle ; le porte-clés se détache à l'abordage et reste au sol près du caniveau. Bracelet en perles toujours au poignet."
+          ],
+          "points_ouverts": [
+            "Trajet précis de Lila : non validé, contraintes seulement (abordage hors de vue du portail, 15–25 m jusqu'à la portière)."
+          ],
+          "refs": [
+            "EVT_ABORDAGE",
+            "EVT_MARCHE_FOURGON",
+            "DLG_P_ABORDAGE"
+          ],
+          "decisions_audrey": [
+            "La place de l'école et la ruelle adjacente, orientée vers le front de mer, sont deux lieux et deux plans distincts.",
+            "L'enlèvement a lieu dans la ruelle, plus isolée.",
+            "Ambiance de la ruelle validée : maisons variées, d'époques différentes, avec des couleurs, clôtures et haies différentes.",
+            "Déplacement précis de Lila, tenue et cheveux : non validés (faux raccord capillaire à éviter).",
+            "Apparence du fourgon : à choisir par Audrey ; aucun indice indispensable n'en dépend.",
+            "La ruelle est orientée vers le front de mer ; au débouché, on voit la mer au loin (V3, 29/09). Le port reste hors champ."
+          ]
+        },
+        {
+          "id": "SC_P2",
+          "titre": "La fenêtre d'action",
+          "lieu": {
+            "texte": "Ruelle des Tamaris (plan B), de l'entrée jusqu'au fourgon.",
+            "env": [
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_CROISEMENT",
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:29:50",
+            "fin": "16:30:17",
+            "lumiere": "lumière basse ; contre-jour vers le débouché",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_K2",
+              "role": "« Sandrine »",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_K1",
+              "role": "le conducteur, dans la cabine",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Devant la portière, Lila se retourne, voit Ariane : « Je veux attendre maman… Ariane ! ». Ariane grogne, corps tendu.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Invite discrète, sans ralenti imposé : photographier, courir, crier « Lila ! », envoyer Ariane (« Ariane, va ! »). Deux actions au plus en 8–12 s (20–25 s avec l'option d'accessibilité).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "La femme fait monter Lila, claque la portière ; le fourgon déboîte et descend la ruelle. (Décision d'Audrey : aucune violence montrée ; la mise en scène exacte est une proposition.)",
+              "statut": "proposition"
+            },
+            {
+              "texte": "En montant, le bracelet en perles de Lila casse (non montré) et tombe dans le sable au pied de la portière ; il sera trouvé par Ariane au chapitre 1.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Envoyée, Ariane fonce en aboyant et s'arrête net au bord de la chaussée quand le fourgon démarre ; elle flaire l'endroit où se tenait la femme, puis regarde la haie.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Fourgon",
+              "de": "bas-côté",
+              "vers": "débouché de la ruelle",
+              "distance": "70–100 m",
+              "duree": "≈ 12 s",
+              "statut": "proposition"
+            },
+            {
+              "qui": "Joueuse (si elle court)",
+              "de": "entrée",
+              "vers": "mi-ruelle",
+              "distance": "≈ 15–20 m",
+              "duree": "pendant la fenêtre",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_P3",
+            "texte": "Le fourgon tourne au bout de la ruelle ; plan continu, pas de cinématique.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_PHOTO_FOURGON",
+              "ce_qu_on_voit": "Plaque arrière « GF-4·7-·· » (terre sur un chiffre).",
+              "point_de_vue": "entrée de la ruelle, joueuse immobile",
+              "distance": "20–30 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_PHOTO_FLOUE",
+              "ce_qu_on_voit": "Photo prise en courant : plaque illisible.",
+              "point_de_vue": "dans la ruelle",
+              "distance": "15–25 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_OBS_CONDUCTEUR",
+              "ce_qu_on_voit": "Profil du conducteur 1–2 s par la vitre quand le fourgon déboîte.",
+              "point_de_vue": "mi-ruelle, en courant",
+              "distance": "≈ 8–10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_OBS_ECHAPPEMENT",
+              "ce_qu_on_voit": "Pot qui cogne et tremble (doublé visuellement pour les joueuses sans son).",
+              "point_de_vue": "mi-ruelle",
+              "distance": "≈ 10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_OBS_FEU_FENDU",
+              "ce_qu_on_voit": "Feu arrière droit fendu (seulement si le fourgon retenu en a un : visuel ouvert).",
+              "point_de_vue": "mi-ruelle, en courant",
+              "distance": "≈ 10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_OBS_PASSAGERE",
+              "ce_qu_on_voit": "La femme se retourne vers l'entrée : silhouette, tenue, lunettes.",
+              "point_de_vue": "entrée",
+              "distance": "20–30 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_OBS_BADGE_CHUTE",
+              "ce_qu_on_voit": "Le cordon s'accroche à la portière ; quelque chose tombe dans la haie.",
+              "point_de_vue": "entrée ou mi-ruelle",
+              "distance": "15–30 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_CHIENNE_IMPREGNEE",
+              "ce_qu_on_voit": "Ariane flaire longuement le trottoir puis regarde la haie.",
+              "point_de_vue": "où que soit la joueuse",
+              "distance": "—",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Arrière du fourgon et Lila dans le cadre ; possibilité de changer d'épaule.",
+            "CAM_WIDE": "Ne jamais passer derrière une clôture ; la plaque reste lisible.",
+            "CAM_FIRST": "Hauteur d'yeux, téléphone levé pour la photo.",
+            "CAM_INSPECT": "Photo consultable ensuite en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "La joueuse n'est pas à l'entrée au moment de l'alerte",
+              "alors": "Le départ est retenu (Lila résiste, la femme insiste) jusqu'à ce que la joueuse soit à moins de 5 m de l'entrée, 30 s au plus ; au-delà, plan court non interactif de 4 s (CAM_DEPART_COURT) depuis l'entrée : la plaque arrière reste lisible, puis retour au contrôle."
+            },
+            {
+              "si_manque": "Aucune action pendant la fenêtre",
+              "alors": "Tous les axes restent résolubles avec les indices permanents (vidéo d'Inès, témoins, badge, plaque)."
+            },
+            {
+              "si_manque": "Photo manquée",
+              "alors": "La vidéo d'Inès donne la fin de la plaque (consultation plus longue, 15 min)."
+            },
+            {
+              "si_manque": "Badge non vu en train de tomber",
+              "alors": "Piste d'Ariane avec la bouteille (PZ_02), ou fouille des gendarmes à 18 h 30."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "VEH_FOURGON",
+              "type": "véhicule",
+              "description": "Apparence au choix d'Audrey — décision ✅. Portière coulissante, plaque arrière, pot qui tremble ; aspect au choix d'Audrey.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_CHIENNE_ENVOI",
+              "type": "animation",
+              "description": "Sprint, aboiement, arrêt net au bord de la chaussée, flair au sol, regard vers la haie.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_K2_DEPART",
+              "type": "animation",
+              "description": "Se retourner, faire monter l'enfant sans violence visible, claquer la portière, cordon qui s'accroche.",
+              "statut": "proposition"
+            },
+            {
+              "id": "SFX_POT_ECHAPPEMENT",
+              "type": "son",
+              "description": "Cognement métallique, doublé d'une vibration visible du pot.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : plus de porte-clés sur le cartable (il est au sol, ≈ 10 m derrière). Bracelet au poignet jusqu'à la montée : le cordon casse hors champ quand la femme la presse de monter ; il tombe au pied de la portière. Elle monte avec son cartable.",
+            "Aucune scène ne montre de violence envers Lila (décision d'Audrey)."
+          ],
+          "points_ouverts": [],
+          "refs": [
+            "EVT_ALERTE",
+            "EVT_DEPART",
+            "ACT_PHOTO",
+            "ACT_COURIR",
+            "ACT_CRIER",
+            "ACT_ENVOYER",
+            "DLG_P_ALERTE"
+          ],
+          "decisions_audrey": [
+            "L'enlèvement a lieu dans la ruelle.",
+            "Ariane libre, sans laisse ni collier.",
+            "Apparence du fourgon ouverte : aucun indice indispensable n'en dépend."
+          ]
+        },
+        {
+          "id": "SC_P3",
+          "titre": "Hors de vue",
+          "lieu": {
+            "texte": "Ruelle des Tamaris (plan B), mi-ruelle.",
+            "env": [
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:30:17",
+            "fin": "16:31",
+            "lumiere": "lumière basse",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Le fourgon tourne au bout de la ruelle : personne ne voit de quel côté.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "L'héroïne reste immobile, souffle court ; une réplique selon ce qu'elle a fait (« Je l'ai, la plaque… en partie », « Casquette grise… », « Tu l'as sentie, hein ? »).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "L'interface met en avant « Appeler le 17 ».",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C1_01",
+            "texte": "Pas de coupe : le chapitre 1 commence dans la même ruelle, à 16 h 31.",
+            "statut": "proposition"
+          },
+          "indices": [],
+          "cameras": {
+            "CAM_SHOULDER": "Héroïne et Ariane au premier plan, débouché vide au fond.",
+            "CAM_WIDE": "Idem.",
+            "CAM_FIRST": "Le débouché de la ruelle, avec la mer au loin."
+          },
+          "repli": [
+            {
+              "si_manque": "—",
+              "alors": "Aucun indice dans cette scène."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_RUE_FUITE_DEBOUCHE",
+              "type": "lieu",
+              "description": "Débouché de la ruelle : la mer au loin (décision d'Audrey). Contraintes proposées : bande de mer au-dessus du boulevard, dont la chaussée reste masquée (pente, muret, maisons d'angle) ; aucun port ; le rond-point reste invisible.",
+              "statut": "audrey"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "EVT_HORS_VUE",
+            "EVT_CH1_START",
+            "DLG_P_HEROINE_CHOC"
+          ],
+          "decisions_audrey": [
+            "Port hors de la scène d'ouverture.",
+            "Au débouché de la ruelle, on voit la mer au loin (V3, 29/09)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "titre": "Chapitre 1 — Le fourgon",
+      "scenes": [
+        {
+          "id": "SC_C1_01",
+          "titre": "L'appel et la ruelle vide",
+          "lieu": {
+            "texte": "Ruelle des Tamaris (plan B), de l'entrée au bas-côté.",
+            "env": [
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_CROISEMENT",
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:31",
+            "fin": "16:44",
+            "lumiere": "fin d'après-midi, lumière chaude",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "PASSANTS",
+              "role": "quelques riverains qui sortent des maisons",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Appel au 17 (3 min) : les options de description dépendent de ce que la joueuse a vu.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Facultatif : protéger la scène (« Reculez, ne touchez à rien »).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Examiner la ruelle : porte-clés renard près du caniveau, traces de pneus et tache d'huile sur le bas-côté, trois mégots, une caisse de la criée ; si le cordon a été vu tomber, fouiller la haie (badge).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Héroïne",
+              "de": "mi-ruelle",
+              "vers": "entrée / bas-côté",
+              "distance": "≤ 25 m",
+              "duree": "libre",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_02",
+            "texte": "Arrivée des gendarmes par la place ; l'héroïne remonte vers l'entrée de la ruelle pour les accueillir.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_PORTE_CLES_LILA",
+              "ce_qu_on_voit": "Porte-clés renard au sol.",
+              "point_de_vue": "dans la ruelle",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_TRACES_PNEUS",
+              "ce_qu_on_voit": "Empreintes dans le sable, tache d'huile.",
+              "point_de_vue": "bas-côté",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_MEGOTS",
+              "ce_qu_on_voit": "Trois mégots côté conducteur.",
+              "point_de_vue": "bas-côté",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_CAISSE_POISSON",
+              "ce_qu_on_voit": "Caisse « Criée de Capbreton » (fausse piste loyale).",
+              "point_de_vue": "bas-côté",
+              "distance": "≤ 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_BADGE",
+              "ce_qu_on_voit": "Badge « Sandrine V. », ancien logo de la commune, cordon cassé.",
+              "point_de_vue": "dans la haie",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Surbrillance d'inspection proche.",
+            "CAM_WIDE": "Caméra rapprochée près des haies.",
+            "CAM_FIRST": "Idéale pour examiner le sol.",
+            "CAM_INSPECT": "Objets examinés en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Appel au 17 retardé",
+              "alors": "Gendarmes à l'appel + 13 min ; reproche de Mendiondo, aucune perte d'indice."
+            },
+            {
+              "si_manque": "Badge non trouvé",
+              "alors": "Piste de la bouteille (SC_C1_05) ou fouille des gendarmes à 18 h 30."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "PROP_PORTE_CLES",
+              "type": "accessoire",
+              "description": "Porte-clés renard.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_MEGOTS",
+              "type": "accessoire",
+              "description": "Trois mégots.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_CAISSE",
+              "type": "accessoire",
+              "description": "Caisse en polystyrène « Criée de Capbreton ».",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_BADGE",
+              "type": "accessoire",
+              "description": "Badge plastifié « Accueil périscolaire — Commune de Lescoure — Sandrine V. », ancien logo, cordon bleu cassé.",
+              "statut": "proposition"
+            },
+            {
+              "id": "DECAL_TRACES",
+              "type": "décor",
+              "description": "Empreintes de pneus et tache d'huile dans le sable du bas-côté.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_APPEL_17",
+            "INT_PROTEGER_SCENE",
+            "INT_EXAMINER_ACCOTEMENT",
+            "INT_FOUILLER_HAIE",
+            "DLG_C1_OPERATRICE",
+            "DLG_C1_EXAMEN_ACCOTEMENT"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_02",
+          "titre": "Les gendarmes",
+          "lieu": {
+            "texte": "Entrée de la ruelle, puis place de l'Église où s'installe le poste de commandement (plan A).",
+            "env": [
+              "ENV_RUE_FUITE",
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_CROISEMENT",
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "16:44",
+            "fin": "17:00",
+            "lumiere": "fin d'après-midi ; la place se vide",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "deux ou trois gendarmes",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Mendiondo recueille la déposition : « Pour une alerte, il me faut un véhicule, des personnes et une direction. Pas des impressions. »",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Elle autorise l'héroïne à rester : l'équipe cynophile est à plus de deux heures ; « ce que flaire votre chienne, c'est une piste, pas une preuve ».",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Le véhicule de commandement s'installe sur la place ; le tableau d'hypothèses devient accessible.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Mendiondo et l'héroïne",
+              "de": "entrée de la ruelle",
+              "vers": "place de l'Église",
+              "distance": "≈ 40–60 m",
+              "duree": "1 min de jeu",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_03",
+            "texte": "Enquête libre : la joueuse choisit l'ordre des scènes SC_C1_03 à SC_C1_09.",
+            "statut": "proposition"
+          },
+          "indices": [],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogue en champ-contrechamp léger.",
+            "CAM_WIDE": "Place lisible, poste repérable.",
+            "CAM_FIRST": "Visage de Mendiondo à hauteur d'yeux."
+          },
+          "repli": [
+            {
+              "si_manque": "—",
+              "alors": "Aucun indice dans cette scène."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_MENDIONDO",
+              "type": "personnage",
+              "description": "Adjudante-cheffe, uniforme de gendarmerie, quarantaine.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_VEHICULE_COMMANDEMENT",
+              "type": "véhicule",
+              "description": "Véhicule de commandement de gendarmerie sur la place.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "EVT_GENDARMES_ARRIVENT",
+            "DLG_C1_MENDIONDO_ARRIVEE",
+            "DLG_C1_MENDIONDO_REPROCHE"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_03",
+          "titre": "La piste de Lila",
+          "lieu": {
+            "texte": "Ruelle des Tamaris (plan B), du point d'abordage au pied de l'emplacement du fourgon.",
+            "env": [
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_CROISEMENT",
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "libre (après 16:31)",
+            "fin": "+5 min",
+            "lumiere": "lumière chaude qui baisse",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "L'héroïne fait sentir le porte-clés à Ariane : « Sens. C'est Lila. Cherche Lila. »",
+              "statut": "proposition"
+            },
+            {
+              "texte": "A : cercles serrés au point d'abordage, puis traction brève vers la place, truffe intermittente (piste du matin).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "B : allure régulière sur le trottoir, 15–25 m.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "C : Ariane s'assied au pied de l'emplacement du fourgon et regarde l'héroïne : le bracelet en perles, cordon cassé.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "D : tête haute, cercles, retour : la piste s'arrête, Ariane ne suit pas un véhicule.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Ariane puis l'héroïne",
+              "de": "point d'abordage",
+              "vers": "emplacement de la portière",
+              "distance": "15–25 m",
+              "duree": "≈ 1 min réelle",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_04",
+            "texte": "Retour libre vers la place.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_PISTE_LILA",
+              "ce_qu_on_voit": "Langage corporel d'Ariane en quatre points.",
+              "point_de_vue": "suivre Ariane",
+              "distance": "2–5 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_BRACELET_LILA",
+              "ce_qu_on_voit": "Bracelet en perles dans le sable.",
+              "point_de_vue": "au sol",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Ariane et son allure toujours dans le cadre.",
+            "CAM_WIDE": "Trajet complet lisible.",
+            "CAM_FIRST": "Léger recentrage pour garder Ariane dans le champ.",
+            "CAM_INSPECT": "Bracelet en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Piste mal interprétée",
+              "alors": "Témoignages de Lartigue et de la directrice mènent au même constat (Lila a été trompée)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ANIM_CHIENNE_PISTE",
+              "type": "animation",
+              "description": "Cercles truffe basse, traction brève, allure régulière, assise + regard, tête haute et retour.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_BRACELET",
+              "type": "accessoire",
+              "description": "Bracelet en perles, cordon cassé.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
+          ],
+          "points_ouverts": [],
+          "refs": [
+            "INT_PISTE_LILA",
+            "PZ_01",
+            "DLG_C1_PISTE_LILA"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_04",
+          "titre": "Le square : Dufau et la boulangerie",
+          "lieu": {
+            "texte": "Square avec le banc de Dufau et boulangerie Lartigue avec son tableau de liège (plan A).",
+            "env": [
+              "ENV_PROMENADE",
+              "ENV_ECOLE"
+            ],
+            "zones": [
+              "Z_TEMOINS"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "libre",
+            "fin": "boulangerie ouverte jusqu'à 19:30",
+            "lumiere": "fin d'après-midi",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DUFAU",
+              "role": "témoin bougon",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_LARTIGUE",
+              "role": "boulangère",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Dufau : fourgon passé devant l'école vers 15 h 50, garé dans la ruelle ; conducteur jamais sorti, fumait ; plaque des Landes ; « pas la blanchisserie, eux c'est le mardi matin » ; lui rappelle « Franck, l'ancien de la blanchisserie » ; la caisse de poisson, c'est le poissonnier.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Lartigue : vers 16 h 10, une femme au badge a acheté une bouteille d'eau et demandé « l'école de la petite Mercadier » ; elle s'est assise à l'abribus.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Tableau de liège : deux prospectus de blanchisserie (facultatif, dépend de l'aspect du fourgon).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Duo",
+              "de": "place",
+              "vers": "square",
+              "distance": "≈ 20–30 m",
+              "duree": "1 min de jeu",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_05",
+            "texte": "L'abribus et l'école sont à quelques pas.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_TEMOIN_DUFAU",
+              "ce_qu_on_voit": "Témoignage.",
+              "point_de_vue": "au banc",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_TEMOIN_LARTIGUE",
+              "ce_qu_on_voit": "Témoignage : « la petite Mercadier ».",
+              "point_de_vue": "comptoir",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_FLYER_BLANCHISSERIE",
+              "ce_qu_on_voit": "Prospectus Blanchisserie Océane (facultatif).",
+              "point_de_vue": "tableau de liège",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_FLYER_PRESSING",
+              "ce_qu_on_voit": "Prospectus Blanchisserie du Courant (facultatif).",
+              "point_de_vue": "tableau de liège",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogues.",
+            "CAM_WIDE": "Square et vitrine lisibles.",
+            "CAM_FIRST": "Lecture du tableau de liège.",
+            "CAM_INSPECT": "Prospectus en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Lartigue non interrogée",
+              "alors": "Le message de chantage (18 h 45 au plus tard) montre aussi que l'enlèvement visait la famille."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_LARTIGUE",
+              "type": "personnage",
+              "description": "Boulangère, tablier.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ENV_BOULANGERIE",
+              "type": "lieu",
+              "description": "Boulangerie de quartier avec tableau de liège (annonces, prospectus).",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_DUFAU",
+            "INT_LARTIGUE",
+            "INT_TABLEAU_LIEGE",
+            "DLG_C1_DUFAU",
+            "DLG_C1_LARTIGUE",
+            "DLG_C1_LIEGE"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_05",
+          "titre": "L'école, l'abribus et la piste de la femme",
+          "lieu": {
+            "texte": "Portail de l'école et abribus (plan A), puis entrée de la ruelle et haie (plan B).",
+            "env": [
+              "ENV_ECOLE",
+              "ENV_RUE_FUITE"
+            ],
+            "zones": [
+              "Z_ECOLE",
+              "Z_CROISEMENT",
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "libre",
+            "fin": "+10 min",
+            "lumiere": "fin d'après-midi",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DIRECTRICE",
+              "role": "Mme Pujol, directrice, au portail",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Directrice : aucune « Sandrine » parmi les animatrices ; Lila rentre seule depuis la rentrée avec l'accord de sa mère ; peu de gens le savaient.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Affiche de la commune au nouveau logo (à comparer avec le badge).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Abribus : bouteille d'eau entamée avec trace de rouge à lèvres, ticket de 16 h 12 ; plan touristique avec les distances.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Piste de la femme avec la bouteille (dans un sac à crottes) : abribus → entrée de la ruelle → emplacement du fourgon → haie, où Ariane s'assied : le badge.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Ariane puis l'héroïne",
+              "de": "abribus (plan A)",
+              "vers": "haie de la ruelle (plan B)",
+              "distance": "≈ 60–90 m",
+              "duree": "5 min de jeu",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_06",
+            "texte": "De la haie, la joueuse voit le perron de l'étude au bout de la place (proposition).",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_TEMOIN_DIRECTRICE",
+              "ce_qu_on_voit": "Témoignage.",
+              "point_de_vue": "portail",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_AFFICHE_COMMUNE",
+              "ce_qu_on_voit": "Nouveau logo.",
+              "point_de_vue": "portail",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_BOUTEILLE",
+              "ce_qu_on_voit": "Bouteille, rouge à lèvres.",
+              "point_de_vue": "banc de l'abribus",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_TICKET_BOULANGERIE",
+              "ce_qu_on_voit": "Ticket 16 h 12.",
+              "point_de_vue": "sous le banc",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_PLAN_DISTANCES",
+              "ce_qu_on_voit": "Distances depuis le rond-point.",
+              "point_de_vue": "panneau",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_BADGE",
+              "ce_qu_on_voit": "Badge dans la haie.",
+              "point_de_vue": "haie",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Ariane dans le cadre pendant la piste.",
+            "CAM_WIDE": "Trajet complet lisible d'un lieu à l'autre.",
+            "CAM_FIRST": "Lecture des objets.",
+            "CAM_INSPECT": "Affiche, ticket, plan, badge en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Mauvais objet de référence (mégots, porte-clés)",
+              "alors": "Piste courte ou piste de Lila, +5 min ; relancer avec la bouteille."
+            },
+            {
+              "si_manque": "Badge jamais trouvé",
+              "alors": "Fouille de la haie par les gendarmes à 18 h 30 ; la directrice suffit pour conclure à une fausse animatrice."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_DIRECTRICE",
+              "type": "personnage",
+              "description": "Directrice d'école, livide.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_BOUTEILLE",
+              "type": "accessoire",
+              "description": "Bouteille d'eau entamée, trace de rouge à lèvres.",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_AFFICHE",
+              "type": "accessoire",
+              "description": "Affiche de rentrée au nouveau logo (vague bleue) ; l'ancien logo (pin et soleil) figure sur le badge.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_DIRECTRICE",
+            "INT_AFFICHE_ECOLE",
+            "INT_BANC_ABRIBUS",
+            "INT_PLAN_TOURISTIQUE",
+            "INT_PISTE_BOUTEILLE",
+            "PZ_02",
+            "DLG_C1_PISTE_BOUTEILLE"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_06",
+          "titre": "Le perron de la notaire",
+          "lieu": {
+            "texte": "Perron de l'étude Casteran, place de l'Église (plan A), avec vue en enfilade sur la ruelle.",
+            "env": [
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "à partir de 16:45",
+            "fin": "libre",
+            "lumiere": "fin d'après-midi ; la ruelle au loin, à contre-jour",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CASTERAN",
+              "role": "témoin de bonne foi qui s'est trompé (décision Q2) ; notaire (proposition)",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Casteran, sûre d'elle : « J'étais sur mon perron, j'ai tout vu. Il est descendu jusqu'au bout de la ruelle et il a tourné à droite, vers la Corniche. »",
+              "statut": "proposition"
+            },
+            {
+              "texte": "« Se mettre à sa place » : l'héroïne monte sur le perron : on voit la ruelle jusqu'au débouché, pas le boulevard. « Elle ne pouvait pas savoir de quel côté il a tourné. Elle a supposé. »",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Héroïne",
+              "de": "place",
+              "vers": "perron",
+              "distance": "quelques mètres",
+              "duree": "2 min de jeu",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_07",
+            "texte": "Pour savoir où il a vraiment tourné, il faut une autre source : quelqu'un filmait près du rond-point.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_TEMOIN_CASTERAN",
+              "ce_qu_on_voit": "Témoignage (fausse piste loyale).",
+              "point_de_vue": "perron",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_LIGNE_DE_VUE",
+              "ce_qu_on_voit": "Vue depuis le perron à hauteur d'yeux.",
+              "point_de_vue": "perron, 1,65 m",
+              "distance": "vue jusqu'au débouché (≈ 100–150 m)",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Transition vers la hauteur d'yeux pendant le test.",
+            "CAM_WIDE": "La caméra reculée descend à hauteur d'yeux pendant le test.",
+            "CAM_FIRST": "Vue naturelle du test."
+          },
+          "repli": [
+            {
+              "si_manque": "Test non fait",
+              "alors": "La vidéo d'Inès contredit Casteran ; présenter « Corniche » coûte 25 min et donne un résultat négatif."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_CASTERAN",
+              "type": "personnage",
+              "description": "Notaire, la soixantaine, élégante, foulard, ton posé.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ENV_PLACE_EGLISE",
+              "type": "lieu",
+              "description": "Place de l'Église : étude notariale avec perron, fontaine, platane ; vue en enfilade sur la ruelle.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_CASTERAN",
+            "INT_LIGNE_DE_VUE",
+            "PZ_03",
+            "DLG_C1_CASTERAN",
+            "DLG_C1_LIGNE_DE_VUE"
+          ],
+          "decisions_audrey": [
+            "Q2 : Casteran est un témoin de bonne foi qui s'est trompé."
+          ]
+        },
+        {
+          "id": "SC_C1_07",
+          "titre": "Le skatepark",
+          "lieu": {
+            "texte": "Butte du skatepark près du rond-point du Lac, au-delà du débouché de la ruelle et du boulevard (extension du chapitre 1).",
+            "env": [
+              "ENV_ROND_POINT"
+            ],
+            "zones": [
+              "Z_RUE_FUITE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "libre",
+            "fin": "+4 min",
+            "lumiere": "fin d'après-midi",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_INES",
+              "role": "15 ans, filme ses figures",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Inès se méfie ; deux approches la convainquent (rassurer ou l'impliquer), la menace la fait partir.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Vidéo de 12 s à consulter image par image : le fourgon arrive du boulevard, prend la route des Étangs, plaque arrière « 37-TR » ; un camping-car part vers la Corniche.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Duo",
+              "de": "place",
+              "vers": "skatepark",
+              "distance": "≈ 300–400 m par le boulevard",
+              "duree": "1–2 min de jeu",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_08",
+            "texte": "Retour au poste pour transmettre la vidéo.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_VIDEO_INES",
+              "ce_qu_on_voit": "Vidéo du rond-point.",
+              "point_de_vue": "téléphone d'Inès",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogue.",
+            "CAM_WIDE": "Butte et rond-point lisibles.",
+            "CAM_FIRST": "Dialogue.",
+            "CAM_INSPECT": "Vidéo en plein écran, image par image."
+          },
+          "repli": [
+            {
+              "si_manque": "Inès braquée",
+              "alors": "Ses parents apportent la vidéo au poste à 19 h 00."
+            },
+            {
+              "si_manque": "Vidéo mal lue",
+              "alors": "La caméra du Relais du Lac (demandable après la vidéo) confirme la route des Étangs."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ROND_POINT",
+              "type": "lieu",
+              "description": "Rond-point du Lac à trois sorties panneautées (Corniche, Étangs, D652), boulevard, butte du skatepark.",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_INES",
+              "type": "personnage",
+              "description": "Adolescente, skate, téléphone.",
+              "statut": "proposition"
+            },
+            {
+              "id": "VID_INES_ROND_POINT",
+              "type": "vidéo",
+              "description": "Vidéo verticale 12 s, horodatée 16:31:10, rendue dans le moteur.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_INES",
+            "PZ_04",
+            "EVT_INES_PARENTS",
+            "DLG_C1_INES",
+            "DLG_C1_INES_PARENTS"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_08",
+          "titre": "La famille au poste",
+          "lieu": {
+            "texte": "Place de l'Église, autour du poste de commandement et de la fontaine (plan A).",
+            "env": [
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "17:30",
+            "fin": "18:45",
+            "lumiere": "le soleil descend ; la place passe dans l'ombre, les toits restent dorés",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_JULIEN",
+              "role": "père de Lila, mêlé au trafic",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère de Lila, ne sait rien",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon de Nadia, tête du réseau (secret)",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "17 h 30 : Julien arrive de Bayonne en tenue de travail, hors de lui.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "17 h 35 : Nadia arrive avec Darrigade ; Darrigade se présente et propose son aide. Ariane s'arrête à trois mètres de lui, oreilles plaquées, et détourne la tête de sa main ; il l'explique : « Trop de monde. »",
+              "statut": "proposition"
+            },
+            {
+              "texte": "17 h 40 : Julien lit un message, blêmit, ment (« le boulot ») ; Ariane se colle à ses jambes ; Darrigade lui pose la main sur l'épaule : Julien se raidit et se tait.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Facultatif : écouter Nadia (qui savait que Lila rentrait seule : elle, l'école, Julien, Darrigade ; Julien voulait quitter son travail chez Darrigade).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Éloigner Darrigade (proposer la battue) ou attendre 18 h 05 ; parler à Julien à l'écart avec compassion et une preuve que l'enlèvement le visait : il montre le message et la photo, refuse de dire pour qui il travaille, son regard file vers Darrigade.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Darrigade",
+              "de": "près de Julien et Nadia",
+              "vers": "bout de la place, téléphone à l'oreille",
+              "distance": "≈ 20–30 m",
+              "duree": "à 18 h 05 ou sur demande",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C1_09",
+            "texte": "La photo de Lila part au poste ; Mendiondo la fait agrandir sur l'écran du véhicule.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_ARIANE_DARRIGADE",
+              "ce_qu_on_voit": "Ariane garde ses distances avec Darrigade, sans grogner.",
+              "point_de_vue": "place",
+              "distance": "3–10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_PERE_REACTION",
+              "ce_qu_on_voit": "Julien cache son téléphone, se raidit sous la main de Darrigade.",
+              "point_de_vue": "près de la fontaine",
+              "distance": "≤ 15 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_TEMOIN_NADIA",
+              "ce_qu_on_voit": "Témoignage de Nadia.",
+              "point_de_vue": "poste",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_MESSAGE_CHANTAGE",
+              "ce_qu_on_voit": "« Tu voulais partir. Un dernier voyage, jeudi 6 h, et tu la revois. Pas de police. Elle va bien. »",
+              "point_de_vue": "téléphone de Julien",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_PHOTO_VIE",
+              "ce_qu_on_voit": "Photo de Lila (voir SC_C1_09).",
+              "point_de_vue": "téléphone de Julien",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogues ; Julien et Darrigade lisibles ensemble dans le cadre.",
+            "CAM_WIDE": "Place entière : on voit qui s'approche de qui.",
+            "CAM_FIRST": "Visages à hauteur d'yeux.",
+            "CAM_INSPECT": "Message et photo en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Julien braqué ou interrogé devant Darrigade",
+              "alors": "Il se ferme (+5 min) ; à 18 h 45 il montre lui-même le message aux gendarmes."
+            },
+            {
+              "si_manque": "Réaction de Julien non observée",
+              "alors": "Graine perdue pour ce chapitre, reprise au chapitre 3."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_JULIEN",
+              "type": "personnage",
+              "description": "Trentaine, chauffeur : tenue de travail d'entrepôt sans logo réel.",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "type": "personnage",
+              "description": "Trentaine, aide-soignante, tenue de ville.",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "type": "personnage",
+              "description": "Quarantaine soignée, veste sobre, gestes calmes et rassurants ; rien de menaçant à l'image.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_JULIEN_RAIDI",
+              "type": "animation",
+              "description": "Lire et cacher le téléphone, se raidir sous une main sur l'épaule, regard fuyant.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_CHIENNE_DISTANCE",
+              "type": "animation",
+              "description": "S'arrêter à distance, oreilles plaquées, détourner la tête d'une main tendue, sans grogner.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Nadia ne montre jamais qu'elle connaîtrait le réseau (décision d'Audrey)."
+          ],
+          "points_ouverts": [
+            "V5 : apparence de Darrigade (nom provisoire)."
+          ],
+          "refs": [
+            "EVT_PERE_ARRIVE",
+            "EVT_NADIA_ARRIVE",
+            "EVT_DARRIGADE_S_ELOIGNE",
+            "EVT_PERE_CRAQUE",
+            "INT_OBSERVER_PERE",
+            "INT_NADIA_TEMOIGNAGE",
+            "INT_ELOIGNER_DARRIGADE",
+            "INT_PERE",
+            "PZ_08",
+            "DLG_C1_PERE",
+            "DLG_C1_NADIA",
+            "DLG_C1_NADIA_ARRIVEE"
+          ],
+          "decisions_audrey": [
+            "Q1 : l'enlèvement sert à faire pression sur Julien, le père, impliqué dans le réseau et désireux d'en sortir ; parents séparés.",
+            "Q1 : Nadia arrive après l'enlèvement et ignore tout du trafic.",
+            "Q2 : le compagnon de Nadia dirige le réseau (nom « Xavier Darrigade » provisoire)."
+          ]
+        },
+        {
+          "id": "SC_C1_09",
+          "titre": "Les résultats du poste",
+          "lieu": {
+            "texte": "Intérieur et abords du véhicule de commandement, place de l'Église (plan A).",
+            "env": [
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "libre (17:15 : radio)",
+            "fin": "19:30",
+            "lumiere": "ombre sur la place ; écrans du véhicule allumés",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Consultation de la plaque : GF-437-TR appartient au fourgon d'un plombier de Dax qui était à Dax : plaque clonée.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "17 h 15, radio : un fourgon « correspondant au signalement » au péage de l'A63 à 16 h 50 (fausse piste loyale).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Après la vidéo d'Inès : caméra du Relais du Lac, 16 h 40, plaque « …37-TR ».",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Carte de l'étang de Sorbe ; photo de Lila agrandie (soleil bas face à la fenêtre, ponton, pin avec pot à résine).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C1_10",
+            "texte": "Quand la joueuse est prête, elle présente le tableau à Mendiondo.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_SIV_CLONE",
+              "ce_qu_on_voit": "Résultat de la plaque.",
+              "point_de_vue": "écran du poste",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_SIGNALEMENT_PEAGE",
+              "ce_qu_on_voit": "Radio.",
+              "point_de_vue": "poste",
+              "distance": "audible + carnet",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_CCTV_RELAIS",
+              "ce_qu_on_voit": "Vidéo de station.",
+              "point_de_vue": "écran",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_CARTE_ETANG",
+              "ce_qu_on_voit": "Carte murale.",
+              "point_de_vue": "poste",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST",
+                "CAM_INSPECT"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_APPEL_BLANCHISSERIE",
+              "ce_qu_on_voit": "Mendiondo rapporte l'appel : fourgon réformé vendu à Sud Loc Services, récupéré par Franck Loubère (facultatif, seulement si le fourgon porte une ombre de lettrage).",
+              "point_de_vue": "poste",
+              "distance": "dialogue",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Écrans et carte lisibles.",
+            "CAM_WIDE": "Intérieur du véhicule : caméra rapprochée.",
+            "CAM_FIRST": "Idéale pour les écrans.",
+            "CAM_INSPECT": "Documents en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Photo non prise en SC_P2",
+              "alors": "La vidéo seule suffit : consultation de 15 min au lieu de 5."
+            },
+            {
+              "si_manque": "Signalement du péage cru",
+              "alors": "+30 min et résultat négatif ; option exclue."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "IMG_PHOTO_VIE",
+              "type": "image",
+              "description": "Lila assise, calme mais inquiète, couverture sur les épaules ; fenêtre sur l'étang, soleil bas dans l'axe (azimut ≈ 242°), ponton, pin avec pot à résine. Aucune marque de violence. Tenue et cheveux identiques à SC_P0_B.",
+              "statut": "proposition"
+            },
+            {
+              "id": "VID_CCTV_RELAIS",
+              "type": "vidéo",
+              "description": "Caméra de station, 16:40, plaque « 37-TR ».",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_CARTE_ETANG",
+              "type": "accessoire",
+              "description": "Carte de l'étang de Sorbe : base nautique à l'ouest, forêt d'ancien gemmage à l'est.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : tenue et cheveux non validés, identiques dans toutes ses apparitions ; cartable avec porte-clés renard et bracelet en perles visibles (nécessaires aux énigmes)."
+          ],
+          "points_ouverts": [],
+          "refs": [
+            "INT_PLAQUE_COMPLETE",
+            "INT_PLAQUE_PARTIELLE",
+            "INT_CCTV_RELAIS",
+            "INT_CARTE_ETANG",
+            "EVT_RADIO_PEAGE",
+            "PZ_05",
+            "PZ_07",
+            "PZ_09",
+            "DLG_C1_PLAQUE",
+            "DLG_C1_RADIO_PEAGE",
+            "DLG_C1_RELAIS",
+            "DLG_C1_CARTE",
+            "INT_APPEL_BLANCHISSERIE",
+            "DLG_C1_BLANCHISSERIE"
+          ],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C1_10",
+          "titre": "Le tableau et le départ",
+          "lieu": {
+            "texte": "Poste de commandement, place de l'Église (plan A).",
+            "env": [
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "au choix (≤ 19:30)",
+            "fin": "19:30 au plus tard",
+            "lumiere": "crépuscule qui approche (coucher ≈ 19 h 45)",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La joueuse présente trois hypothèses : véhicule (plaque clonée), personnes (fausse animatrice qui savait qui elle venait chercher), destination (route des Étangs). Erreur : temps perdu, résultat négatif, option grisée.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Mendiondo demande l'Alerte Enlèvement et envoie un peloton vers l'étang de Sorbe.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Darrigade entend la destination et raccompagne Nadia : « Viens, je te ramène à la maison » (graine de la fuite du chapitre 2).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "« Allez, Ariane. On va chercher Lila. »",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Duo et gendarmes",
+              "de": "place",
+              "vers": "véhicules",
+              "distance": "≈ 20 m",
+              "duree": "—",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C2_01",
+            "texte": "Fondu sur la route des Étangs au crépuscule ; l'état de départ (A, B ou C) dépend de l'heure de résolution.",
+            "statut": "proposition"
+          },
+          "indices": [],
+          "cameras": {
+            "CAM_SHOULDER": "Tableau lisible.",
+            "CAM_WIDE": "Place au crépuscule, départ des véhicules.",
+            "CAM_FIRST": "Tableau à hauteur d'yeux.",
+            "CAM_INSPECT": "Tableau d'hypothèses en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Pas de résolution à 19 h 30",
+              "alors": "Clôture automatique : les gendarmes partent sur la route des Étangs (état C)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "UI_TABLEAU",
+              "type": "interface",
+              "description": "Tableau en trois colonnes (véhicule, personnes, destination).",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_PRESENTER_TABLEAU",
+            "PZ_10",
+            "BR_RESOLU",
+            "BR_CLOTURE",
+            "DLG_C1_TABLEAU",
+            "DLG_C1_FIN",
+            "DLG_C1_CLOTURE"
+          ],
+          "decisions_audrey": [
+            "Q2 : le compagnon de Nadia dirige le réseau."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "titre": "Chapitre 2 — L'airial",
+      "scenes": [
+        {
+          "id": "SC_C2_01",
+          "titre": "La route des Étangs",
+          "lieu": {
+            "texte": "Route des Étangs, Relais du Lac (station-service), fourche vers l'étang de Sorbe.",
+            "env": [
+              "ENV_ROUTE_ETANGS"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "≈ 18:30–19:45 selon l'état",
+            "fin": "+15 min",
+            "lumiere": "crépuscule (A), nuit tombante (B), nuit noire (C)",
+            "meteo": "sec ; pluie fine après 23 h en état C",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "peloton",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Convoi ; arrêt bref au Relais du Lac : le gérant confirme l'heure de passage.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Briefing sur le capot : trois airiaux sur la rive est (deux en état A).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Convoi",
+              "de": "Lescoure",
+              "vers": "fourche de l'étang",
+              "distance": "14 km",
+              "duree": "≈ 15 min",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C2_02",
+            "texte": "Arrivée à pied sur les pistes forestières, lampes éteintes.",
+            "statut": "proposition"
+          },
+          "indices": [],
+          "cameras": {
+            "CAM_SHOULDER": "Héroïne et Ariane parmi les gendarmes.",
+            "CAM_WIDE": "Convoi lisible.",
+            "CAM_FIRST": "Facultative."
+          },
+          "repli": [
+            {
+              "si_manque": "—",
+              "alors": "Aucun indice indispensable."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ROUTE_ETANGS",
+              "type": "lieu",
+              "description": "Route bordée de pins, station-service isolée.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ENV_RELAIS_DU_LAC",
+              "type": "lieu",
+              "description": "Petite station-service avec caméra à la pompe.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "V6 : degré d'obscurité acceptable pour les scènes de nuit."
+          ],
+          "refs": [],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C2_02",
+          "titre": "Les airiaux de la rive est",
+          "lieu": {
+            "texte": "Pistes forestières numérotées, sable et aiguilles de pin, trois airiaux (clairières habitées) sur la rive est de l'étang de Sorbe.",
+            "env": [
+              "ENV_FORET_RIVE_EST"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "nuit",
+            "fin": "+1 h",
+            "lumiere": "lune et lampes frontales ; contre-jour de l'étang",
+            "meteo": "sec ou pluie fine (état C)",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "peloton, radio",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La joueuse lit les traces (pneus, pas, portières) et oriente le peloton ; Ariane piste sur les passages frais.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Les gendarmes investissent chaque airial ; la joueuse reste en retrait comme le lui ordonne Mendiondo.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [
+            {
+              "qui": "Duo et peloton",
+              "de": "fourche",
+              "vers": "airial de Hount-Bielha (en dernier ou non selon les choix)",
+              "distance": "1–3 km à pied",
+              "duree": "selon l'ordre de fouille",
+              "statut": "proposition"
+            }
+          ],
+          "raccord_suivant": {
+            "vers": "SC_C2_03",
+            "texte": "Le bon airial : une maison basse, fenêtres sur l'étang.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "TRACES_TRANSFERT",
+              "ce_qu_on_voit": "Traces fraîches d'une voiture (pas le fourgon) qui repart vers l'intérieur des terres.",
+              "point_de_vue": "piste",
+              "distance": "au sol",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Traces lisibles à la lampe.",
+            "CAM_WIDE": "Clairière entière.",
+            "CAM_FIRST": "Idéale pour lire le sol."
+          },
+          "repli": [
+            {
+              "si_manque": "Mauvais airial",
+              "alors": "Temps perdu ; le suivant est indiqué par les traces et la carte (pas d'impasse)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_FORET_RIVE_EST",
+              "type": "lieu",
+              "description": "Forêt landaise d'ancien gemmage, pins à pots de résine, airiaux, sable clair.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_CHIENNE_NUIT",
+              "type": "animation",
+              "description": "Pistage de nuit, arrêts et hésitations.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "Détail des énigmes du chapitre 2 à écrire après validation du chapitre 1."
+          ],
+          "refs": [],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C2_03",
+          "titre": "L'airial vide",
+          "lieu": {
+            "texte": "Airial de Hount-Bielha : maison basse, pièce principale dont la fenêtre donne sur l'étang (celle de la photo), grange.",
+            "env": [
+              "ENV_AIRIAL_HOUNT_BIELHA"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "nuit",
+            "fin": "+20 min",
+            "lumiere": "nuit, lampes",
+            "meteo": "sec ou pluie fine",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "peloton",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_K1",
+              "role": "Loubère, caché dans la grange",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La pièce est vide : couverture pliée, chaise, verre d'eau. Lila en est partie environ une heure plus tôt (conséquence de la décision Q3 d'Audrey : Lila n'est retrouvée qu'au chapitre 4).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane trouve dans l'herbe la gomme parfumée à la fraise de la trousse de Lila, puis la piste s'arrête sur des traces de pneus fraîches.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane marque la grange : les gendarmes interpellent Loubère, qui tentait de brûler des papiers (état A : un document à moitié sauvé). Aucune violence montrée.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C2_04",
+            "texte": "Retour au poste de la place dans la nuit.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "PIECE_PHOTO",
+              "ce_qu_on_voit": "La pièce correspond à la photo : même fenêtre, même vue sur l'étang.",
+              "point_de_vue": "intérieur",
+              "distance": "—",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "GOMME_LILA",
+              "ce_qu_on_voit": "Gomme parfumée de Lila.",
+              "point_de_vue": "herbe",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "DOC_BRULE",
+              "ce_qu_on_voit": "Document à moitié brûlé (état A seulement).",
+              "point_de_vue": "grange",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Intérieur lisible malgré la nuit.",
+            "CAM_WIDE": "Airial entier.",
+            "CAM_FIRST": "Intérieur à hauteur d'yeux, comparaison avec la photo.",
+            "CAM_INSPECT": "Photo et document en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Pièce non comparée à la photo",
+              "alors": "Mendiondo fait la comparaison elle-même."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_AIRIAL_HOUNT_BIELHA",
+              "type": "lieu",
+              "description": "Airial landais, maison basse, pièce avec fenêtre sur l'étang (raccord exact avec IMG_PHOTO_VIE).",
+              "statut": "proposition"
+            },
+            {
+              "id": "PROP_GOMME",
+              "type": "accessoire",
+              "description": "Gomme parfumée à la fraise.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "La pièce doit être strictement celle de IMG_PHOTO_VIE (fenêtre, ponton, pin au pot à résine)."
+          ],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q3 : Lila n'est retrouvée qu'au chapitre 4."
+          ]
+        },
+        {
+          "id": "SC_C2_04",
+          "titre": "Qui les a prévenus ?",
+          "lieu": {
+            "texte": "Place de l'Église, poste de commandement, de nuit.",
+            "env": [
+              "ENV_PLACE_EGLISE"
+            ],
+            "zones": [
+              "Z_PLACE"
+            ],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mercredi",
+            "debut": "≈ 01:00",
+            "fin": "+10 min",
+            "lumiere": "nuit, éclairage public",
+            "meteo": "sec",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_MENDIONDO",
+              "role": "adjudante-cheffe",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine, section de recherches",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon de Nadia, tête du réseau (décision Q2) ; ici, vient apporter du café aux gendarmes (proposition)",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Arbelot prend l'enquête. Question : Lila a été déplacée une heure avant ; qui savait ?",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Darrigade apporte du café « de la part de Nadia » et demande des nouvelles (graine).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Julien accepte de revenir le lendemain matin, sans rien promettre.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C3_01",
+            "texte": "Ellipse jusqu'au mercredi matin.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "DARRIGADE_CAFE",
+              "ce_qu_on_voit": "Darrigade présent au poste en pleine nuit, curieux de l'opération.",
+              "point_de_vue": "place",
+              "distance": "≤ 10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogues.",
+            "CAM_WIDE": "Place de nuit.",
+            "CAM_FIRST": "Visages."
+          },
+          "repli": [
+            {
+              "si_manque": "—",
+              "alors": "Aucun indice indispensable."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "CHAR_ARBELOT",
+              "type": "personnage",
+              "description": "Capitaine de la section de recherches, civil ou uniforme.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q2 : le compagnon de Nadia dirige le réseau."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "titre": "Chapitre 3 — Le dernier voyage",
+      "scenes": [
+        {
+          "id": "SC_C3_01",
+          "titre": "Julien parle",
+          "lieu": {
+            "texte": "Salle d'audition de la brigade, puis cour de la gendarmerie.",
+            "env": [
+              "ENV_GENDARMERIE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mercredi",
+            "debut": "09:00",
+            "fin": "10:00",
+            "lumiere": "lumière grise du matin",
+            "meteo": "couvert",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_JULIEN",
+              "role": "père",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Avec les preuves du chapitre 1, la joueuse aide Arbelot à convaincre Julien : il raconte les cartons de médicaments aux notices fausses, sa démission refusée, le « dernier voyage » (conduire le camion jusqu'au Maren Sofie, jeudi 6 h).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Il refuse encore de dire qui dirige : « Si je le dis, elle est morte » (il ne nomme pas Darrigade).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Arbelot monte une opération surveillée : Julien fera le voyage.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C3_02",
+            "texte": "Route vers Bayonne.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "TEMOIGNAGE_JULIEN",
+              "ce_qu_on_voit": "Récit de Julien.",
+              "point_de_vue": "salle",
+              "distance": "< 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Dialogue.",
+            "CAM_WIDE": "Salle entière.",
+            "CAM_FIRST": "Visages."
+          },
+          "repli": [
+            {
+              "si_manque": "Julien peu coopératif (pas allié au ch. 1)",
+              "alors": "Il accepte après une énigme de dialogue plus longue ; jamais d'impasse."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_GENDARMERIE",
+              "type": "lieu",
+              "description": "Brigade de gendarmerie de bord de mer, salle d'audition sobre.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q1 : Julien est impliqué dans le réseau et veut en sortir."
+          ]
+        },
+        {
+          "id": "SC_C3_02",
+          "titre": "L'entrepôt",
+          "lieu": {
+            "texte": "Entrepôt de Darrigade Logistique, zone portuaire de Bayonne (visite des douanes autorisée).",
+            "env": [
+              "ENV_ENTREPOT_BAYONNE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mercredi",
+            "debut": "14:00",
+            "fin": "16:00",
+            "lumiere": "néons d'entrepôt, lumière du jour par les quais",
+            "meteo": "couvert",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "tête du réseau (décision Q2) ; ici, patron courtois de l'entrepôt (proposition)",
+              "statut": "proposition"
+            },
+            {
+              "id": "DOUANIERS",
+              "role": "agents des douanes",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_JULIEN",
+              "role": "au volant, comme d'habitude",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Darrigade accueille la visite avec amabilité et propose un café à l'héroïne.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Comparaison de documents : bons de livraison, poids déclarés et pesés, numéros de scellés.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane marque un carton qui porte l'odeur de « Sandrine ».",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Darrigade s'intéresse de près à « l'opération de demain » (graine).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C3_03",
+            "texte": "Nuit à Bayonne ; Nadia appelle l'héroïne, puis Darrigade (hors champ).",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "DOCS_FALSIFIES",
+              "ce_qu_on_voit": "Écarts entre documents et marchandise.",
+              "point_de_vue": "bureau",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CARTON_SANDRINE",
+              "ce_qu_on_voit": "Carton marqué par Ariane.",
+              "point_de_vue": "rayonnage",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Ariane dans le cadre.",
+            "CAM_WIDE": "Allées lisibles.",
+            "CAM_FIRST": "Lecture des documents.",
+            "CAM_INSPECT": "Documents en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Documents mal comparés",
+              "alors": "Les douaniers font une contre-vérification (+30 min)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ENTREPOT_BAYONNE",
+              "type": "lieu",
+              "description": "Entrepôt logistique portuaire, rayonnages, quai de chargement ; aucune marque réelle.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q2 : le compagnon de Nadia dirige le réseau."
+          ]
+        },
+        {
+          "id": "SC_C3_03",
+          "titre": "Le dernier voyage",
+          "lieu": {
+            "texte": "Quais du port de Bayonne, abords du caboteur Maren Sofie.",
+            "env": [
+              "ENV_QUAIS_BAYONNE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jeudi",
+            "debut": "05:15",
+            "fin": "06:30",
+            "lumiere": "nuit finissante, projecteurs du port, aube grise",
+            "meteo": "bruine",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_JULIEN",
+              "role": "au volant du camion",
+              "statut": "proposition"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "planques",
+              "statut": "proposition"
+            },
+            {
+              "id": "COMPLICE",
+              "role": "homme du réseau",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Julien livre le camion ; « Sandrine » était attendue : c'est un complice qui vient à sa place.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Interpellation du complice par les gendarmes ; « Sandrine » a été prévenue.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane retrouve, dans la voiture du complice, un téléphone abandonné par « Sandrine » : ses derniers déplacements dessinent une zone dans la forêt de Lande-Haute.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C4_01",
+            "texte": "Départ immédiat vers la forêt ; la pluie commence.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "TELEPHONE_SANDRINE",
+              "ce_qu_on_voit": "Téléphone et historique de déplacements.",
+              "point_de_vue": "voiture du complice",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Suivi discret depuis une planque.",
+            "CAM_WIDE": "Quai lisible.",
+            "CAM_FIRST": "Tension à hauteur d'yeux.",
+            "CAM_INSPECT": "Carte des déplacements en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Téléphone non trouvé",
+              "alors": "Les gendarmes le trouvent à la fouille du véhicule (+20 min)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_QUAIS_BAYONNE",
+              "type": "lieu",
+              "description": "Quais de port de commerce de nuit, grues, projecteurs.",
+              "statut": "proposition"
+            },
+            {
+              "id": "VEH_MAREN_SOFIE",
+              "type": "véhicule",
+              "description": "Petit cargo caboteur fictif.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "Le port apparaît ici pour la première fois (hors de l'ouverture, conformément à la décision d'Audrey)."
+          ],
+          "refs": [],
+          "decisions_audrey": [
+            "Port : hors de l'ouverture seulement ; il peut apparaître ensuite."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "titre": "Chapitre 4 — La cabane",
+      "scenes": [
+        {
+          "id": "SC_C4_01",
+          "titre": "La carte des parcelles",
+          "lieu": {
+            "texte": "Poste de crise en lisière de la forêt de Lande-Haute (camionnette, tables sous auvent).",
+            "env": [
+              "ENV_PC_FORET"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jeudi",
+            "debut": "08:00",
+            "fin": "09:00",
+            "lumiere": "jour gris, pluie froide",
+            "meteo": "pluie",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère de Lila, ignore le trafic (décision Q1) ; ici, apporte un vêtement de Lila (proposition)",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon de Nadia, tête du réseau (décision Q2) ; ici, l'accompagne (proposition)",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Superposer la zone du téléphone, le cadastre et les anciennes cabanes de résinier : trois cabanes candidates, dont une sur une parcelle de la SCI Lande-Haute.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Nadia remet un vêtement de Lila pour Ariane. Darrigade l'accompagne, attentif ; Ariane reste à distance de lui.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C4_02",
+            "texte": "Départ sous la pluie.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CADASTRE",
+              "ce_qu_on_voit": "Trois cabanes candidates ; une parcelle appartient à une SCI.",
+              "point_de_vue": "table",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "VETEMENT_LILA",
+              "ce_qu_on_voit": "Objet de référence pour Ariane.",
+              "point_de_vue": "mains de Nadia",
+              "distance": "< 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Table lisible.",
+            "CAM_WIDE": "Poste de crise.",
+            "CAM_FIRST": "Carte.",
+            "CAM_INSPECT": "Cadastre en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Mauvais ordre de fouille",
+              "alors": "Plus de pluie, piste plus faible, mais aucune impasse : la bonne cabane reste atteignable."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_PC_FORET",
+              "type": "lieu",
+              "description": "Poste de crise en lisière, véhicules, auvent, cartes.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q1 : Nadia ignore tout du trafic.",
+            "Q2 : le compagnon de Nadia dirige le réseau."
+          ]
+        },
+        {
+          "id": "SC_C4_02",
+          "titre": "La battue",
+          "lieu": {
+            "texte": "Forêt de Lande-Haute : pistes numérotées, parcelles de pins, fougères, fossés.",
+            "env": [
+              "ENV_FORET_LANDE_HAUTE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jeudi",
+            "debut": "09:00",
+            "fin": "17:30",
+            "lumiere": "pluie froide, lumière qui baisse l'après-midi",
+            "meteo": "pluie",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "équipes de battue",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "La joueuse choisit l'ordre des cabanes ; lecture de traces sous la pluie ; Ariane piste avec le vêtement de Lila (piste qui s'affaiblit avec l'heure).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Deux cabanes vides (une avec traces anciennes d'un chasseur).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C4_03",
+            "texte": "Fin d'après-midi : la dernière cabane, au fond d'une parcelle.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "TRACES_PLUIE",
+              "ce_qu_on_voit": "Pas et traces de pneus partiellement effacés.",
+              "point_de_vue": "sol",
+              "distance": "≤ 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Ariane dans le cadre.",
+            "CAM_WIDE": "Parcelles lisibles malgré la pluie.",
+            "CAM_FIRST": "Lecture du sol."
+          },
+          "repli": [
+            {
+              "si_manque": "Piste perdue",
+              "alors": "Ariane revient au dernier point sûr ; la carte indique la cabane suivante."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_FORET_LANDE_HAUTE",
+              "type": "lieu",
+              "description": "Forêt landaise sous la pluie, pistes sableuses, fossés, pins alignés.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_CHIENNE_PLUIE",
+              "type": "animation",
+              "description": "Pistage sous la pluie, s'ébrouer, hésiter.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "V7 : intensité de la pluie et de l'obscurité."
+          ],
+          "refs": [],
+          "decisions_audrey": []
+        },
+        {
+          "id": "SC_C4_03",
+          "titre": "La cabane",
+          "lieu": {
+            "texte": "Cabane sombre, froide, sans aucun confort (décision d'Audrey). Proposition : ancienne cabane de résinier en planches, au fond d'une parcelle.",
+            "env": [
+              "ENV_CABANE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jeudi",
+            "debut": "≈ 17:45",
+            "fin": "≈ 18:15",
+            "lumiere": "fin de jour sous la pluie ; intérieur très sombre, lumière des lampes",
+            "meteo": "pluie",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila, retenue seule",
+              "statut": "audrey"
+            },
+            {
+              "id": "GENDARMES",
+              "role": "équipe",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_K2",
+              "role": "« Sandrine », qui revient",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Ariane accélère, truffe au sol, et s'assied devant une porte cadenassée : aboiement bref, regard vers l'héroïne.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Les gendarmes ouvrent. Lila est là, recroquevillée dans un coin, frigorifiée et terrifiée, **sans aucune trace de violence** (l'absence de violence est une décision d'Audrey ; la mise en scène est une proposition).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Elle reconnaît Ariane avant de reconnaître les adultes ; Ariane s'approche doucement. L'héroïne s'agenouille, lui met sa veste sur les épaules.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "« Sandrine », qui revenait, est arrêtée sur la piste (ou s'enfuit : choix à faire plus tard).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C4_04",
+            "texte": "Lila est portée jusqu'aux véhicules.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CABANE",
+              "ce_qu_on_voit": "Porte cadenassée ; intérieur : planches, sol de terre, un seau, une bouteille d'eau ; rien de plus.",
+              "point_de_vue": "extérieur puis intérieur",
+              "distance": "≤ 5 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Plan large sur Ariane devant la porte, puis intérieur.",
+            "CAM_WIDE": "Caméra rapprochée, sobre ; pas de plan qui s'attarde sur la détresse de Lila (décision V8).",
+            "CAM_FIRST": "Hauteur d'yeux d'adulte qui s'agenouille."
+          },
+          "repli": [
+            {
+              "si_manque": "La joueuse arrive tard",
+              "alors": "La scène a lieu de toute façon ; seules la pluie et la nuit changent."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_CABANE",
+              "type": "lieu",
+              "description": "Sombre, froide, sans aucun confort, aucun signe de violence (décision d'Audrey). Proposition : cabane de résinier en planches.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ANIM_LILA_RETROUVEE",
+              "type": "animation",
+              "description": "Quelques secondes : Lila recroquevillée lève les yeux vers Ariane et se laisse approcher ; aucun gros plan sur sa détresse (décision V8).",
+              "statut": "audrey"
+            }
+          ],
+          "continuite": [
+            "Lila : même apparence qu'au prologue (tenue V4), salie et humide ; aucune blessure. Ni porte-clés ni bracelet (retrouvés au chapitre 1). Pas de cartable (proposition : resté entre les mains des ravisseurs)."
+          ],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q3 : Lila est retrouvée au chapitre 4.",
+            "Q3 : elle n'a subi aucune violence mais a été retenue dans une cabane sombre, froide et sans confort.",
+            "V8 : scène sobre, quelques secondes, Lila recroquevillée lève les yeux vers Ariane, sans gros plan sur sa détresse (29/09)."
+          ]
+        },
+        {
+          "id": "SC_C4_04",
+          "titre": "Les retrouvailles",
+          "lieu": {
+            "texte": "Piste forestière près des véhicules de secours.",
+            "env": [
+              "ENV_FORET_LANDE_HAUTE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jeudi",
+            "debut": "≈ 18:30",
+            "fin": "≈ 18:45",
+            "lumiere": "crépuscule pluvieux, gyrophares",
+            "meteo": "pluie",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon",
+              "statut": "audrey"
+            },
+            {
+              "id": "SECOURS",
+              "role": "pompiers, médecin",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Lila est enveloppée dans une couverture de survie ; Nadia la serre contre elle.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Darrigade arrive derrière Nadia et pose la main sur son épaule ; Lila se fige et détourne les yeux (graine forte, sans explication).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane se place entre Lila et Darrigade, sans grogner. Fin de l'acte I.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C5_01",
+            "texte": "Ellipse : quelques jours plus tard, départ pour Anvers.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "LILA_SE_FIGE",
+              "ce_qu_on_voit": "Lila se fige quand Darrigade approche.",
+              "point_de_vue": "piste",
+              "distance": "≤ 5 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Groupe lisible.",
+            "CAM_WIDE": "Gyrophares et pluie.",
+            "CAM_FIRST": "Visages."
+          },
+          "repli": [
+            {
+              "si_manque": "Graine manquée",
+              "alors": "Reprise au chapitre 6 par le témoignage de Lila recueilli par des professionnels."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_SECOURS_FORET",
+              "type": "lieu",
+              "description": "Véhicules de secours sur une piste forestière sous la pluie.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : même tenue qu'en SC_C4_03, veste de l'héroïne sur les épaules ; ni porte-clés, ni bracelet, ni cartable."
+          ],
+          "points_ouverts": [],
+          "refs": [],
+          "decisions_audrey": [
+            "Q3 : Lila est retrouvée au chapitre 4, sans violence subie.",
+            "Q1 : Nadia ignore tout du trafic."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "titre": "Chapitre 5 — Le pavillon (plan)",
+      "scenes": [
+        {
+          "id": "SC_C5_01",
+          "titre": "Anvers : le pavillon",
+          "lieu": {
+            "texte": "Anvers : docks, archives du registre des sociétés, bureau de Nordhaven Shipping BV.",
+            "env": [
+              "ENV_ANVERS"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jours suivants",
+            "debut": "—",
+            "fin": "—",
+            "lumiere": "lumière du Nord, grise",
+            "meteo": "variable",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "POLICE_BELGE",
+              "role": "police fédérale",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Reconstituer l'organigramme des sociétés écrans jusqu'aux contrats de fret de Darrigade Logistique.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C6_01",
+            "texte": "Retour à Lescoure.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "ORGANIGRAMME",
+              "ce_qu_on_voit": "Chaîne de prête-noms jusqu'à Darrigade Logistique.",
+              "point_de_vue": "archives",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "—",
+            "CAM_WIDE": "—",
+            "CAM_FIRST": "—",
+            "CAM_INSPECT": "Documents en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Organigramme incomplet",
+              "alors": "La police belge fournit une pièce manquante contre du temps."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ANVERS",
+              "type": "lieu",
+              "description": "Docks et bureaux d'Anvers (plan à détailler).",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "Chapitre à détailler après validation de l'acte I."
+          ],
+          "refs": [],
+          "decisions_audrey": []
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "titre": "Chapitre 6 — Faux-semblants (plan)",
+      "scenes": [
+        {
+          "id": "SC_C6_01",
+          "titre": "Faux-semblants",
+          "lieu": {
+            "texte": "Lescoure : étude Casteran (archives), maison de Nadia, entrepôt de Bayonne.",
+            "env": [
+              "ENV_PLACE_EGLISE",
+              "ENV_ENTREPOT_BAYONNE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "jours suivants",
+            "debut": "—",
+            "fin": "—",
+            "lumiere": "fin d'après-midi dorée, comme l'ouverture (proposition)",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "tête du réseau",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CASTERAN",
+              "role": "témoin de bonne foi (décision Q2) ; ses archives servent de preuve (proposition)",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Démonstration devant Arbelot et le juge : silence de Julien, trajet de Lila connu du cercle proche, deux fuites, archives de l'étude Casteran.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Perquisition légale : Ariane marque le placard où Darrigade a gardé la veste portée à la cabane.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Dernière scène : Lila, Nadia et Ariane à la sortie de l'école.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "FIN",
+            "texte": "Générique.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "VESTE_CABANE",
+              "ce_qu_on_voit": "Veste portant l'odeur de la cabane et de Lila.",
+              "point_de_vue": "placard",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "—",
+            "CAM_WIDE": "—",
+            "CAM_FIRST": "—"
+          },
+          "repli": [
+            {
+              "si_manque": "Démonstration incomplète",
+              "alors": "Le juge demande une pièce de plus ; jamais d'échec définitif."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ETUDE_CASTERAN",
+              "type": "lieu",
+              "description": "Archives de l'étude notariale.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [
+            "Chapitre à détailler après validation de l'acte I."
+          ],
+          "refs": [],
+          "decisions_audrey": [
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+          ]
+        }
+      ]
+    }
+  ]
+}

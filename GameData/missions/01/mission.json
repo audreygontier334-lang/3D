@@ -1,0 +1,185 @@
+{
+  "id": "M01",
+  "title": "Prologue « Sortie d'école » et chapitre 1 « Le fourgon »",
+  "status": "proposition",
+  "clock": {
+    "prologue_start": "16:25",
+    "chapter_start": "16:31",
+    "deadline": "19:30",
+    "travel_cost_per_zone": 1
+  },
+  "start_zone": "Z_PROMENADE",
+  "prologue": {
+    "events": [
+      "EVT_START",
+      "EVT_SONNERIE",
+      "EVT_LILA_COUCOU",
+      "EVT_ABORDAGE",
+      "EVT_MARCHE_FOURGON",
+      "EVT_ALERTE",
+      "EVT_DEPART",
+      "EVT_HORS_VUE",
+      "EVT_CH1_START"
+    ],
+    "window_max_actions": 2,
+    "_doc_window": "grants_instead_if_with REMPLACE grants quand l'autre action est combinée (photo en course = floue au lieu de nette, jamais les deux). Option d'accessibilité : window_accessibility étend la fenêtre sans changer le nombre d'actions ni leurs effets.",
+    "window_seconds": [
+      8,
+      12
+    ],
+    "window_accessibility": {
+      "id": "OPT_TEMPS_ACTION_ETENDU",
+      "default": false,
+      "window_seconds": [
+        20,
+        25
+      ],
+      "alternative": "pause_jusqu_au_choix",
+      "max_actions_unchanged": true
+    },
+    "departure_rule": {
+      "_doc": "Proposition. Garantit que la joueuse voit le départ du fourgon, où qu'elle soit sur la place. Lila, devant la portière, refuse de monter tant qu'elle n'a pas « appelé maman » (faux appel de K2, DLG_P_ABORDAGE_04–06) : c'est ce qui retient le fourgon jusqu'à l'alerte. Après l'alerte, le départ est retenu tant que la joueuse n'est pas à l'entrée de la ruelle, dans la limite de hold_max_s ; au-delà, un plan court non interactif montre le départ.",
+      "alert_trigger_distance_m": 5,
+      "alert_latest": "16:30:00",
+      "hold_until_player_within_m_of_entrance": 5,
+      "hold_max_s": 30,
+      "fallback_shot": {
+        "id": "CAM_DEPART_COURT",
+        "duration_s": 4,
+        "from": "entrée de la ruelle",
+        "interactive": false
+      },
+      "descent_to_turn_s": 12,
+      "min_visible_departure_s": 4,
+      "run_speed_mps": 5.0,
+      "max_prologue_distance_to_entrance_m": 110
+    },
+    "player_flags": [
+      "FLAG_COUCOU_RENDU"
+    ],
+    "actions": [
+      {
+        "id": "ACT_PHOTO",
+        "grants": [
+          "CLU_PHOTO_FOURGON"
+        ],
+        "grants_instead_if_with": {
+          "ACT_COURIR": [
+            "CLU_PHOTO_FLOUE"
+          ]
+        },
+        "dialogue": "DLG_P_HEROINE_CHOC"
+      },
+      {
+        "id": "ACT_COURIR",
+        "grants": [
+          "CLU_OBS_CONDUCTEUR",
+          "CLU_OBS_ECHAPPEMENT",
+          "CLU_OBS_FEU_FENDU"
+        ],
+        "dialogue": "DLG_P_HEROINE_CHOC"
+      },
+      {
+        "id": "ACT_CRIER",
+        "grants": [
+          "CLU_OBS_PASSAGERE",
+          "CLU_OBS_BADGE_CHUTE"
+        ],
+        "dialogue": "DLG_P_ALERTE"
+      },
+      {
+        "id": "ACT_ENVOYER",
+        "grants": [
+          "CLU_CHIENNE_IMPREGNEE"
+        ],
+        "dialogue": "DLG_P_ALERTE"
+      }
+    ],
+    "dialogues": [
+      "DLG_P_DUFAU",
+      "DLG_P_LILA",
+      "DLG_P_ABORDAGE",
+      "DLG_P_ALERTE",
+      "DLG_P_HEROINE_CHOC",
+      "DLG_P_TUTO"
+    ]
+  },
+  "reference_path": {
+    "_doc": "Parcours efficace sans aucun indice du prologue. Le validateur vérifie qu'il est jouable et qu'il laisse la marge nécessaire pour toutes les erreurs.",
+    "steps": [
+      "INT_APPEL_17",
+      "INT_DUFAU",
+      "INT_LARTIGUE",
+      "INT_TABLEAU_LIEGE",
+      "INT_BANC_ABRIBUS",
+      "INT_PISTE_BOUTEILLE",
+      "INT_AFFICHE_ECOLE",
+      "INT_INES",
+      "INT_PLAQUE_PARTIELLE",
+      "INT_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M01",
+    "dialogue": "DLG_C1_FIN",
+    "chapter2_states": [
+      {
+        "id": "CH2_ETAT_A",
+        "label": "Avance",
+        "condition": {
+          "resolved_before": "18:15",
+          "requires": [
+            "H_DEST_RIVE_EST"
+          ]
+        }
+      },
+      {
+        "id": "CH2_ETAT_B",
+        "label": "Standard",
+        "condition": {
+          "resolved_before": "19:00"
+        }
+      },
+      {
+        "id": "CH2_ETAT_C",
+        "label": "Retard",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_ORIGINE_FOURGON",
+        "from": "H_VEH_ORIGINE_BLANCHISSERIE"
+      },
+      {
+        "id": "BONUS_K1_IDENTIFIE",
+        "from": "H_K1_LOUBERE"
+      },
+      {
+        "id": "BONUS_RIVE_EST",
+        "from": "H_DEST_RIVE_EST"
+      },
+      {
+        "id": "BONUS_CHIENNE_IMPREGNEE",
+        "from": "CLU_CHIENNE_IMPREGNEE"
+      },
+      {
+        "id": "BONUS_PERE_ALLIE",
+        "from": "FLAG_PERE_ALLIE"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/01-ouverture.json"
+  }
+}

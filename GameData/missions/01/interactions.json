@@ -1,0 +1,326 @@
+{
+  "mission": "M01",
+  "_doc": "Interactions du chapitre 1. cost = minutes de jeu. requires.all = tous requis ; requires.any = au moins un. Les IDs peuvent être des indices (CLU_), déductions (DED_) ou drapeaux (FLAG_). grants = indices et drapeaux obtenus. Les déplacements entre zones coûtent mission.travel_cost_per_zone.",
+  "interactions": [
+    {
+      "id": "INT_APPEL_17",
+      "location": "LOC_ACCOTEMENT",
+      "cost": 3,
+      "mandatory": true,
+      "grants": [
+        "FLAG_APPEL_17"
+      ],
+      "dialogue": "DLG_C1_OPERATRICE"
+    },
+    {
+      "id": "INT_PROTEGER_SCENE",
+      "location": "LOC_COIN_ECOLES",
+      "cost": 1,
+      "grants": [
+        "FLAG_SCENE_PROTEGEE"
+      ],
+      "dialogue": "DLG_C1_SCENE"
+    },
+    {
+      "id": "INT_EXAMINER_ACCOTEMENT",
+      "location": "LOC_ACCOTEMENT",
+      "cost": 2,
+      "grants": [
+        "CLU_PORTE_CLES_LILA",
+        "CLU_TRACES_PNEUS",
+        "CLU_MEGOTS",
+        "CLU_CAISSE_POISSON"
+      ],
+      "dialogue": "DLG_C1_EXAMEN_ACCOTEMENT"
+    },
+    {
+      "id": "INT_FOUILLER_HAIE",
+      "location": "LOC_ACCOTEMENT",
+      "cost": 1,
+      "requires": {
+        "any": [
+          "CLU_OBS_BADGE_CHUTE",
+          "CLU_CHIENNE_IMPREGNEE"
+        ]
+      },
+      "grants": [
+        "CLU_BADGE"
+      ],
+      "dialogue": "DLG_C1_HAIE"
+    },
+    {
+      "id": "INT_DUFAU",
+      "location": "LOC_BANC_DUFAU",
+      "cost": 4,
+      "grants": [
+        "CLU_TEMOIN_DUFAU"
+      ],
+      "dialogue": "DLG_C1_DUFAU"
+    },
+    {
+      "id": "INT_LARTIGUE",
+      "location": "LOC_BOULANGERIE",
+      "cost": 3,
+      "grants": [
+        "CLU_TEMOIN_LARTIGUE"
+      ],
+      "dialogue": "DLG_C1_LARTIGUE"
+    },
+    {
+      "id": "INT_TABLEAU_LIEGE",
+      "location": "LOC_BOULANGERIE",
+      "cost": 1,
+      "grants": [
+        "CLU_FLYER_BLANCHISSERIE",
+        "CLU_FLYER_PRESSING"
+      ],
+      "dialogue": "DLG_C1_LIEGE"
+    },
+    {
+      "id": "INT_BANC_ABRIBUS",
+      "location": "LOC_ABRIBUS",
+      "cost": 1,
+      "grants": [
+        "CLU_BOUTEILLE",
+        "CLU_TICKET_BOULANGERIE"
+      ],
+      "dialogue": "DLG_C1_ABRIBUS"
+    },
+    {
+      "id": "INT_PLAN_TOURISTIQUE",
+      "location": "LOC_ABRIBUS",
+      "cost": 1,
+      "grants": [
+        "CLU_PLAN_DISTANCES"
+      ],
+      "dialogue": "DLG_C1_PLAN"
+    },
+    {
+      "id": "INT_AFFICHE_ECOLE",
+      "location": "LOC_ECOLE",
+      "cost": 1,
+      "grants": [
+        "CLU_AFFICHE_COMMUNE"
+      ],
+      "dialogue": "DLG_C1_AFFICHE"
+    },
+    {
+      "id": "INT_DIRECTRICE",
+      "location": "LOC_ECOLE",
+      "cost": 3,
+      "grants": [
+        "CLU_TEMOIN_DIRECTRICE"
+      ],
+      "dialogue": "DLG_C1_DIRECTRICE"
+    },
+    {
+      "id": "INT_CASTERAN",
+      "location": "LOC_ETUDE_CASTERAN",
+      "cost": 3,
+      "available_from": "16:45",
+      "grants": [
+        "CLU_TEMOIN_CASTERAN"
+      ],
+      "dialogue": "DLG_C1_CASTERAN"
+    },
+    {
+      "id": "INT_LIGNE_DE_VUE",
+      "location": "LOC_ETUDE_CASTERAN",
+      "cost": 2,
+      "puzzle": "PZ_03",
+      "requires": {
+        "all": [
+          "CLU_TEMOIN_CASTERAN"
+        ]
+      },
+      "grants": [
+        "CLU_LIGNE_DE_VUE"
+      ],
+      "dialogue": "DLG_C1_LIGNE_DE_VUE"
+    },
+    {
+      "id": "INT_INES",
+      "location": "LOC_SKATEPARK",
+      "cost": 4,
+      "puzzle": "PZ_04",
+      "grants": [
+        "CLU_VIDEO_INES"
+      ],
+      "fail_flag": "FLAG_INES_BRAQUEE",
+      "dialogue": "DLG_C1_INES"
+    },
+    {
+      "id": "INT_PISTE_LILA",
+      "location": "LOC_COIN_ECOLES",
+      "cost": 5,
+      "puzzle": "PZ_01",
+      "requires": {
+        "all": [
+          "CLU_PORTE_CLES_LILA"
+        ]
+      },
+      "grants": [
+        "CLU_PISTE_LILA",
+        "CLU_BRACELET_LILA"
+      ],
+      "dialogue": "DLG_C1_PISTE_LILA"
+    },
+    {
+      "id": "INT_PISTE_BOUTEILLE",
+      "location": "LOC_ABRIBUS",
+      "cost": 5,
+      "puzzle": "PZ_02",
+      "requires": {
+        "all": [
+          "CLU_BOUTEILLE"
+        ]
+      },
+      "grants": [
+        "CLU_BADGE"
+      ],
+      "dialogue": "DLG_C1_PISTE_BOUTEILLE"
+    },
+    {
+      "id": "INT_PLAQUE_COMPLETE",
+      "location": "LOC_POSTE",
+      "cost": 5,
+      "puzzle": "PZ_05",
+      "requires": {
+        "all": [
+          "CLU_PHOTO_FOURGON",
+          "CLU_VIDEO_INES"
+        ]
+      },
+      "grants": [
+        "CLU_SIV_CLONE"
+      ],
+      "dialogue": "DLG_C1_PLAQUE"
+    },
+    {
+      "id": "INT_PLAQUE_PARTIELLE",
+      "location": "LOC_POSTE",
+      "cost": 15,
+      "puzzle": "PZ_05",
+      "requires": {
+        "any": [
+          "CLU_PHOTO_FOURGON",
+          "CLU_VIDEO_INES"
+        ]
+      },
+      "grants": [
+        "CLU_SIV_CLONE"
+      ],
+      "dialogue": "DLG_C1_PLAQUE"
+    },
+    {
+      "id": "INT_APPEL_BLANCHISSERIE",
+      "location": "LOC_POSTE",
+      "cost": 10,
+      "requires": {
+        "all": [
+          "DED_LETTRAGE"
+        ]
+      },
+      "grants": [
+        "CLU_APPEL_BLANCHISSERIE"
+      ],
+      "dialogue": "DLG_C1_BLANCHISSERIE"
+    },
+    {
+      "id": "INT_CCTV_RELAIS",
+      "location": "LOC_POSTE",
+      "cost": 10,
+      "requires": {
+        "all": [
+          "CLU_VIDEO_INES"
+        ]
+      },
+      "grants": [
+        "CLU_CCTV_RELAIS"
+      ],
+      "dialogue": "DLG_C1_RELAIS"
+    },
+    {
+      "id": "INT_CARTE_ETANG",
+      "location": "LOC_POSTE",
+      "cost": 1,
+      "grants": [
+        "CLU_CARTE_ETANG"
+      ],
+      "dialogue": "DLG_C1_CARTE"
+    },
+    {
+      "id": "INT_OBSERVER_PERE",
+      "location": "LOC_POSTE",
+      "cost": 0,
+      "available_from": "17:40",
+      "available_until": "17:55",
+      "grants": [
+        "CLU_PERE_REACTION"
+      ],
+      "dialogue": "DLG_C1_PERE_OBSERVATION"
+    },
+    {
+      "id": "INT_ELOIGNER_DARRIGADE",
+      "location": "LOC_POSTE",
+      "cost": 1,
+      "available_from": "17:35",
+      "grants": [
+        "FLAG_DARRIGADE_ELOIGNE"
+      ],
+      "dialogue": "DLG_C1_ELOIGNER_DARRIGADE"
+    },
+    {
+      "id": "INT_NADIA_TEMOIGNAGE",
+      "location": "LOC_POSTE",
+      "cost": 4,
+      "available_from": "17:40",
+      "grants": [
+        "CLU_TEMOIN_NADIA"
+      ],
+      "dialogue": "DLG_C1_NADIA"
+    },
+    {
+      "id": "INT_PERE",
+      "location": "LOC_POSTE",
+      "cost": 5,
+      "available_from": "17:40",
+      "puzzle": "PZ_08",
+      "requires": {
+        "all": [
+          "FLAG_DARRIGADE_ELOIGNE"
+        ],
+        "any": [
+          "CLU_TEMOIN_LARTIGUE",
+          "CLU_BADGE",
+          "CLU_TEMOIN_DIRECTRICE",
+          "DED_RUSE"
+        ]
+      },
+      "blocked_by": [
+        "FLAG_PERE_FERME"
+      ],
+      "grants": [
+        "CLU_MESSAGE_CHANTAGE",
+        "CLU_PHOTO_VIE",
+        "FLAG_PERE_ALLIE"
+      ],
+      "fail_flag": "FLAG_PERE_FERME",
+      "dialogue": "DLG_C1_PERE"
+    },
+    {
+      "id": "INT_PRESENTER_TABLEAU",
+      "location": "LOC_POSTE",
+      "cost": 5,
+      "puzzle": "PZ_10",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "FLAG_APPEL_17"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C1_TABLEAU"
+    }
+  ]
+}

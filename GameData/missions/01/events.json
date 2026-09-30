@@ -1,0 +1,110 @@
+{
+  "mission": "M01",
+  "_doc": "Événements automatiques. time = heure de déclenchement. unless = ne se déclenche pas si l'un de ces IDs est déjà acquis. Les événements de rattrapage garantissent l'accès aux preuves obligatoires.",
+  "events": [
+    {
+      "id": "EVT_GENDARMES_ARRIVENT",
+      "time": "16:44",
+      "time_rule": "max(16:44, appel_17 + 13 min)",
+      "grants": [
+        "FLAG_GENDARMES_SUR_PLACE"
+      ],
+      "dialogue": "DLG_C1_MENDIONDO_ARRIVEE"
+    },
+    {
+      "id": "EVT_CASTERAN_ARRIVE",
+      "time": "16:45",
+      "grants": [],
+      "dialogue": null
+    },
+    {
+      "id": "EVT_RADIO_PEAGE",
+      "time": "17:15",
+      "grants": [
+        "CLU_SIGNALEMENT_PEAGE"
+      ],
+      "dialogue": "DLG_C1_RADIO_PEAGE"
+    },
+    {
+      "id": "EVT_PERE_ARRIVE",
+      "time": "17:30",
+      "grants": [
+        "FLAG_PERE_PRESENT"
+      ],
+      "dialogue": "DLG_C1_PERE_ARRIVEE"
+    },
+    {
+      "id": "EVT_NADIA_ARRIVE",
+      "time": "17:35",
+      "grants": [
+        "FLAG_NADIA_PRESENTE",
+        "CLU_ARIANE_DARRIGADE"
+      ],
+      "dialogue": "DLG_C1_NADIA_ARRIVEE"
+    },
+    {
+      "id": "EVT_PERE_MESSAGE",
+      "time": "17:40",
+      "grants": [],
+      "dialogue": null
+    },
+    {
+      "id": "EVT_DARRIGADE_S_ELOIGNE",
+      "time": "18:05",
+      "unless": [
+        "FLAG_DARRIGADE_ELOIGNE"
+      ],
+      "grants": [
+        "FLAG_DARRIGADE_ELOIGNE"
+      ],
+      "dialogue": "DLG_C1_DARRIGADE_APPELS",
+      "fallback": true
+    },
+    {
+      "id": "EVT_FOUILLE_HAIE",
+      "time": "18:30",
+      "unless": [
+        "CLU_BADGE"
+      ],
+      "grants": [
+        "CLU_BADGE"
+      ],
+      "dialogue": "DLG_C1_FOUILLE_HAIE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_PERE_CRAQUE",
+      "time": "18:45",
+      "unless": [
+        "CLU_MESSAGE_CHANTAGE"
+      ],
+      "grants": [
+        "CLU_MESSAGE_CHANTAGE",
+        "CLU_PHOTO_VIE"
+      ],
+      "dialogue": "DLG_C1_PERE_CRAQUE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_INES_PARENTS",
+      "time": "19:00",
+      "unless": [
+        "CLU_VIDEO_INES"
+      ],
+      "grants": [
+        "CLU_VIDEO_INES"
+      ],
+      "dialogue": "DLG_C1_INES_PARENTS",
+      "fallback": true
+    },
+    {
+      "id": "EVT_CLOTURE",
+      "time": "19:30",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C1_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

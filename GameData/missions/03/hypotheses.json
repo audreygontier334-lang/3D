@@ -1,0 +1,112 @@
+{
+  "mission": "M03",
+  "_doc": "Tableau du chapitre 3. La destination suivante se choisit ensuite sur la carte (GameData/campaign/itineraire.json, ETP_3).",
+  "axes": [
+    {
+      "id": "lot",
+      "label": "UI_C3_AXE_LOT",
+      "required_for_resolution": true
+    },
+    {
+      "id": "fuite",
+      "label": "UI_C3_AXE_FUITE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "piste",
+      "label": "UI_C3_AXE_PISTE",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C3_LOT_QUAI_4",
+      "axis": "lot",
+      "correct": true,
+      "label": "UI_H_C3_LOT_QUAI_4",
+      "requires_any_of": [
+        [
+          "DED_C3_LOT_FALSIFIE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C3_LOT_PHARMACIE",
+      "axis": "lot",
+      "correct": false,
+      "label": "UI_H_C3_LOT_PHARMACIE",
+      "unlocked_by": [
+        "CLU_C3_BONS_LIVRAISON"
+      ],
+      "contradicted_by": [
+        "CLU_C3_PESEE"
+      ],
+      "wrong_branch": "BR_C3_ERR_PHARMACIE"
+    },
+    {
+      "id": "H_C3_TOUT_ENTREPOT",
+      "axis": "lot",
+      "correct": false,
+      "label": "UI_H_C3_TOUT_ENTREPOT",
+      "unlocked_by": [
+        "CLU_C3_BONS_LIVRAISON"
+      ],
+      "contradicted_by": [
+        "CLU_C3_SCELLES",
+        "CLU_C3_PESEE"
+      ],
+      "wrong_branch": "BR_C3_ERR_TOUT"
+    },
+    {
+      "id": "H_C3_FUITE_FAMILLE",
+      "axis": "fuite",
+      "correct": true,
+      "label": "UI_H_C3_FUITE_FAMILLE",
+      "requires_any_of": [
+        [
+          "DED_C3_FUITE_FAMILLE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C3_FUITE_JULIEN",
+      "axis": "fuite",
+      "correct": false,
+      "label": "UI_H_C3_FUITE_JULIEN",
+      "unlocked_by": [
+        "CLU_C3_TEMOIGNAGE_JULIEN"
+      ],
+      "contradicted_by": [
+        "CLU_C3_JULIEN_SOUS_SURVEILLANCE"
+      ],
+      "wrong_branch": "BR_C3_ERR_JULIEN"
+    },
+    {
+      "id": "H_C3_FUITE_DOUANES",
+      "axis": "fuite",
+      "correct": false,
+      "label": "UI_H_C3_FUITE_DOUANES",
+      "unlocked_by": [
+        "CLU_C3_COMPLICE_SEUL"
+      ],
+      "contradicted_by": [
+        "CLU_C3_OPERATION_ANNONCEE",
+        "CLU_C3_COMPLICE_SEUL"
+      ],
+      "wrong_branch": "BR_C3_ERR_DOUANES"
+    },
+    {
+      "id": "H_C3_ZONE_NE",
+      "axis": "piste",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C3_ZONE_NE",
+      "requires_any_of": [
+        [
+          "DED_C3_ZONE_NE"
+        ]
+      ],
+      "bonus": "BONUS_ZONE_NE"
+    }
+  ]
+}

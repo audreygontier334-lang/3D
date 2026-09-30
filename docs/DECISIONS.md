@@ -4,29 +4,36 @@
 
 1. Jeu autonome pour PC Windows, installable, en 3D photoréaliste.
 2. Duo principal : Audrey et sa chienne. Audrey décrit et valide les étapes de création.
-3. Ouverture : promenade dans un village en bord de mer ; elles assistent à l'enlèvement d'une fillette qui rentre seule de l'école.
-4. Protagoniste visée : femme brune d'une trentaine d'années, jean, tee-shirt, veste en jean, bandeau noué sur la tête, créoles, baskets blanches épaisses ; expression sérieuse ou en colère selon la scène.
-5. Chienne : croisée malinois / bull terrier, environ 35 kg, beige fauve, masque et oreilles noirs, poitrail et extrémités des pattes blancs, musclée et élégante ; une oreille droite et l'autre tombante.
-6. Mécanique inspirée de la recherche d'indices, des dossiers, des déductions et de la poursuite de destination de Carmen Sandiego, dans une œuvre originale pour adultes.
+3. Ouverture : centre-ville inspiré d'Arcachon, en lumière chaude de fin d'après-midi. Le port reste hors de la scène d'ouverture. La place de l'école et la rue adjacente plus calme, orientée vers le front de mer, sont deux lieux et deux plans distincts ; l'enlèvement se produit dans cette rue.
+4. Direction architecturale de la rue adjacente : maisons arcachonnaises de différentes époques, volumes, toitures et couleurs, avec clôtures, portails et haies variés, sans façades répétées. Audrey a validé cette ambiance, pas l'action montrée dans les images d'exploration.
+5. Protagoniste visée : femme brune d'une trentaine d'années, jean slim taille basse, tee-shirt, veste en jean, bandeau noir à motifs blancs, créoles, baskets rétro de running noires et blanches d'inspiration ancienne sans marque affichée ; attitude naturelle et expression adaptée à la scène.
+6. Chienne : Ariane, croisée malinois / bull terrier, environ 35 kg, beige fauve, masque et oreilles noirs, poitrail et extrémités des pattes blancs, musclée et élégante ; une oreille droite et l'autre tombante. Elle est libre dès le départ, sans laisse ni collier, et porte uniquement un foulard noir à motifs blancs assorti au bandeau d'Audrey.
 7. Plusieurs vues au choix : troisième personne proche, troisième personne plus reculée, première personne facultative. Le scénario et les énigmes ne doivent pas dépendre d'une vue unique.
-8. Centralisation du travail dans un **nouveau dépôt GitHub**, distinct des autres jeux du compte partagé.
-9. Claude peut écrire l'enquête, les énigmes, les textes et certaines parties du code ; Codex se concentre sur visuels, graphismes, textures, animations, sons, vidéo et intégration.
+8. Les photos personnelles d'Audrey et sa ressemblance restent hors du dépôt public sans son accord explicite. Les images exploratoires ne sont ni des captures du jeu ni une référence personnage validée.
+9. Choix narratif Q1 : l'enlèvement de Lila exerce une pression sur son père Julien, impliqué dans le réseau et désireux d'en sortir. Les parents sont séparés ; Nadia arrive après l'enlèvement et ignore le trafic.
+10. Choix narratif Q2, selon la confirmation d'Audrey transmise par Claude dans la PR #4 le 29 septembre 2026 : le compagnon de Nadia dirige le réseau. « Xavier Darrigade » est un nom provisoire. Casteran est un témoin de bonne foi qui s'est trompé.
+11. Choix narratif Q3, selon la même confirmation : Lila est retrouvée au chapitre 4, sans avoir subi de violence, après avoir été retenue dans une cabane sombre, froide et sans confort.
+12. Le niveau d'animation de la place de l'école et l'apparence définitive du fourgon seront choisis par Audrey pendant la construction 3D photoréaliste.
+13. Méthode de production : scénario précis par scène révisé par Claude, puis visuels de lieux produits par Codex à partir de ce scénario. Audrey garde le choix final et peut modifier les propositions.
+14. Mécanique inspirée de la recherche d'indices, des dossiers, des déductions et de la poursuite de destination de Carmen Sandiego, dans une œuvre originale pour adultes.
+15. Centralisation du travail dans ce dépôt GitHub, distinct des autres jeux du compte partagé. Claude travaille sur l'enquête, les énigmes, les textes et certaines parties du code ; Codex se concentre sur visuels, graphismes, textures, animations, sons, vidéo et intégration.
 
 ## Propositions à valider, donc non canoniques
 
 - Titre provisoire : « Faux-semblants ».
-- Village fictif de la côte landaise ; piste allant d'abord vers d'autres lieux de la côte atlantique, puis vers plusieurs villes européennes.
-- La fillette est retrouvée dans le premier acte, tandis que l'enquête sur le réseau se poursuit.
-- Une organisation de transport maritime et de faux documents relie les affaires.
+- Nom « Xavier Darrigade » pour le compagnon de Nadia.
+- Ville fictive et noms des lieux ; étendue des voyages après le chapitre 4.
+- Trajectoire exacte de Lila entre l'école et la rue adjacente et chorégraphie de l'enlèvement. La tenue et la coiffure ont ensuite été choisies dans `CHOIX_VISUELS_V2_V4.md` : V4 A, sweat moutarde, jean droit, baskets blanches à scratch, cartable rouge brique, carré court châtain. Les anciennes images exploratoires ne sont pas des références de continuité.
+- Position finale des témoins, lignes de vue et indices dans la rue adjacente, à fixer après le découpage narratif puis à tester dans les trois caméras.
+- Densité et mouvements des passants dans la maquette. La direction du fourgon est choisie dans `CHOIX_VISUELS_V2_V4.md` : V2 A, blanc usé, ombre de lettrage conservée et feu arrière droit fendu. Le modèle photoréaliste final reste à présenter à Audrey.
 - Troisième personne derrière l'épaule comme vue de départ.
-- Unreal Engine comme moteur envisagé pour la version PC photoréaliste ; aucun projet compilable n'existe encore.
+- Le projet Unreal 5.4 existe dans `Game/Unreal/FauxSemblants/`. Audrey a confirmé une première compilation C++ réussie sur son PC. La construction de `L_Prologue`, la compilation des corrections de reprise et leur validation en jeu restent à vérifier ; le blockout ne constitue pas une production photoréaliste terminée.
 
-## À demander à Audrey au fil du travail
+## À soumettre à Audrey au fil du travail
 
-- Prénom de la chienne et nom que portera la protagoniste dans le jeu.
-- Intensité souhaitée : enquête réaliste et tendue, ou davantage de filatures et d'action.
-- Cadre géographique exact : village fictif ou lieu réel ; amplitude des voyages.
-- Degré de noirceur et limites souhaitées pour la représentation de l'enlèvement.
-- Retours sur le premier acte et sur la révélation finale avant rédaction complète.
+- Nom que portera la protagoniste dans le jeu.
+- Découpage et actions scène par scène, en particulier la continuité de Lila entre les deux plans.
+- Niveau d'animation de la place de l'école et apparence du fourgon lors de la construction photoréaliste.
+- Retours sur le premier acte et sur les détails narratifs proposés, sans rouvrir Q1–Q3 comme s'ils étaient indécis.
 
-Ne pas présenter une proposition de cette page comme déjà décidée.
+Ne pas présenter une proposition de cette page comme déjà décidée. Ne pas fusionner une PR pour entériner un détail narratif non validé.

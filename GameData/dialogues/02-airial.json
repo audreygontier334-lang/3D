@@ -1,0 +1,512 @@
+{
+  "mission": "M02",
+  "status": "proposition",
+  "_doc": "Répliques du chapitre 2 (proposition de Claude).",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "MENDIONDO": "Adjudante-cheffe Mendiondo",
+    "GENDARME": "Gendarme (radio)",
+    "GERANT": "Gérant du Relais du Lac",
+    "VOISIN": "Père de la famille Lartigau",
+    "RANDONNEUSE": "Randonneuse du gîte de Bordes",
+    "LOUBERE": "Franck Loubère",
+    "DARRIGADE": "Xavier Darrigade, compagnon de Nadia"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C2_BRIEFING",
+      "context": "INT_C2_BRIEFING. Briefing sur le capot, lampes rouges.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_BRIEFING_01",
+          "speaker": "MENDIONDO",
+          "text": "Trois airiaux sur la rive est. Lartigau, une famille. Bordes, un gîte. Hount-Bielha, une SCI, vide sur le papier.",
+          "intent": "Poser la carte",
+          "emotion": "concentrée"
+        },
+        {
+          "id": "DLG_C2_BRIEFING_02",
+          "speaker": "MENDIONDO",
+          "text": "Vous restez derrière mes gars. Vous et la chienne, vous lisez le terrain, on s'occupe du reste.",
+          "intent": "Cadre légal : la joueuse est témoin, pas policière",
+          "emotion": "ferme"
+        },
+        {
+          "id": "DLG_C2_BRIEFING_03",
+          "speaker": "MENDIONDO",
+          "text": "Et on se tait à la radio. Le mot étang n'a été dit qu'au poste, depuis 17 h 45, et sur nos radios chiffrées. Je veux que ça reste comme ça.",
+          "intent": "Graine de la fuite",
+          "emotion": "méfiante"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_RELAIS",
+      "context": "INT_C2_RELAIS. Le gérant ferme sa caisse.",
+      "location": "LOC_RELAIS_DU_LAC",
+      "lines": [
+        {
+          "id": "DLG_C2_RELAIS_01",
+          "speaker": "GERANT",
+          "text": "Votre fourgon, c'était vers 16 h 40, je l'ai dit aux gendarmes.",
+          "intent": "Confirmer le passage",
+          "emotion": "las"
+        },
+        {
+          "id": "DLG_C2_RELAIS_02",
+          "speaker": "GERANT",
+          "text": "Et tout à l'heure, vers 18 h 35, une petite voiture grise est ressortie de la route de l'étang. Pressée. Vers le sud.",
+          "intent": "Indice de chronologie",
+          "emotion": "soudain attentif"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_TRACES",
+      "context": "INT_C2_TRACES_PISTE. Carrefour de la piste 12, à la lampe.",
+      "location": "LOC_PISTE_12",
+      "lines": [
+        {
+          "id": "DLG_C2_TRACES_01",
+          "speaker": "HEROINE",
+          "text": "Trois branches. Et des traces partout.",
+          "intent": "Poser l'énigme PZ_C2_01",
+          "emotion": "concentrée"
+        },
+        {
+          "id": "DLG_C2_TRACES_02",
+          "speaker": "CHIENNE",
+          "text": "[truffe au sol, s'arrête sur la branche de droite, revient, attend]",
+          "intent": "Ariane ne tranche pas seule : elle signale un passage frais",
+          "emotion": "attentive"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_LARTIGAU",
+      "context": "INT_C2_LARTIGAU. Porte entrouverte, odeur de soupe.",
+      "location": "LOC_AIRIAL_LARTIGAU",
+      "lines": [
+        {
+          "id": "DLG_C2_LARTIGAU_01",
+          "speaker": "VOISIN",
+          "text": "Personne n'est venu, on est à table depuis sept heures.",
+          "intent": "Témoin fiable",
+          "emotion": "inquiet"
+        },
+        {
+          "id": "DLG_C2_LARTIGAU_02",
+          "speaker": "VOISIN",
+          "text": "Par contre, la maison du fond, Hount-Bielha, il y a de la lumière depuis dimanche. Elle est toujours vide, celle-là.",
+          "intent": "Indice vers le bon airial",
+          "emotion": "perplexe"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_BORDES",
+      "context": "INT_C2_BORDES. Deux randonneurs sur la terrasse du gîte.",
+      "location": "LOC_AIRIAL_BORDES",
+      "lines": [
+        {
+          "id": "DLG_C2_BORDES_01",
+          "speaker": "RANDONNEUSE",
+          "text": "Vers six heures et demie, une petite voiture grise est passée à toute vitesse sur la piste.",
+          "intent": "Heure du départ de Lila",
+          "emotion": "hésitante"
+        },
+        {
+          "id": "DLG_C2_BORDES_02",
+          "speaker": "RANDONNEUSE",
+          "text": "Une femme au volant. Et quelqu'un de petit à l'arrière, je crois.",
+          "intent": "Sans détail qui dépende de l'apparence de Lila",
+          "emotion": "troublée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_PIECE",
+      "context": "INT_C2_PIECE. La pièce aux fenêtres sur l'étang, de nuit.",
+      "location": "LOC_HB_PIECE",
+      "lines": [
+        {
+          "id": "DLG_C2_PIECE_01",
+          "speaker": "HEROINE",
+          "text": "C'est la fenêtre de la photo. Le ponton. Le pin avec son pot.",
+          "intent": "Comparaison avec la photo",
+          "emotion": "gorge serrée"
+        },
+        {
+          "id": "DLG_C2_PIECE_02",
+          "speaker": "MENDIONDO",
+          "text": "Le poêle est froid. Elle est partie depuis au moins une heure.",
+          "intent": "Lila n'est plus là (Q3)",
+          "emotion": "sombre"
+        },
+        {
+          "id": "DLG_C2_PIECE_03",
+          "speaker": "HEROINE",
+          "text": "La chaise, près de la fenêtre. Le coussin. C'est là qu'elle s'asseyait.",
+          "intent": "Préparer PZ_C2_03",
+          "emotion": "douce"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ARIANE",
+      "context": "INT_C2_ARIANE_PISTE. Ariane sent l'objet de référence choisi.",
+      "location": "LOC_HB_PRAIRIE",
+      "lines": [
+        {
+          "id": "DLG_C2_ARIANE_01",
+          "speaker": "HEROINE",
+          "text": "Cherche, Ariane. Cherche Lila.",
+          "intent": "Ordre",
+          "emotion": "tendue",
+          "requires": {
+            "selected": "CLU_C2_COUSSIN"
+          }
+        },
+        {
+          "id": "DLG_C2_ARIANE_02",
+          "speaker": "CHIENNE",
+          "text": "[allure régulière, truffe basse, s'arrête sur une gomme dans l'herbe, repart, s'assied au bout du chemin devant des traces de pneus]",
+          "intent": "Piste de Lila jusqu'à la voiture",
+          "emotion": "concentrée",
+          "requires": {
+            "selected": "CLU_C2_COUSSIN"
+          }
+        },
+        {
+          "id": "DLG_C2_ARIANE_03",
+          "speaker": "HEROINE",
+          "text": "Un badge… « DL, quai 4 ». Et des pneus, vers le sud.",
+          "intent": "Deux indices de la suite",
+          "emotion": "fébrile",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ARIANE_MAUVAIS_OBJET",
+      "context": "BR_C2_ARIANE_MAUVAIS_OBJET.",
+      "location": "LOC_HB_PRAIRIE",
+      "lines": [
+        {
+          "id": "DLG_C2_ARIANE_MAUVAIS_OBJET_01",
+          "speaker": "CHIENNE",
+          "text": "[suit une odeur d'adulte, contourne la maison, gratte à la porte de la grange]",
+          "intent": "Odeur mêlée : pas celle de Lila seule",
+          "emotion": "hésitante"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_GRANGE",
+      "context": "INT_C2_GRANGE. Fumée derrière la porte.",
+      "location": "LOC_HB_GRANGE",
+      "lines": [
+        {
+          "id": "DLG_C2_GRANGE_01",
+          "speaker": "CHIENNE",
+          "text": "[aboiement bref, assise devant la porte, regard vers l'héroïne]",
+          "intent": "Marquage",
+          "emotion": "alerte"
+        },
+        {
+          "id": "DLG_C2_GRANGE_02",
+          "speaker": "MENDIONDO",
+          "text": "Gendarmerie ! Les mains ! … Loubère. Tu brûlais quoi ?",
+          "intent": "Interpellation sans violence montrée",
+          "emotion": "tranchante"
+        },
+        {
+          "id": "DLG_C2_GRANGE_03",
+          "speaker": "LOUBERE",
+          "text": "…",
+          "intent": "Il se tait",
+          "emotion": "fermé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_DOC_BRULE",
+      "context": "INT_C2_DOC_BRULE, seulement en état A : le feu n'a pas tout pris.",
+      "location": "LOC_HB_GRANGE",
+      "lines": [
+        {
+          "id": "DLG_C2_DOC_BRULE_01",
+          "speaker": "HEROINE",
+          "text": "« …igade Logistique, quai 4, jeudi 6 h ». Le dernier voyage.",
+          "intent": "Bonus d'avance",
+          "emotion": "saisie"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_POUBELLE",
+      "context": "INT_C2_POUBELLE.",
+      "location": "LOC_HB_PRAIRIE",
+      "lines": [
+        {
+          "id": "DLG_C2_POUBELLE_01",
+          "speaker": "HEROINE",
+          "text": "Un ticket de la marina d'Hossegor… d'il y a trois semaines.",
+          "intent": "Leurre loyal, daté",
+          "emotion": "dubitative"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_CHRONO",
+      "context": "INT_C2_CHRONO. Au véhicule de commandement, la joueuse remet les heures dans l'ordre (PZ_C2_02).",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_CHRONO_01",
+          "speaker": "HEROINE",
+          "text": "Elle est partie vers 18 h 30. On n'avait même pas quitté Lescoure.",
+          "intent": "Cœur de la déduction",
+          "emotion": "glacée"
+        },
+        {
+          "id": "DLG_C2_CHRONO_02",
+          "speaker": "MENDIONDO",
+          "text": "Alors quelqu'un savait. Quelqu'un qui était au poste.",
+          "intent": "Conclusion, sans nommer personne",
+          "emotion": "sourde",
+          "requires": {
+            "outcome": "succes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_TABLEAU",
+      "context": "INT_C2_PRESENTER_TABLEAU. Le tableau de la nuit, sur le capot.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_TABLEAU_01",
+          "speaker": "MENDIONDO",
+          "text": "Montrez-moi ce que vous avez.",
+          "intent": "Ouvrir PZ_C2_04",
+          "emotion": "épuisée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_FIN",
+      "context": "BR_C2_RESOLU. Retour au poste de Lescoure, vers 1 h.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_FIN_01",
+          "speaker": "MENDIONDO",
+          "text": "Le capitaine Arbelot prend l'enquête. Et on ne parle plus de rien devant personne.",
+          "intent": "Passage de relais",
+          "emotion": "grave"
+        },
+        {
+          "id": "DLG_C2_FIN_02",
+          "speaker": "DARRIGADE",
+          "text": "Du café, de la part de Nadia. Vous avez du nouveau ?",
+          "intent": "Graine : il est au poste en pleine nuit",
+          "emotion": "prévenant"
+        },
+        {
+          "id": "DLG_C2_FIN_03",
+          "speaker": "HEROINE",
+          "text": "Rien qu'on puisse dire.",
+          "intent": "Méfiance naissante, sans accusation",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_CLOTURE",
+      "context": "EVT_C2_CLOTURE, 1 h, sans résolution.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_CLOTURE_01",
+          "speaker": "MENDIONDO",
+          "text": "On arrête pour cette nuit. Arbelot reprend avec ce qu'on a.",
+          "intent": "Clôture automatique, état C",
+          "emotion": "fatiguée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_MENDIONDO_PIECE",
+      "context": "EVT_C2_MENDIONDO_PIECE (rattrapage).",
+      "location": "LOC_HB_PIECE",
+      "lines": [
+        {
+          "id": "DLG_C2_MENDIONDO_PIECE_01",
+          "speaker": "MENDIONDO",
+          "text": "Venez voir. La fenêtre, c'est celle de la photo.",
+          "intent": "Rattrapage de l'indice obligatoire",
+          "emotion": "sombre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_EQUIPE_CYNO",
+      "context": "EVT_C2_EQUIPE_CYNO (rattrapage).",
+      "location": "LOC_HB_PRAIRIE",
+      "lines": [
+        {
+          "id": "DLG_C2_EQUIPE_CYNO_01",
+          "speaker": "GENDARME",
+          "text": "L'équipe cynophile a trouvé des pneus vers la D817. Et un badge.",
+          "intent": "Rattrapage",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_RANDONNEURS",
+      "context": "EVT_C2_RANDONNEURS_APPELLENT (rattrapage).",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_RANDONNEURS_01",
+          "speaker": "GENDARME",
+          "text": "Les randonneurs de Bordes ont appelé : une voiture grise, vers 18 h 30.",
+          "intent": "Rattrapage",
+          "emotion": "radio"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ERR_LARTIGAU",
+      "context": "BR_C2_ERR_LARTIGAU.",
+      "location": "LOC_AIRIAL_LARTIGAU",
+      "lines": [
+        {
+          "id": "DLG_C2_ERR_LARTIGAU_01",
+          "speaker": "MENDIONDO",
+          "text": "Un dîner de famille et deux gamins en larmes. Bravo.",
+          "intent": "Conséquence d'une fausse route",
+          "emotion": "cinglante"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ERR_BORDES",
+      "context": "BR_C2_ERR_BORDES.",
+      "location": "LOC_AIRIAL_BORDES",
+      "lines": [
+        {
+          "id": "DLG_C2_ERR_BORDES_01",
+          "speaker": "MENDIONDO",
+          "text": "Deux randonneurs et leurs cartes IGN. On repart.",
+          "intent": "Conséquence d'une fausse route",
+          "emotion": "sèche"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ERR_RADIO",
+      "context": "BR_C2_ERR_RADIO.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_ERR_RADIO_01",
+          "speaker": "MENDIONDO",
+          "text": "Nos radios sont chiffrées. Cherchez ailleurs.",
+          "intent": "Réfutation loyale",
+          "emotion": "agacée"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_ERR_CONVOI",
+      "context": "BR_C2_ERR_CONVOI.",
+      "location": "LOC_FOURCHE",
+      "lines": [
+        {
+          "id": "DLG_C2_ERR_CONVOI_01",
+          "speaker": "MENDIONDO",
+          "text": "À 18 h 30, on était encore sur la place. Il n'a rien pu voir.",
+          "intent": "Réfutation par la chronologie",
+          "emotion": "patiente"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C2_PISTE_MAUVAISE",
+      "context": "BR_C2_PISTE_MAUVAISE.",
+      "location": "LOC_PISTE_12",
+      "lines": [
+        {
+          "id": "DLG_C2_PISTE_MAUVAISE_01",
+          "speaker": "HEROINE",
+          "text": "Des traces de vélo… On a perdu vingt minutes.",
+          "intent": "Conséquence d'erreur",
+          "emotion": "frustrée"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C2_AXE_AIRIAL",
+      "text": "Où était Lila",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C2_AXE_FUITE",
+      "text": "Qui les a prévenus",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C2_AXE_PISTE",
+      "text": "La suite (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C2_HOUNT_BIELHA",
+      "text": "Airial de Hount-Bielha",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_LARTIGAU",
+      "text": "Airial de Lartigau",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_BORDES",
+      "text": "Airial de Bordes",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_FUITE_POSTE",
+      "text": "Quelqu'un présent au poste de commandement",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_FUITE_RADIO",
+      "text": "La radio des gendarmes a été écoutée",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_FUITE_CONVOI_VU",
+      "text": "Loubère a vu arriver le convoi",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C2_QUAI_4",
+      "text": "Le dernier voyage part du quai 4 d'une entreprise « DL »",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}

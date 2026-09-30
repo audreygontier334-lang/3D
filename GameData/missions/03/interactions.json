@@ -1,0 +1,144 @@
+{
+  "mission": "M03",
+  "_doc": "Coût en minutes. Heures > 24:00 = jeudi (29:15 = jeudi 5 h 15).",
+  "interactions": [
+    {
+      "id": "INT_C3_BRIEFING",
+      "location": "LOC_BRIGADE",
+      "cost": 10,
+      "mandatory": true,
+      "grants": [
+        "CLU_C3_OPERATION_ANNONCEE",
+        "CLU_C3_JULIEN_SOUS_SURVEILLANCE"
+      ],
+      "dialogue": "DLG_C3_BRIEFING"
+    },
+    {
+      "id": "INT_C3_JULIEN",
+      "location": "LOC_BRIGADE",
+      "cost": 30,
+      "puzzle": "PZ_C3_01",
+      "mandatory": true,
+      "grants": [
+        "CLU_C3_TEMOIGNAGE_JULIEN"
+      ],
+      "dialogue": "DLG_C3_JULIEN"
+    },
+    {
+      "id": "INT_C3_DARRIGADE",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "cost": 10,
+      "grants": [
+        "CLU_C3_DARRIGADE_CURIEUX"
+      ],
+      "dialogue": "DLG_C3_DARRIGADE"
+    },
+    {
+      "id": "INT_C3_DOCUMENTS",
+      "location": "LOC_ENTREPOT_ACCUEIL",
+      "cost": 20,
+      "puzzle": "PZ_C3_02",
+      "mandatory": true,
+      "grants": [
+        "CLU_C3_BONS_LIVRAISON",
+        "CLU_C3_PESEE",
+        "CLU_C3_SCELLES"
+      ],
+      "dialogue": "DLG_C3_DOCUMENTS"
+    },
+    {
+      "id": "INT_C3_ARIANE_ENTREPOT",
+      "location": "LOC_ENTREPOT_QUAI_4",
+      "cost": 10,
+      "puzzle": "PZ_C3_03",
+      "grants": [
+        "CLU_C3_CARTON_SANDRINE"
+      ],
+      "dialogue": "DLG_C3_ARIANE_ENTREPOT"
+    },
+    {
+      "id": "INT_C3_PLANQUE",
+      "location": "LOC_QUAIS_PLANQUE",
+      "cost": 30,
+      "mandatory": true,
+      "grants": [],
+      "dialogue": "DLG_C3_PLANQUE"
+    },
+    {
+      "id": "INT_C3_ARIANE_VOITURE",
+      "location": "LOC_QUAIS_VOITURE",
+      "cost": 10,
+      "puzzle": "PZ_C3_04",
+      "requires": {
+        "all": [
+          "CLU_C3_COMPLICE_SEUL"
+        ]
+      },
+      "grants": [
+        "CLU_C3_TELEPHONE_SANDRINE",
+        "CLU_C3_TICKET_CARBURANT"
+      ],
+      "dialogue": "DLG_C3_ARIANE_VOITURE",
+      "available_from": "30:20"
+    },
+    {
+      "id": "INT_C3_REQUISITION",
+      "location": "LOC_QUAIS_PLANQUE",
+      "cost": 15,
+      "requires": {
+        "all": [
+          "CLU_C3_TELEPHONE_SANDRINE"
+        ]
+      },
+      "grants": [
+        "CLU_C3_BORNAGE_UNE_ANTENNE",
+        "CLU_C3_BORNAGE_NE"
+      ],
+      "dialogue": "DLG_C3_REQUISITION"
+    },
+    {
+      "id": "INT_C3_CADASTRE",
+      "location": "LOC_QUAIS_PLANQUE",
+      "cost": 10,
+      "requires": {
+        "all": [
+          "CLU_C3_BORNAGE_NE"
+        ]
+      },
+      "grants": [
+        "CLU_C3_CADASTRE_SCI"
+      ],
+      "dialogue": "DLG_C3_CADASTRE"
+    },
+    {
+      "id": "INT_C3_VIDEO_CAPBRETON",
+      "location": "LOC_QUAIS_PLANQUE",
+      "cost": 15,
+      "requires": {
+        "all": [
+          "CLU_C3_COMPLICE_SEUL"
+        ]
+      },
+      "grants": [
+        "CLU_C3_VOITURE_CAPBRETON"
+      ],
+      "dialogue": "DLG_C3_VIDEO",
+      "available_from": "30:20"
+    },
+    {
+      "id": "INT_C3_PRESENTER_TABLEAU",
+      "location": "LOC_QUAIS_PLANQUE",
+      "cost": 5,
+      "puzzle": "PZ_C3_05",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "CLU_C3_COMPLICE_SEUL"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C3_TABLEAU",
+      "available_from": "30:20"
+    }
+  ]
+}

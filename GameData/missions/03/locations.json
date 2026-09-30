@@ -1,0 +1,62 @@
+{
+  "mission": "M03",
+  "zones": [
+    {
+      "id": "Z_GENDARMERIE",
+      "neighbors": [
+        "Z_ENTREPOT"
+      ]
+    },
+    {
+      "id": "Z_ENTREPOT",
+      "neighbors": [
+        "Z_GENDARMERIE",
+        "Z_QUAIS"
+      ]
+    },
+    {
+      "id": "Z_QUAIS",
+      "neighbors": [
+        "Z_ENTREPOT"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_BRIGADE",
+      "name": "Brigade de gendarmerie, salle d'audition",
+      "zone": "Z_GENDARMERIE",
+      "env": "ENV_GENDARMERIE"
+    },
+    {
+      "id": "LOC_ENTREPOT_ACCUEIL",
+      "name": "Darrigade Logistique : accueil et bureau",
+      "zone": "Z_ENTREPOT",
+      "env": "ENV_ENTREPOT_BAYONNE",
+      "available_from": "14:00",
+      "available_until": "17:00"
+    },
+    {
+      "id": "LOC_ENTREPOT_QUAI_4",
+      "name": "Darrigade Logistique : quai 4 et rayonnages",
+      "zone": "Z_ENTREPOT",
+      "env": "ENV_ENTREPOT_BAYONNE",
+      "available_from": "14:00",
+      "available_until": "17:00"
+    },
+    {
+      "id": "LOC_QUAIS_PLANQUE",
+      "name": "Quais du port : planque des gendarmes",
+      "zone": "Z_QUAIS",
+      "env": "ENV_QUAIS_BAYONNE",
+      "available_from": "29:15"
+    },
+    {
+      "id": "LOC_QUAIS_VOITURE",
+      "name": "Quais du port : voiture du complice",
+      "zone": "Z_QUAIS",
+      "env": "ENV_QUAIS_BAYONNE",
+      "available_from": "29:15"
+    }
+  ]
+}

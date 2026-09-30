@@ -1,0 +1,54 @@
+{
+  "mission": "M02",
+  "_doc": "Heures au-delà de 24:00 = mercredi (25:00 = mercredi 1 h). Les événements `fallback` garantissent les preuves obligatoires.",
+  "events": [
+    {
+      "id": "EVT_C2_MENDIONDO_PIECE",
+      "time": "21:30",
+      "unless": [
+        "CLU_C2_PIECE_PHOTO"
+      ],
+      "grants": [
+        "CLU_C2_PIECE_PHOTO",
+        "CLU_C2_COUVERTURE",
+        "CLU_C2_COUSSIN"
+      ],
+      "dialogue": "DLG_C2_MENDIONDO_PIECE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C2_EQUIPE_CYNO",
+      "time": "22:30",
+      "unless": [
+        "CLU_C2_TRACES_VOITURE_SUD"
+      ],
+      "grants": [
+        "CLU_C2_TRACES_VOITURE_SUD",
+        "CLU_C2_BADGE_ENTREPOT"
+      ],
+      "dialogue": "DLG_C2_EQUIPE_CYNO",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C2_RANDONNEURS_APPELLENT",
+      "time": "23:00",
+      "unless": [
+        "CLU_C2_BORDES_VOITURE"
+      ],
+      "grants": [
+        "CLU_C2_BORDES_VOITURE"
+      ],
+      "dialogue": "DLG_C2_RANDONNEURS",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C2_CLOTURE",
+      "time": "25:00",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C2_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

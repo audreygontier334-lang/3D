@@ -1,0 +1,1430 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "Tools/build_opening_blockout.py",
+    "extras": {
+      "status": "maquette spatiale de travail, non photoréaliste, non jouable"
+    }
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Ouverture plans A et B",
+      "nodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "ground",
+      "mesh": 0,
+      "translation": [
+        60,
+        -0.18,
+        -20
+      ],
+      "scale": [
+        240,
+        0.3,
+        110
+      ]
+    },
+    {
+      "name": "school_square",
+      "mesh": 0,
+      "translation": [
+        0,
+        -0.02,
+        -8
+      ],
+      "scale": [
+        54,
+        0.06,
+        28
+      ]
+    },
+    {
+      "name": "school_sidewalk",
+      "mesh": 1,
+      "translation": [
+        0,
+        0.02,
+        -1
+      ],
+      "scale": [
+        46,
+        0.12,
+        4
+      ]
+    },
+    {
+      "name": "school_main",
+      "mesh": 7,
+      "translation": [
+        -7,
+        4,
+        9
+      ],
+      "scale": [
+        24,
+        8,
+        11
+      ],
+      "extras": {
+        "role": "école, plan A"
+      }
+    },
+    {
+      "name": "school_roof",
+      "mesh": 6,
+      "translation": [
+        -7,
+        8.45,
+        9
+      ],
+      "scale": [
+        25,
+        0.9,
+        12
+      ]
+    },
+    {
+      "name": "school_gate_left",
+      "mesh": 14,
+      "translation": [
+        -2.5,
+        0.8,
+        1
+      ],
+      "scale": [
+        0.3,
+        1.6,
+        0.3
+      ]
+    },
+    {
+      "name": "school_gate_right",
+      "mesh": 14,
+      "translation": [
+        2.5,
+        0.8,
+        1
+      ],
+      "scale": [
+        0.3,
+        1.6,
+        0.3
+      ]
+    },
+    {
+      "name": "square_shop_west",
+      "mesh": 2,
+      "translation": [
+        -28,
+        3.2,
+        -20
+      ],
+      "scale": [
+        14,
+        6.4,
+        10
+      ]
+    },
+    {
+      "name": "square_shop_west_roof",
+      "mesh": 6,
+      "translation": [
+        -28,
+        6.7,
+        -20
+      ],
+      "scale": [
+        15,
+        0.6,
+        11
+      ]
+    },
+    {
+      "name": "alley_corner_mask",
+      "mesh": 3,
+      "translation": [
+        27,
+        4.0,
+        -3
+      ],
+      "scale": [
+        13,
+        8,
+        18
+      ],
+      "extras": {
+        "role": "masque le fourgon et l'abordage depuis la place"
+      }
+    },
+    {
+      "name": "alley_corner_roof",
+      "mesh": 6,
+      "translation": [
+        27,
+        8.35,
+        -3
+      ],
+      "scale": [
+        14,
+        0.7,
+        19
+      ]
+    },
+    {
+      "name": "alley_corner_south_mask",
+      "mesh": 2,
+      "translation": [
+        27,
+        4.0,
+        -23
+      ],
+      "scale": [
+        16,
+        8,
+        22
+      ],
+      "extras": {
+        "role": "coude bâti : masque toute la ruelle depuis les zones de la place"
+      }
+    },
+    {
+      "name": "alley_corner_south_roof",
+      "mesh": 6,
+      "translation": [
+        27,
+        8.35,
+        -23
+      ],
+      "scale": [
+        17,
+        0.7,
+        23
+      ]
+    },
+    {
+      "name": "tree_trunk_square",
+      "mesh": 13,
+      "translation": [
+        -17,
+        2.2,
+        -5
+      ],
+      "scale": [
+        0.6,
+        4.4,
+        0.6
+      ]
+    },
+    {
+      "name": "tree_crown_square",
+      "mesh": 13,
+      "translation": [
+        -17,
+        5.6,
+        -5
+      ],
+      "scale": [
+        4.2,
+        3.6,
+        4.2
+      ]
+    },
+    {
+      "name": "alley_entry_road",
+      "mesh": 0,
+      "translation": [
+        35,
+        -0.02,
+        -15
+      ],
+      "scale": [
+        24,
+        0.06,
+        9
+      ]
+    },
+    {
+      "name": "alley_road",
+      "mesh": 0,
+      "translation": [
+        95,
+        -0.02,
+        -22
+      ],
+      "scale": [
+        150,
+        0.06,
+        9
+      ]
+    },
+    {
+      "name": "alley_sidewalk_north",
+      "mesh": 1,
+      "translation": [
+        95,
+        0.02,
+        -15.8
+      ],
+      "scale": [
+        150,
+        0.12,
+        2.8
+      ]
+    },
+    {
+      "name": "alley_sidewalk_south",
+      "mesh": 1,
+      "translation": [
+        95,
+        0.02,
+        -28.2
+      ],
+      "scale": [
+        150,
+        0.12,
+        2.8
+      ]
+    },
+    {
+      "name": "alley_house_1900",
+      "mesh": 2,
+      "translation": [
+        43,
+        3.7,
+        -8
+      ],
+      "scale": [
+        10,
+        7.4,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_1930",
+      "mesh": 4,
+      "translation": [
+        57,
+        3.0,
+        -7
+      ],
+      "scale": [
+        9,
+        6.0,
+        8
+      ]
+    },
+    {
+      "name": "alley_house_1970",
+      "mesh": 5,
+      "translation": [
+        71,
+        2.5,
+        -8
+      ],
+      "scale": [
+        13,
+        5.0,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_recent",
+      "mesh": 3,
+      "translation": [
+        87,
+        3.4,
+        -7
+      ],
+      "scale": [
+        11,
+        6.8,
+        10
+      ]
+    },
+    {
+      "name": "alley_house_south_1",
+      "mesh": 3,
+      "translation": [
+        48,
+        3.2,
+        -35
+      ],
+      "scale": [
+        12,
+        6.4,
+        9
+      ]
+    },
+    {
+      "name": "alley_house_south_2",
+      "mesh": 2,
+      "translation": [
+        65,
+        3.8,
+        -36
+      ],
+      "scale": [
+        10,
+        7.6,
+        10
+      ]
+    },
+    {
+      "name": "alley_house_south_3",
+      "mesh": 4,
+      "translation": [
+        82,
+        2.6,
+        -35
+      ],
+      "scale": [
+        15,
+        5.2,
+        9
+      ]
+    },
+    {
+      "name": "hedge_north_1",
+      "mesh": 13,
+      "translation": [
+        48,
+        0.75,
+        -13.7
+      ],
+      "scale": [
+        8,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "hedge_north_2",
+      "mesh": 13,
+      "translation": [
+        67,
+        0.75,
+        -13.7
+      ],
+      "scale": [
+        12,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "wall_south_1",
+      "mesh": 5,
+      "translation": [
+        52,
+        0.75,
+        -30.0
+      ],
+      "scale": [
+        11,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "fence_south_2",
+      "mesh": 5,
+      "translation": [
+        76,
+        0.75,
+        -30.0
+      ],
+      "scale": [
+        15,
+        1.5,
+        0.5
+      ]
+    },
+    {
+      "name": "heroine_place_placeholder",
+      "mesh": 9,
+      "translation": [
+        8,
+        0.83,
+        -18
+      ],
+      "scale": [
+        0.5,
+        1.66,
+        0.36
+      ],
+      "extras": {
+        "role": "plan A checkpoint"
+      }
+    },
+    {
+      "name": "ariane_place_placeholder",
+      "mesh": 10,
+      "translation": [
+        5.5,
+        0.42,
+        -10.5
+      ],
+      "scale": [
+        1.05,
+        0.84,
+        0.48
+      ],
+      "extras": {
+        "role": "plan A checkpoint"
+      }
+    },
+    {
+      "name": "child_school_placeholder",
+      "mesh": 11,
+      "translation": [
+        1,
+        0.62,
+        -0.5
+      ],
+      "scale": [
+        0.36,
+        1.24,
+        0.3
+      ],
+      "extras": {
+        "role": "Lila au portail, plan A"
+      }
+    },
+    {
+      "name": "bench_dufau",
+      "mesh": 1,
+      "translation": [
+        -12,
+        0.45,
+        -12
+      ],
+      "scale": [
+        2.2,
+        0.9,
+        0.7
+      ],
+      "extras": {
+        "role": "banc du square, moins de 30 m du portail"
+      }
+    },
+    {
+      "name": "dufau_placeholder",
+      "mesh": 9,
+      "translation": [
+        -12,
+        1.05,
+        -12
+      ],
+      "scale": [
+        0.55,
+        1.4,
+        0.45
+      ],
+      "extras": {
+        "role": "Dufau assis; mots croisés"
+      }
+    },
+    {
+      "name": "alley_angle_marker",
+      "mesh": 14,
+      "translation": [
+        18.5,
+        1.0,
+        -12
+      ],
+      "scale": [
+        0.4,
+        2.0,
+        0.4
+      ],
+      "extras": {
+        "role": "angle visible depuis le banc; intérieur invisible"
+      }
+    },
+    {
+      "name": "heroine_alley_placeholder",
+      "mesh": 9,
+      "translation": [
+        37,
+        0.83,
+        -21
+      ],
+      "scale": [
+        0.5,
+        1.66,
+        0.36
+      ],
+      "extras": {
+        "role": "entrée de ruelle, plan B"
+      }
+    },
+    {
+      "name": "ariane_alley_placeholder",
+      "mesh": 10,
+      "translation": [
+        45,
+        0.42,
+        -16.2
+      ],
+      "scale": [
+        1.05,
+        0.84,
+        0.48
+      ],
+      "extras": {
+        "role": "entrée de ruelle, plan B"
+      }
+    },
+    {
+      "name": "child_alley_placeholder",
+      "mesh": 11,
+      "translation": [
+        62.5,
+        0.62,
+        -16.2
+      ],
+      "scale": [
+        0.36,
+        1.24,
+        0.3
+      ],
+      "extras": {
+        "role": "Lila devant la portière, plan B; tenue validée"
+      }
+    },
+    {
+      "name": "k2_placeholder",
+      "mesh": 12,
+      "translation": [
+        63.5,
+        0.83,
+        -15.7
+      ],
+      "scale": [
+        0.5,
+        1.66,
+        0.36
+      ],
+      "extras": {
+        "role": "femme au badge sur le trottoir, plan B"
+      }
+    },
+    {
+      "name": "van_placeholder",
+      "mesh": 8,
+      "translation": [
+        66,
+        1.1,
+        -18.6
+      ],
+      "scale": [
+        5.2,
+        2.2,
+        2.1
+      ],
+      "extras": {
+        "role": "blanc usé validé; plaque arrière vers l'entrée; côté trottoir"
+      }
+    },
+    {
+      "name": "scent_object_marker",
+      "mesh": 14,
+      "translation": [
+        46.5,
+        0.13,
+        -16.2
+      ],
+      "scale": [
+        0.35,
+        0.26,
+        0.35
+      ],
+      "extras": {
+        "role": "porte-clés de Lila"
+      }
+    },
+    {
+      "name": "scent_clue_marker",
+      "mesh": 14,
+      "translation": [
+        66.5,
+        0.13,
+        -17.55
+      ],
+      "scale": [
+        0.35,
+        0.26,
+        0.35
+      ],
+      "extras": {
+        "role": "bracelet en perles validé, au pied de la portière latérale"
+      }
+    },
+    {
+      "name": "alley_exit_marker",
+      "mesh": 14,
+      "translation": [
+        146,
+        0.25,
+        -22
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "extras": {
+        "role": "débouché vers front de mer, 79,5 m après la portière"
+      }
+    },
+    {
+      "name": "boulevard_road_screen",
+      "mesh": 1,
+      "translation": [
+        150,
+        0.75,
+        -22
+      ],
+      "scale": [
+        2,
+        1.5,
+        11
+      ],
+      "extras": {
+        "role": "masque la chaussée du boulevard et le rond-point"
+      }
+    },
+    {
+      "name": "sea_horizon_band",
+      "mesh": 4,
+      "translation": [
+        160,
+        3.2,
+        -22
+      ],
+      "scale": [
+        1,
+        1.6,
+        12
+      ],
+      "extras": {
+        "role": "bande de mer lointaine validée; aucun port"
+      }
+    },
+    {
+      "name": "CAM_PLACE_SHOULDER",
+      "camera": 0,
+      "translation": [
+        8.4,
+        2.15,
+        -20
+      ],
+      "rotation": [
+        -0.004632933238498711,
+        0.9864286418682845,
+        0.028267364471494378,
+        0.1616725905567636
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_PLACE_WIDE",
+      "camera": 1,
+      "translation": [
+        7,
+        4.7,
+        -26
+      ],
+      "rotation": [
+        -0.009061529234122463,
+        0.9897742913781798,
+        0.07360775909839908,
+        0.12184678336038747
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_PLACE_FIRST",
+      "camera": 2,
+      "translation": [
+        8,
+        1.61,
+        -18
+      ],
+      "rotation": [
+        -0.003041763232875462,
+        0.9832367852841715,
+        0.016472446375407568,
+        0.18156219389204475
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_SHOULDER",
+      "camera": 3,
+      "translation": [
+        37.4,
+        2.15,
+        -18.2
+      ],
+      "rotation": [
+        -0.015477303287470327,
+        -0.7232901985740717,
+        -0.016219796422052304,
+        0.6901801648364394
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_WIDE",
+      "camera": 4,
+      "translation": [
+        35,
+        4.2,
+        -25
+      ],
+      "rotation": [
+        -0.032938495379567286,
+        -0.7971535040015632,
+        -0.04366755095856329,
+        0.6012940142504674
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_RUELLE_FIRST",
+      "camera": 5,
+      "translation": [
+        37,
+        1.61,
+        -18
+      ],
+      "rotation": [
+        -0.008126260949560217,
+        -0.7205173461502217,
+        -0.008444817774466616,
+        0.6933378706174771
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    },
+    {
+      "name": "CAM_DEPART_COURT",
+      "camera": 6,
+      "translation": [
+        39,
+        1.61,
+        -18
+      ],
+      "rotation": [
+        -0.007021674849762165,
+        -0.7001978011983923,
+        -0.006887086536465684,
+        0.7138811548978444
+      ],
+      "extras": {
+        "role": "point de contrôle statique; suffixe = mode de caméra"
+      }
+    }
+  ],
+  "cameras": [
+    {
+      "name": "CAM_PLACE_SHOULDER",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.0122909661567112,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_PLACE_WIDE",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1344640137963142,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_PLACE_FIRST",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1693705988362009,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_SHOULDER",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.0122909661567112,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_WIDE",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1344640137963142,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_RUELLE_FIRST",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 1.1693705988362009,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    },
+    {
+      "name": "CAM_DEPART_COURT",
+      "type": "perspective",
+      "perspective": {
+        "yfov": 0.9424777960769379,
+        "znear": 0.1,
+        "zfar": 220
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "cube_sol",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "cube_trottoir",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 1
+        }
+      ]
+    },
+    {
+      "name": "cube_creme",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 2
+        }
+      ]
+    },
+    {
+      "name": "cube_rose",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 3
+        }
+      ]
+    },
+    {
+      "name": "cube_bleu",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "cube_blanc",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 5
+        }
+      ]
+    },
+    {
+      "name": "cube_toit",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 6
+        }
+      ]
+    },
+    {
+      "name": "cube_ecole",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 7
+        }
+      ]
+    },
+    {
+      "name": "cube_fourgon",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 8
+        }
+      ]
+    },
+    {
+      "name": "cube_heroine",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 9
+        }
+      ]
+    },
+    {
+      "name": "cube_ariane",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 10
+        }
+      ]
+    },
+    {
+      "name": "cube_fillette",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 11
+        }
+      ]
+    },
+    {
+      "name": "cube_k2",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 12
+        }
+      ]
+    },
+    {
+      "name": "cube_vegetation",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 13
+        }
+      ]
+    },
+    {
+      "name": "cube_repere",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 14
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "sol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4,
+          0.4,
+          0.39,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "trottoir",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.64,
+          0.6,
+          0.53,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "creme",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.83,
+          0.75,
+          0.62,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "rose",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.76,
+          0.58,
+          0.55,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "bleu",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.66,
+          0.7,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "blanc",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.84,
+          0.84,
+          0.8,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "toit",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.48,
+          0.31,
+          0.24,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "ecole",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.83,
+          0.72,
+          0.55,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "fourgon",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.78,
+          0.76,
+          0.69,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "heroine",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.16,
+          0.29,
+          0.52,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "ariane",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.62,
+          0.44,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "fillette",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7,
+          0.34,
+          0.37,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "k2",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.35,
+          0.3,
+          0.42,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "vegetation",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.22,
+          0.37,
+          0.22,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "name": "repere",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.91,
+          0.67,
+          0.12,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 648,
+      "uri": "data:application/octet-stream;base64,AAAAvwAAAL8AAAA/AAAAPwAAAL8AAAA/AAAAPwAAAD8AAAA/AAAAvwAAAD8AAAA/AAAAPwAAAL8AAAC/AAAAvwAAAL8AAAC/AAAAvwAAAD8AAAC/AAAAPwAAAD8AAAC/AAAAPwAAAL8AAAA/AAAAPwAAAL8AAAC/AAAAPwAAAD8AAAC/AAAAPwAAAD8AAAA/AAAAvwAAAL8AAAC/AAAAvwAAAL8AAAA/AAAAvwAAAD8AAAA/AAAAvwAAAD8AAAC/AAAAvwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAC/AAAAvwAAAD8AAAC/AAAAvwAAAL8AAAC/AAAAPwAAAL8AAAC/AAAAPwAAAL8AAAA/AAAAvwAAAL8AAAA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 288,
+      "byteLength": 288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 576,
+      "byteLength": 72,
+      "target": 34963
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC3",
+      "min": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5123,
+      "count": 36,
+      "type": "SCALAR",
+      "min": [
+        0
+      ],
+      "max": [
+        23
+      ]
+    }
+  ],
+  "extras": {
+    "axis": "X east, Y up, Z north",
+    "unit": "metre",
+    "school_gate": [
+      0,
+      0,
+      0
+    ],
+    "scene_notes": "place et ruelle distinctes; apparences de Lila et du fourgon provisoires; mer lointaine visible, route et rond-point masqués; soleil de référence vers 16 h 30"
+  }
+}

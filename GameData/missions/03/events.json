@@ -1,0 +1,83 @@
+{
+  "mission": "M03",
+  "_doc": "Heures > 24:00 = jeudi. Les événements `fallback` garantissent les preuves obligatoires.",
+  "events": [
+    {
+      "id": "EVT_C3_JULIEN_CEDE",
+      "time": "12:30",
+      "unless": [
+        "CLU_C3_TEMOIGNAGE_JULIEN"
+      ],
+      "grants": [
+        "CLU_C3_TEMOIGNAGE_JULIEN"
+      ],
+      "dialogue": "DLG_C3_JULIEN_CEDE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C3_DOUANES_CONTRE_VERIF",
+      "time": "18:00",
+      "unless": [
+        "CLU_C3_PESEE"
+      ],
+      "grants": [
+        "CLU_C3_BONS_LIVRAISON",
+        "CLU_C3_PESEE",
+        "CLU_C3_SCELLES"
+      ],
+      "dialogue": "DLG_C3_DOUANES",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C3_NADIA_APPELLE",
+      "time": "22:00",
+      "grants": [
+        "CLU_C3_NADIA_APPEL"
+      ],
+      "dialogue": "DLG_C3_NADIA_APPEL"
+    },
+    {
+      "id": "EVT_C3_OPERATION",
+      "time": "30:20",
+      "grants": [
+        "CLU_C3_COMPLICE_SEUL"
+      ],
+      "dialogue": "DLG_C3_OPERATION"
+    },
+    {
+      "id": "EVT_C3_FOUILLE_VEHICULE",
+      "time": "31:00",
+      "unless": [
+        "CLU_C3_TELEPHONE_SANDRINE"
+      ],
+      "grants": [
+        "CLU_C3_TELEPHONE_SANDRINE",
+        "CLU_C3_TICKET_CARBURANT"
+      ],
+      "dialogue": "DLG_C3_FOUILLE",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C3_BORNAGE_AUTO",
+      "time": "31:45",
+      "unless": [
+        "CLU_C3_BORNAGE_NE"
+      ],
+      "grants": [
+        "CLU_C3_BORNAGE_UNE_ANTENNE",
+        "CLU_C3_BORNAGE_NE"
+      ],
+      "dialogue": "DLG_C3_BORNAGE_AUTO",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C3_CLOTURE",
+      "time": "33:30",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C3_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

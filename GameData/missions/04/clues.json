@@ -1,0 +1,149 @@
+{
+  "mission": "M04",
+  "clues": [
+    {
+      "id": "CLU_C4_CARTE_PARCELLES",
+      "name": "Carte des parcelles du nord-est",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Trois anciennes cabanes de résinier dans la zone de bornage : Barthe, Lous Pins et Hourcade.",
+      "interpretations": [
+        "Trois cabanes à départager"
+      ]
+    },
+    {
+      "id": "CLU_C4_CADASTRE_HOURCADE",
+      "name": "Propriétaires des parcelles",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Barthe appartient à la commune, Lous Pins à une société de chasse ; Hourcade à la SCI Lande-Haute, dont le gérant est celui de la SCI des Pins de Sorbe.",
+      "interpretations": [
+        "Hourcade appartient au réseau de prête-noms"
+      ]
+    },
+    {
+      "id": "CLU_C4_GERANT_SCI",
+      "name": "Registre des sociétés",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les deux SCI ont le même gérant de paille, domicilié dans une boîte aux lettres à Bayonne.",
+      "interpretations": [
+        "Même réseau"
+      ]
+    },
+    {
+      "id": "CLU_C4_STATION_GERANT",
+      "name": "Gérant de la station",
+      "location": "LOC_STATION_LANDE_HAUTE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "« Une femme blonde, lunettes, mardi soir et mercredi : de l'eau, des barres de céréales, un paquet de lingettes. Elle repartait par la piste 7. »",
+      "interpretations": [
+        "« Sandrine » ravitaille quelqu'un",
+        "Piste 7"
+      ]
+    },
+    {
+      "id": "CLU_C4_TRACES_PISTE_7",
+      "name": "Traces sur la piste 7",
+      "location": "LOC_PISTE_7",
+      "kind": "trace",
+      "availability": "toujours",
+      "fact": "Sous la pluie, des pneus de citadine encore lisibles prennent la branche est, vers Hourcade.",
+      "interpretations": [
+        "Passage récent vers Hourcade"
+      ]
+    },
+    {
+      "id": "CLU_C4_PYJAMA_LILA",
+      "name": "Haut de pyjama de Lila",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Apporté par Nadia, dans un sac propre : il ne porte que l'odeur de Lila.",
+      "interpretations": [
+        "Objet de référence pour Ariane"
+      ]
+    },
+    {
+      "id": "CLU_C4_COUVERTURE_VOITURE",
+      "name": "Couverture de la citadine",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Saisie dans la voiture du complice : odeurs mêlées de plusieurs adultes.",
+      "interpretations": [
+        "Objet de référence douteux"
+      ]
+    },
+    {
+      "id": "CLU_C4_ARIANE_HOURCADE",
+      "name": "Ariane devant Hourcade",
+      "location": "LOC_CABANE_HOURCADE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Ariane accélère, truffe au sol malgré la pluie, et s'assied devant la porte de Hourcade.",
+      "interpretations": [
+        "Lila est dans cette cabane"
+      ]
+    },
+    {
+      "id": "CLU_C4_PORTE_CADENASSEE",
+      "name": "Porte cadenassée",
+      "location": "LOC_CABANE_HOURCADE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Un cadenas neuf sur une cabane abandonnée ; de la boue fraîche sur le seuil.",
+      "interpretations": [
+        "Quelqu'un vient ici"
+      ]
+    },
+    {
+      "id": "CLU_C4_HELICO_CHALEUR",
+      "name": "Caméra thermique",
+      "location": "LOC_PC_FORESTIER",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "L'hélicoptère de la gendarmerie repère une petite source de chaleur immobile dans la cabane de Hourcade.",
+      "interpretations": [
+        "Présence humaine à Hourcade"
+      ]
+    },
+    {
+      "id": "CLU_C4_BARTHE_VIDE",
+      "name": "Cabane de Barthe",
+      "location": "LOC_CABANE_BARTHE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Porte ouverte, toiles d'araignée intactes sur le seuil : personne depuis des mois.",
+      "interpretations": [
+        "Pas ici"
+      ]
+    },
+    {
+      "id": "CLU_C4_LOUS_PINS_CHASSEURS",
+      "name": "Cabane de Lous Pins",
+      "location": "LOC_CABANE_LOUS_PINS",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Cartouches, calendrier de battue : la société de chasse l'occupe le dimanche. Aucune trace récente.",
+      "interpretations": [
+        "Pas ici"
+      ]
+    },
+    {
+      "id": "CLU_C4_SANDRINE_INTERPELLEE",
+      "name": "Retour de « Sandrine »",
+      "location": "LOC_CABANE_HOURCADE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "« Sandrine » revient en fin d'après-midi par la piste 7 ; les gendarmes l'interpellent sans incident.",
+      "interpretations": [
+        "La passeuse est arrêtée"
+      ]
+    }
+  ]
+}

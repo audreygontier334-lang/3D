@@ -1,0 +1,147 @@
+{
+  "mission": "M02",
+  "_doc": "Coût en minutes de jeu. Déplacement : 10 min par zone traversée à pied, de nuit.",
+  "interactions": [
+    {
+      "id": "INT_C2_BRIEFING",
+      "location": "LOC_FOURCHE",
+      "cost": 5,
+      "mandatory": true,
+      "grants": [
+        "CLU_C2_CARTE_AIRIAUX",
+        "CLU_C2_RADIO_CHIFFREE",
+        "CLU_C2_ETANG_AU_POSTE"
+      ],
+      "dialogue": "DLG_C2_BRIEFING"
+    },
+    {
+      "id": "INT_C2_RELAIS",
+      "location": "LOC_RELAIS_DU_LAC",
+      "cost": 10,
+      "grants": [
+        "CLU_C2_RELAIS_GERANT"
+      ],
+      "dialogue": "DLG_C2_RELAIS"
+    },
+    {
+      "id": "INT_C2_TRACES_PISTE",
+      "location": "LOC_PISTE_12",
+      "cost": 10,
+      "puzzle": "PZ_C2_01",
+      "grants": [
+        "CLU_C2_TRACES_FOURGON_PISTE",
+        "CLU_C2_TRACES_BOUCLE_NORD"
+      ],
+      "dialogue": "DLG_C2_TRACES"
+    },
+    {
+      "id": "INT_C2_LARTIGAU",
+      "location": "LOC_AIRIAL_LARTIGAU",
+      "cost": 15,
+      "grants": [
+        "CLU_C2_LARTIGAU_LUMIERE"
+      ],
+      "dialogue": "DLG_C2_LARTIGAU"
+    },
+    {
+      "id": "INT_C2_BORDES",
+      "location": "LOC_AIRIAL_BORDES",
+      "cost": 15,
+      "grants": [
+        "CLU_C2_BORDES_VOITURE"
+      ],
+      "dialogue": "DLG_C2_BORDES"
+    },
+    {
+      "id": "INT_C2_PIECE",
+      "location": "LOC_HB_PIECE",
+      "cost": 10,
+      "mandatory": true,
+      "grants": [
+        "CLU_C2_PIECE_PHOTO",
+        "CLU_C2_COUVERTURE",
+        "CLU_C2_COUSSIN"
+      ],
+      "dialogue": "DLG_C2_PIECE"
+    },
+    {
+      "id": "INT_C2_ARIANE_PISTE",
+      "location": "LOC_HB_PRAIRIE",
+      "cost": 10,
+      "puzzle": "PZ_C2_03",
+      "requires": {
+        "all": [
+          "CLU_C2_COUSSIN"
+        ]
+      },
+      "grants": [
+        "CLU_C2_GOMME_LILA",
+        "CLU_C2_TRACES_VOITURE_SUD",
+        "CLU_C2_BADGE_ENTREPOT"
+      ],
+      "dialogue": "DLG_C2_ARIANE"
+    },
+    {
+      "id": "INT_C2_GRANGE",
+      "location": "LOC_HB_GRANGE",
+      "cost": 10,
+      "grants": [
+        "CLU_C2_LOUBERE_SILENCE"
+      ],
+      "dialogue": "DLG_C2_GRANGE"
+    },
+    {
+      "id": "INT_C2_DOC_BRULE",
+      "location": "LOC_HB_GRANGE",
+      "cost": 5,
+      "requires": {
+        "all": [
+          "FLAG_ETAT_A",
+          "CLU_C2_LOUBERE_SILENCE"
+        ]
+      },
+      "grants": [
+        "CLU_C2_DOC_BRULE"
+      ],
+      "dialogue": "DLG_C2_DOC_BRULE"
+    },
+    {
+      "id": "INT_C2_POUBELLE",
+      "location": "LOC_HB_PRAIRIE",
+      "cost": 5,
+      "grants": [
+        "CLU_C2_TICKET_MARINA"
+      ],
+      "dialogue": "DLG_C2_POUBELLE"
+    },
+    {
+      "id": "INT_C2_CHRONO",
+      "location": "LOC_FOURCHE",
+      "cost": 5,
+      "puzzle": "PZ_C2_02",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "CLU_C2_ETANG_AU_POSTE",
+          "CLU_C2_COUVERTURE"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C2_CHRONO"
+    },
+    {
+      "id": "INT_C2_PRESENTER_TABLEAU",
+      "location": "LOC_FOURCHE",
+      "cost": 5,
+      "puzzle": "PZ_C2_04",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "CLU_C2_PIECE_PHOTO"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C2_TABLEAU"
+    }
+  ]
+}

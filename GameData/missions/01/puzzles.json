@@ -1,0 +1,501 @@
+{
+  "mission": "M01",
+  "puzzles": [
+    {
+      "id": "PZ_01",
+      "title": "La piste de Lila",
+      "axis": "personne",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_PISTE_LILA",
+      "inputs": [
+        "CLU_PORTE_CLES_LILA"
+      ],
+      "produces": [
+        "DED_RUSE"
+      ],
+      "answer": {
+        "type": "association",
+        "pairs": {
+          "A": "arret_conversation",
+          "A_bis": "piste_ancienne",
+          "B": "marche_calme",
+          "C": "objet_trouve",
+          "D": "fin_de_piste_vehicule"
+        }
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ01_1",
+          "text": "Observe la façon dont Ariane se déplace, pas seulement où elle va."
+        },
+        {
+          "id": "UI_HINT_PZ01_2",
+          "text": "Une truffe qui reste au sol en ligne droite, ce n'est pas la même chose que des cercles ou une tête levée. Relis la fiche « Langage d’Ariane »."
+        },
+        {
+          "id": "UI_HINT_PZ01_3",
+          "text": "À l'angle, deux odeurs de Lila se croisent : celle de ce matin et celle de tout à l'heure. Laquelle est la plus fraîche ? Et au bout, pourquoi Ariane lève-t-elle la tête ?"
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": null,
+        "time_cost": 5,
+        "result": "Lecture « enlèvement par la force » (incertaine, sans effet sur la résolution)"
+      },
+      "recovery": [
+        "INT_LARTIGUE",
+        "INT_DIRECTRICE"
+      ]
+    },
+    {
+      "id": "PZ_02",
+      "title": "L'objet de référence",
+      "axis": "personne",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_PISTE_BOUTEILLE",
+      "inputs": [
+        "CLU_BOUTEILLE",
+        "CLU_MEGOTS",
+        "CLU_PORTE_CLES_LILA",
+        "CLU_TICKET_BOULANGERIE",
+        "CLU_TEMOIN_LARTIGUE",
+        "CLU_TEMOIN_DUFAU"
+      ],
+      "produces": [
+        "CLU_BADGE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "CLU_BOUTEILLE",
+        "options": [
+          "CLU_BOUTEILLE",
+          "CLU_MEGOTS",
+          "CLU_PORTE_CLES_LILA"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ02_1",
+          "text": "Pour suivre quelqu'un, Ariane a besoin d'un objet que cette personne a touché, et seulement elle."
+        },
+        {
+          "id": "UI_HINT_PZ02_2",
+          "text": "Qui a acheté quelque chose à la boulangerie à 16 h 12 ? Où s'est-elle assise ensuite ?"
+        },
+        {
+          "id": "UI_HINT_PZ02_3",
+          "text": "Le conducteur est-il sorti du fourgon ? Si non, les mégots ne mènent nulle part. Le porte-clés, c'est Lila. Il reste un objet."
+        }
+      ],
+      "red_herrings": [
+        "CLU_MEGOTS"
+      ],
+      "wrong": {
+        "branch": "BR_PISTE_MAUVAIS_OBJET",
+        "time_cost": 5
+      },
+      "recovery": [
+        "INT_FOUILLER_HAIE",
+        "EVT_FOUILLE_HAIE"
+      ]
+    },
+    {
+      "id": "PZ_03",
+      "title": "Ce que voyait la notaire",
+      "axis": "destination",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_LIGNE_DE_VUE",
+      "inputs": [
+        "CLU_TEMOIN_CASTERAN"
+      ],
+      "produces": [
+        "DED_CASTERAN_NON_FIABLE"
+      ],
+      "answer": {
+        "type": "spatial",
+        "check": "Depuis le perron à 1,65 m, aucune sortie du rond-point n'est visible."
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ03_1",
+          "text": "Un témoin sincère peut se tromper. Où se tenait-elle exactement ?"
+        },
+        {
+          "id": "UI_HINT_PZ03_2",
+          "text": "Place-toi sur le perron. Que vois-tu vraiment d'ici ?"
+        },
+        {
+          "id": "UI_HINT_PZ03_3",
+          "text": "Cherche le panneau du rond-point depuis le perron. Si tu ne le vois pas, elle non plus."
+        }
+      ],
+      "red_herrings": [
+        "CLU_TEMOIN_CASTERAN"
+      ],
+      "wrong": {
+        "branch": "BR_ERR_NORD",
+        "time_cost": 25
+      },
+      "recovery": [
+        "INT_INES",
+        "BR_ERR_NORD"
+      ]
+    },
+    {
+      "id": "PZ_04",
+      "title": "Douze secondes de vidéo",
+      "axis": "destination",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_INES",
+      "inputs": [
+        "CLU_VIDEO_INES",
+        "CLU_PLAN_DISTANCES"
+      ],
+      "produces": [
+        "DED_SORTIE_ETANGS"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "route_des_etangs",
+        "options": [
+          "d652_sud",
+          "route_des_etangs",
+          "corniche_nord"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ04_1",
+          "text": "Repasse la vidéo image par image. Où est le fourgon juste avant et juste après le passage du skateur ?"
+        },
+        {
+          "id": "UI_HINT_PZ04_2",
+          "text": "Il y a deux grands véhicules dans cette vidéo. Compare leur silhouette, leur arrière et la plaque."
+        },
+        {
+          "id": "UI_HINT_PZ04_3",
+          "text": "Le camping-car a un porte-vélos et pas de plaque lisible ; le fourgon, si. Sur quelle route voit-on la plaque « 37-TR » ?"
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_ERR_NORD",
+        "time_cost": 25
+      },
+      "recovery": [
+        "EVT_INES_PARENTS",
+        "INT_CCTV_RELAIS"
+      ]
+    },
+    {
+      "id": "PZ_05",
+      "title": "La plaque",
+      "axis": "vehicule",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_PLAQUE_COMPLETE",
+      "alt_interactions": [
+        "INT_PLAQUE_PARTIELLE"
+      ],
+      "inputs": [
+        "CLU_PHOTO_FOURGON",
+        "CLU_VIDEO_INES",
+        "CLU_TEMOIN_DUFAU"
+      ],
+      "produces": [
+        "DED_PLAQUE_CLONEE"
+      ],
+      "answer": {
+        "type": "text",
+        "correct": "GF-437-TR",
+        "accept_pattern": "^GF-4[3?]7-(TR|\\?\\?)$|^\\?\\?-[?4]37-TR$"
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ05_1",
+          "text": "Une plaque française : deux lettres, trois chiffres, deux lettres. Aligne ce que tu as."
+        },
+        {
+          "id": "UI_HINT_PZ05_2",
+          "text": "La photo donne le début, la vidéo la fin. Le chiffre du milieu apparaît sur l'une des deux."
+        },
+        {
+          "id": "UI_HINT_PZ05_3",
+          "text": "Si le véhicule enregistré était à Dax au même moment, que peux-tu en conclure sur la plaque ?"
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_ERR_VEHICULE",
+        "time_cost": 15
+      },
+      "recovery": [
+        "INT_PLAQUE_PARTIELLE"
+      ]
+    },
+    {
+      "id": "PZ_06",
+      "title": "Les lettres fantômes",
+      "axis": "vehicule",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_TABLEAU_LIEGE",
+      "inputs": [
+        "CLU_PHOTO_FOURGON",
+        "CLU_PHOTO_FLOUE",
+        "CLU_VIDEO_INES",
+        "CLU_FLYER_BLANCHISSERIE",
+        "CLU_FLYER_PRESSING",
+        "CLU_TEMOIN_DUFAU"
+      ],
+      "produces": [
+        "DED_LETTRAGE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "ancien_fourgon_blanchisserie_oceane",
+        "options": [
+          "ancien_fourgon_blanchisserie_oceane",
+          "fourgon_actuel_blanchisserie_oceane",
+          "blanchisserie_du_courant"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ06_1",
+          "text": "L'ombre d'un autocollant retiré garde la forme des lettres. Qu'est-ce qui était écrit ?"
+        },
+        {
+          "id": "UI_HINT_PZ06_2",
+          "text": "Deux blanchisseries sont affichées. Compare les lettres et les chiffres qui restent."
+        },
+        {
+          "id": "UI_HINT_PZ06_3",
+          "text": "Un fourgon actuel porte son nom. Celui-ci l'a perdu. Qu'est-ce que ça dit de son histoire ?"
+        }
+      ],
+      "red_herrings": [
+        "CLU_FLYER_PRESSING"
+      ],
+      "wrong": {
+        "branch": "BR_ERR_VEHICULE",
+        "time_cost": 15
+      },
+      "recovery": [
+        "INT_INES",
+        "INT_APPEL_BLANCHISSERIE"
+      ],
+      "note_audrey": "Facultative depuis la décision du 29/09 : le lettrage fantôme dépend de l'apparence du fourgon, encore ouverte."
+    },
+    {
+      "id": "PZ_07",
+      "title": "Le fourgon du péage",
+      "axis": "destination",
+      "duo": false,
+      "mandatory": false,
+      "interaction": null,
+      "inputs": [
+        "CLU_SIGNALEMENT_PEAGE",
+        "CLU_VIDEO_INES",
+        "CLU_PLAN_DISTANCES",
+        "CLU_CCTV_RELAIS"
+      ],
+      "produces": [
+        "DED_PEAGE_EXCLU"
+      ],
+      "answer": {
+        "type": "arithmetic",
+        "check": {
+          "departure": "16:31",
+          "travel_min": 28,
+          "earliest_arrival": "16:59",
+          "reported": "16:50",
+          "compatible": false
+        }
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ07_1",
+          "text": "À quelle heure le fourgon était-il au rond-point ? Et combien de temps faut-il pour aller au péage ?"
+        },
+        {
+          "id": "UI_HINT_PZ07_2",
+          "text": "Additionne. Est-il arrivé avant ou après 16 h 50 ?"
+        },
+        {
+          "id": "UI_HINT_PZ07_3",
+          "text": "Un fourgon qui prend la route des Étangs peut-il être sur la D652 en même temps ?"
+        }
+      ],
+      "red_herrings": [
+        "CLU_SIGNALEMENT_PEAGE"
+      ],
+      "wrong": {
+        "branch": "BR_ERR_A63",
+        "time_cost": 30
+      },
+      "recovery": [
+        "BR_ERR_A63"
+      ]
+    },
+    {
+      "id": "PZ_08",
+      "title": "Ce que Julien ne dit pas",
+      "axis": "personne",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_PERE",
+      "inputs": [
+        "CLU_PERE_REACTION",
+        "CLU_TEMOIN_LARTIGUE",
+        "CLU_BADGE",
+        "CLU_TEMOIN_DIRECTRICE",
+        "DED_RUSE"
+      ],
+      "produces": [
+        "DED_CHANTAGE"
+      ],
+      "answer": {
+        "type": "dialogue",
+        "conditions": [
+          "FLAG_DARRIGADE_ELOIGNE",
+          "approche_compassion",
+          "preuve_de_ciblage_ou_de_ruse"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ08_1",
+          "text": "Julien a peur. De quoi, ou de qui ? Regarde comment réagit Ariane… et à quel moment il se tait."
+        },
+        {
+          "id": "UI_HINT_PZ08_2",
+          "text": "Il ne parlera pas devant n'importe qui. Et il ne parlera pas s'il se sent accusé."
+        },
+        {
+          "id": "UI_HINT_PZ08_3",
+          "text": "Montre-lui que tu sais que ce n'était pas un hasard : la femme a demandé « la petite Mercadier » — c'est son nom."
+        }
+      ],
+      "red_herrings": [
+        "CLU_PERE_REACTION"
+      ],
+      "wrong": {
+        "branch": "BR_PERE_BRUSQUE",
+        "time_cost": 5
+      },
+      "recovery": [
+        "EVT_PERE_CRAQUE"
+      ]
+    },
+    {
+      "id": "PZ_09",
+      "title": "Soleil sur l'étang",
+      "axis": "destination",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_CARTE_ETANG",
+      "inputs": [
+        "CLU_PHOTO_VIE",
+        "CLU_CARTE_ETANG",
+        "CLU_MESSAGE_CHANTAGE"
+      ],
+      "produces": [
+        "DED_RIVE_EST"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "rive_est",
+        "options": [
+          "rive_est",
+          "rive_ouest"
+        ],
+        "check": {
+          "sun_azimuth_deg": [
+            240,
+            255
+          ],
+          "window_faces": "ouest",
+          "house_on": "rive_est"
+        }
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ09_1",
+          "text": "À quelle heure la photo a-t-elle été prise, à peu près ? Où est le soleil à ce moment-là ?"
+        },
+        {
+          "id": "UI_HINT_PZ09_2",
+          "text": "Le soleil est en face, au-dessus de l'eau. Vers où regarde la fenêtre ?"
+        },
+        {
+          "id": "UI_HINT_PZ09_3",
+          "text": "Si la fenêtre regarde l'ouest et donne sur l'étang, de quel côté de l'étang est la maison ? Et que dit la légende de la carte sur le petit pot accroché au pin ?"
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": null,
+        "time_cost": 0,
+        "result": "Pas de BONUS_RIVE_EST ; réorientation au chapitre 2"
+      },
+      "recovery": [
+        "INT_CARTE_ETANG"
+      ]
+    },
+    {
+      "id": "PZ_10",
+      "title": "Le tableau des hypothèses",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_VEH_PLAQUE_CLONEE",
+          "H_K2_FAUSSE_ANIMATRICE",
+          "H_DEST_ETANGS"
+        ],
+        "optional": [
+          "H_VEH_ORIGINE_BLANCHISSERIE",
+          "H_K1_LOUBERE",
+          "H_DEST_RIVE_EST"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZ10_1",
+          "text": "Trois questions différentes : le véhicule, les personnes, la destination. Un seul indice ne répond jamais aux trois."
+        },
+        {
+          "id": "UI_HINT_PZ10_2",
+          "text": "Pour chaque colonne, quelle preuve contredit les autres hypothèses ?"
+        },
+        {
+          "id": "UI_HINT_PZ10_3",
+          "text": "Relis les déductions de ton carnet : chacune correspond à une colonne."
+        }
+      ],
+      "red_herrings": [
+        "CLU_CAISSE_POISSON"
+      ],
+      "wrong": {
+        "branch": "BR_ERR_*",
+        "time_cost": null
+      },
+      "recovery": [
+        "BR_CLOTURE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/audreygontier334-lang/3D/GameData/schema/dialogue.schema.json",
+  "title": "Fichier de dialogues",
+  "type": "object",
+  "required": [
+    "speakers",
+    "scenes"
+  ],
+  "properties": {
+    "speakers": {
+      "type": "object"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "context",
+          "lines"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DLG_[A-Z0-9_]+$"
+          },
+          "context": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "pattern": "^LOC_[A-Z0-9_]+$"
+          },
+          "lines": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "speaker",
+                "text",
+                "intent",
+                "emotion"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^DLG_[A-Z0-9_]+$"
+                },
+                "speaker": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "intent": {
+                  "type": "string"
+                },
+                "emotion": {
+                  "type": "string"
+                },
+                "choices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "text",
+                      "goto"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^DLG_[A-Z0-9_]+$"
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "goto": {
+                        "type": "string",
+                        "pattern": "^DLG_[A-Z0-9_]+$"
+                      },
+                      "effect": {
+                        "type": "string"
+                      },
+                      "requires": {
+                        "$ref": "#/$defs/requires"
+                      }
+                    }
+                  }
+                },
+                "requires": {
+                  "$ref": "#/$defs/requires"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ui": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "context"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^UI_[A-Z0-9_]+$"
+          },
+          "text": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "requires": {
+      "type": "object",
+      "description": "Condition lisible par le jeu, même format que les interactions. all = tous requis ; any = au moins un ; none = aucun ; selected = objet choisi dans l'interaction en cours ; outcome = résultat de l'interaction en cours.",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "all": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "any": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "none": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(CLU|DED|H|ACT|FLAG|BONUS)_[A-Z0-9_]+$"
+          }
+        },
+        "selected": {
+          "type": "string",
+          "pattern": "^CLU_[A-Z0-9_]+$"
+        },
+        "outcome": {
+          "enum": [
+            "succes",
+            "echec"
+          ]
+        }
+      }
+    }
+  }
+}

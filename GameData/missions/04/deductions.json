@@ -1,0 +1,40 @@
+{
+  "mission": "M04",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C4_BONNE_CABANE",
+      "axis": "cabane",
+      "puzzle": "PZ_C4_01",
+      "any_of": [
+        [
+          "CLU_C4_CADASTRE_HOURCADE",
+          "CLU_C4_TRACES_PISTE_7"
+        ],
+        [
+          "CLU_C4_CADASTRE_HOURCADE",
+          "CLU_C4_STATION_GERANT"
+        ],
+        [
+          "CLU_C4_ARIANE_HOURCADE"
+        ],
+        [
+          "CLU_C4_HELICO_CHALEUR",
+          "CLU_C4_PORTE_CADENASSEE"
+        ]
+      ],
+      "text": "Lila est dans la cabane de Hourcade."
+    },
+    {
+      "id": "DED_C4_MEME_GERANT",
+      "axis": "reseau",
+      "any_of": [
+        [
+          "CLU_C4_CADASTRE_HOURCADE",
+          "CLU_C4_GERANT_SCI"
+        ]
+      ],
+      "text": "L'airial de Hount-Bielha et la cabane de Hourcade appartiennent au même réseau de prête-noms."
+    }
+  ]
+}

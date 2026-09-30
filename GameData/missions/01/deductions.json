@@ -1,0 +1,187 @@
+{
+  "mission": "M01",
+  "_doc": "Déductions : établies quand l'un des ensembles de 'any_of' est entièrement acquis. Elles représentent des conclusions du joueur, distinctes des faits observés (CLU_).",
+  "deductions": [
+    {
+      "id": "DED_RUSE",
+      "axis": "personne",
+      "puzzle": "PZ_01",
+      "any_of": [
+        [
+          "CLU_PISTE_LILA",
+          "CLU_BRACELET_LILA"
+        ]
+      ],
+      "text": "Lila a suivi l'inconnue sans résister jusqu'au fourgon : elle a été trompée, pas saisie."
+    },
+    {
+      "id": "DED_FAUSSE_ANIMATRICE",
+      "axis": "personne",
+      "puzzle": "PZ_02",
+      "any_of": [
+        [
+          "CLU_BADGE",
+          "CLU_AFFICHE_COMMUNE"
+        ],
+        [
+          "CLU_TEMOIN_DIRECTRICE"
+        ],
+        [
+          "CLU_BADGE",
+          "CLU_TEMOIN_LARTIGUE"
+        ]
+      ],
+      "text": "La femme se faisait passer pour une animatrice périscolaire."
+    },
+    {
+      "id": "DED_CIBLE",
+      "axis": "personne",
+      "any_of": [
+        [
+          "CLU_TEMOIN_LARTIGUE"
+        ],
+        [
+          "CLU_MESSAGE_CHANTAGE"
+        ]
+      ],
+      "text": "L'inconnue savait qui elle venait chercher : l'enlèvement visait cette famille."
+    },
+    {
+      "id": "DED_CHANTAGE",
+      "axis": "personne",
+      "puzzle": "PZ_08",
+      "any_of": [
+        [
+          "CLU_MESSAGE_CHANTAGE"
+        ]
+      ],
+      "text": "L'enlèvement sert à faire pression sur Julien, le père : on exige de lui « un dernier voyage » jeudi 6 h, sans police."
+    },
+    {
+      "id": "DED_K1_LOUBERE",
+      "axis": "personne",
+      "puzzle": "PZ_06",
+      "any_of": [
+        [
+          "CLU_APPEL_BLANCHISSERIE",
+          "CLU_FLYER_BLANCHISSERIE",
+          "CLU_TEMOIN_DUFAU"
+        ],
+        [
+          "CLU_APPEL_BLANCHISSERIE",
+          "CLU_FLYER_BLANCHISSERIE",
+          "CLU_OBS_CONDUCTEUR"
+        ]
+      ],
+      "text": "Le conducteur est probablement Franck Loubère, ancien livreur de la Blanchisserie Océane.",
+      "open_visual": [
+        "apparence_fourgon"
+      ]
+    },
+    {
+      "id": "DED_LETTRAGE",
+      "axis": "vehicule",
+      "puzzle": "PZ_06",
+      "any_of": [
+        [
+          "CLU_PHOTO_FOURGON",
+          "CLU_FLYER_BLANCHISSERIE"
+        ],
+        [
+          "CLU_PHOTO_FLOUE",
+          "CLU_FLYER_BLANCHISSERIE"
+        ],
+        [
+          "CLU_VIDEO_INES",
+          "CLU_FLYER_BLANCHISSERIE"
+        ]
+      ],
+      "text": "Le fourgon est un ancien véhicule de la Blanchisserie Océane dont le nom a été retiré.",
+      "open_visual": [
+        "apparence_fourgon"
+      ]
+    },
+    {
+      "id": "DED_PLAQUE_CLONEE",
+      "axis": "vehicule",
+      "puzzle": "PZ_05",
+      "any_of": [
+        [
+          "CLU_SIV_CLONE"
+        ]
+      ],
+      "text": "La plaque GF-437-TR est copiée sur le fourgon d'un plombier de Dax qui se trouvait ailleurs."
+    },
+    {
+      "id": "DED_SORTIE_ETANGS",
+      "axis": "destination",
+      "puzzle": "PZ_04",
+      "any_of": [
+        [
+          "CLU_VIDEO_INES"
+        ]
+      ],
+      "text": "Au rond-point, le fourgon a pris la route des Étangs."
+    },
+    {
+      "id": "DED_PEAGE_EXCLU",
+      "axis": "destination",
+      "puzzle": "PZ_07",
+      "any_of": [
+        [
+          "CLU_SIGNALEMENT_PEAGE",
+          "CLU_VIDEO_INES",
+          "CLU_PLAN_DISTANCES"
+        ],
+        [
+          "CLU_SIGNALEMENT_PEAGE",
+          "CLU_CCTV_RELAIS"
+        ]
+      ],
+      "text": "Le fourgon signalé au péage à 16 h 50 ne peut pas être celui de l'enlèvement."
+    },
+    {
+      "id": "DED_CASTERAN_NON_FIABLE",
+      "axis": "destination",
+      "puzzle": "PZ_03",
+      "any_of": [
+        [
+          "CLU_TEMOIN_CASTERAN",
+          "CLU_LIGNE_DE_VUE"
+        ],
+        [
+          "CLU_TEMOIN_CASTERAN",
+          "CLU_VIDEO_INES"
+        ]
+      ],
+      "text": "Maître Casteran ne pouvait pas voir la sortie prise : son témoignage sur la direction n'est pas fiable."
+    },
+    {
+      "id": "DED_RIVE_EST",
+      "axis": "destination",
+      "puzzle": "PZ_09",
+      "any_of": [
+        [
+          "CLU_PHOTO_VIE",
+          "CLU_CARTE_ETANG"
+        ]
+      ],
+      "text": "La pièce où se trouve Lila regarde l'ouest au-dessus de l'étang : elle est sur la rive est."
+    },
+    {
+      "id": "DED_CERCLE_PROCHE",
+      "axis": "personne",
+      "any_of": [
+        [
+          "CLU_TEMOIN_NADIA",
+          "CLU_TEMOIN_LARTIGUE"
+        ],
+        [
+          "CLU_TEMOIN_NADIA",
+          "CLU_TEMOIN_DIRECTRICE"
+        ]
+      ],
+      "text": "Très peu de gens savaient que Lila rentrait seule, et la femme connaissait son nom : l'information vient du cercle proche de la famille."
+    }
+  ]
+}

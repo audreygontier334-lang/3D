@@ -1,0 +1,188 @@
+{
+  "mission": "M01",
+  "_doc": "Tableau d'hypothèses (PZ_10). Une hypothèse correcte est acceptée si l'un des ensembles 'requires_any_of' est acquis. Une hypothèse fausse déclenche 'wrong_branch'. 'required_for_resolution' : axes obligatoires pour conclure. 'fallback_priority' : ordre utilisé par la clôture automatique de 19 h 30. Décision d'Audrey (29/09) : l'apparence du fourgon (couleur, modèle, lettrage) sera choisie pendant la construction 3D ; aucune hypothèse obligatoire n'en dépend. L'axe véhicule obligatoire repose sur la plaque (présente quel que soit l'aspect du fourgon).",
+  "axes": [
+    {
+      "id": "vehicule",
+      "label": "UI_AXE_VEHICULE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "personne",
+      "label": "UI_AXE_PERSONNES",
+      "required_for_resolution": true
+    },
+    {
+      "id": "destination",
+      "label": "UI_AXE_DESTINATION",
+      "required_for_resolution": true
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_VEH_PLAQUE_CLONEE",
+      "axis": "vehicule",
+      "correct": true,
+      "label": "UI_H_VEH_PLAQUE_CLONEE",
+      "requires_any_of": [
+        [
+          "DED_PLAQUE_CLONEE"
+        ]
+      ],
+      "fallback_priority": 1
+    },
+    {
+      "id": "H_VEH_ORIGINE_BLANCHISSERIE",
+      "axis": "vehicule",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_VEH_ORIGINE_BLANCHISSERIE",
+      "requires_any_of": [
+        [
+          "DED_LETTRAGE"
+        ]
+      ],
+      "bonus": "BONUS_ORIGINE_FOURGON"
+    },
+    {
+      "id": "H_VEH_PLOMBIER",
+      "axis": "vehicule",
+      "correct": false,
+      "label": "UI_H_VEH_PLOMBIER",
+      "unlocked_by": [
+        "CLU_SIV_CLONE"
+      ],
+      "contradicted_by": [
+        "CLU_SIV_CLONE",
+        "CLU_NEG_VEHICULE"
+      ],
+      "wrong_branch": "BR_ERR_VEHICULE"
+    },
+    {
+      "id": "H_VEH_BLANCHISSERIE_ACTIVE",
+      "axis": "vehicule",
+      "correct": false,
+      "label": "UI_H_VEH_BLANCHISSERIE_ACTIVE",
+      "unlocked_by": [
+        "CLU_FLYER_BLANCHISSERIE"
+      ],
+      "contradicted_by": [
+        "CLU_TEMOIN_DUFAU",
+        "CLU_APPEL_BLANCHISSERIE",
+        "CLU_NEG_VEHICULE"
+      ],
+      "wrong_branch": "BR_ERR_VEHICULE"
+    },
+    {
+      "id": "H_K2_FAUSSE_ANIMATRICE",
+      "axis": "personne",
+      "correct": true,
+      "label": "UI_H_K2_FAUSSE_ANIMATRICE",
+      "requires_any_of": [
+        [
+          "DED_FAUSSE_ANIMATRICE",
+          "DED_CIBLE"
+        ]
+      ],
+      "fallback_priority": 1
+    },
+    {
+      "id": "H_K2_VRAIE_ANIMATRICE",
+      "axis": "personne",
+      "correct": false,
+      "label": "UI_H_K2_VRAIE_ANIMATRICE",
+      "unlocked_by": [
+        "CLU_BADGE"
+      ],
+      "contradicted_by": [
+        "CLU_AFFICHE_COMMUNE",
+        "CLU_TEMOIN_DIRECTRICE",
+        "CLU_NEG_ANIMATRICE"
+      ],
+      "wrong_branch": "BR_ERR_PERSONNE"
+    },
+    {
+      "id": "H_K1_LOUBERE",
+      "axis": "personne",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_K1_LOUBERE",
+      "requires_any_of": [
+        [
+          "DED_K1_LOUBERE"
+        ]
+      ],
+      "bonus": "BONUS_K1_IDENTIFIE"
+    },
+    {
+      "id": "H_DEST_ETANGS",
+      "axis": "destination",
+      "correct": true,
+      "label": "UI_H_DEST_ETANGS",
+      "requires_any_of": [
+        [
+          "DED_SORTIE_ETANGS"
+        ]
+      ],
+      "fallback_priority": 1
+    },
+    {
+      "id": "H_DEST_NORD",
+      "axis": "destination",
+      "correct": false,
+      "label": "UI_H_DEST_NORD",
+      "unlocked_by": [
+        "CLU_TEMOIN_CASTERAN"
+      ],
+      "contradicted_by": [
+        "CLU_LIGNE_DE_VUE",
+        "CLU_VIDEO_INES",
+        "CLU_NEG_NORD"
+      ],
+      "wrong_branch": "BR_ERR_NORD"
+    },
+    {
+      "id": "H_DEST_A63",
+      "axis": "destination",
+      "correct": false,
+      "label": "UI_H_DEST_A63",
+      "unlocked_by": [
+        "CLU_SIGNALEMENT_PEAGE"
+      ],
+      "contradicted_by": [
+        "CLU_VIDEO_INES",
+        "CLU_CCTV_RELAIS",
+        "CLU_NEG_A63"
+      ],
+      "wrong_branch": "BR_ERR_A63"
+    },
+    {
+      "id": "H_DEST_PORT",
+      "axis": "destination",
+      "correct": false,
+      "label": "UI_H_DEST_PORT",
+      "unlocked_by": [
+        "CLU_CAISSE_POISSON"
+      ],
+      "contradicted_by": [
+        "CLU_TEMOIN_DUFAU",
+        "CLU_VIDEO_INES",
+        "CLU_NEG_PORT"
+      ],
+      "wrong_branch": "BR_ERR_PORT"
+    },
+    {
+      "id": "H_DEST_RIVE_EST",
+      "axis": "destination",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_DEST_RIVE_EST",
+      "requires_any_of": [
+        [
+          "DED_RIVE_EST"
+        ]
+      ],
+      "bonus": "BONUS_RIVE_EST"
+    }
+  ]
+}

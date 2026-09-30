@@ -1,0 +1,107 @@
+{
+  "mission": "M02",
+  "branches": [
+    {
+      "id": "BR_C2_ERR_LARTIGAU",
+      "trigger": "Hypothèse « Lartigau » présentée",
+      "time_cost": 30,
+      "effect": "Les gendarmes investissent l'airial de Lartigau : un dîner de famille ; confiance des gendarmes −1",
+      "flags": [],
+      "grants": [
+        "CLU_C2_NEG_LARTIGAU",
+        "CLU_C2_LARTIGAU_LUMIERE"
+      ],
+      "dialogue": "DLG_C2_ERR_LARTIGAU",
+      "recovery": "La famille parle de la lumière à Hount-Bielha.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_ERR_BORDES",
+      "trigger": "Hypothèse « Bordes » présentée",
+      "time_cost": 30,
+      "effect": "Le gîte est fouillé : deux randonneurs ; confiance des gendarmes −1",
+      "flags": [],
+      "grants": [
+        "CLU_C2_NEG_BORDES",
+        "CLU_C2_BORDES_VOITURE"
+      ],
+      "dialogue": "DLG_C2_ERR_BORDES",
+      "recovery": "Les randonneurs racontent la voiture grise.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_ERR_RADIO",
+      "trigger": "Hypothèse « radio écoutée » présentée",
+      "time_cost": 10,
+      "effect": "Mendiondo rappelle que la radio est chiffrée",
+      "flags": [],
+      "grants": [
+        "CLU_C2_RADIO_CHIFFREE"
+      ],
+      "dialogue": "DLG_C2_ERR_RADIO",
+      "recovery": "Relire la chronologie.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_ERR_CONVOI",
+      "trigger": "Hypothèse « Loubère a vu arriver le convoi » présentée",
+      "time_cost": 10,
+      "effect": "La chronologie contredit l'hypothèse : Lila est partie avant le départ du convoi",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C2_ERR_CONVOI",
+      "recovery": "Comparer l'heure du départ de Lila et celle du convoi.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_PISTE_MAUVAISE",
+      "trigger": "Mauvaise branche choisie au carrefour de la piste 12",
+      "time_cost": 20,
+      "effect": "Aller-retour inutile dans le noir ; fraîcheur de la piste −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C2_PISTE_MAUVAISE",
+      "recovery": "La pièce de Hount-Bielha suffit à identifier le bon airial.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_ARIANE_MAUVAIS_OBJET",
+      "trigger": "Couverture ou verre donné comme objet de référence",
+      "time_cost": 10,
+      "effect": "Ariane suit l'odeur mêlée des adultes et mène à la grange",
+      "flags": [],
+      "grants": [
+        "CLU_C2_LOUBERE_SILENCE"
+      ],
+      "dialogue": "DLG_C2_ARIANE_MAUVAIS_OBJET",
+      "recovery": "Reprendre avec le coussin ; l'équipe cynophile passe à 22 h 30.",
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_RESOLU",
+      "trigger": "Tableau présenté avec une hypothèse correcte pour chaque axe obligatoire",
+      "time_cost": 0,
+      "effect": "Fin de chapitre ; retour au poste de Lescoure",
+      "flags": [
+        "FLAG_RESOLU"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C2_FIN",
+      "recovery": null,
+      "rejoins": "RES_M02"
+    },
+    {
+      "id": "BR_C2_CLOTURE",
+      "trigger": "1 h du matin sans résolution",
+      "time_cost": 0,
+      "effect": "Arbelot reprend l'enquête avec les éléments réunis ; état C",
+      "flags": [
+        "FLAG_CLOTURE"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C2_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M02"
+    }
+  ]
+}
