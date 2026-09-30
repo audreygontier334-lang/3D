@@ -1,4 +1,5 @@
 #include "FSDogCharacter.h"
+#include "FSPrologueRules.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
@@ -40,6 +41,7 @@ void AFSDogCharacter::BeginPlay()
 
 void AFSDogCharacter::SendTo(const FVector& Target)
 {
+	++SendRequestId;
 	SentTarget = Target;
 	State = EState::Sent;
 	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
@@ -47,8 +49,16 @@ void AFSDogCharacter::SendTo(const FVector& Target)
 
 void AFSDogCharacter::Recall()
 {
+	++SendRequestId;
 	State = EState::Follow;
+	GetCharacterMovement()->StopMovementImmediately();
 	GetCharacterMovement()->MaxWalkSpeed = TrotSpeed;
+}
+
+bool AFSDogCharacter::HasReachedSendTarget(uint32 RequestId) const
+{
+	return FSPrologueRules::HasReachedTarget(State == EState::Holding, SendRequestId, RequestId,
+		FVector::Dist2D(GetActorLocation(), SentTarget), FMath::Abs(GetActorLocation().Z - SentTarget.Z));
 }
 
 void AFSDogCharacter::Tick(float DeltaSeconds)
@@ -65,7 +75,8 @@ void AFSDogCharacter::Tick(float DeltaSeconds)
 	if (State == EState::Sent)
 	{
 		Target = SentTarget;
-		if (FVector::Dist2D(GetActorLocation(), SentTarget) < 60.f)
+		if (FVector::Dist2D(GetActorLocation(), SentTarget) < 60.f
+			&& FMath::Abs(GetActorLocation().Z - SentTarget.Z) < 100.f)
 		{
 			State = EState::Holding; // arrêt net, puis flaire
 			HoldTime = 0.f;
