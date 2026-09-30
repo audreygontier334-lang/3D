@@ -44,6 +44,17 @@ public:
 	UPROPERTY(EditAnywhere, Category = "FauxSemblants")
 	FString MissionFolder = TEXT("M01");
 
+	/** Pour l'interface (AFSHUD) : 0 avant l'alerte, 1 fenêtre d'action, 2 retenue, 3 départ, 4 fourgon parti, 5 appel passé. */
+	int32 GetPhaseIndex() const { return static_cast<int32>(Phase); }
+
+	/** Secondes écoulées depuis 16:25:00. */
+	float GetPrologueSeconds() const { return T; }
+
+	/** Secondes restantes de la fenêtre d'action (0 hors fenêtre). */
+	float GetWindowRemaining() const { return Phase == EPhase::Window ? FMath::Max(0.f, WindowSeconds - (T - AlertT)) : 0.f; }
+
+	int32 GetActionsLeft() const { return FMath::Max(0, MaxActions - ActionsTaken.Num()); }
+
 	/** Accélère le prologue pour les tests (1 = temps réel). */
 	UPROPERTY(EditAnywhere, Category = "FauxSemblants")
 	float TimeScale = 1.f;

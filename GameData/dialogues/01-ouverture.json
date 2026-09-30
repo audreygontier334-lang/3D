@@ -1880,6 +1880,101 @@
       "id": "UI_FIN_CHAPITRE",
       "text": "Chapitre 1 terminé — {heure}. Hypothèses retenues : {n}/3. Découvertes facultatives : {bonus}.",
       "context": "Écran de fin"
+    },
+    {
+      "id": "UI_TITRE_JEU",
+      "text": "Faux-semblants",
+      "context": "Écran titre (titre provisoire, non validé)"
+    },
+    {
+      "id": "UI_TITRE_SOUS",
+      "text": "Prologue",
+      "context": "Écran titre, sous le titre"
+    },
+    {
+      "id": "UI_TITRE_START",
+      "text": "Appuie sur Entrée pour commencer",
+      "context": "Écran titre, invitation à commencer"
+    },
+    {
+      "id": "UI_OBJECTIF",
+      "text": "Objectif",
+      "context": "Intitulé du cadre d'objectif (HUD)"
+    },
+    {
+      "id": "UI_OBJ_P_BALADE",
+      "text": "Promène-toi avec Ariane sur la place de l'école.",
+      "context": "Objectif du prologue, avant la sonnerie (16 h 25–16 h 26)"
+    },
+    {
+      "id": "UI_OBJ_P_SORTIE",
+      "text": "La sonnerie a retenti : les enfants sortent de l'école.",
+      "context": "Objectif du prologue, sortie de l'école (16 h 26–16 h 29)"
+    },
+    {
+      "id": "UI_OBJ_P_RUELLE",
+      "text": "Ariane fixe la ruelle, oreille dressée. Va voir.",
+      "context": "Objectif du prologue, Lila devant le fourgon, avant l'alerte (proposition : oriente vers la ruelle sans révéler l'abordage)"
+    },
+    {
+      "id": "UI_OBJ_P_AGIR",
+      "text": "Agis, vite ! Deux actions au plus.",
+      "context": "Objectif pendant la fenêtre d'action (compte à rebours affiché à côté)"
+    },
+    {
+      "id": "UI_OBJ_P_REJOINDRE",
+      "text": "Rejoins l'entrée de la ruelle !",
+      "context": "Objectif pendant la retenue du départ"
+    },
+    {
+      "id": "UI_OBJ_P_FUITE",
+      "text": "Le fourgon s'enfuit.",
+      "context": "Objectif pendant le départ du fourgon"
+    },
+    {
+      "id": "UI_OBJ_P_APPEL",
+      "text": "Appelle le 17.",
+      "context": "Objectif après le départ : action principale"
+    },
+    {
+      "id": "UI_TOUCHES_BASE",
+      "text": "ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · R : rappeler Ariane · J : carnet",
+      "context": "Rappel permanent des commandes (clavier)"
+    },
+    {
+      "id": "UI_TOUCHES_ACTION",
+      "text": "F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! »",
+      "context": "Commandes de la fenêtre d'action"
+    },
+    {
+      "id": "UI_TOUCHES_APPEL",
+      "text": "T : appeler le 17",
+      "context": "Commande d'appel au 17"
+    },
+    {
+      "id": "UI_CARNET_NOUVEAU",
+      "text": "Noté dans le carnet (J)",
+      "context": "Notification quand un indice est noté"
+    },
+    {
+      "id": "UI_CARNET_VIDE",
+      "text": "Rien de noté pour l'instant.",
+      "context": "Carnet ouvert sans indice"
+    },
+    {
+      "id": "UI_FIN_PROLOGUE_TITRE",
+      "text": "Fin du prologue",
+      "context": "Écran de fin du prologue"
+    },
+    {
+      "id": "UI_FIN_PROLOGUE_TEXTE",
+      "text": "16 h 31. {HEROINE} appelle le 17. L'enquête continue au chapitre 1, en préparation.",
+      "context": "Écran de fin du prologue, sous le titre"
+    },
+    {
+      "id": "UI_FIN_PROLOGUE_QUITTER",
+      "text": "Échap : quitter",
+      "context": "Écran de fin du prologue, commande"
     }
   ],
   "_tokens": {

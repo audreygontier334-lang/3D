@@ -543,5 +543,24 @@
 | `UI_ECHEC_PISTE_VIDE` | Ariane ne trouve rien à suivre avec cet objet. | Pistage sans résultat |
 | `UI_CONTRADICTION` | Contradiction : {indice_a} ne s'accorde pas avec {indice_b}. | Signalée dans le carnet quand deux indices s'opposent |
 | `UI_FIN_CHAPITRE` | Chapitre 1 terminé — {heure}. Hypothèses retenues : {n}/3. Découvertes facultatives : {bonus}. | Écran de fin |
+| `UI_TITRE_JEU` | Faux-semblants | Écran titre (titre provisoire, non validé) |
+| `UI_TITRE_SOUS` | Prologue | Écran titre, sous le titre |
+| `UI_TITRE_START` | Appuie sur Entrée pour commencer | Écran titre, invitation à commencer |
+| `UI_OBJECTIF` | Objectif | Intitulé du cadre d'objectif (HUD) |
+| `UI_OBJ_P_BALADE` | Promène-toi avec Ariane sur la place de l'école. | Objectif du prologue, avant la sonnerie (16 h 25–16 h 26) |
+| `UI_OBJ_P_SORTIE` | La sonnerie a retenti : les enfants sortent de l'école. | Objectif du prologue, sortie de l'école (16 h 26–16 h 29) |
+| `UI_OBJ_P_RUELLE` | Ariane fixe la ruelle, oreille dressée. Va voir. | Objectif du prologue, Lila devant le fourgon, avant l'alerte (proposition : oriente vers la ruelle sans révéler l'abordage) |
+| `UI_OBJ_P_AGIR` | Agis, vite ! Deux actions au plus. | Objectif pendant la fenêtre d'action (compte à rebours affiché à côté) |
+| `UI_OBJ_P_REJOINDRE` | Rejoins l'entrée de la ruelle ! | Objectif pendant la retenue du départ |
+| `UI_OBJ_P_FUITE` | Le fourgon s'enfuit. | Objectif pendant le départ du fourgon |
+| `UI_OBJ_P_APPEL` | Appelle le 17. | Objectif après le départ : action principale |
+| `UI_TOUCHES_BASE` | ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · R : rappeler Ariane · J : carnet | Rappel permanent des commandes (clavier) |
+| `UI_TOUCHES_ACTION` | F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » | Commandes de la fenêtre d'action |
+| `UI_TOUCHES_APPEL` | T : appeler le 17 | Commande d'appel au 17 |
+| `UI_CARNET_NOUVEAU` | Noté dans le carnet (J) | Notification quand un indice est noté |
+| `UI_CARNET_VIDE` | Rien de noté pour l'instant. | Carnet ouvert sans indice |
+| `UI_FIN_PROLOGUE_TITRE` | Fin du prologue | Écran de fin du prologue |
+| `UI_FIN_PROLOGUE_TEXTE` | 16 h 31. {HEROINE} appelle le 17. L'enquête continue au chapitre 1, en préparation. | Écran de fin du prologue, sous le titre |
+| `UI_FIN_PROLOGUE_QUITTER` | Échap : quitter | Écran de fin du prologue, commande |
 
 Les aides progressives des énigmes (`UI_HINT_*`) sont dans `GameData/missions/01/puzzles.json` et reprises dans `docs/cases/01-enigmes.md`.

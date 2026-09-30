@@ -40,6 +40,18 @@ public:
 	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
 	FString GetLineText(FName LineId) const;
 
+	/** Nom affiché de la personne qui dit la réplique ; vide pour la narration (carnet). */
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	FString GetLineSpeaker(FName LineId) const;
+
+	/** Texte d'interface (UI_…) de dialogues.json, jeton {HEROINE} remplacé ; Fallback si absent. */
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	FString GetUIText(FName UIId, const FString& Fallback = TEXT("")) const;
+
+	/** Indices (CLU_…) acquis, dans l'ordre où ils ont été notés. */
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	TArray<FName> GetAcquiredClues() const;
+
 	/** Fait d'un indice (CLU_…). */
 	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
 	FString GetClueFact(FName ClueId) const;
@@ -70,12 +82,16 @@ private:
 	static TSharedPtr<FJsonObject> ReadJson(const FString& Path);
 
 	TSet<FName> Acquired;
+	TArray<FName> AcquiredOrder;
 	int32 ClockMinutes = 0;
 	FString MissionFolder;
 
 	TSharedPtr<FJsonObject> Mission;
 	TMap<FName, FString> ClueFacts;
 	TMap<FName, FString> Lines;
+	TMap<FName, FString> LineSpeakers;
+	TMap<FName, FString> SpeakerNames;
+	TMap<FName, FString> UITexts;
 	/** Déduction → ensembles d'IDs dont un seul, complet, suffit (any_of). */
 	TMap<FName, TArray<TArray<FName>>> Deductions;
 };

@@ -72,6 +72,8 @@ private:
 	void Rappel();
 	void Appel17();
 	void Save();
+	void PressStart();
+	void ToggleNotebook();
 
 	AFSPrologueDirector* FindDirector() const;
 	AFSDogCharacter* FindDog() const;

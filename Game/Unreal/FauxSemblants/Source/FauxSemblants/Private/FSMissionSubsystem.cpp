@@ -51,8 +51,12 @@ bool UFSMissionSubsystem::LoadMission(const FString& InMissionFolder)
 	}
 
 	Acquired.Reset();
+	AcquiredOrder.Reset();
 	ClueFacts.Reset();
 	Lines.Reset();
+	LineSpeakers.Reset();
+	SpeakerNames.Reset();
+	UITexts.Reset();
 	Deductions.Reset();
 
 	for (const TSharedPtr<FJsonValue>& V : CluesDoc->GetArrayField(TEXT("clues")))
@@ -78,7 +82,36 @@ bool UFSMissionSubsystem::LoadMission(const FString& InMissionFolder)
 		for (const TSharedPtr<FJsonValue>& LineValue : SceneValue->AsObject()->GetArrayField(TEXT("lines")))
 		{
 			const TSharedPtr<FJsonObject> L = LineValue->AsObject();
-			Lines.Add(FName(*L->GetStringField(TEXT("id"))), L->GetStringField(TEXT("text")));
+			const FName LineId(*L->GetStringField(TEXT("id")));
+			Lines.Add(LineId, L->GetStringField(TEXT("text")));
+			FString Speaker;
+			if (L->TryGetStringField(TEXT("speaker"), Speaker))
+			{
+				LineSpeakers.Add(LineId, Speaker);
+			}
+		}
+	}
+	const TSharedPtr<FJsonObject>* Speakers = nullptr;
+	if (DlgDoc->TryGetObjectField(TEXT("speakers"), Speakers))
+	{
+		for (const TPair<FString, TSharedPtr<FJsonValue>>& Pair : (*Speakers)->Values)
+		{
+			// « Nadia Mercadier, mère de Lila » -> « Nadia Mercadier » ; les précisions servent aux auteurs, pas à l'écran.
+			FString Name = Pair.Value->AsString();
+			int32 Comma = INDEX_NONE;
+			if (Name.FindChar(TEXT(','), Comma)) { Name.LeftInline(Comma); }
+			int32 Paren = INDEX_NONE;
+			if (Name.FindChar(TEXT('('), Paren)) { Name.LeftInline(Paren); }
+			SpeakerNames.Add(FName(*Pair.Key), Name.TrimStartAndEnd());
+		}
+	}
+	const TArray<TSharedPtr<FJsonValue>>* UiArray = nullptr;
+	if (DlgDoc->TryGetArrayField(TEXT("ui"), UiArray))
+	{
+		for (const TSharedPtr<FJsonValue>& V : *UiArray)
+		{
+			const TSharedPtr<FJsonObject> U = V->AsObject();
+			UITexts.Add(FName(*U->GetStringField(TEXT("id"))), U->GetStringField(TEXT("text")));
 		}
 	}
 
@@ -103,6 +136,7 @@ void UFSMissionSubsystem::Grant(FName Id)
 		return;
 	}
 	Acquired.Add(Id);
+	AcquiredOrder.Add(Id);
 	OnAcquired.Broadcast(Id);
 	DeriveDeductions();
 }
@@ -129,6 +163,7 @@ void UFSMissionSubsystem::DeriveDeductions()
 				if (bAll)
 				{
 					Acquired.Add(Pair.Key);
+					AcquiredOrder.Add(Pair.Key);
 					OnAcquired.Broadcast(Pair.Key);
 					bChanged = true;
 					break;
@@ -142,6 +177,44 @@ FString UFSMissionSubsystem::GetLineText(FName LineId) const
 {
 	const FString* Text = Lines.Find(LineId);
 	return Text ? Text->Replace(TEXT("{HEROINE}"), *HeroineName) : FString();
+}
+
+FString UFSMissionSubsystem::GetLineSpeaker(FName LineId) const
+{
+	const FString* Key = LineSpeakers.Find(LineId);
+	if (!Key || *Key == TEXT("NARRATION"))
+	{
+		return FString();
+	}
+	if (*Key == TEXT("HEROINE"))
+	{
+		return HeroineName;
+	}
+	if (*Key == TEXT("CHIENNE"))
+	{
+		return TEXT("Ariane");
+	}
+	const FString* Name = SpeakerNames.Find(FName(**Key));
+	return Name ? *Name : *Key;
+}
+
+FString UFSMissionSubsystem::GetUIText(FName UIId, const FString& Fallback) const
+{
+	const FString* Text = UITexts.Find(UIId);
+	return (Text ? *Text : Fallback).Replace(TEXT("{HEROINE}"), *HeroineName);
+}
+
+TArray<FName> UFSMissionSubsystem::GetAcquiredClues() const
+{
+	TArray<FName> Clues;
+	for (const FName& Id : AcquiredOrder)
+	{
+		if (Id.ToString().StartsWith(TEXT("CLU_")))
+		{
+			Clues.Add(Id);
+		}
+	}
+	return Clues;
 }
 
 FString UFSMissionSubsystem::GetClueFact(FName ClueId) const
@@ -175,6 +248,7 @@ bool UFSMissionSubsystem::LoadProgress(const FString& SlotName)
 	}
 	ClockMinutes = Save->ClockMinutes;
 	Acquired = TSet<FName>(Save->Acquired);
+	AcquiredOrder = Save->Acquired;
 	DeriveDeductions();
 	return true;
 }

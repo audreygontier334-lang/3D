@@ -54,15 +54,21 @@ Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran �
 | Rappeler Ariane | R | — |
 | Appeler le 17 (fin du prologue) | T | — |
 | Sauvegarder | F5 | — |
+| Commencer (écran titre) | Entrée | Start |
+| Ouvrir / fermer le carnet | J | Select (View) |
 
 ## Ce que tu devrais voir
 
 Mardi 16 h 25 sur la place de l'école. À 16 h 27, Lila (volume jaune moutarde) sort et part vers la ruelle, cachée derrière l'angle. Si tu la suis jusqu'à l'entrée de la ruelle, tu vois la femme au badge l'aborder, puis Lila refuser de monter dans le fourgon (volume blanc). L'alerte donne quelques secondes pour agir (deux actions au plus), puis le fourgon part vers la mer au loin. Les répliques et les indices obtenus s'affichent en haut de l'écran. Il n'y a pas encore d'interface finale.
 
+## Interface du prologue (branche `claude/prologue-lisible`)
+
+`AFSHUD` dessine l'interface sans asset : écran titre (Entrée), carton d'ouverture, horloge, objectif selon la phase du prologue (compte à rebours pendant la fenêtre d'action), sous-titres avec le nom de la personne qui parle, rappels de commandes, notifications, carnet d'indices (J) et écran de fin après l'appel au 17. Les textes viennent de `GameData/dialogues/01-ouverture.json` (`UI_…`, `DLG_…`) : relancer `Scripts/setup_prologue.py` après une modification pour recopier les données.
+
 ## Limites connues (prochaines étapes)
 
 - Pas d'animations ni de modèles photoréalistes : volumes provisoires seulement.
-- Les textes s'affichent en messages de débogage, pas encore dans une vraie interface.
+- Interface provisoire dessinée en C++ (polices du moteur) : l'habillage graphique reste à faire.
 - La règle d'accélération (la femme presse Lila si le duo approche à moins de 12 m) n'est pas encore codée.
 - Le chapitre 1, la carte des déplacements et le portrait-robot viendront ensuite.
 - Les données sont lues en JSON (`Content/Data/M01/`, recopiées par le script) ; le passage aux Data Tables décrit dans `docs/INTEGRATION_UNREAL.md` viendra plus tard.

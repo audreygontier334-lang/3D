@@ -1,6 +1,7 @@
 #include "FSPrologueDirector.h"
 #include "FauxSemblants.h"
 #include "FSDogCharacter.h"
+#include "FSHUD.h"
 #include "FSHeroCharacter.h"
 #include "FSMissionSubsystem.h"
 #include "Dom/JsonObject.h"
@@ -107,7 +108,18 @@ void AFSPrologueDirector::BeginPlay()
 
 void AFSPrologueDirector::Say(const FString& Text, float Seconds, int32 Key)
 {
-	if (GEngine && !Text.IsEmpty())
+	if (Text.IsEmpty())
+	{
+		return;
+	}
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		// Clés 2, 3, 7 : rappels de commandes ; 20 et plus : indices notés (le HUD les signale déjà) ; sinon narration.
+		if (Key == 2 || Key == 3 || Key == 7) { Hud->ShowHint(Key, Text, Seconds); }
+		else if (Key < 20) { Hud->ShowLine(FString(), Text, Seconds); }
+		return;
+	}
+	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(Key, Seconds, FColor(255, 236, 200), Text);
 	}
@@ -115,10 +127,16 @@ void AFSPrologueDirector::Say(const FString& Text, float Seconds, int32 Key)
 
 void AFSPrologueDirector::SayLine(const TCHAR* LineId, float Seconds)
 {
-	if (Mission)
+	if (!Mission)
 	{
-		Say(Mission->GetLineText(FName(LineId)), Seconds);
+		return;
 	}
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		Hud->ShowLine(Mission->GetLineSpeaker(FName(LineId)), Mission->GetLineText(FName(LineId)), Seconds);
+		return;
+	}
+	Say(Mission->GetLineText(FName(LineId)), Seconds);
 }
 
 void AFSPrologueDirector::MoveAlong(AActor* Actor, const TArray<FFSKey>& Keys, float Time, float Height) const
@@ -277,7 +295,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 
 	// Horloge affichée : 16:25:00 + T.
 	const int32 Secs = FMath::FloorToInt(T);
-	if (GEngine && Phase != EPhase::Chapter1)
+	if (GEngine && Phase != EPhase::Chapter1 && !AFSHUD::Get(this))
 	{
 		GEngine->AddOnScreenDebugMessage(0, 0.f, FColor::White, FString::Printf(TEXT("Mardi %02d:%02d:%02d"), 16, 25 + Secs / 60, Secs % 60));
 	}

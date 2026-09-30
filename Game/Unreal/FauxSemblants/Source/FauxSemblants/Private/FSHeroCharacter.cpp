@@ -1,6 +1,7 @@
 #include "FSHeroCharacter.h"
 #include "FSPrologueDirector.h"
 #include "FSDogCharacter.h"
+#include "FSHUD.h"
 #include "FSMissionSubsystem.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -67,6 +68,9 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Input->BindAction(TEXT("Rappel"), IE_Pressed, this, &AFSHeroCharacter::Rappel);
 	Input->BindAction(TEXT("Appel17"), IE_Pressed, this, &AFSHeroCharacter::Appel17);
 	Input->BindAction(TEXT("Save"), IE_Pressed, this, &AFSHeroCharacter::Save);
+	// Écran titre et carnet : utilisables même quand le jeu est en pause.
+	Input->BindAction(TEXT("Start"), IE_Pressed, this, &AFSHeroCharacter::PressStart).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("Carnet"), IE_Pressed, this, &AFSHeroCharacter::ToggleNotebook).bExecuteWhenPaused = true;
 	SetCameraMode(EFSCameraMode::Shoulder);
 
 	if (UMaterialInstanceDynamic* Mat = PlaceholderBody->CreateDynamicMaterialInstance(0))
@@ -135,7 +139,11 @@ void AFSHeroCharacter::SetCameraMode(EFSCameraMode NewMode)
 	}
 	PlaceholderBody->SetOwnerNoSee(NewMode == EFSCameraMode::First);
 	static const TCHAR* Names[] = { TEXT("Vue épaule"), TEXT("Vue reculée"), TEXT("Vue subjective") };
-	if (GEngine)
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		if (!Hud->IsOnTitleScreen()) { Hud->ShowToast(Names[static_cast<int32>(NewMode)], 1.5f); }
+	}
+	else if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(10, 1.5f, FColor::White, Names[static_cast<int32>(NewMode)]);
 	}
@@ -195,9 +203,26 @@ void AFSHeroCharacter::Save()
 	if (UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>())
 	{
 		const bool bOk = M->SaveProgress();
-		if (GEngine)
+		if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			Hud->ShowToast(bOk ? TEXT("Partie sauvegardée") : TEXT("Échec de la sauvegarde"), 2.f);
+		}
+		else if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(11, 2.f, FColor::White, bOk ? TEXT("Partie sauvegardée") : TEXT("Échec de la sauvegarde"));
 		}
+	}
+}
+
+void AFSHeroCharacter::PressStart()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->PressStart(); }
+}
+
+void AFSHeroCharacter::ToggleNotebook()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		if (!Hud->IsOnTitleScreen()) { Hud->ToggleNotebook(); }
 	}
 }
