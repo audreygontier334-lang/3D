@@ -1,0 +1,66 @@
+{
+  "mission": "M06",
+  "zones": [
+    {
+      "id": "Z_C6_BRIGADE",
+      "neighbors": [
+        "Z_C6_ETUDE",
+        "Z_C6_AGENCE",
+        "Z_C6_A63"
+      ]
+    },
+    {
+      "id": "Z_C6_ETUDE",
+      "neighbors": [
+        "Z_C6_BRIGADE",
+        "Z_C6_AGENCE"
+      ]
+    },
+    {
+      "id": "Z_C6_AGENCE",
+      "neighbors": [
+        "Z_C6_BRIGADE",
+        "Z_C6_ETUDE"
+      ]
+    },
+    {
+      "id": "Z_C6_A63",
+      "neighbors": [
+        "Z_C6_BRIGADE",
+        "Z_C6_ENTREPOT"
+      ]
+    },
+    {
+      "id": "Z_C6_ENTREPOT",
+      "neighbors": [
+        "Z_C6_A63"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_C6_BRIGADE",
+      "name": "Brigade de Lescoure",
+      "zone": "Z_C6_BRIGADE",
+      "env": "ENV_BRIGADE"
+    },
+    {
+      "id": "LOC_C6_ETUDE",
+      "name": "Étude Casteran, place de l'Église",
+      "zone": "Z_C6_ETUDE",
+      "env": "ENV_ETUDE_CASTERAN"
+    },
+    {
+      "id": "LOC_C6_AGENCE",
+      "name": "Agence de voyage, rue de l'École",
+      "zone": "Z_C6_AGENCE",
+      "env": "ENV_AGENCE_VOYAGE"
+    },
+    {
+      "id": "LOC_C6_ENTREPOT",
+      "name": "Entrepôt de Bayonne, sous scellés",
+      "zone": "Z_C6_ENTREPOT",
+      "env": "ENV_ENTREPOT_BAYONNE"
+    }
+  ]
+}

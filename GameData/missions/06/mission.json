@@ -1,0 +1,84 @@
+{
+  "id": "M06",
+  "title": "Chapitre 6 « Faux-semblants »",
+  "status": "proposition",
+  "min_puzzles": 5,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission sans prologue : départ mardi soir après le vol Luxembourg → Biarritz et le choix de l'étape ETP_6 (étude Casteran d'abord). Heures > 24:00 = mercredi (29:00 = mercredi 5 h), > 48:00 = jeudi. Chapitre de la fin A : Darrigade n'est pas alerté et reste chez lui. Si le réseau est alerté (jauge à 3) ou après 5 fausses routes, l'étape ETP_7 remplace ce chapitre par la mission M07 (fin B). Q1 : Nadia ignore tout ; Q2 : Darrigade dirige le réseau, Casteran est de bonne foi.",
+  "clock": {
+    "chapter_start": "20:00",
+    "deadline": "60:00",
+    "travel_cost_per_zone": 15,
+    "_doc": "Mardi 20 h → jeudi 12 h. Lescoure : brigade, étude, agence de voyage ; entrepôt de Bayonne à deux zones (A63)."
+  },
+  "start_zone": "Z_C6_BRIGADE",
+  "entry_states": [
+    {
+      "id": "CH6_ETAT_A",
+      "label": "Avance",
+      "start": "19:30",
+      "grants": [
+        "FLAG_ETAT_A"
+      ]
+    },
+    {
+      "id": "CH6_ETAT_B",
+      "label": "Standard",
+      "start": "20:00",
+      "grants": [
+        "FLAG_ETAT_B"
+      ]
+    },
+    {
+      "id": "CH6_ETAT_C",
+      "label": "Retard (détour par l'entrepôt ou la maison)",
+      "start": "22:30",
+      "grants": [
+        "FLAG_ETAT_C"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace : pièces de Luxembourg, témoignage de Casteran, fiche de signalement, puis démonstration devant le juge mercredi matin.",
+    "steps": [
+      "INT_C6_BRIEFING",
+      "INT_C6_CASTERAN",
+      "INT_C6_PORTRAIT",
+      "INT_C6_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M06",
+    "dialogue": "DLG_C6_EPILOGUE",
+    "next_states": [
+      {
+        "id": "FIN_A",
+        "label": "Arrêté dans les Landes",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_LIEN_CABANE",
+        "from": "H_C6_LIEN_CABANE"
+      },
+      {
+        "id": "BONUS_BILLETS",
+        "from": "CLU_C6_DARRIGADE_BILLETS"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/06-faux-semblants.json"
+  }
+}

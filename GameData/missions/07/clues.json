@@ -1,0 +1,115 @@
+{
+  "mission": "M07",
+  "clues": [
+    {
+      "id": "CLU_C7_VOITURE_HENDAYE",
+      "name": "Lecture des plaques",
+      "location": "LOC_C7_BRIGADE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "La voiture de Darrigade est garée au parking de la gare d'Hendaye depuis 6 h 10.",
+      "interpretations": [
+        "Il est parti vers la frontière"
+      ]
+    },
+    {
+      "id": "CLU_C7_BILLETS_INTACTS",
+      "name": "Agence de voyage",
+      "location": "LOC_C7_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les billets d'avion de vendredi n'ont été ni modifiés ni utilisés.",
+      "interpretations": [
+        "Il ne prend pas l'avion"
+      ]
+    },
+    {
+      "id": "CLU_C7_PEAGE_ESPAGNE",
+      "name": "Péage d'Irun",
+      "location": "LOC_C7_BRIGADE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "Un taxi payé par carte au nom du prête-nom franchit le péage d'Irun vers Bilbao à 6 h 40.",
+      "interpretations": [
+        "Direction Bilbao"
+      ]
+    },
+    {
+      "id": "CLU_C7_RESERVATION_FERRY",
+      "name": "Compagnie maritime",
+      "location": "LOC_C7_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Réservation au nom du prête-nom sur le ferry Bilbao → Portsmouth de 17 h.",
+      "interpretations": [
+        "Il vise le ferry"
+      ]
+    },
+    {
+      "id": "CLU_C7_TAXI_HENDAYE",
+      "name": "Chauffeur de taxi",
+      "location": "LOC_C7_HENDAYE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "« Un homme pressé, sans bagage, à 6 h 20. Il voulait le port de Bilbao, il a payé avec une carte à un autre nom. »",
+      "interpretations": [
+        "Il n'a pas pris le train"
+      ]
+    },
+    {
+      "id": "CLU_C7_ARIANE_TAXIS",
+      "name": "Ariane au parking",
+      "location": "LOC_C7_HENDAYE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Depuis la voiture abandonnée, Ariane file vers la station de taxis, pas vers les quais de la gare.",
+      "interpretations": [
+        "Il est parti en taxi"
+      ]
+    },
+    {
+      "id": "CLU_C7_PASSAGER_CASQUETTE",
+      "name": "File d'embarquement",
+      "location": "LOC_C7_TERMINAL",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Un homme rasé de près, casquette, sac de voile neuf ; sa carte d'embarquement porte le nom du prête-nom.",
+      "interpretations": [
+        "Darrigade, méconnaissable"
+      ]
+    },
+    {
+      "id": "CLU_C7_COSTUME_PASSEPORT",
+      "name": "L'homme en costume",
+      "location": "LOC_C7_TERMINAL",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Même carrure, même âge ; passeport britannique, avec sa femme et ses deux enfants.",
+      "interpretations": [
+        "Ce n'est pas lui"
+      ]
+    },
+    {
+      "id": "CLU_C7_ARIANE_TERMINAL",
+      "name": "Ariane dans le terminal",
+      "location": "LOC_C7_TERMINAL",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Ariane s'arrête à dix mètres de l'homme à la casquette et recule, oreilles en arrière, comme devant Darrigade au poste forestier.",
+      "interpretations": [
+        "C'est lui"
+      ]
+    },
+    {
+      "id": "CLU_C7_ENREGISTREMENT",
+      "name": "Police portuaire",
+      "location": "LOC_C7_TERMINAL",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "La police portuaire signale un passager au nom du prête-nom à l'enregistrement, file 3.",
+      "interpretations": [
+        "Il est dans le terminal"
+      ]
+    }
+  ]
+}

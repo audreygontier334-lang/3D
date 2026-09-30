@@ -1,0 +1,402 @@
+{
+  "mission": "M07",
+  "status": "proposition",
+  "_doc": "Répliques de la variante « La fuite » (fin B, proposition de Claude). Darrigade reste toujours rattrapable ; Nadia apprend sa fuite avant la vérité (Q1).",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "ARBELOT": "Capitaine Arbelot, section de recherches",
+    "TAXI": "Chauffeur de taxi d'Hendaye",
+    "POLICIA": "Agente de la police portuaire de Bilbao",
+    "DARRIGADE": "Xavier Darrigade, compagnon de Nadia",
+    "NADIA": "Nadia Mercadier, mère de Lila",
+    "LILA": "Lila Mercadier",
+    "JUGE": "Juge d'instruction (au téléphone)"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C7_BRIEFING",
+      "context": "INT_C7_BRIEFING. Brigade, mercredi 8 h : la maison de Darrigade est vide.",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_BRIEFING_01",
+          "speaker": "ARBELOT",
+          "text": "Parti avant l'aube. Sa voiture est à la gare d'Hendaye depuis six heures dix.",
+          "intent": "Poser la fuite",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C7_BRIEFING_02",
+          "speaker": "ARBELOT",
+          "text": "Les billets de vendredi n'ont pas bougé. Il a changé de plan.",
+          "intent": "Leurre réfuté d'avance",
+          "emotion": "sombre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_REQUISITION",
+      "context": "INT_C7_REQUISITION (PZ_C7_01).",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_REQUISITION_01",
+          "speaker": "HEROINE",
+          "text": "Péage d'Irun, six heures quarante : un taxi payé avec la carte du prête-nom. Direction Bilbao.",
+          "intent": "Déduire",
+          "emotion": "concentré"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_REQUISITION_ERREUR",
+      "context": "BR_C7_REQUISITION_ERREUR.",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_REQUISITION_ERREUR_01",
+          "speaker": "ARBELOT",
+          "text": "Rien de ce côté. On a perdu vingt minutes.",
+          "intent": "Coût",
+          "emotion": "agacé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_COMPAGNIE",
+      "context": "INT_C7_COMPAGNIE. Appel à la compagnie maritime.",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_COMPAGNIE_01",
+          "speaker": "ARBELOT",
+          "text": "Une réservation au nom du prête-nom. Ferry pour Portsmouth, départ dix-sept heures.",
+          "intent": "Échéance",
+          "emotion": "grave"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_MANDAT",
+      "context": "INT_C7_MANDAT (PZ_C7_03) : fiche de signalement pour le mandat d'arrêt européen.",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_MANDAT_01",
+          "speaker": "JUGE",
+          "text": "Pour l'Espagne, il me faut quatre traits prouvés. Pas un de moins, pas un de faux.",
+          "intent": "Règle du portrait",
+          "emotion": "strict"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_MANDAT_REFUSE",
+      "context": "BR_C7_MANDAT_REFUSE.",
+      "location": "LOC_C7_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C7_MANDAT_REFUSE_01",
+          "speaker": "JUGE",
+          "text": "Ce n'est pas suffisant pour une autorité étrangère. Reprenez votre fiche.",
+          "intent": "Refus",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_HENDAYE",
+      "context": "INT_C7_HENDAYE. Parking de la gare, la voiture vide, clés sur la roue.",
+      "location": "LOC_C7_HENDAYE",
+      "lines": [
+        {
+          "id": "DLG_C7_HENDAYE_01",
+          "speaker": "TAXI",
+          "text": "Un homme pressé, sans bagage, à six heures vingt. Il voulait le port de Bilbao.",
+          "intent": "Témoin",
+          "emotion": "bavard"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ARIANE_PARKING",
+      "context": "INT_C7_ARIANE_PARKING (PZ_C7_05).",
+      "location": "LOC_C7_HENDAYE",
+      "lines": [
+        {
+          "id": "DLG_C7_ARIANE_PARKING_01",
+          "speaker": "CHIENNE",
+          "text": "[flaire la portière, file vers la station de taxis, s'arrête]",
+          "intent": "Piste",
+          "emotion": "concentré"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ARIANE_PARKING_ERREUR",
+      "context": "BR_C7_ARIANE_PARKING_ERREUR.",
+      "location": "LOC_C7_HENDAYE",
+      "lines": [
+        {
+          "id": "DLG_C7_ARIANE_PARKING_ERREUR_01",
+          "speaker": "HEROINE",
+          "text": "Les quais sont vides. Ce n'était pas par là.",
+          "intent": "Correction",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_TERMINAL",
+      "context": "INT_C7_TERMINAL. Terminal du ferry, files d'embarquement.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_TERMINAL_01",
+          "speaker": "POLICIA",
+          "text": "Deux hommes de son âge dans les files. L'un en costume avec sa famille, l'autre en casquette, seul.",
+          "intent": "Deux candidats",
+          "emotion": "professionnel"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ARIANE_TERMINAL",
+      "context": "INT_C7_ARIANE_TERMINAL (PZ_C7_02).",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_ARIANE_TERMINAL_01",
+          "speaker": "CHIENNE",
+          "text": "[s'arrête à dix mètres de l'homme à la casquette, recule, oreilles en arrière]",
+          "intent": "Reconnaissance",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C7_ARIANE_TERMINAL_02",
+          "speaker": "HEROINE",
+          "text": "C'est lui.",
+          "intent": "Identification",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ARIANE_TERMINAL_ERREUR",
+      "context": "BR_C7_ARIANE_TERMINAL_ERREUR.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_ARIANE_TERMINAL_ERREUR_01",
+          "speaker": "POLICIA",
+          "text": "Votre chienne recule devant un agent de sécurité ? Regardez plutôt les cartes d'embarquement.",
+          "intent": "Relance",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ENREGISTREMENT",
+      "context": "EVT_C7_ENREGISTREMENT, 15 h 30 (rattrapage).",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_ENREGISTREMENT_01",
+          "speaker": "POLICIA",
+          "text": "Un passager au nom de votre prête-nom vient d'enregistrer, file 3.",
+          "intent": "Rattrapage",
+          "emotion": "urgent"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_TABLEAU",
+      "context": "INT_C7_PRESENTER_TABLEAU (PZ_C7_04), avec la police portuaire.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_TABLEAU_01",
+          "speaker": "POLICIA",
+          "text": "Avec le mandat, je peux l'arrêter ici. Mais je dois être sûre de l'homme.",
+          "intent": "Demande de synthèse",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ARRESTATION",
+      "context": "BR_C7_RESOLU. File 3, avant la passerelle.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_ARRESTATION_01",
+          "speaker": "POLICIA",
+          "text": "Señor. Policía. Hay una orden de detención europea a su nombre.",
+          "intent": "Interpellation (fin B)",
+          "emotion": "ferme"
+        },
+        {
+          "id": "DLG_C7_ARRESTATION_02",
+          "speaker": "DARRIGADE",
+          "text": "Vous vous trompez de personne.",
+          "intent": "Faux-semblant jusqu'au bout",
+          "emotion": "calme"
+        },
+        {
+          "id": "DLG_C7_ARRESTATION_03",
+          "speaker": "HEROINE",
+          "text": "Non. Plus maintenant.",
+          "intent": "Clôture",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_EPILOGUE",
+      "context": "Résolution : quelques jours plus tard, sortie de l'école. Nadia a appris la fuite avant la vérité.",
+      "lines": [
+        {
+          "id": "DLG_C7_EPILOGUE_01",
+          "speaker": "NADIA",
+          "text": "Il est parti sans un mot. Et puis on m'a dit pourquoi.",
+          "intent": "La vérité (Q1)",
+          "emotion": "brisé"
+        },
+        {
+          "id": "DLG_C7_EPILOGUE_02",
+          "speaker": "HEROINE",
+          "text": "Vous n'aviez aucun moyen de savoir.",
+          "intent": "Réconfort",
+          "emotion": "doux"
+        },
+        {
+          "id": "DLG_C7_EPILOGUE_03",
+          "speaker": "LILA",
+          "text": "Ariane !",
+          "intent": "Retrouvailles",
+          "emotion": "joyeux"
+        },
+        {
+          "id": "DLG_C7_EPILOGUE_04",
+          "speaker": "CHIENNE",
+          "text": "[court vers Lila, tourne autour d'elle, s'assied contre ses jambes]",
+          "intent": "Fin",
+          "emotion": "heureux"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_CLOTURE",
+      "context": "EVT_C7_CLOTURE, 17 h : le ferry devait partir.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_CLOTURE_01",
+          "speaker": "POLICIA",
+          "text": "Le mandat est arrivé à temps. Le ferry reste à quai ; on le cherche à bord.",
+          "intent": "Aucune impasse",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C7_CLOTURE_02",
+          "speaker": "ARBELOT",
+          "text": "Il n'ira nulle part.",
+          "intent": "Fin B tardive",
+          "emotion": "ferme"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ERR_BIARRITZ",
+      "context": "BR_C7_ERR_BIARRITZ.",
+      "lines": [
+        {
+          "id": "DLG_C7_ERR_BIARRITZ_01",
+          "speaker": "ARBELOT",
+          "text": "Personne à son nom à l'aéroport. On a perdu quarante minutes.",
+          "intent": "Coût de l'erreur",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ERR_TRAIN",
+      "context": "BR_C7_ERR_TRAIN.",
+      "location": "LOC_C7_HENDAYE",
+      "lines": [
+        {
+          "id": "DLG_C7_ERR_TRAIN_01",
+          "speaker": "ARBELOT",
+          "text": "Les contrôleurs n'ont vu personne. Il n'a pas pris le train.",
+          "intent": "Coût de l'erreur",
+          "emotion": "agacé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C7_ERR_COSTUME",
+      "context": "BR_C7_ERR_COSTUME.",
+      "location": "LOC_C7_TERMINAL",
+      "lines": [
+        {
+          "id": "DLG_C7_ERR_COSTUME_01",
+          "speaker": "POLICIA",
+          "text": "Un touriste britannique, en règle. Ses enfants ont eu peur. L'autre file, vite.",
+          "intent": "Coût de l'erreur",
+          "emotion": "sec"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C7_AXE_DESTINATION",
+      "text": "Où il fuit",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C7_AXE_IDENTITE",
+      "text": "Qui il est devenu",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C7_AXE_MOMENT",
+      "text": "Quand l'interpeller (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C7_BILBAO",
+      "text": "Ferry de Bilbao, 17 h",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C7_BIARRITZ",
+      "text": "Aéroport de Biarritz",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C7_TRAIN",
+      "text": "Train depuis Hendaye",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C7_CASQUETTE",
+      "text": "L'homme à la casquette, seul",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C7_COSTUME",
+      "text": "L'homme en costume",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C7_AVANT_EMBARQUEMENT",
+      "text": "Dans la file, avant la passerelle",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}

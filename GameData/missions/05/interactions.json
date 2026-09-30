@@ -1,0 +1,136 @@
+{
+  "mission": "M05",
+  "_doc": "Coût en minutes. Déplacement dans le port : 10 min par zone.",
+  "interactions": [
+    {
+      "id": "INT_C5_BRIEFING",
+      "location": "LOC_C5_POLICE",
+      "cost": 15,
+      "mandatory": true,
+      "grants": [
+        "CLU_C5_CONNAISSEMENT",
+        "CLU_C5_AIS_NAVIRE",
+        "CLU_C5_ESCALE_ROTTERDAM",
+        "CLU_C5_VIEILLE_ROUTE_LEIXOES",
+        "CLU_C5_SCELLES",
+        "CLU_C5_LISTE_SCELLES_BAYONNE",
+        "CLU_C5_REGISTRE_HOLDING"
+      ],
+      "dialogue": "DLG_C5_BRIEFING"
+    },
+    {
+      "id": "INT_C5_LABO",
+      "location": "LOC_C5_POLICE",
+      "cost": 15,
+      "requires": {
+        "all": [
+          "CLU_C5_CONNAISSEMENT"
+        ]
+      },
+      "grants": [
+        "CLU_C5_CERTIFICAT_481223"
+      ],
+      "dialogue": "DLG_C5_LABO"
+    },
+    {
+      "id": "INT_C5_SCELLES_QUAI",
+      "location": "LOC_C5_QUAI",
+      "cost": 20,
+      "puzzle": "PZ_C5_01",
+      "available_until": "15:00",
+      "requires": {
+        "all": [
+          "CLU_C5_LISTE_SCELLES_BAYONNE"
+        ]
+      },
+      "grants": [
+        "CLU_C5_SCELLE_CHANGE"
+      ],
+      "dialogue": "DLG_C5_SCELLES_QUAI"
+    },
+    {
+      "id": "INT_C5_PESEE",
+      "location": "LOC_C5_QUAI",
+      "cost": 15,
+      "grants": [
+        "CLU_C5_PESEE"
+      ],
+      "dialogue": "DLG_C5_PESEE"
+    },
+    {
+      "id": "INT_C5_ARIANE_QUAI",
+      "location": "LOC_C5_QUAI",
+      "cost": 15,
+      "puzzle": "PZ_C5_02",
+      "available_until": "15:00",
+      "requires": {
+        "all": [
+          "CLU_C5_GANT_COMPLICE"
+        ]
+      },
+      "grants": [
+        "CLU_C5_ARIANE_481207"
+      ],
+      "dialogue": "DLG_C5_ARIANE_QUAI"
+    },
+    {
+      "id": "INT_C5_OUVRIR_481215",
+      "location": "LOC_C5_HANGAR",
+      "cost": 30,
+      "grants": [
+        "CLU_C5_AGRICOLE_CONFORME"
+      ],
+      "dialogue": "DLG_C5_OUVRIR_481215"
+    },
+    {
+      "id": "INT_C5_BUREAU",
+      "location": "LOC_C5_BUREAU",
+      "cost": 20,
+      "grants": [
+        "CLU_C5_VIREMENT_GENEVE",
+        "CLU_C5_BUREAU_AMSTERDAM",
+        "CLU_C5_COURRIER_LUX"
+      ],
+      "dialogue": "DLG_C5_BUREAU"
+    },
+    {
+      "id": "INT_C5_SIGNATURES",
+      "location": "LOC_C5_BUREAU",
+      "cost": 20,
+      "puzzle": "PZ_C5_03",
+      "requires": {
+        "all": [
+          "CLU_C5_REGISTRE_HOLDING"
+        ]
+      },
+      "grants": [
+        "CLU_C5_SIGNATURE_PRETE_NOM"
+      ],
+      "dialogue": "DLG_C5_SIGNATURES"
+    },
+    {
+      "id": "INT_C5_ARIANE_BUREAU",
+      "location": "LOC_C5_BUREAU",
+      "cost": 10,
+      "puzzle": "PZ_C5_05",
+      "grants": [
+        "CLU_C5_ECHARPE_DARRIGADE"
+      ],
+      "dialogue": "DLG_C5_ARIANE_BUREAU"
+    },
+    {
+      "id": "INT_C5_PRESENTER_TABLEAU",
+      "location": "LOC_C5_POLICE",
+      "cost": 10,
+      "puzzle": "PZ_C5_04",
+      "mandatory": true,
+      "requires": {
+        "all": [
+          "CLU_C5_CONNAISSEMENT"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C5_TABLEAU"
+    }
+  ]
+}

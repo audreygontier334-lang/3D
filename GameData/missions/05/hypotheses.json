@@ -1,0 +1,114 @@
+{
+  "mission": "M05",
+  "_doc": "Tableau du chapitre 5 : quel conteneur saisir, et à qui appartient vraiment Nordhaven Shipping. Une erreur coûte du temps, jamais la piste.",
+  "axes": [
+    {
+      "id": "conteneur",
+      "label": "UI_C5_AXE_CONTENEUR",
+      "required_for_resolution": true
+    },
+    {
+      "id": "proprietaire",
+      "label": "UI_C5_AXE_PROPRIETAIRE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "reseau",
+      "label": "UI_C5_AXE_RESEAU",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C5_CONTENEUR_481207",
+      "axis": "conteneur",
+      "correct": true,
+      "label": "UI_H_C5_CONTENEUR_481207",
+      "requires_any_of": [
+        [
+          "DED_C5_BON_CONTENEUR"
+        ]
+      ]
+    },
+    {
+      "id": "H_C5_CONTENEUR_481215",
+      "axis": "conteneur",
+      "correct": false,
+      "label": "UI_H_C5_CONTENEUR_481215",
+      "unlocked_by": [
+        "CLU_C5_CONNAISSEMENT"
+      ],
+      "contradicted_by": [
+        "CLU_C5_AGRICOLE_CONFORME",
+        "CLU_C5_PESEE"
+      ],
+      "wrong_branch": "BR_C5_ERR_481215"
+    },
+    {
+      "id": "H_C5_CONTENEUR_481223",
+      "axis": "conteneur",
+      "correct": false,
+      "label": "UI_H_C5_CONTENEUR_481223",
+      "unlocked_by": [
+        "CLU_C5_CONNAISSEMENT"
+      ],
+      "contradicted_by": [
+        "CLU_C5_CERTIFICAT_481223",
+        "CLU_C5_PESEE"
+      ],
+      "wrong_branch": "BR_C5_ERR_481223"
+    },
+    {
+      "id": "H_C5_HOLDING_LUX",
+      "axis": "proprietaire",
+      "correct": true,
+      "label": "UI_H_C5_HOLDING_LUX",
+      "requires_any_of": [
+        [
+          "DED_C5_PROPRIETAIRE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C5_GENEVE",
+      "axis": "proprietaire",
+      "correct": false,
+      "label": "UI_H_C5_GENEVE",
+      "unlocked_by": [
+        "CLU_C5_VIREMENT_GENEVE"
+      ],
+      "contradicted_by": [
+        "CLU_C5_VIREMENT_GENEVE",
+        "CLU_C5_REGISTRE_HOLDING"
+      ],
+      "wrong_branch": "BR_C5_ERR_GENEVE"
+    },
+    {
+      "id": "H_C5_AMSTERDAM",
+      "axis": "proprietaire",
+      "correct": false,
+      "label": "UI_H_C5_AMSTERDAM",
+      "unlocked_by": [
+        "CLU_C5_BUREAU_AMSTERDAM"
+      ],
+      "contradicted_by": [
+        "CLU_C5_BUREAU_AMSTERDAM",
+        "CLU_C5_REGISTRE_HOLDING"
+      ],
+      "wrong_branch": "BR_C5_ERR_AMSTERDAM"
+    },
+    {
+      "id": "H_C5_MEME_PRETE_NOM",
+      "axis": "reseau",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C5_MEME_PRETE_NOM",
+      "requires_any_of": [
+        [
+          "DED_C5_MEME_PRETE_NOM"
+        ]
+      ],
+      "bonus": "BONUS_MEME_PRETE_NOM"
+    }
+  ]
+}

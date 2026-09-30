@@ -1,0 +1,231 @@
+{
+  "mission": "M07",
+  "puzzles": [
+    {
+      "id": "PZ_C7_01",
+      "title": "La bonne réquisition",
+      "axis": "destination",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_C7_REQUISITION",
+      "inputs": [
+        "CLU_C7_VOITURE_HENDAYE"
+      ],
+      "produces": [
+        "CLU_C7_PEAGE_ESPAGNE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "peage_irun",
+        "options": [
+          "peage_irun",
+          "sncf_hendaye",
+          "aeroport_biarritz"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC701_1",
+          "text": "Sa voiture est à Hendaye : il a changé de véhicule."
+        },
+        {
+          "id": "UI_HINT_PZC701_2",
+          "text": "Qui passe la frontière sans montrer ses papiers ? Une voiture au péage."
+        },
+        {
+          "id": "UI_HINT_PZC701_3",
+          "text": "Le concessionnaire du péage d'Irun enregistre chaque paiement par carte."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C7_REQUISITION_ERREUR",
+        "time_cost": 20
+      },
+      "recovery": [
+        "INT_C7_HENDAYE",
+        "INT_C7_COMPAGNIE"
+      ]
+    },
+    {
+      "id": "PZ_C7_02",
+      "title": "Dix mètres",
+      "axis": "identite",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C7_ARIANE_TERMINAL",
+      "inputs": [],
+      "produces": [
+        "CLU_C7_ARIANE_TERMINAL"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "homme_casquette",
+        "options": [
+          "homme_casquette",
+          "homme_costume",
+          "agent_de_securite"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC702_1",
+          "text": "Ariane ne s'approche pas de lui ; elle recule."
+        },
+        {
+          "id": "UI_HINT_PZC702_2",
+          "text": "Devant qui a-t-elle déjà reculé ainsi ?"
+        },
+        {
+          "id": "UI_HINT_PZC702_3",
+          "text": "Devant Darrigade, au poste forestier et à Anvers."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C7_ARIANE_TERMINAL_ERREUR",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C7_TERMINAL",
+        "EVT_C7_ENREGISTREMENT"
+      ]
+    },
+    {
+      "id": "PZ_C7_03",
+      "title": "Le mandat d'arrêt européen",
+      "axis": "identite",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C7_MANDAT",
+      "inputs": [],
+      "produces": [
+        "FLAG_MANDAT_EUROPEEN"
+      ],
+      "answer": {
+        "type": "portrait",
+        "suspect": "DARRIGADE",
+        "seuil": 4,
+        "correct": {
+          "lien_societe": "Darrigade Logistique",
+          "prete_nom": "gérant des SCI et de la holding",
+          "acces_information": "présent au poste de commandement",
+          "fuite_prevue": "billets pour vendredi avec Nadia",
+          "financement": "holding luxembourgeoise"
+        }
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC703_1",
+          "text": "Il faut quatre traits justes, chacun avec sa source."
+        },
+        {
+          "id": "UI_HINT_PZC703_2",
+          "text": "Les billets de vendredi montrent qu'il préparait sa fuite."
+        },
+        {
+          "id": "UI_HINT_PZC703_3",
+          "text": "Casteran et Julien ne sont pas le prête-nom ; Genève est une fausse piste."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C7_MANDAT_REFUSE",
+        "time_cost": 45
+      },
+      "recovery": [
+        "INT_C7_BRIEFING"
+      ]
+    },
+    {
+      "id": "PZ_C7_04",
+      "title": "La file 3",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C7_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_C7_BILBAO",
+          "H_C7_CASQUETTE"
+        ],
+        "optional": [
+          "H_C7_AVANT_EMBARQUEMENT"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC704_1",
+          "text": "Où va-t-il, et à quoi ressemble-t-il maintenant ?"
+        },
+        {
+          "id": "UI_HINT_PZC704_2",
+          "text": "Un nom d'emprunt, un visage rasé."
+        },
+        {
+          "id": "UI_HINT_PZC704_3",
+          "text": "Bilbao, l'homme à la casquette, file 3."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C7_ERR_COSTUME",
+        "time_cost": 20
+      },
+      "recovery": [
+        "EVT_C7_ENREGISTREMENT",
+        "EVT_C7_CLOTURE"
+      ]
+    },
+    {
+      "id": "PZ_C7_05",
+      "title": "La voiture abandonnée",
+      "axis": "destination",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C7_ARIANE_PARKING",
+      "inputs": [
+        "CLU_C7_VOITURE_HENDAYE"
+      ],
+      "produces": [
+        "CLU_C7_ARIANE_TAXIS"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "station_de_taxis",
+        "options": [
+          "station_de_taxis",
+          "quais_de_la_gare",
+          "centre_ville"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC705_1",
+          "text": "Suis Ariane depuis la portière du conducteur."
+        },
+        {
+          "id": "UI_HINT_PZC705_2",
+          "text": "Elle ne prend pas l'entrée de la gare."
+        },
+        {
+          "id": "UI_HINT_PZC705_3",
+          "text": "Elle s'arrête à la station de taxis."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C7_ARIANE_PARKING_ERREUR",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C7_HENDAYE"
+      ]
+    }
+  ]
+}

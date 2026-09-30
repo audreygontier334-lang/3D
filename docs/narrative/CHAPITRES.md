@@ -1,6 +1,6 @@
 # Plan de campagne — chapitres et chaîne des destinations
 
-> **Statut : proposition de Claude**, construite sur les décisions d'Audrey du 29/09 (Q1 : pression sur le père ; Q2 : le compagnon de la mère dirige le réseau ; Q3 : Lila retrouvée au chapitre 4, séquestrée sans violence dans une cabane sombre et froide). Seuls le prologue et le chapitre 1 sont détaillés (`docs/cases/01-*`). Les chapitres 2 à 6 sont des plans à valider avant rédaction complète.
+> **Statut : proposition de Claude**, construite sur les décisions d'Audrey du 29/09 (Q1 : pression sur le père ; Q2 : le compagnon de la mère dirige le réseau ; Q3 : Lila retrouvée au chapitre 4, séquestrée sans violence dans une cabane sombre et froide). Seuls le prologue et le chapitre 1 sont détaillés (`docs/cases/01-*`). Les chapitres 2 à 6 sont écrits comme missions jouables dans `GameData/missions/02` à `07` (le chapitre 6 a deux versions : `06` pour la fin A, `07` « La fuite » pour la fin B) ; leur contenu reste à valider par Audrey.
 >
 > ⚠️ Contient des spoilers (voir `BIBLE.md`, section SPOILERS).
 
@@ -96,6 +96,12 @@ Ch.6  Retour à Lescoure-Plage (l'étude notariale, l'entrepôt, la maison)
 - **Enjeu temporel** : Darrigade prépare sa fuite et veut emmener Nadia « se reposer loin d'ici » ; perquisition à obtenir avant.
 - **Mécanique nouvelle** : démonstration finale — la joueuse relie les indices du chapitre 1 (silence de Julien, trajet de Lila, appels « pour la battue »), les deux fuites et les archives notariales en une chaîne présentée au juge. Ariane retrouve, pendant la perquisition légale, la veste portée à la cabane.
 - **Conclusion** : voir `BIBLE.md` §7.
+
+## Chapitre 6 bis — « La fuite » (fin B) 🟡
+- **Quand** : seulement si le réseau est alerté (jauge à 3) ou après 5 fausses routes (décision d'Audrey : trop de fausses routes peuvent changer la fin).
+- **Question** : Darrigade a fui avant l'aube ; où le rattraper avant le ferry Bilbao → Portsmouth de 17 h ?
+- **Mécaniques** : réquisitions (péage d'Irun, compagnie maritime), piste d'Ariane depuis la voiture abandonnée à Hendaye, fiche de signalement à quatre traits pour le mandat d'arrêt européen, identification dans la file d'embarquement.
+- **Conclusion** : interpellation par la police espagnole (fin B) ; Nadia apprend la fuite avant la vérité. Darrigade reste toujours rattrapable.
 
 ## Récapitulatif des mécaniques
 

@@ -1,0 +1,51 @@
+{
+  "mission": "M05",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C5_BON_CONTENEUR",
+      "axis": "conteneur",
+      "puzzle": "PZ_C5_01",
+      "any_of": [
+        [
+          "CLU_C5_SCELLE_CHANGE",
+          "CLU_C5_PESEE"
+        ],
+        [
+          "CLU_C5_ARIANE_481207"
+        ],
+        [
+          "CLU_C5_SCANNER_481207",
+          "CLU_C5_PESEE"
+        ]
+      ],
+      "text": "Les médicaments falsifiés sont dans le conteneur 481207."
+    },
+    {
+      "id": "DED_C5_PROPRIETAIRE",
+      "axis": "proprietaire",
+      "any_of": [
+        [
+          "CLU_C5_REGISTRE_HOLDING",
+          "CLU_C5_COURRIER_LUX"
+        ],
+        [
+          "CLU_C5_REGISTRE_HOLDING",
+          "CLU_C5_SIGNATURE_PRETE_NOM"
+        ]
+      ],
+      "text": "Nordhaven Shipping appartient à Nordhaven Holding SA, au Luxembourg."
+    },
+    {
+      "id": "DED_C5_MEME_PRETE_NOM",
+      "axis": "reseau",
+      "any_of": [
+        [
+          "CLU_C5_SIGNATURE_PRETE_NOM",
+          "CLU_C5_REGISTRE_HOLDING"
+        ]
+      ],
+      "text": "La holding et les SCI landaises ont le même prête-nom."
+    }
+  ]
+}

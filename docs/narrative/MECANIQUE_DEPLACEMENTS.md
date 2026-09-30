@@ -39,6 +39,8 @@
 | `ETP_6` (ch. 6) | Retour à Lescoure, mardi soir | Où frapper en premier ? | Étude Casteran (archives, témoin de bonne foi) | Maison de Nadia (alerte Darrigade), entrepôt de Bayonne (déjà vidé) |
 | `ETP_7` (ch. 6, **seulement si** réseau alerté = 3 ou ≥ 5 fausses routes) | Lescoure, mercredi 8 h | Darrigade a fui : où le rattraper avant le ferry de 17 h ? | Port de Bilbao, terminal du ferry (mandat d'arrêt européen) | Aéroport de Biarritz (billets intacts), gare d'Hendaye (voiture abandonnée) |
 
+Missions jouables : `ETP_1` → M01, `ETP_2` → M02, `ETP_3` → M03 et M04, `ETP_4` et `ETP_5` → M05 (Anvers), `ETP_6` → M06 (fin A), `ETP_7` → M07 « La fuite » (fin B), dans `GameData/missions/`.
+
 **Deux fins** ✅ (principe) / 🟡 (contenu) : **fin A**, Darrigade interpellé dans les Landes ; **fin B**, après sa fuite, arrêté en Espagne grâce au mandat d'arrêt européen fondé sur le portrait de la joueuse. Il reste toujours rattrapable : seule la fin change.
 
 L'étape 1 existe déjà dans la mission 01 (tableau d'hypothèses, branches `BR_ERR_*`) ; proposition : chaque mauvaise destination y devient un vrai court trajet avec les gendarmes et une scène sur place. L'escale `ETP_5` (Luxembourg) donne à l'acte II une vraie poursuite à travers l'Europe (✅ gardée par Audrey).

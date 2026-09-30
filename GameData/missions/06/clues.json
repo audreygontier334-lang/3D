@@ -1,0 +1,148 @@
+{
+  "mission": "M06",
+  "clues": [
+    {
+      "id": "CLU_C6_PRETE_NOM_PAYE",
+      "name": "Relevés saisis à Luxembourg",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Le prête-nom est rémunéré par Darrigade Logistique.",
+      "interpretations": [
+        "Darrigade paie le prête-nom"
+      ]
+    },
+    {
+      "id": "CLU_C6_JOURNAL_ARBELOT",
+      "name": "Journal d'Arbelot",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Mardi 18 h 05 : Nadia et Darrigade au poste de commandement quand Nadia décrit le trajet de Lila. Mercredi 21 h : la famille est rassurée par téléphone sur l'opération de jeudi.",
+      "interpretations": [
+        "Darrigade a entendu les deux informations qui ont fuité"
+      ]
+    },
+    {
+      "id": "CLU_C6_CADENAS_HOURCADE",
+      "name": "Cadenas de Hourcade",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Le cadenas neuf de la cabane de Hourcade, sous scellé depuis jeudi.",
+      "interpretations": [
+        "Objet de référence pour Ariane"
+      ]
+    },
+    {
+      "id": "CLU_C6_EQUIPE_VERIFIEE",
+      "name": "Téléphones de l'équipe",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "Arbelot a fait vérifier les téléphones de son équipe : aucun appel ni message sortant la nuit de l'opération.",
+      "interpretations": [
+        "Pas de gendarme infiltré"
+      ]
+    },
+    {
+      "id": "CLU_C6_DUFAU_ABSENT",
+      "name": "Liste des personnes informées",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Dufau, le voisin du square, n'a jamais été informé ni de l'opération du port ni des recherches.",
+      "interpretations": [
+        "Dufau ne pouvait rien transmettre"
+      ]
+    },
+    {
+      "id": "CLU_C6_JULIEN_SALARIE",
+      "name": "Déposition de Julien",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Julien : « Je conduisais, c'est tout. J'ai voulu démissionner, Darrigade a refusé. Je n'ai jamais vu un compte ni signé un papier. »",
+      "interpretations": [
+        "Julien est un chauffeur sous pression, pas un chef"
+      ]
+    },
+    {
+      "id": "CLU_C6_CASTERAN_TEMOIGNE",
+      "name": "Témoignage de Casteran",
+      "location": "LOC_C6_ETUDE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Casteran : « C'est M. Darrigade qui m'a apporté les dossiers des SCI et de Sud Loc Services, et qui a réglé mes honoraires. Je n'ai rien vu d'anormal. »",
+      "interpretations": [
+        "Darrigade a monté les sociétés écrans ; Casteran est de bonne foi"
+      ]
+    },
+    {
+      "id": "CLU_C6_STATUTS_CASTERAN",
+      "name": "Archives de l'étude",
+      "location": "LOC_C6_ETUDE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les statuts de Sud Loc Services et des deux SCI ont été commandés et payés par Darrigade.",
+      "interpretations": [
+        "Preuve écrite du rôle de Darrigade"
+      ]
+    },
+    {
+      "id": "CLU_C6_NADIA_TEMOIGNE",
+      "name": "Déposition de Nadia",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "temoignage",
+      "availability": "toujours",
+      "fact": "Nadia : « Xavier savait tout : l'heure de sortie de Lila, qu'elle rentrait seule le mardi. Il était là quand vous nous avez rassurés mercredi soir. »",
+      "interpretations": [
+        "Nadia ne voit pas ce que ses mots impliquent"
+      ]
+    },
+    {
+      "id": "CLU_C6_ARIANE_VOITURE",
+      "name": "Ariane et la voiture de Darrigade",
+      "location": "LOC_C6_BRIGADE",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Garée devant la brigade pendant que Darrigade attend au café d'en face : Ariane tourne autour de sa voiture, s'arrête au coffre et s'assied.",
+      "interpretations": [
+        "Le coffre porte l'odeur de la cabane"
+      ]
+    },
+    {
+      "id": "CLU_C6_DARRIGADE_BILLETS",
+      "name": "Agence de voyage",
+      "location": "LOC_C6_AGENCE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Deux billets pour Nadia et Darrigade, départ vendredi.",
+      "interpretations": [
+        "Darrigade prépare un départ"
+      ]
+    },
+    {
+      "id": "CLU_C6_ENTREPOT_VIDE",
+      "name": "Entrepôt sous scellés",
+      "location": "LOC_C6_ENTREPOT",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Entrepôt vidé et scellé depuis le chapitre 3 ; le bureau du chef de quai est resté tel quel.",
+      "interpretations": [
+        "Rien de neuf à première vue"
+      ]
+    },
+    {
+      "id": "CLU_C6_CLE_JUMELLE",
+      "name": "Clé jumelle",
+      "location": "LOC_C6_ENTREPOT",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Dans un tiroir du bureau, la clé jumelle du cadenas de Hourcade, sur un anneau marqué « X.D. ».",
+      "interpretations": [
+        "Darrigade avait accès à la cabane"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "mission": "M05",
+  "puzzles": [
+    {
+      "id": "PZ_C5_01",
+      "title": "Les scellés",
+      "axis": "conteneur",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_C5_SCELLES_QUAI",
+      "inputs": [
+        "CLU_C5_LISTE_SCELLES_BAYONNE"
+      ],
+      "produces": [
+        "CLU_C5_SCELLE_CHANGE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "NHVU_481207",
+        "options": [
+          "NHVU_481207",
+          "NHVU_481215",
+          "NHVU_481223"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC501_1",
+          "text": "Compare chaque scellé du quai au relevé de Bayonne."
+        },
+        {
+          "id": "UI_HINT_PZC501_2",
+          "text": "Un scellé de série Nordhaven n'a pas pu être posé par la douane française."
+        },
+        {
+          "id": "UI_HINT_PZC501_3",
+          "text": "Seul 481207 ne porte plus son scellé de départ."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C5_SCELLES_ERREUR",
+        "time_cost": 20
+      },
+      "recovery": [
+        "INT_C5_PESEE",
+        "EVT_C5_SCANNER"
+      ]
+    },
+    {
+      "id": "PZ_C5_02",
+      "title": "L'odeur du quai 4",
+      "axis": "conteneur",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C5_ARIANE_QUAI",
+      "inputs": [
+        "CLU_C5_GANT_COMPLICE",
+        "CLU_C5_CONNAISSEMENT"
+      ],
+      "produces": [
+        "CLU_C5_ARIANE_481207"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "CLU_C5_GANT_COMPLICE",
+        "options": [
+          "CLU_C5_GANT_COMPLICE",
+          "CLU_C5_CONNAISSEMENT",
+          "CLU_C5_LISTE_SCELLES_BAYONNE"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC502_1",
+          "text": "Ariane suit une odeur de personne, pas de papier."
+        },
+        {
+          "id": "UI_HINT_PZC502_2",
+          "text": "Qui a touché les conteneurs au quai 4 ?"
+        },
+        {
+          "id": "UI_HINT_PZC502_3",
+          "text": "Le gant du complice porte son odeur, et lui seul l'a porté."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C5_CONNAISSEMENT"
+      ],
+      "wrong": {
+        "branch": "BR_C5_ARIANE_MAUVAIS_OBJET",
+        "time_cost": 15
+      },
+      "recovery": [
+        "INT_C5_PESEE",
+        "EVT_C5_SCANNER"
+      ]
+    },
+    {
+      "id": "PZ_C5_03",
+      "title": "Les signatures",
+      "axis": "reseau",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_C5_SIGNATURES",
+      "inputs": [
+        "CLU_C5_REGISTRE_HOLDING"
+      ],
+      "produces": [
+        "CLU_C5_SIGNATURE_PRETE_NOM"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "administrateur_holding",
+        "options": [
+          "administrateur_holding",
+          "comptable_anvers",
+          "capitaine_du_navire"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC503_1",
+          "text": "Qui signe au nom de la holding ?"
+        },
+        {
+          "id": "UI_HINT_PZC503_2",
+          "text": "Tu as déjà vu cette signature sur les statuts des SCI landaises."
+        },
+        {
+          "id": "UI_HINT_PZC503_3",
+          "text": "L'administrateur de la holding est le gérant de paille des SCI."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C5_SIGNATURE_ERREUR",
+        "time_cost": 20
+      },
+      "recovery": [
+        "INT_C5_BUREAU"
+      ]
+    },
+    {
+      "id": "PZ_C5_04",
+      "title": "Le tableau d'Anvers",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C5_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_C5_CONTENEUR_481207",
+          "H_C5_HOLDING_LUX"
+        ],
+        "optional": [
+          "H_C5_MEME_PRETE_NOM"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC504_1",
+          "text": "Deux questions : quel conteneur, et qui paie."
+        },
+        {
+          "id": "UI_HINT_PZC504_2",
+          "text": "Le poids ne ment pas ; le registre non plus."
+        },
+        {
+          "id": "UI_HINT_PZC504_3",
+          "text": "481207 pèse 4,6 t de trop ; la holding est au Luxembourg."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C5_ERR_481215",
+        "time_cost": 45
+      },
+      "recovery": [
+        "EVT_C5_SCANNER",
+        "EVT_C5_CLOTURE"
+      ]
+    },
+    {
+      "id": "PZ_C5_05",
+      "title": "Ce qu'Ariane refuse",
+      "axis": "reseau",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C5_ARIANE_BUREAU",
+      "inputs": [],
+      "produces": [
+        "CLU_C5_ECHARPE_DARRIGADE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "odeur_connue",
+        "options": [
+          "odeur_connue",
+          "peur_du_lieu",
+          "fatigue"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC505_1",
+          "text": "Ariane n'a peur de rien dans ce bureau, sauf d'un coin."
+        },
+        {
+          "id": "UI_HINT_PZC505_2",
+          "text": "Où l'as-tu déjà vue reculer ainsi ?"
+        },
+        {
+          "id": "UI_HINT_PZC505_3",
+          "text": "Au poste forestier, devant Darrigade."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C5_ARIANE_BUREAU_ERREUR",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C5_BUREAU"
+      ]
+    }
+  ]
+}

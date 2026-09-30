@@ -19,7 +19,7 @@ GameData/
     puzzles.json          énigmes, solutions, aides à trois niveaux (PZ_, UI_HINT_)
     spatial_requirements.json  lien avec la maquette 3D : zone, repère, caméras, repli, coût
   dialogues/
-    01-ouverture.json     répliques (DLG_) et textes d'interface (UI_)
+    01-ouverture.json     répliques (DLG_) et textes d'interface (UI_) ; un fichier par chapitre (02 à 07)
   campaign/
     itineraire.json       déplacements à la Carmen Sandiego (ETP_), jauges (J_), portrait-robot établi par la joueuse
   scenes/

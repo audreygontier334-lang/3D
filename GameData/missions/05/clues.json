@@ -1,0 +1,215 @@
+{
+  "mission": "M05",
+  "clues": [
+    {
+      "id": "CLU_C5_CONNAISSEMENT",
+      "name": "Connaissement du Maren Sofie",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Connaissement : port de déchargement Anvers, destinataire Nordhaven Shipping BV. Trois conteneurs chargés au quai 4 de Bayonne : NHVU 481207, 481215 et 481223.",
+      "interpretations": [
+        "Le fret de Darrigade Logistique finit à Anvers",
+        "Trois conteneurs à départager"
+      ]
+    },
+    {
+      "id": "CLU_C5_AIS_NAVIRE",
+      "name": "Suivi AIS",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Le Maren Sofie a fait route vers l'Escaut ; à quai depuis dimanche 22 h.",
+      "interpretations": [
+        "Le navire est bien à Anvers"
+      ]
+    },
+    {
+      "id": "CLU_C5_ESCALE_ROTTERDAM",
+      "name": "Planning de l'armateur",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Escale technique à Rotterdam : ravitaillement, aucun déchargement prévu.",
+      "interpretations": [
+        "Rien n'a quitté la cale à Rotterdam"
+      ]
+    },
+    {
+      "id": "CLU_C5_VIEILLE_ROUTE_LEIXOES",
+      "name": "Archives de l'entrepôt",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Contrats vers Leixões (Porto) arrêtés il y a deux ans.",
+      "interpretations": [
+        "Porto est une ancienne route"
+      ]
+    },
+    {
+      "id": "CLU_C5_SCELLES",
+      "name": "Numéros de scellés",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les numéros de scellés ne changent qu'à Anvers.",
+      "interpretations": [
+        "Le chargement est retouché à Anvers"
+      ]
+    },
+    {
+      "id": "CLU_C5_LISTE_SCELLES_BAYONNE",
+      "name": "Scellés posés à Bayonne",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Relevé de la douane de Bayonne : 481207 → scellé 5530118 ; 481215 → 5530119 ; 481223 → 5530120.",
+      "interpretations": [
+        "Numéros de départ à comparer"
+      ]
+    },
+    {
+      "id": "CLU_C5_REGISTRE_HOLDING",
+      "name": "Registre belge des sociétés",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Nordhaven Shipping BV est détenue à 100 % par Nordhaven Holding SA, Luxembourg.",
+      "interpretations": [
+        "Le propriétaire est au Luxembourg"
+      ]
+    },
+    {
+      "id": "CLU_C5_SCELLE_CHANGE",
+      "name": "Scellé de série Nordhaven",
+      "location": "LOC_C5_QUAI",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Sur le quai, 481207 porte le scellé NH-0412, de série Nordhaven : il a été rouvert et refermé par le destinataire. 481215 et 481223 portent encore les scellés de Bayonne.",
+      "interpretations": [
+        "Le conteneur 481207 a été manipulé"
+      ]
+    },
+    {
+      "id": "CLU_C5_PESEE",
+      "name": "Pont-bascule",
+      "location": "LOC_C5_QUAI",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "481207 : déclaré 9,2 t de compléments alimentaires, pesé 13,8 t. Les deux autres sont conformes à leur déclaration.",
+      "interpretations": [
+        "Le conteneur 481207 cache une autre cargaison"
+      ]
+    },
+    {
+      "id": "CLU_C5_GANT_COMPLICE",
+      "name": "Gant de manutention",
+      "location": "LOC_C5_POLICE",
+      "kind": "objet",
+      "availability": "toujours",
+      "fact": "Envoyé par Arbelot : gant oublié sur le quai 4 de Bayonne par le complice de « Sandrine », mis sous scellé jeudi.",
+      "interpretations": [
+        "Objet de référence pour Ariane"
+      ]
+    },
+    {
+      "id": "CLU_C5_ARIANE_481207",
+      "name": "Ariane devant 481207",
+      "location": "LOC_C5_QUAI",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Avec le gant, Ariane longe la rangée, revient sur 481207 et s'assied devant les portes.",
+      "interpretations": [
+        "Le complice a manipulé 481207"
+      ]
+    },
+    {
+      "id": "CLU_C5_AGRICOLE_CONFORME",
+      "name": "Ouverture de 481215",
+      "location": "LOC_C5_HANGAR",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Pièces de tracteurs, factures et poids conformes.",
+      "interpretations": [
+        "481215 est en règle"
+      ]
+    },
+    {
+      "id": "CLU_C5_CERTIFICAT_481223",
+      "name": "Certificat du laboratoire",
+      "location": "LOC_C5_POLICE",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Le fabricant de génériques confirme la commande de 481223 et ses numéros de lot.",
+      "interpretations": [
+        "481223 est en règle"
+      ]
+    },
+    {
+      "id": "CLU_C5_SCANNER_481207",
+      "name": "Scanner des douanes",
+      "location": "LOC_C5_HANGAR",
+      "kind": "resultat",
+      "availability": "toujours",
+      "fact": "L'image du scanner montre des cartons denses derrière une rangée de sacs de compléments alimentaires.",
+      "interpretations": [
+        "Cargaison cachée dans 481207"
+      ]
+    },
+    {
+      "id": "CLU_C5_VIREMENT_GENEVE",
+      "name": "Relevé saisi",
+      "location": "LOC_C5_BUREAU",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Un virement vers une banque genevoise… annulé la veille.",
+      "interpretations": [
+        "Genève est une fausse piste"
+      ]
+    },
+    {
+      "id": "CLU_C5_BUREAU_AMSTERDAM",
+      "name": "Papier à en-tête",
+      "location": "LOC_C5_BUREAU",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "« Bureau commercial à Amsterdam » : adresse de domiciliation partagée par 300 sociétés.",
+      "interpretations": [
+        "Amsterdam n'est qu'une adresse"
+      ]
+    },
+    {
+      "id": "CLU_C5_COURRIER_LUX",
+      "name": "Courrier du jour",
+      "location": "LOC_C5_BUREAU",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "Les factures du bureau sont adressées à Nordhaven Holding SA, boulevard Royal, Luxembourg, qui les règle.",
+      "interpretations": [
+        "La holding luxembourgeoise paie tout"
+      ]
+    },
+    {
+      "id": "CLU_C5_SIGNATURE_PRETE_NOM",
+      "name": "Organigramme signé",
+      "location": "LOC_C5_BUREAU",
+      "kind": "document",
+      "availability": "toujours",
+      "fact": "L'administrateur de la holding est le même prête-nom que celui des SCI landaises.",
+      "interpretations": [
+        "Même réseau de prête-noms"
+      ]
+    },
+    {
+      "id": "CLU_C5_ECHARPE_DARRIGADE",
+      "name": "Écharpe oubliée",
+      "location": "LOC_C5_BUREAU",
+      "kind": "observation",
+      "availability": "toujours",
+      "fact": "Ariane s'arrête net devant le portemanteau et recule, comme au poste forestier face à Darrigade : une écharpe grise porte son odeur.",
+      "interpretations": [
+        "Darrigade est venu ici récemment"
+      ]
+    }
+  ]
+}

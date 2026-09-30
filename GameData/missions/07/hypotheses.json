@@ -1,0 +1,98 @@
+{
+  "mission": "M07",
+  "_doc": "Tableau de la fuite : où il va, et qui il est devenu. Une erreur retarde l'interpellation ; Darrigade reste rattrapable.",
+  "axes": [
+    {
+      "id": "destination",
+      "label": "UI_C7_AXE_DESTINATION",
+      "required_for_resolution": true
+    },
+    {
+      "id": "identite",
+      "label": "UI_C7_AXE_IDENTITE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "moment",
+      "label": "UI_C7_AXE_MOMENT",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C7_BILBAO",
+      "axis": "destination",
+      "correct": true,
+      "label": "UI_H_C7_BILBAO",
+      "requires_any_of": [
+        [
+          "DED_C7_DESTINATION"
+        ]
+      ]
+    },
+    {
+      "id": "H_C7_BIARRITZ",
+      "axis": "destination",
+      "correct": false,
+      "label": "UI_H_C7_BIARRITZ",
+      "unlocked_by": [
+        "CLU_C7_BILLETS_INTACTS"
+      ],
+      "contradicted_by": [
+        "CLU_C7_BILLETS_INTACTS"
+      ],
+      "wrong_branch": "BR_C7_ERR_BIARRITZ"
+    },
+    {
+      "id": "H_C7_TRAIN",
+      "axis": "destination",
+      "correct": false,
+      "label": "UI_H_C7_TRAIN",
+      "unlocked_by": [
+        "CLU_C7_VOITURE_HENDAYE"
+      ],
+      "contradicted_by": [
+        "CLU_C7_TAXI_HENDAYE",
+        "CLU_C7_PEAGE_ESPAGNE"
+      ],
+      "wrong_branch": "BR_C7_ERR_TRAIN"
+    },
+    {
+      "id": "H_C7_CASQUETTE",
+      "axis": "identite",
+      "correct": true,
+      "label": "UI_H_C7_CASQUETTE",
+      "requires_any_of": [
+        [
+          "DED_C7_IDENTIFIE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C7_COSTUME",
+      "axis": "identite",
+      "correct": false,
+      "label": "UI_H_C7_COSTUME",
+      "unlocked_by": [
+        "CLU_C7_PASSAGER_CASQUETTE"
+      ],
+      "contradicted_by": [
+        "CLU_C7_COSTUME_PASSEPORT"
+      ],
+      "wrong_branch": "BR_C7_ERR_COSTUME"
+    },
+    {
+      "id": "H_C7_AVANT_EMBARQUEMENT",
+      "axis": "moment",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C7_AVANT_EMBARQUEMENT",
+      "requires_any_of": [
+        [
+          "DED_C7_AVANT_EMBARQUEMENT"
+        ]
+      ],
+      "bonus": "BONUS_AVANT_EMBARQUEMENT"
+    }
+  ]
+}

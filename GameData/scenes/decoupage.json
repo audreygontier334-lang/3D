@@ -3756,25 +3756,27 @@
     },
     {
       "id": "C5",
-      "titre": "Chapitre 5 — Le pavillon (plan)",
+      "titre": "Chapitre 5 — Le pavillon",
       "scenes": [
         {
           "id": "SC_C5_01",
-          "titre": "Anvers : le pavillon",
+          "titre": "Le quai du Maren Sofie",
           "lieu": {
-            "texte": "Anvers : docks, archives du registre des sociétés, bureau de Nordhaven Shipping BV.",
+            "texte": "Port d'Anvers, rive gauche : poste de la police fédérale, quai du Maren Sofie, pont-bascule, hangar d'inspection des douanes.",
             "env": [
-              "ENV_ANVERS"
+              "ENV_ANVERS_POLICE",
+              "ENV_ANVERS_QUAI",
+              "ENV_ANVERS_HANGAR"
             ],
             "zones": [],
             "statut": "proposition"
           },
           "moment": {
-            "jour": "jours suivants",
-            "debut": "—",
-            "fin": "—",
-            "lumiere": "lumière du Nord, grise",
-            "meteo": "variable",
+            "jour": "lundi",
+            "debut": "07:00",
+            "fin": "≈ 12:00",
+            "lumiere": "lumière du Nord, grise et plate ; grues orange contre le ciel",
+            "meteo": "vent froid, bruine par moments",
             "statut": "proposition"
           },
           "personnages": [
@@ -3789,29 +3791,337 @@
               "statut": "audrey"
             },
             {
-              "id": "POLICE_BELGE",
-              "role": "police fédérale",
+              "id": "VERMEULEN",
+              "role": "inspectrice de la police fédérale belge",
+              "statut": "proposition"
+            },
+            {
+              "id": "DOUANIER",
+              "role": "douanier du hangar d'inspection",
               "statut": "proposition"
             }
           ],
           "action": [
             {
-              "texte": "Reconstituer l'organigramme des sociétés écrans jusqu'aux contrats de fret de Darrigade Logistique.",
+              "texte": "Briefing : trois conteneurs du quai 4 de Bayonne, déchargement jusqu'à 18 h.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Comparer les scellés au relevé de Bayonne ; lire le pont-bascule ; Ariane, avec le gant du complice envoyé par Arbelot, marque un conteneur.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Faire ouvrir un conteneur au hangar : un mauvais choix coûte du temps et alerte le réseau.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C5_02",
+            "texte": "Vermeulen emmène l'héroïne perquisitionner le bureau de Nordhaven.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_C5_SCELLE_CHANGE",
+              "ce_qu_on_voit": "Scellé de série Nordhaven sur 481207 ; scellés de Bayonne sur les deux autres.",
+              "point_de_vue": "portes des conteneurs",
+              "distance": "≤ 1 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C5_PESEE",
+              "ce_qu_on_voit": "Écran du pont-bascule : 13,8 t pour 9,2 t déclarées.",
+              "point_de_vue": "cabine de pesée",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C5_ARIANE_481207",
+              "ce_qu_on_voit": "Ariane assise devant les portes de 481207.",
+              "point_de_vue": "quai",
+              "distance": "≤ 5 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Rangée de conteneurs lisible, Ariane dans le cadre.",
+            "CAM_WIDE": "Quai, grues et navire.",
+            "CAM_FIRST": "Lecture des scellés.",
+            "CAM_INSPECT": "Relevé de Bayonne et écran de pesée en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Scellés ou flair ratés",
+              "alors": "Le scanner des douanes désigne 481207 à 14 h (EVT_C5_SCANNER)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ANVERS_QUAI",
+              "type": "lieu",
+              "description": "Quai à conteneurs, grues portiques, navire caboteur à quai.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ENV_ANVERS_HANGAR",
+              "type": "lieu",
+              "description": "Hangar d'inspection des douanes, scanner à conteneurs.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_C5_BRIEFING",
+            "INT_C5_SCELLES_QUAI",
+            "INT_C5_PESEE",
+            "INT_C5_ARIANE_QUAI",
+            "EVT_C5_SCANNER"
+          ],
+          "decisions_audrey": [
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic."
+          ]
+        },
+        {
+          "id": "SC_C5_02",
+          "titre": "Le bureau de Nordhaven",
+          "lieu": {
+            "texte": "Bureau de Nordhaven Shipping BV : deux pièces au-dessus d'un entrepôt, près des docks.",
+            "env": [
+              "ENV_ANVERS_BUREAU"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "lundi",
+            "debut": "≈ 12:00",
+            "fin": "≈ 16:00",
+            "lumiere": "néons, fenêtres sur les grues",
+            "meteo": "bruine",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "VERMEULEN",
+              "role": "inspectrice de la police fédérale belge",
+              "statut": "proposition"
+            },
+            {
+              "id": "EMPLOYEE",
+              "role": "employée de la réception",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Perquisition : relevé d'un virement genevois annulé, papier à en-tête d'Amsterdam, courrier réglé depuis Luxembourg.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Rapprocher la signature de l'administrateur de la holding de celle des SCI landaises.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Ariane s'arrête net devant le portemanteau et recule : une écharpe grise porte l'odeur de Darrigade.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Tableau : le conteneur et le vrai propriétaire ; la douane ouvre 481207 (médicaments falsifiés). Départ pour Luxembourg (ETP_5).",
               "statut": "proposition"
             }
           ],
           "deplacements": [],
           "raccord_suivant": {
             "vers": "SC_C6_01",
-            "texte": "Retour à Lescoure.",
+            "texte": "Luxembourg, puis vol retour vers Biarritz le mardi.",
             "statut": "proposition"
           },
           "indices": [
             {
-              "id": "ORGANIGRAMME",
-              "ce_qu_on_voit": "Chaîne de prête-noms jusqu'à Darrigade Logistique.",
+              "id": "CLU_C5_COURRIER_LUX",
+              "ce_qu_on_voit": "Factures adressées à Nordhaven Holding SA, Luxembourg.",
+              "point_de_vue": "bureau",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C5_ECHARPE_DARRIGADE",
+              "ce_qu_on_voit": "Ariane recule devant une écharpe grise.",
+              "point_de_vue": "portemanteau",
+              "distance": "≤ 3 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Bureau étroit, Vermeulen et l'employée dans le cadre.",
+            "CAM_WIDE": "Les deux pièces.",
+            "CAM_FIRST": "Documents.",
+            "CAM_INSPECT": "Relevés et organigramme en plein écran."
+          },
+          "repli": [
+            {
+              "si_manque": "Organigramme incomplet",
+              "alors": "Le registre belge du briefing et le courrier du jour suffisent à désigner la holding."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ANVERS_BUREAU",
+              "type": "lieu",
+              "description": "Petit bureau de transitaire, classeurs, portemanteau, vue sur les docks.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "INT_C5_BUREAU",
+            "INT_C5_SIGNATURES",
+            "INT_C5_ARIANE_BUREAU",
+            "INT_C5_PRESENTER_TABLEAU"
+          ],
+          "decisions_audrey": [
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "titre": "Chapitre 6 — Faux-semblants",
+      "scenes": [
+        {
+          "id": "SC_C6_01",
+          "titre": "Les archives de l'étude",
+          "lieu": {
+            "texte": "Lescoure : brigade, puis étude Casteran sur la place de l'Église, le soir.",
+            "env": [
+              "ENV_BRIGADE",
+              "ENV_ETUDE_CASTERAN"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mardi",
+            "debut": "20:00",
+            "fin": "≈ 23:00",
+            "lumiere": "nuit, lampes de bureau",
+            "meteo": "temps sec",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_CASTERAN",
+              "role": "notaire, témoin de bonne foi (Q2)",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_JULIEN",
+              "role": "père de Lila, sous contrôle judiciaire",
+              "statut": "proposition"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Briefing : les relevés de Luxembourg montrent que Darrigade Logistique paie le prête-nom.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Casteran, de bonne foi, ouvre ses archives : Darrigade a apporté et payé les dossiers des sociétés écrans.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Julien : chauffeur sous pression, jamais un chef.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Fiche de signalement de Darrigade, composée par la joueuse (au moins trois traits prouvés).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C6_02",
+            "texte": "Mercredi matin, Nadia vient signer sa déposition.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_C6_STATUTS_CASTERAN",
+              "ce_qu_on_voit": "Registre des honoraires : payeur Darrigade.",
               "point_de_vue": "archives",
               "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C6_CASTERAN_TEMOIGNE",
+              "ce_qu_on_voit": "Casteran raconte qui lui a apporté les dossiers.",
+              "point_de_vue": "bureau de l'étude",
+              "distance": "≤ 2 m",
               "cameras": [
                 "CAM_SHOULDER",
                 "CAM_WIDE",
@@ -3822,55 +4132,54 @@
             }
           ],
           "cameras": {
-            "CAM_SHOULDER": "—",
-            "CAM_WIDE": "—",
-            "CAM_FIRST": "—",
-            "CAM_INSPECT": "Documents en plein écran."
+            "CAM_SHOULDER": "Casteran et l'héroïne face à face.",
+            "CAM_WIDE": "Étude et rayonnages.",
+            "CAM_FIRST": "Registres.",
+            "CAM_INSPECT": "Registre des honoraires en plein écran."
           },
           "repli": [
             {
-              "si_manque": "Organigramme incomplet",
-              "alors": "La police belge fournit une pièce manquante contre du temps."
+              "si_manque": "Archives mal lues",
+              "alors": "Le témoignage de Casteran et les relevés de Luxembourg suffisent."
             }
           ],
           "visuels": [
             {
-              "id": "ENV_ANVERS",
+              "id": "ENV_ETUDE_CASTERAN",
               "type": "lieu",
-              "description": "Docks et bureaux d'Anvers (plan à détailler).",
+              "description": "Étude notariale ancienne, rayonnages d'archives, lampe verte.",
               "statut": "proposition"
             }
           ],
           "continuite": [],
-          "points_ouverts": [
-            "Chapitre à détailler après validation de l'acte I."
+          "points_ouverts": [],
+          "refs": [
+            "INT_C6_BRIEFING",
+            "INT_C6_CASTERAN",
+            "INT_C6_ARCHIVES",
+            "INT_C6_JULIEN",
+            "INT_C6_PORTRAIT"
           ],
-          "refs": [],
-          "decisions_audrey": []
-        }
-      ]
-    },
-    {
-      "id": "C6",
-      "titre": "Chapitre 6 — Faux-semblants (plan)",
-      "scenes": [
+          "decisions_audrey": [
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+          ]
+        },
         {
-          "id": "SC_C6_01",
-          "titre": "Faux-semblants",
+          "id": "SC_C6_02",
+          "titre": "Deux fuites, une seule personne",
           "lieu": {
-            "texte": "Lescoure : étude Casteran (archives), maison de Nadia, entrepôt de Bayonne.",
+            "texte": "Brigade de Lescoure et parking devant ; café d'en face ; bureau du juge.",
             "env": [
-              "ENV_PLACE_EGLISE",
-              "ENV_ENTREPOT_BAYONNE"
+              "ENV_BRIGADE"
             ],
             "zones": [],
             "statut": "proposition"
           },
           "moment": {
-            "jour": "jours suivants",
-            "debut": "—",
-            "fin": "—",
-            "lumiere": "fin d'après-midi dorée, comme l'ouverture (proposition)",
+            "jour": "mercredi",
+            "debut": "09:00",
+            "fin": "≈ 10:30",
+            "lumiere": "matin clair",
             "meteo": "beau temps",
             "statut": "proposition"
           },
@@ -3886,32 +4195,163 @@
               "statut": "audrey"
             },
             {
-              "id": "CHAR_DARRIGADE",
-              "role": "tête du réseau",
+              "id": "CHAR_NADIA",
+              "role": "mère de Lila, ignore tout (Q1)",
               "statut": "audrey"
             },
             {
-              "id": "CHAR_CASTERAN",
-              "role": "témoin de bonne foi (décision Q2) ; ses archives servent de preuve (proposition)",
-              "statut": "proposition"
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon, tête du réseau (Q2)",
+              "statut": "audrey"
             },
             {
-              "id": "CHAR_ARBELOT",
-              "role": "capitaine",
+              "id": "JUGE",
+              "role": "juge d'instruction",
               "statut": "proposition"
             }
           ],
           "action": [
             {
-              "texte": "Démonstration devant Arbelot et le juge : silence de Julien, trajet de Lila connu du cercle proche, deux fuites, archives de l'étude Casteran.",
+              "texte": "Nadia signe sa déposition et dit, sans le voir, que Darrigade savait tout du trajet de Lila et de l'opération.",
               "statut": "proposition"
             },
             {
-              "texte": "Perquisition légale : Ariane marque le placard où Darrigade a gardé la veste portée à la cabane.",
+              "texte": "Darrigade attend au café ; Ariane s'assied devant le coffre de sa voiture, comme devant la porte de Hourcade.",
               "statut": "proposition"
             },
             {
-              "texte": "Dernière scène : Lila, Nadia et Ariane à la sortie de l'école.",
+              "texte": "Démonstration devant le juge : qui dirige, et comment il savait.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C6_03",
+            "texte": "Le juge signe : perquisition immédiate.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_C6_NADIA_TEMOIGNE",
+              "ce_qu_on_voit": "Nadia raconte, reconnaissante, tout ce que Xavier savait.",
+              "point_de_vue": "salle d'audition",
+              "distance": "≤ 2 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C6_ARIANE_VOITURE",
+              "ce_qu_on_voit": "Ariane assise devant le coffre.",
+              "point_de_vue": "parking",
+              "distance": "≤ 5 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Nadia de trois quarts, l'héroïne neutre.",
+            "CAM_WIDE": "Parking et café en face.",
+            "CAM_FIRST": "Le coffre, Ariane assise."
+          },
+          "repli": [
+            {
+              "si_manque": "Parking manqué",
+              "alors": "La clé jumelle de l'entrepôt de Bayonne donne le lien avec la cabane (facultatif)."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_BRIGADE",
+              "type": "lieu",
+              "description": "Brigade de gendarmerie de bourg, parking, café en face.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [],
+          "points_ouverts": [],
+          "refs": [
+            "EVT_C6_NADIA_VIENT",
+            "INT_C6_ARIANE_PARKING",
+            "INT_C6_PRESENTER_TABLEAU"
+          ],
+          "decisions_audrey": [
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+          ]
+        },
+        {
+          "id": "SC_C6_03",
+          "titre": "La veste",
+          "lieu": {
+            "texte": "Maison de Nadia et Darrigade, entrée et placard ; puis sortie de l'école quelques jours plus tard.",
+            "env": [
+              "ENV_MAISON_NADIA",
+              "ENV_ECOLE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mercredi, puis quelques jours plus tard",
+            "debut": "≈ 10:30",
+            "fin": "≈ 16:30",
+            "lumiere": "fin d'après-midi dorée à l'école, comme l'ouverture",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "compagnon, tête du réseau (Q2)",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Perquisition : Ariane s'assied devant un placard ; une veste de pluie porte encore la boue de Lande-Haute.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Darrigade, affable jusqu'au bout, est interpellé (fin A).",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Épilogue : Nadia apprend la vérité ; Lila court vers Ariane à la sortie de l'école.",
               "statut": "proposition"
             }
           ],
@@ -3924,7 +4364,7 @@
           "indices": [
             {
               "id": "VESTE_CABANE",
-              "ce_qu_on_voit": "Veste portant l'odeur de la cabane et de Lila.",
+              "ce_qu_on_voit": "Veste de pluie, boue de Lande-Haute sur les manches.",
               "point_de_vue": "placard",
               "distance": "≤ 2 m",
               "cameras": [
@@ -3932,36 +4372,276 @@
                 "CAM_WIDE",
                 "CAM_FIRST"
               ],
-              "indispensable": true,
+              "indispensable": false,
               "statut": "proposition"
             }
           ],
           "cameras": {
-            "CAM_SHOULDER": "—",
-            "CAM_WIDE": "—",
-            "CAM_FIRST": "—"
+            "CAM_SHOULDER": "Ariane et le placard.",
+            "CAM_WIDE": "Entrée de la maison ; puis parvis de l'école.",
+            "CAM_FIRST": "La veste."
           },
           "repli": [
             {
               "si_manque": "Démonstration incomplète",
-              "alors": "Le juge demande une pièce de plus ; jamais d'échec définitif."
+              "alors": "Jeudi midi, le juge signe sur les pièces de Luxembourg : fin A sans bonus, jamais d'échec."
             }
           ],
           "visuels": [
             {
-              "id": "ENV_ETUDE_CASTERAN",
+              "id": "ENV_MAISON_NADIA",
               "type": "lieu",
-              "description": "Archives de l'étude notariale.",
+              "description": "Maison soignée de lotissement, entrée, placard.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : carré châtain court (V4 A), vêtements de tous les jours, cartable rouge brique ; sereine, jamais filmée en gros plan sur l'épreuve passée."
+          ],
+          "points_ouverts": [],
+          "refs": [
+            "INT_C6_PRESENTER_TABLEAU",
+            "EVT_C6_CLOTURE"
+          ],
+          "decisions_audrey": [
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi.",
+            "Q3 : Lila est retrouvée au chapitre 4, sans violence subie.",
+            "Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6B",
+      "titre": "Chapitre 6 bis — La fuite (fin B)",
+      "scenes": [
+        {
+          "id": "SC_C7_01",
+          "titre": "Le ferry de 17 h",
+          "lieu": {
+            "texte": "Brigade de Lescoure, parking de la gare d'Hendaye, terminal du ferry de Bilbao.",
+            "env": [
+              "ENV_BRIGADE",
+              "ENV_GARE_HENDAYE",
+              "ENV_TERMINAL_BILBAO"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "mercredi",
+            "debut": "08:00",
+            "fin": "≈ 16:00",
+            "lumiere": "matin clair, puis lumière de fin d'après-midi sur le port",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_ARBELOT",
+              "role": "capitaine",
+              "statut": "proposition"
+            },
+            {
+              "id": "TAXI",
+              "role": "chauffeur de taxi d'Hendaye",
+              "statut": "proposition"
+            },
+            {
+              "id": "POLICIA",
+              "role": "agente de la police portuaire de Bilbao",
+              "statut": "proposition"
+            },
+            {
+              "id": "CHAR_DARRIGADE",
+              "role": "tête du réseau, en fuite",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Seulement si le réseau est alerté (jauge à 3) ou après 5 fausses routes : Darrigade a fui avant l'aube.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Péage d'Irun, chauffeur de taxi, réservation du ferry ; fiche de signalement à quatre traits pour le mandat d'arrêt européen.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Au terminal : deux hommes de son âge ; Ariane recule devant l'homme à la casquette. Interpellation dans la file 3 (fin B).",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "SC_C7_02",
+            "texte": "Quelques jours plus tard, à Lescoure.",
+            "statut": "proposition"
+          },
+          "indices": [
+            {
+              "id": "CLU_C7_RESERVATION_FERRY",
+              "ce_qu_on_voit": "Réservation au nom du prête-nom, ferry de 17 h.",
+              "point_de_vue": "écran de la brigade",
+              "distance": "plein écran",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": true,
+              "statut": "proposition"
+            },
+            {
+              "id": "CLU_C7_ARIANE_TERMINAL",
+              "ce_qu_on_voit": "Ariane recule à dix mètres de l'homme à la casquette.",
+              "point_de_vue": "terminal",
+              "distance": "≤ 10 m",
+              "cameras": [
+                "CAM_SHOULDER",
+                "CAM_WIDE",
+                "CAM_FIRST"
+              ],
+              "indispensable": false,
+              "statut": "proposition"
+            }
+          ],
+          "cameras": {
+            "CAM_SHOULDER": "Files d'embarquement lisibles.",
+            "CAM_WIDE": "Terminal et ferry à quai.",
+            "CAM_FIRST": "Visages dans la file."
+          },
+          "repli": [
+            {
+              "si_manque": "Terminal mal lu",
+              "alors": "À 15 h 30, la police portuaire signale l'enregistrement ; à 17 h, le ferry est retenu à quai."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_TERMINAL_BILBAO",
+              "type": "lieu",
+              "description": "Terminal de ferry moderne, files d'embarquement, passerelle.",
+              "statut": "proposition"
+            },
+            {
+              "id": "ENV_GARE_HENDAYE",
+              "type": "lieu",
+              "description": "Parking de gare frontalière, station de taxis.",
               "statut": "proposition"
             }
           ],
           "continuite": [],
-          "points_ouverts": [
-            "Chapitre à détailler après validation de l'acte I."
+          "points_ouverts": [],
+          "refs": [
+            "INT_C7_REQUISITION",
+            "INT_C7_COMPAGNIE",
+            "INT_C7_MANDAT",
+            "INT_C7_TERMINAL",
+            "INT_C7_ARIANE_TERMINAL",
+            "EVT_C7_ENREGISTREMENT"
           ],
+          "decisions_audrey": [
+            "Trop de fausses routes peuvent changer la fin (29/09) : fin A dans les Landes, fin B après la fuite.",
+            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+          ]
+        },
+        {
+          "id": "SC_C7_02",
+          "titre": "Après la fuite",
+          "lieu": {
+            "texte": "Sortie de l'école de Lescoure.",
+            "env": [
+              "ENV_ECOLE"
+            ],
+            "zones": [],
+            "statut": "proposition"
+          },
+          "moment": {
+            "jour": "quelques jours plus tard",
+            "debut": "≈ 16:25",
+            "fin": "≈ 16:40",
+            "lumiere": "fin d'après-midi dorée, comme l'ouverture",
+            "meteo": "beau temps",
+            "statut": "proposition"
+          },
+          "personnages": [
+            {
+              "id": "CHAR_HEROINE",
+              "role": "{HEROINE}, joueuse",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_CHIENNE",
+              "role": "Ariane, libre, sans laisse ni collier, foulard noir à motifs paisley blancs",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_NADIA",
+              "role": "mère",
+              "statut": "audrey"
+            },
+            {
+              "id": "CHAR_FILLETTE",
+              "role": "Lila",
+              "statut": "audrey"
+            }
+          ],
+          "action": [
+            {
+              "texte": "Nadia a appris la fuite avant la vérité ; l'héroïne la rassure.",
+              "statut": "proposition"
+            },
+            {
+              "texte": "Lila court vers Ariane.",
+              "statut": "proposition"
+            }
+          ],
+          "deplacements": [],
+          "raccord_suivant": {
+            "vers": "FIN",
+            "texte": "Générique.",
+            "statut": "proposition"
+          },
+          "indices": [],
+          "cameras": {
+            "CAM_SHOULDER": "Nadia et l'héroïne.",
+            "CAM_WIDE": "Parvis de l'école.",
+            "CAM_FIRST": "Lila et Ariane."
+          },
+          "repli": [
+            {
+              "si_manque": "—",
+              "alors": "Scène sans indice."
+            }
+          ],
+          "visuels": [
+            {
+              "id": "ENV_ECOLE",
+              "type": "lieu",
+              "description": "Même parvis qu'à l'ouverture.",
+              "statut": "proposition"
+            }
+          ],
+          "continuite": [
+            "Lila : carré châtain court (V4 A), vêtements de tous les jours, cartable rouge brique ; sereine, jamais filmée en gros plan sur l'épreuve passée."
+          ],
+          "points_ouverts": [],
           "refs": [],
           "decisions_audrey": [
-            "Q2 : le compagnon de Nadia dirige le réseau ; Casteran est de bonne foi."
+            "Q1 : l'enlèvement visait Julien, le père ; Nadia ignore tout du trafic.",
+            "Q3 : Lila est retrouvée au chapitre 4, sans violence subie."
           ]
         }
       ]

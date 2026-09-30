@@ -1,0 +1,24 @@
+{
+  "mission": "M06",
+  "_doc": "Mardi soir → jeudi midi. Nadia vient signer sa déposition mercredi matin ; Darrigade l'a conduite et attend au café.",
+  "events": [
+    {
+      "id": "EVT_C6_NADIA_VIENT",
+      "time": "33:00",
+      "grants": [
+        "CLU_C6_NADIA_TEMOIGNE",
+        "FLAG_DARRIGADE_AU_CAFE"
+      ],
+      "dialogue": "DLG_C6_NADIA_VIENT"
+    },
+    {
+      "id": "EVT_C6_CLOTURE",
+      "time": "60:00",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C6_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

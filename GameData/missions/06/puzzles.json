@@ -1,0 +1,233 @@
+{
+  "mission": "M06",
+  "puzzles": [
+    {
+      "id": "PZ_C6_01",
+      "title": "Les archives de l'étude",
+      "axis": "tete",
+      "duo": false,
+      "mandatory": false,
+      "interaction": "INT_C6_ARCHIVES",
+      "inputs": [
+        "CLU_C6_CASTERAN_TEMOIGNE"
+      ],
+      "produces": [
+        "CLU_C6_STATUTS_CASTERAN"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "registre_des_honoraires",
+        "options": [
+          "registre_des_honoraires",
+          "registre_des_actes",
+          "courrier_arrivee"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC601_1",
+          "text": "Casteran dit qui a apporté les dossiers. Où l'a-t-elle noté ?"
+        },
+        {
+          "id": "UI_HINT_PZC601_2",
+          "text": "Un acte dit ce qui est signé, pas qui paie."
+        },
+        {
+          "id": "UI_HINT_PZC601_3",
+          "text": "Le registre des honoraires nomme le payeur de chaque dossier."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C6_ARCHIVES_ERREUR",
+        "time_cost": 20
+      },
+      "recovery": [
+        "INT_C6_CASTERAN",
+        "INT_C6_BRIEFING"
+      ]
+    },
+    {
+      "id": "PZ_C6_02",
+      "title": "Le coffre",
+      "axis": "cabane",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C6_ARIANE_PARKING",
+      "inputs": [],
+      "produces": [
+        "CLU_C6_ARIANE_VOITURE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "odeur_de_la_cabane",
+        "options": [
+          "odeur_de_la_cabane",
+          "odeur_de_nadia",
+          "chat_du_quartier"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC602_1",
+          "text": "Ariane connaît l'odeur de Nadia : elle ne s'assied pas pour elle."
+        },
+        {
+          "id": "UI_HINT_PZC602_2",
+          "text": "Où Ariane s'est-elle assise ainsi la dernière fois ?"
+        },
+        {
+          "id": "UI_HINT_PZC602_3",
+          "text": "Devant la porte de Hourcade."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C6_ARIANE_PARKING_ERREUR",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C6_ARIANE_ENTREPOT"
+      ]
+    },
+    {
+      "id": "PZ_C6_03",
+      "title": "La fiche de signalement",
+      "axis": "tete",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C6_PORTRAIT",
+      "inputs": [],
+      "produces": [
+        "FLAG_FICHE_COMPLETE"
+      ],
+      "answer": {
+        "type": "portrait",
+        "suspect": "DARRIGADE",
+        "seuil": 3,
+        "correct": {
+          "lien_societe": "Darrigade Logistique",
+          "prete_nom": "gérant des SCI et de la holding",
+          "acces_information": "présent au poste de commandement",
+          "financement": "holding luxembourgeoise"
+        }
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC603_1",
+          "text": "Chaque trait doit avoir une source dans ton carnet."
+        },
+        {
+          "id": "UI_HINT_PZC603_2",
+          "text": "Casteran a rédigé de bonne foi : elle n'est pas le prête-nom."
+        },
+        {
+          "id": "UI_HINT_PZC603_3",
+          "text": "Laisse vide un trait que tu ne peux pas prouver : le juge refuse un trait faux, pas un trait absent."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C6_FICHE_REFUSEE",
+        "time_cost": 45
+      },
+      "recovery": [
+        "INT_C6_BRIEFING",
+        "INT_C6_CASTERAN"
+      ]
+    },
+    {
+      "id": "PZ_C6_04",
+      "title": "Faux-semblants",
+      "axis": "tous",
+      "duo": false,
+      "mandatory": true,
+      "interaction": "INT_C6_PRESENTER_TABLEAU",
+      "inputs": [],
+      "produces": [
+        "FLAG_RESOLU"
+      ],
+      "answer": {
+        "type": "board",
+        "correct": [
+          "H_C6_DARRIGADE",
+          "H_C6_PRESENT_PC"
+        ],
+        "optional": [
+          "H_C6_LIEN_CABANE"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC604_1",
+          "text": "Qui paie, et qui savait ?"
+        },
+        {
+          "id": "UI_HINT_PZC604_2",
+          "text": "Deux fuites, une seule personne présente les deux fois."
+        },
+        {
+          "id": "UI_HINT_PZC604_3",
+          "text": "Les relevés de Luxembourg, Casteran et le journal d'Arbelot désignent Darrigade."
+        }
+      ],
+      "red_herrings": [],
+      "wrong": {
+        "branch": "BR_C6_ERR_CASTERAN",
+        "time_cost": 45
+      },
+      "recovery": [
+        "EVT_C6_NADIA_VIENT",
+        "EVT_C6_CLOTURE"
+      ]
+    },
+    {
+      "id": "PZ_C6_05",
+      "title": "La clé jumelle",
+      "axis": "cabane",
+      "duo": true,
+      "mandatory": false,
+      "interaction": "INT_C6_ARIANE_ENTREPOT",
+      "inputs": [
+        "CLU_C6_CADENAS_HOURCADE",
+        "CLU_C6_ENTREPOT_VIDE"
+      ],
+      "produces": [
+        "CLU_C6_CLE_JUMELLE"
+      ],
+      "answer": {
+        "type": "choice",
+        "correct": "CLU_C6_CADENAS_HOURCADE",
+        "options": [
+          "CLU_C6_CADENAS_HOURCADE",
+          "CLU_C6_ENTREPOT_VIDE",
+          "CLU_C6_JOURNAL_ARBELOT"
+        ]
+      },
+      "hints": [
+        {
+          "id": "UI_HINT_PZC605_1",
+          "text": "Ariane suit l'odeur d'une personne."
+        },
+        {
+          "id": "UI_HINT_PZC605_2",
+          "text": "Qui a posé le cadenas neuf de Hourcade ?"
+        },
+        {
+          "id": "UI_HINT_PZC605_3",
+          "text": "Le cadenas porte l'odeur de la main qui l'a fermé."
+        }
+      ],
+      "red_herrings": [
+        "CLU_C6_ENTREPOT_VIDE"
+      ],
+      "wrong": {
+        "branch": "BR_C6_ARIANE_ENTREPOT_ERREUR",
+        "time_cost": 10
+      },
+      "recovery": [
+        "INT_C6_ARIANE_PARKING"
+      ]
+    }
+  ]
+}

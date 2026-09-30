@@ -1,0 +1,82 @@
+{
+  "id": "M07",
+  "title": "Chapitre 6 bis « La fuite »",
+  "status": "proposition",
+  "min_puzzles": 5,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission de la fin B, jouée à la place du chapitre 6 quand le réseau est alerté (jauge à 3) ou après 5 fausses routes (décision d'Audrey : trop de fausses routes peuvent changer la fin). Darrigade a fui avant l'aube ; il reste toujours rattrapable. L'interpellation en Espagne exige un mandat d'arrêt européen, donc une fiche de signalement d'au moins quatre traits justes.",
+  "clock": {
+    "chapter_start": "08:00",
+    "deadline": "17:00",
+    "travel_cost_per_zone": 40,
+    "_doc": "Mercredi. Lescoure → Hendaye ≈ 40 min ; Hendaye → Bilbao ≈ 80 min (deux zones). Le ferry pour Portsmouth part à 17 h."
+  },
+  "start_zone": "Z_C7_BRIGADE",
+  "entry_states": [
+    {
+      "id": "CH7_ETAT_A",
+      "label": "Alerte donnée tôt",
+      "start": "07:30",
+      "grants": [
+        "FLAG_ETAT_A"
+      ]
+    },
+    {
+      "id": "CH7_ETAT_B",
+      "label": "Standard",
+      "start": "08:00",
+      "grants": [
+        "FLAG_ETAT_B"
+      ]
+    },
+    {
+      "id": "CH7_ETAT_C",
+      "label": "Retard",
+      "start": "09:00",
+      "grants": [
+        "FLAG_ETAT_C"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace : compagnie maritime, mandat, gare d'Hendaye, terminal de Bilbao.",
+    "steps": [
+      "INT_C7_BRIEFING",
+      "INT_C7_COMPAGNIE",
+      "INT_C7_MANDAT",
+      "INT_C7_HENDAYE",
+      "INT_C7_TERMINAL",
+      "INT_C7_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M07",
+    "dialogue": "DLG_C7_EPILOGUE",
+    "next_states": [
+      {
+        "id": "FIN_B",
+        "label": "La fuite",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_AVANT_EMBARQUEMENT",
+        "from": "H_C7_AVANT_EMBARQUEMENT"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/07-fuite.json"
+  }
+}

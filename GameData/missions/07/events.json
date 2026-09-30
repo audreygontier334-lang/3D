@@ -1,0 +1,27 @@
+{
+  "mission": "M07",
+  "_doc": "Mercredi. Le rattrapage de 15 h 30 garantit qu'on retrouve Darrigade avant le départ du ferry.",
+  "events": [
+    {
+      "id": "EVT_C7_ENREGISTREMENT",
+      "time": "15:30",
+      "unless": [
+        "CLU_C7_ENREGISTREMENT"
+      ],
+      "grants": [
+        "CLU_C7_ENREGISTREMENT"
+      ],
+      "dialogue": "DLG_C7_ENREGISTREMENT",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C7_CLOTURE",
+      "time": "17:00",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C7_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

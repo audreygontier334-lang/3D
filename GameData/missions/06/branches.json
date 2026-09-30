@@ -1,0 +1,121 @@
+{
+  "mission": "M06",
+  "branches": [
+    {
+      "id": "BR_C6_ERR_CASTERAN",
+      "trigger": "Hypothèse « Casteran » présentée",
+      "time_cost": 45,
+      "effect": "Le juge refuse ; Casteran, blessée mais de bonne foi, maintient son témoignage ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ERR_CASTERAN",
+      "recovery": "Ses propres archives montrent qui a commandé et payé les statuts.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ERR_JULIEN",
+      "trigger": "Hypothèse « Julien » présentée",
+      "time_cost": 45,
+      "effect": "Julien se ferme ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ERR_JULIEN",
+      "recovery": "Un chauffeur ne paie pas de prête-nom : les relevés de Luxembourg le disent.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ERR_GENDARME",
+      "trigger": "Hypothèse « gendarme infiltré » présentée",
+      "time_cost": 30,
+      "effect": "Arbelot vexé ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ERR_GENDARME",
+      "recovery": "Les téléphones de l'équipe sont vérifiés.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ERR_VOISIN",
+      "trigger": "Hypothèse « Dufau » présentée",
+      "time_cost": 30,
+      "effect": "Dufau, surpris, n'a jamais rien su",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ERR_VOISIN",
+      "recovery": "Qui était présent les deux fois ?",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ARCHIVES_ERREUR",
+      "trigger": "Mauvais registre ouvert dans les archives",
+      "time_cost": 20,
+      "effect": "Recherche à reprendre",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ARCHIVES_ERREUR",
+      "recovery": "Le témoignage de Casteran suffit avec les relevés de Luxembourg.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ARIANE_PARKING_ERREUR",
+      "trigger": "Réaction d'Ariane mal interprétée",
+      "time_cost": 10,
+      "effect": "On la rappelle ; Darrigade sort du café",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ARIANE_PARKING_ERREUR",
+      "recovery": "La clé jumelle de l'entrepôt reste une autre voie.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_FICHE_REFUSEE",
+      "trigger": "Fiche de signalement incomplète ou fausse",
+      "time_cost": 45,
+      "effect": "Le magistrat refuse ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_FICHE_REFUSEE",
+      "recovery": "Reprendre la fiche avec les sources de chaque trait.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_ARIANE_ENTREPOT_ERREUR",
+      "trigger": "Mauvais objet de référence à l'entrepôt",
+      "time_cost": 10,
+      "effect": "Ariane tourne dans l'entrepôt vide",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C6_ARIANE_ENTREPOT_ERREUR",
+      "recovery": "Le cadenas de Hourcade porte l'odeur de celui qui l'a posé.",
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_RESOLU",
+      "trigger": "Démonstration acceptée par le juge",
+      "time_cost": 0,
+      "effect": "Perquisition chez Darrigade : Ariane marque le placard de la veste ; interpellation (fin A)",
+      "flags": [
+        "FLAG_RESOLU",
+        "FLAG_FIN_A"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C6_PERQUISITION",
+      "recovery": null,
+      "rejoins": "RES_M06"
+    },
+    {
+      "id": "BR_C6_CLOTURE",
+      "trigger": "Jeudi midi sans résolution",
+      "time_cost": 0,
+      "effect": "Le juge signe sur les seules pièces de Luxembourg ; perquisition et interpellation (fin A, sans les bonus)",
+      "flags": [
+        "FLAG_CLOTURE",
+        "FLAG_FIN_A"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C6_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M06"
+    }
+  ]
+}

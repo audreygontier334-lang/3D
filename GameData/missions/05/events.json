@@ -1,0 +1,35 @@
+{
+  "mission": "M05",
+  "_doc": "Lundi. Les événements `fallback` garantissent qu'on désigne le bon conteneur avant la fin du déchargement.",
+  "events": [
+    {
+      "id": "EVT_C5_COLIS_ARBELOT",
+      "time": "09:00",
+      "grants": [
+        "CLU_C5_GANT_COMPLICE"
+      ],
+      "dialogue": "DLG_C5_COLIS"
+    },
+    {
+      "id": "EVT_C5_SCANNER",
+      "time": "14:00",
+      "unless": [
+        "CLU_C5_SCANNER_481207"
+      ],
+      "grants": [
+        "CLU_C5_SCANNER_481207"
+      ],
+      "dialogue": "DLG_C5_SCANNER",
+      "fallback": true
+    },
+    {
+      "id": "EVT_C5_CLOTURE",
+      "time": "18:00",
+      "grants": [
+        "FLAG_CLOTURE"
+      ],
+      "dialogue": "DLG_C5_CLOTURE",
+      "ends_chapter": true
+    }
+  ]
+}

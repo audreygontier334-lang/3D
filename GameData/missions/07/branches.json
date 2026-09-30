@@ -1,0 +1,110 @@
+{
+  "mission": "M07",
+  "branches": [
+    {
+      "id": "BR_C7_ERR_BIARRITZ",
+      "trigger": "Hypothèse « aéroport de Biarritz » présentée",
+      "time_cost": 40,
+      "effect": "Hall de l'aéroport : aucun passager à son nom ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_ERR_BIARRITZ",
+      "recovery": "Les billets de vendredi dorment dans le système.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_ERR_TRAIN",
+      "trigger": "Hypothèse « train depuis Hendaye » présentée",
+      "time_cost": 30,
+      "effect": "Contrôle inutile des trains ; fraîcheur de la piste −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_ERR_TRAIN",
+      "recovery": "Le péage d'Irun et le chauffeur de taxi mènent à Bilbao.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_ERR_COSTUME",
+      "trigger": "Hypothèse « l'homme en costume » présentée",
+      "time_cost": 20,
+      "effect": "Un père de famille britannique contrôlé pour rien",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_ERR_COSTUME",
+      "recovery": "La carte d'embarquement au nom du prête-nom est dans l'autre file.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_REQUISITION_ERREUR",
+      "trigger": "Mauvaise réquisition",
+      "time_cost": 20,
+      "effect": "Réponse inutile",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_REQUISITION_ERREUR",
+      "recovery": "La compagnie maritime et le chauffeur de taxi restent des sources.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_ARIANE_TERMINAL_ERREUR",
+      "trigger": "Réaction d'Ariane mal interprétée",
+      "time_cost": 10,
+      "effect": "Ariane rappelée",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_ARIANE_TERMINAL_ERREUR",
+      "recovery": "La carte d'embarquement, ou l'enregistrement signalé à 15 h 30.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_MANDAT_REFUSE",
+      "trigger": "Fiche de signalement insuffisante pour un mandat européen",
+      "time_cost": 45,
+      "effect": "Le magistrat refuse ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_MANDAT_REFUSE",
+      "recovery": "Quatre traits justes, chacun avec sa source.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_ARIANE_PARKING_ERREUR",
+      "trigger": "Piste d'Ariane mal lue au parking",
+      "time_cost": 10,
+      "effect": "Détour par les quais de la gare",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C7_ARIANE_PARKING_ERREUR",
+      "recovery": "Le chauffeur de taxi se souvient de la course.",
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_RESOLU",
+      "trigger": "Tableau présenté avec la bonne destination et le bon passager",
+      "time_cost": 0,
+      "effect": "La police espagnole interpelle Darrigade dans la file d'embarquement grâce au mandat d'arrêt européen (fin B)",
+      "flags": [
+        "FLAG_RESOLU",
+        "FLAG_FIN_B"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C7_ARRESTATION",
+      "recovery": null,
+      "rejoins": "RES_M07"
+    },
+    {
+      "id": "BR_C7_CLOTURE",
+      "trigger": "17 h sans résolution",
+      "time_cost": 0,
+      "effect": "Le ferry ne quitte pas le quai : prévenue par le mandat, la police espagnole retient le départ et interpelle Darrigade à bord (fin B)",
+      "flags": [
+        "FLAG_CLOTURE",
+        "FLAG_FIN_B"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C7_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M07"
+    }
+  ]
+}

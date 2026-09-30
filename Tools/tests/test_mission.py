@@ -746,6 +746,71 @@ class TestMission04(unittest.TestCase):
         self.assertEqual([c["id"] for c in lila], ["DEST_LANDE_HAUTE_NE"])
 
 
+class TestActeII(unittest.TestCase):
+    """Chapitres 5, 6 et 6 bis : sans erreur, indices des étapes ETP_4 à ETP_7 définis dans leur chapitre, fins A et B garanties."""
+
+    ETAPES = {"05": ("ETP_4", "ETP_5"), "06": ("ETP_6",), "07": ("ETP_7",)}
+
+    @classmethod
+    def setUpClass(cls):
+        cls.itin = json.loads((ROOT / "GameData/campaign/itineraire.json").read_text(encoding="utf-8"))
+
+    def test_aucune_erreur_ni_avertissement(self):
+        for num in self.ETAPES:
+            with self.subTest(num):
+                r = vm.validate(ROOT / "GameData" / "missions" / num)
+                self.assertEqual(r.errors, [])
+                self.assertEqual(r.warnings, [])
+
+    def test_indices_de_la_carte_definis_dans_le_chapitre(self):
+        etapes = {e["id"]: e for e in self.itin["etapes"]}
+        for num, ids in self.ETAPES.items():
+            clues = set(vm.Mission(ROOT / "GameData" / "missions" / num).clues)
+            for sid in ids:
+                for c in etapes[sid]["candidates"]:
+                    for ref in c.get("preuves", []) + c.get("refutation", []):
+                        with self.subTest(etape=sid, indice=ref):
+                            self.assertIn(ref, clues)
+
+    def test_sources_du_portrait_de_darrigade(self):
+        clues = set()
+        for f in (ROOT / "GameData" / "missions").glob("*/clues.json"):
+            clues |= {c["id"] for c in json.loads(f.read_text(encoding="utf-8"))["clues"]}
+        darrigade = next(s for s in self.itin["portrait_robot"]["suspects"] if s["id"] == "DARRIGADE")
+        for t in darrigade["traits"]:
+            for ref in t["sources"]:
+                with self.subTest(trait=t["champ"], source=ref):
+                    self.assertIn(ref, clues)
+
+    def test_chaque_issue_mene_a_sa_fin(self):
+        for num, fin in (("06", "FLAG_FIN_A"), ("07", "FLAG_FIN_B")):
+            m = vm.Mission(ROOT / "GameData" / "missions" / num)
+            issues = [b for b in m.branches.values() if set(b["flags"]) & {"FLAG_RESOLU", "FLAG_CLOTURE"}]
+            self.assertEqual(len(issues), 2)
+            for b in issues:
+                with self.subTest(mission=num, branche=b["id"]):
+                    self.assertIn(fin, b["flags"])
+
+    def test_mandat_europeen_exige_le_seuil_du_portrait(self):
+        seuils = self.itin["portrait_robot"]["seuil_par_action"]
+        m6 = vm.Mission(ROOT / "GameData" / "missions" / "06")
+        m7 = vm.Mission(ROOT / "GameData" / "missions" / "07")
+        self.assertEqual(m6.puzzles["PZ_C6_03"]["answer"]["seuil"], seuils["perquisition"])
+        self.assertEqual(m7.puzzles["PZ_C7_03"]["answer"]["seuil"], seuils["mandat_arret_europeen"])
+        darrigade = {t["champ"]: t["vrai"] for s in self.itin["portrait_robot"]["suspects"] if s["id"] == "DARRIGADE"
+                     for t in s["traits"]}
+        for m, pz in ((m6, "PZ_C6_03"), (m7, "PZ_C7_03")):
+            for champ, valeur in m.puzzles[pz]["answer"]["correct"].items():
+                with self.subTest(enigme=pz, trait=champ):
+                    self.assertEqual(darrigade[champ], valeur)
+
+    def test_casteran_de_bonne_foi_et_nadia_ignorante(self):
+        m6 = vm.Mission(ROOT / "GameData" / "missions" / "06")
+        self.assertFalse(m6.hypotheses["H_C6_CASTERAN"]["correct"])
+        self.assertTrue(m6.hypotheses["H_C6_DARRIGADE"]["correct"])
+        self.assertNotIn("H_C6_NADIA", m6.hypotheses)
+
+
 class TestSqueletteUnreal(unittest.TestCase):
     """Le squelette Unreal reste aligné sur la maquette de Codex et sur la mission (pas de coordonnées qui dérivent)."""
 

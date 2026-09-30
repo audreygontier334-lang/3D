@@ -1,0 +1,102 @@
+{
+  "id": "M05",
+  "title": "Chapitre 5 « Le pavillon »",
+  "status": "proposition",
+  "min_puzzles": 5,
+  "min_duo_puzzles": 2,
+  "_doc": "Mission sans prologue : départ selon l'état hérité du chapitre 4 et de l'étape ETP_4 (Anvers choisi sur la carte). Lila est en sécurité depuis le chapitre 4 (Q3). Échéance : fin du déchargement du Maren Sofie, lundi 18 h. Le tableau désigne le conteneur suspect et le vrai propriétaire de Nordhaven Shipping, ce qui prépare l'étape ETP_5 (Luxembourg).",
+  "clock": {
+    "chapter_start": "07:00",
+    "deadline": "18:00",
+    "travel_cost_per_zone": 10,
+    "_doc": "Lundi, port d'Anvers, rive gauche. Le navire est à quai depuis dimanche 22 h ; déchargement de 7 h à 18 h."
+  },
+  "start_zone": "Z_C5_POLICE",
+  "entry_states": [
+    {
+      "id": "CH5_ETAT_A",
+      "label": "Avance",
+      "start": "06:30",
+      "grants": [
+        "FLAG_ETAT_A"
+      ]
+    },
+    {
+      "id": "CH5_ETAT_B",
+      "label": "Standard",
+      "start": "07:00",
+      "grants": [
+        "FLAG_ETAT_B"
+      ]
+    },
+    {
+      "id": "CH5_ETAT_C",
+      "label": "Retard (fausses routes du week-end)",
+      "start": "09:30",
+      "grants": [
+        "FLAG_ETAT_C"
+      ]
+    }
+  ],
+  "reference_path": {
+    "_doc": "Parcours efficace : scellés et pesée au quai, perquisition du bureau, tableau.",
+    "steps": [
+      "INT_C5_BRIEFING",
+      "INT_C5_SCELLES_QUAI",
+      "INT_C5_PESEE",
+      "INT_C5_BUREAU",
+      "INT_C5_PRESENTER_TABLEAU"
+    ]
+  },
+  "resolution": {
+    "id": "RES_M05",
+    "dialogue": "DLG_C5_FIN",
+    "next_states": [
+      {
+        "id": "CH6_ETAT_A",
+        "label": "Avance",
+        "condition": {
+          "resolved_before": "13:00",
+          "requires": [
+            "H_C5_MEME_PRETE_NOM"
+          ]
+        }
+      },
+      {
+        "id": "CH6_ETAT_B",
+        "label": "Standard",
+        "condition": {
+          "resolved_before": "16:00"
+        }
+      },
+      {
+        "id": "CH6_ETAT_C",
+        "label": "Retard",
+        "condition": {
+          "otherwise": true
+        }
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "BONUS_MEME_PRETE_NOM",
+        "from": "H_C5_MEME_PRETE_NOM"
+      },
+      {
+        "id": "BONUS_ECHARPE",
+        "from": "CLU_C5_ECHARPE_DARRIGADE"
+      }
+    ]
+  },
+  "files": {
+    "locations": "locations.json",
+    "clues": "clues.json",
+    "interactions": "interactions.json",
+    "events": "events.json",
+    "deductions": "deductions.json",
+    "hypotheses": "hypotheses.json",
+    "branches": "branches.json",
+    "puzzles": "puzzles.json",
+    "dialogues": "../../dialogues/05-pavillon.json"
+  }
+}

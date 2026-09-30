@@ -1,0 +1,112 @@
+{
+  "mission": "M06",
+  "_doc": "Démonstration devant Arbelot et le juge : qui dirige le réseau, et comment il savait. Accuser Casteran ou Julien coûte la confiance des gendarmes, jamais la fin (Q2).",
+  "axes": [
+    {
+      "id": "tete",
+      "label": "UI_C6_AXE_TETE",
+      "required_for_resolution": true
+    },
+    {
+      "id": "acces",
+      "label": "UI_C6_AXE_ACCES",
+      "required_for_resolution": true
+    },
+    {
+      "id": "cabane",
+      "label": "UI_C6_AXE_CABANE",
+      "required_for_resolution": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H_C6_DARRIGADE",
+      "axis": "tete",
+      "correct": true,
+      "label": "UI_H_C6_DARRIGADE",
+      "requires_any_of": [
+        [
+          "DED_C6_TETE"
+        ]
+      ]
+    },
+    {
+      "id": "H_C6_CASTERAN",
+      "axis": "tete",
+      "correct": false,
+      "label": "UI_H_C6_CASTERAN",
+      "unlocked_by": [
+        "CLU_C6_CASTERAN_TEMOIGNE"
+      ],
+      "contradicted_by": [
+        "CLU_C6_STATUTS_CASTERAN",
+        "CLU_C6_CASTERAN_TEMOIGNE"
+      ],
+      "wrong_branch": "BR_C6_ERR_CASTERAN"
+    },
+    {
+      "id": "H_C6_JULIEN",
+      "axis": "tete",
+      "correct": false,
+      "label": "UI_H_C6_JULIEN",
+      "unlocked_by": [
+        "CLU_C6_JOURNAL_ARBELOT"
+      ],
+      "contradicted_by": [
+        "CLU_C6_JULIEN_SALARIE",
+        "CLU_C6_PRETE_NOM_PAYE"
+      ],
+      "wrong_branch": "BR_C6_ERR_JULIEN"
+    },
+    {
+      "id": "H_C6_PRESENT_PC",
+      "axis": "acces",
+      "correct": true,
+      "label": "UI_H_C6_PRESENT_PC",
+      "requires_any_of": [
+        [
+          "DED_C6_FUITES"
+        ]
+      ]
+    },
+    {
+      "id": "H_C6_GENDARME",
+      "axis": "acces",
+      "correct": false,
+      "label": "UI_H_C6_GENDARME",
+      "unlocked_by": [
+        "CLU_C6_JOURNAL_ARBELOT"
+      ],
+      "contradicted_by": [
+        "CLU_C6_EQUIPE_VERIFIEE"
+      ],
+      "wrong_branch": "BR_C6_ERR_GENDARME"
+    },
+    {
+      "id": "H_C6_VOISIN",
+      "axis": "acces",
+      "correct": false,
+      "label": "UI_H_C6_VOISIN",
+      "unlocked_by": [
+        "CLU_C6_JOURNAL_ARBELOT"
+      ],
+      "contradicted_by": [
+        "CLU_C6_DUFAU_ABSENT"
+      ],
+      "wrong_branch": "BR_C6_ERR_VOISIN"
+    },
+    {
+      "id": "H_C6_LIEN_CABANE",
+      "axis": "cabane",
+      "correct": true,
+      "optional": true,
+      "label": "UI_H_C6_LIEN_CABANE",
+      "requires_any_of": [
+        [
+          "DED_C6_LIEN_CABANE"
+        ]
+      ],
+      "bonus": "BONUS_LIEN_CABANE"
+    }
+  ]
+}

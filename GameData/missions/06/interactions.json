@@ -1,0 +1,137 @@
+{
+  "mission": "M06",
+  "_doc": "Coût en minutes. Déplacement dans Lescoure : 15 min par zone ; Bayonne à deux zones.",
+  "interactions": [
+    {
+      "id": "INT_C6_BRIEFING",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 20,
+      "mandatory": true,
+      "grants": [
+        "CLU_C6_PRETE_NOM_PAYE",
+        "CLU_C6_JOURNAL_ARBELOT",
+        "CLU_C6_CADENAS_HOURCADE"
+      ],
+      "dialogue": "DLG_C6_BRIEFING"
+    },
+    {
+      "id": "INT_C6_EQUIPE",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 15,
+      "grants": [
+        "CLU_C6_EQUIPE_VERIFIEE",
+        "CLU_C6_DUFAU_ABSENT"
+      ],
+      "dialogue": "DLG_C6_EQUIPE"
+    },
+    {
+      "id": "INT_C6_JULIEN",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 15,
+      "grants": [
+        "CLU_C6_JULIEN_SALARIE"
+      ],
+      "dialogue": "DLG_C6_JULIEN"
+    },
+    {
+      "id": "INT_C6_CASTERAN",
+      "location": "LOC_C6_ETUDE",
+      "cost": 20,
+      "grants": [
+        "CLU_C6_CASTERAN_TEMOIGNE"
+      ],
+      "dialogue": "DLG_C6_CASTERAN"
+    },
+    {
+      "id": "INT_C6_ARCHIVES",
+      "location": "LOC_C6_ETUDE",
+      "cost": 25,
+      "puzzle": "PZ_C6_01",
+      "requires": {
+        "all": [
+          "CLU_C6_CASTERAN_TEMOIGNE"
+        ]
+      },
+      "grants": [
+        "CLU_C6_STATUTS_CASTERAN"
+      ],
+      "dialogue": "DLG_C6_ARCHIVES"
+    },
+    {
+      "id": "INT_C6_AGENCE",
+      "location": "LOC_C6_AGENCE",
+      "cost": 15,
+      "available_from": "32:30",
+      "grants": [
+        "CLU_C6_DARRIGADE_BILLETS"
+      ],
+      "dialogue": "DLG_C6_AGENCE"
+    },
+    {
+      "id": "INT_C6_ARIANE_PARKING",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 10,
+      "puzzle": "PZ_C6_02",
+      "available_until": "34:00",
+      "requires": {
+        "all": [
+          "FLAG_DARRIGADE_AU_CAFE"
+        ]
+      },
+      "grants": [
+        "CLU_C6_ARIANE_VOITURE"
+      ],
+      "dialogue": "DLG_C6_ARIANE_PARKING"
+    },
+    {
+      "id": "INT_C6_ENTREPOT",
+      "location": "LOC_C6_ENTREPOT",
+      "cost": 20,
+      "grants": [
+        "CLU_C6_ENTREPOT_VIDE"
+      ],
+      "dialogue": "DLG_C6_ENTREPOT"
+    },
+    {
+      "id": "INT_C6_ARIANE_ENTREPOT",
+      "location": "LOC_C6_ENTREPOT",
+      "cost": 15,
+      "puzzle": "PZ_C6_05",
+      "requires": {
+        "all": [
+          "CLU_C6_CADENAS_HOURCADE"
+        ]
+      },
+      "grants": [
+        "CLU_C6_CLE_JUMELLE"
+      ],
+      "dialogue": "DLG_C6_ARIANE_ENTREPOT"
+    },
+    {
+      "id": "INT_C6_PORTRAIT",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 20,
+      "puzzle": "PZ_C6_03",
+      "mandatory": true,
+      "grants": [
+        "FLAG_FICHE_COMPLETE"
+      ],
+      "dialogue": "DLG_C6_PORTRAIT"
+    },
+    {
+      "id": "INT_C6_PRESENTER_TABLEAU",
+      "location": "LOC_C6_BRIGADE",
+      "cost": 15,
+      "puzzle": "PZ_C6_04",
+      "mandatory": true,
+      "available_from": "33:30",
+      "requires": {
+        "all": [
+          "FLAG_FICHE_COMPLETE"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C6_TABLEAU"
+    }
+  ]
+}

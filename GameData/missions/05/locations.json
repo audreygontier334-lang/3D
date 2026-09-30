@@ -1,0 +1,57 @@
+{
+  "mission": "M05",
+  "zones": [
+    {
+      "id": "Z_C5_POLICE",
+      "neighbors": [
+        "Z_C5_QUAI",
+        "Z_C5_BUREAU"
+      ]
+    },
+    {
+      "id": "Z_C5_QUAI",
+      "neighbors": [
+        "Z_C5_POLICE",
+        "Z_C5_HANGAR"
+      ]
+    },
+    {
+      "id": "Z_C5_HANGAR",
+      "neighbors": [
+        "Z_C5_QUAI"
+      ]
+    },
+    {
+      "id": "Z_C5_BUREAU",
+      "neighbors": [
+        "Z_C5_POLICE"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_C5_POLICE",
+      "name": "Poste de la police fédérale, port d'Anvers",
+      "zone": "Z_C5_POLICE",
+      "env": "ENV_ANVERS_POLICE"
+    },
+    {
+      "id": "LOC_C5_QUAI",
+      "name": "Quai du Maren Sofie, rive gauche",
+      "zone": "Z_C5_QUAI",
+      "env": "ENV_ANVERS_QUAI"
+    },
+    {
+      "id": "LOC_C5_HANGAR",
+      "name": "Hangar d'inspection des douanes",
+      "zone": "Z_C5_HANGAR",
+      "env": "ENV_ANVERS_HANGAR"
+    },
+    {
+      "id": "LOC_C5_BUREAU",
+      "name": "Bureau de Nordhaven Shipping BV",
+      "zone": "Z_C5_BUREAU",
+      "env": "ENV_ANVERS_BUREAU"
+    }
+  ]
+}

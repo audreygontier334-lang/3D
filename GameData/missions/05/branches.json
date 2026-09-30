@@ -1,0 +1,123 @@
+{
+  "mission": "M05",
+  "branches": [
+    {
+      "id": "BR_C5_ERR_481215",
+      "trigger": "Hypothèse « 481215 » présentée",
+      "time_cost": 45,
+      "effect": "Ouverture inutile de 481215 : pièces de tracteurs ; réseau alerté +1",
+      "flags": [],
+      "grants": [
+        "CLU_C5_AGRICOLE_CONFORME"
+      ],
+      "dialogue": "DLG_C5_ERR_481215",
+      "recovery": "La pesée et le scellé désignent 481207.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_ERR_481223",
+      "trigger": "Hypothèse « 481223 » présentée",
+      "time_cost": 45,
+      "effect": "Lot de génériques certifié bloqué pour rien ; confiance −1",
+      "flags": [],
+      "grants": [
+        "CLU_C5_CERTIFICAT_481223"
+      ],
+      "dialogue": "DLG_C5_ERR_481223",
+      "recovery": "Le laboratoire confirme la commande ; la pesée désigne 481207.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_ERR_GENEVE",
+      "trigger": "Hypothèse « Genève » présentée",
+      "time_cost": 30,
+      "effect": "Demande d'entraide inutile vers Genève : virement annulé, compte vide ; réseau alerté +1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_ERR_GENEVE",
+      "recovery": "Le registre belge mène au Luxembourg.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_ERR_AMSTERDAM",
+      "trigger": "Hypothèse « Amsterdam » présentée",
+      "time_cost": 30,
+      "effect": "Une boîte aux lettres parmi 300 ; confiance −1",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_ERR_AMSTERDAM",
+      "recovery": "Le courrier du bureau est réglé depuis Luxembourg.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_SCELLES_ERREUR",
+      "trigger": "Mauvais conteneur désigné à la lecture des scellés",
+      "time_cost": 20,
+      "effect": "Relecture complète des trois scellés",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_SCELLES_ERREUR",
+      "recovery": "Comparer chaque numéro au relevé de Bayonne : un seul a changé.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_ARIANE_MAUVAIS_OBJET",
+      "trigger": "Mauvais objet de référence donné à Ariane",
+      "time_cost": 15,
+      "effect": "Ariane longe la rangée sans s'arrêter",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_ARIANE_MAUVAIS_OBJET",
+      "recovery": "Reprendre avec le gant du complice, ou attendre le scanner de 14 h.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_SIGNATURE_ERREUR",
+      "trigger": "Mauvaise signature rapprochée",
+      "time_cost": 20,
+      "effect": "Comparaison à refaire",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_SIGNATURE_ERREUR",
+      "recovery": "Le courrier du jour suffit à désigner la holding.",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_ARIANE_BUREAU_ERREUR",
+      "trigger": "Réaction d'Ariane mal interprétée",
+      "time_cost": 10,
+      "effect": "Fouille inutile du bureau",
+      "flags": [],
+      "grants": [],
+      "dialogue": "DLG_C5_ARIANE_BUREAU_ERREUR",
+      "recovery": "Ariane recule devant une odeur qu'elle connaît : laquelle ?",
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_RESOLU",
+      "trigger": "Tableau présenté avec le bon conteneur et la holding luxembourgeoise",
+      "time_cost": 0,
+      "effect": "La douane ouvre 481207 : médicaments falsifiés ; entraide demandée au Luxembourg",
+      "flags": [
+        "FLAG_RESOLU"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C5_RESOLU",
+      "recovery": null,
+      "rejoins": "RES_M05"
+    },
+    {
+      "id": "BR_C5_CLOTURE",
+      "trigger": "18 h sans résolution",
+      "time_cost": 0,
+      "effect": "Fin du déchargement : la douane saisit 481207 sur le scanner ; la piste du Luxembourg reste ouverte ; état C",
+      "flags": [
+        "FLAG_CLOTURE"
+      ],
+      "grants": [],
+      "dialogue": "DLG_C5_CLOTURE",
+      "recovery": null,
+      "rejoins": "RES_M05"
+    }
+  ]
+}

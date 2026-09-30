@@ -1,0 +1,54 @@
+{
+  "mission": "M07",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C7_DESTINATION",
+      "axis": "destination",
+      "puzzle": "PZ_C7_01",
+      "any_of": [
+        [
+          "CLU_C7_PEAGE_ESPAGNE",
+          "CLU_C7_RESERVATION_FERRY"
+        ],
+        [
+          "CLU_C7_TAXI_HENDAYE",
+          "CLU_C7_RESERVATION_FERRY"
+        ],
+        [
+          "CLU_C7_ARIANE_TAXIS",
+          "CLU_C7_RESERVATION_FERRY"
+        ]
+      ],
+      "text": "Darrigade a pris un taxi jusqu'à Bilbao pour embarquer sur le ferry de 17 h."
+    },
+    {
+      "id": "DED_C7_IDENTIFIE",
+      "axis": "identite",
+      "any_of": [
+        [
+          "CLU_C7_PASSAGER_CASQUETTE",
+          "CLU_C7_RESERVATION_FERRY"
+        ],
+        [
+          "CLU_C7_ARIANE_TERMINAL"
+        ],
+        [
+          "CLU_C7_ENREGISTREMENT"
+        ]
+      ],
+      "text": "L'homme à la casquette, file 3, est Darrigade."
+    },
+    {
+      "id": "DED_C7_AVANT_EMBARQUEMENT",
+      "axis": "moment",
+      "any_of": [
+        [
+          "CLU_C7_ARIANE_TERMINAL",
+          "CLU_C7_PASSAGER_CASQUETTE"
+        ]
+      ],
+      "text": "On peut l'interpeller dans la file, avant qu'il passe la passerelle."
+    }
+  ]
+}

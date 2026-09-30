@@ -1,0 +1,47 @@
+{
+  "mission": "M06",
+  "_doc": "Une déduction est établie dès qu'un ensemble any_of est réuni.",
+  "deductions": [
+    {
+      "id": "DED_C6_TETE",
+      "axis": "tete",
+      "puzzle": "PZ_C6_01",
+      "any_of": [
+        [
+          "CLU_C6_STATUTS_CASTERAN",
+          "CLU_C6_PRETE_NOM_PAYE"
+        ],
+        [
+          "CLU_C6_CASTERAN_TEMOIGNE",
+          "CLU_C6_PRETE_NOM_PAYE"
+        ]
+      ],
+      "text": "Darrigade a monté et payé toute la chaîne de sociétés écrans."
+    },
+    {
+      "id": "DED_C6_FUITES",
+      "axis": "acces",
+      "any_of": [
+        [
+          "CLU_C6_JOURNAL_ARBELOT",
+          "CLU_C6_NADIA_TEMOIGNE"
+        ]
+      ],
+      "text": "Les deux fuites (le trajet de Lila, l'opération du port) passent par une seule personne présente les deux fois : Darrigade."
+    },
+    {
+      "id": "DED_C6_LIEN_CABANE",
+      "axis": "cabane",
+      "any_of": [
+        [
+          "CLU_C6_ARIANE_VOITURE"
+        ],
+        [
+          "CLU_C6_CLE_JUMELLE",
+          "CLU_C6_CADENAS_HOURCADE"
+        ]
+      ],
+      "text": "Darrigade avait accès à la cabane de Hourcade."
+    }
+  ]
+}

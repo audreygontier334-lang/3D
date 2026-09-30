@@ -1,0 +1,513 @@
+{
+  "mission": "M06",
+  "status": "proposition",
+  "_doc": "Répliques du chapitre 6, fin A (proposition de Claude). Q1 : Nadia ignore tout et apprend la vérité à la fin ; Q2 : Darrigade dirige le réseau, Casteran est de bonne foi. Aucune violence envers Lila.",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "ARBELOT": "Capitaine Arbelot, section de recherches",
+    "CASTERAN": "Maître Casteran, notaire",
+    "JULIEN": "Julien Mercadier, père de Lila",
+    "NADIA": "Nadia Mercadier, mère de Lila",
+    "DARRIGADE": "Xavier Darrigade, compagnon de Nadia",
+    "JUGE": "Juge d'instruction",
+    "AGENT": "Employé de l'agence de voyage",
+    "DUFAU": "M. Dufau, voisin du square",
+    "LILA": "Lila Mercadier"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C6_BRIEFING",
+      "context": "INT_C6_BRIEFING. Brigade de Lescoure, mardi 20 h, retour de Luxembourg.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_BRIEFING_01",
+          "speaker": "ARBELOT",
+          "text": "Luxembourg a parlé. Le prête-nom touche un salaire de Darrigade Logistique.",
+          "intent": "Pièce décisive",
+          "emotion": "grave"
+        },
+        {
+          "id": "DLG_C6_BRIEFING_02",
+          "speaker": "ARBELOT",
+          "text": "Et le cadenas de Hourcade est toujours sous scellé, si votre chienne en a besoin.",
+          "intent": "Objet de référence",
+          "emotion": "neutre"
+        },
+        {
+          "id": "DLG_C6_BRIEFING_03",
+          "speaker": "HEROINE",
+          "text": "Il faut prouver qu'il dirige, pas seulement qu'il paie.",
+          "intent": "Poser l'enjeu",
+          "emotion": "déterminé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_EQUIPE",
+      "context": "INT_C6_EQUIPE.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_EQUIPE_01",
+          "speaker": "ARBELOT",
+          "text": "J'ai fait vérifier tous les téléphones de mon équipe. Rien. Et Dufau n'a jamais rien su.",
+          "intent": "Réfuter deux pistes",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_JULIEN",
+      "context": "INT_C6_JULIEN. Julien, libre sous contrôle judiciaire, dans le couloir de la brigade.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_JULIEN_01",
+          "speaker": "JULIEN",
+          "text": "Je conduisais, c'est tout. J'ai voulu arrêter. Il a dit non.",
+          "intent": "Témoignage",
+          "emotion": "épuisé"
+        },
+        {
+          "id": "DLG_C6_JULIEN_02",
+          "speaker": "JULIEN",
+          "text": "Lila va bien ? Vraiment ?",
+          "intent": "Le père",
+          "emotion": "fragile"
+        },
+        {
+          "id": "DLG_C6_JULIEN_03",
+          "speaker": "HEROINE",
+          "text": "Elle va bien.",
+          "intent": "Rassurer",
+          "emotion": "doux"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_CASTERAN",
+      "context": "INT_C6_CASTERAN. L'étude, le soir ; Casteran ouvre elle-même la porte.",
+      "location": "LOC_C6_ETUDE",
+      "lines": [
+        {
+          "id": "DLG_C6_CASTERAN_01",
+          "speaker": "CASTERAN",
+          "text": "M. Darrigade m'a apporté les dossiers des SCI. Il a tout réglé, rubis sur l'ongle.",
+          "intent": "Témoin de bonne foi (Q2)",
+          "emotion": "trouble"
+        },
+        {
+          "id": "DLG_C6_CASTERAN_02",
+          "speaker": "CASTERAN",
+          "text": "J'ai rédigé des statuts, rien de plus. Prenez mes archives.",
+          "intent": "Coopération",
+          "emotion": "digne"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARCHIVES",
+      "context": "INT_C6_ARCHIVES (PZ_C6_01).",
+      "location": "LOC_C6_ETUDE",
+      "lines": [
+        {
+          "id": "DLG_C6_ARCHIVES_01",
+          "speaker": "HEROINE",
+          "text": "Registre des honoraires : Sud Loc Services, SCI des Pins de Sorbe, SCI Lande-Haute. Payeur : Darrigade.",
+          "intent": "Preuve écrite",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARCHIVES_ERREUR",
+      "context": "BR_C6_ARCHIVES_ERREUR.",
+      "location": "LOC_C6_ETUDE",
+      "lines": [
+        {
+          "id": "DLG_C6_ARCHIVES_ERREUR_01",
+          "speaker": "CASTERAN",
+          "text": "Les actes disent ce qu'on signe. Pour savoir qui paie, c'est l'autre registre.",
+          "intent": "Correction",
+          "emotion": "patient"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_NADIA_VIENT",
+      "context": "EVT_C6_NADIA_VIENT, mercredi 9 h. Nadia vient signer sa déposition ; Darrigade l'a conduite et attend au café d'en face.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_NADIA_VIENT_01",
+          "speaker": "NADIA",
+          "text": "Xavier savait tout, vous savez. L'heure de sortie, qu'elle rentrait seule le mardi.",
+          "intent": "Révélation involontaire (Q1)",
+          "emotion": "confiant"
+        },
+        {
+          "id": "DLG_C6_NADIA_VIENT_02",
+          "speaker": "NADIA",
+          "text": "Et il était là quand vous nous avez rassurés, mercredi soir. Il a été tellement présent.",
+          "intent": "Faux-semblant",
+          "emotion": "reconnaissant"
+        },
+        {
+          "id": "DLG_C6_NADIA_VIENT_03",
+          "speaker": "HEROINE",
+          "text": "Merci, Nadia.",
+          "intent": "Ne rien laisser paraître",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARIANE_PARKING",
+      "context": "INT_C6_ARIANE_PARKING (PZ_C6_02). Sa voiture est garée devant la brigade.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_ARIANE_PARKING_01",
+          "speaker": "CHIENNE",
+          "text": "[tourne autour de la voiture, s'arrête au coffre, s'assied]",
+          "intent": "Marquage",
+          "emotion": "concentré"
+        },
+        {
+          "id": "DLG_C6_ARIANE_PARKING_02",
+          "speaker": "HEROINE",
+          "text": "Comme devant la porte de Hourcade.",
+          "intent": "Interprétation",
+          "emotion": "grave"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARIANE_PARKING_ERREUR",
+      "context": "BR_C6_ARIANE_PARKING_ERREUR.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_ARIANE_PARKING_ERREUR_01",
+          "speaker": "HEROINE",
+          "text": "Ariane, viens. Au pied.",
+          "intent": "Retrait",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C6_ARIANE_PARKING_ERREUR_02",
+          "speaker": "DARRIGADE",
+          "text": "Elle a du flair, votre chienne. Bonne journée.",
+          "intent": "Faux-semblant",
+          "emotion": "affable"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_AGENCE",
+      "context": "INT_C6_AGENCE, mercredi matin.",
+      "location": "LOC_C6_AGENCE",
+      "lines": [
+        {
+          "id": "DLG_C6_AGENCE_01",
+          "speaker": "AGENT",
+          "text": "Deux billets, M. Darrigade et Mme Mercadier. Départ vendredi. Une surprise, il m'a dit.",
+          "intent": "Fuite préparée",
+          "emotion": "innocent"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ENTREPOT",
+      "context": "INT_C6_ENTREPOT. Entrepôt de Bayonne, scellés sur les portes.",
+      "location": "LOC_C6_ENTREPOT",
+      "lines": [
+        {
+          "id": "DLG_C6_ENTREPOT_01",
+          "speaker": "ARBELOT",
+          "text": "Vidé jeudi. On a tout pris, sauf le bureau du chef de quai.",
+          "intent": "Lieu vide",
+          "emotion": "las"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARIANE_ENTREPOT",
+      "context": "INT_C6_ARIANE_ENTREPOT (PZ_C6_05).",
+      "location": "LOC_C6_ENTREPOT",
+      "lines": [
+        {
+          "id": "DLG_C6_ARIANE_ENTREPOT_01",
+          "speaker": "CHIENNE",
+          "text": "[flaire le cadenas, traverse l'entrepôt, s'arrête devant un tiroir du bureau]",
+          "intent": "Marquage",
+          "emotion": "concentré"
+        },
+        {
+          "id": "DLG_C6_ARIANE_ENTREPOT_02",
+          "speaker": "HEROINE",
+          "text": "La clé jumelle. Anneau marqué X.D.",
+          "intent": "Preuve",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ARIANE_ENTREPOT_ERREUR",
+      "context": "BR_C6_ARIANE_ENTREPOT_ERREUR.",
+      "location": "LOC_C6_ENTREPOT",
+      "lines": [
+        {
+          "id": "DLG_C6_ARIANE_ENTREPOT_ERREUR_01",
+          "speaker": "CHIENNE",
+          "text": "[tourne dans l'entrepôt vide, revient s'asseoir près de l'héroïne]",
+          "intent": "Échec sans gravité",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_PORTRAIT",
+      "context": "INT_C6_PORTRAIT (PZ_C6_03) : fiche de signalement de Darrigade, composée par la joueuse.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_PORTRAIT_01",
+          "speaker": "ARBELOT",
+          "text": "Le juge veut une fiche. Seulement ce que vous pouvez prouver.",
+          "intent": "Règle du portrait",
+          "emotion": "strict"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_FICHE_REFUSEE",
+      "context": "BR_C6_FICHE_REFUSEE.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_FICHE_REFUSEE_01",
+          "speaker": "JUGE",
+          "text": "Un trait sans source, je ne signe pas. Revenez avec des preuves.",
+          "intent": "Refus",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_TABLEAU",
+      "context": "INT_C6_PRESENTER_TABLEAU (PZ_C6_04), mercredi 9 h 30, bureau du juge.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_TABLEAU_01",
+          "speaker": "JUGE",
+          "text": "Convainquez-moi. Qui, et comment savait-il ?",
+          "intent": "Démonstration",
+          "emotion": "exigeant"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_PERQUISITION",
+      "context": "BR_C6_RESOLU. Perquisition chez Darrigade, Nadia absente (chez sa sœur avec Lila).",
+      "lines": [
+        {
+          "id": "DLG_C6_PERQUISITION_01",
+          "speaker": "CHIENNE",
+          "text": "[traverse l'entrée, s'arrête devant un placard, s'assied]",
+          "intent": "Marquage",
+          "emotion": "concentré"
+        },
+        {
+          "id": "DLG_C6_PERQUISITION_02",
+          "speaker": "ARBELOT",
+          "text": "Une veste de pluie. Encore de la boue de Lande-Haute sur les manches.",
+          "intent": "Preuve",
+          "emotion": "grave"
+        },
+        {
+          "id": "DLG_C6_PERQUISITION_03",
+          "speaker": "DARRIGADE",
+          "text": "Vous faites erreur. Demandez à Nadia.",
+          "intent": "Faux-semblant jusqu'au bout",
+          "emotion": "calme"
+        },
+        {
+          "id": "DLG_C6_PERQUISITION_04",
+          "speaker": "ARBELOT",
+          "text": "Xavier Darrigade, vous êtes en état d'arrestation.",
+          "intent": "Fin A",
+          "emotion": "ferme"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_EPILOGUE",
+      "context": "Résolution : quelques jours plus tard, sortie de l'école, fin d'après-midi dorée comme l'ouverture.",
+      "lines": [
+        {
+          "id": "DLG_C6_EPILOGUE_01",
+          "speaker": "NADIA",
+          "text": "Je n'ai rien vu. Pendant deux ans, je n'ai rien vu.",
+          "intent": "La vérité (Q1)",
+          "emotion": "brisé"
+        },
+        {
+          "id": "DLG_C6_EPILOGUE_02",
+          "speaker": "HEROINE",
+          "text": "Il faisait tout pour ça.",
+          "intent": "Réconfort",
+          "emotion": "doux"
+        },
+        {
+          "id": "DLG_C6_EPILOGUE_03",
+          "speaker": "LILA",
+          "text": "Ariane !",
+          "intent": "Retrouvailles",
+          "emotion": "joyeux"
+        },
+        {
+          "id": "DLG_C6_EPILOGUE_04",
+          "speaker": "CHIENNE",
+          "text": "[court vers Lila, tourne autour d'elle, s'assied contre ses jambes]",
+          "intent": "Fin",
+          "emotion": "heureux"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_CLOTURE",
+      "context": "EVT_C6_CLOTURE, jeudi midi.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_CLOTURE_01",
+          "speaker": "JUGE",
+          "text": "Les pièces de Luxembourg suffisent. Je signe.",
+          "intent": "Aucune impasse",
+          "emotion": "las"
+        },
+        {
+          "id": "DLG_C6_CLOTURE_02",
+          "speaker": "ARBELOT",
+          "text": "On y va. Avant qu'il prenne l'avion de vendredi.",
+          "intent": "Fin A tardive",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ERR_CASTERAN",
+      "context": "BR_C6_ERR_CASTERAN.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_ERR_CASTERAN_01",
+          "speaker": "JUGE",
+          "text": "Maître Casteran a ouvert ses archives d'elle-même. Vous accusez votre témoin ?",
+          "intent": "Coût de l'erreur (Q2)",
+          "emotion": "sévère"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ERR_JULIEN",
+      "context": "BR_C6_ERR_JULIEN.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_ERR_JULIEN_01",
+          "speaker": "JULIEN",
+          "text": "Moi ? Je ne sais même pas ce qu'est une holding.",
+          "intent": "Coût de l'erreur",
+          "emotion": "amer"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ERR_GENDARME",
+      "context": "BR_C6_ERR_GENDARME.",
+      "location": "LOC_C6_BRIGADE",
+      "lines": [
+        {
+          "id": "DLG_C6_ERR_GENDARME_01",
+          "speaker": "ARBELOT",
+          "text": "Mes hommes sont vérifiés. Vous m'avez fait perdre une demi-heure et un peu de confiance.",
+          "intent": "Coût de l'erreur",
+          "emotion": "vexé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C6_ERR_VOISIN",
+      "context": "BR_C6_ERR_VOISIN.",
+      "lines": [
+        {
+          "id": "DLG_C6_ERR_VOISIN_01",
+          "speaker": "DUFAU",
+          "text": "Une opération au port ? Première nouvelle. Moi, je lis mon journal sur mon banc.",
+          "intent": "Coût de l'erreur",
+          "emotion": "surpris"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C6_AXE_TETE",
+      "text": "Qui dirige le réseau",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C6_AXE_ACCES",
+      "text": "Comment le réseau savait",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C6_AXE_CABANE",
+      "text": "Le lien avec la cabane (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C6_DARRIGADE",
+      "text": "Xavier Darrigade",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_CASTERAN",
+      "text": "Maître Casteran",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_JULIEN",
+      "text": "Julien Mercadier",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_PRESENT_PC",
+      "text": "Présent au poste de commandement et lors de l'appel rassurant",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_GENDARME",
+      "text": "Un gendarme de l'équipe",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_VOISIN",
+      "text": "M. Dufau, le voisin du square",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C6_LIEN_CABANE",
+      "text": "Darrigade avait accès à la cabane de Hourcade",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}

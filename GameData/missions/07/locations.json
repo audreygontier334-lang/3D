@@ -1,0 +1,51 @@
+{
+  "mission": "M07",
+  "zones": [
+    {
+      "id": "Z_C7_BRIGADE",
+      "neighbors": [
+        "Z_C7_HENDAYE"
+      ]
+    },
+    {
+      "id": "Z_C7_HENDAYE",
+      "neighbors": [
+        "Z_C7_BRIGADE",
+        "Z_C7_AUTOPISTA"
+      ]
+    },
+    {
+      "id": "Z_C7_AUTOPISTA",
+      "neighbors": [
+        "Z_C7_HENDAYE",
+        "Z_C7_BILBAO"
+      ]
+    },
+    {
+      "id": "Z_C7_BILBAO",
+      "neighbors": [
+        "Z_C7_AUTOPISTA"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC_C7_BRIGADE",
+      "name": "Brigade de Lescoure",
+      "zone": "Z_C7_BRIGADE",
+      "env": "ENV_BRIGADE"
+    },
+    {
+      "id": "LOC_C7_HENDAYE",
+      "name": "Parking de la gare d'Hendaye",
+      "zone": "Z_C7_HENDAYE",
+      "env": "ENV_GARE_HENDAYE"
+    },
+    {
+      "id": "LOC_C7_TERMINAL",
+      "name": "Terminal du ferry, port de Bilbao",
+      "zone": "Z_C7_BILBAO",
+      "env": "ENV_TERMINAL_BILBAO"
+    }
+  ]
+}

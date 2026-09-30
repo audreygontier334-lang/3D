@@ -1,0 +1,103 @@
+{
+  "mission": "M07",
+  "_doc": "Coût en minutes. Déplacements : 40 min par zone.",
+  "interactions": [
+    {
+      "id": "INT_C7_BRIEFING",
+      "location": "LOC_C7_BRIGADE",
+      "cost": 10,
+      "mandatory": true,
+      "grants": [
+        "CLU_C7_VOITURE_HENDAYE",
+        "CLU_C7_BILLETS_INTACTS"
+      ],
+      "dialogue": "DLG_C7_BRIEFING"
+    },
+    {
+      "id": "INT_C7_REQUISITION",
+      "location": "LOC_C7_BRIGADE",
+      "cost": 20,
+      "puzzle": "PZ_C7_01",
+      "grants": [
+        "CLU_C7_PEAGE_ESPAGNE"
+      ],
+      "dialogue": "DLG_C7_REQUISITION"
+    },
+    {
+      "id": "INT_C7_COMPAGNIE",
+      "location": "LOC_C7_BRIGADE",
+      "cost": 15,
+      "grants": [
+        "CLU_C7_RESERVATION_FERRY"
+      ],
+      "dialogue": "DLG_C7_COMPAGNIE"
+    },
+    {
+      "id": "INT_C7_MANDAT",
+      "location": "LOC_C7_BRIGADE",
+      "cost": 15,
+      "puzzle": "PZ_C7_03",
+      "mandatory": true,
+      "grants": [
+        "FLAG_MANDAT_EUROPEEN"
+      ],
+      "dialogue": "DLG_C7_MANDAT"
+    },
+    {
+      "id": "INT_C7_HENDAYE",
+      "location": "LOC_C7_HENDAYE",
+      "cost": 15,
+      "grants": [
+        "CLU_C7_TAXI_HENDAYE"
+      ],
+      "dialogue": "DLG_C7_HENDAYE"
+    },
+    {
+      "id": "INT_C7_ARIANE_PARKING",
+      "location": "LOC_C7_HENDAYE",
+      "cost": 10,
+      "puzzle": "PZ_C7_05",
+      "grants": [
+        "CLU_C7_ARIANE_TAXIS"
+      ],
+      "dialogue": "DLG_C7_ARIANE_PARKING"
+    },
+    {
+      "id": "INT_C7_TERMINAL",
+      "location": "LOC_C7_TERMINAL",
+      "cost": 15,
+      "available_from": "12:30",
+      "grants": [
+        "CLU_C7_PASSAGER_CASQUETTE",
+        "CLU_C7_COSTUME_PASSEPORT"
+      ],
+      "dialogue": "DLG_C7_TERMINAL"
+    },
+    {
+      "id": "INT_C7_ARIANE_TERMINAL",
+      "location": "LOC_C7_TERMINAL",
+      "cost": 10,
+      "puzzle": "PZ_C7_02",
+      "available_from": "12:30",
+      "grants": [
+        "CLU_C7_ARIANE_TERMINAL"
+      ],
+      "dialogue": "DLG_C7_ARIANE_TERMINAL"
+    },
+    {
+      "id": "INT_C7_PRESENTER_TABLEAU",
+      "location": "LOC_C7_TERMINAL",
+      "cost": 10,
+      "puzzle": "PZ_C7_04",
+      "mandatory": true,
+      "available_from": "12:30",
+      "requires": {
+        "all": [
+          "FLAG_MANDAT_EUROPEEN"
+        ]
+      },
+      "grants": [],
+      "dialogue": "DLG_C7_TABLEAU"
+    }
+  ]
+}

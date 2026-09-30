@@ -1,0 +1,469 @@
+{
+  "mission": "M05",
+  "status": "proposition",
+  "_doc": "Répliques du chapitre 5 (proposition de Claude). Lila est en sécurité depuis le chapitre 4 (Q3) ; le réseau trafique des médicaments falsifiés, et l'enlèvement visait Julien (Q1).",
+  "speakers": {
+    "HEROINE": "{HEROINE}",
+    "CHIENNE": "Ariane (sons et comportement, jamais de parole)",
+    "VERMEULEN": "Inspectrice Vermeulen, police fédérale belge (port d'Anvers)",
+    "DOUANIER": "Douanier du hangar d'inspection",
+    "ARBELOT": "Capitaine Arbelot, section de recherches (au téléphone)",
+    "EMPLOYEE": "Employée de Nordhaven Shipping BV"
+  },
+  "scenes": [
+    {
+      "id": "DLG_C5_BRIEFING",
+      "context": "INT_C5_BRIEFING. Poste de police du port, café tiède, lumière grise sur les grues.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_BRIEFING_01",
+          "speaker": "VERMEULEN",
+          "text": "Le Maren Sofie est à quai depuis hier soir. Trois conteneurs de votre quai 4 de Bayonne. On décharge jusqu'à dix-huit heures.",
+          "intent": "Poser l'échéance",
+          "emotion": "professionnel"
+        },
+        {
+          "id": "DLG_C5_BRIEFING_02",
+          "speaker": "VERMEULEN",
+          "text": "Après, ils partent sur des camions, et vos preuves avec.",
+          "intent": "Enjeu",
+          "emotion": "sec"
+        },
+        {
+          "id": "DLG_C5_BRIEFING_03",
+          "speaker": "HEROINE",
+          "text": "Et Nordhaven Shipping ?",
+          "intent": "Seconde question",
+          "emotion": "concentré"
+        },
+        {
+          "id": "DLG_C5_BRIEFING_04",
+          "speaker": "VERMEULEN",
+          "text": "Détenue à cent pour cent par une holding luxembourgeoise. Le reste, c'est à vous de me le montrer.",
+          "intent": "Ouvrir la piste de la holding",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_LABO",
+      "context": "INT_C5_LABO. Appel au fabricant de génériques.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_LABO_01",
+          "speaker": "HEROINE",
+          "text": "Le lot 481223 : c'est bien votre commande ?",
+          "intent": "Vérifier un leurre",
+          "emotion": "calme"
+        },
+        {
+          "id": "DLG_C5_LABO_02",
+          "speaker": "VERMEULEN",
+          "text": "Numéros de lot confirmés. Celui-là est propre.",
+          "intent": "Réfuter",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_SCELLES_QUAI",
+      "context": "INT_C5_SCELLES_QUAI (PZ_C5_01). Le long de la rangée, vent froid de l'Escaut.",
+      "location": "LOC_C5_QUAI",
+      "lines": [
+        {
+          "id": "DLG_C5_SCELLES_QUAI_01",
+          "speaker": "HEROINE",
+          "text": "5530119, 5530120… et sur 481207, NH-0412. Ce n'est pas un scellé de la douane de Bayonne.",
+          "intent": "Lecture des scellés",
+          "emotion": "concentré"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_SCELLES_ERREUR",
+      "context": "BR_C5_SCELLES_ERREUR.",
+      "location": "LOC_C5_QUAI",
+      "lines": [
+        {
+          "id": "DLG_C5_SCELLES_ERREUR_01",
+          "speaker": "VERMEULEN",
+          "text": "Celui-là porte encore son scellé de départ. Recommencez.",
+          "intent": "Correction",
+          "emotion": "patient"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_PESEE",
+      "context": "INT_C5_PESEE. Pont-bascule du terminal.",
+      "location": "LOC_C5_QUAI",
+      "lines": [
+        {
+          "id": "DLG_C5_PESEE_01",
+          "speaker": "DOUANIER",
+          "text": "481207 : déclaré neuf tonnes deux. Treize tonnes huit sur la balance.",
+          "intent": "Donner la mesure",
+          "emotion": "neutre"
+        },
+        {
+          "id": "DLG_C5_PESEE_02",
+          "speaker": "HEROINE",
+          "text": "Quatre tonnes six de trop. Pour des compléments alimentaires.",
+          "intent": "Déduire",
+          "emotion": "grave"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_COLIS",
+      "context": "EVT_C5_COLIS_ARBELOT, 9 h : un colis scellé arrive de Bayonne.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_COLIS_01",
+          "speaker": "ARBELOT",
+          "text": "Le gant du quai 4. Le complice de « Sandrine » l'a oublié jeudi. Personne d'autre ne l'a porté.",
+          "intent": "Objet de référence",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ARIANE_QUAI",
+      "context": "INT_C5_ARIANE_QUAI (PZ_C5_02).",
+      "location": "LOC_C5_QUAI",
+      "lines": [
+        {
+          "id": "DLG_C5_ARIANE_QUAI_01",
+          "speaker": "HEROINE",
+          "text": "Sens, Ariane. Cherche.",
+          "intent": "Lancer la piste",
+          "emotion": "doux"
+        },
+        {
+          "id": "DLG_C5_ARIANE_QUAI_02",
+          "speaker": "CHIENNE",
+          "text": "[longe la rangée, revient sur 481207, s'assied devant les portes]",
+          "intent": "Marquage",
+          "emotion": "concentré"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ARIANE_MAUVAIS_OBJET",
+      "context": "BR_C5_ARIANE_MAUVAIS_OBJET.",
+      "location": "LOC_C5_QUAI",
+      "lines": [
+        {
+          "id": "DLG_C5_ARIANE_MAUVAIS_OBJET_01",
+          "speaker": "CHIENNE",
+          "text": "[longe la rangée sans s'arrêter, revient vers l'héroïne]",
+          "intent": "Échec sans gravité",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_OUVRIR_481215",
+      "context": "INT_C5_OUVRIR_481215. Hangar d'inspection.",
+      "location": "LOC_C5_HANGAR",
+      "lines": [
+        {
+          "id": "DLG_C5_OUVRIR_481215_01",
+          "speaker": "DOUANIER",
+          "text": "Des pièces de tracteurs. Factures et poids conformes.",
+          "intent": "Réfuter",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_SCANNER",
+      "context": "EVT_C5_SCANNER, 14 h (rattrapage).",
+      "location": "LOC_C5_HANGAR",
+      "lines": [
+        {
+          "id": "DLG_C5_SCANNER_01",
+          "speaker": "DOUANIER",
+          "text": "Le scanner a parlé : derrière les sacs de 481207, des cartons bien plus denses.",
+          "intent": "Rattrapage",
+          "emotion": "sérieux"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_BUREAU",
+      "context": "INT_C5_BUREAU. Bureau de Nordhaven, deux pièces au-dessus d'un entrepôt. Perquisition menée par Vermeulen.",
+      "location": "LOC_C5_BUREAU",
+      "lines": [
+        {
+          "id": "DLG_C5_BUREAU_01",
+          "speaker": "EMPLOYEE",
+          "text": "Je ne fais que la réception. Les patrons, je ne les vois jamais.",
+          "intent": "Témoin sans prise",
+          "emotion": "inquiet"
+        },
+        {
+          "id": "DLG_C5_BUREAU_02",
+          "speaker": "VERMEULEN",
+          "text": "Un virement vers Genève, annulé. Une adresse à Amsterdam. Et tout le courrier réglé depuis Luxembourg.",
+          "intent": "Trois pistes, une seule solide",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_SIGNATURES",
+      "context": "INT_C5_SIGNATURES (PZ_C5_03).",
+      "location": "LOC_C5_BUREAU",
+      "lines": [
+        {
+          "id": "DLG_C5_SIGNATURES_01",
+          "speaker": "HEROINE",
+          "text": "Cette signature… C'est celle du gérant des SCI de l'étang et de la cabane.",
+          "intent": "Rapprochement",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_SIGNATURE_ERREUR",
+      "context": "BR_C5_SIGNATURE_ERREUR.",
+      "location": "LOC_C5_BUREAU",
+      "lines": [
+        {
+          "id": "DLG_C5_SIGNATURE_ERREUR_01",
+          "speaker": "VERMEULEN",
+          "text": "Le capitaine signe les manifestes, pas les comptes. Regardez l'administrateur.",
+          "intent": "Correction",
+          "emotion": "patient"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ARIANE_BUREAU",
+      "context": "INT_C5_ARIANE_BUREAU (PZ_C5_05).",
+      "location": "LOC_C5_BUREAU",
+      "lines": [
+        {
+          "id": "DLG_C5_ARIANE_BUREAU_01",
+          "speaker": "CHIENNE",
+          "text": "[s'arrête net devant le portemanteau, recule d'un pas, oreilles en arrière]",
+          "intent": "Signal",
+          "emotion": "tendu"
+        },
+        {
+          "id": "DLG_C5_ARIANE_BUREAU_02",
+          "speaker": "HEROINE",
+          "text": "Comme au poste forestier. Devant lui.",
+          "intent": "Interprétation",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ARIANE_BUREAU_ERREUR",
+      "context": "BR_C5_ARIANE_BUREAU_ERREUR.",
+      "location": "LOC_C5_BUREAU",
+      "lines": [
+        {
+          "id": "DLG_C5_ARIANE_BUREAU_ERREUR_01",
+          "speaker": "VERMEULEN",
+          "text": "On a fouillé ce placard pour rien. Qu'est-ce qu'elle voulait vous dire ?",
+          "intent": "Relance",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_TABLEAU",
+      "context": "INT_C5_PRESENTER_TABLEAU (PZ_C5_04), avec Vermeulen et Arbelot en visio.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_TABLEAU_01",
+          "speaker": "VERMEULEN",
+          "text": "Quel conteneur j'ouvre, et à qui j'envoie la commission rogatoire ?",
+          "intent": "Demande de synthèse",
+          "emotion": "tendu"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_RESOLU",
+      "context": "BR_C5_RESOLU. Hangar : les portes de 481207 s'ouvrent.",
+      "location": "LOC_C5_HANGAR",
+      "lines": [
+        {
+          "id": "DLG_C5_RESOLU_01",
+          "speaker": "DOUANIER",
+          "text": "Des boîtes de médicaments. Les notices sont fausses, les numéros de lot aussi.",
+          "intent": "Preuve matérielle",
+          "emotion": "grave"
+        },
+        {
+          "id": "DLG_C5_RESOLU_02",
+          "speaker": "ARBELOT",
+          "text": "Les mêmes cartons que Julien chargeait à Bayonne.",
+          "intent": "Lien avec Q1",
+          "emotion": "sombre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_FIN",
+      "context": "Résolution du chapitre 5 : départ vers Luxembourg (étape ETP_5 de la carte).",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_FIN_01",
+          "speaker": "VERMEULEN",
+          "text": "Luxembourg est prévenu. La holding ouvre demain à neuf heures.",
+          "intent": "Transition",
+          "emotion": "neutre"
+        },
+        {
+          "id": "DLG_C5_FIN_02",
+          "speaker": "HEROINE",
+          "text": "Alors on y sera à neuf heures.",
+          "intent": "Décision",
+          "emotion": "déterminé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_CLOTURE",
+      "context": "EVT_C5_CLOTURE, 18 h : fin du déchargement.",
+      "location": "LOC_C5_HANGAR",
+      "lines": [
+        {
+          "id": "DLG_C5_CLOTURE_01",
+          "speaker": "DOUANIER",
+          "text": "On a retenu 481207 sur le scanner. Il ne partira pas ce soir.",
+          "intent": "Aucune impasse",
+          "emotion": "las"
+        },
+        {
+          "id": "DLG_C5_CLOTURE_02",
+          "speaker": "VERMEULEN",
+          "text": "Et le registre mène toujours au Luxembourg.",
+          "intent": "La piste reste ouverte",
+          "emotion": "neutre"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ERR_481215",
+      "context": "BR_C5_ERR_481215.",
+      "location": "LOC_C5_HANGAR",
+      "lines": [
+        {
+          "id": "DLG_C5_ERR_481215_01",
+          "speaker": "DOUANIER",
+          "text": "Des pièces de tracteurs. On a perdu trois quarts d'heure, et le transitaire a passé un coup de fil.",
+          "intent": "Coût de l'erreur",
+          "emotion": "agacé"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ERR_481223",
+      "context": "BR_C5_ERR_481223.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_ERR_481223_01",
+          "speaker": "VERMEULEN",
+          "text": "Un lot certifié, bloqué pour rien. Le fabricant va se plaindre à ma hiérarchie.",
+          "intent": "Coût de l'erreur",
+          "emotion": "froid"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ERR_GENEVE",
+      "context": "BR_C5_ERR_GENEVE.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_ERR_GENEVE_01",
+          "speaker": "VERMEULEN",
+          "text": "Genève répond : virement annulé, compte vide. Et maintenant ils savent qu'on regarde.",
+          "intent": "Coût de l'erreur",
+          "emotion": "sec"
+        }
+      ]
+    },
+    {
+      "id": "DLG_C5_ERR_AMSTERDAM",
+      "context": "BR_C5_ERR_AMSTERDAM.",
+      "location": "LOC_C5_POLICE",
+      "lines": [
+        {
+          "id": "DLG_C5_ERR_AMSTERDAM_01",
+          "speaker": "VERMEULEN",
+          "text": "Une boîte aux lettres parmi trois cents. Personne n'y travaille.",
+          "intent": "Coût de l'erreur",
+          "emotion": "las"
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "id": "UI_C5_AXE_CONTENEUR",
+      "text": "Quel conteneur saisir",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C5_AXE_PROPRIETAIRE",
+      "text": "À qui appartient Nordhaven",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_C5_AXE_RESEAU",
+      "text": "Le réseau (facultatif)",
+      "context": "Colonne du tableau"
+    },
+    {
+      "id": "UI_H_C5_CONTENEUR_481207",
+      "text": "Conteneur NHVU 481207 (compléments alimentaires)",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_CONTENEUR_481215",
+      "text": "Conteneur NHVU 481215 (pièces agricoles)",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_CONTENEUR_481223",
+      "text": "Conteneur NHVU 481223 (génériques certifiés)",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_HOLDING_LUX",
+      "text": "Nordhaven Holding SA, Luxembourg",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_GENEVE",
+      "text": "Une banque de Genève",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_AMSTERDAM",
+      "text": "Le bureau commercial d'Amsterdam",
+      "context": "Hypothèse"
+    },
+    {
+      "id": "UI_H_C5_MEME_PRETE_NOM",
+      "text": "La holding et les SCI landaises ont le même prête-nom",
+      "context": "Hypothèse facultative"
+    }
+  ],
+  "_tokens": {
+    "{HEROINE}": "nom de la protagoniste (à décider par Audrey)"
+  }
+}
