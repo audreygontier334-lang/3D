@@ -42,6 +42,19 @@ public:
 
 	bool IsOnTitleScreen() const { return bTitle; }
 
+	/** Joue plusieurs répliques à la suite (DLG_…), chacune le temps de la lire. */
+	void PlayConversation(const TArray<FName>& LineIds);
+
+	/** Éclair blanc bref : une photo vient d'être prise. */
+	void Flash() { FlashStart = Now(); }
+
+	/** P, Échap ou Start : ouvre ou ferme le menu pause (le jeu est suspendu pendant le menu). */
+	void TogglePauseMenu();
+	bool IsMenuOpen() const { return bMenu; }
+	void MenuMove(int32 Direction);
+	void MenuAdjust(int32 Direction);
+	void MenuConfirm();
+
 private:
 	struct FTimedText
 	{
@@ -66,6 +79,11 @@ private:
 	void DrawHintsAndToasts();
 	void DrawNotebook();
 	void DrawEndScreen();
+	void DrawPrompt();
+	void DrawAlleyMarker();
+	void DrawFlash();
+	void DrawPauseMenu();
+	void UpdateConversation();
 
 	void Box(float X, float Y, float W, float H, const FLinearColor& Color);
 	void Text(const FString& S, float X, float Y, UFont* Font, float Scale, const FLinearColor& Color, bool bCentreX = false);
@@ -81,4 +99,9 @@ private:
 	bool bTitle = true;
 	bool bNotebook = false;
 	bool bBound = false;
+	bool bMenu = false;
+	int32 MenuIndex = 0;
+	float FlashStart = -10.f;
+	TArray<FName> Conversation;
+	float ConversationNext = 0.f;
 };

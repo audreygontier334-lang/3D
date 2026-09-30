@@ -1938,7 +1938,7 @@
     },
     {
       "id": "UI_TOUCHES_BASE",
-      "text": "ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · R : rappeler Ariane · J : carnet",
+      "text": "ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · E : parler · R : au pied · X : reste · G : cherche · J : carnet · P : pause",
       "context": "Rappel permanent des commandes (clavier)"
     },
     {
@@ -1975,6 +1975,96 @@
       "id": "UI_FIN_PROLOGUE_QUITTER",
       "text": "Échap : quitter",
       "context": "Écran de fin du prologue, commande"
+    },
+    {
+      "id": "UI_INVITE_DUFAU",
+      "text": "E : saluer Marcel Dufau",
+      "context": "Invite quand la joueuse est près du banc de Dufau"
+    },
+    {
+      "id": "UI_INVITE_COUCOU",
+      "text": "E : répondre au coucou de Lila",
+      "context": "Invite pendant le coucou de Lila (FLAG_COUCOU_RENDU)"
+    },
+    {
+      "id": "UI_ORDRE_RESTE",
+      "text": "Ariane : « Reste. »",
+      "context": "Notification de l'ordre Reste"
+    },
+    {
+      "id": "UI_ORDRE_AU_PIED",
+      "text": "Ariane : « Au pied. »",
+      "context": "Notification de l'ordre Au pied"
+    },
+    {
+      "id": "UI_ORDRE_CHERCHE",
+      "text": "Ariane : « Cherche ! »",
+      "context": "Notification de l'ordre Cherche (balle lancée)"
+    },
+    {
+      "id": "UI_REPERE_RUELLE",
+      "text": "Ruelle",
+      "context": "Repère à l'écran vers l'entrée de la ruelle"
+    },
+    {
+      "id": "UI_MENU_PAUSE",
+      "text": "Pause",
+      "context": "Titre du menu pause"
+    },
+    {
+      "id": "UI_MENU_REPRENDRE",
+      "text": "Reprendre",
+      "context": "Menu pause"
+    },
+    {
+      "id": "UI_MENU_SENSIBILITE",
+      "text": "Sensibilité de la souris",
+      "context": "Menu pause, option"
+    },
+    {
+      "id": "UI_MENU_INVERSER",
+      "text": "Inverser l'axe vertical",
+      "context": "Menu pause, option"
+    },
+    {
+      "id": "UI_MENU_SOUS_TITRES",
+      "text": "Taille des sous-titres",
+      "context": "Menu pause, option"
+    },
+    {
+      "id": "UI_MENU_TEMPS_ACTION",
+      "text": "Temps d'action allongé",
+      "context": "Menu pause, option d'accessibilité OPT_TEMPS_ACTION_ETENDU (s'applique à la prochaine alerte)"
+    },
+    {
+      "id": "UI_MENU_RECOMMENCER",
+      "text": "Recommencer le prologue",
+      "context": "Menu pause"
+    },
+    {
+      "id": "UI_MENU_QUITTER",
+      "text": "Quitter le jeu",
+      "context": "Menu pause"
+    },
+    {
+      "id": "UI_MENU_AIDE",
+      "text": "Haut / Bas : choisir · Gauche / Droite : régler · Entrée : valider · P : reprendre",
+      "context": "Menu pause, aide de navigation"
+    },
+    {
+      "id": "UI_MENU_COMMANDES",
+      "text": "Commandes",
+      "context": "Menu pause, titre de la liste des commandes"
+    },
+    {
+      "id": "UI_OUI",
+      "text": "Oui",
+      "context": "Valeur d'option"
+    },
+    {
+      "id": "UI_NON",
+      "text": "Non",
+      "context": "Valeur d'option"
     }
   ],
   "_tokens": {

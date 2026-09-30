@@ -26,6 +26,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FauxSemblants")
 	void Recall();
 
+	/** Ordre « Reste » : Ariane s'arrête et attend « Au pied » ou « Va ». */
+	UFUNCTION(BlueprintCallable, Category = "FauxSemblants")
+	void Stay();
+
+	/** Vrai si Ariane, envoyée, est arrivée et flaire à moins de Radius cm de Point. */
+	bool IsHoldingNear(const FVector& Point, float Radius = 120.f) const;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "FauxSemblants")
 	TObjectPtr<UStaticMeshComponent> PlaceholderBody;
 
@@ -39,7 +46,7 @@ public:
 	float SprintSpeed = 850.f;
 
 private:
-	enum class EState : uint8 { Follow, Sent, Holding };
+	enum class EState : uint8 { Follow, Sent, Holding, Staying };
 	EState State = EState::Follow;
 	FVector SentTarget = FVector::ZeroVector;
 	float HoldTime = 0.f;

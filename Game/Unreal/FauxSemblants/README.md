@@ -46,16 +46,20 @@ Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran �
 | Action | Clavier | Manette |
 |---|---|---|
 | Se déplacer | ZQSD (AZERTY) ou WASD | stick gauche |
-| Regarder | souris | stick droit |
+| Regarder | souris (molette : distance de la caméra) | stick droit |
 | Courir | Maj gauche | clic stick gauche |
 | Vue épaule / reculée / subjective | 1 / 2 / 3, ou V pour faire défiler | clic stick droit |
 | Changer d'épaule | Tab | — |
+| Parler, répondre (Dufau, coucou de Lila) | E | B |
 | Pendant l'alerte : photographier, crier « Lila ! », « Ariane, va ! » | F, C, E (courir compte comme une action) | X, Y, B |
-| Rappeler Ariane | R | — |
+| Ariane : au pied / reste / cherche (balle) | R / X / G | LB / croix bas / RB |
 | Appeler le 17 (fin du prologue) | T | — |
+| Carnet | J | Select (View) |
+| Pause (options, recommencer, quitter) | P ou Échap | Start |
+| Commencer, valider dans le menu | Entrée | A |
 | Sauvegarder | F5 | — |
-| Commencer (écran titre) | Entrée | Start |
-| Ouvrir / fermer le carnet | J | Select (View) |
+
+Dans l'éditeur, Échap arrête la partie de test : utiliser P pour le menu pause.
 
 ## Ce que tu devrais voir
 
@@ -64,6 +68,15 @@ Mardi 16 h 25 sur la place de l'école. À 16 h 27, Lila (volume jaune moutarde)
 ## Interface du prologue (branche `claude/prologue-lisible`)
 
 `AFSHUD` dessine l'interface sans asset : écran titre (Entrée), carton d'ouverture, horloge, objectif selon la phase du prologue (compte à rebours pendant la fenêtre d'action), sous-titres avec le nom de la personne qui parle, rappels de commandes, notifications, carnet d'indices (J) et écran de fin après l'appel au 17. Les textes viennent de `GameData/dialogues/01-ouverture.json` (`UI_…`, `DLG_…`) : relancer `Scripts/setup_prologue.py` après une modification pour recopier les données.
+
+## Confort de jeu (branche `claude/confort-jeu`)
+
+- Promenade jouable : répliques du tutoriel, conversation facultative avec Dufau sur son banc (E), réponse au coucou de Lila (E, `FLAG_COUCOU_RENDU`).
+- Ordres à Ariane : au pied, reste, cherche (balle lancée ; la première trouvaille déclenche `DLG_P_TUTO_04`). Son allure suit celle de l'héroïne.
+- Menu pause : sensibilité de la souris, inversion de l'axe vertical, taille des sous-titres, temps d'action allongé (`OPT_TEMPS_ACTION_ETENDU`), recommencer, quitter. Réglages gardés dans `GameUserSettings.ini` (section `[FauxSemblants]`).
+- Interface : invites d'interaction, repère vers l'entrée de la ruelle quand il faut y aller, barre du temps restant, éclair de photo.
+- Déplacements plus nets (accélération et freinage), zoom à la molette, rotation au stick indépendante de la cadence d'images.
+- `setup_prologue.py` donne à chaque volume de la maquette un tag égal à son nom (ex. `dufau_placeholder`).
 
 ## Limites connues (prochaines étapes)
 

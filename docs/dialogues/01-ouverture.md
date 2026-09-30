@@ -554,7 +554,7 @@
 | `UI_OBJ_P_REJOINDRE` | Rejoins l'entrée de la ruelle ! | Objectif pendant la retenue du départ |
 | `UI_OBJ_P_FUITE` | Le fourgon s'enfuit. | Objectif pendant le départ du fourgon |
 | `UI_OBJ_P_APPEL` | Appelle le 17. | Objectif après le départ : action principale |
-| `UI_TOUCHES_BASE` | ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · R : rappeler Ariane · J : carnet | Rappel permanent des commandes (clavier) |
+| `UI_TOUCHES_BASE` | ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · E : parler · R : au pied · X : reste · G : cherche · J : carnet · P : pause | Rappel permanent des commandes (clavier) |
 | `UI_TOUCHES_ACTION` | F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » | Commandes de la fenêtre d'action |
 | `UI_TOUCHES_APPEL` | T : appeler le 17 | Commande d'appel au 17 |
 | `UI_CARNET_NOUVEAU` | Noté dans le carnet (J) | Notification quand un indice est noté |
@@ -562,5 +562,23 @@
 | `UI_FIN_PROLOGUE_TITRE` | Fin du prologue | Écran de fin du prologue |
 | `UI_FIN_PROLOGUE_TEXTE` | 16 h 31. {HEROINE} appelle le 17. L'enquête continue au chapitre 1, en préparation. | Écran de fin du prologue, sous le titre |
 | `UI_FIN_PROLOGUE_QUITTER` | Échap : quitter | Écran de fin du prologue, commande |
+| `UI_INVITE_DUFAU` | E : saluer Marcel Dufau | Invite quand la joueuse est près du banc de Dufau |
+| `UI_INVITE_COUCOU` | E : répondre au coucou de Lila | Invite pendant le coucou de Lila (FLAG_COUCOU_RENDU) |
+| `UI_ORDRE_RESTE` | Ariane : « Reste. » | Notification de l'ordre Reste |
+| `UI_ORDRE_AU_PIED` | Ariane : « Au pied. » | Notification de l'ordre Au pied |
+| `UI_ORDRE_CHERCHE` | Ariane : « Cherche ! » | Notification de l'ordre Cherche (balle lancée) |
+| `UI_REPERE_RUELLE` | Ruelle | Repère à l'écran vers l'entrée de la ruelle |
+| `UI_MENU_PAUSE` | Pause | Titre du menu pause |
+| `UI_MENU_REPRENDRE` | Reprendre | Menu pause |
+| `UI_MENU_SENSIBILITE` | Sensibilité de la souris | Menu pause, option |
+| `UI_MENU_INVERSER` | Inverser l'axe vertical | Menu pause, option |
+| `UI_MENU_SOUS_TITRES` | Taille des sous-titres | Menu pause, option |
+| `UI_MENU_TEMPS_ACTION` | Temps d'action allongé | Menu pause, option d'accessibilité OPT_TEMPS_ACTION_ETENDU (s'applique à la prochaine alerte) |
+| `UI_MENU_RECOMMENCER` | Recommencer le prologue | Menu pause |
+| `UI_MENU_QUITTER` | Quitter le jeu | Menu pause |
+| `UI_MENU_AIDE` | Haut / Bas : choisir · Gauche / Droite : régler · Entrée : valider · P : reprendre | Menu pause, aide de navigation |
+| `UI_MENU_COMMANDES` | Commandes | Menu pause, titre de la liste des commandes |
+| `UI_OUI` | Oui | Valeur d'option |
+| `UI_NON` | Non | Valeur d'option |
 
 Les aides progressives des énigmes (`UI_HINT_*`) sont dans `GameData/missions/01/puzzles.json` et reprises dans `docs/cases/01-enigmes.md`.

@@ -2,6 +2,9 @@
 #include "FauxSemblants.h"
 #include "FSMissionSubsystem.h"
 #include "FSPrologueDirector.h"
+#include "FSHeroCharacter.h"
+#include "FSSettings.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "CanvasItem.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
@@ -69,6 +72,11 @@ float AFSHUD::Ui() const
 
 void AFSHUD::PressStart()
 {
+	if (bMenu)
+	{
+		MenuConfirm();
+		return;
+	}
 	if (!bTitle)
 	{
 		return;
@@ -200,19 +208,28 @@ void AFSHUD::DrawHUD()
 		DrawTitle();
 		return;
 	}
+	UpdateConversation();
 	AFSPrologueDirector* D = Director();
 	if (D && D->GetPhaseIndex() == PhaseChapter1)
 	{
 		DrawEndScreen();
+		if (bMenu) { DrawPauseMenu(); }
 		return;
 	}
+	DrawAlleyMarker();
 	DrawClockAndObjective();
 	DrawSubtitles();
 	DrawHintsAndToasts();
+	DrawPrompt();
 	DrawIntroCard();
+	DrawFlash();
 	if (bNotebook)
 	{
 		DrawNotebook();
+	}
+	if (bMenu)
+	{
+		DrawPauseMenu();
 	}
 }
 
@@ -310,6 +327,13 @@ void AFSHUD::DrawClockAndObjective()
 	{
 		Text(Detail, 44.f * U, Y, Medium, 1.0f * U, Amber);
 	}
+	if (Phase == PhaseWindow && D->GetWindowSeconds() > 0.f)
+	{
+		// Barre du temps restant sous le cadre d'objectif.
+		const float Ratio = FMath::Clamp(D->GetWindowRemaining() / D->GetWindowSeconds(), 0.f, 1.f);
+		Box(24.f * U, 24.f * U + H + 6.f * U, MaxW + 32.f * U, 8.f * U, Shade);
+		Box(24.f * U, 24.f * U + H + 6.f * U, (MaxW + 32.f * U) * Ratio, 8.f * U, FLinearColor(1.f, 0.35f + 0.4f * Ratio, 0.2f, 0.95f));
+	}
 }
 
 void AFSHUD::DrawSubtitles()
@@ -320,7 +344,7 @@ void AFSHUD::DrawSubtitles()
 	}
 	const float U = Ui();
 	UFont* Font = GEngine->GetMediumFont();
-	const float Scale = 1.25f * U;
+	const float Scale = 1.25f * U * FSSettings::SubtitleScale();
 	const float MaxW = FMath::Min(1100.f * U, Canvas->ClipX - 80.f * U);
 	const FString Full = Subtitle.Speaker.IsEmpty() ? Subtitle.Text : Subtitle.Speaker + TEXT(" : ") + Subtitle.Text;
 	const TArray<FString> Lines = Wrap(Full, Font, Scale, MaxW);
@@ -450,4 +474,231 @@ void AFSHUD::DrawEndScreen()
 		}
 	}
 	Text(UIText(TEXT("UI_FIN_PROLOGUE_QUITTER"), TEXT("Échap : quitter")), CX, Canvas->ClipY - 70.f * U, GEngine->GetSmallFont(), 1.1f * U, Soft, true);
+}
+
+// --- Conversations, invites, repère, photo --------------------------------------------------
+
+void AFSHUD::PlayConversation(const TArray<FName>& LineIds)
+{
+	Conversation = LineIds;
+	ConversationNext = Now();
+}
+
+void AFSHUD::UpdateConversation()
+{
+	if (Conversation.Num() == 0 || Now() < ConversationNext)
+	{
+		return;
+	}
+	const FName Id = Conversation[0];
+	Conversation.RemoveAt(0);
+	if (const UFSMissionSubsystem* M = Mission())
+	{
+		const FString Line = M->GetLineText(Id);
+		ShowLine(M->GetLineSpeaker(Id), Line, 0.f);
+		ConversationNext = Subtitle.Until + 0.3f;
+	}
+}
+
+void AFSHUD::DrawPrompt()
+{
+	const AFSHeroCharacter* Hero = Cast<AFSHeroCharacter>(GetOwningPawn());
+	const FString Prompt = Hero ? Hero->GetInteractionPrompt() : FString();
+	if (Prompt.IsEmpty() || bMenu)
+	{
+		return;
+	}
+	const float U = Ui();
+	UFont* Medium = GEngine->GetMediumFont();
+	const FVector2D S = Measure(Prompt, Medium, 1.1f * U);
+	const float X = 0.5f * (Canvas->ClipX - S.X) - 16.f * U;
+	const float Y = Canvas->ClipY * 0.62f;
+	Box(X, Y, S.X + 32.f * U, S.Y + 14.f * U, Shade);
+	Box(X, Y + S.Y + 10.f * U, S.X + 32.f * U, 4.f * U, Amber);
+	Text(Prompt, X + 16.f * U, Y + 7.f * U, Medium, 1.1f * U, Cream);
+}
+
+void AFSHUD::DrawAlleyMarker()
+{
+	AFSPrologueDirector* D = Director();
+	APlayerController* PC = GetOwningPlayerController();
+	if (!D || !PC || !D->GetEntrance())
+	{
+		return;
+	}
+	const int32 Phase = D->GetPhaseIndex();
+	const bool bShow = Phase == PhaseHolding || Phase == PhaseWindow || (Phase == PhaseBefore && D->GetPrologueSeconds() >= 240.f);
+	const APawn* Pawn = PC->GetPawn();
+	if (!bShow || !Pawn)
+	{
+		return;
+	}
+	const FVector Target = D->GetEntrance()->GetActorLocation() + FVector(0.f, 0.f, 180.f);
+	const float Metres = FVector::Dist2D(Pawn->GetActorLocation(), Target) / 100.f;
+	if (Metres < 4.f)
+	{
+		return;
+	}
+	const float U = Ui();
+	const float Margin = 60.f * U;
+	FVector2D Screen;
+	const bool bInFront = UGameplayStatics::ProjectWorldToScreen(PC, Target, Screen);
+	int32 VX = 0, VY = 0;
+	PC->GetViewportSize(VX, VY);
+	if (VX > 0 && VY > 0)
+	{
+		// Coordonnées de la fenêtre -> coordonnées du canevas (identiques sauf mise à l'échelle DPI).
+		Screen.X *= Canvas->ClipX / VX;
+		Screen.Y *= Canvas->ClipY / VY;
+	}
+	if (!bInFront)
+	{
+		// Derrière la caméra : repère ramené au bord bas, du côté où il faut tourner.
+		const FVector ToTarget = (Target - PC->PlayerCameraManager->GetCameraLocation()).GetSafeNormal2D();
+		const FVector Right = PC->PlayerCameraManager->GetCameraRotation().RotateVector(FVector::RightVector).GetSafeNormal2D();
+		Screen = FVector2D(FVector::DotProduct(ToTarget, Right) >= 0.f ? Canvas->ClipX - Margin : Margin, Canvas->ClipY - 3.f * Margin);
+	}
+	Screen.X = FMath::Clamp(Screen.X, Margin, Canvas->ClipX - Margin);
+	Screen.Y = FMath::Clamp(Screen.Y, 2.f * Margin, Canvas->ClipY - 3.f * Margin);
+	const FString Label = FString::Printf(TEXT("%s  %d m"), *UIText(TEXT("UI_REPERE_RUELLE"), TEXT("Ruelle")), FMath::RoundToInt(Metres));
+	UFont* Small = GEngine->GetSmallFont();
+	const FVector2D S = Measure(Label, Small, 1.1f * U);
+	const float Pulse = 0.7f + 0.3f * FMath::Abs(FMath::Sin(GetWorld()->GetRealTimeSeconds() * 3.f));
+	Box(Screen.X - 7.f * U, Screen.Y - 7.f * U, 14.f * U, 14.f * U, FLinearColor(Amber.R, Amber.G, Amber.B, Pulse));
+	Box(Screen.X - 0.5f * S.X - 10.f * U, Screen.Y + 12.f * U, S.X + 20.f * U, S.Y + 8.f * U, Shade);
+	Text(Label, Screen.X, Screen.Y + 16.f * U, Small, 1.1f * U, Cream, true);
+}
+
+void AFSHUD::DrawFlash()
+{
+	const float Age = Now() - FlashStart;
+	if (Age < 0.f || Age > 0.35f)
+	{
+		return;
+	}
+	Box(0.f, 0.f, Canvas->ClipX, Canvas->ClipY, FLinearColor(1.f, 1.f, 1.f, 0.85f * (1.f - Age / 0.35f)));
+}
+
+// --- Menu pause ---------------------------------------------------------------------------
+
+namespace
+{
+	enum : int32 { ItemResume, ItemMouse, ItemInvert, ItemSubtitles, ItemExtended, ItemRestart, ItemQuit, ItemCount };
+}
+
+void AFSHUD::TogglePauseMenu()
+{
+	if (bTitle)
+	{
+		PressStart();
+		return;
+	}
+	bMenu = !bMenu;
+	MenuIndex = 0;
+	UGameplayStatics::SetGamePaused(this, bMenu);
+}
+
+void AFSHUD::MenuMove(int32 Direction)
+{
+	if (bMenu)
+	{
+		MenuIndex = (MenuIndex + Direction + ItemCount) % ItemCount;
+	}
+}
+
+void AFSHUD::MenuAdjust(int32 Direction)
+{
+	if (!bMenu)
+	{
+		return;
+	}
+	switch (MenuIndex)
+	{
+	case ItemMouse: FSSettings::SetMouseSensitivity(FSSettings::MouseSensitivity() + 0.25f * Direction); break;
+	case ItemInvert: FSSettings::SetInvertY(!FSSettings::InvertY()); break;
+	case ItemSubtitles:
+	{
+		const float Next = FSSettings::SubtitleScale() + 0.25f * Direction;
+		FSSettings::SetSubtitleScale(Next > 1.51f ? 1.f : (Next < 0.99f ? 1.5f : Next));
+		break;
+	}
+	case ItemExtended: FSSettings::SetExtendedActionTime(!FSSettings::ExtendedActionTime()); break;
+	default: break;
+	}
+}
+
+void AFSHUD::MenuConfirm()
+{
+	if (!bMenu)
+	{
+		return;
+	}
+	switch (MenuIndex)
+	{
+	case ItemResume: TogglePauseMenu(); break;
+	case ItemRestart:
+		UGameplayStatics::SetGamePaused(this, false);
+		UGameplayStatics::OpenLevel(this, FName(*UGameplayStatics::GetCurrentLevelName(this)));
+		break;
+	case ItemQuit:
+		UKismetSystemLibrary::QuitGame(this, GetOwningPlayerController(), EQuitPreference::Quit, false);
+		break;
+	default: MenuAdjust(1); break;
+	}
+}
+
+void AFSHUD::DrawPauseMenu()
+{
+	const float U = Ui();
+	Box(0.f, 0.f, Canvas->ClipX, Canvas->ClipY, FLinearColor(0.f, 0.f, 0.f, 0.6f));
+	UFont* Large = GEngine->GetLargeFont();
+	UFont* Medium = GEngine->GetMediumFont();
+	UFont* Small = GEngine->GetSmallFont();
+	const FString Yes = UIText(TEXT("UI_OUI"), TEXT("Oui"));
+	const FString No = UIText(TEXT("UI_NON"), TEXT("Non"));
+	const FString Labels[ItemCount] = {
+		UIText(TEXT("UI_MENU_REPRENDRE"), TEXT("Reprendre")),
+		FString::Printf(TEXT("%s : %.2f"), *UIText(TEXT("UI_MENU_SENSIBILITE"), TEXT("Sensibilité de la souris")), FSSettings::MouseSensitivity()),
+		FString::Printf(TEXT("%s : %s"), *UIText(TEXT("UI_MENU_INVERSER"), TEXT("Inverser l'axe vertical")), FSSettings::InvertY() ? *Yes : *No),
+		FString::Printf(TEXT("%s : %d %%"), *UIText(TEXT("UI_MENU_SOUS_TITRES"), TEXT("Taille des sous-titres")), FMath::RoundToInt(100.f * FSSettings::SubtitleScale())),
+		FString::Printf(TEXT("%s : %s"), *UIText(TEXT("UI_MENU_TEMPS_ACTION"), TEXT("Temps d'action allongé")), FSSettings::ExtendedActionTime() ? *Yes : *No),
+		UIText(TEXT("UI_MENU_RECOMMENCER"), TEXT("Recommencer le prologue")),
+		UIText(TEXT("UI_MENU_QUITTER"), TEXT("Quitter le jeu")) };
+
+	const float X = FMath::Max(80.f * U, 0.12f * Canvas->ClipX);
+	float Y = 0.18f * Canvas->ClipY;
+	Text(UIText(TEXT("UI_MENU_PAUSE"), TEXT("Pause")), X, Y, Large, 2.0f * U, Cream);
+	Y += 90.f * U;
+	const float RowH = 46.f * U;
+	for (int32 i = 0; i < ItemCount; ++i)
+	{
+		const bool bSel = i == MenuIndex;
+		if (bSel)
+		{
+			Box(X - 16.f * U, Y - 6.f * U, 620.f * U, RowH - 4.f * U, FLinearColor(1.f, 0.72f, 0.28f, 0.25f));
+			Box(X - 16.f * U, Y - 6.f * U, 5.f * U, RowH - 4.f * U, Amber);
+		}
+		Text(Labels[i], X, Y, Medium, 1.15f * U, bSel ? Cream : Soft);
+		Y += RowH;
+	}
+	Text(UIText(TEXT("UI_MENU_AIDE"), TEXT("")), X, Y + 20.f * U, Small, 1.0f * U, Soft);
+
+	// Rappel complet des commandes, à droite.
+	const float CX = FMath::Max(X + 700.f * U, 0.58f * Canvas->ClipX);
+	if (CX + 300.f * U < Canvas->ClipX)
+	{
+		float CY = 0.18f * Canvas->ClipY + 100.f * U;
+		Text(UIText(TEXT("UI_MENU_COMMANDES"), TEXT("Commandes")), CX, CY, Medium, 1.15f * U, Amber);
+		CY += 50.f * U;
+		static const TCHAR* Lines[] = {
+			TEXT("ZQSD ou WASD : marcher"), TEXT("Maj : courir"), TEXT("Souris : regarder · molette : distance"),
+			TEXT("1, 2, 3 ou V : vue épaule, reculée, subjective"), TEXT("Tab : changer d'épaule"),
+			TEXT("E : parler, répondre · pendant l'alerte : « Ariane, va ! »"), TEXT("R : au pied · X : reste · G : cherche (balle)"),
+			TEXT("Pendant l'alerte : F photo · C crier « Lila ! »"), TEXT("T : appeler le 17"), TEXT("J : carnet · F5 : sauvegarder · P : pause") };
+		for (const TCHAR* L : Lines)
+		{
+			Text(L, CX, CY, Small, 1.05f * U, Soft);
+			CY += 30.f * U;
+		}
+	}
 }

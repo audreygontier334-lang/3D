@@ -4,6 +4,7 @@
 #include "FSHUD.h"
 #include "FSHeroCharacter.h"
 #include "FSMissionSubsystem.h"
+#include "FSSettings.h"
 #include "Dom/JsonObject.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
@@ -23,6 +24,8 @@ namespace
 	struct FCue { float T; const TCHAR* Line; const TCHAR* Caption; };
 	const FCue Cues[] = {
 		{0, TEXT("DLG_P_TUTO_01"), nullptr},
+		{12, TEXT("DLG_P_TUTO_02"), nullptr},
+		{24, TEXT("DLG_P_TUTO_03"), nullptr},
 		{106, nullptr, TEXT("16 h 26 : la sonnerie. Les enfants sortent.")},
 		{120, TEXT("DLG_P_LILA_01"), nullptr},
 		{176, TEXT("DLG_P_ABORDAGE_01"), nullptr},
@@ -192,10 +195,47 @@ void AFSPrologueDirector::Grant(const TArray<FName>& Ids)
 	}
 }
 
+bool AFSPrologueDirector::CanWave() const
+{
+	const APawn* Hero = UGameplayStatics::GetPlayerPawn(this, 0);
+	return !bWaved && Phase == EPhase::Before && T >= 120.f && T <= 150.f && Lila && Hero
+		&& FVector::Dist2D(Hero->GetActorLocation(), Lila->GetActorLocation()) < 3500.f;
+}
+
+bool AFSPrologueDirector::TryWave()
+{
+	if (!CanWave())
+	{
+		return false;
+	}
+	bWaved = true;
+	if (Mission)
+	{
+		Mission->Grant(TEXT("FLAG_COUCOU_RENDU"));
+		if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			Hud->PlayConversation({ FName(TEXT("DLG_P_LILA_02")), FName(TEXT("DLG_P_LILA_03")) });
+		}
+	}
+	return true;
+}
+
 void AFSPrologueDirector::OpenWindow()
 {
 	Phase = EPhase::Window;
 	AlertT = T;
+	// Option d'accessibilité : fenêtre allongée (window_accessibility), même nombre d'actions.
+	if (FSSettings::ExtendedActionTime() && Mission)
+	{
+		const TSharedPtr<FJsonObject> Pro = Mission->GetPrologue();
+		const TSharedPtr<FJsonObject>* Access = nullptr;
+		const TArray<TSharedPtr<FJsonValue>>* Range = nullptr;
+		if (Pro.IsValid() && Pro->TryGetObjectField(TEXT("window_accessibility"), Access)
+			&& (*Access)->TryGetArrayField(TEXT("window_seconds"), Range) && Range->Num() == 2)
+		{
+			WindowSeconds = 0.5f * static_cast<float>((*Range)[0]->AsNumber() + (*Range)[1]->AsNumber());
+		}
+	}
 	SayLine(TEXT("DLG_P_ALERTE_01"), 5.f);
 	Say(TEXT("F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » (deux actions au plus)"), WindowSeconds, 3);
 }

@@ -51,6 +51,17 @@ void AFSDogCharacter::Recall()
 	GetCharacterMovement()->MaxWalkSpeed = TrotSpeed;
 }
 
+void AFSDogCharacter::Stay()
+{
+	State = EState::Staying;
+	GetCharacterMovement()->StopMovementImmediately();
+}
+
+bool AFSDogCharacter::IsHoldingNear(const FVector& Point, float Radius) const
+{
+	return State == EState::Holding && FVector::Dist2D(GetActorLocation(), Point) <= Radius;
+}
+
 void AFSDogCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
@@ -72,7 +83,7 @@ void AFSDogCharacter::Tick(float DeltaSeconds)
 			GetCharacterMovement()->StopMovementImmediately();
 		}
 	}
-	if (State == EState::Holding)
+	if (State == EState::Holding || State == EState::Staying)
 	{
 		HoldTime += DeltaSeconds;
 		return;
@@ -84,8 +95,12 @@ void AFSDogCharacter::Tick(float DeltaSeconds)
 		const FVector Right = Hero->GetActorRightVector();
 		Target = Hero->GetActorLocation() - Fwd * 80.f + Right * 90.f;
 		Stop = FollowDistance * 0.4f;
+		// Allure calée sur celle de l'héroïne à proximité (pas d'à-coups), trot puis sprint si elle est distancée.
 		const float Dist = FVector::Dist2D(GetActorLocation(), Hero->GetActorLocation());
-		GetCharacterMovement()->MaxWalkSpeed = Dist > 600.f ? SprintSpeed : TrotSpeed;
+		const float HeroSpeed = Hero->GetVelocity().Size2D();
+		const float Near = FMath::Max(HeroSpeed * 1.15f, 160.f);
+		GetCharacterMovement()->MaxWalkSpeed = Dist > 600.f ? SprintSpeed
+			: FMath::Lerp(Near, TrotSpeed, FMath::Clamp((Dist - 250.f) / 350.f, 0.f, 1.f));
 	}
 
 	FVector ToTarget = Target - GetActorLocation();

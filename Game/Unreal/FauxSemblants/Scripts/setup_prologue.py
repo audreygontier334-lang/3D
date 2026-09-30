@@ -114,7 +114,8 @@ def build_level():
         mat_name = gltf["materials"][gltf["meshes"][node["mesh"]]["primitives"][0]["material"]]["name"]
         if node["name"].startswith("sea"):
             mat_name = "mer"
-        box(node["name"], node["translation"], node["scale"], mats[mat_name])
+        # Tag = nom du volume dans la maquette (ex. dufau_placeholder), pour que le code retrouve les acteurs en jeu.
+        box(node["name"], node["translation"], node["scale"], mats[mat_name], tags=[node["name"]])
         count += 1
     unreal.log(f"{count} volumes de maquette placés")
 

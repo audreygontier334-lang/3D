@@ -35,6 +35,15 @@ public:
 	/** Action de fenêtre demandée par la joueuse (ACT_PHOTO, ACT_CRIER, ACT_ENVOYER). ACT_COURIR est détectée. */
 	void TryAction(FName ActionId);
 
+	/** Coucou de Lila (SC_P0_B) : vrai pendant les secondes où la joueuse peut lui répondre d'un geste. */
+	bool CanWave() const;
+
+	/** Répondre au coucou : FLAG_COUCOU_RENDU, puis DLG_P_LILA_02 et la réaction d'Ariane. */
+	bool TryWave();
+
+	/** Entrée de la ruelle (repère affiché par l'interface quand il faut y aller). */
+	AActor* GetEntrance() const { return Entrance; }
+
 	/** « Appeler le 17 » : fin du prologue, début du chapitre 1. */
 	void CallPolice();
 
@@ -52,6 +61,8 @@ public:
 
 	/** Secondes restantes de la fenêtre d'action (0 hors fenêtre). */
 	float GetWindowRemaining() const { return Phase == EPhase::Window ? FMath::Max(0.f, WindowSeconds - (T - AlertT)) : 0.f; }
+
+	float GetWindowSeconds() const { return WindowSeconds; }
 
 	int32 GetActionsLeft() const { return FMath::Max(0, MaxActions - ActionsTaken.Num()); }
 
@@ -100,4 +111,5 @@ private:
 	FVector VanStart = FVector::ZeroVector;
 	bool bFallbackShot = false;
 	int32 LastCue = -1;
+	bool bWaved = false;
 };

@@ -7,6 +7,9 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMeshActor.h"
+#include "EngineUtils.h"
+#include "FSSettings.h"
 #include "Engine/Engine.h"
 #include "Engine/StaticMesh.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -24,6 +27,10 @@ AFSHeroCharacter::AFSHeroCharacter()
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.f, 0.f);
 	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
+	// Démarrages et arrêts nets, sans glisser (marche naturelle plutôt que patinage).
+	GetCharacterMovement()->MaxAcceleration = 1500.f;
+	GetCharacterMovement()->BrakingDecelerationWalking = 1800.f;
+	GetCharacterMovement()->GroundFriction = 9.f;
 
 	CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraArm"));
 	CameraArm->SetupAttachment(GetCapsuleComponent());
@@ -53,8 +60,11 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Super::SetupPlayerInputComponent(Input);
 	Input->BindAxis(TEXT("MoveForward"), this, &AFSHeroCharacter::MoveForward);
 	Input->BindAxis(TEXT("MoveRight"), this, &AFSHeroCharacter::MoveRight);
-	Input->BindAxis(TEXT("Turn"), this, &APawn::AddControllerYawInput);
-	Input->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
+	Input->BindAxis(TEXT("Turn"), this, &AFSHeroCharacter::Turn);
+	Input->BindAxis(TEXT("LookUp"), this, &AFSHeroCharacter::LookUp);
+	Input->BindAxis(TEXT("TurnRate"), this, &AFSHeroCharacter::TurnRate);
+	Input->BindAxis(TEXT("LookUpRate"), this, &AFSHeroCharacter::LookUpRate);
+	Input->BindAxis(TEXT("Zoom"), this, &AFSHeroCharacter::Zoom);
 	Input->BindAction(TEXT("Run"), IE_Pressed, this, &AFSHeroCharacter::StartRun);
 	Input->BindAction(TEXT("Run"), IE_Released, this, &AFSHeroCharacter::StopRun);
 	Input->BindAction(TEXT("CameraShoulder"), IE_Pressed, this, &AFSHeroCharacter::CameraShoulder);
@@ -64,13 +74,20 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Input->BindAction(TEXT("SwapShoulder"), IE_Pressed, this, &AFSHeroCharacter::SwapShoulder);
 	Input->BindAction(TEXT("ActPhoto"), IE_Pressed, this, &AFSHeroCharacter::ActPhoto);
 	Input->BindAction(TEXT("ActCrier"), IE_Pressed, this, &AFSHeroCharacter::ActCrier);
-	Input->BindAction(TEXT("ActEnvoyer"), IE_Pressed, this, &AFSHeroCharacter::ActEnvoyer);
+	Input->BindAction(TEXT("ActEnvoyer"), IE_Pressed, this, &AFSHeroCharacter::Interact);
+	Input->BindAction(TEXT("Reste"), IE_Pressed, this, &AFSHeroCharacter::Reste);
+	Input->BindAction(TEXT("Cherche"), IE_Pressed, this, &AFSHeroCharacter::Cherche);
 	Input->BindAction(TEXT("Rappel"), IE_Pressed, this, &AFSHeroCharacter::Rappel);
 	Input->BindAction(TEXT("Appel17"), IE_Pressed, this, &AFSHeroCharacter::Appel17);
 	Input->BindAction(TEXT("Save"), IE_Pressed, this, &AFSHeroCharacter::Save);
 	// Écran titre et carnet : utilisables même quand le jeu est en pause.
 	Input->BindAction(TEXT("Start"), IE_Pressed, this, &AFSHeroCharacter::PressStart).bExecuteWhenPaused = true;
 	Input->BindAction(TEXT("Carnet"), IE_Pressed, this, &AFSHeroCharacter::ToggleNotebook).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("Pause"), IE_Pressed, this, &AFSHeroCharacter::TogglePause).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("MenuUp"), IE_Pressed, this, &AFSHeroCharacter::MenuUp).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("MenuDown"), IE_Pressed, this, &AFSHeroCharacter::MenuDown).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("MenuLeft"), IE_Pressed, this, &AFSHeroCharacter::MenuLeft).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("MenuRight"), IE_Pressed, this, &AFSHeroCharacter::MenuRight).bExecuteWhenPaused = true;
 	SetCameraMode(EFSCameraMode::Shoulder);
 
 	if (UMaterialInstanceDynamic* Mat = PlaceholderBody->CreateDynamicMaterialInstance(0))
@@ -82,7 +99,21 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 void AFSHeroCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-	CameraArm->TargetArmLength = FMath::FInterpTo(CameraArm->TargetArmLength, TargetArmLength, DeltaSeconds, 8.f);
+	const float WantedArm = CameraMode == EFSCameraMode::First ? 0.f : FMath::Clamp(TargetArmLength + ZoomOffset, 120.f, 1100.f);
+	CameraArm->TargetArmLength = FMath::FInterpTo(CameraArm->TargetArmLength, WantedArm, DeltaSeconds, 8.f);
+
+	// « Cherche » : la première fois qu'Ariane trouve la balle, réplique DLG_P_TUTO_04.
+	if (Ball && !bBallFoundSaid)
+	{
+		if (const AFSDogCharacter* Dog = FindDog())
+		{
+			if (Dog->IsHoldingNear(Ball->GetActorLocation()))
+			{
+				bBallFoundSaid = true;
+				if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->PlayConversation({ FName(TEXT("DLG_P_TUTO_04")) }); }
+			}
+		}
+	}
 	CameraArm->SocketOffset = FMath::VInterpTo(CameraArm->SocketOffset, TargetSocketOffset, DeltaSeconds, 8.f);
 }
 
@@ -119,6 +150,7 @@ void AFSHeroCharacter::StopRun()
 void AFSHeroCharacter::SetCameraMode(EFSCameraMode NewMode)
 {
 	CameraMode = NewMode;
+	ZoomOffset = 0.f;
 	switch (NewMode)
 	{
 	case EFSCameraMode::Shoulder:
@@ -175,7 +207,15 @@ AFSDogCharacter* AFSHeroCharacter::FindDog() const
 
 void AFSHeroCharacter::ActPhoto()
 {
-	if (AFSPrologueDirector* D = FindDirector()) { D->TryAction(TEXT("ACT_PHOTO")); }
+	if (AFSPrologueDirector* D = FindDirector())
+	{
+		const int32 Before = D->GetActionsLeft();
+		D->TryAction(TEXT("ACT_PHOTO"));
+		if (D->GetActionsLeft() < Before)
+		{
+			if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->Flash(); }
+		}
+	}
 }
 
 void AFSHeroCharacter::ActCrier()
@@ -190,7 +230,22 @@ void AFSHeroCharacter::ActEnvoyer()
 
 void AFSHeroCharacter::Rappel()
 {
-	if (AFSDogCharacter* Dog = FindDog()) { Dog->Recall(); }
+	if (AFSDogCharacter* Dog = FindDog())
+	{
+		Dog->Recall();
+		if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			if (const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>())
+			{
+				Hud->ShowToast(M->GetUIText(TEXT("UI_ORDRE_AU_PIED"), TEXT("Ariane : « Au pied. »")), 1.5f);
+			}
+		}
+	}
+	if (Ball)
+	{
+		Ball->Destroy();
+		Ball = nullptr;
+	}
 }
 
 void AFSHeroCharacter::Appel17()
@@ -225,4 +280,210 @@ void AFSHeroCharacter::ToggleNotebook()
 	{
 		if (!Hud->IsOnTitleScreen()) { Hud->ToggleNotebook(); }
 	}
+}
+
+// --- Regard et caméra ------------------------------------------------------------------------
+
+void AFSHeroCharacter::Turn(float Value)
+{
+	AddControllerYawInput(Value * FSSettings::MouseSensitivity());
+}
+
+void AFSHeroCharacter::LookUp(float Value)
+{
+	AddControllerPitchInput(Value * FSSettings::MouseSensitivity() * (FSSettings::InvertY() ? -1.f : 1.f));
+}
+
+void AFSHeroCharacter::TurnRate(float Value)
+{
+	// Stick droit : vitesse constante quelle que soit la cadence d'images.
+	if (Value != 0.f)
+	{
+		AddControllerYawInput(Value * GamepadTurnRate * GetWorld()->GetDeltaSeconds());
+	}
+}
+
+void AFSHeroCharacter::LookUpRate(float Value)
+{
+	if (Value != 0.f)
+	{
+		AddControllerPitchInput(Value * 0.7f * GamepadTurnRate * GetWorld()->GetDeltaSeconds() * (FSSettings::InvertY() ? -1.f : 1.f));
+	}
+}
+
+void AFSHeroCharacter::Zoom(float Value)
+{
+	if (Value != 0.f && CameraMode != EFSCameraMode::First)
+	{
+		ZoomOffset = FMath::Clamp(ZoomOffset - 60.f * Value, -300.f, 500.f);
+	}
+}
+
+// --- Interactions et ordres à Ariane ---------------------------------------------------------
+
+int32 AFSHeroCharacter::FindInteraction() const
+{
+	if (const AFSPrologueDirector* D = FindDirector())
+	{
+		if (D->CanWave())
+		{
+			return 1;
+		}
+		if (D->GetPhaseIndex() != 0)
+		{
+			return 0; // après l'alerte, E sert à « Ariane, va ! »
+		}
+	}
+	if (!bTalkedToDufau)
+	{
+		for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+		{
+			if (It->ActorHasTag(TEXT("dufau_placeholder")) && FVector::Dist2D(It->GetActorLocation(), GetActorLocation()) < 350.f)
+			{
+				return 2;
+			}
+		}
+	}
+	return 0;
+}
+
+FString AFSHeroCharacter::GetInteractionPrompt() const
+{
+	const UFSMissionSubsystem* M = GetGameInstance() ? GetGameInstance()->GetSubsystem<UFSMissionSubsystem>() : nullptr;
+	if (!M)
+	{
+		return FString();
+	}
+	switch (FindInteraction())
+	{
+	case 1: return M->GetUIText(TEXT("UI_INVITE_COUCOU"), TEXT("E : répondre au coucou de Lila"));
+	case 2: return M->GetUIText(TEXT("UI_INVITE_DUFAU"), TEXT("E : saluer Marcel Dufau"));
+	default: return FString();
+	}
+}
+
+void AFSHeroCharacter::Interact()
+{
+	AFSPrologueDirector* D = FindDirector();
+	if (D && D->GetPhaseIndex() != 0)
+	{
+		ActEnvoyer(); // fenêtre d'action : « Ariane, va ! »
+		return;
+	}
+	switch (FindInteraction())
+	{
+	case 1:
+		if (D) { D->TryWave(); }
+		break;
+	case 2:
+		bTalkedToDufau = true;
+		if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			Hud->PlayConversation({ FName(TEXT("DLG_P_DUFAU_01")), FName(TEXT("DLG_P_DUFAU_02")), FName(TEXT("DLG_P_DUFAU_03")),
+				FName(TEXT("DLG_P_DUFAU_04")), FName(TEXT("DLG_P_DUFAU_05")) });
+		}
+		break;
+	default:
+		break;
+	}
+}
+
+void AFSHeroCharacter::Reste()
+{
+	if (AFSDogCharacter* Dog = FindDog())
+	{
+		Dog->Stay();
+		if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			if (const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>())
+			{
+				Hud->ShowToast(M->GetUIText(TEXT("UI_ORDRE_RESTE"), TEXT("Ariane : « Reste. »")), 1.5f);
+			}
+		}
+	}
+}
+
+void AFSHeroCharacter::Cherche()
+{
+	// Balle lancée devant l'héroïne, seulement pendant la promenade (avant l'alerte).
+	const AFSPrologueDirector* D = FindDirector();
+	AFSDogCharacter* Dog = FindDog();
+	if (!Dog || (D && D->GetPhaseIndex() != 0))
+	{
+		return;
+	}
+	const FRotator Yaw(0.f, Controller ? Controller->GetControlRotation().Yaw : GetActorRotation().Yaw, 0.f);
+	FVector Target = GetActorLocation() + FRotationMatrix(Yaw).GetUnitAxis(EAxis::X) * 900.f;
+	FHitResult Hit;
+	FCollisionQueryParams Params(TEXT("FSBalle"), false, this);
+	Params.AddIgnoredActor(Dog);
+	// La balle s'arrête devant un mur ou une haie, puis tombe au sol.
+	if (GetWorld()->LineTraceSingleByChannel(Hit, GetActorLocation(), Target, ECC_Visibility, Params))
+	{
+		Target = Hit.Location - FRotationMatrix(Yaw).GetUnitAxis(EAxis::X) * 60.f;
+	}
+	if (GetWorld()->LineTraceSingleByChannel(Hit, Target + FVector(0.f, 0.f, 200.f), Target - FVector(0.f, 0.f, 500.f), ECC_Visibility, Params))
+	{
+		Target = Hit.Location + FVector(0.f, 0.f, 4.f);
+	}
+	if (!Ball)
+	{
+		FActorSpawnParameters Spawn;
+		Spawn.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		AStaticMeshActor* NewBall = GetWorld()->SpawnActor<AStaticMeshActor>(Target, FRotator::ZeroRotator, Spawn);
+		if (NewBall)
+		{
+			NewBall->SetMobility(EComponentMobility::Movable);
+			if (UStaticMesh* Sphere = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Sphere.Sphere")))
+			{
+				NewBall->GetStaticMeshComponent()->SetStaticMesh(Sphere);
+			}
+			NewBall->GetStaticMeshComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			NewBall->SetActorScale3D(FVector(0.08f));
+			if (UMaterialInstanceDynamic* Mat = NewBall->GetStaticMeshComponent()->CreateDynamicMaterialInstance(0))
+			{
+				Mat->SetVectorParameterValue(TEXT("Color"), FLinearColor(0.85f, 0.95f, 0.1f)); // balle de tennis
+			}
+			Ball = NewBall;
+		}
+	}
+	else
+	{
+		Ball->SetActorLocation(Target);
+	}
+	Dog->SendTo(Target);
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		if (const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>())
+		{
+			Hud->ShowToast(M->GetUIText(TEXT("UI_ORDRE_CHERCHE"), TEXT("Ariane : « Cherche ! »")), 1.5f);
+		}
+	}
+}
+
+// --- Menu pause ------------------------------------------------------------------------------
+
+void AFSHeroCharacter::TogglePause()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->TogglePauseMenu(); }
+}
+
+void AFSHeroCharacter::MenuUp()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuMove(-1); }
+}
+
+void AFSHeroCharacter::MenuDown()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuMove(1); }
+}
+
+void AFSHeroCharacter::MenuLeft()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuAdjust(-1); }
+}
+
+void AFSHeroCharacter::MenuRight()
+{
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuAdjust(1); }
 }

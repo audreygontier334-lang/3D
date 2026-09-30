@@ -56,6 +56,13 @@ public:
 	UPROPERTY(EditAnywhere, Category = "FauxSemblants")
 	float RunSpeed = 500.f;
 
+	/** Vitesse de rotation de la caméra au stick droit, en degrés par seconde. */
+	UPROPERTY(EditAnywhere, Category = "FauxSemblants")
+	float GamepadTurnRate = 100.f;
+
+	/** Invite affichée par l'interface (« E : saluer Marcel Dufau »…), vide s'il n'y a rien à faire. */
+	FString GetInteractionPrompt() const;
+
 private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
@@ -74,6 +81,22 @@ private:
 	void Save();
 	void PressStart();
 	void ToggleNotebook();
+	void Turn(float Value);
+	void LookUp(float Value);
+	void TurnRate(float Value);
+	void LookUpRate(float Value);
+	void Zoom(float Value);
+	void Interact();
+	void Reste();
+	void Cherche();
+	void TogglePause();
+	void MenuUp();
+	void MenuDown();
+	void MenuLeft();
+	void MenuRight();
+
+	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau. */
+	int32 FindInteraction() const;
 
 	AFSPrologueDirector* FindDirector() const;
 	AFSDogCharacter* FindDog() const;
@@ -83,4 +106,8 @@ private:
 	float ShoulderSide = 1.f;
 	float TargetArmLength = 240.f;
 	FVector TargetSocketOffset = FVector::ZeroVector;
+	float ZoomOffset = 0.f;
+	bool bTalkedToDufau = false;
+	bool bBallFoundSaid = false;
+	UPROPERTY() TObjectPtr<AActor> Ball;
 };
