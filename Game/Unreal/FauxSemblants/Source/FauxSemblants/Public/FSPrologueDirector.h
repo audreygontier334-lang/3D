@@ -12,6 +12,7 @@
 #include "FSPrologueDirector.generated.h"
 
 class UFSMissionSubsystem;
+class AFSDogCharacter;
 
 /** Point de passage d'un figurant : secondes depuis 16:25:00, puis X est et Z nord en mètres (maquette glTF). */
 struct FFSKey
@@ -48,6 +49,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "FauxSemblants")
 	float TimeScale = 1.f;
 
+	/** Explicit accessibility choice, read at BeginPlay; action count stays unchanged. */
+	UPROPERTY(EditAnywhere, Category = "FauxSemblants|Accessibility")
+	bool bExtendedActionTime = false;
+
 private:
 	enum class EPhase : uint8 { Before, Window, Holding, Departing, Gone, Chapter1 };
 
@@ -57,6 +62,8 @@ private:
 	void OpenWindow();
 	void StartDeparture();
 	void Grant(const TArray<FName>& Ids);
+	bool CanObserve(AActor* Subject) const;
+	void CheckDogArrival();
 	// L'alerte accepte Ariane ; la retenue du départ attend uniquement la joueuse.
 	float DistanceToEntrance(bool bIncludeDog = true) const;
 	AActor* FindTagged(FName Tag) const;
@@ -86,6 +93,9 @@ private:
 	float DescentS = 12.f;
 	float ShotS = 4.f;
 	TArray<FName> ActionsTaken;
+	TWeakObjectPtr<AFSDogCharacter> PendingDog;
+	uint32 PendingDogRequest = 0;
+	TArray<FName> PendingDogClues;
 	FVector VanStart = FVector::ZeroVector;
 	bool bFallbackShot = false;
 	int32 LastCue = -1;

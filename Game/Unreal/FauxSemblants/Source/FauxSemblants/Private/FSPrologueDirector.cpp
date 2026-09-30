@@ -1,4 +1,5 @@
 #include "FSPrologueDirector.h"
+#include "FSPrologueRules.h"
 #include "FauxSemblants.h"
 #include "FSDogCharacter.h"
 #include "FSHeroCharacter.h"
@@ -6,6 +7,7 @@
 #include "Dom/JsonObject.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
+#include "Camera/PlayerCameraManager.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
@@ -81,6 +83,15 @@ void AFSPrologueDirector::BeginPlay()
 		if (Pro.IsValid() && Pro->TryGetArrayField(TEXT("window_seconds"), Window) && Window->Num() == 2)
 		{
 			WindowSeconds = 0.5f * static_cast<float>((*Window)[0]->AsNumber() + (*Window)[1]->AsNumber());
+		}
+		if (bExtendedActionTime)
+		{
+			const TSharedPtr<FJsonObject>* Accessibility = nullptr;
+			if (Pro.IsValid() && Pro->TryGetObjectField(TEXT("window_accessibility"), Accessibility)
+				&& (*Accessibility)->TryGetArrayField(TEXT("window_seconds"), Window) && Window->Num() == 2)
+			{
+				WindowSeconds = 0.5f * static_cast<float>((*Window)[0]->AsNumber() + (*Window)[1]->AsNumber());
+			}
 		}
 		MaxActions = static_cast<int32>(JsonNumber(Pro, TEXT("window_max_actions"), 2.f));
 		const TSharedPtr<FJsonObject>* Rule = nullptr;
@@ -182,31 +193,64 @@ void AFSPrologueDirector::OpenWindow()
 	Say(TEXT("F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » (deux actions au plus)"), WindowSeconds, 3);
 }
 
+bool AFSPrologueDirector::CanObserve(AActor* Subject) const
+{
+	const APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
+	if (!PC || !Subject || Subject->IsHidden() || !PC->PlayerCameraManager)
+	{
+		return false;
+	}
+	FVector Eye;
+	FRotator View;
+	PC->GetPlayerViewPoint(Eye, View);
+	FVector Centre, Extent;
+	Subject->GetActorBounds(false, Centre, Extent);
+	const FVector ToSubject = Centre - Eye;
+	// Conservative cone inside both dimensions of the current viewport.
+	int32 Width = 0, Height = 0;
+	PC->GetViewportSize(Width, Height);
+	if (Width <= 0 || Height <= 0 || ToSubject.IsNearlyZero()) { return false; }
+	const float HalfHorizontal = FMath::DegreesToRadians(PC->PlayerCameraManager->GetFOVAngle() * 0.5f);
+	const float HalfVertical = FMath::Atan(FMath::Tan(HalfHorizontal) * static_cast<float>(Height) / Width);
+	if (FVector::DotProduct(View.Vector(), ToSubject.GetSafeNormal())
+		< FMath::Cos(FMath::Min(HalfHorizontal, HalfVertical))) { return false; }
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);
+	if (PC->GetPawn()) { Params.AddIgnoredActor(PC->GetPawn()); }
+	FHitResult Hit;
+	const bool bBlocked = GetWorld()->LineTraceSingleByChannel(Hit, Eye, Centre, ECC_Visibility, Params);
+	return !bBlocked || Hit.GetActor() == Subject;
+}
+
 void AFSPrologueDirector::TryAction(FName ActionId)
 {
-	if (Phase != EPhase::Window && Phase != EPhase::Holding)
-	{
-		return;
-	}
-	if (ActionsTaken.Contains(ActionId) || ActionsTaken.Num() >= MaxActions || !Mission)
+	// Check the deadline as well as the phase: an input can arrive before the next Tick.
+	if (!FSPrologueRules::IsWindowOpen(Phase == EPhase::Window, T - AlertT, WindowSeconds)
+		|| ActionsTaken.Contains(ActionId) || ActionsTaken.Num() >= MaxActions || !Mission)
 	{
 		return;
 	}
 	const TSharedPtr<FJsonObject> Pro = Mission->GetPrologue();
 	const TArray<TSharedPtr<FJsonValue>>* Actions = nullptr;
-	if (!Pro.IsValid() || !Pro->TryGetArrayField(TEXT("actions"), Actions))
-	{
-		return;
-	}
-	ActionsTaken.Add(ActionId);
+	if (!Pro.IsValid() || !Pro->TryGetArrayField(TEXT("actions"), Actions)) { return; }
+
 	for (const TSharedPtr<FJsonValue>& V : *Actions)
 	{
 		const TSharedPtr<FJsonObject> A = V->AsObject();
-		if (A->GetStringField(TEXT("id")) != ActionId.ToString())
+		if (!A.IsValid() || A->GetStringField(TEXT("id")) != ActionId.ToString()) { continue; }
+
+		AFSDogCharacter* SentDog = nullptr;
+		if (ActionId == FName(TEXT("ACT_ENVOYER")))
 		{
-			continue;
+			if (!Van || Van->IsHidden()) { return; }
+			for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It) { SentDog = *It; break; }
+			if (!SentDog) { return; }
 		}
-		// Photo prise en courant = floue au lieu de nette (grants_instead_if_with), jamais les deux.
+		// A hidden vehicle cannot produce a photo or vehicle observations.
+		if (ActionId == FName(TEXT("ACT_PHOTO")) && !CanObserve(Van)) { return; }
+
+		ActionsTaken.Add(ActionId);
 		const AFSHeroCharacter* Hero = Cast<AFSHeroCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 		const bool bRunning = Hero && Hero->IsRunning();
 		const TSharedPtr<FJsonObject>* Instead = nullptr;
@@ -214,33 +258,50 @@ void AFSPrologueDirector::TryAction(FName ActionId)
 		const bool bReplaced = bRunning && ActionId != FName(TEXT("ACT_COURIR"))
 			&& A->TryGetObjectField(TEXT("grants_instead_if_with"), Instead)
 			&& (*Instead)->TryGetArrayField(TEXT("ACT_COURIR"), GrantsJson);
-		if (!bReplaced)
-		{
-			A->TryGetArrayField(TEXT("grants"), GrantsJson);
-		}
+		if (!bReplaced) { A->TryGetArrayField(TEXT("grants"), GrantsJson); }
 		TArray<FName> Ids;
 		if (GrantsJson)
 		{
 			for (const TSharedPtr<FJsonValue>& G : *GrantsJson) { Ids.Add(FName(*G->AsString())); }
 		}
-		Grant(Ids);
-	}
-	if (ActionId == FName(TEXT("ACT_ENVOYER")) && Van)
-	{
-		for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It)
+
+		if (SentDog)
 		{
-			// Ariane s'arrête toujours au bord de la chaussée, jamais devant le fourgon.
-			It->SendTo(FromBlockout(58.5f, -16.6f));
+			// Provisional sidewalk target; road safety and obstacle navigation still require a play test.
+			SentDog->SendTo(FromBlockout(58.5f, -16.6f));
+			PendingDog = SentDog;
+			PendingDogRequest = SentDog->GetSendRequestId();
+			PendingDogClues = Ids; // Granted only after this exact send reaches its target.
 		}
+		else
+		{
+			if (ActionId == FName(TEXT("ACT_COURIR")) && !CanObserve(Van)) { Ids.Reset(); }
+			if (ActionId == FName(TEXT("ACT_CRIER")) && !CanObserve(K2)) { Ids.Reset(); }
+			Grant(Ids);
+		}
+		if (ActionId == FName(TEXT("ACT_CRIER"))) { SayLine(TEXT("DLG_P_ALERTE_05"), 4.f); }
+		return;
 	}
-	if (ActionId == FName(TEXT("ACT_CRIER")))
+}
+
+void AFSPrologueDirector::CheckDogArrival()
+{
+	if (PendingDogClues.IsEmpty()) { return; }
+	if (!PendingDog.IsValid() || PendingDog->GetSendRequestId() != PendingDogRequest)
 	{
-		SayLine(TEXT("DLG_P_ALERTE_05"), 4.f);
+		PendingDogClues.Reset(); // Recall or another send cancels this evidence request.
+		return;
+	}
+	if (PendingDog->HasReachedSendTarget(PendingDogRequest))
+	{
+		Grant(PendingDogClues);
+		PendingDogClues.Reset();
 	}
 }
 
 void AFSPrologueDirector::StartDeparture()
 {
+	PendingDogClues.Reset(); // No impregnation granted after the vehicle leaves.
 	Phase = EPhase::Departing;
 	DepartT = T;
 	if (Lila) { Lila->SetActorHiddenInGame(true); Lila->SetActorEnableCollision(false); }
@@ -297,6 +358,8 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 		MoveAlong(K2, K2Path, FMath::Min(T, 280.f), 0.84f);
 		if (Keyring && T >= 176.f) { Keyring->SetActorHiddenInGame(false); }
 	}
+
+	if (Phase == EPhase::Window || Phase == EPhase::Holding) { CheckDogArrival(); }
 
 	const float Dist = DistanceToEntrance();
 	switch (Phase)
