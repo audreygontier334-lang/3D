@@ -29,20 +29,28 @@ if not errorlevel 1 (
   exit /b 1
 )
 
+set "GIT=git"
 where git >nul 2>nul
-if errorlevel 1 (
-  echo.
-  echo La commande Git est introuvable sur ce PC.
-  echo Ouvre GitHub Desktop, puis installe Git for Windows si necessaire.
-  pause
-  exit /b 1
-)
+if not errorlevel 1 goto git_ok
 
+set "GIT="
+if exist "%ProgramFiles%\Git\cmd\git.exe" set "GIT=%ProgramFiles%\Git\cmd\git.exe"
+if defined GIT goto git_ok
+
+for /f "delims=" %%G in ('dir /b /s "%LOCALAPPDATA%\GitHubDesktop\git.exe" 2^>nul') do if not defined GIT set "GIT=%%G"
+if defined GIT goto git_ok
+
+echo.
+echo Git est introuvable. Ouvre GitHub Desktop une fois, puis relance ce fichier.
+pause
+exit /b 1
+
+:git_ok
 pushd "%REPO%"
 if errorlevel 1 goto failed
 
 set "DIRTY="
-for /f "delims=" %%I in ('git status --porcelain') do set "DIRTY=1"
+for /f "delims=" %%I in ('"%GIT%" status --porcelain') do set "DIRTY=1"
 if defined DIRTY (
   echo.
   echo Des fichiers locaux ont ete modifies. Rien n'a ete ecrase.
@@ -54,18 +62,18 @@ if defined DIRTY (
 
 echo.
 echo Recuperation de la version principale...
-git fetch origin
+"%GIT%" fetch origin
 if errorlevel 1 goto failed_popd
 
-git show-ref --verify --quiet refs/heads/main
+"%GIT%" show-ref --verify --quiet refs/heads/main
 if errorlevel 1 (
-  git switch --track -c main origin/main
+  "%GIT%" switch --track -c main origin/main
 ) else (
-  git switch main
+  "%GIT%" switch main
 )
 if errorlevel 1 goto failed_popd
 
-git pull --ff-only origin main
+"%GIT%" pull --ff-only origin main
 if errorlevel 1 goto failed_popd
 
 set "PROJECT=%REPO%\Game\Unreal\FauxSemblants\FauxSemblants.uproject"
