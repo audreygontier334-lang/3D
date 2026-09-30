@@ -2,6 +2,14 @@
 
  > **Statut : jalon de blockout. Audrey a confirmé l'ouverture du projet et une première compilation C++ réussie. Les corrections de reprise doivent encore être compilées et essayées en jeu sur son PC.** Les personnages et décors sont des **volumes provisoires** (boîtes aux bonnes dimensions et couleurs), pas les graphismes finaux.
 
+## Installation vérifiée sur le PC d'Audrey (01/10/2026)
+
+- Copie Git du dépôt : `C:\Dev\3D` (hors OneDrive, chemin sans accents). Git portable : `C:\Dev\outils\MinGit`.
+- Moteur : Unreal Engine 5.8.3, Visual Studio 2022 (MSVC 14.44), SDK Windows 10.0.26100.
+- `FauxSemblantsEditor` Win64 Development compile avec `Build.bat` (branche `claude/compil-ue58`).
+- `Scripts/setup_prologue.py` lancé sans intervention (`UnrealEditor-Cmd.exe <projet> -ExecutePythonScript=...`) : `L_Prologue` construit et enregistré (36 volumes de maquette).
+- Pas encore essayé manette ou clavier en jeu : il reste à ouvrir `L_Prologue` et cliquer sur Jouer.
+
 ## Ce que contient ce squelette
 
 - `FauxSemblants.uproject` : le projet (Unreal Engine 5.4 ou plus récent).
