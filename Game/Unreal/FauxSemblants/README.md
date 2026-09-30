@@ -16,7 +16,7 @@
 
 ## Installer sur ton PC Windows (une seule fois)
 
-1. **GitHub Desktop** (le plus simple) : https://desktop.github.com. Connecte-toi, puis *File › Clone repository* → `audreygontier334-lang/3D`. Choisis la branche **`claude/stoic-gauss-axnd0g`** (menu *Current branch*).
+1. **GitHub Desktop** (le plus simple) : https://desktop.github.com. Connecte-toi, puis *File › Clone repository* → `audreygontier334-lang/3D`. Choisis la branche **`main`** (menu *Current branch*).
 2. **Epic Games Launcher** : https://www.unrealengine.com/download. Onglet *Unreal Engine › Bibliothèque* → installe **Unreal Engine 5.4** (ou plus récent). Compte environ 60 à 100 Go.
 3. **Visual Studio 2022 Community** (gratuit) : https://visualstudio.microsoft.com. À l'installation, coche **« Développement de jeux en C++ »** et **« Développement Desktop en C++ »**. Unreal en a besoin pour compiler le code.
 
@@ -80,9 +80,28 @@ Vérification hors Unreal : syntaxe Python contrôlée. La compilation C++ et ce
 
 Un profil temporaire dans `DefaultEngine.ini` limite le rendu à 30 images/s, réserve 512 Mo au pool de textures et désactive flou de mouvement, profondeur de champ et reflets écran. Ces réglages visent la charge graphique ; ils ne garantissent pas de résoudre une saturation de RAM pendant la compilation des shaders. Ils pourront être retirés pour la production finale.
 
-1. Enregistrer le travail puis fermer Unreal avant de récupérer la branche `claude/stoic-gauss-axnd0g` dans GitHub Desktop (Fetch puis Pull).
+1. Enregistrer le travail puis fermer Unreal avant de récupérer la branche `main` dans GitHub Desktop (Fetch puis Pull).
 2. Après une éventuelle compilation C++, fermer Visual Studio. Fermer les applications inutiles après avoir enregistré leur travail.
 3. Rouvrir le projet, attendre la compilation des shaders, puis exécuter `Scripts/setup_prologue.py` via Outils › Exécuter un script Python. Le script reconstruit le niveau : sauvegarder ailleurs les modifications manuelles avant de le relancer.
 4. Lancer Jouer et relever le message exact si une erreur apparaît. Ces réglages n'ont pas encore été mesurés sur le PC d'Audrey.
 
 Ne pas effacer le cache des shaders pour cet essai : il faudrait ensuite les recompiler.
+
+## Correction des règles du prologue — 30 septembre 2026
+
+- Les actions sont acceptées seulement avant la fin de la fenêtre. La retenue du départ n'ajoute plus de temps d'action.
+- La propriété du directeur `bExtendedActionTime`, désactivée par défaut, utilise la durée de `window_accessibility` dans les données, sans augmenter le nombre d'actions. L'alternative de pause jusqu'au choix n'est pas implémentée.
+- Une photo exige que le centre du fourgon soit dans un cône conservateur de la caméra active et qu'une trace Visibility ne rencontre pas d'obstacle. Les observations de course et de cri utilisent respectivement le fourgon et K2 comme sujets provisoires. Les détails (badge, conducteur, feu) n'ont pas encore leurs propres surfaces d'observation.
+- L'envoi d'Ariane ne donne plus immédiatement l'indice d'imprégnation. Il est accordé uniquement quand le même ordre atteint sa cible, avant le départ du véhicule. Un rappel ou un nouvel envoi invalide cet ordre.
+- La navigation d'Ariane reste directe, sans NavMesh. Aucun franchissement du coude ni respect général du bord de chaussée n'est encore attesté.
+
+Contrôle portable des limites de temps et d'arrivée, sans Unreal :
+
+```sh
+c++ -std=c++17 -Wall -Wextra -Werror Tests/prologue_rules_test.cpp -o prologue_rules_test
+./prologue_rules_test
+```
+
+Quinze assertions passent. Ce contrôle n'atteste pas la compilation du module Unreal ni la visibilité en jeu.
+
+Essais Unreal à effectuer sur le SHA de cette correction : photo depuis la place masquée (aucun indice, aucune action consommée), photo en regardant ailleurs (aucun indice), photo du fourgon visible (indice), photo en course (floue seulement), action à l'instant exact de fermeture (refus), temps étendu désactivé puis activé (durées des JSON, deux actions au plus), Ariane bloquée ou rappelée avant arrivée (aucune imprégnation), arrivée de l'ordre courant avant départ (imprégnation). Vérifier les trois vues de caméra ; les masques doivent bloquer le canal Visibility.
