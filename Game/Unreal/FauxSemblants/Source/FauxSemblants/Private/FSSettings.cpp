@@ -42,3 +42,24 @@ float FSSettings::SubtitleScale() { return FMath::Clamp(GetFloat(TEXT("SubtitleS
 void FSSettings::SetSubtitleScale(float Value) { SetFloat(TEXT("SubtitleScale"), FMath::Clamp(Value, 1.f, 1.5f)); }
 bool FSSettings::ExtendedActionTime() { return GetBool(TEXT("ExtendedActionTime"), false); }
 void FSSettings::SetExtendedActionTime(bool bValue) { SetBool(TEXT("ExtendedActionTime"), bValue); }
+
+namespace
+{
+	const TCHAR* VolumeKey(FSSettings::EFSVolume Category)
+	{
+		switch (Category)
+		{
+		case FSSettings::EFSVolume::Music: return TEXT("VolumeMusic");
+		case FSSettings::EFSVolume::Effects: return TEXT("VolumeEffects");
+		case FSSettings::EFSVolume::Voice: return TEXT("VolumeVoice");
+		case FSSettings::EFSVolume::Ambience: return TEXT("VolumeAmbience");
+		case FSSettings::EFSVolume::Interface: return TEXT("VolumeInterface");
+		default: return TEXT("VolumeMaster");
+		}
+	}
+}
+
+float FSSettings::Volume(EFSVolume Category) { return FMath::Clamp(GetFloat(VolumeKey(Category), Category == EFSVolume::Master ? 0.8f : 1.f), 0.f, 1.f); }
+void FSSettings::SetVolume(EFSVolume Category, float Value) { SetFloat(VolumeKey(Category), FMath::Clamp(Value, 0.f, 1.f)); }
+bool FSSettings::Muted() { return GetBool(TEXT("Muted"), false); }
+void FSSettings::SetMuted(bool bValue) { SetBool(TEXT("Muted"), bValue); }

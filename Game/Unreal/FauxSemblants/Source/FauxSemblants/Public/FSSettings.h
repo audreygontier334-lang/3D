@@ -19,4 +19,11 @@ namespace FSSettings
 	/** Option d'accessibilité OPT_TEMPS_ACTION_ETENDU (mission.json → prologue.window_accessibility). */
 	FAUXSEMBLANTS_API bool ExtendedActionTime();
 	FAUXSEMBLANTS_API void SetExtendedActionTime(bool bValue);
+
+	/** Volumes de 0 à 1 par catégorie (voir EFSVolume). */
+	enum class EFSVolume : uint8 { Master, Music, Effects, Voice, Ambience, Interface, Count };
+	FAUXSEMBLANTS_API float Volume(EFSVolume Category);
+	FAUXSEMBLANTS_API void SetVolume(EFSVolume Category, float Value);
+	FAUXSEMBLANTS_API bool Muted();
+	FAUXSEMBLANTS_API void SetMuted(bool bValue);
 }

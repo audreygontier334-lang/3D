@@ -43,21 +43,24 @@ Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran �
 
 ## Commandes
 
-| Action | Clavier | Manette |
+| Action | Clavier (modifiable) | Manette |
 |---|---|---|
 | Se déplacer | ZQSD (AZERTY) ou WASD | stick gauche |
 | Regarder | souris (molette : distance de la caméra) | stick droit |
 | Courir | Maj gauche | clic stick gauche |
 | Vue épaule / reculée / subjective | 1 / 2 / 3, ou V pour faire défiler | clic stick droit |
 | Changer d'épaule | Tab | — |
-| Parler, répondre (Dufau, coucou de Lila) | E | B |
+| Parler, répondre, ramasser | E | B |
 | Pendant l'alerte : photographier, crier « Lila ! », « Ariane, va ! » | F, C, E (courir compte comme une action) | X, Y, B |
 | Ariane : au pied / reste / cherche (balle) | R / X / G | LB / croix bas / RB |
-| Appeler le 17 (fin du prologue) | T | — |
+| Appeler le 17 (fin du prologue) | T (ou le téléphone) | — |
 | Carnet | J | Select (View) |
-| Pause (options, recommencer, quitter) | P ou Échap | Start |
-| Commencer, valider dans le menu | Entrée | A |
-| Sauvegarder | F5 | — |
+| Inventaire (sac en bandoulière, preuves) | I | croix haut |
+| Téléphone | O | croix gauche |
+| Lampe torche | L | croix droite |
+| Menu principal | P ou Échap | Start |
+| Sauvegarde rapide / chargement rapide | F5 / F9 | — |
+| Menus : choisir, régler, valider, revenir | flèches, Entrée, Échap | croix, A, B |
 
 Dans l'éditeur, Échap arrête la partie de test : utiliser P pour le menu pause.
 
@@ -77,6 +80,16 @@ Mardi 16 h 25 sur la place de l'école. À 16 h 27, Lila (volume jaune moutarde)
 - Interface : invites d'interaction, repère vers l'entrée de la ruelle quand il faut y aller, barre du temps restant, éclair de photo.
 - Déplacements plus nets (accélération et freinage), zoom à la molette, rotation au stick indépendante de la cadence d'images.
 - `setup_prologue.py` donne à chaque volume de la maquette un tag égal à son nom (ex. `dufau_placeholder`).
+
+## Menu principal, inventaire et téléphone (branche `claude/menu-inventaire`)
+
+- **Écran titre** : nouvelle partie, charger, commandes, son, options, aide, quitter. **Menu principal** (P) : retour au jeu, sauvegarder, charger, modifier les commandes, son, options, aide, recommencer, quitter. Le jeu est suspendu dans ces menus.
+- **Modifier les commandes** : chaque commande du clavier se réassigne (Entrée puis la nouvelle touche) ; une touche déjà prise est échangée ; « Rétablir les commandes d'origine ». Les choix vont dans `Saved/Config/Windows/Input.ini` de la joueuse. La manette garde ses boutons.
+- **Son** : volume général, musique, effets, voix, ambiance, interface, couper le son, tester. Les catégories sont les classes `/Game/Audio/SC_*` créées par `setup_prologue.py` ; les sons y seront rangés par Codex. Sons d'interface provisoires synthétisés par le script (`SFX_UI_*`, `SFX_Notification`, `SFX_Photo`).
+- **Sauvegardes** : trois emplacements et la sauvegarde rapide (F5/F9) ; toute la scène est reprise (heure, phase du prologue, actions, positions, inventaire, téléphone).
+- **Aide** : objectifs, commandes, Ariane, carnet, inventaire, téléphone, sauvegarde, accessibilité.
+- **Inventaire** (I) : téléphone, bonbons pour Ariane (elle revient au pied), petit Opinel, gants (à enfiler avant de ramasser une preuve), lampe torche (spot fixé à la caméra), et la rubrique Preuves (indices de nature « objet » ou « document »). Un acteur portant les tags `Preuve` et `CLU_…` devient ramassable avec E.
+- **Téléphone** (O) : clavier d'appel, répertoire, journal d'appels, messages, mails, notifications, batterie. Contenus dans `GameData/telephone/01-prologue.json` (proposition à valider), délivrés au fil du prologue. Appeler le 17 après le départ du fourgon termine le prologue, comme la touche T.
 
 ## Limites connues (prochaines étapes)
 

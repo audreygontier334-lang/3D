@@ -23,7 +23,9 @@ REPO = os.path.abspath(os.path.join(PROJECT, "..", "..", ".."))
 GLTF = os.path.join(REPO, "Game", "Blockout", "ouverture-centre-ville.gltf")
 MISSION = os.path.join(REPO, "GameData", "missions", "01")
 DIALOGUES = os.path.join(REPO, "GameData", "dialogues", "01-ouverture.json")
+TELEPHONE = os.path.join(REPO, "GameData", "telephone", "01-prologue.json")
 DATA_OUT = os.path.join(PROJECT, "Content", "Data", "M01")
+AUDIO = "/Game/Audio"
 LEVEL = "/Game/Maps/L_Prologue"
 MATERIALS = "/Game/Materials"
 
@@ -85,6 +87,8 @@ def copy_data():
         if name.endswith(".json"):
             shutil.copy(os.path.join(MISSION, name), os.path.join(DATA_OUT, name))
     shutil.copy(DIALOGUES, os.path.join(DATA_OUT, "dialogues.json"))
+    if os.path.exists(TELEPHONE):
+        shutil.copy(TELEPHONE, os.path.join(DATA_OUT, "telephone.json"))
     unreal.log(f"Données de mission copiées dans {DATA_OUT}")
 
 
@@ -161,5 +165,88 @@ def build_level():
     unreal.log("L_Prologue construit et enregistré. Lancer avec le bouton Jouer (Play).")
 
 
+# --- Son : catégories de volume et sons d'interface ------------------------------------------------
+# Classes de son SC_* (volumes du menu Son) et sons d'interface synthétisés ici (aucun fichier externe,
+# aucune licence tierce). Codex pourra remplacer ces sons provisoires en gardant les mêmes noms.
+
+SOUND_CLASSES = ["SC_Musique", "SC_Effets", "SC_Voix", "SC_Ambiance", "SC_Interface"]
+
+
+def write_wav(path, samples, rate=44100):
+    import struct
+    import wave
+    with wave.open(path, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(rate)
+        w.writeframes(b"".join(struct.pack("<h", int(max(-1.0, min(1.0, x)) * 32000)) for x in samples))
+
+
+def tone(freqs, duration, rate=44100, attack=0.005, release=0.06, volume=0.35):
+    n = int(duration * rate)
+    out = []
+    for i in range(n):
+        t = i / rate
+        env = min(1.0, t / attack) * min(1.0, (duration - t) / release)
+        out.append(volume * env * sum(math.sin(2 * math.pi * f * t) for f in freqs) / len(freqs))
+    return out
+
+
+def shutter(rate=44100):
+    import random
+    rnd = random.Random(7)
+    n = int(0.12 * rate)
+    return [0.5 * rnd.uniform(-1, 1) * math.exp(-i / (0.018 * rate)) for i in range(n)]
+
+
+def build_audio():
+    master = unreal.load_asset("/Engine/EngineSounds/Master")
+    classes = {}
+    for name in SOUND_CLASSES:
+        path = f"{AUDIO}/{name}"
+        sc = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else \
+            asset_tools.create_asset(name, AUDIO, unreal.SoundClass, unreal.SoundClassFactory())
+        if master:
+            try:
+                sc.set_editor_property("parent_class", master)
+            except Exception as exc:  # propriété protégée selon les versions : la catégorie reste utilisable
+                unreal.log_warning(f"Classe {name} : parent non défini ({exc})")
+        unreal.EditorAssetLibrary.save_loaded_asset(sc)
+        classes[name] = sc
+
+    tmp = os.path.join(unreal.Paths.project_saved_dir(), "SonsGeneres")
+    os.makedirs(tmp, exist_ok=True)
+    sounds = {
+        "SFX_UI_Deplacer": (tone([880], 0.05), "SC_Interface"),
+        "SFX_UI_Valider": (tone([660], 0.06) + tone([990], 0.09), "SC_Interface"),
+        "SFX_UI_Retour": (tone([520], 0.06) + tone([390], 0.08), "SC_Interface"),
+        "SFX_Notification": (tone([1175, 1568], 0.12) + tone([1568, 2093], 0.18), "SC_Interface"),
+        "SFX_Photo": (shutter() + tone([2400], 0.03, volume=0.2), "SC_Effets"),
+    }
+    tasks = []
+    for name, (samples, _) in sounds.items():
+        wav = os.path.join(tmp, name + ".wav")
+        write_wav(wav, samples)
+        task = unreal.AssetImportTask()
+        task.set_editor_property("filename", wav)
+        task.set_editor_property("destination_path", AUDIO)
+        task.set_editor_property("destination_name", name)
+        task.set_editor_property("replace_existing", True)
+        task.set_editor_property("automated", True)
+        task.set_editor_property("save", False)
+        tasks.append(task)
+    asset_tools.import_asset_tasks(tasks)
+    for name, (_, class_name) in sounds.items():
+        wave_asset = unreal.load_asset(f"{AUDIO}/{name}")
+        if wave_asset:
+            wave_asset.set_editor_property("sound_class_object", classes[class_name])
+            unreal.EditorAssetLibrary.save_loaded_asset(wave_asset)
+    unreal.log(f"Son : {len(classes)} catégories et {len(sounds)} sons d'interface dans {AUDIO}")
+
+
 copy_data()
+try:
+    build_audio()
+except Exception as exc:  # le niveau doit se construire même si l'import audio échoue
+    unreal.log_error(f"Sons d'interface non créés : {exc}")
 build_level()

@@ -5,6 +5,8 @@
 #include "FSHeroCharacter.h"
 #include "FSMissionSubsystem.h"
 #include "FSSettings.h"
+#include "FSPhoneSubsystem.h"
+#include "FSSaveGame.h"
 #include "Dom/JsonObject.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
@@ -34,6 +36,10 @@ namespace
 		{242, TEXT("DLG_P_ABORDAGE_04"), nullptr},
 		{255, TEXT("DLG_P_ABORDAGE_05"), nullptr},
 		{272, TEXT("DLG_P_ABORDAGE_06"), nullptr} };
+
+	// Événements du prologue qui délivrent des éléments du téléphone (GameData/telephone/01-prologue.json).
+	struct FPhoneCue { float T; const TCHAR* Event; };
+	const FPhoneCue PhoneCues[] = { {106, TEXT("EVT_SONNERIE")}, {120, TEXT("EVT_LILA_COUCOU")}, {176, TEXT("EVT_ABORDAGE")} };
 
 	float JsonNumber(const TSharedPtr<FJsonObject>& Obj, const TCHAR* Field, float Default)
 	{
@@ -105,6 +111,10 @@ void AFSPrologueDirector::BeginPlay()
 				ShotS = JsonNumber(*Shot, TEXT("duration_s"), 4.f);
 			}
 		}
+	}
+	if (UFSPhoneSubsystem* Phone = GetGameInstance()->GetSubsystem<UFSPhoneSubsystem>())
+	{
+		Phone->LoadPhone(MissionFolder, Mission ? Mission->HeroineName : FString(TEXT("Audrey")));
 	}
 	Say(TEXT("Déplacement : ZQSD ou WASD · Maj : courir · 1/2/3 ou V : vues · Tab : épaule · R : rappeler Ariane"), 12.f, 2);
 }
@@ -236,6 +246,7 @@ void AFSPrologueDirector::OpenWindow()
 			WindowSeconds = 0.5f * static_cast<float>((*Range)[0]->AsNumber() + (*Range)[1]->AsNumber());
 		}
 	}
+	PhoneEvent(TEXT("EVT_ALERTE"));
 	SayLine(TEXT("DLG_P_ALERTE_01"), 5.f);
 	Say(TEXT("F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » (deux actions au plus)"), WindowSeconds, 3);
 }
@@ -301,6 +312,7 @@ void AFSPrologueDirector::StartDeparture()
 {
 	Phase = EPhase::Departing;
 	DepartT = T;
+	PhoneEvent(TEXT("EVT_DEPART"));
 	if (Lila) { Lila->SetActorHiddenInGame(true); Lila->SetActorEnableCollision(false); }
 	if (K2) { K2->SetActorHiddenInGame(true); K2->SetActorEnableCollision(false); }
 	if (Bracelet) { Bracelet->SetActorHiddenInGame(false); }
@@ -319,6 +331,7 @@ void AFSPrologueDirector::CallPolice()
 		return;
 	}
 	Phase = EPhase::Chapter1;
+	PhoneEvent(TEXT("EVT_CH1_START"));
 	if (Mission)
 	{
 		Mission->Grant(TEXT("FLAG_APPEL_17"));
@@ -326,6 +339,71 @@ void AFSPrologueDirector::CallPolice()
 		Mission->SaveProgress();
 	}
 	Say(TEXT("16 h 31 — Appel au 17. Fin du prologue jouable (le chapitre 1 viendra au jalon suivant)."), 15.f, 5);
+}
+
+void AFSPrologueDirector::PhoneEvent(const TCHAR* EventId)
+{
+	UFSPhoneSubsystem* Phone = GetGameInstance()->GetSubsystem<UFSPhoneSubsystem>();
+	if (Phone && Phone->Trigger(EventId) > 0)
+	{
+		if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->NotifyPhone(); }
+	}
+}
+
+void AFSPrologueDirector::ApplyPhaseVisibility()
+{
+	const bool bGoneFigures = Phase >= EPhase::Departing;
+	if (Lila) { Lila->SetActorHiddenInGame(bGoneFigures || T < 120.f); Lila->SetActorEnableCollision(!bGoneFigures && T >= 120.f); }
+	if (K2) { K2->SetActorHiddenInGame(bGoneFigures); K2->SetActorEnableCollision(!bGoneFigures); }
+	if (Bracelet) { Bracelet->SetActorHiddenInGame(!bGoneFigures); }
+	if (Keyring) { Keyring->SetActorHiddenInGame(T < 176.f); }
+	if (Van)
+	{
+		const bool bVanGone = Phase >= EPhase::Gone;
+		Van->SetActorHiddenInGame(bVanGone);
+		Van->SetActorEnableCollision(!bVanGone);
+		if (Phase < EPhase::Departing) { Van->SetActorLocation(VanStart); }
+	}
+}
+
+void AFSPrologueDirector::WriteState(UFSSaveGame& Save) const
+{
+	Save.bHasPrologue = true;
+	Save.PrologueSeconds = T;
+	Save.Phase = static_cast<uint8>(Phase);
+	Save.AlertT = AlertT;
+	Save.DepartT = DepartT;
+	Save.WindowSeconds = WindowSeconds;
+	Save.ActionsTaken = ActionsTaken;
+	Save.LastCue = LastCue;
+	Save.bWaved = bWaved;
+}
+
+void AFSPrologueDirector::ReadState(const UFSSaveGame& Save)
+{
+	if (!Save.bHasPrologue)
+	{
+		return;
+	}
+	T = Save.PrologueSeconds;
+	Phase = static_cast<EPhase>(FMath::Min<uint8>(Save.Phase, static_cast<uint8>(EPhase::Chapter1)));
+	AlertT = Save.AlertT;
+	DepartT = Save.DepartT;
+	WindowSeconds = Save.WindowSeconds;
+	ActionsTaken = Save.ActionsTaken;
+	LastCue = Save.LastCue;
+	bWaved = Save.bWaved;
+	bFallbackShot = false; // le plan court ne reprend pas : la vue revient à l'héroïne
+	LastPhoneEvent = -1;
+	for (int32 i = 0; i < static_cast<int32>(UE_ARRAY_COUNT(PhoneCues)); ++i)
+	{
+		if (PhoneCues[i].T <= T) { LastPhoneEvent = i; }
+	}
+	ApplyPhaseVisibility();
+	if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
+	{
+		PC->SetViewTarget(PC->GetPawn());
+	}
 }
 
 void AFSPrologueDirector::Tick(float DeltaSeconds)
@@ -346,6 +424,13 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 		LastCue = i;
 		if (Cues[i].Line) { SayLine(Cues[i].Line); }
 		if (Cues[i].Caption) { Say(Cues[i].Caption); }
+	}
+
+	for (int32 i = LastPhoneEvent + 1; i < static_cast<int32>(UE_ARRAY_COUNT(PhoneCues)); ++i)
+	{
+		if (T < PhoneCues[i].T) { break; }
+		LastPhoneEvent = i;
+		PhoneEvent(PhoneCues[i].Event);
 	}
 
 	if (Phase == EPhase::Before || Phase == EPhase::Window || Phase == EPhase::Holding)
@@ -413,6 +498,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 		{
 			if (Van) { Van->SetActorHiddenInGame(true); Van->SetActorEnableCollision(false); }
 			Phase = EPhase::Gone;
+			PhoneEvent(TEXT("EVT_HORS_VUE"));
 			SayLine(TEXT("DLG_P_HEROINE_CHOC_01"), 6.f);
 			Say(TEXT("T : Appeler le 17"), 60.f, 7);
 		}

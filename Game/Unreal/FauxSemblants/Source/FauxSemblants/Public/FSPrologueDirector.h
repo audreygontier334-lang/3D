@@ -12,6 +12,7 @@
 #include "FSPrologueDirector.generated.h"
 
 class UFSMissionSubsystem;
+class UFSSaveGame;
 
 /** Point de passage d'un figurant : secondes depuis 16:25:00, puis X est et Z nord en mètres (maquette glTF). */
 struct FFSKey
@@ -40,6 +41,10 @@ public:
 
 	/** Répondre au coucou : FLAG_COUCOU_RENDU, puis DLG_P_LILA_02 et la réaction d'Ariane. */
 	bool TryWave();
+
+	/** Sauvegarde et reprise de l'état du prologue (menu principal › Sauvegardes). */
+	void WriteState(UFSSaveGame& Save) const;
+	void ReadState(const UFSSaveGame& Save);
 
 	/** Entrée de la ruelle (repère affiché par l'interface quand il faut y aller). */
 	AActor* GetEntrance() const { return Entrance; }
@@ -112,4 +117,7 @@ private:
 	bool bFallbackShot = false;
 	int32 LastCue = -1;
 	bool bWaved = false;
+	int32 LastPhoneEvent = -1;
+	void PhoneEvent(const TCHAR* EventId);
+	void ApplyPhaseVisibility();
 };

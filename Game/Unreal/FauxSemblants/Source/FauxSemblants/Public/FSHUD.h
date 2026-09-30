@@ -1,17 +1,28 @@
 // Faux-semblants — interface du prologue, dessinée sans asset (AHUD + Canvas) :
-// écran titre, carton d'ouverture, horloge, objectif, sous-titres, rappels de commandes,
-// notifications, carnet d'indices (J) et écran de fin du prologue.
-// Les textes viennent de GameData/dialogues/01-ouverture.json (UI_…, DLG_…) via UFSMissionSubsystem.
+// écran titre (menu), menu principal (commandes modifiables, son, options, aide, sauvegardes),
+// carton d'ouverture, horloge, objectif, sous-titres, rappels, notifications, carnet d'indices,
+// inventaire du sac en bandoulière, téléphone et écran de fin du prologue.
+// Les textes de jeu viennent de GameData/ (UI_…, DLG_…, telephone) via les sous-systèmes.
 // Codex pourra habiller cette interface (polices, cadres, sons) sans changer sa logique.
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
+#include "InputCoreTypes.h"
 #include "FSHUD.generated.h"
 
 class UFont;
+class USoundMix;
 class AFSPrologueDirector;
+class AFSHeroCharacter;
 class UFSMissionSubsystem;
+class UFSPhoneSubsystem;
+
+/** Pages d'interface qui prennent la main sur le clavier (voir AFSPlayerController). */
+enum class EFSPage : uint8
+{
+	None, Title, Main, Controls, Sound, Options, Help, SaveSlots, LoadSlots, Inventory, Phone
+};
 
 UCLASS()
 class FAUXSEMBLANTS_API AFSHUD : public AHUD
@@ -34,26 +45,39 @@ public:
 	/** Petite notification en haut à droite (vue changée, sauvegarde, indice noté…). */
 	void ShowToast(const FString& Text, float Seconds = 2.5f);
 
-	/** Entrée / Start : quitte l'écran titre et lance le prologue. */
-	void PressStart();
-
 	/** J : ouvre ou ferme le carnet. */
-	void ToggleNotebook() { bNotebook = !bNotebook; }
+	void ToggleNotebook() { if (Page == EFSPage::None) { bNotebook = !bNotebook; } }
 
-	bool IsOnTitleScreen() const { return bTitle; }
+	bool IsOnTitleScreen() const { return Page == EFSPage::Title; }
 
 	/** Joue plusieurs répliques à la suite (DLG_…), chacune le temps de la lire. */
 	void PlayConversation(const TArray<FName>& LineIds);
 
-	/** Éclair blanc bref : une photo vient d'être prise. */
-	void Flash() { FlashStart = Now(); }
+	/** Éclair blanc bref et déclic : une photo vient d'être prise. */
+	void Flash();
 
-	/** P, Échap ou Start : ouvre ou ferme le menu pause (le jeu est suspendu pendant le menu). */
-	void TogglePauseMenu();
-	bool IsMenuOpen() const { return bMenu; }
-	void MenuMove(int32 Direction);
-	void MenuAdjust(int32 Direction);
-	void MenuConfirm();
+	/** Nouvel élément reçu sur le téléphone (message, mail, notification). */
+	void NotifyPhone();
+
+	// --- Menus, inventaire, téléphone -----------------------------------------------------------
+
+	/** Vrai quand une page prend la main sur le clavier. */
+	bool IsModal() const { return Page != EFSPage::None; }
+
+	/** Touche reçue pendant une page modale (navigation, saisie, nouvelle commande). */
+	void HandleKey(const FKey& Key, bool bRepeat);
+
+	/** Ouvre une page ; si elle est déjà ouverte, la referme (touches P, I, O). */
+	void OpenPage(EFSPage NewPage);
+
+	/** Après un chargement : ferme les pages, efface sous-titres et carton, reprend le jeu. */
+	void OnGameLoaded();
+
+	/** Applique les volumes du menu Son. */
+	void ApplyVolumes();
+
+	/** Son d'interface (généré par Scripts/setup_prologue.py dans /Game/Audio). */
+	void PlayUi(const TCHAR* SoundName);
 
 private:
 	struct FTimedText
@@ -63,16 +87,25 @@ private:
 		float Until = 0.f;
 	};
 
+	struct FMenuRow
+	{
+		FString Label;
+		FString Value;
+	};
+
 	UFUNCTION()
 	void HandleAcquired(FName Id);
 
 	float Now() const;
 	float Ui() const;
 	UFSMissionSubsystem* Mission() const;
+	UFSPhoneSubsystem* Phone() const;
+	AFSHeroCharacter* Hero() const;
 	AFSPrologueDirector* Director();
 	FString UIText(const TCHAR* Id, const TCHAR* Fallback) const;
+	FString ClockText();
 
-	void DrawTitle();
+	// Jeu
 	void DrawIntroCard();
 	void DrawClockAndObjective();
 	void DrawSubtitles();
@@ -82,9 +115,27 @@ private:
 	void DrawPrompt();
 	void DrawAlleyMarker();
 	void DrawFlash();
-	void DrawPauseMenu();
 	void UpdateConversation();
 
+	// Pages (FSHUDMenu.cpp)
+	void StartNewGame();
+	void Back();
+	void GoTo(EFSPage NewPage);
+	void UpdatePause();
+	TArray<FMenuRow> Rows(EFSPage ForPage);
+	void Activate(int32 Row);
+	void Adjust(int32 Row, int32 Direction);
+	void DrawPage();
+	void DrawMenuList(const FString& Title, const TArray<FMenuRow>& List, const FString& Footer, bool bWithBackdrop);
+	void DrawHelp();
+	void DrawInventory();
+	void DrawPhone();
+	TArray<FName> EvidenceIds() const;
+	bool IsActionKey(const TCHAR* ActionName, const FKey& Key) const;
+	void PhoneKey(const FKey& Key, int32 Vertical, bool bConfirm, bool bBack);
+	void PhoneCall(const FString& Number);
+
+	// Dessin
 	void Box(float X, float Y, float W, float H, const FLinearColor& Color);
 	void Text(const FString& S, float X, float Y, UFont* Font, float Scale, const FLinearColor& Color, bool bCentreX = false);
 	FVector2D Measure(const FString& S, UFont* Font, float Scale);
@@ -96,12 +147,26 @@ private:
 	TArray<FTimedText> Toasts;
 	FString IntroText;
 	float IntroStart = -1.f;
-	bool bTitle = true;
 	bool bNotebook = false;
 	bool bBound = false;
-	bool bMenu = false;
-	int32 MenuIndex = 0;
 	float FlashStart = -10.f;
 	TArray<FName> Conversation;
 	float ConversationNext = 0.f;
+
+	EFSPage Page = EFSPage::Title;
+	TArray<EFSPage> Stack;
+	int32 Index = 0;
+	int32 Scroll = 0;
+	bool bCapturing = false;
+	FString Status;
+
+	enum class EPhoneScreen : uint8 { Home, Dial, Contacts, Log, Messages, Mails, Notifications, Detail };
+	EPhoneScreen PhoneScreen = EPhoneScreen::Home;
+	int32 PhoneIndex = 0;
+	FString PhoneDial;
+	FName PhoneDetail;
+	FString PhoneLine;
+
+	UPROPERTY() TObjectPtr<USoundMix> Mix;
+	bool bMixPushed = false;
 };

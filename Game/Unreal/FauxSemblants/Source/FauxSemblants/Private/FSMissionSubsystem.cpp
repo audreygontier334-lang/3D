@@ -53,6 +53,8 @@ bool UFSMissionSubsystem::LoadMission(const FString& InMissionFolder)
 	Acquired.Reset();
 	AcquiredOrder.Reset();
 	ClueFacts.Reset();
+	ClueNames.Reset();
+	ClueKinds.Reset();
 	Lines.Reset();
 	LineSpeakers.Reset();
 	SpeakerNames.Reset();
@@ -62,7 +64,11 @@ bool UFSMissionSubsystem::LoadMission(const FString& InMissionFolder)
 	for (const TSharedPtr<FJsonValue>& V : CluesDoc->GetArrayField(TEXT("clues")))
 	{
 		const TSharedPtr<FJsonObject> C = V->AsObject();
-		ClueFacts.Add(FName(*C->GetStringField(TEXT("id"))), C->GetStringField(TEXT("fact")));
+		const FName ClueId(*C->GetStringField(TEXT("id")));
+		ClueFacts.Add(ClueId, C->GetStringField(TEXT("fact")));
+		FString Value;
+		if (C->TryGetStringField(TEXT("name"), Value)) { ClueNames.Add(ClueId, Value); }
+		if (C->TryGetStringField(TEXT("kind"), Value)) { ClueKinds.Add(ClueId, Value); }
 	}
 	for (const TSharedPtr<FJsonValue>& V : DedDoc->GetArrayField(TEXT("deductions")))
 	{
@@ -217,6 +223,25 @@ TArray<FName> UFSMissionSubsystem::GetAcquiredClues() const
 	return Clues;
 }
 
+FString UFSMissionSubsystem::GetClueName(FName ClueId) const
+{
+	const FString* Name = ClueNames.Find(ClueId);
+	return Name ? *Name : ClueId.ToString();
+}
+
+FString UFSMissionSubsystem::GetClueKind(FName ClueId) const
+{
+	const FString* Kind = ClueKinds.Find(ClueId);
+	return Kind ? *Kind : FString();
+}
+
+void UFSMissionSubsystem::RestoreAcquired(const TArray<FName>& Ids)
+{
+	Acquired = TSet<FName>(Ids);
+	AcquiredOrder = Ids;
+	DeriveDeductions();
+}
+
 FString UFSMissionSubsystem::GetClueFact(FName ClueId) const
 {
 	const FString* Text = ClueFacts.Find(ClueId);
@@ -235,6 +260,7 @@ bool UFSMissionSubsystem::SaveProgress(const FString& SlotName)
 	Save->MissionFolder = MissionFolder;
 	Save->ClockMinutes = ClockMinutes;
 	Save->DataVersion = DataVersion;
+	Save->SavedAt = FDateTime::Now();
 	Save->Acquired = Acquired.Array();
 	return UGameplayStatics::SaveGameToSlot(Save, SlotName, 0);
 }

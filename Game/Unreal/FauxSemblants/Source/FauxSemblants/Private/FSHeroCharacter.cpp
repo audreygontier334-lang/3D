@@ -10,6 +10,9 @@
 #include "Engine/StaticMeshActor.h"
 #include "EngineUtils.h"
 #include "FSSettings.h"
+#include "FSPhoneSubsystem.h"
+#include "FSSaveGame.h"
+#include "Components/SpotLightComponent.h"
 #include "Engine/Engine.h"
 #include "Engine/StaticMesh.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -43,6 +46,17 @@ AFSHeroCharacter::AFSHeroCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(CameraArm, USpringArmComponent::SocketName);
 	Camera->bUsePawnControlRotation = false;
+
+	// Lampe torche du sac, fixée à la caméra : éclaire là où l'on regarde, éteinte au départ.
+	Torch = CreateDefaultSubobject<USpotLightComponent>(TEXT("Torch"));
+	Torch->SetupAttachment(Camera);
+	Torch->SetIntensity(6000.f);
+	Torch->SetAttenuationRadius(2500.f);
+	Torch->SetOuterConeAngle(24.f);
+	Torch->SetInnerConeAngle(12.f);
+	Torch->SetLightColor(FLinearColor(1.f, 0.95f, 0.85f));
+	Torch->SetCastShadows(true);
+	Torch->SetVisibility(false);
 
 	PlaceholderBody = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlaceholderBody"));
 	PlaceholderBody->SetupAttachment(GetCapsuleComponent());
@@ -80,14 +94,13 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Input->BindAction(TEXT("Rappel"), IE_Pressed, this, &AFSHeroCharacter::Rappel);
 	Input->BindAction(TEXT("Appel17"), IE_Pressed, this, &AFSHeroCharacter::Appel17);
 	Input->BindAction(TEXT("Save"), IE_Pressed, this, &AFSHeroCharacter::Save);
-	// Écran titre et carnet : utilisables même quand le jeu est en pause.
-	Input->BindAction(TEXT("Start"), IE_Pressed, this, &AFSHeroCharacter::PressStart).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("Carnet"), IE_Pressed, this, &AFSHeroCharacter::ToggleNotebook).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("Pause"), IE_Pressed, this, &AFSHeroCharacter::TogglePause).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("MenuUp"), IE_Pressed, this, &AFSHeroCharacter::MenuUp).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("MenuDown"), IE_Pressed, this, &AFSHeroCharacter::MenuDown).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("MenuLeft"), IE_Pressed, this, &AFSHeroCharacter::MenuLeft).bExecuteWhenPaused = true;
-	Input->BindAction(TEXT("MenuRight"), IE_Pressed, this, &AFSHeroCharacter::MenuRight).bExecuteWhenPaused = true;
+	Input->BindAction(TEXT("Load"), IE_Pressed, this, &AFSHeroCharacter::QuickLoad);
+	Input->BindAction(TEXT("Lampe"), IE_Pressed, this, &AFSHeroCharacter::ToggleTorch);
+	Input->BindAction(TEXT("Inventaire"), IE_Pressed, this, &AFSHeroCharacter::OpenInventory);
+	Input->BindAction(TEXT("Telephone"), IE_Pressed, this, &AFSHeroCharacter::OpenPhone);
+	Input->BindAction(TEXT("Carnet"), IE_Pressed, this, &AFSHeroCharacter::ToggleNotebook);
+	// Menu principal : les menus eux-mêmes sont pilotés par AFSPlayerController (touches captées en priorité).
+	Input->BindAction(TEXT("Pause"), IE_Pressed, this, &AFSHeroCharacter::TogglePause);
 	SetCameraMode(EFSCameraMode::Shoulder);
 
 	if (UMaterialInstanceDynamic* Mat = PlaceholderBody->CreateDynamicMaterialInstance(0))
@@ -255,23 +268,21 @@ void AFSHeroCharacter::Appel17()
 
 void AFSHeroCharacter::Save()
 {
-	if (UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>())
+	const bool bOk = UFSSaveGame::SaveSlot(this, 0);
+	if (AFSHUD* Hud = AFSHUD::Get(this))
 	{
-		const bool bOk = M->SaveProgress();
-		if (AFSHUD* Hud = AFSHUD::Get(this))
-		{
-			Hud->ShowToast(bOk ? TEXT("Partie sauvegardée") : TEXT("Échec de la sauvegarde"), 2.f);
-		}
-		else if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(11, 2.f, FColor::White, bOk ? TEXT("Partie sauvegardée") : TEXT("Échec de la sauvegarde"));
-		}
+		Hud->ShowToast(bOk ? TEXT("Sauvegarde rapide enregistrée (F9 pour la recharger)") : TEXT("Échec de la sauvegarde"), 2.5f);
 	}
 }
 
-void AFSHeroCharacter::PressStart()
+void AFSHeroCharacter::QuickLoad()
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->PressStart(); }
+	const bool bOk = UFSSaveGame::LoadSlot(this, 0);
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		if (bOk) { Hud->OnGameLoaded(); }
+		Hud->ShowToast(bOk ? TEXT("Sauvegarde rapide rechargée") : TEXT("Aucune sauvegarde rapide"), 2.5f);
+	}
 }
 
 void AFSHeroCharacter::ToggleNotebook()
@@ -321,7 +332,7 @@ void AFSHeroCharacter::Zoom(float Value)
 
 // --- Interactions et ordres à Ariane ---------------------------------------------------------
 
-int32 AFSHeroCharacter::FindInteraction() const
+int32 AFSHeroCharacter::FindInteraction(AActor** PickupTarget) const
 {
 	if (const AFSPrologueDirector* D = FindDirector())
 	{
@@ -329,22 +340,38 @@ int32 AFSHeroCharacter::FindInteraction() const
 		{
 			return 1;
 		}
-		if (D->GetPhaseIndex() != 0)
+		if (D->GetPhaseIndex() >= 1 && D->GetPhaseIndex() <= 3)
 		{
-			return 0; // après l'alerte, E sert à « Ariane, va ! »
+			return 0; // pendant l'alerte et le départ, E sert à « Ariane, va ! »
 		}
 	}
-	if (!bTalkedToDufau)
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 	{
-		for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+		const float Dist = FVector::Dist2D(It->GetActorLocation(), GetActorLocation());
+		if (!bTalkedToDufau && It->ActorHasTag(TEXT("dufau_placeholder")) && Dist < 350.f)
 		{
-			if (It->ActorHasTag(TEXT("dufau_placeholder")) && FVector::Dist2D(It->GetActorLocation(), GetActorLocation()) < 350.f)
-			{
-				return 2;
-			}
+			return 2;
+		}
+		// Preuve à ramasser : acteur visible portant le tag « Preuve » et l'ID de l'indice (CLU_…).
+		if (It->ActorHasTag(TEXT("Preuve")) && !It->IsHidden() && Dist < 220.f)
+		{
+			if (PickupTarget) { *PickupTarget = *It; }
+			return 3;
 		}
 	}
 	return 0;
+}
+
+namespace
+{
+	FName ClueTagOf(const AActor* Actor)
+	{
+		for (const FName& Tag : Actor->Tags)
+		{
+			if (Tag.ToString().StartsWith(TEXT("CLU_"))) { return Tag; }
+		}
+		return NAME_None;
+	}
 }
 
 FString AFSHeroCharacter::GetInteractionPrompt() const
@@ -354,10 +381,12 @@ FString AFSHeroCharacter::GetInteractionPrompt() const
 	{
 		return FString();
 	}
-	switch (FindInteraction())
+	AActor* Target = nullptr;
+	switch (FindInteraction(&Target))
 	{
 	case 1: return M->GetUIText(TEXT("UI_INVITE_COUCOU"), TEXT("E : répondre au coucou de Lila"));
 	case 2: return M->GetUIText(TEXT("UI_INVITE_DUFAU"), TEXT("E : saluer Marcel Dufau"));
+	case 3: return Target ? FString::Printf(TEXT("E : ramasser (%s)%s"), *M->GetClueName(ClueTagOf(Target)), bGloves ? TEXT("") : TEXT(" — gants conseillés")) : FString();
 	default: return FString();
 	}
 }
@@ -365,12 +394,13 @@ FString AFSHeroCharacter::GetInteractionPrompt() const
 void AFSHeroCharacter::Interact()
 {
 	AFSPrologueDirector* D = FindDirector();
-	if (D && D->GetPhaseIndex() != 0)
+	if (D && D->GetPhaseIndex() >= 1 && D->GetPhaseIndex() <= 3)
 	{
 		ActEnvoyer(); // fenêtre d'action : « Ariane, va ! »
 		return;
 	}
-	switch (FindInteraction())
+	AActor* Target = nullptr;
+	switch (FindInteraction(&Target))
 	{
 	case 1:
 		if (D) { D->TryWave(); }
@@ -381,6 +411,23 @@ void AFSHeroCharacter::Interact()
 		{
 			Hud->PlayConversation({ FName(TEXT("DLG_P_DUFAU_01")), FName(TEXT("DLG_P_DUFAU_02")), FName(TEXT("DLG_P_DUFAU_03")),
 				FName(TEXT("DLG_P_DUFAU_04")), FName(TEXT("DLG_P_DUFAU_05")) });
+		}
+		break;
+	case 3:
+		if (Target)
+		{
+			AFSHUD* Hud = AFSHUD::Get(this);
+			if (!bGloves)
+			{
+				if (Hud) { Hud->ShowToast(TEXT("Enfile d'abord tes gants (inventaire, touche I) pour ne pas laisser d'empreintes."), 3.5f); }
+				break;
+			}
+			const FName Clue = ClueTagOf(Target);
+			Target->SetActorHiddenInGame(true);
+			Target->SetActorEnableCollision(false);
+			PickedUp.AddUnique(Clue);
+			if (UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>()) { M->Grant(Clue); }
+			if (Hud) { Hud->ShowToast(TEXT("Rangé dans le sac, rubrique Preuves (I)"), 3.f); }
 		}
 		break;
 	default:
@@ -461,29 +508,141 @@ void AFSHeroCharacter::Cherche()
 	}
 }
 
-// --- Menu pause ------------------------------------------------------------------------------
+
+// --- Menus -----------------------------------------------------------------------------------
 
 void AFSHeroCharacter::TogglePause()
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->TogglePauseMenu(); }
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->OpenPage(EFSPage::Main); }
 }
 
-void AFSHeroCharacter::MenuUp()
+void AFSHeroCharacter::OpenInventory()
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuMove(-1); }
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->OpenPage(EFSPage::Inventory); }
 }
 
-void AFSHeroCharacter::MenuDown()
+void AFSHeroCharacter::OpenPhone()
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuMove(1); }
+	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->OpenPage(EFSPage::Phone); }
 }
 
-void AFSHeroCharacter::MenuLeft()
+// --- Inventaire ------------------------------------------------------------------------------
+
+const TArray<FFSBagItem>& AFSHeroCharacter::BagItems()
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuAdjust(-1); }
+	static const TArray<FFSBagItem> Items = {
+		{ TEXT("TELEPHONE"), TEXT("Téléphone"), TEXT("Messages, mails, répertoire, journal d'appels. Touche O pour l'ouvrir directement.") },
+		{ TEXT("BONBONS"), TEXT("Bonbons pour Ariane"), TEXT("Des friandises au poulet. Ariane revient au pied pour une seule d'entre elles.") },
+		{ TEXT("OPINEL"), TEXT("Petit Opinel"), TEXT("Un couteau pliant à virole, lame de 6 cm. Utile pour couper une ficelle ou une branche.") },
+		{ TEXT("GANTS"), TEXT("Gants"), TEXT("Une paire de gants fins. À enfiler avant de ramasser une preuve, pour ne pas y laisser ses empreintes.") },
+		{ TEXT("LAMPE"), TEXT("Lampe torche"), TEXT("Petite lampe à LED. Touche L pour l'allumer ou l'éteindre.") },
+	};
+	return Items;
 }
 
-void AFSHeroCharacter::MenuRight()
+bool AFSHeroCharacter::IsTorchOn() const
 {
-	if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->MenuAdjust(1); }
+	return Torch && Torch->IsVisible();
+}
+
+void AFSHeroCharacter::SetTorch(bool bOn)
+{
+	if (Torch) { Torch->SetVisibility(bOn); }
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		Hud->ShowToast(bOn ? TEXT("Lampe torche allumée") : TEXT("Lampe torche éteinte"), 1.5f);
+	}
+}
+
+FString AFSHeroCharacter::BagItemState(const FString& Id) const
+{
+	if (Id == TEXT("BONBONS")) { return FString::Printf(TEXT("%d restant%s"), Candies, Candies > 1 ? TEXT("s") : TEXT("")); }
+	if (Id == TEXT("GANTS")) { return bGloves ? TEXT("enfilés") : TEXT("dans le sac"); }
+	if (Id == TEXT("LAMPE")) { return IsTorchOn() ? TEXT("allumée") : TEXT("éteinte"); }
+	if (Id == TEXT("TELEPHONE"))
+	{
+		UFSPhoneSubsystem* Phone = GetGameInstance() ? GetGameInstance()->GetSubsystem<UFSPhoneSubsystem>() : nullptr;
+		const int32 Unread = Phone ? Phone->CountUnread(TEXT("message")) + Phone->CountUnread(TEXT("mail")) + Phone->CountUnread(TEXT("notification")) : 0;
+		return Unread > 0 ? FString::Printf(TEXT("%d nouveauté%s"), Unread, Unread > 1 ? TEXT("s") : TEXT("")) : FString();
+	}
+	return FString();
+}
+
+FString AFSHeroCharacter::UseBagItem(const FString& Id)
+{
+	if (Id == TEXT("TELEPHONE"))
+	{
+		OpenPhone();
+		return FString();
+	}
+	if (Id == TEXT("BONBONS"))
+	{
+		AFSDogCharacter* Dog = FindDog();
+		if (Candies <= 0) { return TEXT("Le sachet est vide."); }
+		if (!Dog || FVector::Dist2D(Dog->GetActorLocation(), GetActorLocation()) > 1500.f)
+		{
+			return TEXT("Ariane est trop loin pour voir le bonbon.");
+		}
+		--Candies;
+		Dog->Recall();
+		return FString::Printf(TEXT("Ariane revient au pied et croque sa friandise. (%d restant%s)"), Candies, Candies > 1 ? TEXT("s") : TEXT(""));
+	}
+	if (Id == TEXT("OPINEL"))
+	{
+		return TEXT("Rien à couper ici. Tu ranges l'Opinel.");
+	}
+	if (Id == TEXT("GANTS"))
+	{
+		bGloves = !bGloves;
+		return bGloves ? TEXT("Tu enfiles tes gants.") : TEXT("Tu ranges tes gants dans le sac.");
+	}
+	if (Id == TEXT("LAMPE"))
+	{
+		SetTorch(!IsTorchOn());
+	}
+	return FString();
+}
+
+FString AFSHeroCharacter::UseEvidence(FName ClueId)
+{
+	const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>();
+	return M ? M->GetClueFact(ClueId) : FString();
+}
+
+void AFSHeroCharacter::WriteState(UFSSaveGame& Save) const
+{
+	Save.HeroTransform = GetActorTransform();
+	Save.ControlRotation = Controller ? Controller->GetControlRotation() : GetActorRotation();
+	Save.CameraMode = static_cast<uint8>(CameraMode);
+	Save.Candies = Candies;
+	Save.bGloves = bGloves;
+	Save.bTorch = IsTorchOn();
+	Save.bTalkedToDufau = bTalkedToDufau;
+	Save.PickedUp = PickedUp;
+}
+
+void AFSHeroCharacter::ReadState(const UFSSaveGame& Save)
+{
+	SetActorTransform(Save.HeroTransform, false, nullptr, ETeleportType::TeleportPhysics);
+	GetCharacterMovement()->StopMovementImmediately();
+	if (Controller) { Controller->SetControlRotation(Save.ControlRotation); }
+	SetCameraMode(static_cast<EFSCameraMode>(FMath::Min<uint8>(Save.CameraMode, 2)));
+	Candies = Save.Candies;
+	bGloves = Save.bGloves;
+	if (Torch) { Torch->SetVisibility(Save.bTorch); }
+	bTalkedToDufau = Save.bTalkedToDufau;
+	PickedUp = Save.PickedUp;
+	// Les preuves déjà ramassées disparaissent du décor.
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	{
+		for (const FName& Id : PickedUp)
+		{
+			if (It->ActorHasTag(Id) && It->ActorHasTag(TEXT("Preuve")))
+			{
+				It->SetActorHiddenInGame(true);
+				It->SetActorEnableCollision(false);
+			}
+		}
+	}
+	if (Ball) { Ball->Destroy(); Ball = nullptr; }
 }

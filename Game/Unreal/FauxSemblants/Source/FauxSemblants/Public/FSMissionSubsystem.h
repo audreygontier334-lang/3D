@@ -52,6 +52,20 @@ public:
 	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
 	TArray<FName> GetAcquiredClues() const;
 
+	/** Nom court d'un indice (« Photo nette du fourgon »). */
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	FString GetClueName(FName ClueId) const;
+
+	/** Nature d'un indice : objet, document, observation, temoignage, resultat. */
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	FString GetClueKind(FName ClueId) const;
+
+	/** Remplace l'ensemble des IDs acquis (chargement d'une sauvegarde), dans l'ordre donné. */
+	void RestoreAcquired(const TArray<FName>& Ids);
+
+	/** IDs acquis dans l'ordre (sauvegarde). */
+	const TArray<FName>& GetAcquiredOrder() const { return AcquiredOrder; }
+
 	/** Fait d'un indice (CLU_…). */
 	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
 	FString GetClueFact(FName ClueId) const;
@@ -88,6 +102,8 @@ private:
 
 	TSharedPtr<FJsonObject> Mission;
 	TMap<FName, FString> ClueFacts;
+	TMap<FName, FString> ClueNames;
+	TMap<FName, FString> ClueKinds;
 	TMap<FName, FString> Lines;
 	TMap<FName, FString> LineSpeakers;
 	TMap<FName, FString> SpeakerNames;

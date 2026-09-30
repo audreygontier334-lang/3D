@@ -1,0 +1,124 @@
+{
+  "mission": "M01",
+  "status": "Proposition de Claude (01/10/2026), à valider par Audrey : contenus du téléphone de l'héroïne pendant le prologue. Noms et numéros fictifs (plage 01 99 réservée à la fiction).",
+  "_doc": "Lu par UFSPhoneSubsystem (copié dans Content/Data/M01/telephone.json par Scripts/setup_prologue.py). « at » : heure affichée ; « trigger » : événement du prologue qui délivre l'élément (START = déjà reçu au début). Jeton {HEROINE} remplacé à l'affichage.",
+  "owner_number": "06 99 00 42 17",
+  "contacts": [
+    {
+      "id": "CT_17",
+      "name": "Police secours",
+      "number": "17",
+      "emergency": true
+    },
+    {
+      "id": "CT_112",
+      "name": "Urgences (Europe)",
+      "number": "112",
+      "emergency": true
+    },
+    {
+      "id": "CT_VETO",
+      "name": "Clinique vétérinaire des Pins",
+      "number": "01 99 00 31 40",
+      "voicemail": "Clinique vétérinaire des Pins, bonjour. Nous sommes fermés entre 12 h et 14 h… et en ce moment, toutes nos lignes sont occupées. Merci de rappeler."
+    },
+    {
+      "id": "CT_CLUB",
+      "name": "Club canin du Lac",
+      "number": "01 99 00 58 22",
+      "voicemail": "Vous êtes bien au club canin du Lac. Laissez un message après le bip."
+    },
+    {
+      "id": "CT_TRAVAIL",
+      "name": "Travail — planning",
+      "number": "01 99 00 77 03",
+      "voicemail": "Le service est fermé. Pour une absence, envoyez un message au planning."
+    },
+    {
+      "id": "CT_BOULANGERIE",
+      "name": "Boulangerie Lartigue",
+      "number": "01 99 00 12 65",
+      "voicemail": "Boulangerie Lartigue, on est en plein coup de feu, rappelez plus tard !"
+    }
+  ],
+  "messages": [
+    {
+      "id": "SMS_VETO_RAPPEL",
+      "from": "CT_VETO",
+      "at": "10:02",
+      "trigger": "START",
+      "text": "Rappel : rappel de vaccin d'Ariane jeudi à 10 h. Répondez OUI pour confirmer."
+    },
+    {
+      "id": "SMS_CLUB_SORTIE",
+      "from": "CT_CLUB",
+      "at": "14:47",
+      "trigger": "START",
+      "text": "Sortie pistage samedi 9 h au parking du lac. Pensez aux friandises et à une chaussette portée pour l'exercice d'odeur !"
+    },
+    {
+      "id": "SMS_TRAVAIL_PLANNING",
+      "from": "CT_TRAVAIL",
+      "at": "16:26",
+      "trigger": "EVT_SONNERIE",
+      "text": "Bonjour {HEROINE}, on a besoin de toi samedi soir au lieu de dimanche midi. Tu peux ? Merci !"
+    }
+  ],
+  "mails": [
+    {
+      "id": "MAIL_MAIRIE",
+      "from": "Mairie de Lescoure-Plage",
+      "subject": "Travaux rue de l'École",
+      "at": "08:15",
+      "trigger": "START",
+      "body": "Des travaux de voirie auront lieu rue de l'École du 6 au 10 octobre. Le stationnement sera interdit côté école. Merci de votre compréhension."
+    },
+    {
+      "id": "MAIL_CLUB",
+      "from": "Club canin du Lac",
+      "subject": "Cotisation annuelle",
+      "at": "11:30",
+      "trigger": "START",
+      "body": "Bonjour, la cotisation pour la saison est à régler avant le 15 octobre. La licence d'Ariane sera renouvelée à réception."
+    }
+  ],
+  "notifications": [
+    {
+      "id": "NOTIF_METEO",
+      "app": "Météo",
+      "at": "16:00",
+      "trigger": "START",
+      "text": "Lescoure-Plage : ensoleillé, 22 °C, vent faible de nord-ouest."
+    },
+    {
+      "id": "NOTIF_BATTERIE",
+      "app": "Système",
+      "at": "16:28",
+      "trigger": "EVT_ABORDAGE",
+      "text": "Batterie : 20 %. Pensez à recharger votre téléphone."
+    }
+  ],
+  "calls": [
+    {
+      "id": "CALL_ANCIEN_CLUB",
+      "number": "01 99 00 58 22",
+      "at": "hier 18:12",
+      "direction": "entrant",
+      "trigger": "START"
+    },
+    {
+      "id": "CALL_ANCIEN_VETO",
+      "number": "01 99 00 31 40",
+      "at": "lundi 09:40",
+      "direction": "sortant",
+      "trigger": "START"
+    }
+  ],
+  "call_rules": {
+    "_doc": "Appel au 17 ou au 112 : après le départ du fourgon, il termine le prologue (FLAG_APPEL_17, comme la touche T). Avant, la joueuse raccroche d'elle-même.",
+    "emergency_before": "Tu composes le numéro… puis tu raccroches avant la première sonnerie. Il ne s'est rien passé.",
+    "unknown_number": "Le numéro que vous avez demandé n'est pas attribué.",
+    "busy_after_alert": "Pas le temps de composer : le fourgon va partir, agis d'abord !",
+    "already_called": "Tu as déjà appelé le 17 : les gendarmes sont en route."
+  }
+}
