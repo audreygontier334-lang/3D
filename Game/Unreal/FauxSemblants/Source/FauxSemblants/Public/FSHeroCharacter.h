@@ -122,6 +122,9 @@ private:
 	void Interact();
 	void Reste();
 	void Cherche();
+	void Non();
+	void Bravo();
+	void Montre();
 	void TogglePause();
 
 	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau, 3 preuve à ramasser (PickupTarget). */

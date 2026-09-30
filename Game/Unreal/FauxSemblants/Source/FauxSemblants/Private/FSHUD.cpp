@@ -5,6 +5,7 @@
 #include "FSHeroCharacter.h"
 #include "FSSettings.h"
 #include "FSPhoneSubsystem.h"
+#include "FSDogCharacter.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "CanvasItem.h"
 #include "Engine/Canvas.h"
@@ -279,6 +280,17 @@ void AFSHUD::DrawClockAndObjective()
 	Box(Canvas->ClipX - ClockSize.X - 44.f * U, 24.f * U, ClockSize.X + 24.f * U, ClockSize.Y + 14.f * U, Shade);
 	Text(Clock, Canvas->ClipX - ClockSize.X - 32.f * U, 31.f * U, Medium, 1.3f * U, Cream);
 
+	// Humeur d'Ariane, sous l'horloge (les volumes provisoires la montrent aussi par les oreilles et la queue).
+	if (const AFSDogCharacter* Dog = Cast<AFSDogCharacter>(UGameplayStatics::GetActorOfClass(this, AFSDogCharacter::StaticClass())))
+	{
+		static const TCHAR* Moods[] = { TEXT("tranquille"), TEXT("à l'affût"), TEXT("contente"), TEXT("penaude"), TEXT("veut te parler") };
+		const int32 M = FMath::Clamp(static_cast<int32>(Dog->GetMood()), 0, 4);
+		const FString DogText = FString::Printf(TEXT("Ariane : %s"), Moods[M]);
+		const FVector2D DS = Measure(DogText, Small, 1.05f * U);
+		const FLinearColor DogColor = M == 1 ? Amber : (M == 3 ? FLinearColor(0.6f, 0.7f, 1.f, 1.f) : Cream);
+		Text(DogText, Canvas->ClipX - DS.X - 32.f * U, 31.f * U + ClockSize.Y + 18.f * U, Small, 1.05f * U, DogColor);
+	}
+
 	// Objectif en haut à gauche, selon la phase du prologue.
 	const int32 Phase = D->GetPhaseIndex();
 	const float T = D->GetPrologueSeconds();
@@ -383,7 +395,7 @@ void AFSHUD::DrawHintsAndToasts()
 	Text(UIText(TEXT("UI_TOUCHES_BASE"), TEXT("")), 0.5f * Canvas->ClipX, Canvas->ClipY - 40.f * U, Small, 1.0f * U, Soft, true);
 
 	// Notifications en haut à droite, sous l'horloge.
-	float TY = 84.f * U;
+	float TY = 112.f * U;
 	for (int32 i = Toasts.Num() - 1; i >= 0; --i)
 	{
 		if (T > Toasts[i].Until)

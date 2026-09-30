@@ -219,6 +219,7 @@ bool AFSPrologueDirector::TryWave()
 		return false;
 	}
 	bWaved = true;
+	for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It) { It->SetMood(EFSDogMood::Happy, 4.f); }
 	if (Mission)
 	{
 		Mission->Grant(TEXT("FLAG_COUCOU_RENDU"));
@@ -394,6 +395,7 @@ void AFSPrologueDirector::ReadState(const UFSSaveGame& Save)
 	LastCue = Save.LastCue;
 	bWaved = Save.bWaved;
 	bFallbackShot = false; // le plan court ne reprend pas : la vue revient à l'héroïne
+	bDogReacted = T >= 232.f;
 	LastPhoneEvent = -1;
 	for (int32 i = 0; i < static_cast<int32>(UE_ARRAY_COUNT(PhoneCues)); ++i)
 	{
@@ -445,6 +447,26 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 	switch (Phase)
 	{
 	case EPhase::Before:
+		// Ariane sent que quelque chose se passe dans la ruelle (comportements décrits par Audrey) :
+		// de loin, elle vient « parler » et emmène l'héroïne vers l'angle ; de près, elle part comme une flèche.
+		if (!bDogReacted && T >= 200.f && Entrance)
+		{
+			for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It)
+			{
+				It->SetPointOfInterest(Entrance->GetActorLocation());
+				const float HeroDist = DistanceToEntrance(false);
+				if (HeroDist > 2500.f)
+				{
+					It->LeadTo(Entrance->GetActorLocation());
+					bDogReacted = true;
+				}
+				else if (T >= 232.f)
+				{
+					It->Bolt(Entrance->GetActorLocation());
+					bDogReacted = true;
+				}
+			}
+		}
 		// Alerte : proximité de l'entrée une fois Lila devant la portière, ou heure limite (Ariane s'élance).
 		if ((T >= 240.f && Dist <= AlertDistanceCm) || T >= AlertLatest)
 		{
@@ -499,6 +521,7 @@ void AFSPrologueDirector::Tick(float DeltaSeconds)
 			if (Van) { Van->SetActorHiddenInGame(true); Van->SetActorEnableCollision(false); }
 			Phase = EPhase::Gone;
 			PhoneEvent(TEXT("EVT_HORS_VUE"));
+			for (TActorIterator<AFSDogCharacter> It(GetWorld()); It; ++It) { It->SetMood(EFSDogMood::Sad, 12.f); }
 			SayLine(TEXT("DLG_P_HEROINE_CHOC_01"), 6.f);
 			Say(TEXT("T : Appeler le 17"), 60.f, 7);
 		}

@@ -117,6 +117,7 @@ private:
 	bool bFallbackShot = false;
 	int32 LastCue = -1;
 	bool bWaved = false;
+	bool bDogReacted = false;
 	int32 LastPhoneEvent = -1;
 	void PhoneEvent(const TCHAR* EventId);
 	void ApplyPhaseVisibility();

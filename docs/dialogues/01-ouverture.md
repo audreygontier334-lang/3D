@@ -99,6 +99,28 @@
 | `DLG_P_HEROINE_CHOC_05` | HEROINE | Au pied. C'est bien, c'est bien… Tu l'as sentie, hein ? | ACT_ENVOYER : rappel d'Ariane à la voix | voix qui tremble, main posée sur Ariane | ACT_ENVOYER |
 | `DLG_P_HEROINE_CHOC_06` | NARRATION | Appeler le 17. | Action principale mise en avant | neutre |  |
 
+## `DLG_P_ARIANE`
+
+*Réactions spontanées d'Ariane pendant la promenade et l'alerte (comportements décrits par Audrey le 01/10) ; déclenchées par le jeu, jamais indispensables.* — lieu : `—`
+
+| ID | Locuteur | Réplique | Intention | Émotion | Condition |
+|---|---|---|---|---|---|
+| `DLG_P_ARIANE_GROGNE` | CHIENNE | [grognement sourd, oreilles et queue dressées, regard fixe] | Elle sent un danger, un intrus ou quelque chose d'anormal | à l'affût |  |
+| `DLG_P_ARIANE_PROTEGE` | CHIENNE | [se place entre {HEROINE} et la menace, grognement bas, oreilles et queue dressées] | Très protectrice envers {HEROINE} et les enfants : elle s'interpose toujours | protectrice |  |
+| `DLG_P_ARIANE_HERISSON_01` | CHIENNE | [grogne vers le massif, poils du dos hérissés] | Fausse alerte : un hérisson dans le square | à l'affût |  |
+| `DLG_P_ARIANE_HERISSON_02` | HEROINE | Qu'est-ce que tu as vu ? … Un hérisson. Fausse alerte, ma belle. | La joueuse s'approche du massif après le grognement | amusée |  |
+| `DLG_P_ARIANE_PARLE_01` | CHIENNE | [vient s'asseoir face à {HEROINE}, aboie une fois, couine et frétille] | Ariane vient « parler » | insistante |  |
+| `DLG_P_ARIANE_PARLE_02` | CHIENNE | [grommelle, fait quelques pas vers la ruelle, s'arrête et se retourne] | Elle montre l'endroit où elle veut emmener {HEROINE} | insistante |  |
+| `DLG_P_ARIANE_PARLE_03` | HEROINE | Quoi ? Tu veux aller par là ? | {HEROINE} comprend qu'Ariane veut l'emmener quelque part | intriguée |  |
+| `DLG_P_ARIANE_PISTE` | CHIENNE | [part comme une flèche, truffe au sol] | Elle a trouvé une piste et s'élance sans prévenir | concentrée |  |
+| `DLG_P_ARIANE_CONTENTE` | CHIENNE | [remue la queue et sautille] | Contente (friandise, balle, félicitations, coucou de Lila) | joyeuse |  |
+| `DLG_P_ARIANE_TRISTE` | CHIENNE | [oreilles couchées en arrière, queue basse] | Triste ou grondée | penaude |  |
+| `DLG_P_ARIANE_NON` | HEROINE | Non, Ariane ! | Ordre « Non » : elle s'arrête et revient, penaude | ferme |  |
+| `DLG_P_ARIANE_BRAVO` | HEROINE | C'est bien, ma belle ! | Félicitations | tendre |  |
+| `DLG_P_ARIANE_MONTRE_RIEN` | CHIENNE | [penche la tête, oreille droite dressée, et attend] | Ordre « Montre » sans rien à montrer | attentive |  |
+| `DLG_P_ARIANE_SAUT` | CHIENNE | [prend son élan et saute par-dessus sans effort] | Elle franchit un obstacle haut (plus de 2 m) | à l'aise |  |
+| `DLG_P_ARIANE_PORTE` | CHIENNE | [se dresse sur la poignée et ouvre la porte] | Elle sait ouvrir les portes | fière |  |
+
 ## `DLG_C1_OPERATRICE`
 
 *INT_APPEL_17. Les options de description dépendent des indices déjà obtenus.* — lieu : `LOC_ACCOTEMENT`

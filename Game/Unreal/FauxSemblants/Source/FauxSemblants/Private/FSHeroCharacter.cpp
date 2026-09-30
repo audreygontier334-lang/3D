@@ -91,6 +91,9 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Input->BindAction(TEXT("ActEnvoyer"), IE_Pressed, this, &AFSHeroCharacter::Interact);
 	Input->BindAction(TEXT("Reste"), IE_Pressed, this, &AFSHeroCharacter::Reste);
 	Input->BindAction(TEXT("Cherche"), IE_Pressed, this, &AFSHeroCharacter::Cherche);
+	Input->BindAction(TEXT("Non"), IE_Pressed, this, &AFSHeroCharacter::Non);
+	Input->BindAction(TEXT("Bravo"), IE_Pressed, this, &AFSHeroCharacter::Bravo);
+	Input->BindAction(TEXT("Montre"), IE_Pressed, this, &AFSHeroCharacter::Montre);
 	Input->BindAction(TEXT("Rappel"), IE_Pressed, this, &AFSHeroCharacter::Rappel);
 	Input->BindAction(TEXT("Appel17"), IE_Pressed, this, &AFSHeroCharacter::Appel17);
 	Input->BindAction(TEXT("Save"), IE_Pressed, this, &AFSHeroCharacter::Save);
@@ -124,6 +127,7 @@ void AFSHeroCharacter::Tick(float DeltaSeconds)
 			{
 				bBallFoundSaid = true;
 				if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->PlayConversation({ FName(TEXT("DLG_P_TUTO_04")) }); }
+				if (AFSDogCharacter* Happy = FindDog()) { Happy->SetMood(EFSDogMood::Happy, 4.f); }
 			}
 		}
 	}
@@ -585,6 +589,7 @@ FString AFSHeroCharacter::UseBagItem(const FString& Id)
 		}
 		--Candies;
 		Dog->Recall();
+		Dog->SetMood(EFSDogMood::Happy, 4.f);
 		return FString::Printf(TEXT("Ariane revient au pied et croque sa friandise. (%d restant%s)"), Candies, Candies > 1 ? TEXT("s") : TEXT(""));
 	}
 	if (Id == TEXT("OPINEL"))
@@ -645,4 +650,19 @@ void AFSHeroCharacter::ReadState(const UFSSaveGame& Save)
 		}
 	}
 	if (Ball) { Ball->Destroy(); Ball = nullptr; }
+}
+
+void AFSHeroCharacter::Non()
+{
+	if (AFSDogCharacter* Dog = FindDog()) { Dog->Scold(); }
+}
+
+void AFSHeroCharacter::Bravo()
+{
+	if (AFSDogCharacter* Dog = FindDog()) { Dog->Praise(); }
+}
+
+void AFSHeroCharacter::Montre()
+{
+	if (AFSDogCharacter* Dog = FindDog()) { Dog->Show(); }
 }

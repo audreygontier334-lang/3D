@@ -335,6 +335,117 @@
       ]
     },
     {
+      "id": "DLG_P_ARIANE",
+      "context": "Réactions spontanées d'Ariane pendant la promenade et l'alerte (comportements décrits par Audrey le 01/10) ; déclenchées par le jeu, jamais indispensables.",
+      "lines": [
+        {
+          "id": "DLG_P_ARIANE_GROGNE",
+          "speaker": "CHIENNE",
+          "text": "[grognement sourd, oreilles et queue dressées, regard fixe]",
+          "intent": "Elle sent un danger, un intrus ou quelque chose d'anormal",
+          "emotion": "à l'affût"
+        },
+        {
+          "id": "DLG_P_ARIANE_PROTEGE",
+          "speaker": "CHIENNE",
+          "text": "[se place entre {HEROINE} et la menace, grognement bas, oreilles et queue dressées]",
+          "intent": "Très protectrice envers {HEROINE} et les enfants : elle s'interpose toujours",
+          "emotion": "protectrice"
+        },
+        {
+          "id": "DLG_P_ARIANE_HERISSON_01",
+          "speaker": "CHIENNE",
+          "text": "[grogne vers le massif, poils du dos hérissés]",
+          "intent": "Fausse alerte : un hérisson dans le square",
+          "emotion": "à l'affût"
+        },
+        {
+          "id": "DLG_P_ARIANE_HERISSON_02",
+          "speaker": "HEROINE",
+          "text": "Qu'est-ce que tu as vu ? … Un hérisson. Fausse alerte, ma belle.",
+          "intent": "La joueuse s'approche du massif après le grognement",
+          "emotion": "amusée"
+        },
+        {
+          "id": "DLG_P_ARIANE_PARLE_01",
+          "speaker": "CHIENNE",
+          "text": "[vient s'asseoir face à {HEROINE}, aboie une fois, couine et frétille]",
+          "intent": "Ariane vient « parler »",
+          "emotion": "insistante"
+        },
+        {
+          "id": "DLG_P_ARIANE_PARLE_02",
+          "speaker": "CHIENNE",
+          "text": "[grommelle, fait quelques pas vers la ruelle, s'arrête et se retourne]",
+          "intent": "Elle montre l'endroit où elle veut emmener {HEROINE}",
+          "emotion": "insistante"
+        },
+        {
+          "id": "DLG_P_ARIANE_PARLE_03",
+          "speaker": "HEROINE",
+          "text": "Quoi ? Tu veux aller par là ?",
+          "intent": "{HEROINE} comprend qu'Ariane veut l'emmener quelque part",
+          "emotion": "intriguée"
+        },
+        {
+          "id": "DLG_P_ARIANE_PISTE",
+          "speaker": "CHIENNE",
+          "text": "[part comme une flèche, truffe au sol]",
+          "intent": "Elle a trouvé une piste et s'élance sans prévenir",
+          "emotion": "concentrée"
+        },
+        {
+          "id": "DLG_P_ARIANE_CONTENTE",
+          "speaker": "CHIENNE",
+          "text": "[remue la queue et sautille]",
+          "intent": "Contente (friandise, balle, félicitations, coucou de Lila)",
+          "emotion": "joyeuse"
+        },
+        {
+          "id": "DLG_P_ARIANE_TRISTE",
+          "speaker": "CHIENNE",
+          "text": "[oreilles couchées en arrière, queue basse]",
+          "intent": "Triste ou grondée",
+          "emotion": "penaude"
+        },
+        {
+          "id": "DLG_P_ARIANE_NON",
+          "speaker": "HEROINE",
+          "text": "Non, Ariane !",
+          "intent": "Ordre « Non » : elle s'arrête et revient, penaude",
+          "emotion": "ferme"
+        },
+        {
+          "id": "DLG_P_ARIANE_BRAVO",
+          "speaker": "HEROINE",
+          "text": "C'est bien, ma belle !",
+          "intent": "Félicitations",
+          "emotion": "tendre"
+        },
+        {
+          "id": "DLG_P_ARIANE_MONTRE_RIEN",
+          "speaker": "CHIENNE",
+          "text": "[penche la tête, oreille droite dressée, et attend]",
+          "intent": "Ordre « Montre » sans rien à montrer",
+          "emotion": "attentive"
+        },
+        {
+          "id": "DLG_P_ARIANE_SAUT",
+          "speaker": "CHIENNE",
+          "text": "[prend son élan et saute par-dessus sans effort]",
+          "intent": "Elle franchit un obstacle haut (plus de 2 m)",
+          "emotion": "à l'aise"
+        },
+        {
+          "id": "DLG_P_ARIANE_PORTE",
+          "speaker": "CHIENNE",
+          "text": "[se dresse sur la poignée et ouvre la porte]",
+          "intent": "Elle sait ouvrir les portes",
+          "emotion": "fière"
+        }
+      ]
+    },
+    {
       "id": "DLG_C1_OPERATRICE",
       "context": "INT_APPEL_17. Les options de description dépendent des indices déjà obtenus.",
       "location": "LOC_ACCOTEMENT",

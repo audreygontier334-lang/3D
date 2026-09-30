@@ -53,6 +53,7 @@ Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran �
 | Parler, répondre, ramasser | E | B |
 | Pendant l'alerte : photographier, crier « Lila ! », « Ariane, va ! » | F, C, E (courir compte comme une action) | X, Y, B |
 | Ariane : au pied / reste / cherche (balle) | R / X / G | LB / croix bas / RB |
+| Ariane : montre / « Non ! » / « C'est bien ! » | M / N / B | — |
 | Appeler le 17 (fin du prologue) | T (ou le téléphone) | — |
 | Carnet | J | Select (View) |
 | Inventaire (sac en bandoulière, preuves) | I | croix haut |
@@ -90,6 +91,17 @@ Mardi 16 h 25 sur la place de l'école. À 16 h 27, Lila (volume jaune moutarde)
 - **Aide** : objectifs, commandes, Ariane, carnet, inventaire, téléphone, sauvegarde, accessibilité.
 - **Inventaire** (I) : téléphone, bonbons pour Ariane (elle revient au pied), petit Opinel, gants (à enfiler avant de ramasser une preuve), lampe torche (spot fixé à la caméra), et la rubrique Preuves (indices de nature « objet » ou « document »). Un acteur portant les tags `Preuve` et `CLU_…` devient ramassable avec E.
 - **Téléphone** (O) : clavier d'appel, répertoire, journal d'appels, messages, mails, notifications, batterie. Contenus dans `GameData/telephone/01-prologue.json` (proposition à valider), délivrés au fil du prologue. Appeler le 17 après le départ du fourgon termine le prologue, comme la touche T.
+
+## Ariane vivante (branche `claude/ariane-vivante`)
+
+Comportements décrits par Audrey le 01/10, codés dans `AFSDogCharacter` (humeur lisible par `GetMood()` pour les animations de Codex) :
+
+- Oreilles et queue (volumes provisoires) : au repos, une oreille droite et l'autre tombante ; **à l'affût**, tout dressé ; **triste ou grondée** (« Non ! »), oreilles couchées en arrière et queue basse ; **contente** (friandise, balle, « C'est bien ! », coucou de Lila), la queue remue et elle sautille.
+- Elle vient **« parler »** (assise face à l'héroïne, aboie, couine, frétille) puis **emmène** vers un endroit par petites étapes en se retournant ; « Montre » (M) relance ce qu'elle veut montrer. Dans le prologue : vers 16 h 28, si l'héroïne est loin, elle l'emmène vers l'angle de la ruelle ; si elle est proche, elle **part comme une flèche** sur la piste.
+- Elle **grogne** quand quelque chose est anormal (acteurs taggés `Danger`, menace près d'un enfant) — fausse alerte possible : le hérisson du square (`Herisson`).
+- **Protectrice** : elle s'interpose entre l'héroïne et une menace proche (tags `Menace` ou `K2`). Près de Lila, elle grogne sans changer la chronologie validée du prologue.
+- **Saute** les obstacles de moins de 2,3 m, **rampe** sous les passages bas, **ouvre les portes** (acteurs taggés `Porte`).
+- Répliques de réaction : scène `DLG_P_ARIANE` de `GameData/dialogues/01-ouverture.json` (proposition à valider).
 
 ## Limites connues (prochaines étapes)
 

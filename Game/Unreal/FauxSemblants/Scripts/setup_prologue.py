@@ -69,7 +69,7 @@ def box(label, centre, size, mi, movable=False, tags=()):
     comp.set_static_mesh(cube)
     comp.set_material(0, mi)
     actor.set_actor_scale3d(unreal.Vector(size[0], size[2], size[1]))
-    if "PorteCles" in tags or "Bracelet" in tags:
+    if "PorteCles" in tags or "Bracelet" in tags or "Herisson" in tags:
         comp.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
     if tags:
         actor.set_editor_property("tags", [unreal.Name(t) for t in tags])
@@ -126,7 +126,9 @@ def build_level():
     # Figurants animés par AFSPrologueDirector (couleurs des choix V2 et V4 d'Audrey).
     box("Lila", (1.0, 0.65, 1.6), (0.36, 1.30, 0.30), material("lila_jaune_moutarde", (0.83, 0.63, 0.09)), True, ["Lila"])
     box("Sandrine", (47.4, 0.84, -16.1), (0.5, 1.68, 0.36), material("k2", (0.23, 0.21, 0.32)), True, ["K2"])
-    box("Fourgon", source_position(gltf, "van_placeholder"), (5.2, 2.2, 2.1), material("fourgon_blanc_use", (0.86, 0.85, 0.80)), True, ["Fourgon"])
+    box("Fourgon", source_position(gltf, "van_placeholder"), (5.2, 2.2, 2.1), material("fourgon_blanc_use", (0.86, 0.85, 0.80)), True, ["Fourgon", "Menace"])
+    # Un hérisson dans le square : fausse alerte d'Ariane (comportement décrit par Audrey). Proposition, sans enjeu pour l'enquête.
+    box("Herisson", (-14.5, 0.12, -3.0), (0.30, 0.20, 0.25), material("herisson", (0.30, 0.22, 0.15)), False, ["Herisson"])
     box("PorteCles", source_position(gltf, "scent_object_marker"), (0.12, 0.05, 0.12), material("porte_cles", (0.88, 0.41, 0.11)), True, ["PorteCles"])
     box("Bracelet", source_position(gltf, "scent_clue_marker"), (0.12, 0.04, 0.12), material("bracelet", (0.95, 0.89, 0.96)), True, ["Bracelet"])
 
