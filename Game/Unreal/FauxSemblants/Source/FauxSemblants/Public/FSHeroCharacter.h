@@ -134,12 +134,11 @@ private:
 	void Bravo();
 	void Montre();
 	void VaLaBas();
-	void RecordSockTrail();
 	FString DescribeView(bool& bVanVisible) const;
 	void TogglePause();
 
-	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau, 3 preuve à ramasser, 4 ficelle ou corde à couper,
-	 *  5 chaussette à reprendre (PickupTarget = acteur concerné). */
+	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau, 3 preuve à ramasser, 4 ficelle ou corde à couper
+	 *  (PickupTarget = acteur concerné). */
 	int32 FindInteraction(AActor** PickupTarget = nullptr) const;
 
 	AFSPrologueDirector* FindDirector() const;
@@ -158,8 +157,5 @@ private:
 	bool bGloves = false;
 	TArray<FName> PickedUp;
 
-	// Exercice de pistage : chaussette posée et chemin parcouru depuis.
-	UPROPERTY() TObjectPtr<AActor> Sock;
-	TArray<FVector> SockTrail;
 	float TorchCheck = 0.f;
 };

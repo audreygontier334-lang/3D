@@ -50,7 +50,7 @@
 **Action**
 
 1. 🟡 La joueuse prend la main : marcher, trotter, changer de vue. Ariane marche librement à 1–3 m, flaire les pieds des bancs, revient au rappel.
-2. 🟡 Tutoriel doux, facultatif : ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! ».
+2. 🟡 Tutoriel doux, facultatif : ordres « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Vas-y ! ».
 3. 🟡 Facultatif : saluer Dufau ; il grommelle à propos d'un fourgon « qui fait un boucan de casserole » entré dans la ruelle il y a une bonne demi-heure ; il l'a vu en passant devant (première graine).
 
 **Déplacements**
@@ -236,7 +236,7 @@ Références données : `EVT_ABORDAGE`, `EVT_MARCHE_FOURGON`, `DLG_P_ABORDAGE`
 **Action**
 
 1. 🟡 Devant la portière, Lila se retourne, voit Ariane : « Je veux attendre maman… Ariane ! ». Ariane grogne, corps tendu.
-2. 🟡 Invite discrète, sans ralenti imposé : photographier, courir, crier « Lila ! », envoyer Ariane (« Ariane, va ! »). Deux actions au plus en 8–12 s (20–25 s avec l'option d'accessibilité).
+2. 🟡 Invite discrète, sans ralenti imposé : photographier, courir, crier « Lila ! », envoyer Ariane (« Ariane, vas-y ! »). Deux actions au plus en 8–12 s (20–25 s avec l'option d'accessibilité).
 3. 🟡 La femme fait monter Lila, claque la portière ; le fourgon déboîte et descend la ruelle. (Décision d'Audrey : aucune violence montrée ; la mise en scène exacte est une proposition.)
 4. 🟡 En montant, le bracelet en perles de Lila casse (non montré) et tombe dans le sable au pied de la portière ; il sera trouvé par Ariane au chapitre 1.
 5. 🟡 Envoyée, Ariane fonce en aboyant et s'arrête net au bord de la chaussée quand le fourgon démarre ; elle flaire l'endroit où se tenait la femme, puis regarde la haie.

@@ -249,7 +249,7 @@ void AFSPrologueDirector::OpenWindow()
 	}
 	PhoneEvent(TEXT("EVT_ALERTE"));
 	SayLine(TEXT("DLG_P_ALERTE_01"), 5.f);
-	Say(TEXT("F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » (deux actions au plus)"), WindowSeconds, 3);
+	Say(TEXT("F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, vas-y ! » (deux actions au plus)"), WindowSeconds, 3);
 }
 
 void AFSPrologueDirector::TryAction(FName ActionId)

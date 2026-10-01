@@ -51,10 +51,10 @@ Pour qu'Unreal utilise la carte NVIDIA : *Paramètres › Système › Écran �
 | Vue épaule / reculée / subjective | 1 / 2 / 3, ou V pour faire défiler | clic stick droit |
 | Changer d'épaule | Tab | — |
 | Parler, répondre, ramasser | E | B |
-| Pendant l'alerte : photographier, crier « Lila ! », « Ariane, va ! » | F, C, E (courir compte comme une action) | X, Y, B |
+| Pendant l'alerte : photographier, crier « Lila ! », « Ariane, vas-y ! » | F, C, E (courir compte comme une action) | X, Y, B |
 | Ariane : au pied / reste / cherche (balle) | R / X / G | LB / croix bas / RB |
 | Ariane : montre / « Non ! » / « C'est bien ! » | M / N / B | — |
-| Ariane : « Va ! » là où je regarde | K | — |
+| Ariane : « Vas-y ! » là où je regarde | K | — |
 | Photo (téléphone) | F | X |
 | Appeler le 17 (fin du prologue) | T (ou le téléphone) | — |
 | Carnet | J | Select (View) |
@@ -108,9 +108,8 @@ Comportements décrits par Audrey le 01/10, codés dans `AFSDogCharacter` (humeu
 ## Actions avec Ariane et l'inventaire (branche `claude/actions-ariane`)
 
 - **Pistage** (`AFSDogCharacter::Track`) : Ariane suit une suite de points truffe au sol ; son attitude s'affiche avec le langage du carnet (`UI_CARNET_CHIENNE_1` à `_5`, `UI_ECHEC_PISTE_VIDE`) ; au bout, assise et regard vers l'héroïne, ou tête haute et retour.
-- **Exercice de la chaussette** (objet du sac, lien avec le message du club canin) : « Reste », poser la chaussette, s'éloigner, « Cherche » : Ariane suit le chemin parcouru jusqu'à la chaussette ; la reprendre (E) la félicite.
 - **Faire sentir une preuve** (inventaire › Preuves, objets) : Ariane suit la piste taggée `Piste` + ID de l'indice + `Ordre_N` (`FinPiste` au bout). `setup_prologue.py` prépare la piste du porte-clés vers le bracelet pour le chapitre 1, sans changer le prologue.
-- **« Va ! » vers un point visé** (K), hors de l'alerte.
+- **« Vas-y ! » vers un point visé** (K), hors de l'alerte.
 - **Appareil photo** (F ou téléphone) : décrit ce qui est réellement dans le cadre (cône et ligne de vue) et l'ajoute à la galerie ; pendant l'alerte, c'est `ACT_PHOTO`.
 - **Messages** : réponses toutes prêtes (`replies` dans `GameData/telephone/01-prologue.json`), une par message, enregistrées avec la partie.
 - **Opinel** : couper les acteurs taggés `Ficelle` ou `Corde` (E). **Lampe** : son faisceau révèle les acteurs taggés `Cache`, invisibles sinon.

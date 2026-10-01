@@ -120,7 +120,7 @@ La chronologie cachée complète est dans `BIBLE.md` §5.
 
 Objectifs doux (facultatifs) :
 - marcher, trotter, changer de vue (`CAM_SHOULDER`, `CAM_WIDE`, `CAM_FIRST`) ;
-- ordres à Ariane : « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Va ! » ; elle revient au rappel ;
+- ordres à Ariane : « Au pied », « Reste », « Cherche » (balle lancée dans le square), « Montre », « Vas-y ! » ; elle revient au rappel ;
 - saluer Dufau sur son banc (`DLG_P_DUFAU_*`) : il grommelle à propos du fourgon « qui fait un boucan de casserole » et qui s'est garé dans la ruelle « depuis une bonne demi-heure » — **première graine**, sans insistance ;
 - voir Lila sortir et faire coucou (`EVT_LILA_COUCOU`) ; Ariane remue la queue ; si la joueuse répond, Lila sourit (`DLG_P_LILA_*`).
 
@@ -142,7 +142,7 @@ Au moment `EVT_ALERTE`, une **invite contextuelle discrète** apparaît (pas de 
 | `ACT_PHOTO` | Lever le téléphone et photographier | 2 s | Immobile : `CLU_PHOTO_FOURGON` (**plaque arrière** partielle « GF-4·7 » ; ombre de lettrage seulement si le fourgon retenu en a une). En course : `CLU_PHOTO_FLOUE` | `ACT_CRIER`, `ACT_ENVOYER` ; en course = floue |
 | `ACT_COURIR` | Sprinter dans la ruelle | continu | Le fourgon déboîte du bas-côté : profil du conducteur par la vitre (`CLU_OBS_CONDUCTEUR`), pot qui cogne et tremble (`CLU_OBS_ECHAPPEMENT`), feu arrière fendu (`CLU_OBS_FEU_FENDU`) | `ACT_CRIER`, `ACT_PHOTO` (floue) |
 | `ACT_CRIER` | Appeler « Lila ! » | 1 s | La femme se retourne vers l'entrée : `CLU_OBS_PASSAGERE`. Elle se précipite, le cordon s'accroche à la portière : `CLU_OBS_BADGE_CHUTE` (la joueuse voit tomber quelque chose dans la haie) | tout |
-| `ACT_ENVOYER` | « Ariane, va ! » | 1 s | Ariane fonce, aboie, **s'arrête net au bord de la chaussée** quand le fourgon démarre, flaire l'endroit où se tenait la femme : `CLU_CHIENNE_IMPREGNEE` ; elle regarde ensuite la haie | `ACT_PHOTO`, `ACT_CRIER` |
+| `ACT_ENVOYER` | « Ariane, vas-y ! » | 1 s | Ariane fonce, aboie, **s'arrête net au bord de la chaussée** quand le fourgon démarre, flaire l'endroit où se tenait la femme : `CLU_CHIENNE_IMPREGNEE` ; elle regarde ensuite la haie | `ACT_PHOTO`, `ACT_CRIER` |
 | — | Ne rien faire | — | Aucun indice de fenêtre ; tous les axes restent résolubles par les indices permanents | — |
 
 - **Photo exclusive** : nette **ou** floue, jamais les deux (vérifié par le validateur).

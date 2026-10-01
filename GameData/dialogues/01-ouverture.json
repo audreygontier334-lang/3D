@@ -234,7 +234,7 @@
         {
           "id": "DLG_P_ALERTE_06",
           "speaker": "HEROINE",
-          "text": "Ariane, va !",
+          "text": "Ariane, vas-y !",
           "intent": "ACT_ENVOYER",
           "emotion": "ordre, urgence",
           "requires": {
@@ -2054,7 +2054,7 @@
     },
     {
       "id": "UI_TOUCHES_ACTION",
-      "text": "F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! »",
+      "text": "F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, vas-y ! »",
       "context": "Commandes de la fenêtre d'action"
     },
     {

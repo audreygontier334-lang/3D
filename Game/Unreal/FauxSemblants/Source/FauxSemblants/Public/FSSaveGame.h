@@ -49,11 +49,6 @@ public:
 	UPROPERTY() TArray<FString> PhoneCalls;
 	UPROPERTY() TArray<FString> PhoneExtras;
 
-	// Exercice de pistage (chaussette du club canin).
-	UPROPERTY() bool bSockPlaced = false;
-	UPROPERTY() FVector SockLocation = FVector::ZeroVector;
-	UPROPERTY() TArray<FVector> SockTrail;
-
 	/** Emplacements proposés dans le menu : 1, 2, 3 et la sauvegarde rapide. */
 	static FString SlotName(int32 Index);
 

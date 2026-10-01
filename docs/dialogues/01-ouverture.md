@@ -83,7 +83,7 @@
 | `DLG_P_ALERTE_03` | K2 | Monte, on va être en retard. | Pression, sans violence explicite | sèche |  |
 | `DLG_P_ALERTE_04` | HEROINE | Lila ! | ACT_CRIER | cri, alarme | ACT_CRIER |
 | `DLG_P_ALERTE_05` | K2 | Vas-y, vas-y ! | Réaction à ACT_CRIER : elle se retourne, visage visible, cordon arraché | paniquée | ACT_CRIER |
-| `DLG_P_ALERTE_06` | HEROINE | Ariane, va ! | ACT_ENVOYER | ordre, urgence | ACT_ENVOYER |
+| `DLG_P_ALERTE_06` | HEROINE | Ariane, vas-y ! | ACT_ENVOYER | ordre, urgence | ACT_ENVOYER |
 | `DLG_P_ALERTE_07` | CHIENNE | [aboiements, sprint, arrêt net au bord de la chaussée, flaire le trottoir] | ACT_ENVOYER : Ariane, libre, s'arrête toujours au bord de la chaussée | furieuse puis concentrée | ACT_ENVOYER |
 
 ## `DLG_P_HEROINE_CHOC`
@@ -577,7 +577,7 @@
 | `UI_OBJ_P_FUITE` | Le fourgon s'enfuit. | Objectif pendant le départ du fourgon |
 | `UI_OBJ_P_APPEL` | Appelle le 17. | Objectif après le départ : action principale |
 | `UI_TOUCHES_BASE` | ZQSD : marcher · Maj : courir · 1, 2, 3 : vues · E : parler · R : au pied · X : reste · G : cherche · J : carnet · P : pause | Rappel permanent des commandes (clavier) |
-| `UI_TOUCHES_ACTION` | F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, va ! » | Commandes de la fenêtre d'action |
+| `UI_TOUCHES_ACTION` | F : photographier · Maj : courir · C : crier « Lila ! » · E : « Ariane, vas-y ! » | Commandes de la fenêtre d'action |
 | `UI_TOUCHES_APPEL` | T : appeler le 17 | Commande d'appel au 17 |
 | `UI_CARNET_NOUVEAU` | Noté dans le carnet (J) | Notification quand un indice est noté |
 | `UI_CARNET_VIDE` | Rien de noté pour l'instant. | Carnet ouvert sans indice |

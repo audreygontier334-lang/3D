@@ -44,7 +44,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FauxSemblants")
 	void Recall();
 
-	/** « Reste » : elle s'arrête et attend « Au pied » ou « Va ». */
+	/** « Reste » : elle s'arrête et attend « Au pied » ou « Vas-y ». */
 	UFUNCTION(BlueprintCallable, Category = "FauxSemblants")
 	void Stay();
 
