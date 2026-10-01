@@ -56,7 +56,7 @@ bool UFSSaveGame::SaveSlot(const UObject* WorldContext, int32 Index)
 	}
 	if (UFSPhoneSubsystem* Phone = GI->GetSubsystem<UFSPhoneSubsystem>())
 	{
-		Phone->GetState(Save->PhoneDelivered, Save->PhoneRead, Save->PhoneCalls);
+		Phone->GetState(Save->PhoneDelivered, Save->PhoneRead, Save->PhoneCalls, Save->PhoneExtras);
 	}
 	return UGameplayStatics::SaveGameToSlot(Save, SlotName(Index), 0);
 }
@@ -92,7 +92,7 @@ bool UFSSaveGame::LoadSlot(const UObject* WorldContext, int32 Index)
 	}
 	if (UFSPhoneSubsystem* Phone = GI->GetSubsystem<UFSPhoneSubsystem>())
 	{
-		Phone->SetState(Save->PhoneDelivered, Save->PhoneRead, Save->PhoneCalls);
+		Phone->SetState(Save->PhoneDelivered, Save->PhoneRead, Save->PhoneCalls, Save->PhoneExtras);
 	}
 	return true;
 }

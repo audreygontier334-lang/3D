@@ -69,6 +69,16 @@ public:
 	/** Endroit qu'elle aimerait montrer (utilisé par « Montre »). */
 	void SetPointOfInterest(const FVector& Point) { PointOfInterest = Point; bHasPointOfInterest = true; }
 
+	/** Pistage : elle suit les points dans l'ordre, truffe au sol ; au bout, elle s'assoit et regarde l'héroïne
+	 *  (bFoundAtEnd, langage « elle a trouvé quelque chose ») ou relève la tête et revient (« la piste s'arrête »). */
+	void Track(const TArray<FVector>& Points, bool bFoundAtEnd);
+
+	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
+	bool IsTracking() const { return State == EState::Tracking; }
+
+	/** Vrai quand elle est assise au bout d'une piste réussie, près de Point. */
+	bool HasFoundNear(const FVector& Point, float Radius = 200.f) const;
+
 	void SetMood(EFSDogMood NewMood, float Seconds);
 
 	UFUNCTION(BlueprintPure, Category = "FauxSemblants")
@@ -115,9 +125,10 @@ public:
 	float SprintSpeed = 850.f;
 
 private:
-	enum class EState : uint8 { Follow, Sent, Holding, Staying, Talking, Leading };
+	enum class EState : uint8 { Follow, Sent, Holding, Staying, Talking, Leading, Tracking, Found };
 
 	void Say(const TCHAR* LineId);
+	void Signal(const TCHAR* UIId, const TCHAR* Fallback);
 	void Sense(float DeltaSeconds);
 	void AvoidObstacles(const FVector& Direction);
 	void AnimateExpressions(float DeltaSeconds);
@@ -153,6 +164,12 @@ private:
 	TWeakObjectPtr<AActor> ProtectFrom;
 	float JumpLineCooldown = 0.f;
 	bool bDoorLineSaid = false;
+
+	// Pistage.
+	TArray<FVector> TrailPoints;
+	int32 TrailIndex = 0;
+	bool bTrailSucceeds = false;
+	float TrailEndTime = 0.f;
 
 	// Expressions (angles courants, lissés).
 	float EarRightPitch = 0.f, EarLeftPitch = 60.f, EarLeftRoll = 50.f, TailPitch = 20.f, TailYaw = 0.f, BodyPitch = 0.f, Bounce = 0.f;

@@ -13,6 +13,7 @@ bool UFSPhoneSubsystem::LoadPhone(const FString& MissionFolder, const FString& H
 	Items.Reset();
 	Rules.Reset();
 	PlacedCalls.Reset();
+	Extras.Reset();
 	LoadedFolder = MissionFolder;
 
 	FString Text;
@@ -60,6 +61,11 @@ bool UFSPhoneSubsystem::LoadPhone(const FString& MissionFolder, const FString& H
 			FString Body;
 			if (O->TryGetStringField(TEXT("text"), Body) || O->TryGetStringField(TEXT("body"), Body)) { I.Body = Body; }
 			I.Body.ReplaceInline(TEXT("{HEROINE}"), *Heroine);
+			const TArray<TSharedPtr<FJsonValue>>* RepliesJson = nullptr;
+			if (O->TryGetArrayField(TEXT("replies"), RepliesJson))
+			{
+				for (const TSharedPtr<FJsonValue>& R : *RepliesJson) { I.Replies.Add(R->AsString()); }
+			}
 			I.bRead = I.Trigger == TEXT("START") && I.Kind != TEXT("message");
 		}
 	};
@@ -184,18 +190,59 @@ FString UFSPhoneSubsystem::Call(const FString& Number, const FString& ClockText,
 	return CallRule(TEXT("unknown_number"));
 }
 
-void UFSPhoneSubsystem::GetState(TArray<FName>& Delivered, TArray<FName>& Read, TArray<FString>& OutCalls) const
+void UFSPhoneSubsystem::AddExtra(const FString& Entry)
+{
+	Extras.Add(Entry);
+	TArray<FString> Parts;
+	Entry.ParseIntoArray(Parts, TEXT("|"), false);
+	FFSPhoneItem& I = Items.AddDefaulted_GetRef();
+	I.Id = FName(*FString::Printf(TEXT("EXTRA_%d"), Extras.Num()));
+	I.Kind = Parts.IsValidIndex(0) ? Parts[0] : TEXT("photo");
+	I.At = Parts.IsValidIndex(1) ? Parts[1] : FString();
+	I.From = Parts.IsValidIndex(2) ? Parts[2] : FString();
+	I.Title = Parts.IsValidIndex(3) ? Parts[3] : FString();
+	I.Body = Parts.IsValidIndex(4) ? Parts[4] : FString();
+	I.bDelivered = true;
+	I.bRead = true;
+	if (Parts.IsValidIndex(5))
+	{
+		// Réponse à un message : le message d'origine n'accepte plus d'autre réponse.
+		for (FFSPhoneItem& Other : Items) { if (Other.Id == FName(*Parts[5])) { Other.bReplied = true; } }
+	}
+}
+
+void UFSPhoneSubsystem::AddPhoto(const FString& At, const FString& Description)
+{
+	AddExtra(FString::Printf(TEXT("photo|%s|Appareil photo|Photo|%s"), *At, *Description.Replace(TEXT("|"), TEXT("/"))));
+}
+
+FString UFSPhoneSubsystem::Reply(FName MessageId, int32 ReplyIndex, const FString& At)
 {
 	for (const FFSPhoneItem& I : Items)
 	{
-		if (I.Id.ToString().StartsWith(TEXT("CALL_PARTIE_"))) { continue; }
+		if (I.Id == MessageId && !I.bReplied && I.Replies.IsValidIndex(ReplyIndex))
+		{
+			const FString Text = I.Replies[ReplyIndex];
+			AddExtra(FString::Printf(TEXT("message|%s|Moi|%s|%s|%s"), *At, *I.From, *Text.Replace(TEXT("|"), TEXT("/")), *MessageId.ToString()));
+			return Text;
+		}
+	}
+	return FString();
+}
+
+void UFSPhoneSubsystem::GetState(TArray<FName>& Delivered, TArray<FName>& Read, TArray<FString>& OutCalls, TArray<FString>& OutExtras) const
+{
+	OutExtras = Extras;
+	for (const FFSPhoneItem& I : Items)
+	{
+		if (I.Id.ToString().StartsWith(TEXT("CALL_PARTIE_")) || I.Id.ToString().StartsWith(TEXT("EXTRA_"))) { continue; }
 		if (I.bDelivered) { Delivered.Add(I.Id); }
 		if (I.bRead) { Read.Add(I.Id); }
 	}
 	OutCalls = PlacedCalls;
 }
 
-void UFSPhoneSubsystem::SetState(const TArray<FName>& Delivered, const TArray<FName>& Read, const TArray<FString>& InCalls)
+void UFSPhoneSubsystem::SetState(const TArray<FName>& Delivered, const TArray<FName>& Read, const TArray<FString>& InCalls, const TArray<FString>& InExtras)
 {
 	LoadPhone(LoadedFolder, Heroine);
 	for (FFSPhoneItem& I : Items)
@@ -206,5 +253,9 @@ void UFSPhoneSubsystem::SetState(const TArray<FName>& Delivered, const TArray<FN
 	for (const FString& Entry : InCalls)
 	{
 		AddPlacedCall(Entry);
+	}
+	for (const FString& Entry : InExtras)
+	{
+		AddExtra(Entry);
 	}
 }

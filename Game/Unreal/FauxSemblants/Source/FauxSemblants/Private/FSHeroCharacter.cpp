@@ -94,6 +94,12 @@ void AFSHeroCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 	Input->BindAction(TEXT("Non"), IE_Pressed, this, &AFSHeroCharacter::Non);
 	Input->BindAction(TEXT("Bravo"), IE_Pressed, this, &AFSHeroCharacter::Bravo);
 	Input->BindAction(TEXT("Montre"), IE_Pressed, this, &AFSHeroCharacter::Montre);
+	Input->BindAction(TEXT("VaLaBas"), IE_Pressed, this, &AFSHeroCharacter::VaLaBas);
+	// Ce qui est « caché dans l'ombre » n'apparaît qu'au faisceau de la lampe.
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	{
+		if (It->ActorHasTag(TEXT("Cache"))) { It->SetActorHiddenInGame(true); }
+	}
 	Input->BindAction(TEXT("Rappel"), IE_Pressed, this, &AFSHeroCharacter::Rappel);
 	Input->BindAction(TEXT("Appel17"), IE_Pressed, this, &AFSHeroCharacter::Appel17);
 	Input->BindAction(TEXT("Save"), IE_Pressed, this, &AFSHeroCharacter::Save);
@@ -117,6 +123,24 @@ void AFSHeroCharacter::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 	const float WantedArm = CameraMode == EFSCameraMode::First ? 0.f : FMath::Clamp(TargetArmLength + ZoomOffset, 120.f, 1100.f);
 	CameraArm->TargetArmLength = FMath::FInterpTo(CameraArm->TargetArmLength, WantedArm, DeltaSeconds, 8.f);
+
+	RecordSockTrail();
+
+	// La lampe torche révèle les acteurs taggés « Cache » qu'elle éclaire (scènes sombres, cabane).
+	TorchCheck -= DeltaSeconds;
+	if (IsTorchOn() && TorchCheck <= 0.f)
+	{
+		TorchCheck = 0.2f;
+		FHitResult Hit;
+		const FVector From = Camera->GetComponentLocation();
+		FCollisionQueryParams Params(TEXT("FSLampe"), false, this);
+		if (GetWorld()->LineTraceSingleByChannel(Hit, From, From + Camera->GetForwardVector() * 1500.f, ECC_Visibility, Params)
+			&& Hit.GetActor() && Hit.GetActor()->ActorHasTag(TEXT("Cache")) && Hit.GetActor()->IsHidden())
+		{
+			Hit.GetActor()->SetActorHiddenInGame(false);
+			if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->ShowToast(TEXT("Le faisceau de la lampe révèle quelque chose."), 3.f); }
+		}
+	}
 
 	// « Cherche » : la première fois qu'Ariane trouve la balle, réplique DLG_P_TUTO_04.
 	if (Ball && !bBallFoundSaid)
@@ -224,14 +248,116 @@ AFSDogCharacter* AFSHeroCharacter::FindDog() const
 
 void AFSHeroCharacter::ActPhoto()
 {
+	// Pendant l'alerte, la photo est l'action ACT_PHOTO (avec ses règles) ; elle va aussi dans la galerie.
 	if (AFSPrologueDirector* D = FindDirector())
 	{
-		const int32 Before = D->GetActionsLeft();
-		D->TryAction(TEXT("ACT_PHOTO"));
-		if (D->GetActionsLeft() < Before)
+		const int32 Phase = D->GetPhaseIndex();
+		if (Phase == 1 || Phase == 2)
 		{
-			if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->Flash(); }
+			const int32 Before = D->GetActionsLeft();
+			D->TryAction(TEXT("ACT_PHOTO"));
+			if (D->GetActionsLeft() < Before)
+			{
+				TakePhoto();
+			}
+			return;
 		}
+	}
+	TakePhoto();
+}
+
+FString AFSHeroCharacter::DescribeView(bool& bVanVisible) const
+{
+	bVanVisible = false;
+	const APlayerController* PC = Cast<APlayerController>(Controller);
+	if (!PC || !PC->PlayerCameraManager)
+	{
+		return FString();
+	}
+	const FVector Eye = PC->PlayerCameraManager->GetCameraLocation();
+	const FVector Fwd = PC->PlayerCameraManager->GetCameraRotation().Vector();
+	struct FLabel { const TCHAR* Tag; const TCHAR* Text; };
+	static const FLabel Labels[] = {
+		{ TEXT("Fourgon"), TEXT("le fourgon blanc") }, { TEXT("K2"), TEXT("la femme au badge") }, { TEXT("Lila"), TEXT("Lila") },
+		{ TEXT("dufau_placeholder"), TEXT("Marcel Dufau sur son banc") }, { TEXT("Herisson"), TEXT("un hérisson") },
+		{ TEXT("school_main"), TEXT("l'école") }, { TEXT("tree_crown_square"), TEXT("le pin du square") },
+		{ TEXT("PorteCles"), TEXT("un porte-clés renard au sol") }, { TEXT("Bracelet"), TEXT("des perles au sol") },
+		{ TEXT("Chaussette"), TEXT("la chaussette d'entraînement") } };
+	TArray<FString> Seen;
+	FCollisionQueryParams Params(TEXT("FSPhoto"), false, this);
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	{
+		if (It->IsHidden()) { continue; }
+		const FVector To = It->GetActorLocation() - Eye;
+		const float Dist = To.Size();
+		if (Dist > 4500.f || FVector::DotProduct(To.GetSafeNormal(), Fwd) < 0.85f) { continue; } // cône de ≈ 32°
+		for (const FLabel& L : Labels)
+		{
+			if (!It->ActorHasTag(L.Tag)) { continue; }
+			FHitResult Hit;
+			const bool bBlocked = GetWorld()->LineTraceSingleByChannel(Hit, Eye, It->GetActorLocation(), ECC_Visibility, Params) && Hit.GetActor() != *It;
+			if (!bBlocked)
+			{
+				Seen.AddUnique(L.Text);
+				bVanVisible |= FCString::Strcmp(L.Tag, TEXT("Fourgon")) == 0;
+			}
+		}
+		if (It->IsA(AFSDogCharacter::StaticClass())) { Seen.AddUnique(TEXT("Ariane")); }
+	}
+	return Seen.Num() ? FString::Printf(TEXT("On y voit %s."), *FString::Join(Seen, TEXT(", "))) : FString(TEXT("Rien de particulier dans le cadre."));
+}
+
+FString AFSHeroCharacter::TakePhoto()
+{
+	bool bVan = false;
+	const FString Description = DescribeView(bVan);
+	AFSPrologueDirector* D = FindDirector();
+	const int32 Secs = D ? FMath::FloorToInt(D->GetPrologueSeconds()) : 0;
+	const FString At = FString::Printf(TEXT("%02d:%02d"), 16 + (25 + Secs / 60) / 60, (25 + Secs / 60) % 60);
+	if (UFSPhoneSubsystem* Phone = GetGameInstance()->GetSubsystem<UFSPhoneSubsystem>())
+	{
+		Phone->AddPhoto(At, (IsRunning() ? FString(TEXT("(floue) ")) : FString()) + Description);
+	}
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		Hud->Flash();
+		Hud->ShowToast(FString::Printf(TEXT("Photo enregistrée — %s"), *Description), 3.f);
+	}
+	return Description;
+}
+
+void AFSHeroCharacter::VaLaBas()
+{
+	// « Ariane, va ! » vers l'endroit visé (hors de l'alerte, où E garde son rôle).
+	const AFSPrologueDirector* D = FindDirector();
+	const APlayerController* PC = Cast<APlayerController>(Controller);
+	AFSDogCharacter* Dog = FindDog();
+	if (!Dog || !PC || !PC->PlayerCameraManager || (D && D->GetPhaseIndex() >= 1 && D->GetPhaseIndex() <= 3))
+	{
+		return;
+	}
+	const FVector Eye = PC->PlayerCameraManager->GetCameraLocation();
+	FHitResult Hit;
+	FCollisionQueryParams Params(TEXT("FSVaLaBas"), false, this);
+	Params.AddIgnoredActor(Dog);
+	if (GetWorld()->LineTraceSingleByChannel(Hit, Eye, Eye + PC->PlayerCameraManager->GetCameraRotation().Vector() * 3000.f, ECC_Visibility, Params))
+	{
+		Dog->SendTo(Hit.Location);
+		if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->ShowToast(TEXT("« Ariane, va ! »"), 1.5f); }
+	}
+}
+
+void AFSHeroCharacter::RecordSockTrail()
+{
+	// Chemin de l'héroïne depuis la chaussette : un point tous les 1,5 m (200 au plus).
+	if (!Sock || SockTrail.Num() >= 200)
+	{
+		return;
+	}
+	const FVector Feet = GetActorLocation() - FVector(0.f, 0.f, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+	if (FVector::Dist2D(Feet, SockTrail.Last()) > 150.f)
+	{
+		SockTrail.Add(Feet);
 	}
 }
 
@@ -356,6 +482,16 @@ int32 AFSHeroCharacter::FindInteraction(AActor** PickupTarget) const
 		{
 			return 2;
 		}
+		if (It->ActorHasTag(TEXT("Chaussette")) && Dist < 200.f)
+		{
+			if (PickupTarget) { *PickupTarget = *It; }
+			return 5;
+		}
+		if ((It->ActorHasTag(TEXT("Ficelle")) || It->ActorHasTag(TEXT("Corde"))) && !It->IsHidden() && Dist < 200.f)
+		{
+			if (PickupTarget) { *PickupTarget = *It; }
+			return 4;
+		}
 		// Preuve à ramasser : acteur visible portant le tag « Preuve » et l'ID de l'indice (CLU_…).
 		if (It->ActorHasTag(TEXT("Preuve")) && !It->IsHidden() && Dist < 220.f)
 		{
@@ -390,6 +526,8 @@ FString AFSHeroCharacter::GetInteractionPrompt() const
 	{
 	case 1: return M->GetUIText(TEXT("UI_INVITE_COUCOU"), TEXT("E : répondre au coucou de Lila"));
 	case 2: return M->GetUIText(TEXT("UI_INVITE_DUFAU"), TEXT("E : saluer Marcel Dufau"));
+	case 4: return TEXT("E : couper avec l'Opinel");
+	case 5: return TEXT("E : reprendre la chaussette");
 	case 3: return Target ? FString::Printf(TEXT("E : ramasser (%s)%s"), *M->GetClueName(ClueTagOf(Target)), bGloves ? TEXT("") : TEXT(" — gants conseillés")) : FString();
 	default: return FString();
 	}
@@ -434,6 +572,29 @@ void AFSHeroCharacter::Interact()
 			if (Hud) { Hud->ShowToast(TEXT("Rangé dans le sac, rubrique Preuves (I)"), 3.f); }
 		}
 		break;
+	case 4:
+		if (Target)
+		{
+			Target->SetActorHiddenInGame(true);
+			Target->SetActorEnableCollision(false);
+			if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->ShowToast(TEXT("Un coup d'Opinel : c'est coupé."), 2.5f); }
+		}
+		break;
+	case 5:
+		if (Sock)
+		{
+			const bool bFound = FindDog() && FindDog()->HasFoundNear(Sock->GetActorLocation());
+			Sock->Destroy();
+			Sock = nullptr;
+			SockTrail.Reset();
+			if (AFSDogCharacter* Dog = FindDog())
+			{
+				Dog->Recall();
+				if (bFound) { Dog->Praise(); }
+			}
+			if (AFSHUD* Hud = AFSHUD::Get(this)) { Hud->ShowToast(TEXT("Chaussette rangée dans le sac."), 2.f); }
+		}
+		break;
 	default:
 		break;
 	}
@@ -456,6 +617,23 @@ void AFSHeroCharacter::Reste()
 
 void AFSHeroCharacter::Cherche()
 {
+	// Exercice de la chaussette : Ariane suit le chemin parcouru depuis la chaussette, à l'envers, jusqu'à elle.
+	if (Sock)
+	{
+		AFSDogCharacter* SockDog = FindDog();
+		if (SockDog && SockTrail.Num() >= 2)
+		{
+			TArray<FVector> Path;
+			for (int32 i = SockTrail.Num() - 1; i >= 0; --i) { Path.Add(SockTrail[i]); }
+			SockDog->Recall();
+			SockDog->Track(Path, true);
+		}
+		else if (AFSHUD* Hud = AFSHUD::Get(this))
+		{
+			Hud->ShowToast(TEXT("Éloigne-toi d'abord de la chaussette en marchant."), 2.5f);
+		}
+		return;
+	}
 	// Balle lancée devant l'héroïne, seulement pendant la promenade (avant l'alerte).
 	const AFSPrologueDirector* D = FindDirector();
 	AFSDogCharacter* Dog = FindDog();
@@ -535,11 +713,12 @@ void AFSHeroCharacter::OpenPhone()
 const TArray<FFSBagItem>& AFSHeroCharacter::BagItems()
 {
 	static const TArray<FFSBagItem> Items = {
-		{ TEXT("TELEPHONE"), TEXT("Téléphone"), TEXT("Messages, mails, répertoire, journal d'appels. Touche O pour l'ouvrir directement.") },
+		{ TEXT("TELEPHONE"), TEXT("Téléphone"), TEXT("Appels, répertoire, journal, messages (avec réponses), mails, notifications, appareil photo et galerie. Touche O pour l'ouvrir, F pour une photo.") },
 		{ TEXT("BONBONS"), TEXT("Bonbons pour Ariane"), TEXT("Des friandises au poulet. Ariane revient au pied pour une seule d'entre elles.") },
-		{ TEXT("OPINEL"), TEXT("Petit Opinel"), TEXT("Un couteau pliant à virole, lame de 6 cm. Utile pour couper une ficelle ou une branche.") },
+		{ TEXT("OPINEL"), TEXT("Petit Opinel"), TEXT("Un couteau pliant à virole, lame de 6 cm. Approche-toi d'une ficelle ou d'une corde : E pour la couper.") },
 		{ TEXT("GANTS"), TEXT("Gants"), TEXT("Une paire de gants fins. À enfiler avant de ramasser une preuve, pour ne pas y laisser ses empreintes.") },
-		{ TEXT("LAMPE"), TEXT("Lampe torche"), TEXT("Petite lampe à LED. Touche L pour l'allumer ou l'éteindre.") },
+		{ TEXT("LAMPE"), TEXT("Lampe torche"), TEXT("Petite lampe à LED. Touche L pour l'allumer ou l'éteindre. Son faisceau révèle ce qui se cache dans l'ombre.") },
+		{ TEXT("CHAUSSETTE"), TEXT("Chaussette d'entraînement"), TEXT("Une vieille chaussette portée, pour l'exercice d'odeur du club canin. Dis « Reste » à Ariane, pose la chaussette, éloigne-toi en marchant, puis G : « Cherche ! »") },
 	};
 	return Items;
 }
@@ -563,6 +742,7 @@ FString AFSHeroCharacter::BagItemState(const FString& Id) const
 	if (Id == TEXT("BONBONS")) { return FString::Printf(TEXT("%d restant%s"), Candies, Candies > 1 ? TEXT("s") : TEXT("")); }
 	if (Id == TEXT("GANTS")) { return bGloves ? TEXT("enfilés") : TEXT("dans le sac"); }
 	if (Id == TEXT("LAMPE")) { return IsTorchOn() ? TEXT("allumée") : TEXT("éteinte"); }
+	if (Id == TEXT("CHAUSSETTE")) { return Sock ? TEXT("posée") : TEXT("dans le sac"); }
 	if (Id == TEXT("TELEPHONE"))
 	{
 		UFSPhoneSubsystem* Phone = GetGameInstance() ? GetGameInstance()->GetSubsystem<UFSPhoneSubsystem>() : nullptr;
@@ -594,7 +774,37 @@ FString AFSHeroCharacter::UseBagItem(const FString& Id)
 	}
 	if (Id == TEXT("OPINEL"))
 	{
-		return TEXT("Rien à couper ici. Tu ranges l'Opinel.");
+		AActor* Target = nullptr;
+		return FindInteraction(&Target) == 4 ? TEXT("Approche-toi et appuie sur E pour couper.") : TEXT("Rien à couper ici. Tu ranges l'Opinel.");
+	}
+	if (Id == TEXT("CHAUSSETTE"))
+	{
+		if (Sock)
+		{
+			return TEXT("La chaussette est déjà posée. G : « Cherche ! », ou va la reprendre (E).");
+		}
+		FActorSpawnParameters Spawn;
+		Spawn.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		const FVector Ground = GetActorLocation() - FVector(0.f, 0.f, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() - 4.f);
+		if (AStaticMeshActor* NewSock = GetWorld()->SpawnActor<AStaticMeshActor>(Ground, FRotator::ZeroRotator, Spawn))
+		{
+			NewSock->SetMobility(EComponentMobility::Movable);
+			if (UStaticMesh* CubeMesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Cube.Cube")))
+			{
+				NewSock->GetStaticMeshComponent()->SetStaticMesh(CubeMesh);
+			}
+			NewSock->GetStaticMeshComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			NewSock->SetActorScale3D(FVector(0.22f, 0.08f, 0.04f));
+			if (UMaterialInstanceDynamic* Mat = NewSock->GetStaticMeshComponent()->CreateDynamicMaterialInstance(0))
+			{
+				Mat->SetVectorParameterValue(TEXT("Color"), FLinearColor(0.75f, 0.1f, 0.12f)); // chaussette rouge
+			}
+			NewSock->Tags.Add(TEXT("Chaussette"));
+			Sock = NewSock;
+			SockTrail.Reset();
+			SockTrail.Add(Ground);
+		}
+		return TEXT("Chaussette posée. Éloigne-toi en marchant (Ariane suivra ton chemin), puis G : « Cherche ! »");
 	}
 	if (Id == TEXT("GANTS"))
 	{
@@ -611,7 +821,46 @@ FString AFSHeroCharacter::UseBagItem(const FString& Id)
 FString AFSHeroCharacter::UseEvidence(FName ClueId)
 {
 	const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>();
+	if (M && M->GetClueKind(ClueId) == TEXT("objet"))
+	{
+		return SniffEvidence(ClueId);
+	}
 	return M ? M->GetClueFact(ClueId) : FString();
+}
+
+FString AFSHeroCharacter::SniffEvidence(FName ClueId)
+{
+	AFSDogCharacter* Dog = FindDog();
+	const UFSMissionSubsystem* M = GetGameInstance()->GetSubsystem<UFSMissionSubsystem>();
+	if (!Dog || !M)
+	{
+		return FString();
+	}
+	if (FVector::Dist2D(Dog->GetActorLocation(), GetActorLocation()) > 400.f)
+	{
+		return TEXT("Ariane est trop loin : rappelle-la (R) pour lui faire sentir l'objet.");
+	}
+	// Piste correspondante : acteurs taggés « Piste » et l'ID de l'indice, dans l'ordre « Ordre_N » ; « FinPiste » au bout.
+	struct FPoint { int32 Order; FVector Location; bool bEnd; };
+	TArray<FPoint> Points;
+	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+	{
+		if (!It->ActorHasTag(TEXT("Piste")) || !It->ActorHasTag(ClueId)) { continue; }
+		int32 Order = 0;
+		for (const FName& Tag : It->Tags)
+		{
+			const FString T = Tag.ToString();
+			if (T.StartsWith(TEXT("Ordre_"))) { Order = FCString::Atoi(*T.RightChop(6)); }
+		}
+		Points.Add({ Order, It->GetActorLocation(), It->ActorHasTag(TEXT("FinPiste")) });
+	}
+	Points.Sort([](const FPoint& A, const FPoint& B) { return A.Order < B.Order; });
+	TArray<FVector> Path;
+	bool bFound = false;
+	for (const FPoint& P : Points) { Path.Add(P.Location); bFound |= P.bEnd; }
+	Dog->Recall();
+	Dog->Track(Path, bFound);
+	return FString::Printf(TEXT("Tu fais sentir « %s » à Ariane : « Sens… Cherche ! »"), *M->GetClueName(ClueId));
 }
 
 void AFSHeroCharacter::WriteState(UFSSaveGame& Save) const
@@ -624,6 +873,9 @@ void AFSHeroCharacter::WriteState(UFSSaveGame& Save) const
 	Save.bTorch = IsTorchOn();
 	Save.bTalkedToDufau = bTalkedToDufau;
 	Save.PickedUp = PickedUp;
+	Save.bSockPlaced = Sock != nullptr;
+	Save.SockLocation = Sock ? Sock->GetActorLocation() : FVector::ZeroVector;
+	Save.SockTrail = SockTrail;
 }
 
 void AFSHeroCharacter::ReadState(const UFSSaveGame& Save)
@@ -650,6 +902,20 @@ void AFSHeroCharacter::ReadState(const UFSSaveGame& Save)
 		}
 	}
 	if (Ball) { Ball->Destroy(); Ball = nullptr; }
+	if (Sock) { Sock->Destroy(); Sock = nullptr; }
+	SockTrail.Reset();
+	if (Save.bSockPlaced)
+	{
+		// Repose la chaussette à l'endroit enregistré, avec le chemin parcouru depuis.
+		SockTrail = Save.SockTrail;
+		if (SockTrail.Num() == 0) { SockTrail.Add(Save.SockLocation); }
+		const TArray<FVector> Trail = SockTrail;
+		const FTransform Here = GetActorTransform();
+		SetActorLocation(Save.SockLocation + FVector(0.f, 0.f, GetCapsuleComponent()->GetScaledCapsuleHalfHeight() - 4.f), false, nullptr, ETeleportType::TeleportPhysics);
+		UseBagItem(TEXT("CHAUSSETTE"));
+		SetActorTransform(Here, false, nullptr, ETeleportType::TeleportPhysics);
+		SockTrail = Trail;
+	}
 }
 
 void AFSHeroCharacter::Non()

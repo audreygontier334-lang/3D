@@ -75,6 +75,7 @@ const TArray<FFSBinding>& FSKeyBindings::All()
 		{ TEXT("Ariane : reste"), TEXT("Reste"), 0.f, { EKeys::X } },
 		{ TEXT("Ariane : cherche"), TEXT("Cherche"), 0.f, { EKeys::G } },
 		{ TEXT("Ariane : montre"), TEXT("Montre"), 0.f, { EKeys::M } },
+		{ TEXT("Ariane : « Va ! » (là où je regarde)"), TEXT("VaLaBas"), 0.f, { EKeys::K } },
 		{ TEXT("Ariane : « Non ! »"), TEXT("Non"), 0.f, { EKeys::N } },
 		{ TEXT("Ariane : « C'est bien ! »"), TEXT("Bravo"), 0.f, { EKeys::B } },
 		{ TEXT("Appeler le 17"), TEXT("Appel17"), 0.f, { EKeys::T } },

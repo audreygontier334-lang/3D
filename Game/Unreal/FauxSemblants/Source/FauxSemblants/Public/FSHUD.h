@@ -160,12 +160,13 @@ private:
 	bool bCapturing = false;
 	FString Status;
 
-	enum class EPhoneScreen : uint8 { Home, Dial, Contacts, Log, Messages, Mails, Notifications, Detail };
+	enum class EPhoneScreen : uint8 { Home, Dial, Contacts, Log, Messages, Mails, Notifications, Detail, Photos };
 	EPhoneScreen PhoneScreen = EPhoneScreen::Home;
 	int32 PhoneIndex = 0;
 	FString PhoneDial;
 	FName PhoneDetail;
 	FString PhoneLine;
+	int32 PhoneReply = 0;
 
 	UPROPERTY() TObjectPtr<USoundMix> Mix;
 	bool bMixPushed = false;

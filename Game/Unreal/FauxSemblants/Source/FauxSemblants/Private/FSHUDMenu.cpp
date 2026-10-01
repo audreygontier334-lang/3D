@@ -80,6 +80,12 @@ namespace
 		TEXT("Elle vient parfois « parler » : elle s'assoit face à toi, aboie, couine, puis t'emmène vers ce qu'elle a trouvé. Suis-la."),
 		TEXT("Elle grogne quand quelque chose est anormal (parfois un simple hérisson) et s'interpose toujours pour te protéger, toi ou un enfant."),
 		TEXT("Elle saute très haut, rampe sous les obstacles bas et sait ouvrir les portes."),
+		TEXT("# Pistage et actions"),
+		TEXT("K : « Ariane, va ! » vers l'endroit que tu regardes (hors de l'alerte)."),
+		TEXT("Exercice du club canin : X (« Reste »), pose la chaussette (inventaire), éloigne-toi en marchant, puis G : elle suit ton chemin jusqu'à la chaussette et s'assoit. Reprends la chaussette (E) : elle est félicitée."),
+		TEXT("Inventaire › Preuves : un objet ramassé se fait sentir à Ariane, qui suit la piste s'il y en a une. Pendant la piste, son attitude dit ce qu'elle sent (notifications)."),
+		TEXT("F : photo avec le téléphone, rangée dans la galerie avec ce qu'on voit dans le cadre. Pendant l'alerte, c'est l'action « photographier »."),
+		TEXT("Téléphone › Messages : réponses toutes prêtes. Opinel : E pour couper une ficelle ou une corde. Lampe : son faisceau révèle ce qui se cache dans l'ombre."),
 		TEXT("Les bonbons de l'inventaire la font revenir au pied."),
 		TEXT("# Parler et ramasser"),
 		TEXT("Une invite apparaît quand tu peux agir : E pour parler, répondre ou ramasser."),
@@ -486,7 +492,21 @@ void AFSHUD::Activate(int32 Row)
 			}
 			else
 			{
-				Status.Reset(); // la fiche de la preuve est déjà affichée à droite
+				// Preuve : un objet se fait sentir à Ariane (pistage) ; un document se relit.
+				const TArray<FName> Evidence = EvidenceIds();
+				const int32 E = Row - Bag.Num();
+				if (Evidence.IsValidIndex(E))
+				{
+					const UFSMissionSubsystem* M = Mission();
+					if (M && M->GetClueKind(Evidence[E]) == TEXT("objet"))
+					{
+						Status = H->UseEvidence(Evidence[E]);
+						OpenPage(EFSPage::Inventory); // on referme le sac pour suivre Ariane
+						ShowToast(Status, 4.f);
+						return;
+					}
+					Status.Reset(); // la fiche du document est déjà affichée à droite
+				}
 			}
 		}
 		break;
@@ -592,13 +612,31 @@ void AFSHUD::PhoneKey(const FKey& Key, int32 Vertical, bool bConfirm, bool bBack
 	int32 Count = 0;
 	switch (PhoneScreen)
 	{
-	case EPhoneScreen::Home: Count = 6; break;
+	case EPhoneScreen::Home: Count = 8; break;
+	case EPhoneScreen::Photos: Count = P->GetItems(TEXT("photo")).Num(); break;
 	case EPhoneScreen::Contacts: Count = P->GetContacts().Num(); break;
 	case EPhoneScreen::Log: Count = P->GetItems(TEXT("call")).Num(); break;
 	case EPhoneScreen::Messages: Count = P->GetItems(TEXT("message")).Num(); break;
 	case EPhoneScreen::Mails: Count = P->GetItems(TEXT("mail")).Num(); break;
 	case EPhoneScreen::Notifications: Count = P->GetItems(TEXT("notification")).Num(); break;
 	default: break;
+	}
+	if (PhoneScreen == EPhoneScreen::Detail)
+	{
+		// Réponses toutes prêtes d'un message (une seule réponse par message).
+		for (FFSPhoneItem* I : P->GetItems(TEXT("message")))
+		{
+			if (I->Id != PhoneDetail || I->bReplied || I->Replies.Num() == 0) { continue; }
+			if (Vertical != 0) { PhoneReply = (PhoneReply + Vertical + I->Replies.Num()) % I->Replies.Num(); PlayUi(TEXT("SFX_UI_Deplacer")); return; }
+			if (bConfirm)
+			{
+				const FString Sent = P->Reply(PhoneDetail, PhoneReply, ClockText());
+				PhoneLine = FString::Printf(TEXT("Message envoyé : « %s »"), *Sent);
+				PlayUi(TEXT("SFX_UI_Valider"));
+				return;
+			}
+		}
+		return;
 	}
 	if (Vertical != 0 && Count > 0)
 	{
@@ -614,9 +652,17 @@ void AFSHUD::PhoneKey(const FKey& Key, int32 Vertical, bool bConfirm, bool bBack
 	{
 	case EPhoneScreen::Home:
 	{
+		if (PhoneIndex == 6)
+		{
+			// Appareil photo : on range le téléphone et on déclenche (ACT_PHOTO pendant l'alerte).
+			OpenPage(EFSPage::Phone);
+			if (AFSHeroCharacter* H = Hero()) { H->ActPhoto(); }
+			return;
+		}
 		static const EPhoneScreen Apps[] = { EPhoneScreen::Dial, EPhoneScreen::Contacts, EPhoneScreen::Log,
-			EPhoneScreen::Messages, EPhoneScreen::Mails, EPhoneScreen::Notifications };
-		PhoneScreen = Apps[FMath::Clamp(PhoneIndex, 0, 5)];
+			EPhoneScreen::Messages, EPhoneScreen::Mails, EPhoneScreen::Notifications, EPhoneScreen::Home, EPhoneScreen::Photos };
+		PhoneScreen = Apps[FMath::Clamp(PhoneIndex, 0, 7)];
+		PhoneReply = 0;
 		PhoneIndex = 0;
 		PhoneDial.Reset();
 		PhoneLine.Reset();
@@ -843,7 +889,8 @@ void AFSHUD::DrawInventory()
 			DY += LineH;
 		}
 	}
-	Text(Index < Bag.Num() ? TEXT("Entrée ou E : utiliser · Échap ou I : fermer") : TEXT("Échap ou I : fermer"),
+	Text(Index < Bag.Num() ? TEXT("Entrée ou E : utiliser · Échap ou I : fermer")
+		: (M && Evidence.IsValidIndex(Index - Bag.Num()) && M->GetClueKind(Evidence[Index - Bag.Num()]) == TEXT("objet") ? TEXT("Entrée : faire sentir à Ariane · Échap ou I : fermer") : TEXT("Échap ou I : fermer")),
 		X0 + W - 30.f * U - Measure(TEXT("Entrée ou E : utiliser · Échap ou I : fermer"), Small, 1.f * U).X, Y0 + H - 36.f * U, Small, 1.f * U, Soft);
 }
 
@@ -894,6 +941,31 @@ void AFSHUD::DrawPhone()
 		Row(3, TEXT("Messages"), Badge(NMsg), NMsg > 0);
 		Row(4, TEXT("Mails"), Badge(NMail), NMail > 0);
 		Row(5, TEXT("Notifications"), Badge(NNotif), NNotif > 0);
+		Row(6, TEXT("Appareil photo"), TEXT("Prendre une photo (F)"), false);
+		Row(7, TEXT("Photos"), FString::Printf(TEXT("%d photo%s"), P->GetItems(TEXT("photo")).Num(), P->GetItems(TEXT("photo")).Num() > 1 ? TEXT("s") : TEXT("")), false);
+		break;
+	}
+	case EPhoneScreen::Photos:
+	{
+		Title(TEXT("Photos"));
+		TArray<FFSPhoneItem*> List = P->GetItems(TEXT("photo"));
+		if (List.Num() == 0) { Text(TEXT("Aucune photo. F pour en prendre une."), X0 + 20.f * U, Y, Medium, 0.9f * U, Dim); }
+		for (int32 i = 0; i < List.Num(); ++i)
+		{
+			FString Preview = List[i]->Body;
+			if (Preview.Len() > 34) { Preview = Preview.Left(33) + TEXT("…"); }
+			Row(i, FString::Printf(TEXT("Photo de %s"), *List[i]->At), Preview, false);
+		}
+		if (List.IsValidIndex(PhoneIndex))
+		{
+			Y += 10.f * U;
+			for (const FString& L : Wrap(List[PhoneIndex]->Body, Small, 0.9f * U, W - 40.f * U))
+			{
+				if (Y > Y0 + H - 100.f * U) { break; }
+				Text(L, X0 + 20.f * U, Y, Small, 0.9f * U, Cream);
+				Y += Measure(TEXT("Ag"), Small, 0.9f * U).Y;
+			}
+		}
 		break;
 	}
 	case EPhoneScreen::Dial:
@@ -958,6 +1030,23 @@ void AFSHUD::DrawPhone()
 					if (Y > Y0 + H - 80.f * U) { break; }
 					Text(L, X0 + 20.f * U, Y, Medium, 0.9f * U, Cream);
 					Y += LineH;
+				}
+				if (I->Replies.Num() > 0 && !I->bReplied)
+				{
+					Y += 16.f * U;
+					Text(TEXT("Répondre :"), X0 + 20.f * U, Y, Small, 0.9f * U, Amber);
+					Y += 28.f * U;
+					for (int32 r = 0; r < I->Replies.Num(); ++r)
+					{
+						if (r == PhoneReply) { Box(X0 + 8.f * U, Y - 3.f * U, W - 16.f * U, LineH + 4.f * U, FLinearColor(1.f, 0.72f, 0.28f, 0.22f)); }
+						Text(I->Replies[r], X0 + 20.f * U, Y, Medium, 0.85f * U, r == PhoneReply ? Cream : Soft);
+						Y += LineH + 6.f * U;
+					}
+				}
+				else if (I->bReplied)
+				{
+					Y += 16.f * U;
+					Text(TEXT("Réponse envoyée."), X0 + 20.f * U, Y, Small, 0.9f * U, Dim);
 				}
 			}
 		}

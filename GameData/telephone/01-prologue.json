@@ -47,21 +47,33 @@
       "from": "CT_VETO",
       "at": "10:02",
       "trigger": "START",
-      "text": "Rappel : rappel de vaccin d'Ariane jeudi à 10 h. Répondez OUI pour confirmer."
+      "text": "Rappel : rappel de vaccin d'Ariane jeudi à 10 h. Répondez OUI pour confirmer.",
+      "replies": [
+        "OUI",
+        "Je dois décaler, je rappelle demain."
+      ]
     },
     {
       "id": "SMS_CLUB_SORTIE",
       "from": "CT_CLUB",
       "at": "14:47",
       "trigger": "START",
-      "text": "Sortie pistage samedi 9 h au parking du lac. Pensez aux friandises et à une chaussette portée pour l'exercice d'odeur !"
+      "text": "Sortie pistage samedi 9 h au parking du lac. Pensez aux friandises et à une chaussette portée pour l'exercice d'odeur !",
+      "replies": [
+        "On sera là, Ariane a hâte !",
+        "Pas dispo samedi, désolée."
+      ]
     },
     {
       "id": "SMS_TRAVAIL_PLANNING",
       "from": "CT_TRAVAIL",
       "at": "16:26",
       "trigger": "EVT_SONNERIE",
-      "text": "Bonjour {HEROINE}, on a besoin de toi samedi soir au lieu de dimanche midi. Tu peux ? Merci !"
+      "text": "Bonjour {HEROINE}, on a besoin de toi samedi soir au lieu de dimanche midi. Tu peux ? Merci !",
+      "replies": [
+        "D'accord pour samedi soir.",
+        "Désolée, pas possible samedi."
+      ]
     }
   ],
   "mails": [
@@ -120,5 +132,6 @@
     "unknown_number": "Le numéro que vous avez demandé n'est pas attribué.",
     "busy_after_alert": "Pas le temps de composer : le fourgon va partir, agis d'abord !",
     "already_called": "Tu as déjà appelé le 17 : les gendarmes sont en route."
-  }
+  },
+  "_doc_replies": "« replies » : réponses toutes prêtes proposées dans l'application Messages (une seule réponse par message)."
 }

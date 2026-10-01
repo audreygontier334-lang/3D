@@ -132,6 +132,19 @@ def build_level():
     box("PorteCles", source_position(gltf, "scent_object_marker"), (0.12, 0.05, 0.12), material("porte_cles", (0.88, 0.41, 0.11)), True, ["PorteCles"])
     box("Bracelet", source_position(gltf, "scent_clue_marker"), (0.12, 0.04, 0.12), material("bracelet", (0.95, 0.89, 0.96)), True, ["Bracelet"])
 
+    # Piste préparée pour le chapitre 1 (SC_C1 : « Sens. C'est Lila. Cherche Lila. ») : du porte-clés renard au
+    # bracelet, au pied de la portière. Points invisibles taggés Piste + CLU_PORTE_CLES_LILA + Ordre_N ; FinPiste au bout.
+    keyring = source_position(gltf, "scent_object_marker")
+    bracelet = source_position(gltf, "scent_clue_marker")
+    for n in range(7):
+        u = n / 6.0
+        x = keyring[0] + (bracelet[0] - keyring[0]) * u
+        z = keyring[2] + (bracelet[2] - keyring[2]) * u + (0.6 * math.sin(math.pi * u) if 0 < n < 6 else 0.0)
+        point = actors_sub.spawn_actor_from_class(unreal.TargetPoint, to_ue(x, 0.05, z), unreal.Rotator(0, 0, 0))
+        point.set_actor_label(f"Piste_PorteCles_{n}")
+        tags = ["Piste", "CLU_PORTE_CLES_LILA", f"Ordre_{n}"] + (["FinPiste"] if n == 6 else [])
+        point.set_editor_property("tags", [unreal.Name(t) for t in tags])
+
     entrance = actors_sub.spawn_actor_from_class(unreal.TargetPoint, to_ue(37.0, 0.0, -16.6), unreal.Rotator(0, 0, 0))
     entrance.set_actor_label("EntreeRuelle")
     entrance.set_editor_property("tags", [unreal.Name("EntreeRuelle")])

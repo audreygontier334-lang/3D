@@ -1,6 +1,7 @@
 #include "FSDogCharacter.h"
 #include "FauxSemblants.h"
 #include "FSHUD.h"
+#include "FSMissionSubsystem.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
@@ -88,6 +89,39 @@ void AFSDogCharacter::Say(const TCHAR* LineId)
 	{
 		Hud->PlayConversation({ FName(LineId) });
 	}
+}
+
+void AFSDogCharacter::Signal(const TCHAR* UIId, const TCHAR* Fallback)
+{
+	// Langage d'Ariane (UI_CARNET_CHIENNE_…), affiché comme ce que l'héroïne lit dans son attitude.
+	const UFSMissionSubsystem* M = GetGameInstance() ? GetGameInstance()->GetSubsystem<UFSMissionSubsystem>() : nullptr;
+	if (AFSHUD* Hud = AFSHUD::Get(this))
+	{
+		Hud->ShowToast(FString::Printf(TEXT("Ariane — %s"), *(M ? M->GetUIText(FName(UIId), Fallback) : FString(Fallback))), 5.f);
+	}
+}
+
+void AFSDogCharacter::Track(const TArray<FVector>& Points, bool bFoundAtEnd)
+{
+	if (Points.Num() == 0)
+	{
+		Signal(TEXT("UI_ECHEC_PISTE_VIDE"), TEXT("Ariane ne trouve rien à suivre avec cet objet."));
+		SetMood(EFSDogMood::Neutral, 2.f);
+		return;
+	}
+	TrailPoints = Points;
+	TrailIndex = 0;
+	bTrailSucceeds = bFoundAtEnd;
+	bSitting = false;
+	State = EState::Tracking;
+	GetCharacterMovement()->MaxWalkSpeed = TrotSpeed * 0.75f;
+	SetMood(EFSDogMood::Alert, 60.f);
+	Signal(TEXT("UI_CARNET_CHIENNE_1"), TEXT("Truffe au sol, allure régulière : elle suit une piste fraîche."));
+}
+
+bool AFSDogCharacter::HasFoundNear(const FVector& Point, float Radius) const
+{
+	return State == EState::Found && FVector::Dist2D(GetActorLocation(), Point) <= Radius;
 }
 
 void AFSDogCharacter::SetMood(EFSDogMood NewMood, float Seconds)
@@ -403,6 +437,42 @@ void AFSDogCharacter::Tick(float DeltaSeconds)
 	case EState::Staying:
 		HoldTime += DeltaSeconds;
 		return;
+	case EState::Found:
+		// Assise au bout de la piste, regard vers l'héroïne : « elle a trouvé quelque chose ».
+		FaceTowards(Hero->GetActorLocation(), DeltaSeconds);
+		return;
+	case EState::Tracking:
+	{
+		Target = TrailPoints[TrailIndex];
+		Stop = 40.f;
+		if (FVector::Dist2D(GetActorLocation(), Target) < 80.f)
+		{
+			++TrailIndex;
+			if (TrailIndex == TrailPoints.Num() / 2 && TrailPoints.Num() > 6)
+			{
+				// À mi-parcours, l'odeur se croise avec d'autres passages : cercles serrés.
+				Signal(TEXT("UI_CARNET_CHIENNE_3"), TEXT("Cercles serrés : quelqu'un s'est arrêté ici, ou la piste se croise."));
+			}
+			if (TrailIndex >= TrailPoints.Num())
+			{
+				GetCharacterMovement()->StopMovementImmediately();
+				if (bTrailSucceeds)
+				{
+					State = EState::Found;
+					bSitting = true;
+					SetMood(EFSDogMood::Talking, 6.f);
+					Signal(TEXT("UI_CARNET_CHIENNE_4"), TEXT("Assise, regard vers moi : elle a trouvé quelque chose."));
+				}
+				else
+				{
+					Signal(TEXT("UI_CARNET_CHIENNE_5"), TEXT("Tête haute, retour vers moi : la piste s'arrête."));
+					Recall();
+				}
+				return;
+			}
+		}
+		break;
+	}
 	case EState::Talking:
 	{
 		// Vient s'asseoir face à l'héroïne, aboie, couine, frétille.

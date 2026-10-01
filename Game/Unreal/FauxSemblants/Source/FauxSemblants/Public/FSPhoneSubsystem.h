@@ -31,6 +31,8 @@ struct FFSPhoneItem
 	UPROPERTY() FString Trigger;
 	UPROPERTY() bool bDelivered = false;
 	UPROPERTY() bool bRead = false;
+	UPROPERTY() TArray<FString> Replies;
+	UPROPERTY() bool bReplied = false;
 };
 
 UCLASS()
@@ -56,18 +58,27 @@ public:
 	FString OwnerNumber() const { return Owner; }
 	FString CallRule(const TCHAR* Key) const;
 
-	/** Sauvegarde : IDs délivrés, IDs lus, appels passés pendant la partie (« heure|numéro|sens »). */
-	void GetState(TArray<FName>& Delivered, TArray<FName>& Read, TArray<FString>& PlacedCalls) const;
-	void SetState(const TArray<FName>& Delivered, const TArray<FName>& Read, const TArray<FString>& PlacedCalls);
+	/** Appareil photo : ajoute une photo à la galerie (« photo »). */
+	void AddPhoto(const FString& At, const FString& Description);
+
+	/** Envoie la réponse ReplyIndex au message MessageId ; renvoie le texte envoyé. */
+	FString Reply(FName MessageId, int32 ReplyIndex, const FString& At);
+
+	/** Sauvegarde : IDs délivrés, IDs lus, appels passés pendant la partie (« heure|numéro|sens »),
+	 *  éléments ajoutés pendant la partie (photos, réponses : « type|heure|de|titre|texte »). */
+	void GetState(TArray<FName>& Delivered, TArray<FName>& Read, TArray<FString>& PlacedCalls, TArray<FString>& Extras) const;
+	void SetState(const TArray<FName>& Delivered, const TArray<FName>& Read, const TArray<FString>& PlacedCalls, const TArray<FString>& Extras);
 
 private:
 	FString Normalize(const FString& Number) const;
 	void AddPlacedCall(const FString& Entry);
+	void AddExtra(const FString& Entry);
 
 	TArray<FFSPhoneContact> Contacts;
 	TArray<FFSPhoneItem> Items;
 	TMap<FString, FString> Rules;
 	TArray<FString> PlacedCalls;
+	TArray<FString> Extras;
 	FString Owner;
 	FString Heroine;
 	FString LoadedFolder;

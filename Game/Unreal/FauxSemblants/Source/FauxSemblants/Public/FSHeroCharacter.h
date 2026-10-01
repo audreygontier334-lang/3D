@@ -90,6 +90,15 @@ public:
 	void SetTorch(bool bOn);
 	void ToggleTorch() { SetTorch(!IsTorchOn()); }
 
+	/** F : photo (ACT_PHOTO pendant l'alerte, sinon simple photo pour la galerie). */
+	void ActPhoto();
+
+	/** Photo avec le téléphone : décrit ce qui est dans le cadre et l'ajoute à la galerie ; renvoie la description. */
+	FString TakePhoto();
+
+	/** Fait sentir une preuve (objet) à Ariane, qui suit la piste correspondante si elle existe. */
+	FString SniffEvidence(FName ClueId);
+
 	/** Sauvegarde et reprise (menu principal › Sauvegardes). */
 	void WriteState(UFSSaveGame& Save) const;
 	void ReadState(const UFSSaveGame& Save);
@@ -104,7 +113,6 @@ private:
 	void CameraFirst() { SetCameraMode(EFSCameraMode::First); }
 	void CameraCycle();
 	void SwapShoulder();
-	void ActPhoto();
 	void ActCrier();
 	void ActEnvoyer();
 	void Rappel();
@@ -125,9 +133,13 @@ private:
 	void Non();
 	void Bravo();
 	void Montre();
+	void VaLaBas();
+	void RecordSockTrail();
+	FString DescribeView(bool& bVanVisible) const;
 	void TogglePause();
 
-	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau, 3 preuve à ramasser (PickupTarget). */
+	/** Personne ou action à portée : 0 rien, 1 coucou de Lila, 2 Dufau, 3 preuve à ramasser, 4 ficelle ou corde à couper,
+	 *  5 chaussette à reprendre (PickupTarget = acteur concerné). */
 	int32 FindInteraction(AActor** PickupTarget = nullptr) const;
 
 	AFSPrologueDirector* FindDirector() const;
@@ -145,4 +157,9 @@ private:
 	int32 Candies = 12;
 	bool bGloves = false;
 	TArray<FName> PickedUp;
+
+	// Exercice de pistage : chaussette posée et chemin parcouru depuis.
+	UPROPERTY() TObjectPtr<AActor> Sock;
+	TArray<FVector> SockTrail;
+	float TorchCheck = 0.f;
 };
