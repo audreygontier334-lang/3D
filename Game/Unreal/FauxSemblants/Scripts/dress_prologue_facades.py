@@ -15,55 +15,30 @@ BUILDINGS = {"school_main", "square_shop_west", "alley_corner_mask",
              "alley_house_south_2", "alley_house_south_3"}
 
 
-def _overlaps(centre, size, node):
-    return all(abs(centre[i] - node["translation"][i]) < (size[i] + node["scale"][i]) / 2 for i in range(3))
-
-
 def plan(nodes):
-    """Retourne des détails déterministes plaqués sur chaque bâtiment, sans ouverture réelle.
-
-    Les quatre façades sont habillées (les masques d'angle font face à la place et à la ruelle
-    par leurs côtés est et ouest). Une fenêtre qui toucherait un autre volume (mur mitoyen
-    des deux masques d'angle, toit, haie) est omise : invisible, elle ne coûterait que du rendu.
-    """
-    solids = [n for n in nodes if n.get("scale") and "mesh" in n and n["name"] != "ground"]
+    """Retourne des détails déterministes plaqués sur chaque bâtiment, sans ouverture réelle."""
     result = []
     for node in nodes:
         if node.get("name") not in BUILDINGS:
             continue
         name = node["name"]
-        centre, (width, height, depth) = node["translation"], node["scale"]
-        others = [n for n in solids if n is not node]
+        x, y, z = node["translation"]
+        width, height, depth = node["scale"]
+        columns = max(1, int(width / 3.0))
         rows = max(1, int(height / 3.0))
-        # axis : axe normal à la façade (0 = X, 2 = Z) ; along : axe horizontal de la façade.
-        for axis, along, length, half in ((2, 0, width, depth / 2), (0, 2, depth, width / 2)):
-            columns = max(1, int(length / 3.0))
-            for side in (-1, 1):
-                face = centre[axis] + side * (half + 0.015)
-                for row in range(rows):
-                    wy = centre[1] - height / 2 + 1.55 + row * 2.65
-                    for col in range(columns):
-                        offset = centre[along] - length / 2 + (col + 0.5) * length / columns
-
-                        def at(shift, dy):
-                            p = [0.0, wy + dy, 0.0]
-                            p[axis], p[along] = face, offset + shift
-                            return tuple(p)
-
-                        def size(horizontal, vertical, thickness):
-                            s = [0.0, vertical, 0.0]
-                            s[axis], s[along] = thickness, horizontal
-                            return tuple(s)
-
-                        # Encombrement de la fenêtre complète, 5 cm vers l'extérieur.
-                        if any(_overlaps(at(0, -0.04), size(1.10, 1.43, 0.08), n) for n in others):
-                            continue
-                        prefix = f"{name}_{'XZ'[axis // 2]}{side:+d}_{row}_{col}"
-                        result.append((prefix + "_glass", at(0, 0), size(0.9, 1.25, 0.02), "glass"))
-                        result.append((prefix + "_sill", at(0, -0.65), size(1.10, 0.08, 0.025), "stone"))
-                        for edge in (-1, 1):
-                            result.append((prefix + f"_frame_{edge}", at(edge * 0.49, 0),
-                                           size(0.07, 1.35, 0.025), "stone"))
+        for side in (-1, 1):
+            # Façade parallèle à X : le masque opaque source reste entier.
+            face = z + side * (depth / 2 + 0.015)
+            for row in range(rows):
+                wy = y - height / 2 + 1.55 + row * 2.65
+                for col in range(columns):
+                    wx = x - width / 2 + (col + 0.5) * width / columns
+                    prefix = f"{name}_{side}_{row}_{col}"
+                    result.append((prefix + "_glass", (wx, wy, face), (0.9, 1.25, 0.02), "glass"))
+                    result.append((prefix + "_sill", (wx, wy - 0.65, face), (1.10, 0.08, 0.025), "stone"))
+                    for edge in (-1, 1):
+                        result.append((prefix + f"_frame_{edge}", (wx + edge * 0.49, wy, face),
+                                       (0.07, 1.35, 0.025), "stone"))
     return result
 
 
@@ -122,8 +97,6 @@ def main():
         actor.static_mesh_component.set_static_mesh(cube)
         actor.static_mesh_component.set_material(0, materials[mat])
         actor.static_mesh_component.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
-        # Relief de 2,5 cm : ombre imperceptible, mais une passe d'ombre par détail.
-        actor.static_mesh_component.set_cast_shadow(False)
         actor.set_actor_scale3d(unreal.Vector(sx, sz, sy))
     unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
     unreal.log(f"{len(details)} détails de façade ajoutés ; implantation et collisions source conservées.")
