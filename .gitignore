@@ -10,3 +10,5 @@ Game/Unreal/FauxSemblants/DerivedDataCache/
 Game/Unreal/FauxSemblants/.vs/
 Game/Unreal/FauxSemblants/*.sln
 Game/Unreal/FauxSemblants/Content/Data/
+# Dossiers personnels Unreal (références privées importées localement)
+Game/Unreal/FauxSemblants/Content/Developers/

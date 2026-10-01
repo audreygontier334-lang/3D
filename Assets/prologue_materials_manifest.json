@@ -1,0 +1,119 @@
+{
+  "textures": [
+    {
+      "name": "enduit_blanc",
+      "file": "Textures/T_enduit_blanc_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "85ca85cedea93ff2ffacc770d645611dae9883ec3e385e95443e5b9cd84cdf47",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "enduit_creme",
+      "file": "Textures/T_enduit_creme_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "5ceed868d9301dd06fc08df416373ee43a3e5ade292b8687869005c3e9e95709",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "enduit_rose",
+      "file": "Textures/T_enduit_rose_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "fa1f3f4a651166a715dc560d87bdc7d76543208f13ad7c28a0cd9de7a678e78c",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "bois_naturel",
+      "file": "Textures/T_bois_naturel_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "c090c0efda6504d7ddbde5076d951f9554f7430245f89bb7a9caa28660dee891",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "bois_bleu_gris",
+      "file": "Textures/T_bois_bleu_gris_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "8923eb1a200ccd37c1f2a29a36c1850252ddd4529b21b844be716cc9e4a631a8",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "bois_vert_sauge",
+      "file": "Textures/T_bois_vert_sauge_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "2ae743945ac60f7203835e521255a7c8dbaaf95a7674c25c1a1f53a2c88f9257",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "bois_bordeaux",
+      "file": "Textures/T_bois_bordeaux_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "d02b6a43b526cec6cfbef30a0a942fcac160f27b107958b0b0d1f76bec20dc4a",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "bois_blanc",
+      "file": "Textures/T_bois_blanc_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "c3260a6d621ec61603e211bd0c5de4d00e4388336dbae517a9dc7856a7f8b29c",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    },
+    {
+      "name": "asphalte",
+      "file": "Textures/T_asphalte_BaseColor.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "d27ca1c31167f78c22e2b03d07cd9fbcd82f283dd7150278307dc522e866a7e8",
+      "type": "BaseColor",
+      "srgb": true,
+      "tiling_verified": false
+    }
+  ],
+  "unreal_tested": false,
+  "source": "Original texture images generated with OpenAI image generation for this project; local pack, PNG files not included in this commit.",
+  "author": "OpenAI image generation, directed by Audrey and Codex",
+  "license": "Generated output: use subject to applicable OpenAI terms; not a third-party CC0/PBR library.",
+  "license_url": "https://openai.com/policies/terms-of-use/",
+  "contains_private_reference": false,
+  "building_assignment_status": "awaiting_Audrey"
+}
