@@ -18,10 +18,14 @@ BUILDINGS = {"school_main", "square_shop_west", "alley_corner_mask",
 def plan(nodes):
     """Retourne des détails déterministes plaqués sur chaque bâtiment, sans ouverture réelle."""
     result = []
+    # Volumes pleins voisins : une fenêtre qui en touche un (mur mitoyen des deux masques
+    # d'angle) serait enfouie, invisible et coûteuse ; elle est omise.
+    solids = [n for n in nodes if n.get("scale") and "mesh" in n and n["name"] != "ground"]
     for node in nodes:
         if node.get("name") not in BUILDINGS:
             continue
         name = node["name"]
+        others = [n for n in solids if n is not node]
         x, y, z = node["translation"]
         width, height, depth = node["scale"]
         columns = max(1, int(width / 3.0))
@@ -33,6 +37,12 @@ def plan(nodes):
                 wy = y - height / 2 + 1.55 + row * 2.65
                 for col in range(columns):
                     wx = x - width / 2 + (col + 0.5) * width / columns
+                    # Encombrement de la fenêtre complète (encadrement et appui compris).
+                    if any(abs(wx - o["translation"][0]) < (1.10 + o["scale"][0]) / 2
+                           and abs(wy - 0.04 - o["translation"][1]) < (1.43 + o["scale"][1]) / 2
+                           and abs(face - o["translation"][2]) < (0.08 + o["scale"][2]) / 2
+                           for o in others):
+                        continue
                     prefix = f"{name}_{side}_{row}_{col}"
                     result.append((prefix + "_glass", (wx, wy, face), (0.9, 1.25, 0.02), "glass"))
                     result.append((prefix + "_sill", (wx, wy - 0.65, face), (1.10, 0.08, 0.025), "stone"))
